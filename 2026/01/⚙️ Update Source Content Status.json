@@ -1,0 +1,178 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Set Status to Generated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Status to Generated": {
+      "main": [
+        [
+          {
+            "node": "Return",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:26:51.032Z",
+  "id": "f6CkcGsph43SmmFs",
+  "isArchived": false,
+  "meta": null,
+  "name": "⚙️ Update Source Content Status",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f6ab457-a009-42df-8fce-f7f88fcf6563",
+              "name": "success",
+              "value": "=Success!",
+              "type": "boolean"
+            },
+            {
+              "id": "bb85b6b3-2fb8-4c4a-a03d-4472390a1d63",
+              "name": "updated_page_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        -64
+      ],
+      "id": "c3c9cee6-fd76-46d0-9792-1c107c53c009",
+      "name": "Return"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "notion_page_id"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -16,
+        0
+      ],
+      "id": "06cd6bbf-d7c6-4442-8cf6-a915bda0365a",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('When Executed by Another Workflow').item.json.notion_page_id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|select",
+              "selectValue": "Content Generated"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "8f171650-d23c-47fa-bb47-452cf478c405",
+      "name": "Set Status to Generated",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f6ab457-a009-42df-8fce-f7f88fcf6563",
+              "name": "success",
+              "value": "=Error",
+              "type": "boolean"
+            },
+            {
+              "id": "bb85b6b3-2fb8-4c4a-a03d-4472390a1d63",
+              "name": "updated_page_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        112
+      ],
+      "id": "7acf85a9-e877-4666-a7b7-65d324aec86c",
+      "name": "Error"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:26:51.032Z",
+      "createdAt": "2026-01-28T08:26:51.032Z",
+      "role": "workflow:owner",
+      "workflowId": "f6CkcGsph43SmmFs",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:26:51.032Z",
+  "versionId": "b292b0c7-4efb-45f6-aeb7-9455006498e8"
+}
