@@ -1,0 +1,35 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {},
+  "createdAt": "2026-01-28T09:06:06.302Z",
+  "id": "8gmP1egcWKQ7kQVS",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 4",
+  "nodes": [],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:06.302Z",
+      "createdAt": "2026-01-28T09:06:06.302Z",
+      "role": "workflow:owner",
+      "workflowId": "8gmP1egcWKQ7kQVS",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:06:06.302Z",
+  "versionId": "35c4d5e5-57c5-42a9-b074-fe465eeb3426"
+}
