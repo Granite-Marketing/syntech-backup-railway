@@ -1,0 +1,212 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Twitter/ X post scraper - urls": {
+      "main": [
+        []
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Twitter/ X post scraper - urls1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Twitter/ X post scraper - urls1": {
+      "main": [
+        [
+          {
+            "node": "X fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:06.536Z",
+  "id": "N5A218qwVTjoLqJA",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "Run actor and get dataset",
+        "actorSource": "store",
+        "actorId": {
+          "__rl": true,
+          "value": "nfp1fpt5gUlBwPcor",
+          "mode": "list",
+          "cachedResultName": "Twitter (X.com) Scraper Unlimited: No Limits (apidojo/twitter-scraper-lite)",
+          "cachedResultUrl": "https://console.apify.com/actors/nfp1fpt5gUlBwPcor/input"
+        },
+        "customBody": "={\n    \"maxItems\": 3,\n    \"sort\": \"Latest\",\n    \"startUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
+        "memory": 2048
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        -32
+      ],
+      "id": "87f9256a-0d22-46e8-8469-d23c1b6903ad",
+      "name": "Twitter/ X post scraper - urls",
+      "alwaysOutputData": false,
+      "credentials": {
+        "apifyApi": {
+          "id": "CtQfLZVS6CSwrUIV",
+          "name": "Apify account stephen"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -624,
+        -128
+      ],
+      "id": "aa3daf80-22b7-469e-9754-6eca62f99c66",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1e2f35f9-518f-4c44-8dad-36842dc449ae",
+              "name": "url_or_keyword",
+              "value": "BiodieselAcadem",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -416,
+        -128
+      ],
+      "id": "3a68061a-fdd2-4b09-aa31-07d47ef274db",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "Run actor and get dataset",
+        "actorSource": "store",
+        "actorId": {
+          "__rl": true,
+          "value": "ghSpYIW3L1RvT57NT",
+          "mode": "list",
+          "cachedResultName": "Twitter Scraper PPR (danek/twitter-scraper-ppr)",
+          "cachedResultUrl": "https://console.apify.com/actors/ghSpYIW3L1RvT57NT/input"
+        },
+        "customBody": "={\n    \"max_posts\": 10,\n    \"username\": \"{{ $json.url_or_keyword }}\"\n}",
+        "memory": 2048
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        -240
+      ],
+      "id": "6b48803d-d7c7-4dbf-9475-ed8dce0fb685",
+      "name": "Twitter/ X post scraper - urls1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "apifyApi": {
+          "id": "CtQfLZVS6CSwrUIV",
+          "name": "Apify account stephen"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ca614e10-a88b-4f70-8ea6-09a7dee7e772",
+              "name": "=content",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "d7e8711b-7f7c-487e-8aae-afa5d6132cec",
+              "name": "url",
+              "value": "=https://x.com/{{ $json.author.screen_name }}/status/{{ $json.tweet_id }}",
+              "type": "string"
+            },
+            {
+              "id": "69a2c6ec-5340-4ef4-8dbb-c9bb1d945bfe",
+              "name": "publication_date",
+              "value": "={{ $json.created_at }}",
+              "type": "string"
+            },
+            {
+              "id": "b3af0d59-d4e0-4dde-8bfc-6716e11d9089",
+              "name": "search_query",
+              "value": "={{ $('Edit Fields').item.json.url_or_keyword }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        -256
+      ],
+      "id": "9ca8fc39-6cd7-489b-8961-ab5124295f0d",
+      "name": "X fields"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:06.536Z",
+      "createdAt": "2026-01-28T09:06:06.536Z",
+      "role": "workflow:owner",
+      "workflowId": "N5A218qwVTjoLqJA",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:06:06.536Z",
+  "versionId": "dc781735-9dfa-40f5-8a0a-bbae78c46fbf"
+}
