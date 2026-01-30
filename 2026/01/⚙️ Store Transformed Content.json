@@ -1,0 +1,244 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Set Subflow Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Social Media Post2": {
+      "main": [
+        [
+          {
+            "node": "Return",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Subflow Fields": {
+      "main": [
+        [
+          {
+            "node": "Add Social Media Post2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:26:50.976Z",
+  "id": "HxyLzPIU55oU1Rbs",
+  "isArchived": false,
+  "meta": null,
+  "name": "⚙️ Store Transformed Content",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f6ab457-a009-42df-8fce-f7f88fcf6563",
+              "name": "transformed_content_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bb85b6b3-2fb8-4c4a-a03d-4472390a1d63",
+              "name": "transformed_content_url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        736,
+        -96
+      ],
+      "id": "1efff43d-16ab-4b05-a579-d85ed7b114ec",
+      "name": "Return"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "source_content_idea_id"
+            },
+            {
+              "name": "platform"
+            },
+            {
+              "name": "content_title"
+            },
+            {
+              "name": "content_text"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f112c7d5-62eb-4ed9-8685-bbef0a473d75",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "b2BszX3mKjsELBJP",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/b2BszX3mKjsELBJP",
+          "cachedResultName": "Add Content to Notion"
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        464,
+        0
+      ],
+      "id": "7945461b-6e4a-4b4d-8572-cd3e9fbaae11",
+      "name": "Add Social Media Post2",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f6ab457-a009-42df-8fce-f7f88fcf6563",
+              "name": "transformed_content_id",
+              "value": "=null",
+              "type": "string"
+            },
+            {
+              "id": "bb85b6b3-2fb8-4c4a-a03d-4472390a1d63",
+              "name": "transformed_content_url",
+              "value": "=null",
+              "type": "string"
+            },
+            {
+              "id": "0194a5ff-045f-4742-8c7b-2c144da659b0",
+              "name": "error",
+              "value": "An error occurred with publishing",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        736,
+        80
+      ],
+      "id": "61688e77-073c-409d-8fad-a2805cc7f19c",
+      "name": "Return1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f6abe9ac-2a7d-4ead-8b3f-93d8aef7fb54",
+              "name": "transformed_content_db_id",
+              "value": "=27c785c0-cfab-8184-b393-f557e7150135",
+              "type": "string"
+            },
+            {
+              "id": "a13105d5-dca1-49dc-8fca-84d1e485d7ad",
+              "name": "content",
+              "value": "={{ $json.content_text }}",
+              "type": "string"
+            },
+            {
+              "id": "f5a756d3-d95b-4941-99db-7abd73995af5",
+              "name": "title",
+              "value": "={{ $json.content_title }}",
+              "type": "string"
+            },
+            {
+              "id": "b336bc2e-a12e-4936-bebf-ad274495a048",
+              "name": "source_database_page",
+              "value": "={{ $json.source_content_idea_id }}",
+              "type": "string"
+            },
+            {
+              "id": "a938dfe9-0069-4a97-82f2-2d22f6606cb6",
+              "name": "platform",
+              "value": "={{ $json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "bcae6010-8182-40a7-94aa-ac436d2e10b3",
+              "name": "images",
+              "value": "=[]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        0
+      ],
+      "id": "4ea743cf-ca5a-4da0-b536-e046a1c3867e",
+      "name": "Set Subflow Fields"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:26:50.976Z",
+      "createdAt": "2026-01-28T08:26:50.976Z",
+      "role": "workflow:owner",
+      "workflowId": "HxyLzPIU55oU1Rbs",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:26:50.976Z",
+  "versionId": "ccfd2583-d23b-478d-8dbc-30b2f998b5e1"
+}
