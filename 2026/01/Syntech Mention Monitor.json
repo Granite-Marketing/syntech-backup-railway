@@ -1,0 +1,2591 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get All Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Sources": {
+      "main": [
+        [
+          {
+            "node": "Get Active Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Active Sources": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Match Sources1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manually Trigger Content Engine": {
+      "main": [
+        [
+          {
+            "node": "Get All Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'Keyword Biofuel Content Analyzer'": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Call 'RSS Biofuel Content Analyzer Firecrawl'": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge4": {
+      "main": [
+        [
+          {
+            "node": "is content empty?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Match Sources1": {
+      "main": [
+        [
+          {
+            "node": "Call 'RSS Biofuel Content Analyzer Firecrawl'",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call 'Keyword Biofuel Content Analyzer'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "is content empty?1": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates5": {
+      "main": [
+        [
+          {
+            "node": "Merge6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get All Results2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Match Input Format1": {
+      "main": [
+        [
+          {
+            "node": "Classification agent with Batch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluation2": {
+      "main": [
+        [
+          {
+            "node": "Set Output In Evaluation Google Sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "select fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Evaluation1": {
+      "main": [
+        [
+          {
+            "node": "Get All Sources3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Output In Evaluation Google Sheet1": {
+      "main": [
+        [
+          {
+            "node": "Evaluation3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Publication Date1": {
+      "main": [
+        [
+          {
+            "node": "Add New Content Idea9",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add New Content Idea",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF text longer than 2000 chars1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Publication Date1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Splits text in small chuncks1": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "If Publication Date3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge5": {
+      "main": [
+        [
+          {
+            "node": "Add Content To Post1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items7": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Splits text in small chuncks1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add New Content Idea7": {
+      "main": [
+        [
+          {
+            "node": "Set Article URL1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Publication Date3": {
+      "main": [
+        [
+          {
+            "node": "Add New Content Idea7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add New Content Idea8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add New Content Idea8": {
+      "main": [
+        [
+          {
+            "node": "Set Article URL1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Article URL1": {
+      "main": [
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Content To Post1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "select fields1": {
+      "main": [
+        [
+          {
+            "node": "Set Google Sheet Fields1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get All Ideas From Evaluation Table",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Rating Formatted For Notion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates6": {
+      "main": [
+        [
+          {
+            "node": "Add Content Idea to Evaluation Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Google Sheet Fields1": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Ideas From Evaluation Table": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates6",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get All Sources3": {
+      "main": [
+        [
+          {
+            "node": "Match Input Format1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classification agent with Batch",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classification agent with Batch": {
+      "main": [
+        [
+          {
+            "node": "Evaluation2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Classification agent with Batch",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model9": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Evaluation3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Rating Formatted For Notion1": {
+      "main": [
+        [
+          {
+            "node": "IF text longer than 2000 chars1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Results2": {
+      "main": [
+        [
+          {
+            "node": "Merge6",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classification Pre-Screener",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser3": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Classification Pre-Screener",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classification Pre-Screener": {
+      "main": [
+        [
+          {
+            "node": "Syntech Mentioned?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Syntech Mentioned?": {
+      "main": [
+        [
+          {
+            "node": "Classification agent with Batch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge6": {
+      "main": [
+        [
+          {
+            "node": "Classification Pre-Screener",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:12:43.827Z",
+  "id": "2VzzKPuM0PqR1Boa",
+  "isArchived": true,
+  "meta": null,
+  "name": "Syntech Mention Monitor",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -448,
+        5440
+      ],
+      "id": "72662346-6564-44f4-af59-c6790dfccfc0",
+      "name": "Schedule Trigger",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a8785c0-cfab-8153-bfad-e3a7a0ef72c9",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Mentions Sources",
+          "cachedResultUrl": "https://www.notion.so/2a8785c0cfab8153bfade3a7a0ef72c9"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -224,
+        5536
+      ],
+      "id": "ff8c3bc2-80be-4d05-a3ac-9a7cfe49bbcf",
+      "name": "Get All Sources",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "45d48713-c0cb-44ab-83fc-168ac9a7c419",
+              "leftValue": "={{ $json.property_status }}",
+              "rightValue": "Active",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        5536
+      ],
+      "id": "d07eaab5-d8e7-49e1-9f91-36db0592a20d",
+      "name": "Get Active Sources"
+    },
+    {
+      "parameters": {
+        "maxItems": 1000
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        272,
+        5536
+      ],
+      "id": "dc2bc078-8569-4a65-af54-2c93f539dccb",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "trigger-mentions-engine",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -448,
+        5872
+      ],
+      "id": "b1ee63f0-21eb-457f-ae99-f0d69f418b4c",
+      "name": "Manually Trigger Content Engine",
+      "webhookId": "eda87c01-fe8a-42f6-a116-fa1b7eb6d165"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "kCCZsk53ZTlakWU5",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/kCCZsk53ZTlakWU5",
+          "cachedResultName": "Keyword Biofuel Content Analyzer"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "name": "={{ $json.name }}",
+            "url": "={{ $json.url }}",
+            "property_keyword_category": "={{ $json.property_keyword_category }}",
+            "property_priority": "={{ $json.property_priority }}",
+            "property_rss_feed": "={{ $json.property_rss_feed }}",
+            "property_source": "={{ $json.property_source }}",
+            "property_category": "={{ $json.property_category }}",
+            "property_url": "={{ $json.property_url }}",
+            "property_name": "={{ $json.property_name }}",
+            "process_mode": "= {{ $json.process_mode }}",
+            "bypass_filter": "={{ $json.bypass_filter }}",
+            "property_status": "={{ $json.property_status }}",
+            "prompt": "={{ $json.prompt }}",
+            "url_or_keyword": "={{ $json.url_or_keyword }}",
+            "source": "={{ $json.source }}",
+            "additional_formats": "={{ $json.additional_formats }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_keyword_category",
+              "displayName": "property_keyword_category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_priority",
+              "displayName": "property_priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_rss_feed",
+              "displayName": "property_rss_feed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_source",
+              "displayName": "property_source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_category",
+              "displayName": "property_category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_url",
+              "displayName": "property_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_status",
+              "displayName": "property_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_name",
+              "displayName": "property_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "prompt",
+              "displayName": "prompt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url_or_keyword",
+              "displayName": "url_or_keyword",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "additional_formats",
+              "displayName": "additional_formats",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "process_mode",
+              "displayName": "process_mode",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "bypass_filter",
+              "displayName": "bypass_filter",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        1328,
+        5680
+      ],
+      "id": "c551054c-e6c9-4b5e-be39-80b6ac21df72",
+      "name": "Call 'Keyword Biofuel Content Analyzer'"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "O5zQ6e1wfSDyvagZ",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/O5zQ6e1wfSDyvagZ",
+          "cachedResultName": "RSS Biofuel Content Analyzer Firecrawl"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "name": "={{ $json.name }}",
+            "url": "={{ $json.url }}",
+            "property_keyword_category": "={{ $json.property_keyword_category }}",
+            "property_priority": "={{ $json.property_priority }}",
+            "property_rss_feed": "={{ $json.property_rss_feed }}",
+            "property_source": "={{ $json.property_source }}",
+            "property_category": "={{ $json.property_category }}",
+            "property_url": "={{ $json.property_url }}",
+            "property_status": "={{ $json.property_status }}",
+            "property_name": "={{ $json.property_name }}",
+            "prompt": "={{ $json.prompt }} ",
+            "url_or_keyword": "={{ $json.url_or_keyword }}",
+            "source": "={{ $json.source }}",
+            "additional_formats": "={{ $json.additional_formats }}",
+            "process_mode": "={{ $json.process_mode }}",
+            "bypass_filter": "={{ $json.bypass_filter }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_keyword_category",
+              "displayName": "property_keyword_category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_priority",
+              "displayName": "property_priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_rss_feed",
+              "displayName": "property_rss_feed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_source",
+              "displayName": "property_source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_category",
+              "displayName": "property_category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_url",
+              "displayName": "property_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_status",
+              "displayName": "property_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "property_name",
+              "displayName": "property_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "prompt",
+              "displayName": "prompt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url_or_keyword",
+              "displayName": "url_or_keyword",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "additional_formats",
+              "displayName": "additional_formats",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "process_mode",
+              "displayName": "process_mode",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "bypass_filter",
+              "displayName": "bypass_filter",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        1328,
+        5392
+      ],
+      "id": "d839dc0b-cf8d-42f2-a30d-31254aa86d0f",
+      "name": "Call 'RSS Biofuel Content Analyzer Firecrawl'"
+    },
+    {
+      "parameters": {
+        "content": "## Remove Duplicates",
+        "height": 448,
+        "width": 1216,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2384,
+        5440
+      ],
+      "typeVersion": 1,
+      "id": "62b8c39b-5b86-41d7-8934-b1860ab8faae",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## Call sub workflow according to switch node",
+        "height": 1024,
+        "width": 1088,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        880,
+        5072
+      ],
+      "typeVersion": 1,
+      "id": "f6fd43e1-7441-49a1-b4b3-ffc57924c947",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2192,
+        5568
+      ],
+      "id": "70457f30-0a60-4829-bbee-d7a45fdb1c5d",
+      "name": "Merge4"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.source || $if($('Get All Sources').isExecuted, $('Get All Sources').item.json.property_source, null) }}",
+                    "rightValue": "RSS",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "64eaa223-9be7-410e-8ff2-3e07451e36fe"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "RSS"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b422070f-f4e4-4177-9f59-b5b9c621ac49",
+                    "leftValue": "={{ $json.source || $if($('Get All Sources').isExecuted, $('Get All Sources').item.json.property_source, null) }}",
+                    "rightValue": "=Keyword",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Keyword"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        480,
+        5536
+      ],
+      "id": "a5056f58-546a-46d3-a380-3c9899573930",
+      "name": "Match Sources1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d1a433e2-115c-4f9c-a258-7731b132de1c",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "ad722536-85c8-4fba-8145-67715452ce2f",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "fe7a45d4-d4f0-4ace-a3b9-ded0a3b66bc6",
+              "leftValue": "={{ $json.summary }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "42359478-9817-4951-b123-cb290b9d766d",
+              "leftValue": "={{ $json.search_query }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "dcacffd7-ba99-4bc9-bac1-deda617262aa",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "https://syntechbiofuel.com/",
+              "operator": {
+                "type": "string",
+                "operation": "notStartsWith"
+              }
+            },
+            {
+              "id": "3251c219-5c31-41e5-9bbd-ede17913a7cf",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "Aa",
+              "operator": {
+                "type": "string",
+                "operation": "notStartsWith"
+              }
+            },
+            {
+              "id": "36e2c2b2-ec6a-42f9-ad14-32264f257027",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "syntechbiofuel",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2480,
+        5568
+      ],
+      "id": "f2932479-005f-4781-a8d3-93f6e49db643",
+      "name": "is content empty?1"
+    },
+    {
+      "parameters": {
+        "compare": "selectedFields",
+        "fieldsToCompare": "url",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [
+        2688,
+        5536
+      ],
+      "id": "5260f01f-7000-4216-93e6-e42e115c0ddb",
+      "name": "Remove Duplicates5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a4678c4d-3605-43b3-930d-54f3db0cf209",
+              "name": "content",
+              "value": "={{ $('Run Evaluation1').item.json.Content }}",
+              "type": "string"
+            },
+            {
+              "id": "960e3dc3-5af8-4535-bca0-6db869b1bed0",
+              "name": "url",
+              "value": "={{ $('Run Evaluation1').item.json.URL }}",
+              "type": "string"
+            },
+            {
+              "id": "084b87c7-e199-4284-89d5-a2a5bb7a69e7",
+              "name": "title",
+              "value": "={{ $('Run Evaluation1').item.json.Title }}",
+              "type": "string"
+            },
+            {
+              "id": "4957e170-7f99-4439-8b8a-29e930aa8823",
+              "name": "publication_date",
+              "value": "={{ $('Run Evaluation1').item.json[\"Publication Date\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "7bf20e2e-95b3-4acc-9a9b-7fcf895f1ad2",
+              "name": "expected_relevance",
+              "value": "={{ $('Run Evaluation1').item.json[\"Expected Score\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3536,
+        5248
+      ],
+      "id": "9dc29f11-941f-4486-9bc1-f380e9d1048b",
+      "name": "Match Input Format1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "checkIfEvaluating"
+      },
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.7,
+      "position": [
+        4480,
+        5280
+      ],
+      "id": "0ea56ce9-296a-44ba-904c-0f019853da3e",
+      "name": "Evaluation2"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        }
+      },
+      "type": "n8n-nodes-base.evaluationTrigger",
+      "typeVersion": 4.6,
+      "position": [
+        3072,
+        5248
+      ],
+      "id": "832f17c7-553c-4fae-9d7e-4fb667313298",
+      "name": "Run Evaluation1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "TvN6HmHHfgKukni4",
+          "name": "Stephen Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        },
+        "outputs": {
+          "values": [
+            {
+              "outputName": "Actual_Score",
+              "outputValue": "={{ $json.output.relevance_score }}"
+            },
+            {
+              "outputName": "AI_Reasoning",
+              "outputValue": "={{ $('Classification agent with Batch').item.json.output.reason }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.7,
+      "position": [
+        4736,
+        5184
+      ],
+      "id": "44d7be98-b9d3-480d-b99f-f7f95943d2a4",
+      "name": "Set Output In Evaluation Google Sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "TvN6HmHHfgKukni4",
+          "name": "Stephen Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e20ca9df-9034-44ac-8d9e-ecad56c6a923",
+              "leftValue": "={{ $('Merge6').item.json.publication_date }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        6528,
+        6736
+      ],
+      "id": "5b18f027-7650-4ead-a8ce-262cb026d658",
+      "name": "If Publication Date1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a4785c0-cfab-8160-b859-f1992a8d67d8",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Mention Tracker",
+          "cachedResultUrl": "https://www.notion.so/2a4785c0cfab8160b859f1992a8d67d8"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Article Name|title",
+              "title": "={{ $('Merge6').item.json.title }}"
+            },
+            {
+              "key": "Source URL|url",
+              "urlValue": "={{ $('Merge6').item.json.url }}"
+            },
+            {
+              "key": "Status|select",
+              "selectValue": "Not Reviewed"
+            },
+            {
+              "key": "Search Query|rich_text",
+              "textContent": "={{ $('Merge6').item.json.url }}"
+            },
+            {
+              "key": "Summary|rich_text",
+              "textContent": "={{ $('Merge6').item.json.summary }}"
+            },
+            {
+              "key": "Source|multi_select",
+              "multiSelectValue": "={{ $json.source }}"
+            },
+            {
+              "key": "Own Analysis|rich_text",
+              "textContent": "={{ $if($('Merge6').isExecuted, $('Merge6').item.json.prompt || '', '') }}"
+            },
+            {
+              "key": "Rating|select",
+              "selectValue": "={{ $('Get Rating Formatted For Notion1').item.json.output }}"
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $('Merge6').item.json.content || '' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        6752,
+        6832
+      ],
+      "id": "32bf9623-861b-40b9-b504-dc25f86ab781",
+      "name": "Add New Content Idea",
+      "alwaysOutputData": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{  $('Merge6').item.json.content?.length() }}",
+              "operation": "larger",
+              "value2": 2000
+            }
+          ]
+        }
+      },
+      "id": "d482e057-4baf-4b51-8665-c96572bb55ad",
+      "name": "IF text longer than 2000 chars1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        6096,
+        5808
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let result = [];\nlet firstBlock = true;\n\n// Split text on \\n characters - FIXED: Use .item instead of .first() to get current item\nlet textBlocks = $('Merge6').item.json.content.split(/\\n/);\n\nfor (let block of textBlocks) {\n    if (block.length === 0) continue;\n    result.push({\n        \"textSubString\": block.trim(),\n        \"firstBlock\": firstBlock\n    });\n    firstBlock = false;\n}\n\nreturn result;"
+      },
+      "id": "0e652fe9-219a-4144-8976-c99ca0187cd9",
+      "name": "Splits text in small chuncks1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6752,
+        6160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.firstBlock }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "5d74c414-7457-40a2-8f01-a2acea18dc68",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        6976,
+        6160
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "acc9f2be-38df-419e-bfe4-70937d18490e",
+      "name": "Merge5",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        7872,
+        6160
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        6528,
+        6256
+      ],
+      "id": "9db95e67-219e-4c48-bdfb-a14bc4e12cc7",
+      "name": "Loop Over Items7"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a4785c0-cfab-8160-b859-f1992a8d67d8",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Mention Tracker",
+          "cachedResultUrl": "https://www.notion.so/2a4785c0cfab8160b859f1992a8d67d8"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Article Name|title",
+              "title": "={{ $('Merge6').item.json.title }}"
+            },
+            {
+              "key": "Source URL|url",
+              "urlValue": "={{ $('Merge6').item.json.url }}"
+            },
+            {
+              "key": "Source|multi_select",
+              "multiSelectValue": "={{ $('Merge6').item.json.source }}"
+            },
+            {
+              "key": "Status|select",
+              "selectValue": "Not Reviewed"
+            },
+            {
+              "key": "Search Query|rich_text",
+              "textContent": "={{ $('Merge6').item.json.search_query }}"
+            },
+            {
+              "key": "Publication Date|date",
+              "date": "={{ $('Merge6').item.json.publication_date }}"
+            },
+            {
+              "key": "Summary|rich_text",
+              "textContent": "={{ $('Merge6').item.json.summary }}"
+            },
+            {
+              "key": "Own Analysis|rich_text",
+              "textContent": "={{ $if($('Merge6').isExecuted, $('Merge6').item.json.prompt || '', '') }}"
+            },
+            {
+              "key": "Rating|select",
+              "selectValue": "={{ $('Get Rating Formatted For Notion1').item.json.output }}"
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $json.textSubString }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7424,
+        5872
+      ],
+      "id": "6e1299c8-e538-4a70-993e-d664cee6eb17",
+      "name": "Add New Content Idea7",
+      "alwaysOutputData": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e20ca9df-9034-44ac-8d9e-ecad56c6a923",
+              "leftValue": "={{ $('Merge6').item.json.publication_date }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        7200,
+        6064
+      ],
+      "id": "811284c3-b9b8-485d-86a8-c3f198ecdab3",
+      "name": "If Publication Date3"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a4785c0-cfab-8160-b859-f1992a8d67d8",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Mention Tracker",
+          "cachedResultUrl": "https://www.notion.so/2a4785c0cfab8160b859f1992a8d67d8"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Article Name|title",
+              "title": "={{ $('Merge6').item.json.title }}"
+            },
+            {
+              "key": "Source URL|url",
+              "urlValue": "={{ $('Merge6').item.json.url }}"
+            },
+            {
+              "key": "Source|multi_select",
+              "multiSelectValue": "={{ $('Merge6').item.json.source }}"
+            },
+            {
+              "key": "Status|select",
+              "selectValue": "Not Reviewed"
+            },
+            {
+              "key": "Search Query|rich_text",
+              "textContent": "={{ $('Merge6').item.json.url }}"
+            },
+            {
+              "key": "Summary|rich_text",
+              "textContent": "={{ $('Merge6').item.json.summary }}"
+            },
+            {
+              "key": "Own Analysis|rich_text",
+              "textContent": "={{ $if($('Merge6').isExecuted, $('Merge6').item.json.prompt || '', '') }}"
+            },
+            {
+              "key": "Rating|select",
+              "selectValue": "={{ $('Get Rating Formatted For Notion1').item.json.output }}"
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $json.textSubString }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        7424,
+        6064
+      ],
+      "id": "cefec10b-e2b0-4441-8a9f-dc3bcb54ec6c",
+      "name": "Add New Content Idea8",
+      "alwaysOutputData": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "url",
+              "stringValue": "={{ $json.url }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "0d56770e-d6e3-498d-9173-3e1540f15f6a",
+      "name": "Set Article URL1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        7648,
+        6064
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $json.textSubString }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        8096,
+        6320
+      ],
+      "id": "e3e822f6-54f6-4da9-b74c-e1475b890813",
+      "name": "Add Content To Post1",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        6752,
+        6400
+      ],
+      "id": "36f6ebd8-55e8-4300-b7e0-2c7062b7d040",
+      "name": "No Operation, do nothing1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a4785c0-cfab-8160-b859-f1992a8d67d8",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Mention Tracker",
+          "cachedResultUrl": "https://www.notion.so/2a4785c0cfab8160b859f1992a8d67d8"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Article Name|title",
+              "title": "={{ $('Merge6').item.json.title }}"
+            },
+            {
+              "key": "Source URL|url",
+              "urlValue": "={{ $('Merge6').item.json.url }}"
+            },
+            {
+              "key": "Source|multi_select",
+              "multiSelectValue": "={{ $('Merge6').item.json.source }}"
+            },
+            {
+              "key": "Status|select",
+              "selectValue": "Not Reviewed"
+            },
+            {
+              "key": "Search Query|rich_text",
+              "textContent": "={{ $('Merge6').item.json.search_query }}"
+            },
+            {
+              "key": "Summary|rich_text",
+              "textContent": "={{ $('Merge6').item.json.summary }}"
+            },
+            {
+              "key": "Own Analysis|rich_text",
+              "textContent": "={{ $if($('Merge6').isExecuted, $('Merge6').item.json.prompt || '', '') }}"
+            },
+            {
+              "key": "Publication Date|date",
+              "date": "={{ $('Merge6').item.json.publication_date.toDateTime() }}"
+            },
+            {
+              "key": "Rating|select",
+              "selectValue": "={{ $('Get Rating Formatted For Notion1').item.json.output }}"
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $('Merge6').item.json.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        6768,
+        6624
+      ],
+      "id": "5c2df7f0-6bc0-4dab-b037-ba072798b141",
+      "name": "Add New Content Idea9",
+      "alwaysOutputData": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9a8264bf-82d2-434f-b146-3b8deb76e519",
+              "name": "title",
+              "value": "={{ $('Merge6').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "dfdf1695-e69f-4cff-a8f0-21d9da07745b",
+              "name": "content",
+              "value": "={{ ($('Merge6').item.json.content || '').substring(0, 49000) }}",
+              "type": "string"
+            },
+            {
+              "id": "4899f665-2f29-41df-afea-d8a744a6fec9",
+              "name": "url",
+              "value": "={{ $('Merge6').item.json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "ec8500c3-9d57-45d3-b1a9-2de1706dee8d",
+              "name": "summary",
+              "value": "={{ $('Merge6').item.json.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "0c470796-e8e2-4605-a6af-9e8236d9635c",
+              "name": "search_query",
+              "value": "={{ $('Merge6').item.json.search_query }}",
+              "type": "string"
+            },
+            {
+              "id": "4d34103a-b327-42cc-8e50-dec38a8fc1f5",
+              "name": "publication_date",
+              "value": "={{ $('Merge6').item.json.publication_date }}",
+              "type": "string"
+            },
+            {
+              "id": "02065b1c-286c-4cf9-8709-27d8a766d2d1",
+              "name": "prompt",
+              "value": "={{ $('Merge6').item.json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "ef20184c-2ce1-4660-9658-fe12f9776f2d",
+              "name": "additional_formats",
+              "value": "={{ $('Merge6').item.json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "5a5e80cb-0ad3-4e06-86f8-63e9e59765fd",
+              "name": "source",
+              "value": "={{ $('Merge6').item.json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "294ed909-fb37-4f4b-94dc-e76fbf1f3e21",
+              "name": "sentiment_score",
+              "value": "={{ $json.output.sentiment_score }}",
+              "type": "number"
+            },
+            {
+              "id": "af8ebff6-6518-42cd-9c7e-1cc4b41b3b7b",
+              "name": "reason",
+              "value": "={{ $json.output.reason }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4864,
+        5632
+      ],
+      "id": "c74eca0d-b142-4491-bf93-6aabbad3e7cb",
+      "name": "select fields1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "url",
+              "field2": "URL"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        5536,
+        5472
+      ],
+      "id": "7b05392b-a922-4d46-b7cf-634b1f1af7a1",
+      "name": "Remove Duplicates6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4061f412-99c2-4549-9d2e-be355aa6a5bb",
+              "name": "url",
+              "value": "={{ $('select fields1').item.json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "60a2488f-d96c-4c21-94f1-6f627e9c99ae",
+              "name": "title",
+              "value": "={{ $('select fields1').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "30183727-5e80-401c-a728-37da12a2054b",
+              "name": "content",
+              "value": "={{ $('select fields1').item.json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "ac7fb376-710f-43b5-9ff8-c3de8dc4f0ff",
+              "name": "publication_date",
+              "value": "={{ $('select fields1').item.json.publication_date }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5328,
+        5376
+      ],
+      "id": "49a430a4-f15d-4d45-b7a6-681160089743",
+      "name": "Set Google Sheet Fields1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "detectAutomatically"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        5328,
+        5568
+      ],
+      "id": "f9556892-0972-4dc4-97da-c0d4953ef69b",
+      "name": "Get All Ideas From Evaluation Table",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "TvN6HmHHfgKukni4",
+          "name": "Stephen Google Sheets account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27a785c0-cfab-807b-b5eb-e1214e18960d",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuels Static Sources",
+          "cachedResultUrl": "https://www.notion.so/27a785c0cfab807bb5ebe1214e18960d"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        3328,
+        5248
+      ],
+      "id": "fdc6fa9c-cef5-4ce6-a21f-e5f47e6cd4e1",
+      "name": "Get All Sources3",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        4048,
+        5456
+      ],
+      "id": "91ee9aec-6956-473d-91d5-6dc6ca8b60c2",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Merge6').item.json.content }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=<prompt>\n    <introduction>\n        You are an expert evaluator of sustainability and renewable fuel content.\n        Your new role is to perform **targeted sentiment analysis**, assessing the overall **sentiment (positive, negative, or neutral)** expressed about **Syntech Biofuel** in any given article or content piece.\n        Assign a **sentiment score from 0 (very negative) to 5 (very positive)**, reflecting the tone expressed towards Syntech Biofuel specifically, using best practices for sentiment analysis.\n    </introduction>\n    \n    <task>\n        Assess **all statements specifically about Syntech Biofuel** in the article.\n        - If Syntech Biofuel is not mentioned, or if the content is a directory, listing, or index page with no meaningful context, always assign a neutral score.\n        - Weigh overall sentiment: consider both positive and negative aspects when present, and use domain expertise to assign the most appropriate score.\n        - Ignore sentiment about the broader sector, UK policy, or competitors unless Syntech Biofuel is expressly referenced in the same context.\n        Output only the following JSON object, nothing else:\n        {\"score\": number, \"reason\": \"short factual explanation\"}\n    </task>\n    \n    <sentiment_scoring_criteria>\n        **0 — Very Negative:** Clear criticism or strongly negative opinion about Syntech (e.g., major failures, scandals, poor innovation, public backlash).\n        **1 — Negative:** Negative or mildly critical sentiment about Syntech (e.g., minor setbacks, negative comparisons, disappointing results).\n        **2 — Slightly Negative:** Subtle or slight negativity, or muted criticism (e.g., minor concerns, tepid commentary).\n        **3 — Neutral:** No explicit opinion, just factual/brief mention, or genuinely balanced/mixed sentiment. Also use if Syntech Biofuel is not mentioned, or if the content is non-substantive (e.g., a directory or listing).\n        **4 — Positive:** Generally positive tone or minor praise about Syntech (e.g., being recognized for progress, improving operations, successful minor projects).\n        **5 — Very Positive:** Strong praise, endorsement, or highly favorable coverage (e.g., major breakthrough, award-wins, industry leadership attributed to Syntech).\n    </sentiment_scoring_criteria>\n    \n    <steps>\n        1. **Read the entire article or excerpt.**\n        2. **Extract all statements about Syntech Biofuel** (ignore sentiment not about Syntech).\n        3. **Identify the tone** of these statements (positive, negative, neutral, or mixed).\n        4. **Assign a score** from 0 to 5 based on the overall sentiment expressed about Syntech.\n        5. If Syntech Biofuel is *not mentioned*, or if the content is non-substantive (e.g., directory, listing, or tag page), assign a score of 3 (neutral) and explain why.\n        6. Provide a concise factual reason for your assigned sentiment in the `reason` field.\n        7. Output the result as a JSON object: {\"score\": number, \"reason\": \"short factual explanation\"}.\n        8. Output nothing else.\n    </steps>\n    \n    <restrictions>\n        * Only evaluate sentiment about Syntech Biofuel itself.\n        * Ignore statements unrelated to Syntech Biofuel.\n        * Keep the `reason` concise (1–2 sentences max).\n        * Do not output keyword lists, scoring chains, markdown, or commentary—**only** the specified JSON.\n    </restrictions>\n    \n    <output_example>\n        {\"score\": 5, \"reason\": \"The article highlights Syntech Biofuel as the leader in UK circular biofuel innovation and praises its recent breakthrough.\"}\n        {\"score\": 3, \"reason\": \"The content is a listing of sustainability articles and does not contain any meaningful reference to Syntech Biofuel.\"}\n    </output_example>\n    \n    <output_rules>\n        Output the JSON only. Do not output anything else.\n    </output_rules>\n</prompt>"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 10,
+          "delayBetweenBatches": 1000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        4080,
+        5280
+      ],
+      "id": "1ab48314-6160-4879-b16a-3737cbbce72f",
+      "name": "Classification agent with Batch"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"sentiment_score\": {\n      \"type\": \"integer\",\n      \"description\": \"Sentiment score from 0 (very negative) to 5 (very positive) reflecting the overall sentiment expressed about Syntech Biofuel in the article. Use 3 for neutral or if Syntech Biofuel is not mentioned.\",\n      \"minimum\": 0,\n      \"maximum\": 5\n    },\n    \"reason\": {\n      \"type\": \"string\",\n      \"description\": \"Short factual explanation for the assigned sentiment score (1-2 sentences maximum), focusing only on statements about Syntech Biofuel.\"\n    }\n  },\n  \"required\": [\"score\", \"reason\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        4256,
+        5456
+      ],
+      "id": "416346b7-4f5c-4bad-8e2d-82378ff3ccbe",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Publication Date": "={{ $json.publication_date }}",
+            "URL": "={{ $json.url }}",
+            "Title": "={{ $json.title }}",
+            "Content": "={{ $json.content }}",
+            "Actual Score": "={{ $('Classification agent with Batch').item.json.message.content.relevance_score }}",
+            "AI Reasoning": "={{ $('Classification agent with Batch').item.json.message.content.reasoning }}"
+          },
+          "matchingColumns": [
+            "URL"
+          ],
+          "schema": [
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Content",
+              "displayName": "Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Publication Date",
+              "displayName": "Publication Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Actual Score",
+              "displayName": "Actual Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Expected Score",
+              "displayName": "Expected Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Human Reasoning",
+              "displayName": "Human Reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "AI Reasoning",
+              "displayName": "AI Reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "useAppend": true
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        5744,
+        5472
+      ],
+      "id": "625eaf0c-1261-46c8-aeab-0f988f0b8bca",
+      "name": "Add Content Idea to Evaluation Table",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "TvN6HmHHfgKukni4",
+          "name": "Stephen Google Sheets account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "setMetrics",
+        "expectedAnswer": "={{ $('Run Evaluation1').item.json.Expected_Score }}",
+        "actualAnswer": "={{ $('Classification agent with Batch').item.json.output.relevance_score }}",
+        "prompt": "=You are an expert evaluator assessing how closely an actual score matches the expected score.\n\nCompare the expected and actual scores numerically, then assign a final similarity rating from 0 to 5 according to the following scale:\n\n# Scoring Criteria\n- 5: Perfect match – actual and expected scores are identical.\n- 4: Very close – difference of 1 point.\n- 3: Somewhat close – difference of 2 points.\n- 2: Noticeably different – difference of 3 points.\n- 1: Highly different – difference of 4 points.\n- 0: Completely misaligned or invalid comparison – difference greater than 4 or one score missing.\n\n# Output Format\nOnly output the final score in strict JSON format as follows:\n{\n  \"score\": <integer from 0 to 5>\n}\n\nDo not include any reasoning, explanation, or additional text.\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.8,
+      "position": [
+        4960,
+        5184
+      ],
+      "id": "2971e3ec-824c-4b5c-a744-3acfe14bb678",
+      "name": "Evaluation3"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        5072,
+        5344
+      ],
+      "id": "b435ba64-ea99-4c20-9790-f8f99b8da1b3",
+      "name": "OpenAI Chat Model9",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "let output;\n\nswitch ($json.sentiment_score) {\n  case 0:\n    output = '0 - Very Negative';\n    break;\n\n  case 1:\n    output = '1 - Negative';\n    break;\n\n  case 2:\n    output = '2 - Relatively Negative';\n    break;\n\n  case 3:\n    output = '3 - Neutral';\n    break;\n\n  case 4:\n    output = '4 - Relatively Positive';\n    break;\n\n  case 5:\n    output = '5 - Very Positive';\n    break;\n\n  default:\n    output = '3 - Neutral';\n}\n\nreturn { output };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5328,
+        5808
+      ],
+      "id": "29d61852-b5c6-460b-9288-89a6b56637fb",
+      "name": "Get Rating Formatted For Notion1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a4785c0-cfab-8160-b859-f1992a8d67d8",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Mention Tracker",
+          "cachedResultUrl": "https://www.notion.so/2a4785c0cfab8160b859f1992a8d67d8"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2864,
+        5648
+      ],
+      "id": "fb99b680-1e53-40ee-b5c8-7d9a733bfe75",
+      "name": "Get All Results2",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        3312,
+        5728
+      ],
+      "id": "477f2a62-2659-4c5e-b17b-9cf18f04c0d4",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"relevant\": {\n      \"type\": \"boolean\",\n      \"description\": \"True if the content meaningfully discusses or refers to Syntech Biofuel based on the source type. False if it’s irrelevant, too generic, or about another entity.\"\n    },\n    \"reason\": {\n      \"type\": \"string\",\n      \"description\": \"Short factual explanation of why the content is or isn't relevant to Syntech Biofuel. Max 1–2 sentences.\"\n    }\n  },\n  \"required\": [\"relevant\", \"reason\"],\n  \"additionalProperties\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        3520,
+        5728
+      ],
+      "id": "d20287a3-439d-4ccc-a82b-220cf2a7b93d",
+      "name": "Structured Output Parser3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Source (if present):\n{{ $json.source }}\n\nContent:\n{{ $json.content }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=<prompt>\n    <introduction>\n        You are a content relevance screener for mentions of **Syntech Biofuel**, a company in the renewable fuels sector. \n        Your task is to determine whether the provided content is **meaningfully relevant** to Syntech Biofuel, using an understanding of the **source type** and content structure.\n    </introduction>\n\n    <input>\n        You will receive:\n        1. `content` — a block of text or scraped content from a page or post.\n        2. `source_type` — the type of content source, such as \"article\", \"tweet\", \"directory\", \"forum_post\", \"instagram\", or \"unknown\".\n    </input>\n\n    <task>\n        Based on the `source_type`, evaluate whether the content contains a **meaningful reference** to Syntech Biofuel.\n        \n        - **Relevant** means Syntech Biofuel is explicitly or implicitly discussed, quoted, evaluated, or referenced in a meaningful way — including operational updates, market presence, news, commentary, or sentiment.\n        - If **source_type is a social platform** like \"tweet\" or \"instagram\", short-form or thin content may still be relevant if it names or clearly implies Syntech Biofuel in a meaningful way.\n        - If the **source_type is \"directory\", \"listing\", or \"tag page\"**, and Syntech is just listed or linked without substantive content, mark it as **not relevant**.\n        - If Syntech is not mentioned at all, or refers to a different company called Syntech, also mark it as **not relevant**.\n\n        Output your decision as a JSON object in this format:\n        {\"relevant\": true/false, \"reason\": \"short factual explanation\"}\n    </task>\n\n    <examples>\n        {\"relevant\": true, \"reason\": \"Tweet includes a direct mention of Syntech Biofuel’s new refinery and expresses public support.\"}\n        {\"relevant\": false, \"reason\": \"The content is a directory of ESG topics with no detailed mention of Syntech Biofuel.\"}\n        {\"relevant\": true, \"reason\": \"Instagram post shows Syntech Biofuel’s team attending an industry summit, with relevant caption.\"}\n        {\"relevant\": false, \"reason\": \"The content lists Syntech among many companies without providing any additional information.\"}\n        {\"relevant\": false, \"reason\": \"No mention of Syntech Biofuel was found in the content.\"}\n    </examples>\n\n    <steps>\n        1. Review the `content` and the `source_type`.\n        2. Determine if the content meaningfully references Syntech Biofuel.\n        3. Use context-appropriate thresholds depending on the source type.\n        4. If relevant, return: {\"relevant\": true, \"reason\": \"...\"}\n        5. If not, return: {\"relevant\": false, \"reason\": \"...\"}\n        6. Output only the JSON object. Do not output commentary, formatting, or metadata.\n    </steps>\n\n    <restrictions>\n        * Treat short content (like tweets or Instagram captions) as valid if it expresses relevance.\n        * Be strict with listings, index pages, and scraped feeds — reject unless there's meaningful context.\n        * Ignore other companies named Syntech unless it clearly refers to Syntech Biofuel.\n        * Keep the `reason` short (1–2 factual sentences).\n    </restrictions>\n</prompt>"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 10,
+          "delayBetweenBatches": 1000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        3344,
+        5552
+      ],
+      "id": "587938cd-927f-40b4-9365-902310c69be5",
+      "name": "Classification Pre-Screener"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8feba7aa-b555-4f2b-aa8d-307b4c49fb48",
+              "leftValue": "={{ $json.output.relevant }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        3696,
+        5552
+      ],
+      "id": "2208d0b3-84a7-42b5-b061-7281fac78867",
+      "name": "Syntech Mentioned?"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "url",
+              "field2": "property_source_url"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        3072,
+        5552
+      ],
+      "id": "b47cfc29-5828-4f4c-8c30-62ec42ba1171",
+      "name": "Merge6"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "timeSavedPerExecution": 120,
+    "errorWorkflow": "Qsg1jSZ5AQScoAOn"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:12:43.827Z",
+      "createdAt": "2026-01-28T08:12:43.827Z",
+      "role": "workflow:owner",
+      "workflowId": "2VzzKPuM0PqR1Boa",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": [
+        282
+      ]
+    },
+    "node:Schedule Trigger1": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:19:23.070Z",
+  "versionId": "477969ce-6475-4d1d-8d16-daaf0e196d9b"
+}
