@@ -1,0 +1,1628 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Get Content With Block ID": {
+      "main": [
+        [
+          {
+            "node": "Get Parent DB ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Parent DB ID": {
+      "main": [
+        [
+          {
+            "node": "Get Images Output DB ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Input3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Block Content": {
+      "main": [
+        [
+          {
+            "node": "Format Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Block Content": {
+      "main": [
+        [
+          {
+            "node": "Set Input3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Initial Article": {
+      "main": [
+        [
+          {
+            "node": "Get Content With Block ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Subflow Fields4": {
+      "main": [
+        [
+          {
+            "node": "Add Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initial Input": {
+      "main": [
+        [
+          {
+            "node": "Split Out Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Split Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Get Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Image Prompt Generator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Prompt Generator": {
+      "main": [
+        [
+          {
+            "node": "Set Final Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Create Duplicate Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Final Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Refine Prompt to NanoBanana Style",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a Notion File Upload object1": {
+      "main": [
+        [
+          {
+            "node": "Generate Image Nano Banana HTTP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Parts": {
+      "main": [
+        [
+          {
+            "node": "Grab Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Grab Image": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Notion Success2": {
+      "main": [
+        []
+      ]
+    },
+    "Get Images Output DB ID": {
+      "main": [
+        [
+          {
+            "node": "Set Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Images": {
+      "main": [
+        [
+          {
+            "node": "Set Notion Success2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Notion API Error2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Get Syntech Overlay",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Upload file contents1": {
+      "main": [
+        [
+          {
+            "node": "Set Subflow Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Refine Prompt to NanoBanana Style",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Refine Prompt to NanoBanana Style": {
+      "main": [
+        [
+          {
+            "node": "Create a Notion File Upload object1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Syntech Overlay": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "Create Watermarked Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Watermarked Image": {
+      "main": [
+        [
+          {
+            "node": "Upload file contents1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Image Nano Banana HTTP": {
+      "main": [
+        [
+          {
+            "node": "Split Out Parts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Refine Prompt to NanoBanana Style OLD",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Image Prompt Generator1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Image Prompt Generator1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Duplicate Prompts": {
+      "main": [
+        [
+          {
+            "node": "Split Out Duplicate Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Duplicate Prompts": {
+      "main": [
+        [
+          {
+            "node": "Image Prompt Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Brand Logo": {
+      "main": [
+        [
+          {
+            "node": "Convert Brand Logo to Base64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert Brand Logo to Base64": {
+      "main": [
+        [
+          {
+            "node": "Generate Image Nano Banana HTTP w Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Refine Prompt to NanoBanana Style OLD": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T11:25:52.150Z",
+  "id": "EzL3KmeLuOQsnLgY",
+  "isArchived": true,
+  "meta": null,
+  "name": "▶️ Image Generation",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get Initial Article').first().json.body.data.id }}",
+          "mode": "id"
+        },
+        "simple": false
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -3376,
+        384
+      ],
+      "id": "6dad27c6-8494-422e-966c-c32e3d797b85",
+      "name": "Get Content With Block ID",
+      "executeOnce": true,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "databaseId": {
+          "__rl": true,
+          "value": "={{ $json.parent.database_id }}",
+          "mode": "id"
+        },
+        "simple": false
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -3152,
+        384
+      ],
+      "id": "643cac49-8ac9-49fc-b577-b47acb9df2a5",
+      "name": "Get Parent DB ID",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "090ef065-4cf7-4d81-9bfa-d87425fbe336",
+              "name": "content",
+              "value": "={{ $json.body }}",
+              "type": "string"
+            },
+            {
+              "id": "62cd50ef-4057-4161-878e-c628c8613a5f",
+              "name": "prompt_update",
+              "value": "={{ $json.prompt_update }}",
+              "type": "string"
+            },
+            {
+              "id": "ceb252e3-d45a-46da-92b0-44b447c3d6f7",
+              "name": "system_message",
+              "value": "={{ $json.system_message }}",
+              "type": "string"
+            },
+            {
+              "id": "19101d04-ac65-441d-9614-b46a2a3b733a",
+              "name": "user_message",
+              "value": "={{ $json.user_message }}",
+              "type": "string"
+            },
+            {
+              "id": "af188dd3-0756-4c57-a428-1da2034c50bc",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "5d2e98c0-3f5f-4d52-95dc-286b5a15d3b2",
+              "name": "source",
+              "value": "={{ $json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "0ecb355c-1570-4af1-82d7-604cf108722d",
+              "name": "platform",
+              "value": "={{ $json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "8c449581-b194-41f1-b7d6-29764cc4c41f",
+              "name": "initial_article",
+              "value": "={{ $json.initial_article }}",
+              "type": "string"
+            },
+            {
+              "id": "b0a17ec1-0f75-40aa-8ce8-a3c0dec0e637",
+              "name": "transformed_content_db_id",
+              "value": "={{ $json.transformed_content_db_id }}",
+              "type": "string"
+            },
+            {
+              "id": "68f9bee7-e35a-44cc-9c48-d8e161f06fe5",
+              "name": "image_dimensions",
+              "value": "={{ $json.image_dimensions }}",
+              "type": "string"
+            },
+            {
+              "id": "3b9f19c8-e8ba-4078-9eb3-021cb5ee34af",
+              "name": "image_system_message",
+              "value": "={{ $json.image_system_message }}",
+              "type": "string"
+            },
+            {
+              "id": "a3aa45a9-6f74-4531-acf2-63e3b3a7d0b1",
+              "name": "image_prompts",
+              "value": "={{ $json.image_prompts }}",
+              "type": "array"
+            },
+            {
+              "id": "b9bf6d87-2969-4afc-95e6-e3c0e2a5c7fb",
+              "name": "image_aspect_ratio",
+              "value": "={{ $json.image_aspect_ratio }}",
+              "type": "string"
+            },
+            {
+              "id": "0b3d0085-a786-4eac-b5d4-9e5b9a8bdcdc",
+              "name": "model",
+              "value": "={{ $json.model }}",
+              "type": "string"
+            },
+            {
+              "id": "0c208a03-0464-4d35-bb22-e7684b33cdb6",
+              "name": "temperature",
+              "value": "={{ $json.temperature }}",
+              "type": "string"
+            },
+            {
+              "id": "6d5fcbf6-ce61-4970-aaab-f030ddb858a6",
+              "name": "top_p",
+              "value": "={{ $json.top_p }}",
+              "type": "string"
+            },
+            {
+              "id": "b04fb168-c9a0-4cc7-a7e9-c7cf8498de00",
+              "name": "frequency_penalty",
+              "value": "={{ $json.frequency_penalty }}",
+              "type": "string"
+            },
+            {
+              "id": "888277fe-ace9-4dd8-8125-a9400dff180e",
+              "name": "presence_penalty",
+              "value": "={{ $json.presence_penalty }}",
+              "type": "string"
+            },
+            {
+              "id": "37690778-bb29-4b6f-bd9d-3d1682f0fde5",
+              "name": "max_tokens",
+              "value": "={{ $json.max_tokens }}",
+              "type": "string"
+            },
+            {
+              "id": "51544bbd-36c4-4e4c-a543-c16cb6ae9cd5",
+              "name": "num_variants",
+              "value": "={{ $json.num_variants }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -912,
+        464
+      ],
+      "id": "2f746587-ce28-4885-9fe1-dbe65b8756ce",
+      "name": "Set Input3"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $('Get Initial Article').first().json.body.data.id }}",
+          "mode": "id"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1360,
+        384
+      ],
+      "id": "87c49c66-a06f-4978-a1f5-3ca944e5cfc9",
+      "name": "Get Block Content",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize output variables\nlet bodyParts = [];\nlet images = [];\n\nfor (const item of $input.all()) {\n  const block = item.json;\n\n  if (block.type === 'paragraph') {\n    const content = block.content?.trim();\n    if (content) {\n      bodyParts.push(content);\n    }\n  }\n\n  if (block.type === 'image') {\n    const imageUrl = block.image?.external?.url;\n    if (imageUrl) {\n      images.push(imageUrl);\n    }\n  }\n}\n\nreturn [\n  {\n    json: {\n      body: bodyParts.join('\\n'),\n      images,\n      // initial_input: $('Set Initial Input').item.json.set_initial_input,\n      // system_message: $('Extract Content Type Prompt').item.json.property_system_message,\n      // user_message: $('Extract Content Type Prompt').item.json.property_guidelines,\n      prompt_update: $('Get Initial Article').first().json.body.data.properties[\"Update Prompt\"].rich_text[0] ? $('Get Initial Article').first().json.body.data.properties[\"Update Prompt\"].rich_text[0].plain_text : '',\n      title: `Content - ${$('Get Initial Article').first().json.body.data.properties.Concept.title[0].plain_text} - ${$('Aggregate Image Prompts').first().json.image_prompts[0].name} - Images`,\n      source: $('Get Initial Article').item.json.body.data.id,\n      // platform: $('Extract Content Type Prompt').item.json.property_platform[0],\n      transformed_content_db_id: $('Get Images Output DB ID').item.json.id,\n      // image_dimensions: $('Extract Content Type Prompt').item.json.property_image_dimensions,\n      // image_system_message: $('Extract Content Type Prompt').item.json.property_image_system_message,\n      // initial_article: $('Get Initial Article').item.json.body.data.url,\n      image_prompts: $('Aggregate Image Prompts').first().json.image_prompts,\n      image_aspect_ratio: $('Extract Image Prompts').first().json.property_aspect_ratio,\n      num_variants: $('Get Initial Article').first().json.body.data.properties.Variants? $('Get Initial Article').first().json.body.data.properties.Variants.number : 1,\n      // \"model\": $('Extract Content Type Prompt').first().json.property_model,\n      // \"temperature\": $('Extract Content Type Prompt').first().json.property_temperature,\n      // \"top_p\": $('Extract Content Type Prompt').first().json.property_top_p,\n      // \"frequency_penalty\": $('Extract Content Type Prompt').first().json.property_frequency_penalty,\n      // \"presence_penalty\": $('Extract Content Type Prompt').first().json.property_presence_penalty,\n      // \"max_tokens\": $('Extract Content Type Prompt').first().json.property_max_tokens\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1136,
+        384
+      ],
+      "id": "daea0bd0-4e73-48a2-8e11-49af0ff98d4a",
+      "name": "Format Block Content"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -2256,
+        384
+      ],
+      "id": "6fc33d98-6449-4e74-862f-4bdbd8967742",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "image-generation",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -3600,
+        384
+      ],
+      "id": "b409cd6f-f3f6-4da4-a4ae-155c0d2f8bc7",
+      "name": "Get Initial Article",
+      "webhookId": "c1f6e721-721d-4ecd-98bc-9dc5a9b847ff"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Initial Input').item.json.source }}",
+          "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|status",
+              "statusValue": "Error"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        896,
+        880
+      ],
+      "id": "8a0da1ac-bc82-41b3-832c-fce5ad004c76",
+      "name": "Set Notion API Error2",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Initial Input').item.json.source }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|status",
+              "statusValue": "Done"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        864,
+        528
+      ],
+      "id": "bb926b38-9430-4fdb-913b-afa2a34f0662",
+      "name": "Set Notion Success2",
+      "executeOnce": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f6abe9ac-2a7d-4ead-8b3f-93d8aef7fb54",
+              "name": "transformed_content_db_id",
+              "value": "={{ $('Initial Input').first().json.transformed_content_db_id }}",
+              "type": "string"
+            },
+            {
+              "id": "f5a756d3-d95b-4941-99db-7abd73995af5",
+              "name": "title",
+              "value": "={{ $('Initial Input').first().json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "b336bc2e-a12e-4936-bebf-ad274495a048",
+              "name": "source_database_page",
+              "value": "={{ $('Initial Input').first().json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "a938dfe9-0069-4a97-82f2-2d22f6606cb6",
+              "name": "platform",
+              "value": "={{ $('Initial Input').first().json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "bcae6010-8182-40a7-94aa-ac436d2e10b3",
+              "name": "images",
+              "value": "={{ $('Upload file contents1').item.json }}",
+              "type": "string"
+            },
+            {
+              "id": "ad97a256-fb62-45ef-82d3-dc88a804b2d7",
+              "name": "content",
+              "value": "={{ $('Initial Input').item.json.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        784
+      ],
+      "id": "3b91d3d5-5551-4a77-9c60-6cc4d8b7e1ab",
+      "name": "Set Subflow Fields4"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -3600,
+        784
+      ],
+      "id": "b0bcbbd9-1c7f-4997-9f0d-458f6c9fb4d8",
+      "name": "Initial Input"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "074bc9ef-54df-4dd5-a617-259349c4a425",
+              "name": "set_image_prompts",
+              "value": "={{ $('Get Initial Article').first().json.body.data.properties['Image Prompt Template'].relation }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2704,
+        384
+      ],
+      "id": "161a1a91-28a2-49db-8f3b-58bd7c3cc379",
+      "name": "Set Image Prompts"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "set_image_prompts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2480,
+        384
+      ],
+      "id": "8a4d46e6-3123-4202-9105-ffcbf838cf2e",
+      "name": "Split Image Prompts"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Split Image Prompts').item.json.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -2032,
+        384
+      ],
+      "id": "0efd6a94-c1b0-48de-86f4-87b967ee35e6",
+      "name": "Extract Image Prompts",
+      "executeOnce": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "maxItems": 100
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -1584,
+        384
+      ],
+      "id": "3449d086-86f9-48c0-b4b0-4bafbe52c385",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2640,
+        1008
+      ],
+      "id": "d15ac54c-e625-4655-8471-8e4fc6e45fac",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Initial Post:\n{{ $('Initial Input').item.json.content }}\n\n{{ \n$if($('Initial Input').item.json.prompt_update, \n`\nUser provided prompt guidlines:\n${$('Initial Input').item.json.prompt_update}`, '')\n}}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.property_system_message }}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -2704,
+        784
+      ],
+      "id": "14492bd2-295b-4148-b85e-c73f678e712c",
+      "name": "Image Prompt Generator",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "image_prompts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -3376,
+        784
+      ],
+      "id": "410384d6-5468-41e1-a58f-a168dac0265a",
+      "name": "Split Out Image Prompts"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "af522a61-b899-4c7e-b6e4-1f45e70f677c",
+              "name": "prompt",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2352,
+        784
+      ],
+      "id": "37472a05-3440-4bbe-8a5a-acad84a1ad25",
+      "name": "Set Final Image Prompts"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/file_uploads",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "filename",
+              "value": "={{ $('Split Out Image Prompts').item.json.name.split(' ').join('-').toLowerCase() + '-' + $('Initial Input').item.json.source }}"
+            },
+            {
+              "name": "content_type",
+              "value": "=image/jpeg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1776,
+        784
+      ],
+      "id": "53b7cee8-6887-4da4-b8ea-14482cb55cd8",
+      "name": "Create a Notion File Upload object1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "image_prompts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1808,
+        384
+      ],
+      "id": "952c2ffb-4ad5-4656-a373-0fd74baddbe6",
+      "name": "Aggregate Image Prompts"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "candidates[0].content.parts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -1328,
+        784
+      ],
+      "id": "46c7ca2c-a9a2-481f-98d0-fa934cce71a5",
+      "name": "Split Out Parts"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6f57c194-a475-4c13-bb0d-1ba4f29c704b",
+              "leftValue": "={{ $json.inlineData.mimeType }}",
+              "rightValue": "image",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -1104,
+        784
+      ],
+      "id": "d635802b-c3a7-400b-9a2d-9a30c9db8d7c",
+      "name": "Grab Image"
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "databaseId": {
+          "__rl": true,
+          "value": "={{ $json.properties[\"Images Output\"].relation.database_id }}",
+          "mode": "id"
+        },
+        "simple": false
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -2928,
+        384
+      ],
+      "id": "76819355-736a-416b-92a3-40c4b4cc1f20",
+      "name": "Get Images Output DB ID",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "=QzfCHtJv0xZPYotB"
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        464,
+        784
+      ],
+      "id": "3816e0cd-231b-446a-8e05-47c6ee7f217d",
+      "name": "Add Images",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "inlineData.data",
+        "options": {
+          "mimeType": "image/jpeg"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -880,
+        784
+      ],
+      "id": "2aba33b6-183a-45ad-8cdd-2265c4a1a1c8",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Create a Notion File Upload object1').item.json.upload_url }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "=data"
+            },
+            {
+              "name": "content_type",
+              "value": "={{ $binary.data.mimeType }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        16,
+        784
+      ],
+      "id": "cc6e1153-b271-44af-85a4-b5ecb5983515",
+      "name": "Upload file contents1",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "=U71UHBUD7DfPXOiO",
+          "mode": "id",
+          "cachedResultUrl": "/workflow/=U71UHBUD7DfPXOiO"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -2032,
+        192
+      ],
+      "id": "6f1d40b2-4327-4410-bb59-434ca0f06e09",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -2064,
+        1008
+      ],
+      "id": "bda51369-6568-4103-bcc2-38f4b97ec01a",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.prompt }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are an expert visual-prompt transformer.  \nYour task is to take the complete structured Stage-1 analysis and convert it into a **single, clean, cinematic NanoBanana-ready image prompt**.  \nYour output must describe only the final visual scene—never the internal reasoning behind it.\n\n---\n\n# 🎨 OUTPUT REQUIREMENTS\n\nYour output must ALWAYS be:\n\n- A **single cohesive paragraph** (4–8 sentences)  \n- Written in natural, descriptive, cinematic language  \n- Free of headings, lists, or section names  \n- Free of meta-commentary (no references to “analysis,” “sections,” or “Stage-1”)  \n- Free of model instructions or reasoning terms  \n- Free of Midjourney/MJ flags (no --ar, --v, --style, etc.)  \n- Faithful to the visual, compositional, atmospheric, and technical rules described in the Stage-1 analysis  \n- Calm, engineered, precise, ecological, and restrained  \n- Clean, readable, and optimised for a professional image-generation model  \n\nOnly describe what must visually appear in the image.  \nDo NOT include brand strategy language, process explanations, or internal logic.\n\n---\n\n# 🧱 LOGO & BRAND MARK RULES  \nA **Syntech logo reference image is always provided as the second part** of the input.  \nThis is the **only valid Syntech logo**, and you must obey the following:\n\n### ❌ NEVER:\n- Never place any logo in the **bottom 22%** of the image  \n- Never invent, approximate, or guess a logo  \n- Never use decorative marks, pseudo-logos, glyphs, or abstract shapes that resemble branding  \n- Never place a logo on objects not identified by Stage-1 as Syntech-owned  \n- Never generate a footer bar, frame, border, or graphical box  \n\n### ✔ CONDITIONALLY (WHEN ALLOWED BY STAGE-1):\nIf Stage-1 explicitly identifies a scene object as **Syntech-owned or Syntech-operated**, you may:\n\n- Use the **second-part reference image** as the exact logo  \n- Apply it as a subtle, realistic **decal** on a plausible surface (vehicle door, tank, equipment casing, uniform, etc.)  \n- Match the surface lighting, shadows, curvature, and material  \n- Keep it unobtrusive and professionally integrated  \n\nIf Stage-1 does NOT explicitly identify the object as Syntech-owned →  \n**No logo may appear in the scene**.\n\n---\n\n# 🧱 BOTTOM 22% CLEAN ZONE  \nYour final output must implicitly preserve a **clean bottom 22%** of the canvas.  \nDo NOT describe any objects, text, symbols, shadows, reflections, haze, emissions, or environmental detail in that region.  \nThis area must remain empty for an external overlay.\n\nDo not mention this rule in your paragraph—simply avoid including anything in that area.\n\n---\n\n# 🧭 COMPRESSION RULES\n\n### 1. Determine visual identity  \nTranslate the Stage-1 analysis into the appropriate style:  \n- cinematic editorial realism  \n- photorealistic CGI  \n- conceptual-industrial illustration  \n- vector-inspired minimalism  \n\nChoose the visual identity implied by Stage-1.\n\n### 2. Extract essentials only  \nInclude only the elements that must appear in the final image:\n\n- Primary subject(s)  \n- Setting and environment  \n- Camera perspective, lens behaviour, and framing  \n- Lighting quality and atmospheric tone  \n- Palette and material textures  \n- Composition, spacing, and focal hierarchy  \n- Symbolic or conceptual elements (only if Stage-1 authorises them)  \n- Scene-logo decal usage (only when allowed, and always using the reference image)  \n\n### 3. Exclude internal terminology  \nYour final prompt must NOT contain words such as:  \n“foundation”, “spatial grammar”, “composition logic”, “guidelines integration”, “brand interaction rules”, “negative space percentage”, “semiotics”, “engine”, or anything referencing the generation process.\n\n### 4. Aspect ratio  \nOnly mention aspect ratio if Stage-1 explicitly specifies one.\n\n---\n\n# 📤 OUTPUT FORMAT  \nOutput **only the final paragraph**.  \nNo titles.  \nNo commentary.  \nNo extra text.\n\n---\n\n# 🚀 BEGIN  \nTransform the following Stage-1 analysis into a single NanoBanana-ready cinematic prompt:"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -2128,
+        784
+      ],
+      "id": "1f5bfd09-1db0-4fb5-9785-d11bf25eae6b",
+      "name": "Refine Prompt to NanoBanana Style"
+    },
+    {
+      "parameters": {
+        "url": "https://supabase.granite-automations.app/storage/v1/object/sign/n8n-images/syntech-watermark-1x1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJuOG4taW1hZ2VzL3N5bnRlY2gtd2F0ZXJtYXJrLTF4MS5wbmciLCJpYXQiOjE3NjQxNTI3NjcsImV4cCI6NDkxNzc1Mjc2N30.kEnx2KBJdQpCk8yUrnFikIUHo5b4_hUkGv9626S-dLg&t=2025-11-26T10%3A26%3A07.142Z",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "overlay"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -656,
+        720
+      ],
+      "id": "a182cc0d-4582-4738-8a3d-4762c94b479c",
+      "name": "Get Syntech Overlay"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -432,
+        784
+      ],
+      "id": "94b175c1-002f-455f-8115-0b29c8996f6e",
+      "name": "Merge3"
+    },
+    {
+      "parameters": {
+        "operation": "composite",
+        "dataPropertyNameComposite": "overlay",
+        "options": {
+          "fileName": "result",
+          "format": "jpeg"
+        }
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        784
+      ],
+      "id": "7b598bad-4e06-4d06-9841-ee0d2ea115c4",
+      "name": "Create Watermarked Image"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [\n      {\"text\": {{ $('Refine Prompt to NanoBanana Style').item.json.text.toJsonString() }}},\n      {\"inline_data\": {\"mime_type\":\"image/png\", \"data\": \"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\"}}\n    ]\n  }],\n  \"generationConfig\": {\n    \"imageConfig\": {\n      \"aspectRatio\": \"{{ $('Initial Input').item.json.image_aspect_ratio || '16:9' }}\"  \n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -1552,
+        784
+      ],
+      "id": "f44b3c95-e46b-4887-99cf-de5788a055d2",
+      "name": "Generate Image Nano Banana HTTP",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "ZmbuA0PXohNwTNly",
+          "name": "Google Gemini(PaLM) paid"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -3552,
+        1664
+      ],
+      "id": "e58d80ba-056d-4c63-aaf6-2f52e3b7b34a",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.prompt }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are an expert visual-prompt transformer. Your task is to take a detailed multi-section image analysis and convert it into a **single, clean, cinematic, NanoBananaPro-ready image prompt**.\n\nYour output must always be:\n\n- A **single cohesive prompt**, not multiple variants  \n- Written as **natural descriptive text**, not a list  \n- In the style and structure of high-end photographic/illustrative prompts (e.g., cinematic documentary, editorial industrial, or conceptual realism depending on the analysis)  \n- Without any Midjourney/MJ-style flags (no --ar, --v, --style, etc.)  \n- Clean, readable, and not cluttered  \n- Faithful to the key visual, compositional, lighting, and technical cues in the analysis  \n- Roughly 4–8 sentences long  \n- Prioritising clarity, realism, and professional aesthetic quality  \n\n## RULES FOR TRANSFORMATION\n\n1. **Identify the dominant visual identity**  \n   - If the analysis emphasizes realism, industrial/editorial photography, cinematic light, or specific camera gear → the final prompt must be **photographic and realistic**.  \n   - If the analysis emphasizes diagrams, conceptual scenes, stylized visual metaphors, or infographic cues → the final prompt should be **editorial-illustrative realism**, keeping clean compositions.\n\n2. **Extract only the essential elements**  \n   - Core subject(s)  \n   - Setting and environment  \n   - Camera perspective, lens, and aperture if provided  \n   - Lighting quality, direction, and mood  \n   - Composition and flow  \n   - Colour palette or tonal character  \n   - Textures and key materials  \n   - Optional symbolic overlays **only if explicitly important** — otherwise maintain clean visuals.\n\n3. **Condense all content into a single cinematic paragraph**  \n   - No headings  \n   - No brackets  \n   - No bullet points  \n   - No jargon like “COMPOSITIONAL INTENT” or “AESTHETIC DNA”  \n   - Everything must read as a fluid, descriptive photographic prompt.\n\n4. **Aspect ratio**  \n   - Include only if the analysis references it.  \n   - Otherwise omit.\n\n5. **Tone**  \n   - Professional, cinematic, editorial, or conceptual depending on the analysis.  \n   - No promotional language.\n\n## OUTPUT FORMAT\n\nOutput **only** the final prompt as a single paragraph, for example:\n\n> cinematic editorial-industrial photograph of …\n\n## BEGIN\n\nTransform the following analysis into a single NanoBananaPro-ready prompt:"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -3616,
+        1440
+      ],
+      "id": "b5eb5dda-1068-4cd6-a582-3601f0ad7cb9",
+      "name": "Refine Prompt to NanoBanana Style OLD"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -3600,
+        2096
+      ],
+      "id": "8e08d7c4-0d79-410d-83b7-dad498d91ceb",
+      "name": "OpenAI Chat Model4",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Initial Post:\n{{ $('Initial Input').item.json.content }}\n\n{{ \n$if($('Initial Input').item.json.prompt_update, \n`\nUser provided prompt guidlines:\n${$('Initial Input').item.json.prompt_update}`, '')\n}}\n\nYou are to create {{ $('Initial Input').item.json.num_variants || 2 }} unique variants",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.property_system_message }}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -3600,
+        1872
+      ],
+      "id": "3d3c6c0e-e6c4-404f-933b-96ef3a0c3a18",
+      "name": "Image Prompt Generator1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"variants\": [\"Prompt 1\", \"Prompt 2\", \"Prompt 3\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -3424,
+        2096
+      ],
+      "id": "911a26b7-6cfb-40d6-98e0-ae9807fb0720",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "function duplicateObject(obj, count) {\n  const n = Number(count) || 1;\n  return Array.from({ length: n }, () => ({ ...obj }));\n}\n\nconst incomingPrompt = $json;\nconst numberOfVariants = $('Initial Input').item.json.num_variants || 1;\n\nconsole.log(\"incomingPrompt: \",incomingPrompt)\n\nconst output = duplicateObject(incomingPrompt, numberOfVariants);\n\nreturn {output}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3152,
+        784
+      ],
+      "id": "1bd2883a-6535-4d70-8282-39e79b24a033",
+      "name": "Create Duplicate Prompts"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2928,
+        784
+      ],
+      "id": "40bef6b0-56be-4720-83c8-fe4102c7ff5a",
+      "name": "Split Out Duplicate Prompts"
+    },
+    {
+      "parameters": {
+        "url": "https://supabase.granite-automations.app/storage/v1/object/sign/n8n-images/syntech-logo.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJuOG4taW1hZ2VzL3N5bnRlY2gtbG9nby5wbmciLCJpYXQiOjE3NjQ3NjUxODksImV4cCI6NDkxODM2NTE4OX0.ePYj8N235Z4A8XSR63fjXYs0bc_iesc8K-O9nopGuZk&t=2025-12-03T12%3A33%3A09.566Z",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -3600,
+        1120
+      ],
+      "id": "25bd7c2c-efd4-4d32-a13b-f1d667b201c6",
+      "name": "Get Brand Logo"
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        -3376,
+        1120
+      ],
+      "id": "6f454f70-4a7a-4a12-be7f-e855dd1304f5",
+      "name": "Convert Brand Logo to Base64"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [\n      {\"text\": {{ $('Refine Prompt to NanoBanana Style').item.json.text.toJsonString() }}},\n      {\"inline_data\": {\"mime_type\":\"image/png\", \"data\": \"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\"}}\n    ]\n  }],\n  \"generationConfig\": {\n    \"imageConfig\": {\n      \"aspectRatio\": \"{{ $('Initial Input').item.json.image_aspect_ratio || '16:9' }}\"  \n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -3152,
+        1120
+      ],
+      "id": "a9c3f567-cfb0-447d-802e-1e34f08e68e4",
+      "name": "Generate Image Nano Banana HTTP w Image",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "ZmbuA0PXohNwTNly",
+          "name": "Google Gemini(PaLM) paid"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "Qsg1jSZ5AQScoAOn"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-11T11:25:52.150Z",
+      "createdAt": "2025-12-11T11:25:52.150Z",
+      "role": "workflow:owner",
+      "workflowId": "EzL3KmeLuOQsnLgY",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-01-28T08:03:51.200Z",
+  "versionId": "d14c94c6-cdea-49a4-a4c6-1c89a0275acd"
+}
