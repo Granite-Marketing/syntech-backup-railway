@@ -1,0 +1,2723 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Extract Content Type Prompt": {
+      "main": [
+        [
+          {
+            "node": "If Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Content With Block ID": {
+      "main": [
+        [
+          {
+            "node": "Get Parent DB ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Content Type": {
+      "main": [
+        [
+          {
+            "node": "Extract Content Type Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Content Type": {
+      "main": [
+        [
+          {
+            "node": "Split Content Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Parent DB ID": {
+      "main": [
+        [
+          {
+            "node": "Get Transformed Content DB ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Input3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Block Content": {
+      "main": [
+        [
+          {
+            "node": "Format Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Block Content": {
+      "main": [
+        [
+          {
+            "node": "Set Input3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Execute Content Writer Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Initial Article": {
+      "main": [
+        [
+          {
+            "node": "Get Content With Block ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Social Media Post2": {
+      "main": [
+        [
+          {
+            "node": "Set Notion Success2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Notion API Error2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Subflow Fields4": {
+      "main": [
+        [
+          {
+            "node": "Add Social Media Post2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initial Input": {
+      "main": [
+        [
+          {
+            "node": "Check If Research Exists",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Has Image Prompt?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Model Selector",
+            "type": "ai_languageModel",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Curate Sources": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Research": {
+      "main": [
+        [
+          {
+            "node": "Create Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Research": {
+      "main": [
+        [
+          {
+            "node": "IF text longer than 2000 chars",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Search Queries2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Internet2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Split Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Extract Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Image Prompt Generator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Prompt Generator": {
+      "main": [
+        [
+          {
+            "node": "Set Final Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Final Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Refine Prompt to NanoBanana Style",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Set Subflow Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a Notion File Upload object1": {
+      "main": [
+        [
+          {
+            "node": "Generate Image HTTP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file contents1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Image Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Image Files": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Image HTTP": {
+      "main": [
+        [
+          {
+            "node": "Split Out Parts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Transformed Content DB ID": {
+      "main": [
+        [
+          {
+            "node": "Set Image Prompts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Set Content Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Get Syntech Overlay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Parts": {
+      "main": [
+        [
+          {
+            "node": "Grab Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Grab Image": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Content Writer Workflow": {
+      "main": [
+        []
+      ]
+    },
+    "Set Notion Success2": {
+      "main": [
+        []
+      ]
+    },
+    "If Research": {
+      "main": [
+        [
+          {
+            "node": "Get Research",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check If Research Exists": {
+      "main": [
+        [
+          {
+            "node": "If Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF text longer than 2000 chars": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Splits text in small chuncks": {
+      "main": [
+        [
+          {
+            "node": "IF2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF2": {
+      "main": [
+        [
+          {
+            "node": "Get Source Article Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set Article URL": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Update Research Item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Set Research",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Splits text in small chuncks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Research": {
+      "main": [
+        [
+          {
+            "node": "Format Research Blocks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Research": {
+      "main": [
+        [
+          {
+            "node": "Set Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Research Blocks": {
+      "main": [
+        [
+          {
+            "node": "Set Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Research Item": {
+      "main": [
+        [
+          {
+            "node": "Set Article URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Research Item": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Source Article Details": {
+      "main": [
+        [
+          {
+            "node": "Create New Research Item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Model Selector",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Content1": {
+      "main": [
+        [
+          {
+            "node": "Set Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Content": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Has Image Prompt?": {
+      "main": [
+        [
+          {
+            "node": "Split Out Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "xAI Grok Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Model Selector",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Model Selector": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Content1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Images": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Refine Prompt to NanoBanana Style",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Refine Prompt to NanoBanana Style": {
+      "main": [
+        [
+          {
+            "node": "Create a Notion File Upload object1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Image Prompt Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Syntech Overlay": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "Create Watermarked Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Watermarked Image": {
+      "main": [
+        [
+          {
+            "node": "Upload file contents1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:07.499Z",
+  "id": "G9d4WGYeBHbsulNC",
+  "isArchived": false,
+  "meta": null,
+  "name": "▶️ Multi Platform Content Transformation",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Split Content Type').item.json.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -2240,
+        544
+      ],
+      "id": "bd3824d8-a4ac-46ac-8a9b-3dc9967137fe",
+      "name": "Extract Content Type Prompt",
+      "executeOnce": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get Initial Article').first().json.body.data.id }}",
+          "mode": "id"
+        },
+        "simple": false
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -3360,
+        464
+      ],
+      "id": "8d2bf0d1-0205-4c0d-9855-bfcbc227511e",
+      "name": "Get Content With Block ID",
+      "executeOnce": true,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "set_content_type",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2464,
+        544
+      ],
+      "id": "5c14aa08-95b6-4b54-be1c-fe7924eb52c4",
+      "name": "Split Content Type"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "074bc9ef-54df-4dd5-a617-259349c4a425",
+              "name": "set_content_type",
+              "value": "={{ $('Get Initial Article').first().json.body.data.properties['Additional Formats'].relation }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2688,
+        544
+      ],
+      "id": "82622f0f-af72-4949-b2ac-3e1df5e8e27e",
+      "name": "Set Content Type"
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "databaseId": {
+          "__rl": true,
+          "value": "={{ $json.parent.database_id }}",
+          "mode": "id"
+        },
+        "simple": false
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -3136,
+        464
+      ],
+      "id": "d5894528-f920-4aca-bb1f-be662579673a",
+      "name": "Get Parent DB ID",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "090ef065-4cf7-4d81-9bfa-d87425fbe336",
+              "name": "content",
+              "value": "={{ $json.body }}",
+              "type": "string"
+            },
+            {
+              "id": "62cd50ef-4057-4161-878e-c628c8613a5f",
+              "name": "prompt_update",
+              "value": "={{ $json.prompt_update }}",
+              "type": "string"
+            },
+            {
+              "id": "ceb252e3-d45a-46da-92b0-44b447c3d6f7",
+              "name": "system_message",
+              "value": "={{ $json.system_message }}",
+              "type": "string"
+            },
+            {
+              "id": "19101d04-ac65-441d-9614-b46a2a3b733a",
+              "name": "user_message",
+              "value": "={{ $json.user_message }}",
+              "type": "string"
+            },
+            {
+              "id": "af188dd3-0756-4c57-a428-1da2034c50bc",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "5d2e98c0-3f5f-4d52-95dc-286b5a15d3b2",
+              "name": "source",
+              "value": "={{ $json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "0ecb355c-1570-4af1-82d7-604cf108722d",
+              "name": "platform",
+              "value": "={{ $json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "8c449581-b194-41f1-b7d6-29764cc4c41f",
+              "name": "initial_article",
+              "value": "={{ $json.initial_article }}",
+              "type": "string"
+            },
+            {
+              "id": "b0a17ec1-0f75-40aa-8ce8-a3c0dec0e637",
+              "name": "transformed_content_db_id",
+              "value": "={{ $json.transformed_content_db_id }}",
+              "type": "string"
+            },
+            {
+              "id": "68f9bee7-e35a-44cc-9c48-d8e161f06fe5",
+              "name": "image_dimensions",
+              "value": "={{ $json.image_dimensions }}",
+              "type": "string"
+            },
+            {
+              "id": "3b9f19c8-e8ba-4078-9eb3-021cb5ee34af",
+              "name": "image_system_message",
+              "value": "={{ $json.image_system_message }}",
+              "type": "string"
+            },
+            {
+              "id": "a3aa45a9-6f74-4531-acf2-63e3b3a7d0b1",
+              "name": "image_prompts",
+              "value": "={{ $json.image_prompts }}",
+              "type": "array"
+            },
+            {
+              "id": "b9bf6d87-2969-4afc-95e6-e3c0e2a5c7fb",
+              "name": "image_aspect_ratio",
+              "value": "={{ $json.image_aspect_ratio }}",
+              "type": "string"
+            },
+            {
+              "id": "0b3d0085-a786-4eac-b5d4-9e5b9a8bdcdc",
+              "name": "model",
+              "value": "={{ $json.model }}",
+              "type": "string"
+            },
+            {
+              "id": "0c208a03-0464-4d35-bb22-e7684b33cdb6",
+              "name": "temperature",
+              "value": "={{ $json.temperature }}",
+              "type": "string"
+            },
+            {
+              "id": "6d5fcbf6-ce61-4970-aaab-f030ddb858a6",
+              "name": "top_p",
+              "value": "={{ $json.top_p }}",
+              "type": "string"
+            },
+            {
+              "id": "b04fb168-c9a0-4cc7-a7e9-c7cf8498de00",
+              "name": "frequency_penalty",
+              "value": "={{ $json.frequency_penalty }}",
+              "type": "string"
+            },
+            {
+              "id": "888277fe-ace9-4dd8-8125-a9400dff180e",
+              "name": "presence_penalty",
+              "value": "={{ $json.presence_penalty }}",
+              "type": "string"
+            },
+            {
+              "id": "37690778-bb29-4b6f-bd9d-3d1682f0fde5",
+              "name": "max_tokens",
+              "value": "={{ $json.max_tokens }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -672,
+        544
+      ],
+      "id": "1a184579-4090-42d5-810d-b60022dbcb16",
+      "name": "Set Input3"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $('Get Initial Article').first().json.body.data.id }}",
+          "mode": "id"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1120,
+        464
+      ],
+      "id": "67c499ff-b038-4ef0-8fa8-9bfc02663deb",
+      "name": "Get Block Content",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize output variables\nlet bodyParts = [];\nlet images = [];\n\nfor (const item of $input.all()) {\n  const block = item.json;\n\n  if (block.type === 'paragraph') {\n    const content = block.content?.trim();\n    if (content) {\n      bodyParts.push(content);\n    }\n  }\n\n  if (block.type === 'image') {\n    const imageUrl = block.image?.external?.url;\n    if (imageUrl) {\n      images.push(imageUrl);\n    }\n  }\n}\n\nreturn [\n  {\n    json: {\n      body: bodyParts.join('\\n'),\n      images,\n      // initial_input: $('Set Initial Input').item.json.set_initial_input,\n      system_message: $('Extract Content Type Prompt').item.json.property_system_message,\n      user_message: $('Extract Content Type Prompt').item.json.property_guidelines,\n      title: `Content - ${$('Extract Content Type Prompt').item.json.property_platform[0]} - ${$('Extract Content Type Prompt').item.json.property_format}`,\n      source: $('Get Initial Article').item.json.body.data.id,\n      platform: $('Extract Content Type Prompt').item.json.property_platform[0],\n      transformed_content_db_id: $('Get Transformed Content DB ID').item.json.id,\n      image_dimensions: $('Extract Content Type Prompt').item.json.property_image_dimensions,\n      image_system_message: $('Extract Content Type Prompt').item.json.property_image_system_message,\n      initial_article: $('Get Initial Article').item.json.body.data.url,\n      image_prompts: $('Merge').isExecuted ? $('Merge').first().json.image_prompts : [],\n      image_aspect_ratio: $('Extract Image Prompts').isExecuted ? $('Extract Image Prompts').first().json.property_aspect_ratio : '',\n      \"model\": $('Extract Content Type Prompt').item.json.property_model,\n      \"temperature\": $('Extract Content Type Prompt').item.json.property_temperature,\n      \"top_p\": $('Extract Content Type Prompt').item.json.property_top_p,\n      \"frequency_penalty\": $('Extract Content Type Prompt').item.json.property_frequency_penalty,\n      \"presence_penalty\": $('Extract Content Type Prompt').item.json.property_presence_penalty,\n      \"max_tokens\": $('Extract Content Type Prompt').item.json.property_max_tokens\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -896,
+        464
+      ],
+      "id": "5dd4fa97-9fdc-4661-b790-46e7e6b2526f",
+      "name": "Format Block Content"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1344,
+        464
+      ],
+      "id": "f4b3a43a-902c-4aec-ac75-f7f38ab3047d",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "write-syntech-content-production",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -3584,
+        464
+      ],
+      "id": "768823b8-65b9-46dc-aa8b-8dd277155fd0",
+      "name": "Get Initial Article",
+      "webhookId": "6e345565-c1b2-415c-926e-9118f081bcb4"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "k4L9f8e37QsqnU0n",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/k4L9f8e37QsqnU0n",
+          "cachedResultName": "▶️ Multi Platform Content Transformation"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        -1120,
+        272
+      ],
+      "id": "88229ce5-6daa-4b3f-9435-1c37e9b80b7e",
+      "name": "Execute Content Writer Workflow"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "b2BszX3mKjsELBJP",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/b2BszX3mKjsELBJP",
+          "cachedResultName": "Add Content to Notion"
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1536,
+        1040
+      ],
+      "id": "dc9c2805-1a91-49e6-a300-ed8d22137a97",
+      "name": "Add Social Media Post2",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Initial Input').item.json.initial_article }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|select",
+              "selectValue": "Error: Notion API"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1760,
+        1440
+      ],
+      "id": "3d5ba772-731f-4a4c-9136-279644d45826",
+      "name": "Set Notion API Error2",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Initial Input').first().json.initial_article }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|select",
+              "selectValue": "Content Generated"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1760,
+        944
+      ],
+      "id": "ce53092d-8f56-4f50-ad1a-b551ea6c3d8c",
+      "name": "Set Notion Success2",
+      "executeOnce": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f6abe9ac-2a7d-4ead-8b3f-93d8aef7fb54",
+              "name": "transformed_content_db_id",
+              "value": "={{ $('Initial Input').first().json.transformed_content_db_id }}",
+              "type": "string"
+            },
+            {
+              "id": "a13105d5-dca1-49dc-8fca-84d1e485d7ad",
+              "name": "content",
+              "value": "={{ $('Set Content').item.json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "f5a756d3-d95b-4941-99db-7abd73995af5",
+              "name": "title",
+              "value": "={{ $('Initial Input').first().json.title + ' - ' + $('Initial Input').first().json.model }}",
+              "type": "string"
+            },
+            {
+              "id": "b336bc2e-a12e-4936-bebf-ad274495a048",
+              "name": "source_database_page",
+              "value": "={{ $('Initial Input').first().json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "a938dfe9-0069-4a97-82f2-2d22f6606cb6",
+              "name": "platform",
+              "value": "={{ $('Initial Input').first().json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "bcae6010-8182-40a7-94aa-ac436d2e10b3",
+              "name": "images",
+              "value": "={{ $if($('Aggregate Image Files').isExecuted, $('Aggregate Image Files').item.json.final_image_prompts, []) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1312,
+        1040
+      ],
+      "id": "9c9006f5-0827-402a-802f-eb7f93184086",
+      "name": "Set Subflow Fields4"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -3584,
+        1408
+      ],
+      "id": "55bf7f64-b943-4063-b001-28ba7ef3fbfc",
+      "name": "Initial Input"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "={{ $('Initial Input').first().json.model }}",
+          "mode": "id"
+        },
+        "options": {
+          "frequencyPenalty": "={{ $('Initial Input').first().json.frequency_penalty.toNumber() }}",
+          "maxTokens": "={{ $('Initial Input').first().json.max_tokens.toNumber() }}",
+          "presencePenalty": "={{ $('Initial Input').first().json.presence_penalty.toNumber() }}",
+          "temperature": "={{ $('Initial Input').first().json.temperature.toNumber() }}",
+          "topP": "={{ $('Initial Input').first().json.top_p.toNumber() }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        704,
+        1536
+      ],
+      "id": "0cb49c00-2c8b-47e8-914c-ac656e91e987",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "curate_sources",
+        "description": "Call this tool to curate the best URLs from the generate_search_queries. The input should be the list of URLs from the generate_search_queries tool. ",
+        "workflowId": {
+          "__rl": true,
+          "value": "EAPhQjGU2ySyEXs7",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/EAPhQjGU2ySyEXs7",
+          "cachedResultName": "Curate Sources"
+        },
+        "fields": {
+          "values": [
+            {
+              "name": "question",
+              "stringValue": "={{ $('Initial Input').item.json.content }}"
+            },
+            {
+              "name": "max_results",
+              "stringValue": "=3"
+            },
+            {
+              "name": "in_depth",
+              "type": "booleanValue"
+            }
+          ]
+        },
+        "jsonSchemaExample": ""
+      },
+      "id": "49b56fa8-979f-4e29-a020-8abf25dc03f4",
+      "name": "Curate Sources",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -832,
+        1952
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e0f28b7-3221-4534-8945-97b63a15f4cc",
+              "name": "set_research",
+              "value": "={{ $if($('Research').isExecuted, $('Research').first().json.output, $('Format Research Blocks').item.json.body) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e2e7fe54-516d-41b3-8761-a8befafab29b",
+      "name": "Set Research",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        176,
+        1312
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your are responsible for managing and coordinating researching the users query.\n\n# Objectives\n- Prioritise UK sources first; include EU/global only when UK data is unavailable or to add context.\n- Default to the most recent information, ideally within the last 24 months, unless citing foundational standards or landmark studies.\n- Emphasise factual, standards-led, and operationally relevant information (e.g., BS EN 14214, RTFO, on-site/on-time deployment, measurable emissions impact).\n- Exclude partisan commentary and political opinion pieces. Factual policy/regulatory materials are allowed.\n- Prefer credible sources: government, standards bodies, peer-reviewed research, and recognised industry research. Include high-quality industry/blog sources when they present verifiable data or methodology.\n\n# Steps\n1. Research the internet to genrate additional context for the article: \"{{ $('Initial Input').item.json.content }}\"\n2. Use the context from your web search to generate search queries.\n3. Search the internet with the queries generated by the generate_search_queries tool.\n4. Curate the best URLs from step 3.\n\n# Tools Available\n\"generate_search_queries\": Create initial search queries on the article\n\"search_internet\": Helps the agent better understand the task by obtaining real-time web data.\n\"curate_sources\": Evaluate and curate the best URLs from the research_search_queries tool\n\n# Output and Quality Notes\n- Capture sources that include measurable outcomes, standards/regulatory references, supply-chain/ESG implications, and concrete data.\n- Avoid redundancy; include overlapping sources only if each adds novel data, methodology, or perspective.\n- Note paywalls or inaccessible pages; prefer accessible sources for extraction and citation.\n- Assume todays date is {{ $now }}.",
+        "options": {}
+      },
+      "id": "ee6ee027-09a7-4c44-80a4-a14829a59d9f",
+      "name": "Research",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -752,
+        1728
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "name": "generate_search_queries",
+        "description": "Generates the search queries prompt for the given question and context.\nArgs:\n        question (str): The question to generate the search queries prompt for\n        report_type (str): The report type\n        max_iterations (int): The maximum number of search queries to generate\n        context (str): Context for better understanding of the task with realtime web information provided by calling the 'get_content' tool\n\nReturns: str: The search queries prompt for the given question",
+        "workflowId": {
+          "__rl": true,
+          "value": "3ZvtNy32wVNLZjZO",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/3ZvtNy32wVNLZjZO",
+          "cachedResultName": "Generate Search Queries"
+        },
+        "fields": {
+          "values": [
+            {
+              "name": "question",
+              "stringValue": "={{ $json.body.text }}"
+            },
+            {
+              "name": "report_type",
+              "stringValue": "=ada"
+            },
+            {
+              "name": "max_iterations",
+              "stringValue": "=3"
+            }
+          ]
+        },
+        "specifyInputSchema": true,
+        "schemaType": "manual",
+        "inputSchema": "{\n\"type\": \"object\",\n\"properties\": {\n\t\"query\": {\n\t\t\"type\": \"string\",\n\t\t\"description\": \"The query generated by the agent\"\n    },\n    \"context\": {\n  \t\t\"type\": \"string\",\n  \t\t\"description\": \"The output generated by calling the 'get_contet' tool\"\n    }\n  }\n}"
+      },
+      "id": "4a2ee693-187d-49de-9660-d6acdffb3046",
+      "name": "Generate Search Queries2",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -672,
+        1952
+      ]
+    },
+    {
+      "parameters": {
+        "toolDescription": "Useful for searching search queries generated by the agent. ",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n    \"api_key\": \"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\",\n    \"query\": \"{query}\",\n}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "query",
+              "description": "The query provided by the Agent"
+            }
+          ]
+        },
+        "optimizeResponse": true,
+        "dataField": "results",
+        "fieldsToInclude": "selected",
+        "fields": "title, url, content, score"
+      },
+      "id": "b39177f7-0546-4a12-8b0f-addab7db74cc",
+      "name": "Search Internet2",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        -480,
+        1952
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4.1",
+        "options": {}
+      },
+      "id": "99b79b55-6239-4668-855f-4306af973b5f",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -1008,
+        1952
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        1824
+      ],
+      "id": "a4d7c02b-52be-4b57-b170-4b568494091d",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "074bc9ef-54df-4dd5-a617-259349c4a425",
+              "name": "set_image_prompts",
+              "value": "={{ $('Get Initial Article').first().json.body.data.properties['Choose Image Format'].relation }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2688,
+        320
+      ],
+      "id": "346b8dab-80fa-4286-9c8f-c17f08e589f4",
+      "name": "Set Image Prompts"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "set_image_prompts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2464,
+        320
+      ],
+      "id": "b107ab08-9e67-452f-8ec8-32d6b102758d",
+      "name": "Split Image Prompts",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Split Image Prompts').item.json.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -2240,
+        320
+      ],
+      "id": "b7045c04-c5f2-402e-9375-86a6fc12ba51",
+      "name": "Extract Image Prompts",
+      "executeOnce": false,
+      "alwaysOutputData": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1792,
+        400
+      ],
+      "id": "776abe76-2950-4b88-938a-912663e2a800",
+      "name": "Merge",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "maxItems": 100
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        464
+      ],
+      "id": "d79f3450-68e9-40ed-807c-823ab1e90258",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2624,
+        1088
+      ],
+      "id": "19df18a3-7bb2-4dfd-8467-b601c2c74e9a",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Initial Input').item.json.content }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $json.property_system_message }}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -2688,
+        864
+      ],
+      "id": "30ef3ca9-8b2d-4495-84f1-a30b8342583d",
+      "name": "Image Prompt Generator",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "image_prompts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -3136,
+        864
+      ],
+      "id": "b7f3e1c8-df24-455f-9d11-0dfa1093dc80",
+      "name": "Split Out Image Prompts"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "af522a61-b899-4c7e-b6e4-1f45e70f677c",
+              "name": "prompt",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2336,
+        864
+      ],
+      "id": "b3f40758-31a1-4b00-ab74-4ca246316873",
+      "name": "Set Final Image Prompts"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1088,
+        1040
+      ],
+      "id": "4ba42483-d763-4e1c-a6e6-cd1db32be881",
+      "name": "Merge1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/file_uploads",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "filename",
+              "value": "={{ $('Split Out Image Prompts').item.json.name.split(' ').join('-').toLowerCase() + '-' + $('Initial Input').item.json.source }}"
+            },
+            {
+              "name": "content_type",
+              "value": "=image/jpeg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1760,
+        864
+      ],
+      "id": "84df7acc-fc82-468b-ae3c-2ae11285bda3",
+      "name": "Create a Notion File Upload object1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Create a Notion File Upload object1').item.json.upload_url }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "=data"
+            },
+            {
+              "name": "content_type",
+              "value": "={{ $binary.data.mimeType }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        528,
+        864
+      ],
+      "id": "8222c5d1-767f-432a-bd42-dff3cdb68516",
+      "name": "Upload file contents1",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "image_prompts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -2016,
+        320
+      ],
+      "id": "16c01429-6c10-4481-b476-50a2270e0407",
+      "name": "Aggregate Image Prompts",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "final_image_prompts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        864,
+        864
+      ],
+      "id": "dad39ac1-eda8-4c45-bd4f-ae5d902cbc0b",
+      "name": "Aggregate Image Files"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [\n      {\"text\": {{ $('Refine Prompt to NanoBanana Style').item.json.text.toJsonString() }}}\n    ]\n  }],\n  \"generationConfig\": {\n    \"imageConfig\": {\n      \"aspectRatio\": \"{{ $('Initial Input').item.json.image_aspect_ratio || '16:9' }}\"\n    }\n  }\n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 10000
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -1536,
+        864
+      ],
+      "id": "2b53fcb3-71b6-4fd9-8e4a-e041ad807217",
+      "name": "Generate Image HTTP",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "ZmbuA0PXohNwTNly",
+          "name": "Google Gemini(PaLM) paid"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "databaseId": {
+          "__rl": true,
+          "value": "={{ $json.properties[\"Transformed Content\"].relation.database_id }}",
+          "mode": "id"
+        },
+        "simple": false
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -2912,
+        464
+      ],
+      "id": "45f5b99d-351b-4c59-a648-a99ae63dd6b2",
+      "name": "Get Transformed Content DB ID",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "inlineData.data",
+        "options": {
+          "mimeType": "image/jpeg"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -688,
+        864
+      ],
+      "id": "1a6c51da-8eca-44a5-bc84-b37db357026a",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "candidates[0].content.parts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -1312,
+        864
+      ],
+      "id": "c7c94f04-5638-4364-b7ee-e42f404f48e7",
+      "name": "Split Out Parts"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6f57c194-a475-4c13-bb0d-1ba4f29c704b",
+              "leftValue": "={{ $json.inlineData.mimeType }}",
+              "rightValue": "image",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -1088,
+        864
+      ],
+      "id": "cebbf022-0ff7-435b-8f77-4d2511b18193",
+      "name": "Grab Image"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "57ea1399-e8ec-41a4-b2ca-96cfa824375b",
+              "leftValue": "={{ $json.property_article_research }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1088,
+        1616
+      ],
+      "id": "84f7c606-6a06-4e32-897d-0267cdb6f884",
+      "name": "If Research"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Initial Input').item.json.source }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1312,
+        1616
+      ],
+      "id": "2f182f29-754b-4738-a90f-70834589f5b0",
+      "name": "Check If Research Exists",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $('Research').item.json.output.length }}",
+              "operation": "larger",
+              "value2": 2000
+            }
+          ]
+        }
+      },
+      "id": "a7c2da4d-24bc-4d62-890b-2599c78e03c4",
+      "name": "IF text longer than 2000 chars",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        1632
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let result = [];\nlet firstBlock = true;\n\n// Split text on \\n characters - FIXED: Use .item instead of .first() to get current item\nlet textBlocks = $('Loop Over Items1').item.json.output.split(/\\n/);\n\nfor (let block of textBlocks) {\n    if (block.length === 0) continue;\n    result.push({\n        \"textSubString\": block.trim(),\n        \"firstBlock\": firstBlock\n    });\n    firstBlock = false;\n}\n\nreturn result;"
+      },
+      "id": "0eb1f51b-e193-4b53-97c7-fc7dac02998d",
+      "name": "Splits text in small chuncks",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        176,
+        1728
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.firstBlock }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "fdfce5ff-bccc-46f0-9474-1407427c5279",
+      "name": "IF2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        528,
+        1728
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "url",
+              "stringValue": "={{ $json.url }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "1ea27735-64d0-45e8-8a56-778bcb014780",
+      "name": "Set Article URL",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1312,
+        1632
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "61508bfa-5c51-4e92-a223-62caf957cda4",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        1536,
+        1728
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -48,
+        1728
+      ],
+      "id": "9336022d-c3e5-418d-8bc0-e79f8a1238ed",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('If Research').item.json.property_article_research[0] }}"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -272,
+        1120
+      ],
+      "id": "cb939c0f-276f-44e1-a99d-5b9cdb6e3770",
+      "name": "Get Research",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a2785c0-cfab-8086-9093-d7f79cb3bbae",
+          "mode": "list",
+          "cachedResultName": "Syntech Article Research",
+          "cachedResultUrl": "https://www.notion.so/2a2785c0cfab80869093d7f79cb3bbae"
+        },
+        "title": "={{ $('Initial Input').first().json.title + ' ' + $now.format('yyyy-MM-dd HH:mm') }} Research",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Source Article|relation",
+              "relationValue": [
+                "={{ $('Initial Input').first().json.source }}"
+              ]
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $('Research').item.json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -48,
+        1328
+      ],
+      "id": "ffcf4b78-1863-4969-bc30-d5bd1b6196e5",
+      "name": "Add Research",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize output variables\nlet bodyParts = [];\nlet images = [];\n\nfor (const item of $input.all()) {\n  const block = item.json;\n\n  if (block.type === 'paragraph') {\n    const content = block.content?.trim();\n    if (content) {\n      bodyParts.push(content);\n    }\n  }\n\n  if (block.type === 'image') {\n    const imageUrl = block.image?.external?.url;\n    if (imageUrl) {\n      images.push(imageUrl);\n    }\n  }\n}\n\nreturn [\n  {\n    json: {\n      body: bodyParts.join('\\n'),\n      images\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        1120
+      ],
+      "id": "3c68d0d8-7e91-44ed-a49a-2ecb338498c5",
+      "name": "Format Research Blocks"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a2785c0-cfab-8086-9093-d7f79cb3bbae",
+          "mode": "list",
+          "cachedResultName": "Syntech Article Research",
+          "cachedResultUrl": "https://www.notion.so/2a2785c0cfab80869093d7f79cb3bbae"
+        },
+        "title": "={{ $('Get Source Article Details').item.json.name }} - Research",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Source Article|relation",
+              "relationValue": [
+                "={{ $('Initial Input').first().json.source }}"
+              ]
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $('Splits text in small chuncks').item.json.textSubString }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1088,
+        1632
+      ],
+      "id": "745d3590-f514-44db-b287-deeef7cf0ada",
+      "name": "Create New Research Item",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $json.textSubString }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1760,
+        1776
+      ],
+      "id": "6d580e80-b47c-4cf2-97f5-2e65b879c2ae",
+      "name": "Update Research Item",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Initial Input').first().json.source }}",
+          "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        864,
+        1632
+      ],
+      "id": "8d4747c3-843a-4503-98b5-ce18fba515fb",
+      "name": "Get Source Article Details",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "={{ $('Initial Input').first().json.model }}",
+          "mode": "id"
+        },
+        "options": {
+          "maxTokensToSample": "={{ $('Initial Input').first().json.max_tokens.toNumber() }}",
+          "temperature": "={{ $('Initial Input').first().json.temperature.toNumber() }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        320,
+        1536
+      ],
+      "id": "bb3dc4ce-f3bb-4533-92e2-f285135b16f1",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "uv5ovuIM0W5fmRTp",
+          "name": "Stephen Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Guidelines:\n{{ $('Initial Input').first().json.user_message }}\n\nAdditional Research:\n{{ $json.set_research }}\n\nInput Content Main Article:\n{{ $('Initial Input').first().json.content }}\n\n{{ $('Initial Input').first().json.prompt_update }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $('Initial Input').first().json.system_message }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        464,
+        1104
+      ],
+      "id": "5f35827a-b9a4-4455-a598-940b1ff6fab6",
+      "name": "Create Content1",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5155bc71-d612-42aa-a556-52931b297bfc",
+              "name": "content",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        864,
+        1312
+      ],
+      "id": "6bcca1e9-fe17-417e-bbef-a634fbb4343f",
+      "name": "Set Content"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d697ef83-e2da-46f7-b990-15ee69a07ed1",
+              "leftValue": "={{ $json.image_prompts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -3360,
+        864
+      ],
+      "id": "f0614fba-3612-47c9-9d9d-727fd12e4d62",
+      "name": "Has Image Prompt?"
+    },
+    {
+      "parameters": {
+        "model": "={{ $('Initial Input').first().json.model }}",
+        "options": {
+          "maxTokens": "={{ $('Initial Input').first().json.max_tokens.toNumber() }}",
+          "temperature": "={{ $('Initial Input').first().json.temperature.toNumber() }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatXAiGrok",
+      "typeVersion": 1,
+      "position": [
+        496,
+        1536
+      ],
+      "id": "2dc5db6d-3dc4-4351-9555-d37a8cca36fd",
+      "name": "xAI Grok Chat Model",
+      "credentials": {
+        "xAiApi": {
+          "id": "v2umPGocOvO6tgv7",
+          "name": "DOV xAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 3,
+        "rules": {
+          "rule": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "acc552b8-3a59-4f72-b6bf-bb5f1768590c",
+                    "leftValue": "={{ $('Initial Input').first().json.model }}",
+                    "rightValue": "claude",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "modelIndex": 2,
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "db646fbb-f0b3-4ba2-bed9-19fb282e4d62",
+                    "leftValue": "={{ $('Initial Input').first().json.model }}",
+                    "rightValue": "grok",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "modelIndex": 3,
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "49372d32-71f6-464c-b77d-e6ea0691549d",
+                    "leftValue": "={{ $('Initial Input').first().json.model }}",
+                    "rightValue": "gpt",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.modelSelector",
+      "typeVersion": 1,
+      "position": [
+        448,
+        1328
+      ],
+      "id": "188c9c94-405a-4347-95b7-8e63fd573784",
+      "name": "Model Selector"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "37160464-0965-4b84-ad18-62f19c21ac03",
+              "leftValue": "={{ $('Extract Image Prompts').isExecuted }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2016,
+        544
+      ],
+      "id": "c4c45cb7-f18a-4c0e-adfc-f46b006d90ae",
+      "name": "If Images"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -2048,
+        1088
+      ],
+      "id": "3603b796-de01-4df8-8389-b7b31fb60314",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.prompt }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are Stage-2 of Syntech’s Image Generation System.\n\nStage-1 has already produced a complete, structured visual blueprint.\nYour ONLY job is to:\n\n→ compress the Stage-1 blueprint  \n→ into one single, clean, NanoBanana-ready text prompt  \n→ that perfectly obeys the example pack’s visual universe  \n→ with NO interpretation, debate, or deviation.\n\nStage-1 is ALWAYS correct.  \nStage-1 is the law.  \nYou DO NOT rethink, reinterpret, or add extra opinion.\n\n--------------------------------------------------------------------\n# 🔐 PACK-UNIVERSE LOCK (MANDATORY)\n\nThe EXAMPLE PACK determines:\n\n• medium (photo, CGI, vector, icon, diagram, conceptual, industrial)  \n• object grammar  \n• lighting  \n• colour logic  \n• geometry  \n• texture  \n• realism level  \n• negative space ratio  \n• where text sits  \n• how text behaves  \n• emotional tone  \n\nYou MUST enforce this.\n\nExamples:\n\n→ Icon Pack  \nConvert every object into iconographic form: flat vector, geometric, symbolic shapes, consistent line/shape system. NO realism. NO depth unless shown in examples.\n\n→ Futuristic CGI Pack  \nHigh-fidelity CGI. Engineered surfaces. Controlled volumetric light. Cinematic tech atmosphere. No photography.\n\n→ Industrial Smoke Pack  \nMinimal industrial structures. Smokestacks. Monochrome tension. No trucks unless examples allow them.\n\n→ Human Close-Up Pack  \nPhotographic macro human interaction with equipment. Real skin, materials, shallow depth, clean composition.\n\n→ Data & Information Pack  \nDiagrams, schematics, shapes, flows, stats, information systems. No photographic vehicles.\n\nStage-2 MUST reshape all content into the pack’s medium.  \nIf Stage-1 references “a truck” in an Icon Pack → you output an *icon-style truck*, not a photo.\n\n--------------------------------------------------------------------\n# 🎯 PRIMARY TASK\n\nTransform Stage-1 into a SINGLE ultra-precise prompt that includes:\n\n1. The PACK’S REQUIRED MEDIUM  \n2. The PACK’S STYLE UNIVERSE  \n3. The COMPOSITIONAL LOGIC defined by Stage-1  \n4. The FOCAL ZONE + NEGATIVE SPACE rules  \n5. The TEXT (if Stage-1 includes text) using Montserrat  \n6. Colour behaviour that matches the pack  \n7. Lighting behaviour matching the pack  \n8. The metaphor/theme extracted by Stage-1  \n9. The correct bottom-20% calm zone  \n\nThis output must be the exact style the pack demands.\n\nNo meta-text.  \nNo headings.  \nNo lists.  \nOnly the final compressed prompt.\n\n--------------------------------------------------------------------\n# 🎨 STYLE ENFORCEMENT RULES\n\nApply these automatically:\n\n### 1. **Object Grammar Transformer**\nAny object mentioned MUST be expressed in the style of the pack.\n\n• Icon pack → iconified silhouettes  \n• CGI → engineered CGI assets  \n• Data pack → abstracted geometric placeholders, shapes, lines  \n• Industrial pack → metallic, minimal, smokestack logic  \n• Human close-up → real human macro photography  \n\nNever output an object in a style not supported by the pack.\n\n### 2. **Colour Behaviour Transformer**\n• Use pack colours first  \n• Then allow Syntech brand tint subtly  \n• Only add additional colours if pack examples clearly support that palette\n\n### 3. **Lighting Transformer**\nNever default to realism if pack uses flat lighting.  \nNever flatten lighting if pack uses volumetrics.\n\n### 4. **Text Transformer**\nText MUST follow Stage-1’s hierarchy and placement exactly.  \nFont: Montserrat family.  \nNo text shadow.  \nNo glow.  \nNo cheating.\n\n### 5. **Bottom 20–25% Calm Zone**\nYou are NOT rendering a white bar.  \nSimply avoid:\n• strong contrast  \n• focal detail  \n• dense texture  \n• active shapes  \n\nSubtle gradients or soft ground tones are allowed.\n\n--------------------------------------------------------------------\n# 🧩 OUTPUT FORMAT (MANDATORY)\n\nOutput **ONE single paragraph** containing:\n\n• medium  \n• style  \n• lighting  \n• colour  \n• objects in correct grammar  \n• metaphor expression  \n• composition  \n• focal zone logic  \n• bottom calm zone  \n• text placement if applicable  \n• brand tone  \n\nNo lists.  \nNo headings.  \nNo explanations.  \nOnly the final rendering prompt.\n\n--------------------------------------------------------------------\n# 🚫 PROHIBITIONS\n\nNEVER include:\n• people unless the pack explicitly uses humans  \n• realism inside iconographic packs  \n• trucks/fuel pumps unless the pack supports them  \n• white bars, text shadows, UI artifacts  \n• surreal chaos, neon sci-fi, grunge  \n• breaking pack boundaries  \n• outputting Stage-1 sections\n\n--------------------------------------------------------------------\n# ✔️ WHEN READY\n\nWhen Stage-1 says “Go right”, you:\n\n→ Read ALL sections  \n→ Compress them into a single faithful rendering prompt  \n→ Output only the final prompt, nothing else"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -2112,
+        864
+      ],
+      "id": "dec6f742-f1bc-4b97-8221-085a0b8c58e0",
+      "name": "Refine Prompt to NanoBanana Style"
+    },
+    {
+      "parameters": {
+        "maxItems": 100
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -2912,
+        864
+      ],
+      "id": "b40764f0-d9a6-40ea-8c34-587a42e81905",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "url": "https://supabase.granite-automations.app/storage/v1/object/sign/n8n-images/syntech-watermark-1x1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJuOG4taW1hZ2VzL3N5bnRlY2gtd2F0ZXJtYXJrLTF4MS5wbmciLCJpYXQiOjE3NjQxNTI3NjcsImV4cCI6NDkxNzc1Mjc2N30.kEnx2KBJdQpCk8yUrnFikIUHo5b4_hUkGv9626S-dLg&t=2025-11-26T10%3A26%3A07.142Z",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "overlay"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -272,
+        800
+      ],
+      "id": "353815e2-fb97-4c36-b9cc-ab1b28d062cd",
+      "name": "Get Syntech Overlay"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -48,
+        864
+      ],
+      "id": "4e2fbdd5-bdf4-4ba4-849e-9b215017c8d0",
+      "name": "Merge3"
+    },
+    {
+      "parameters": {
+        "operation": "composite",
+        "dataPropertyNameComposite": "overlay",
+        "options": {
+          "fileName": "result",
+          "format": "jpeg"
+        }
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        176,
+        864
+      ],
+      "id": "7298f259-2bd0-40e6-b89d-adbc29e91aa1",
+      "name": "Create Watermarked Image"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "Qsg1jSZ5AQScoAOn"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:07.499Z",
+      "createdAt": "2026-01-28T09:06:07.499Z",
+      "role": "workflow:owner",
+      "workflowId": "G9d4WGYeBHbsulNC",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:06:07.499Z",
+  "versionId": "ab3c01ad-8813-453f-b04a-17723068e47f"
+}
