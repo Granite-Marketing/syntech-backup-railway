@@ -1,0 +1,221 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Response1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:12:43.008Z",
+  "id": "dHeIEkmjfZ9Plc86",
+  "isArchived": true,
+  "meta": null,
+  "name": "Generate Search Queries",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "702f4d4b-4a6e-4766-968f-fbbeb03df5c8",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4.1-mini",
+        "options": {}
+      },
+      "id": "4522f7b5-aa7f-418e-8321-057396df4d97",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        240,
+        224
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ae5e13c6-81dd-4cd2-957b-ed641136c767",
+              "name": "response",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0aefcede-fa8e-4f09-b83e-101af01fae3d",
+      "name": "Response",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write {{ $json.max_iterations }} google search queries to search online that form an objective opinion from the following task: \"{{ $json.query.query }}\"\nAssume the current date is {{ $now }} if required.",
+        "options": {
+          "systemMessage": "=You are a seasoned research assistant tasked with generating search queries to find relevant information for the following task: \"{{ $json.query.query }}\".\nContext: {{ $if($json.query.context, $json.query.context, $json.context) }}\nUse this context to inform and refine your search queries. The context provides real-time web information that can help you generate more specific and relevant queries. Consider any current events, recent developments, or specific details mentioned in the context that could enhance the search queries.\n\nQuery design requirements:\n- Plain language only: Use only letters, numbers, and spaces. Do not use any punctuation, special characters, or search operators (no quotes, colons, slashes, plus, minus, pipes, parentheses).\n- Concise length: Keep each query focused and compact (not too broad or long).\n- Tailored relevance: Derive terms from the input article’s main entities, standards, sectors, metrics, and counterpoints.\n- Geography and recency: Prefer a UK basis with simple tokens like UK, Britain, British, and use natural recency words such as latest or years like 2024 or 2025 when appropriate.\n- Standards and regulation: Include tokens such as BS EN 14214, RTFO, renewable fuel obligation UK, CEN standard, fuel quality directive.\n- Fuel and domain specificity: Include tokens like HVO, renewable diesel, FAME biodiesel, used cooking oil, waste derived feedstocks, ILUC, life cycle GHG, well to wheel, well to tank, Scope 3, drop in fuel no engine mods, HGV, construction plant, logistics.\n- Evidence and method intent: Include variants that target statistics, data, life cycle assessment, methodology, case study, deployment, supply chain, ESG.\n- Balance: Include supportive and critical angles using words like benefits, limitations, challenges, risks, critique. Exclude partisan or political framing.\n\nOutput:\nYou must respond with a list of strings in the following format: [].\nReturn ONLY the list. Do not include explanations or markdown. Do not include duplicate queries. Trim extra spaces."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        240,
+        0
+      ],
+      "id": "98b2ae69-1ccb-4e99-bc59-a9b04aa988d5",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c07dd67f-d3bc-4340-861b-2d703897e798",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        720
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ae5e13c6-81dd-4cd2-957b-ed641136c767",
+              "name": "response",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "38f3883f-8a2b-4421-ad26-ab1e6c5adb9d",
+      "name": "Response1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1744,
+        496
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write {{ $json.max_iterations }} google search queries to search online that form an objective opinion from the following task: \"{{ $json.query.query }}\"\n\nAssume the current date is {{ $now }} if required.\n\nYou are a seasoned research assistant tasked with generating search queries to find relevant information for the following task: \"{{ $json.query.query }}\".\n\nContext: {{ $if($json.query.context, $json.query.context, $json.context) }}\n\nUse this context to inform and refine your search queries. The context provides real-time web information that can help you generate more specific and relevant queries. Consider any current events, recent developments, or specific details mentioned in the context that could enhance the search queries.\n\nYou must respond with a list of strings in the following format: [].\nThe response should contain ONLY the list.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1360,
+        496
+      ],
+      "id": "5edd099b-cb23-4bc9-a6dc-07ad265657e5",
+      "name": "AI Agent1"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "Qsg1jSZ5AQScoAOn"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:12:43.008Z",
+      "createdAt": "2026-01-28T08:12:43.008Z",
+      "role": "workflow:owner",
+      "workflowId": "dHeIEkmjfZ9Plc86",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:19:53.743Z",
+  "versionId": "9562c875-41b4-4dcc-96a3-159975bad42c"
+}
