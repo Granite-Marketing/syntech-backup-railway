@@ -1,0 +1,464 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Match Input Format": {
+      "main": [
+        [
+          {
+            "node": "Classification agent with Batch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluation": {
+      "main": [
+        [
+          {
+            "node": "Set Output In Evaluation Google Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Evaluation": {
+      "main": [
+        [
+          {
+            "node": "Get All Sources1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Output In Evaluation Google Sheet": {
+      "main": [
+        [
+          {
+            "node": "Evaluation1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "Get 10 best articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get 10 best articles": {
+      "main": [
+        [
+          {
+            "node": "Evaluation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Sources1": {
+      "main": [
+        [
+          {
+            "node": "Match Input Format",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Evaluation1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Classification agent with Batch1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classification agent with Batch1": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classification agent with Batch1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:07.159Z",
+  "id": "7zoi57bplzggDFvj",
+  "isArchived": false,
+  "meta": null,
+  "name": "Prompt Evaluation",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a4678c4d-3605-43b3-930d-54f3db0cf209",
+              "name": "content",
+              "value": "={{ $('Run Evaluation').item.json.Content }}",
+              "type": "string"
+            },
+            {
+              "id": "960e3dc3-5af8-4535-bca0-6db869b1bed0",
+              "name": "url",
+              "value": "={{ $('Run Evaluation').item.json.URL }}",
+              "type": "string"
+            },
+            {
+              "id": "084b87c7-e199-4284-89d5-a2a5bb7a69e7",
+              "name": "title",
+              "value": "={{ $('Run Evaluation').item.json.Title }}",
+              "type": "string"
+            },
+            {
+              "id": "4957e170-7f99-4439-8b8a-29e930aa8823",
+              "name": "publication_date",
+              "value": "={{ $('Run Evaluation').item.json[\"Publication Date\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "7bf20e2e-95b3-4acc-9a9b-7fcf895f1ad2",
+              "name": "expected_relevance",
+              "value": "={{ $('Run Evaluation').item.json[\"Expected Score\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1312,
+        128
+      ],
+      "id": "5b38f937-190c-4df8-a519-1c821975ccd5",
+      "name": "Match Input Format",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "checkIfEvaluating"
+      },
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.7,
+      "position": [
+        -32,
+        128
+      ],
+      "id": "6321f1a4-b637-4890-8857-d58948a378e6",
+      "name": "Evaluation"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        }
+      },
+      "type": "n8n-nodes-base.evaluationTrigger",
+      "typeVersion": 4.6,
+      "position": [
+        -1776,
+        128
+      ],
+      "id": "27c16e2f-fd69-4e2b-89e5-9e0386854368",
+      "name": "Run Evaluation",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "KtxUrOdQhOl4VgmB",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        },
+        "outputs": {
+          "values": [
+            {
+              "outputName": "Actual_Score",
+              "outputValue": "={{ $json.output.relevance_score }}"
+            },
+            {
+              "outputName": "AI_Reasoning",
+              "outputValue": "={{ $('Classification agent with Batch1').item.json.output.reason }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        32
+      ],
+      "id": "c089835f-ccf3-4f78-aa67-7fd951850640",
+      "name": "Set Output In Evaluation Google Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "KtxUrOdQhOl4VgmB",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "output.relevance_score",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        128
+      ],
+      "id": "dd31f3e4-df90-488a-8950-cb67cdbe2837",
+      "name": "Sort"
+    },
+    {
+      "parameters": {
+        "maxItems": 10
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        128
+      ],
+      "id": "f16f5fb6-aca5-405d-9b14-9795f4924c99",
+      "name": "Get 10 best articles"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27a785c0-cfab-807b-b5eb-e1214e18960d",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuels Static Sources",
+          "cachedResultUrl": "https://www.notion.so/27a785c0cfab807bb5ebe1214e18960d"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1520,
+        128
+      ],
+      "id": "dbe25f31-2645-40b0-9bf8-feb5a54a31bc",
+      "name": "Get All Sources1",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "setMetrics",
+        "expectedAnswer": "={{ $('Run Evaluation').item.json.Expected_Score }}",
+        "actualAnswer": "={{ $('Classification agent with Batch1').item.json.output.relevance_score }}",
+        "prompt": "=You are an expert evaluator assessing how closely an actual score matches the expected score.\n\nCompare the expected and actual scores numerically, then assign a final similarity rating from 0 to 5 according to the following scale:\n\n# Scoring Criteria\n- 5: Perfect match – actual and expected scores are identical.\n- 4: Very close – difference of 1 point.\n- 3: Somewhat close – difference of 2 points.\n- 2: Noticeably different – difference of 3 points.\n- 1: Highly different – difference of 4 points.\n- 0: Completely misaligned or invalid comparison – difference greater than 4 or one score missing.\n\n# Output Format\nOnly output the final score in strict JSON format as follows:\n{\n  \"score\": <integer from 0 to 5>\n}\n\nDo not include any reasoning, explanation, or additional text.\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.8,
+      "position": [
+        448,
+        32
+      ],
+      "id": "43505b8b-eb5b-48ff-b7c9-064f04882420",
+      "name": "Evaluation1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        192
+      ],
+      "id": "847bdccb-1298-4de3-af1f-ac8f3fafc131",
+      "name": "OpenAI Chat Model8",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"relevance_score\": {\n      \"type\": \"integer\",\n      \"description\": \"Relevance score from 0 to 5 indicating how closely the article aligns with Syntech Biofuel's focus\",\n      \"minimum\": 0,\n      \"maximum\": 5\n    },\n    \"reason\": {\n      \"type\": \"string\",\n      \"description\": \"Short factual explanation of the score (1-2 sentences maximum)\"\n    }\n  },\n  \"required\": [\"score\", \"reason\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -672,
+        368
+      ],
+      "id": "55437278-3b32-479a-9476-43d6d6ca8813",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.content }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=<prompt>\n\n    <introduction>\n        You are an expert evaluator of sustainability and renewable fuel content.  \n        Your role is to assess how closely an article aligns with **Syntech Biofuel’s ecosystem, mission, and focus areas**.  \n        Syntech specializes in **advanced liquid biofuels** (B100, HVO, ASB, FAME) made from **waste streams**, emphasizing **UK-based innovation**, **decarbonisation**, and **drop-in diesel substitution**.  \n        Articles most relevant to Syntech discuss **UK waste-to-fuel systems**, **B100/B20/FAME deployment**, **RTFO-linked initiatives**, or **circular-economy biodiesel production**.\n    </introduction>\n\n    <task>\n        Assign a **relevance_score** from 0–5 showing how closely the article aligns with Syntech’s interests.  \n        Base this on:\n        1. **Centrality:** Are advanced biofuels, biodiesel, or waste-to-fuel systems the main topic?  \n        2. **Context:** Does it directly support Syntech’s UK-focused mission (e.g., decarbonising fleets with drop-in fuels)?  \n        3. **Brand Alignment:** Is it UK-based, waste-derived, and non-competitive in focus?  \n\n        Output only:\n        {\"relevance_score\": number, \"reason\": \"short factual explanation\"}\n    </task>\n\n    <keywords>\n        biodiesel, B100, B20, FAME, HVO, ASB, renewable diesel, advanced biofuel, waste-to-fuel, used cooking oil, UCO, tallow, drop-in diesel, drop-in fuel, decarbonisation, RTFO, greenhouse gas reduction, carbon intensity, circular economy, renewable fuel, Syntech Biofuel, biofuel refinery, renewable diesel plant, fleet fuel, waste-derived fuel, UK biofuel, UK renewable fuel, transport decarbonisation\n    </keywords>\n\n    <steps>\n        1. **Read the entire article** to determine its **primary focus**.  \n        2. **Identify keyword mentions** and classify them as:\n            - *Central*: Core topic of the article.  \n            - *Peripheral*: Minor or passing mention.  \n        3. **Prioritize topic centrality** over keyword count. A few central mentions are stronger than many irrelevant ones.  \n        4. **UK relevance check:**  \n            - Articles about UK projects, policy, or operations can reach scores of 4–5.  \n            - Global or general renewables content should cap at 3.  \n        5. **Exclude or penalize** content dominated by hydrogen, EVs, solar, wind, SAF, or biogas **unless explicitly linked** to **liquid biofuels or drop-in diesel**.  \n        6. **Downweight competitor or reseller content** (e.g., Green Fuels, Neste, Argent Energy) — cap at **1–2**.  \n        7. **Paywalled, teaser, or directory listings** cap at **1**.  \n        8. **Use <scoring_criteria> and <examples>** to guide final score assignment.  \n        9. Output only the JSON with `relevance_score` and `reason`.\n    </steps>\n\n    <scoring_criteria>\n        **0 — Unrelated:**  \n        No connection to advanced biofuels, Syntech’s ecosystem, or UK decarbonisation using drop-in fuels.  \n        *Examples:* hydrogen, EVs, solar, generic sustainability, aviation SAF.\n\n        **1 — Marginally Related:**  \n        Mentions sustainability or emissions reduction but lacks any link to biofuels or Syntech’s UK context.  \n        *Example:* general energy transition or decarbonisation article.\n\n        **2 — Slightly Related:**  \n        Brief reference to biofuels, renewable diesel, or B100, but not central; or focuses on competitors.  \n        *Example:* “Green Fuels launches new biodiesel” or global trade summary.\n\n        **3 — Partially Related:**  \n        Includes biofuels or waste-derived energy as part of a broader discussion, with limited UK focus.  \n        *Example:* UK energy overview mentioning biodiesel among other renewables.\n\n        **4 — Strongly Related:**  \n        Focuses on UK biofuel or waste-to-fuel projects, such as B100 or HVO fleet deployment, circular economy models, or RTFO compliance.  \n        *Example:* UK waste oil conversion to biodiesel or local decarbonisation initiative.\n\n        **5 — Highly Relevant:**  \n        Article is primarily about Syntech-aligned subjects: **UK waste-to-fuel production**, **B100/FAME/ASB innovation**, or **drop-in diesel substitution** supporting decarbonisation.  \n        *Example:* “Biodiesel produced in the UK from used cooking oil powers fleet vehicles.”\n    </scoring_criteria>\n\n    <brand_alignment_rules>\n        * **Upweight** UK-based coverage of B100, HVO, ASB, or circular-economy biodiesel.  \n        * **Upweight** articles that quantify decarbonisation or mention RTFO alignment.  \n        * **Downweight or exclude** hydrogen, EV, SAF, or non-liquid renewables unless explicitly linked to liquid fuels.  \n        * **Downweight** competitor or reseller marketing content.  \n        * **Cap** scores for vague, global, or teaser content lacking technical depth or UK linkage.\n    </brand_alignment_rules>\n\n    <examples>\n        **Example Scoring Anchors:**  \n        - *Score 0:* “Hydrogen fuel cells breakthrough” → unrelated to liquid biofuels.  \n        - *Score 1:* “Global decarbonisation trends” → generic sustainability, no biofuel focus.  \n        - *Score 2:* “Neste launches renewable diesel product” → relevant technology but competitor-focused.  \n        - *Score 3:* “UK clean energy overview mentioning biodiesel” → partial relevance.  \n        - *Score 4:* “Teesside fleet adopts B100 biodiesel from waste oil” → strongly aligned.  \n        - *Score 5:* “UK biodiesel produced from used cooking oil powers national fleets” → fully aligned with Syntech mission.\n    </examples>\n\n    <restrictions>\n        * Output must be **only** a valid JSON object with `relevance_score` and `reason`.  \n        * Keep reasoning factual, concise (1–2 sentences).  \n        * Do not output keyword data, markdown, or extra commentary.\n    </restrictions>\n\n    <output_rules>\n        {\"relevance_score\": 4, \"reason\": \"Article focuses on UK waste-derived biodiesel and B100 deployment for decarbonisation, directly aligned with Syntech’s mission.\"}\n        Output nothing else.\n    </output_rules>\n\n</prompt>\n"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 10,
+          "delayBetweenBatches": 1000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -816,
+        128
+      ],
+      "id": "cd27b21e-6192-429a-bfb9-ccb99cc2ecd4",
+      "name": "Classification agent with Batch1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-5-20250929",
+          "cachedResultName": "Claude Sonnet 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -928,
+        336
+      ],
+      "id": "c8379d41-a93f-4051-8cbc-951a4b9314f2",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "uv5ovuIM0W5fmRTp",
+          "name": "Stephen Anthropic account"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:07.159Z",
+      "createdAt": "2026-01-28T09:06:07.159Z",
+      "role": "workflow:owner",
+      "workflowId": "7zoi57bplzggDFvj",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:06:07.159Z",
+  "versionId": "58125b80-d401-4cc4-b6da-fff91636656b"
+}
