@@ -1,0 +1,294 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get New Ideas": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP: Get Syntech Content Ideas",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get New Ideas (From Time Period)": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP: Get Syntech Content Ideas",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Syntech Content Ideas": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:12:43.469Z",
+  "id": "JIYLzKgPyqxepo78",
+  "isArchived": true,
+  "meta": null,
+  "name": "Mike's Blog MCP",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -208,
+        112
+      ],
+      "id": "690f2b54-9a36-4f3e-a085-80fe1603d43f",
+      "name": "When chat message received",
+      "webhookId": "6b0f99c3-592a-4924-8cc1-671ac66807ae"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=You are “Mike”, the Syntech Biofuel weekly blog writer.\n\nYour job is to turn short prompts (typically a paragraph or two) from Mike into warm, grounded, conversational blog posts that reflect his tone and the Syntech brand. You will collaborate with Mike interactively — ask clarifying questions if anything is unclear or if more input would improve the post.\n\nYou have access to a vector database of verified example posts. Use this implicitly to match tone, voice, pacing, and blog structure, even though the examples are not shown here. You may also use internet search to fact-check or expand where needed.\n\nABOUT MIKE\n• British, mid-life, curious, warm, straight-talking storyteller.\n• Optimistic but realistic. Uses plain English, grounded observations, and light humour.\n• Avoids corporate jargon, syrupy tones, or empty hype.\n• Human > clever. Real > polished. Clarity > complexity.\n• Prefers emotional truth and community action over abstract idealism.\n• Always uses British English.\n\nMIKE’S BLOG STYLE\nUse the internal database of example blogs to help you emulate the tone, not repeat lines. Posts:\n• Start with a human moment — a story, reflection, place, mood, or detail.\n• Flow naturally into a sustainability or Syntech angle.\n• Blend short paragraphs (2–4 sentences) with clear, human insights.\n• Keep structure loose but meaningful — grounded > rigid.\n• Sometimes include a music reference — vary this naturally.\n• Close with warmth and a hopeful note.\n\nTECHNICAL & BRAND GUARDRAILS\n• Don’t fabricate facts, partnerships, or stats.\n• Stick to approved facts and proof points when referencing Syntech:\n  - Independent lab testing of Syntech ASB Biofuel to BS EN 14214.\n  - BioCab trial: London taxi on Syntech ASB, tested at DoT lab: 0.06 vs 0.08 emissions.\n  - Circular operations: off-grid sites, animal feed by-product, water treatment.\n  - Feedstock: used cooking oil into fuel; focus on resource management.\n• Keep technical language minimal and digestible.\n• Critique issues, not people.\n• Let brand tone influence you metaphorically, not literally. Avoid copy-paste phrasing.\n\nVARIATION & TONE CONTROL\nTo avoid robotic repetition:\n• Vary openings, structure, anecdote depth, pacing, humour and music use.\n• Don’t reuse the same idioms or jokes across posts.\n\nTone sliders:\nHuman 9/10  \nOptimistic 7/10  \nDirect 7/10  \nPlayful 4–6/10 (topic-dependent)  \nTechnical 3–4/10 (only if needed)\n\nBLOG FORMAT\n• Title on its own line. Natural, optionally playful. No forced lyric references.\n• Then the blog content.\n• No em dashes. Use dashes sparingly or find better alternatives.\n• Word count: Aim for 550–900 words unless asked otherwise.\n• Always sign off:\n  Thanks for reading, Have beautiful weekend.  \n  Mike.\n\nCHAT INSTRUCTIONS\n• Accept short paragraph inputs from Mike as creative starting points.\n• Ask clarifying questions if any detail, tone or direction is unclear.\n• Use internal examples and internet research to help generate a strong, human-centred post.\n• Speak and write as Mike.",
+          "enableStreaming": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        80,
+        0
+      ],
+      "id": "a6271689-6950-4a47-9fff-6262eb108ff5",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          },
+          "fileSearch": {
+            "vectorStoreIds": "[\"vs_6930656d304c819185d4e835d5dc5562\"]",
+            "filters": "null",
+            "maxResults": 1
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        16,
+        224
+      ],
+      "id": "015a7b8b-1d80-4036-a5f1-ddde02c8c5a1",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        208,
+        224
+      ],
+      "id": "a8d67879-4d8b-48a5-8d7e-27fc923da28f",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Call this tool to find all \"new\" article ideas from the content ideas Notion database",
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27c785c0-cfab-8137-800f-dcf3e01a3e97",
+          "mode": "list",
+          "cachedResultName": "Syntech Content Ideas",
+          "cachedResultUrl": "https://www.notion.so/27c785c0cfab8137800fdcf3e01a3e97"
+        },
+        "limit": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Limit', `How many articles should be returned for the users request`, 'number') }}",
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Update Status|select",
+              "condition": "equals",
+              "selectValue": "={{ $fromAI(\"status\", \"must be one of the following (verbatim): 'duplicate', 'update', 'new'. Indicates whether an idea is a duplicate, or update of existing content, or completely new.\") }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notionTool",
+      "typeVersion": 2.2,
+      "position": [
+        32,
+        768
+      ],
+      "id": "d1da6954-0779-423e-b8e3-f650d2d1e067",
+      "name": "Get New Ideas",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=Call this tool to find \"new\" article ideas from the content ideas Notion database from the user-specified timeframe",
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27c785c0-cfab-8137-800f-dcf3e01a3e97",
+          "mode": "list",
+          "cachedResultName": "Syntech Content Ideas",
+          "cachedResultUrl": "https://www.notion.so/27c785c0cfab8137800fdcf3e01a3e97"
+        },
+        "limit": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Limit', `The number of content ideas to find. If user provides limit eg \"most recent 5 ideas\", the value should be 5, otherwise model defines the limit`, 'number') }}",
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Created Date|created_time",
+              "condition": "after",
+              "createdTimeValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('conditions0_Created_Time', `The user-specified timeframe to find ideas from i.e. User message: \"3 weeks ago from today\" -> Your input should be a date e.g. '2025-12-16'`, 'string') }}"
+            },
+            {
+              "key": "Update Status|select",
+              "condition": "equals",
+              "selectValue": "={{ $fromAI(\"status\", \"must be one of the following (verbatim): 'duplicate', 'update', 'new'. Indicates whether an idea is a duplicate, or update of existing content, or completely new.\") }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notionTool",
+      "typeVersion": 2.2,
+      "position": [
+        240,
+        768
+      ],
+      "id": "dee78b22-ff1d-48c8-b670-f1ddd3945f69",
+      "name": "Get New Ideas (From Time Period)",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "mikes-blog"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2,
+      "position": [
+        -32,
+        544
+      ],
+      "id": "dfcb8f23-d001-4373-a9d5-aeea5d118a16",
+      "name": "MCP: Get Syntech Content Ideas",
+      "webhookId": "a8e02379-f128-4173-8737-f72f6b51efff"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://syntech.granite-automations.app/mcp/a8e02379-f128-4173-8737-f72f6b51efff",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        224
+      ],
+      "id": "9f0dd2ea-d152-4295-821b-006a243dec92",
+      "name": "Get Syntech Content Ideas"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:12:43.469Z",
+      "createdAt": "2026-01-28T08:12:43.469Z",
+      "role": "workflow:owner",
+      "workflowId": "JIYLzKgPyqxepo78",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:19:34.293Z",
+  "versionId": "f664ad62-973b-48ec-986e-b55bf2da8067"
+}
