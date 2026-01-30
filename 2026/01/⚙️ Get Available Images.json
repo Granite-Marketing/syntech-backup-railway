@@ -1,0 +1,146 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages": {
+      "main": [
+        [
+          {
+            "node": "Return",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:26:50.989Z",
+  "id": "aZCzTxBbPMuCnGnj",
+  "isArchived": false,
+  "meta": null,
+  "name": "⚙️ Get Available Images",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5c59432e-d78e-4261-8cbd-300f454f4588",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+          "mode": "list",
+          "cachedResultName": "Syntech Image Prompts",
+          "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Title|title",
+              "condition": "contains",
+              "titleValue": "NanoB (1)"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "5efeedc3-b670-498e-b209-3dc02a5b55ff",
+      "name": "Get many database pages",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f6ab457-a009-42df-8fce-f7f88fcf6563",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bb85b6b3-2fb8-4c4a-a03d-4472390a1d63",
+              "name": "title",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "bb65cfd7-eb5a-4815-8457-adaed4fab2b8",
+              "name": "aspect_ratio",
+              "value": "={{ $json.property_aspect_ratio }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "5fbda61c-a838-4f9e-ab70-4f286600df44",
+      "name": "Return"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:26:50.989Z",
+      "createdAt": "2026-01-28T08:26:50.989Z",
+      "role": "workflow:owner",
+      "workflowId": "aZCzTxBbPMuCnGnj",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:26:50.989Z",
+  "versionId": "3671d0ca-b266-4053-b686-dcd2a922113f"
+}
