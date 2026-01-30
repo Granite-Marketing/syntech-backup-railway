@@ -1,0 +1,2404 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-28T19:16:43.829Z",
+    "createdAt": "2026-01-28T19:16:39.860Z",
+    "versionId": "5c53af81-7752-415d-8541-13e1ac4d8cbd",
+    "workflowId": "iMG6XApQjSxVQxIe",
+    "nodes": [
+      {
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "id",
+                "type": "any"
+              },
+              {
+                "name": "name",
+                "type": "any"
+              },
+              {
+                "name": "url",
+                "type": "any"
+              },
+              {
+                "name": "property_keyword_category",
+                "type": "any"
+              },
+              {
+                "name": "property_priority",
+                "type": "any"
+              },
+              {
+                "name": "property_rss_feed",
+                "type": "any"
+              },
+              {
+                "name": "property_source",
+                "type": "any"
+              },
+              {
+                "name": "property_category",
+                "type": "any"
+              },
+              {
+                "name": "property_url",
+                "type": "any"
+              },
+              {
+                "name": "property_status",
+                "type": "any"
+              },
+              {
+                "name": "property_name",
+                "type": "any"
+              },
+              {
+                "name": "prompt",
+                "type": "any"
+              },
+              {
+                "name": "url_or_keyword",
+                "type": "any"
+              },
+              {
+                "name": "source",
+                "type": "any"
+              },
+              {
+                "name": "additional_formats",
+                "type": "any"
+              },
+              {
+                "name": "process_mode",
+                "type": "any"
+              },
+              {
+                "name": "bypass_filter",
+                "type": "any"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1,
+        "position": [
+          -1552,
+          832
+        ],
+        "id": "03f7228f-392c-47b4-a823-ad82b246c9b7",
+        "name": "When Executed by Another Workflow"
+      },
+      {
+        "parameters": {
+          "url": "={{ $json.url_or_keyword }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.rssFeedRead",
+        "typeVersion": 1.2,
+        "position": [
+          -656,
+          336
+        ],
+        "id": "aca2d549-17fe-4072-ad0d-4434c345d250",
+        "name": "RSS Read",
+        "alwaysOutputData": true,
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "operation": "scrape",
+          "requestOptions": {}
+        },
+        "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
+        "typeVersion": 1,
+        "position": [
+          1008,
+          112
+        ],
+        "id": "b0648335-5066-4db2-80a9-f5ea1a0cad4d",
+        "name": "Scrape a url and get its content2",
+        "credentials": {
+          "firecrawlApi": {
+            "id": "i4QliNET9guWjKJf",
+            "name": "Syntech GM Firecrawl account"
+          }
+        },
+        "onError": "continueRegularOutput"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "6e532ff2-3eee-4984-88ef-3cc30f2e6bdf",
+                "leftValue": "={{ $json.error }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notExists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          1184,
+          112
+        ],
+        "id": "fc52058c-9161-4829-b894-cad31468d8a5",
+        "name": "If Not Error"
+      },
+      {
+        "parameters": {
+          "url": "={{ decodeURIComponent($json.set_url.match(/url=([^&]+)/)?.[1] || '') || $json.set_url }}",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "accept",
+                "value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+              },
+              {
+                "name": "accept-language",
+                "value": "en-GB,en-US;q=0.9,en;q=0.8"
+              },
+              {
+                "name": "cache-control",
+                "value": "no-cache"
+              },
+              {
+                "name": "pragma",
+                "value": "no-cache"
+              },
+              {
+                "name": "priority",
+                "value": "u=0, i"
+              },
+              {
+                "name": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\""
+              },
+              {
+                "name": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "name": "sec-ch-ua-platform",
+                "value": "\"macOS\""
+              },
+              {
+                "name": "sec-fetch-dest",
+                "value": "document"
+              },
+              {
+                "name": "sec-fetch-mode",
+                "value": "navigate"
+              },
+              {
+                "name": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "name": "sec-fetch-user",
+                "value": "?1"
+              },
+              {
+                "name": "upgrade-insecure-requests",
+                "value": "1"
+              },
+              {
+                "name": "user-agent",
+                "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          688,
+          336
+        ],
+        "id": "f9d14987-f5aa-458b-b475-5cda4395da75",
+        "name": "extract content",
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "html": "={{ $('extract content').item.json.data || '' }}",
+          "destinationKey": "linebreak",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.markdown",
+        "typeVersion": 1,
+        "position": [
+          1136,
+          544
+        ],
+        "id": "adeb3b6f-8629-4dcd-a20a-32aff0e9f2b1",
+        "name": "Markdown1"
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "const htmlContent = $node[\"extract content\"].json[\"data\"];\n\n// Function to extract published date from various HTML patterns\nconst extractPublishedDate = (html) => {\n    if (!html) return null;\n    \n    // 1. Open Graph meta tags (most common)\n    let match = html.match(/<meta[^>]*property=[\"']article:published_time[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*property=[\"']article:published_time[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // 2. Schema.org meta tags\n    match = html.match(/<meta[^>]*itemprop=[\"']datePublished[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*itemprop=[\"']datePublished[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // 3. Standard meta name tags\n    const metaNames = [\n        'publishdate', 'publication-date', 'date', 'pubdate', 'publish_date',\n        'published-date', 'article.published', 'article:published',\n        'datePublished', 'dc.date', 'DC.date', 'dc.date.issued',\n        'sailthru.date', 'article.created', 'last-modified', 'created'\n    ];\n    \n    for (const name of metaNames) {\n        match = html.match(new RegExp(`<meta[^>]*name=[\"']${name}[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>`, 'i'));\n        if (match?.[1]) return match[1];\n        \n        match = html.match(new RegExp(`<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*name=[\"']${name}[\"'][^>]*>`, 'i'));\n        if (match?.[1]) return match[1];\n    }\n    \n    // 4. JSON-LD structured data\n    const jsonLdMatch = html.match(/<script[^>]*type=[\"']application\\/ld\\+json[\"'][^>]*>([\\s\\S]*?)<\\/script>/gi);\n    if (jsonLdMatch) {\n        for (const jsonBlock of jsonLdMatch) {\n            try {\n                const jsonContent = jsonBlock.replace(/<script[^>]*>|<\\/script>/gi, '').trim();\n                const data = JSON.parse(jsonContent);\n                \n                // Handle both single objects and arrays\n                const items = Array.isArray(data) ? data : [data];\n                \n                for (const item of items) {\n                    if (item.datePublished) return item.datePublished;\n                    if (item.publishedDate) return item.publishedDate;\n                    if (item.dateCreated) return item.dateCreated;\n                    if (item.article?.datePublished) return item.article.datePublished;\n                }\n            } catch (e) {\n                // Continue if JSON parsing fails\n            }\n        }\n    }\n    \n    // 5. Time tags with datetime attribute\n    match = html.match(/<time[^>]*datetime=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // 6. Data attributes\n    match = html.match(/data-published[-_]?(?:time|date)=[\"']([^\"']+)[\"']/i);\n    if (match?.[1]) return match[1];\n    \n    match = html.match(/data-date=[\"']([^\"']+)[\"']/i);\n    if (match?.[1]) return match[1];\n    \n    // 7. Twitter card meta tags\n    match = html.match(/<meta[^>]*name=[\"']twitter:data1[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1] && /\\d{4}/.test(match[1])) return match[1];\n    \n    // 8. Specific publisher formats\n    // WordPress\n    match = html.match(/<abbr[^>]*class=[\"'][^\"']*published[\"'][^>]*title=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // Medium\n    match = html.match(/data-post-published-at=[\"']([^\"']+)[\"']/i);\n    if (match?.[1]) return match[1];\n    \n    // 9. Look for ISO date patterns in the HTML (last resort)\n    const isoDateMatch = html.match(/\\b(20\\d{2}[-\\/](0[1-9]|1[0-2])[-\\/](0[1-9]|[12]\\d|3[01])(?:T[\\d:]+(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?)?)\\b/);\n    if (isoDateMatch?.[1]) return isoDateMatch[1];\n    \n    return null;\n};\n\n// Function to extract page title\nconst extractTitle = (html) => {\n    if (!html) return null;\n\n    let match = html.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*property=[\"']og:title[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*property=[\"']og:title[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*name=[\"']twitter:title[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    return null;\n};\n\n// Function to extract meta description\nconst extractMetaDescription = (html) => {\n    if (!html) return null;\n\n    let match = html.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*name=[\"']description[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*property=[\"']og:description[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*name=[\"']twitter:description[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    return null;\n};\n\n// Extract values\nconst publishedDate = extractPublishedDate(htmlContent);\nconst title = extractTitle(htmlContent);\nconst metaDescription = extractMetaDescription(htmlContent);\n\n// Return result\nreturn {\n    publishedDate,\n    title,\n    metaDescription\n};"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          912,
+          544
+        ],
+        "id": "85560df6-6cf3-4658-8ff2-09bdaa9deb75",
+        "name": "extract date1"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3,
+        "position": [
+          -1104,
+          832
+        ],
+        "id": "81458de0-125e-4c3c-9b48-40b23cc5ac7f",
+        "name": "Loop Over Items4"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=<content>\n{{ $('Scrape a url and get its content2').item.json.data.markdown }}\n</content>",
+          "hasOutputParser": true,
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=<prompt>\n  <task>\n    Your primary tasks are to analyze the provided content and generate a JSON object containing two key-value pairs:\n    1. **title:** A clear, descriptive, news-style title that reflects the core information or event in the content.\n    2. **summary:** A concise and informative summary of the key details in the content.\n  </task>\n\n  <steps>\n    1. Review the content thoroughly.\n    2. Identify the primary news, announcement, or action being reported.\n    3. Write a summary that distills the essential information, adhering to the word count limit.\n    4. Write a title in the style of a news or trade publication headline. Focus on describing what happened or is happening — not selling a benefit.\n    5. Format the final output as a single JSON object.\n  </steps>\n\n  <restrictions>\n    - **Summary Word Count:** Max 50 words.\n    - **Title Style:** Use objective, publication-style phrasing — not benefit-driven or marketing-style.\n    - **Clarity:** Avoid jargon; prioritize informative clarity.\n    - **JSON Formatting:** Final output must be a single, valid JSON object enclosed in a markdown code block. No text before or after the JSON.\n  </restrictions>\n\n  <output_rules>\n    - **Format:** Raw JSON object.\n    - **Keys:** Must contain exactly two keys: `title` and `summary`.\n    - **Values:** Both values must be strings.\n    - **Tone:** Professional, factual, and informative.\n  </output_rules>\n\n  <examples>\n    ### Example 1\n    **Input Content:** A press release detailing the launch of Syntech ASB and its ISCC certification.\n    **Output:**\n    [Start of JSON Output]\n    {\n      \"title\": \"Syntech Launches UK-Made ISCC-Certified Biofuel from Used Cooking Oil\",\n      \"summary\": \"Syntech ASB is a new ISCC-certified biofuel made entirely from used cooking oil. It is a drop-in replacement for diesel, allowing businesses to reduce carbon emissions by up to 90% without engine modifications or new equipment investments.\"\n    }\n    [End of JSON Output]\n  </examples>\n</prompt>"
+              }
+            ]
+          },
+          "batching": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.7,
+        "position": [
+          1360,
+          32
+        ],
+        "id": "fa30100b-0198-4256-ad12-79c9ad0f195f",
+        "name": "Create summary and title"
+      },
+      {
+        "parameters": {
+          "schemaType": "manual",
+          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+        },
+        "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "typeVersion": 1.3,
+        "position": [
+          1504,
+          256
+        ],
+        "id": "242d85eb-b0ea-48e0-a3be-ee40f4862c20",
+        "name": "Structured Output Parser2"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          2160,
+          544
+        ],
+        "id": "e144fa64-fb52-4564-9f7a-b3d19ccf7084",
+        "name": "Merge9"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=<content>\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}\n\n</content>\n",
+          "hasOutputParser": true,
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=<prompt>\n  <task>\n    Your primary tasks are to analyze the provided content and generate a JSON object containing two key-value pairs:\n    1. **title:** A clear, descriptive, news-style title that reflects the core information or event in the content.\n    2. **summary:** A concise and informative summary of the key details in the content.\n  </task>\n\n  <steps>\n    1. Review the content thoroughly.\n    2. Identify the primary news, announcement, or action being reported.\n    3. Write a summary that distills the essential information, adhering to the word count limit.\n    4. Write a title in the style of a news or trade publication headline. Focus on describing what happened or is happening — not selling a benefit.\n    5. Format the final output as a single JSON object.\n  </steps>\n\n  <restrictions>\n    - **Summary Word Count:** Max 50 words.\n    - **Title Style:** Use objective, publication-style phrasing — not benefit-driven or marketing-style.\n    - **Clarity:** Avoid jargon; prioritize informative clarity.\n    - **JSON Formatting:** Final output must be a single, valid JSON object enclosed in a markdown code block. No text before or after the JSON.\n  </restrictions>\n\n  <output_rules>\n    - **Format:** Raw JSON object.\n    - **Keys:** Must contain exactly two keys: `title` and `summary`.\n    - **Values:** Both values must be strings.\n    - **Tone:** Professional, factual, and informative.\n  </output_rules>\n\n  <examples>\n    ### Example 1\n    **Input Content:** A press release detailing the launch of Syntech ASB and its ISCC certification.\n    **Output:**\n    [Start of JSON Output]\n    {\n      \"title\": \"Syntech Launches UK-Made ISCC-Certified Biofuel from Used Cooking Oil\",\n      \"summary\": \"Syntech ASB is a new ISCC-certified biofuel made entirely from used cooking oil. It is a drop-in replacement for diesel, allowing businesses to reduce carbon emissions by up to 90% without engine modifications or new equipment investments.\"\n    }\n    [End of JSON Output]\n  </examples>\n</prompt>"
+              }
+            ]
+          },
+          "batching": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.7,
+        "position": [
+          1360,
+          544
+        ],
+        "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
+        "name": "Create summary and title9"
+      },
+      {
+        "parameters": {
+          "schemaType": "manual",
+          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+        },
+        "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "typeVersion": 1.3,
+        "position": [
+          1504,
+          768
+        ],
+        "id": "3f4b0c43-2572-47b7-8b1f-c75ae8b433a8",
+        "name": "Structured Output Parser6"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "8efead37-57d8-4101-9010-c855f2525db6",
+                "name": "url_or_keyword",
+                "value": "={{ $json.property_rss_feed || $json.url_or_keyword }}",
+                "type": "string"
+              },
+              {
+                "id": "7ca00974-25ef-4c7a-ac32-42d318e2efaa",
+                "name": "prompt",
+                "value": "={{ $json.prompt }}",
+                "type": "string"
+              },
+              {
+                "id": "2a3d10ea-9972-4e63-a289-f79cfec66ac6",
+                "name": "additional_formats",
+                "value": "={{ $json.additional_formats }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -880,
+          336
+        ],
+        "id": "723b2d6b-0d30-42e4-9a09-eb52c8d84ff0",
+        "name": "Either Url or Keyword4"
+      },
+      {
+        "parameters": {
+          "content": "## Try to scrape this RSS article using Firecrawl",
+          "height": 1088,
+          "width": 4000,
+          "color": 4
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1648,
+          -96
+        ],
+        "typeVersion": 1,
+        "id": "95cfe887-55c3-4096-a8ed-c3d121033698",
+        "name": "Sticky Note7"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "53313200-69a8-4749-b320-7ad926795be1",
+                "name": "title",
+                "value": "={{ $('Merge').item.json.title || $('Create summary and title9').item.json.output.title }}",
+                "type": "string"
+              },
+              {
+                "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
+                "name": "content",
+                "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------\nArticle page:\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak.removeMarkdown()\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() }}",
+                "type": "string"
+              },
+              {
+                "id": "f0c15fc7-071d-406d-8200-abecbf458836",
+                "name": "url",
+                "value": "={{ $('Merge').item.json.link }}",
+                "type": "string"
+              },
+              {
+                "id": "b72746e5-4271-48e7-af68-4e1bdfd40452",
+                "name": "summary",
+                "value": "={{ $('Create summary and title9').item.json.output.summary }}",
+                "type": "string"
+              },
+              {
+                "id": "39872c24-4acc-4513-b7fb-7689cd511afb",
+                "name": "search_query",
+                "value": "={{ $if($('Limit').isExecuted, $('Limit').item.json.property_rss_feed, undefined) || $if($('When Executed by Another Workflow').isExecuted, $('When Executed by Another Workflow').item.json.url_or_keyword, undefined) }}",
+                "type": "string"
+              },
+              {
+                "id": "42852696-c7af-4ce4-a273-e61970ef2e8f",
+                "name": "publication_date",
+                "value": "={{ $if($('Merge').isExecuted, $('Merge').item.json.pubDate || $('extract date1').item.json.publishedDate ||'') }}",
+                "type": "string"
+              },
+              {
+                "id": "6bd73285-c360-4b10-8567-8ae66ecba2bd",
+                "name": "prompt",
+                "value": "={{ $('When Executed by Another Workflow').first().json.prompt }}",
+                "type": "string"
+              },
+              {
+                "id": "101c6d7f-6e56-4362-9238-0b3e4fd7f14d",
+                "name": "additional_formats",
+                "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
+                "type": "string"
+              },
+              {
+                "id": "a0b9d46b-67d2-4152-b1fa-2306fa5751e4",
+                "name": "source",
+                "value": "RSS",
+                "type": "string"
+              },
+              {
+                "id": "8a7e7ea6-40c1-490d-8d37-ec928232766c",
+                "name": "source_name",
+                "value": "={{ $('When Executed by Another Workflow').item.json.property_name }}",
+                "type": "string"
+              },
+              {
+                "id": "9aea88f6-a629-4f42-ba37-8608bb631772",
+                "name": "mode",
+                "value": "={{ $('When Executed by Another Workflow').first().json.process_mode }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1936,
+          544
+        ],
+        "id": "201bcada-7855-44de-8f45-c8cb60f0c6f9",
+        "name": "RSS search fields"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "53313200-69a8-4749-b320-7ad926795be1",
+                "name": "title",
+                "value": "={{ $('Merge').item.json.title || $('Create summary and title').item.json.output.title }}",
+                "type": "string"
+              },
+              {
+                "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
+                "name": "content",
+                "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------\nArticle page:\n{{ \n  $('Scrape a url and get its content2').item.json.data.markdown.removeMarkdown()\n}}",
+                "type": "string"
+              },
+              {
+                "id": "f0c15fc7-071d-406d-8200-abecbf458836",
+                "name": "url",
+                "value": "={{ $('Merge').item.json.link }}",
+                "type": "string"
+              },
+              {
+                "id": "b72746e5-4271-48e7-af68-4e1bdfd40452",
+                "name": "summary",
+                "value": "={{ $('Create summary and title').item.json.output.summary }}",
+                "type": "string"
+              },
+              {
+                "id": "39872c24-4acc-4513-b7fb-7689cd511afb",
+                "name": "search_query",
+                "value": "={{ $if($('Limit').isExecuted, $('Limit').item.json.property_rss_feed, undefined) || $if($('When Executed by Another Workflow').isExecuted, $('When Executed by Another Workflow').item.json.url_or_keyword, undefined) }}",
+                "type": "string"
+              },
+              {
+                "id": "42852696-c7af-4ce4-a273-e61970ef2e8f",
+                "name": "publication_date",
+                "value": "={{ $if($('Merge').isExecuted, $('Merge').item.json.pubDate || $('Scrape a url and get its content2').item.json.data.metadata.publishedTime || $('Scrape a url and get its content2').item.json.data.metadata.publishedTime || $('Scrape a url and get its content2').item.json.data.metadata['article:published_time'], '') }}",
+                "type": "string"
+              },
+              {
+                "id": "6bd73285-c360-4b10-8567-8ae66ecba2bd",
+                "name": "prompt",
+                "value": "={{ $('When Executed by Another Workflow').first().json.source }}",
+                "type": "string"
+              },
+              {
+                "id": "101c6d7f-6e56-4362-9238-0b3e4fd7f14d",
+                "name": "additional_formats",
+                "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
+                "type": "string"
+              },
+              {
+                "id": "a0b9d46b-67d2-4152-b1fa-2306fa5751e4",
+                "name": "source",
+                "value": "RSS",
+                "type": "string"
+              },
+              {
+                "id": "df785b48-f361-48bf-9766-2d16bdd1a5e2",
+                "name": "source_name",
+                "value": "={{ $('When Executed by Another Workflow').item.json.property_name }}",
+                "type": "string"
+              },
+              {
+                "id": "9aea88f6-a629-4f42-ba37-8608bb631772",
+                "name": "mode",
+                "value": "={{ $('When Executed by Another Workflow').first().json.process_mode }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1936,
+          144
+        ],
+        "id": "c437d7f9-0353-42d6-b8b0-2f55d3ce5601",
+        "name": "RSS search fields1"
+      },
+      {
+        "parameters": {
+          "operation": "getAll",
+          "tableId": "Syntech RSS firecrawl url",
+          "returnAll": true,
+          "filterType": "none"
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          -432,
+          592
+        ],
+        "id": "92e0b114-1160-4125-9c27-3b10e63e2c93",
+        "name": "Get many rows",
+        "alwaysOutputData": false,
+        "executeOnce": true,
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "advanced": true,
+          "mergeByFields": {
+            "values": [
+              {
+                "field1": "link",
+                "field2": "url"
+              }
+            ]
+          },
+          "joinMode": "keepNonMatches",
+          "outputDataFrom": "input1",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          -208,
+          336
+        ],
+        "id": "8b891382-6cbe-4198-b03e-f79a72e969bd",
+        "name": "Merge",
+        "alwaysOutputData": true
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "371490de-8c72-493f-8b9a-0cd3bb56f4c4",
+                "leftValue": "={{ $json.link }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "looseTypeValidation": true,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          16,
+          336
+        ],
+        "id": "028ce2e1-155a-4cae-978f-85e7dc45d481",
+        "name": "If1"
+      },
+      {
+        "parameters": {
+          "tableId": "Syntech RSS firecrawl url",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldId": "url",
+                "fieldValue": "={{ $('Merge').item.json.link }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          1712,
+          144
+        ],
+        "id": "1ce2fc44-69d7-4a08-aeca-dbb84ee8be85",
+        "name": "Create a row",
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "maxItems": 10
+        },
+        "type": "n8n-nodes-base.limit",
+        "typeVersion": 1,
+        "position": [
+          240,
+          336
+        ],
+        "id": "5bd001e4-24b7-4ea9-92a4-de288d4a1c0b",
+        "name": "Get 10 Ideas"
+      },
+      {
+        "parameters": {
+          "model": "deepseek/deepseek-v3.2",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          1376,
+          256
+        ],
+        "id": "6e0f7e35-8d2c-495f-9dcf-d3f661ea877c",
+        "name": "DeepSeek 3.",
+        "credentials": {
+          "openRouterApi": {
+            "id": "kUkOiAL6PjmdfexG",
+            "name": "Syntech GM OpenRouter account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": "deepseek/deepseek-v3.2",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          1376,
+          768
+        ],
+        "id": "ad0d3589-5805-464f-b0b0-eadf1d580089",
+        "name": "DeepSeek 3.1",
+        "credentials": {
+          "openRouterApi": {
+            "id": "kUkOiAL6PjmdfexG",
+            "name": "Syntech GM OpenRouter account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "0f1fd4a3-670d-4861-af5b-bc94fa454574",
+                "name": "set_url",
+                "value": "={{ $if($('Merge').isExecuted, $('Merge').item.json.link, '') }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          464,
+          336
+        ],
+        "id": "591fdf39-69e2-4931-852e-60eeeb88a44c",
+        "name": "set urls",
+        "executeOnce": false
+      },
+      {
+        "parameters": {
+          "tableId": "Syntech RSS firecrawl url",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldId": "url",
+                "fieldValue": "={{ $('Merge').item.json.link }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          1712,
+          544
+        ],
+        "id": "cb4f070d-6f4b-46b4-9c7b-1be7856ec8ee",
+        "name": "Create a row1",
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "9daa83c0-18f5-4502-b10c-2d92b2cef282",
+                "name": "link",
+                "value": "={{\n  decodeURIComponent(\n    ($json.link || '')\n      .replace(/^https?:\\/\\/www\\.google\\.com\\/url\\?.*?url=/, '')\n      .split('&')[0]\n  )\n}}",
+                "type": "string"
+              }
+            ]
+          },
+          "includeOtherFields": true,
+          "options": {
+            "ignoreConversionErrors": true
+          }
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -432,
+          240
+        ],
+        "id": "6c4816d0-9d94-43ea-902c-6a1cdd89d3eb",
+        "name": "Edit Fields"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          832,
+          112
+        ],
+        "id": "8496fadc-7760-4a30-9bc1-25fea0a64ca8",
+        "name": "Wait",
+        "webhookId": "0b5363ac-7ca5-45a6-95e3-ae68f4b7f4ee"
+      },
+      {
+        "parameters": {
+          "maxItems": 100
+        },
+        "type": "n8n-nodes-base.limit",
+        "typeVersion": 1,
+        "position": [
+          -1328,
+          832
+        ],
+        "id": "09af34d1-cf92-4e4f-b19c-001aed7c6757",
+        "name": "Limit"
+      }
+    ],
+    "connections": {
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "node": "Limit",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RSS Read": {
+        "main": [
+          [
+            {
+              "node": "Get many rows",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Edit Fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Scrape a url and get its content2": {
+        "main": [
+          [
+            {
+              "node": "If Not Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If Not Error": {
+        "main": [
+          [
+            {
+              "node": "Create summary and title",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Loop Over Items4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "extract content": {
+        "main": [
+          [
+            {
+              "node": "extract date1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Wait",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Markdown1": {
+        "main": [
+          [
+            {
+              "node": "Create summary and title9",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "extract date1": {
+        "main": [
+          [
+            {
+              "node": "Markdown1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Loop Over Items4": {
+        "main": [
+          [],
+          [
+            {
+              "node": "Either Url or Keyword4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create summary and title": {
+        "main": [
+          [
+            {
+              "node": "Create a row",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Structured Output Parser2": {
+        "ai_outputParser": [
+          [
+            {
+              "node": "Create summary and title",
+              "type": "ai_outputParser",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Merge9": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create summary and title9": {
+        "main": [
+          [
+            {
+              "node": "Create a row1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Structured Output Parser6": {
+        "ai_outputParser": [
+          [
+            {
+              "node": "Create summary and title9",
+              "type": "ai_outputParser",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Either Url or Keyword4": {
+        "main": [
+          [
+            {
+              "node": "RSS Read",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RSS search fields": {
+        "main": [
+          [
+            {
+              "node": "Merge9",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "RSS search fields1": {
+        "main": [
+          [
+            {
+              "node": "Merge9",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many rows": {
+        "main": [
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Merge": {
+        "main": [
+          [
+            {
+              "node": "If1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If1": {
+        "main": [
+          [
+            {
+              "node": "Get 10 Ideas",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Loop Over Items4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a row": {
+        "main": [
+          [
+            {
+              "node": "RSS search fields1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get 10 Ideas": {
+        "main": [
+          [
+            {
+              "node": "set urls",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "DeepSeek 3.": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create summary and title",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "DeepSeek 3.1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create summary and title9",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "set urls": {
+        "main": [
+          [
+            {
+              "node": "extract content",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a row1": {
+        "main": [
+          [
+            {
+              "node": "RSS search fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields": {
+        "main": [
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait": {
+        "main": [
+          [
+            {
+              "node": "Scrape a url and get its content2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Limit": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Stephen Anindo",
+    "name": "fix creds with republish",
+    "description": "",
+    "autosaved": true
+  },
+  "activeVersionId": "5c53af81-7752-415d-8541-13e1ac4d8cbd",
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read": {
+      "main": [
+        [
+          {
+            "node": "Get many rows",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape a url and get its content2": {
+      "main": [
+        [
+          {
+            "node": "If Not Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Not Error": {
+      "main": [
+        [
+          {
+            "node": "Create summary and title",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extract content": {
+      "main": [
+        [
+          {
+            "node": "extract date1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown1": {
+      "main": [
+        [
+          {
+            "node": "Create summary and title9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extract date1": {
+      "main": [
+        [
+          {
+            "node": "Markdown1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items4": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Either Url or Keyword4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create summary and title": {
+      "main": [
+        [
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Create summary and title",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge9": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create summary and title9": {
+      "main": [
+        [
+          {
+            "node": "Create a row1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser6": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Create summary and title9",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Either Url or Keyword4": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS search fields": {
+      "main": [
+        [
+          {
+            "node": "Merge9",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "RSS search fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Get 10 Ideas",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row": {
+      "main": [
+        [
+          {
+            "node": "RSS search fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get 10 Ideas": {
+      "main": [
+        [
+          {
+            "node": "set urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek 3.": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek 3.1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title9",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set urls": {
+      "main": [
+        [
+          {
+            "node": "extract content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row1": {
+      "main": [
+        [
+          {
+            "node": "RSS search fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Scrape a url and get its content2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:07.080Z",
+  "id": "iMG6XApQjSxVQxIe",
+  "isArchived": false,
+  "meta": null,
+  "name": "RSS Website Search (With RSS URL)",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "id",
+              "type": "any"
+            },
+            {
+              "name": "name",
+              "type": "any"
+            },
+            {
+              "name": "url",
+              "type": "any"
+            },
+            {
+              "name": "property_keyword_category",
+              "type": "any"
+            },
+            {
+              "name": "property_priority",
+              "type": "any"
+            },
+            {
+              "name": "property_rss_feed",
+              "type": "any"
+            },
+            {
+              "name": "property_source",
+              "type": "any"
+            },
+            {
+              "name": "property_category",
+              "type": "any"
+            },
+            {
+              "name": "property_url",
+              "type": "any"
+            },
+            {
+              "name": "property_status",
+              "type": "any"
+            },
+            {
+              "name": "property_name",
+              "type": "any"
+            },
+            {
+              "name": "prompt",
+              "type": "any"
+            },
+            {
+              "name": "url_or_keyword",
+              "type": "any"
+            },
+            {
+              "name": "source",
+              "type": "any"
+            },
+            {
+              "name": "additional_formats",
+              "type": "any"
+            },
+            {
+              "name": "process_mode",
+              "type": "any"
+            },
+            {
+              "name": "bypass_filter",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1552,
+        832
+      ],
+      "id": "03f7228f-392c-47b4-a823-ad82b246c9b7",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url_or_keyword }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        -656,
+        336
+      ],
+      "id": "aca2d549-17fe-4072-ad0d-4434c345d250",
+      "name": "RSS Read",
+      "alwaysOutputData": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "scrape",
+        "requestOptions": {}
+      },
+      "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
+      "typeVersion": 1,
+      "position": [
+        1008,
+        112
+      ],
+      "id": "b0648335-5066-4db2-80a9-f5ea1a0cad4d",
+      "name": "Scrape a url and get its content2",
+      "credentials": {
+        "firecrawlApi": {
+          "id": "i4QliNET9guWjKJf",
+          "name": "Syntech GM Firecrawl account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6e532ff2-3eee-4984-88ef-3cc30f2e6bdf",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1184,
+        112
+      ],
+      "id": "fc52058c-9161-4829-b894-cad31468d8a5",
+      "name": "If Not Error"
+    },
+    {
+      "parameters": {
+        "url": "={{ decodeURIComponent($json.set_url.match(/url=([^&]+)/)?.[1] || '') || $json.set_url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-GB,en-US;q=0.9,en;q=0.8"
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "priority",
+              "value": "u=0, i"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "document"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "navigate"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "same-origin"
+            },
+            {
+              "name": "sec-fetch-user",
+              "value": "?1"
+            },
+            {
+              "name": "upgrade-insecure-requests",
+              "value": "1"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        688,
+        336
+      ],
+      "id": "f9d14987-f5aa-458b-b475-5cda4395da75",
+      "name": "extract content",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "html": "={{ $('extract content').item.json.data || '' }}",
+        "destinationKey": "linebreak",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1136,
+        544
+      ],
+      "id": "adeb3b6f-8629-4dcd-a20a-32aff0e9f2b1",
+      "name": "Markdown1"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const htmlContent = $node[\"extract content\"].json[\"data\"];\n\n// Function to extract published date from various HTML patterns\nconst extractPublishedDate = (html) => {\n    if (!html) return null;\n    \n    // 1. Open Graph meta tags (most common)\n    let match = html.match(/<meta[^>]*property=[\"']article:published_time[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*property=[\"']article:published_time[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // 2. Schema.org meta tags\n    match = html.match(/<meta[^>]*itemprop=[\"']datePublished[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*itemprop=[\"']datePublished[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // 3. Standard meta name tags\n    const metaNames = [\n        'publishdate', 'publication-date', 'date', 'pubdate', 'publish_date',\n        'published-date', 'article.published', 'article:published',\n        'datePublished', 'dc.date', 'DC.date', 'dc.date.issued',\n        'sailthru.date', 'article.created', 'last-modified', 'created'\n    ];\n    \n    for (const name of metaNames) {\n        match = html.match(new RegExp(`<meta[^>]*name=[\"']${name}[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>`, 'i'));\n        if (match?.[1]) return match[1];\n        \n        match = html.match(new RegExp(`<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*name=[\"']${name}[\"'][^>]*>`, 'i'));\n        if (match?.[1]) return match[1];\n    }\n    \n    // 4. JSON-LD structured data\n    const jsonLdMatch = html.match(/<script[^>]*type=[\"']application\\/ld\\+json[\"'][^>]*>([\\s\\S]*?)<\\/script>/gi);\n    if (jsonLdMatch) {\n        for (const jsonBlock of jsonLdMatch) {\n            try {\n                const jsonContent = jsonBlock.replace(/<script[^>]*>|<\\/script>/gi, '').trim();\n                const data = JSON.parse(jsonContent);\n                \n                // Handle both single objects and arrays\n                const items = Array.isArray(data) ? data : [data];\n                \n                for (const item of items) {\n                    if (item.datePublished) return item.datePublished;\n                    if (item.publishedDate) return item.publishedDate;\n                    if (item.dateCreated) return item.dateCreated;\n                    if (item.article?.datePublished) return item.article.datePublished;\n                }\n            } catch (e) {\n                // Continue if JSON parsing fails\n            }\n        }\n    }\n    \n    // 5. Time tags with datetime attribute\n    match = html.match(/<time[^>]*datetime=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // 6. Data attributes\n    match = html.match(/data-published[-_]?(?:time|date)=[\"']([^\"']+)[\"']/i);\n    if (match?.[1]) return match[1];\n    \n    match = html.match(/data-date=[\"']([^\"']+)[\"']/i);\n    if (match?.[1]) return match[1];\n    \n    // 7. Twitter card meta tags\n    match = html.match(/<meta[^>]*name=[\"']twitter:data1[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1] && /\\d{4}/.test(match[1])) return match[1];\n    \n    // 8. Specific publisher formats\n    // WordPress\n    match = html.match(/<abbr[^>]*class=[\"'][^\"']*published[\"'][^>]*title=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // Medium\n    match = html.match(/data-post-published-at=[\"']([^\"']+)[\"']/i);\n    if (match?.[1]) return match[1];\n    \n    // 9. Look for ISO date patterns in the HTML (last resort)\n    const isoDateMatch = html.match(/\\b(20\\d{2}[-\\/](0[1-9]|1[0-2])[-\\/](0[1-9]|[12]\\d|3[01])(?:T[\\d:]+(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?)?)\\b/);\n    if (isoDateMatch?.[1]) return isoDateMatch[1];\n    \n    return null;\n};\n\n// Function to extract page title\nconst extractTitle = (html) => {\n    if (!html) return null;\n\n    let match = html.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*property=[\"']og:title[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*property=[\"']og:title[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*name=[\"']twitter:title[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    return null;\n};\n\n// Function to extract meta description\nconst extractMetaDescription = (html) => {\n    if (!html) return null;\n\n    let match = html.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*name=[\"']description[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*property=[\"']og:description[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*name=[\"']twitter:description[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    return null;\n};\n\n// Extract values\nconst publishedDate = extractPublishedDate(htmlContent);\nconst title = extractTitle(htmlContent);\nconst metaDescription = extractMetaDescription(htmlContent);\n\n// Return result\nreturn {\n    publishedDate,\n    title,\n    metaDescription\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        912,
+        544
+      ],
+      "id": "85560df6-6cf3-4658-8ff2-09bdaa9deb75",
+      "name": "extract date1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1104,
+        832
+      ],
+      "id": "81458de0-125e-4c3c-9b48-40b23cc5ac7f",
+      "name": "Loop Over Items4"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ $('Scrape a url and get its content2').item.json.data.markdown }}\n</content>",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=<prompt>\n  <task>\n    Your primary tasks are to analyze the provided content and generate a JSON object containing two key-value pairs:\n    1. **title:** A clear, descriptive, news-style title that reflects the core information or event in the content.\n    2. **summary:** A concise and informative summary of the key details in the content.\n  </task>\n\n  <steps>\n    1. Review the content thoroughly.\n    2. Identify the primary news, announcement, or action being reported.\n    3. Write a summary that distills the essential information, adhering to the word count limit.\n    4. Write a title in the style of a news or trade publication headline. Focus on describing what happened or is happening — not selling a benefit.\n    5. Format the final output as a single JSON object.\n  </steps>\n\n  <restrictions>\n    - **Summary Word Count:** Max 50 words.\n    - **Title Style:** Use objective, publication-style phrasing — not benefit-driven or marketing-style.\n    - **Clarity:** Avoid jargon; prioritize informative clarity.\n    - **JSON Formatting:** Final output must be a single, valid JSON object enclosed in a markdown code block. No text before or after the JSON.\n  </restrictions>\n\n  <output_rules>\n    - **Format:** Raw JSON object.\n    - **Keys:** Must contain exactly two keys: `title` and `summary`.\n    - **Values:** Both values must be strings.\n    - **Tone:** Professional, factual, and informative.\n  </output_rules>\n\n  <examples>\n    ### Example 1\n    **Input Content:** A press release detailing the launch of Syntech ASB and its ISCC certification.\n    **Output:**\n    [Start of JSON Output]\n    {\n      \"title\": \"Syntech Launches UK-Made ISCC-Certified Biofuel from Used Cooking Oil\",\n      \"summary\": \"Syntech ASB is a new ISCC-certified biofuel made entirely from used cooking oil. It is a drop-in replacement for diesel, allowing businesses to reduce carbon emissions by up to 90% without engine modifications or new equipment investments.\"\n    }\n    [End of JSON Output]\n  </examples>\n</prompt>"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1360,
+        32
+      ],
+      "id": "fa30100b-0198-4256-ad12-79c9ad0f195f",
+      "name": "Create summary and title"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1504,
+        256
+      ],
+      "id": "242d85eb-b0ea-48e0-a3be-ee40f4862c20",
+      "name": "Structured Output Parser2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2160,
+        544
+      ],
+      "id": "e144fa64-fb52-4564-9f7a-b3d19ccf7084",
+      "name": "Merge9"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}\n\n</content>\n",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=<prompt>\n  <task>\n    Your primary tasks are to analyze the provided content and generate a JSON object containing two key-value pairs:\n    1. **title:** A clear, descriptive, news-style title that reflects the core information or event in the content.\n    2. **summary:** A concise and informative summary of the key details in the content.\n  </task>\n\n  <steps>\n    1. Review the content thoroughly.\n    2. Identify the primary news, announcement, or action being reported.\n    3. Write a summary that distills the essential information, adhering to the word count limit.\n    4. Write a title in the style of a news or trade publication headline. Focus on describing what happened or is happening — not selling a benefit.\n    5. Format the final output as a single JSON object.\n  </steps>\n\n  <restrictions>\n    - **Summary Word Count:** Max 50 words.\n    - **Title Style:** Use objective, publication-style phrasing — not benefit-driven or marketing-style.\n    - **Clarity:** Avoid jargon; prioritize informative clarity.\n    - **JSON Formatting:** Final output must be a single, valid JSON object enclosed in a markdown code block. No text before or after the JSON.\n  </restrictions>\n\n  <output_rules>\n    - **Format:** Raw JSON object.\n    - **Keys:** Must contain exactly two keys: `title` and `summary`.\n    - **Values:** Both values must be strings.\n    - **Tone:** Professional, factual, and informative.\n  </output_rules>\n\n  <examples>\n    ### Example 1\n    **Input Content:** A press release detailing the launch of Syntech ASB and its ISCC certification.\n    **Output:**\n    [Start of JSON Output]\n    {\n      \"title\": \"Syntech Launches UK-Made ISCC-Certified Biofuel from Used Cooking Oil\",\n      \"summary\": \"Syntech ASB is a new ISCC-certified biofuel made entirely from used cooking oil. It is a drop-in replacement for diesel, allowing businesses to reduce carbon emissions by up to 90% without engine modifications or new equipment investments.\"\n    }\n    [End of JSON Output]\n  </examples>\n</prompt>"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1360,
+        544
+      ],
+      "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
+      "name": "Create summary and title9"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1504,
+        768
+      ],
+      "id": "3f4b0c43-2572-47b7-8b1f-c75ae8b433a8",
+      "name": "Structured Output Parser6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8efead37-57d8-4101-9010-c855f2525db6",
+              "name": "url_or_keyword",
+              "value": "={{ $json.property_rss_feed || $json.url_or_keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "7ca00974-25ef-4c7a-ac32-42d318e2efaa",
+              "name": "prompt",
+              "value": "={{ $json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "2a3d10ea-9972-4e63-a289-f79cfec66ac6",
+              "name": "additional_formats",
+              "value": "={{ $json.additional_formats }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -880,
+        336
+      ],
+      "id": "723b2d6b-0d30-42e4-9a09-eb52c8d84ff0",
+      "name": "Either Url or Keyword4"
+    },
+    {
+      "parameters": {
+        "content": "## Try to scrape this RSS article using Firecrawl",
+        "height": 1088,
+        "width": 4000,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1648,
+        -96
+      ],
+      "typeVersion": 1,
+      "id": "95cfe887-55c3-4096-a8ed-c3d121033698",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "53313200-69a8-4749-b320-7ad926795be1",
+              "name": "title",
+              "value": "={{ $('Merge').item.json.title || $('Create summary and title9').item.json.output.title }}",
+              "type": "string"
+            },
+            {
+              "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
+              "name": "content",
+              "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------\nArticle page:\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak.removeMarkdown()\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() }}",
+              "type": "string"
+            },
+            {
+              "id": "f0c15fc7-071d-406d-8200-abecbf458836",
+              "name": "url",
+              "value": "={{ $('Merge').item.json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "b72746e5-4271-48e7-af68-4e1bdfd40452",
+              "name": "summary",
+              "value": "={{ $('Create summary and title9').item.json.output.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "39872c24-4acc-4513-b7fb-7689cd511afb",
+              "name": "search_query",
+              "value": "={{ $if($('Limit').isExecuted, $('Limit').item.json.property_rss_feed, undefined) || $if($('When Executed by Another Workflow').isExecuted, $('When Executed by Another Workflow').item.json.url_or_keyword, undefined) }}",
+              "type": "string"
+            },
+            {
+              "id": "42852696-c7af-4ce4-a273-e61970ef2e8f",
+              "name": "publication_date",
+              "value": "={{ $if($('Merge').isExecuted, $('Merge').item.json.pubDate || $('extract date1').item.json.publishedDate ||'') }}",
+              "type": "string"
+            },
+            {
+              "id": "6bd73285-c360-4b10-8567-8ae66ecba2bd",
+              "name": "prompt",
+              "value": "={{ $('When Executed by Another Workflow').first().json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "101c6d7f-6e56-4362-9238-0b3e4fd7f14d",
+              "name": "additional_formats",
+              "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "a0b9d46b-67d2-4152-b1fa-2306fa5751e4",
+              "name": "source",
+              "value": "RSS",
+              "type": "string"
+            },
+            {
+              "id": "8a7e7ea6-40c1-490d-8d37-ec928232766c",
+              "name": "source_name",
+              "value": "={{ $('When Executed by Another Workflow').item.json.property_name }}",
+              "type": "string"
+            },
+            {
+              "id": "9aea88f6-a629-4f42-ba37-8608bb631772",
+              "name": "mode",
+              "value": "={{ $('When Executed by Another Workflow').first().json.process_mode }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1936,
+        544
+      ],
+      "id": "201bcada-7855-44de-8f45-c8cb60f0c6f9",
+      "name": "RSS search fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "53313200-69a8-4749-b320-7ad926795be1",
+              "name": "title",
+              "value": "={{ $('Merge').item.json.title || $('Create summary and title').item.json.output.title }}",
+              "type": "string"
+            },
+            {
+              "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
+              "name": "content",
+              "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------\nArticle page:\n{{ \n  $('Scrape a url and get its content2').item.json.data.markdown.removeMarkdown()\n}}",
+              "type": "string"
+            },
+            {
+              "id": "f0c15fc7-071d-406d-8200-abecbf458836",
+              "name": "url",
+              "value": "={{ $('Merge').item.json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "b72746e5-4271-48e7-af68-4e1bdfd40452",
+              "name": "summary",
+              "value": "={{ $('Create summary and title').item.json.output.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "39872c24-4acc-4513-b7fb-7689cd511afb",
+              "name": "search_query",
+              "value": "={{ $if($('Limit').isExecuted, $('Limit').item.json.property_rss_feed, undefined) || $if($('When Executed by Another Workflow').isExecuted, $('When Executed by Another Workflow').item.json.url_or_keyword, undefined) }}",
+              "type": "string"
+            },
+            {
+              "id": "42852696-c7af-4ce4-a273-e61970ef2e8f",
+              "name": "publication_date",
+              "value": "={{ $if($('Merge').isExecuted, $('Merge').item.json.pubDate || $('Scrape a url and get its content2').item.json.data.metadata.publishedTime || $('Scrape a url and get its content2').item.json.data.metadata.publishedTime || $('Scrape a url and get its content2').item.json.data.metadata['article:published_time'], '') }}",
+              "type": "string"
+            },
+            {
+              "id": "6bd73285-c360-4b10-8567-8ae66ecba2bd",
+              "name": "prompt",
+              "value": "={{ $('When Executed by Another Workflow').first().json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "101c6d7f-6e56-4362-9238-0b3e4fd7f14d",
+              "name": "additional_formats",
+              "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "a0b9d46b-67d2-4152-b1fa-2306fa5751e4",
+              "name": "source",
+              "value": "RSS",
+              "type": "string"
+            },
+            {
+              "id": "df785b48-f361-48bf-9766-2d16bdd1a5e2",
+              "name": "source_name",
+              "value": "={{ $('When Executed by Another Workflow').item.json.property_name }}",
+              "type": "string"
+            },
+            {
+              "id": "9aea88f6-a629-4f42-ba37-8608bb631772",
+              "name": "mode",
+              "value": "={{ $('When Executed by Another Workflow').first().json.process_mode }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1936,
+        144
+      ],
+      "id": "c437d7f9-0353-42d6-b8b0-2f55d3ce5601",
+      "name": "RSS search fields1"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "Syntech RSS firecrawl url",
+        "returnAll": true,
+        "filterType": "none"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -432,
+        592
+      ],
+      "id": "92e0b114-1160-4125-9c27-3b10e63e2c93",
+      "name": "Get many rows",
+      "alwaysOutputData": false,
+      "executeOnce": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "link",
+              "field2": "url"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -208,
+        336
+      ],
+      "id": "8b891382-6cbe-4198-b03e-f79a72e969bd",
+      "name": "Merge",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "371490de-8c72-493f-8b9a-0cd3bb56f4c4",
+              "leftValue": "={{ $json.link }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        16,
+        336
+      ],
+      "id": "028ce2e1-155a-4cae-978f-85e7dc45d481",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "tableId": "Syntech RSS firecrawl url",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "url",
+              "fieldValue": "={{ $('Merge').item.json.link }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1712,
+        144
+      ],
+      "id": "1ce2fc44-69d7-4a08-aeca-dbb84ee8be85",
+      "name": "Create a row",
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "maxItems": 10
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        240,
+        336
+      ],
+      "id": "5bd001e4-24b7-4ea9-92a4-de288d4a1c0b",
+      "name": "Get 10 Ideas"
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-v3.2",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1376,
+        256
+      ],
+      "id": "6e0f7e35-8d2c-495f-9dcf-d3f661ea877c",
+      "name": "DeepSeek 3.",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kUkOiAL6PjmdfexG",
+          "name": "Syntech GM OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-v3.2",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1376,
+        768
+      ],
+      "id": "ad0d3589-5805-464f-b0b0-eadf1d580089",
+      "name": "DeepSeek 3.1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kUkOiAL6PjmdfexG",
+          "name": "Syntech GM OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f1fd4a3-670d-4861-af5b-bc94fa454574",
+              "name": "set_url",
+              "value": "={{ $if($('Merge').isExecuted, $('Merge').item.json.link, '') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        464,
+        336
+      ],
+      "id": "591fdf39-69e2-4931-852e-60eeeb88a44c",
+      "name": "set urls",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "tableId": "Syntech RSS firecrawl url",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "url",
+              "fieldValue": "={{ $('Merge').item.json.link }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1712,
+        544
+      ],
+      "id": "cb4f070d-6f4b-46b4-9c7b-1be7856ec8ee",
+      "name": "Create a row1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9daa83c0-18f5-4502-b10c-2d92b2cef282",
+              "name": "link",
+              "value": "={{\n  decodeURIComponent(\n    ($json.link || '')\n      .replace(/^https?:\\/\\/www\\.google\\.com\\/url\\?.*?url=/, '')\n      .split('&')[0]\n  )\n}}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -432,
+        240
+      ],
+      "id": "6c4816d0-9d94-43ea-902c-6a1cdd89d3eb",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        832,
+        112
+      ],
+      "id": "8496fadc-7760-4a30-9bc1-25fea0a64ca8",
+      "name": "Wait",
+      "webhookId": "0b5363ac-7ca5-45a6-95e3-ae68f4b7f4ee"
+    },
+    {
+      "parameters": {
+        "maxItems": 100
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -1328,
+        832
+      ],
+      "id": "09af34d1-cf92-4e4f-b19c-001aed7c6757",
+      "name": "Limit"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:07.080Z",
+      "createdAt": "2026-01-28T09:06:07.080Z",
+      "role": "workflow:owner",
+      "workflowId": "iMG6XApQjSxVQxIe",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T19:16:39.853Z",
+  "versionId": "5c53af81-7752-415d-8541-13e1ac4d8cbd"
+}
