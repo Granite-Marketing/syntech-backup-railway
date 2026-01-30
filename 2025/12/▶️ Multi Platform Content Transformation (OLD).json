@@ -1,0 +1,1074 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Extract Content Type Prompt": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Content With Block ID": {
+      "main": [
+        [
+          {
+            "node": "Get Parent DB ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Initial Input": {
+      "main": [
+        [
+          {
+            "node": "Set Content Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Content Type": {
+      "main": [
+        [
+          {
+            "node": "Extract Content Type Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Content Type": {
+      "main": [
+        [
+          {
+            "node": "Split Content Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Transformed Content DB ID": {
+      "main": [
+        [
+          {
+            "node": "Set Initial Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Parent DB ID": {
+      "main": [
+        [
+          {
+            "node": "Get Transformed Content DB ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Input3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Block Content": {
+      "main": [
+        [
+          {
+            "node": "Format Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Block Content": {
+      "main": [
+        [
+          {
+            "node": "Set Input3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Execute Content Writer Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Initial Article": {
+      "main": [
+        [
+          {
+            "node": "Get Content With Block ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Social Media Post2": {
+      "main": [
+        [
+          {
+            "node": "Set Notion Success2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Notion API Error2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Subflow Fields4": {
+      "main": [
+        [
+          {
+            "node": "Add Social Media Post2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Content ": {
+      "main": [
+        [
+          {
+            "node": "Set Subflow Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initial Input": {
+      "main": [
+        [
+          {
+            "node": "Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Content ",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Curate Sources": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Research": {
+      "main": [
+        [
+          {
+            "node": "Create Content ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Research": {
+      "main": [
+        [
+          {
+            "node": "Set Research",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Search Queries2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Internet2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T11:42:08.705Z",
+  "id": "AMaBWTc7cyZV6ndk",
+  "isArchived": true,
+  "meta": null,
+  "name": "▶️ Multi Platform Content Transformation (OLD)",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Split Content Type').item.json.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -160,
+        0
+      ],
+      "id": "8001b8b9-715b-422b-8cfd-2b9da8cb23b0",
+      "name": "Extract Content Type Prompt",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get Initial Article').first().json.body.data.id }}",
+          "mode": "id"
+        },
+        "simple": false
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1504,
+        0
+      ],
+      "id": "1e88f2f8-8b1c-4d1e-a76e-79f8cde49b30",
+      "name": "Get Content With Block ID",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "76091ed4-fdfd-4192-b3d3-43f7daa61dd7",
+              "name": "set_initial_input",
+              "value": "=Title:\n{{ $('Get Content With Block ID').item.json.properties[\"Article Name\"].title[0].text.content }}\n\nTopic:\n{{ $('Get Content With Block ID').item.json.properties[\"Search Query\"].rich_text[0].text.content }}\n\nSummary:\n{{ $('Get Content With Block ID').item.json.properties.Summary.rich_text[0].text.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -832,
+        0
+      ],
+      "id": "1797fa37-d768-4f41-aa68-6fb7b7e2171e",
+      "name": "Set Initial Input",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "set_content_type",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -384,
+        0
+      ],
+      "id": "bf791877-9d6a-4218-b57a-88adb288aaa3",
+      "name": "Split Content Type"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "074bc9ef-54df-4dd5-a617-259349c4a425",
+              "name": "set_content_type",
+              "value": "={{ $('Get Initial Article').first().json.body.data.properties['Additional Formats'].relation }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -608,
+        0
+      ],
+      "id": "aa907c1c-6b34-42f3-a634-e5867ba08ec3",
+      "name": "Set Content Type"
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "databaseId": {
+          "__rl": true,
+          "value": "={{ $json.properties[\"Transformed Content\"].relation.database_id }}",
+          "mode": "id"
+        },
+        "simple": false
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1056,
+        0
+      ],
+      "id": "f8fda82c-20d7-4dd3-bfe3-2cfa69d7c130",
+      "name": "Get Transformed Content DB ID"
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "databaseId": {
+          "__rl": true,
+          "value": "={{ $json.parent.database_id }}",
+          "mode": "id"
+        },
+        "simple": false
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1280,
+        0
+      ],
+      "id": "23473a1b-d9d4-4946-a4d8-cc65013d0c39",
+      "name": "Get Parent DB ID"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0be2fcc6-66ec-49ac-ab17-bd2ce45c3935",
+              "name": "initial_input",
+              "value": "={{ $json.initial_input }}",
+              "type": "string"
+            },
+            {
+              "id": "090ef065-4cf7-4d81-9bfa-d87425fbe336",
+              "name": "content",
+              "value": "={{ $json.body }}",
+              "type": "string"
+            },
+            {
+              "id": "62cd50ef-4057-4161-878e-c628c8613a5f",
+              "name": "prompt_update",
+              "value": "={{ $json.prompt_update }}",
+              "type": "string"
+            },
+            {
+              "id": "ceb252e3-d45a-46da-92b0-44b447c3d6f7",
+              "name": "system_message",
+              "value": "={{ $json.system_message }}",
+              "type": "string"
+            },
+            {
+              "id": "19101d04-ac65-441d-9614-b46a2a3b733a",
+              "name": "user_message",
+              "value": "={{ $json.user_message }}",
+              "type": "string"
+            },
+            {
+              "id": "de5f5591-3c43-4382-916a-99099d5408a2",
+              "name": "generate_images",
+              "value": "={{ $('Get Initial Article').first().json.body.data.properties[\"Generate Image\"].checkbox }}",
+              "type": "string"
+            },
+            {
+              "id": "af188dd3-0756-4c57-a428-1da2034c50bc",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "5d2e98c0-3f5f-4d52-95dc-286b5a15d3b2",
+              "name": "source",
+              "value": "={{ $json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "0ecb355c-1570-4af1-82d7-604cf108722d",
+              "name": "platform",
+              "value": "={{ $json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "8c449581-b194-41f1-b7d6-29764cc4c41f",
+              "name": "initial_article",
+              "value": "={{ $json.initial_article }}",
+              "type": "string"
+            },
+            {
+              "id": "b0a17ec1-0f75-40aa-8ce8-a3c0dec0e637",
+              "name": "transformed_content_db_id",
+              "value": "={{ $json.transformed_content_db_id }}",
+              "type": "string"
+            },
+            {
+              "id": "68f9bee7-e35a-44cc-9c48-d8e161f06fe5",
+              "name": "image_dimensions",
+              "value": "={{ $json.image_dimensions }}",
+              "type": "string"
+            },
+            {
+              "id": "3b9f19c8-e8ba-4078-9eb3-021cb5ee34af",
+              "name": "image_system_message",
+              "value": "={{ $json.image_system_message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        736,
+        80
+      ],
+      "id": "f6fe1155-dce9-43bb-90b8-a6c6921ed17a",
+      "name": "Set Input3"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $('Get Initial Article').first().json.body.data.id }}",
+          "mode": "id"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        288,
+        0
+      ],
+      "id": "54b5693f-1d94-4ee4-98c8-a27ad64576c8",
+      "name": "Get Block Content"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize output variables\nlet bodyParts = [];\nlet images = [];\n\nfor (const item of $input.all()) {\n  const block = item.json;\n\n  if (block.type === 'paragraph') {\n    const content = block.content?.trim();\n    if (content) {\n      bodyParts.push(content);\n    }\n  }\n\n  if (block.type === 'image') {\n    const imageUrl = block.image?.external?.url;\n    if (imageUrl) {\n      images.push(imageUrl);\n    }\n  }\n}\n\nreturn [\n  {\n    json: {\n      body: bodyParts.join('\\n'),\n      images,\n      initial_input: $('Set Initial Input').item.json.set_initial_input,\n      system_message: $('Extract Content Type Prompt').item.json.property_system_message,\n      user_message: $('Extract Content Type Prompt').item.json.property_guidelines,\n      generate_images: $('Get Initial Article').first().json.body.data.properties[\"Generate Image\"].checkbox,\n      title: `Content - ${$('Extract Content Type Prompt').item.json.property_platform[0]} - ${$('Extract Content Type Prompt').item.json.property_format}`,\n      source: $('Get Initial Article').item.json.body.data.id,\n      platform: $('Extract Content Type Prompt').item.json.property_platform[0],\n      transformed_content_db_id: $('Get Transformed Content DB ID').item.json.id,\n      image_dimensions: $('Extract Content Type Prompt').item.json.property_image_dimensions,\n      image_system_message: $('Extract Content Type Prompt').item.json.property_image_system_message,\n      initial_article: $('Get Initial Article').item.json.body.data.url,\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        512,
+        0
+      ],
+      "id": "77ff6abf-fcd9-4639-8e7b-f81e39ed7042",
+      "name": "Format Block Content"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        64,
+        0
+      ],
+      "id": "cd6b5146-f4e8-44f6-adeb-7b91bb125bfb",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "write-syntech-content",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1728,
+        0
+      ],
+      "id": "607f92af-211f-42d5-ba19-c5ab7c064ea7",
+      "name": "Get Initial Article",
+      "webhookId": "6e345565-c1b2-415c-926e-9118f081bcb4"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "k4L9f8e37QsqnU0n",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/k4L9f8e37QsqnU0n",
+          "cachedResultName": "▶️ Multi Platform Content Transformation"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        288,
+        -192
+      ],
+      "id": "7b466752-b076-4cf2-bc2e-85e21022f1b9",
+      "name": "Execute Content Writer Workflow"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "b2BszX3mKjsELBJP",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/b2BszX3mKjsELBJP",
+          "cachedResultName": "Add Content to Notion"
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        -112,
+        400
+      ],
+      "id": "07838b75-c18d-4b00-aa03-7835d28d78be",
+      "name": "Add Social Media Post2",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Initial Input').item.json.initial_article }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|select",
+              "selectValue": "Error: Notion API"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        112,
+        496
+      ],
+      "id": "6d7526b1-eb8f-4f86-8f7e-feb19f8dc428",
+      "name": "Set Notion API Error2",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Initial Input').first().json.initial_article }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|select",
+              "selectValue": "Content Generated"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        112,
+        304
+      ],
+      "id": "0cb67b2a-5b2f-4a70-8f7c-7f008a1642d8",
+      "name": "Set Notion Success2",
+      "executeOnce": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f6abe9ac-2a7d-4ead-8b3f-93d8aef7fb54",
+              "name": "transformed_content_db_id",
+              "value": "={{ $('Initial Input').item.json.transformed_content_db_id }}",
+              "type": "string"
+            },
+            {
+              "id": "a13105d5-dca1-49dc-8fca-84d1e485d7ad",
+              "name": "content",
+              "value": "={{ $('Create Content ').item.json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "f5a756d3-d95b-4941-99db-7abd73995af5",
+              "name": "title",
+              "value": "={{ $('Initial Input').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "b336bc2e-a12e-4936-bebf-ad274495a048",
+              "name": "source_database_page",
+              "value": "={{ $('Initial Input').item.json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "a938dfe9-0069-4a97-82f2-2d22f6606cb6",
+              "name": "platform",
+              "value": "={{ $('Initial Input').item.json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "bcae6010-8182-40a7-94aa-ac436d2e10b3",
+              "name": "image(s)",
+              "value": "={{[]}}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -336,
+        400
+      ],
+      "id": "b68af105-232c-4db2-94f4-63518b19f95e",
+      "name": "Set Subflow Fields4"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Guidelines:\n{{ $('Initial Input').item.json.user_message }}\n\nAdditional Research:\n{{ $json.set_research }}\n\nInput Content Main Article:\n{{ $('Initial Input').item.json.content }}\n\n{{ $('Initial Input').item.json.prompt_update }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "={{ $('Initial Input').item.json.system_message }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        -688,
+        400
+      ],
+      "id": "caa4bc76-ad93-4628-9994-e68487565cc0",
+      "name": "Create Content ",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1728,
+        496
+      ],
+      "id": "e62cf43c-3285-4951-a0de-561cc46725ce",
+      "name": "Initial Input"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -624,
+        624
+      ],
+      "id": "fb870077-03d9-49b9-9320-6b17f351cea7",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "curate_sources",
+        "description": "Call this tool to curate the best URLs from the generate_search_queries. The input should be the list of URLs from the generate_search_queries tool. ",
+        "workflowId": {
+          "__rl": true,
+          "value": "EAPhQjGU2ySyEXs7",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/EAPhQjGU2ySyEXs7",
+          "cachedResultName": "Curate Sources"
+        },
+        "fields": {
+          "values": [
+            {
+              "name": "question",
+              "stringValue": "={{ $json.body.text }}"
+            },
+            {
+              "name": "max_results",
+              "stringValue": "=3"
+            },
+            {
+              "name": "in_depth",
+              "type": "booleanValue"
+            }
+          ]
+        },
+        "jsonSchemaExample": ""
+      },
+      "id": "4c71f555-b298-48b5-b073-91988c0e6c08",
+      "name": "Curate Sources",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1440,
+        624
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e0f28b7-3221-4534-8945-97b63a15f4cc",
+              "name": "set_research",
+              "value": "={{ $('Research').item.json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0676fee8-4b18-4e5d-9cd8-a7166241d2ec",
+      "name": "Set Research",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -912,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your are responsible for managing and coordinating researching the users query.\n\n# Steps\n1. Research the internet to genrate additional context for the article: \"{{ $json.content }}\"\n2. Use the context from your web search to generate search queries\n3. Search the internet with the queries generated by the generate_search_queries tool\n4. Curate the best URLs from step 3.\n\nYou have access to the following Tools:\n\"generate_search_queries\": Create initial search queries on the article\n\"search_internet\": Helps the agent better understand the task by obtaining real-time web data.\n\"curate_sources\": Evaluate and curate the best URLs from the research_search_queries tool\n\nAssume todays date is {{ $now }}.",
+        "options": {}
+      },
+      "id": "6bcb49fc-849b-482f-9f0d-44755835892c",
+      "name": "Research",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -1392,
+        400
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "name": "generate_search_queries",
+        "description": "Generates the search queries prompt for the given question and context.\nArgs:\n        question (str): The question to generate the search queries prompt for\n        report_type (str): The report type\n        max_iterations (int): The maximum number of search queries to generate\n        context (str): Context for better understanding of the task with realtime web information provided by calling the 'get_content' tool\n\nReturns: str: The search queries prompt for the given question",
+        "workflowId": {
+          "__rl": true,
+          "value": "3ZvtNy32wVNLZjZO",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/3ZvtNy32wVNLZjZO",
+          "cachedResultName": "Generate_Search_Queries"
+        },
+        "fields": {
+          "values": [
+            {
+              "name": "question",
+              "stringValue": "={{ $json.body.text }}"
+            },
+            {
+              "name": "report_type",
+              "stringValue": "=ada"
+            },
+            {
+              "name": "max_iterations",
+              "stringValue": "=3"
+            }
+          ]
+        },
+        "specifyInputSchema": true,
+        "schemaType": "manual",
+        "inputSchema": "{\n\"type\": \"object\",\n\"properties\": {\n\t\"query\": {\n\t\t\"type\": \"string\",\n\t\t\"description\": \"The query generated by the agent\"\n    },\n    \"context\": {\n  \t\t\"type\": \"string\",\n  \t\t\"description\": \"The output generated by calling the 'get_contet' tool\"\n    }\n  }\n}"
+      },
+      "id": "503df90b-8452-45b9-8292-3b8969d9bcc3",
+      "name": "Generate Search Queries2",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1280,
+        624
+      ]
+    },
+    {
+      "parameters": {
+        "toolDescription": "Useful for searching search queries generated by the agent. ",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n    \"api_key\": \"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\",\n    \"query\": \"{query}\",\n}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "query",
+              "description": "The query provided by the Agent"
+            }
+          ]
+        },
+        "optimizeResponse": true,
+        "dataField": "results",
+        "fieldsToInclude": "selected",
+        "fields": "title, url, content, score"
+      },
+      "id": "aec5daeb-b2eb-4680-ac04-d45fbfdccef8",
+      "name": "Search Internet2",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        -1120,
+        624
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Topic: \n{{ $('Get Slack Message').item.json.body.text }}\n\nSources:\n{{ $json.set_research }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Your role is to craft newsletters for MGMT Playbook, a company dedicated to delivering actionable management insights to leaders and managers. Your newsletters should be practical, engaging, and aligned with the style and structure outlined below.\n\nYou will write newsletters for one format:\n\t1.\tMGMT Playbook (long-form): A detailed newsletter released every Wednesday, offering in-depth strategies, proven tactics, and real-world examples to help leaders build high-performing teams and refine their management practices.\n\nKey Requirements:\n\t1.\tMatch the Writing Style: Use the examples provided to match the tone, style, content length, sentence structure, humour, and information density. Your writing should feel as if it were authored by the same person who created the examples.\n\t2.\tFocus on Practicality: Deliver advice and strategies that are actionable, specific, and easy for leaders to implement in their day-to-day roles.\n\t3.\tEngage the Audience: Use a relatable and conversational tone that resonates with leaders and managers while remaining professional and authoritative.\n\t4.\tLeverage Provided Context: Use the topic, sources, and examples to guide your writing. Include insights from the sources in a way that enhances the newsletter’s value without overwhelming the reader.\n\t5.\tIncorporate Relevant Personal Anecdotes: Where appropriate and impactful, weave in personal anecdotes that connect to the topic or illustrate a key point. Draw these anecdotes from the “About MGMT” and “About David Kline” sections to ensure authenticity and alignment with the MGMT brand.\n\nStructure:\n\nFor MGMT Playbook:\n\t•\tTitle: Reflects the main topic or question addressed.\n\t•\tIntroduction: Presents a common management challenge or scenario, setting the stage for discussion. This often includes a personal anecdote or empathetic statement.\n\t•\tMain Content: Offers in-depth analysis, strategies, step-by-step guidance, and real-world examples.\n\t•\tConclusion: Summarises key takeaways and encourages application of discussed strategies.\n\t•\tAdditional Resources: May include links to articles, workshops, or invitations for further discussion.\n\nResources Available to You:\n\t1.\tTopic: The user-provided topic, which defines the focus of the newsletter.\n\t2.\tSources: A list of URLs and summaries to support your research and writing.\n\t3.\tExamples: Sample newsletters that demonstrate the desired style and structure. These are your benchmarks for tone, information density, and overall presentation.\n\t4.\tPersonal Context: Use the “About MGMT” and “About David Kline” sections to inform and inspire anecdotes or insights that make the content more relatable and impactful.\n\nAbout MGMT:\n\nMGMT focuses on leadership and management training, providing actionable strategies to enhance team performance and drive individual and organisational success. Its offerings, like the MGMT Accelerator, have equipped over 1,100 alumni with tailored Management Operating Systems (e.g., CODE: Coach, Operate, Delegate, Engage) to improve decision-making and management effectiveness.\n\nAbout David Kline:\n\nDavid Kline, the co-founder of MGMT, is an experienced leader with expertise in management training and leadership development. With a background spanning two decades in senior roles at companies like Bridgewater Associates and Moody’s, David brings deep insights into effective management strategies. His personal experiences and lessons from these roles can provide rich material for anecdotes that resonate with leaders facing similar challenges.\n\nYour Task:\n\nBased on the topic, sources, and examples, write a newsletter that aligns with the purpose, structure, and style of the MGMT Playbook. Ensure the output is engaging, actionable, and reflective of MGMT’s mission to improve leadership practices. Use personal anecdotes from David Kline’s experiences or MGMT’s journey when relevant to make the content relatable and memorable.\n\nFew-Shot Prompting:\n\nUse the examples to mirror the writing style, tone, and density. Your output should read as though it was written by the same author who wrote the examples, maintaining consistency across all newsletters."
+            },
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "Write me a newsletter about 5 Simple Steps to Manufacture Focus When You Have More Work Than Time"
+            },
+            {
+              "type": "AIMessagePromptTemplate",
+              "message": "=# Manufacture Focus: 5 Simple Steps When You Have More Work Than Time\n\nA step-by-step guide for founders, player coaches, or anyone who can't seem to make progress on what matters most.\n\n**Read Time: 4 minutes.**\n\n80% of leaders who come to me, either via our [MGMT Accelerator](https://mgmtaccelerator.com?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=manufacture-focus-5-simple-steps-when-you-have-more-work-than-time) or for 1:1 coaching, want help with one thing:\n\n**Delegating**\n\nAnd this is often the solution for some of their work.\n\nBut they rarely have enough capable people to take on the full list because the list constantly grows:\n\n*   A new marketing channel\n    \n*   A new round of funding\n    \n*   A new product line\n    \n*   A new customer\n    \n*   A new crisis\n    \n\nThey live at the confluence of two rivers:\n\n*   The Urgent\n    \n*   The Opportune\n    \n\nThe source of these rivers is endless. Even the leaders who mastered delegation, automation, and elimination can drown in their waters.\n\nThey need one more move, and it requires courage:\n\n**They must choose.**\n\nNot only in a strategic, 10-year plan sort of way.  \nBut in a micro, intra-day, \"what will I do today\" sort of way.\n\nHere's how:\n\nWhat Season Are You In\n----------------------\n\nEmbrace reality:\n\n*   Winter: Are you in **survival mode** and cutting costs?\n    \n*   Spring: Are you in **startup mode** and finding product market fit?\n    \n*   Summer: Are you in **scaleup mode** and growing fast?\n    \n*   Fall: Are you in **profit-taking mode** and harvesting to diversify?\n\nYou will be tempted not to choose.  \nYou will wish you were in a different season than you are.  \nYou will want to \"get ahead\" of the season you see coming next.\n\n**Don't.**\n\nWork works when it's in harmony with reality. Embrace it.\n\nHow Is Success Measured This Time of Year\n-----------------------------------------\n\nForce yourself to get to one number to hold as your north star.\n\nIf you're in survival mode, that might be profit margin.  \nIf you're in scaleup mode, that might be new customers.\n\nIt's the number you believe gives you the best chance to win the season.\n\n**Note**: It's okay to have KPIs that support it. Or if you're an OKR shop, that they connect. But the clarity comes from choosing, so choose.\n\nWhat Work Moves The Needle That Season\n--------------------------------------\n\nGet all the work for that season onto a list. Seriously, get it out of your brain and onto a piece of paper. It will feel less overwhelming there. And the process will likely generate even more ideas.\n\nThat's the point: empty the bucket.\n\nNow take the list and give every two scores:\n\n*   **Impact:** How much will it move the needle?\n    \n*   **Effort:** How much will it cost to do it?\n\nYou can go High/Medium/Low on both.  \nPersonally, I prefer numeric estimates, at least for the needle-mover.\n\nFinally, you need to rank your list.\n\nIf you have **High Impact / Low Effort** options, do those first.\n\n**Note**: If it's not meaningfully moving the needle on your key measure, cross it off. It might be a good idea, but it's not a good time.\n\nToday's Big 3: Schedule It\n--------------------------\n\nThis will seem trivial, but I promise it matters:\n\nStart your day by **TAKING OUR YOUR LIST**.\n\nSeriously, I fall victim to this all the time. And I see other execs do the same.\n\n50% of the value comes from making the list.  \n50% of the value comes from using it. Refining it. Abiding by it.\n\nNow, starting from the top, schedule 3 of your open blocks to take on the 3 most impactful items on the list.\n\nBe clear about what you'll get done in that block today. This small step will force you to recognize dependencies, people you need, etc.\n\nIt will also be critical to uncover where you're sabotaging yourself in the next step.\n\n**Note**: If you don't have 3 open blocks, you have a different problem. I have some ideas for how to [cancel 50% of your meetings](https://mgmt.beehiiv.com/p/create-a-cancel-culture-how-to-eliminate-50-of-your-meetings).\n\nDid You Do Them (If Not, Why?)\n------------------------------\n\nBefore you snap the laptop shut for the day, spend 2 minutes reflecting on the Big 3 with these questions:\n\n*   Did you complete what you set out to accomplish today?\n    \n*   If no, why not?\n\nYou will likely notice one of three problems:\n\n1.  **You got distracted.** This is where the **urgent usually crowds out the important**. But did it really need your attention at that exact moment? Could someone else have dealt with it 80% as well as you? Stop letting your ego of today prevent the success you're trying to build tomorrow.\n    \n2.  **You were inefficient.** It's a distraction of a different variety. Did you really lock in for that time? Or did you check your phone and email? Did a couple of people \"just need you for one second?\" Did 60 scheduled minutes become 15 minutes of focus after you factor in the distraction? Hint: rig your environment to meet your best intentions.\n    \n3.  **You took on too much.** You failed to visualize what was doable in the hour. Or who you needed to bring together to do it. Great. Now you know you need to invest a little more in preparing to maximize your work blocks.\n\nI find that when leaders follow this roadmap, a few things happen:\n\n1.  The **work gets done** **much faster** than they'd guess\n    \n2.  They **exit the season much sooner** than they predicted\n    \n3.  Their **teams get more productive** due to the renewed focus\n    \nWhat You Missed This Week\n-------------------------\n\nDid you miss this week’s MGMT Minute?\n\n📌 Check out why you should [seperate design from people](https://mgmt.beehiiv.com/p/mgmt-minute-why-the-best-leaders-always-separate-design-from-people) when building your team.\n\nAnd here are our 5 most popular posts from this week:\n\n1.  [Leadership Lessons From NFL Playoff Coaches](https://www.linkedin.com/posts/davidkline_8-leadership-lessons-from-nfl-playoff-coaches-activity-7286370502963523584-Uyw0?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=manufacture-focus-5-simple-steps-when-you-have-more-work-than-time)\n    \n2.  [Nail The Answer to 10 Common Interview Questions](https://www.linkedin.com/posts/marsdenkline_prepare-for-interviews-like-an-a-player-activity-7286378594677784576-vQYy?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=manufacture-focus-5-simple-steps-when-you-have-more-work-than-time)\n    \n3.  [17 Signs of Must-Hire Candidate](https://www.linkedin.com/posts/davidkline_17-signs-of-a-must-hire-candidate-and-5-activity-7286028490972225537-ThyN?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=manufacture-focus-5-simple-steps-when-you-have-more-work-than-time)\n    \n4.  [10 Bad Habits Leaders Must Unlearn](https://www.linkedin.com/posts/marsdenkline_10-bad-habits-to-unlearn-to-become-an-effective-activity-7284570730707447808-dMgs?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=manufacture-focus-5-simple-steps-when-you-have-more-work-than-time)\n    \n5.  [9 Red Flags That Disqualify Candidates](https://www.linkedin.com/posts/davidkline_9-interview-red-flags-that-disqualify-any-activity-7285298914486812672-5n2J?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=manufacture-focus-5-simple-steps-when-you-have-more-work-than-time)\n\nOur goal is to build a community of 1 million thoughtful, curious leaders.\n\n**Your ♻️ reposts on any or all of the above are always appreciated.**  \n\nThank you for reading. Appreciate you!\n\nDave & Mar\n\nWays To Work With Me\n--------------------\n\n**MGMT Accelerator** \\- Join our cohort. February 4 - 27, 11:00 am -12:30 pm ET. Perfect for managers with 3-10 years of experience or scaling business owners looking to build their management operating system fast. [Enroll today!](https://maven.com/dave-kline/mgmt-accelerator/?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=manufacture-focus-5-simple-steps-when-you-have-more-work-than-time)\n\n**Customized Leadership Programs** - Bring our MGMT Accelerator in-house for a tailored, two-day intensive workshop. Ideal for 20+ leaders.\n\n**1:1 Executive Coaching -** I may have a slot opening soon. Please reply to see if I’m your right partner, and we’ll schedule a time to see if it’s a fit.\n\n**Speaking** \\- We’re now booking keynotes for 2025. Hit reply on this note, and we can set up a time to discuss topics and pricing.\n\n**MGMT Playbook** - If you’re here because someone forwarded this email, please subscribe before you leave.\n\n[Subscribe: MGMT Playbook](https://mgmt.beehiiv.com/subscribe)"
+            },
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "Write me a newsletter about 3 Simple But Effective Frameworks for Making Better Decisions"
+            },
+            {
+              "type": "AIMessagePromptTemplate",
+              "message": "=# 3 Simple But Effective Frameworks for Making Better Decisions\n\nRead Time: 4 minutes 13 seconds\n\n**We're pretty terrible decision-makers.**\n\n![GIF of cat playing and winning shell game](https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/c4b4d808-06b2-4321-8db2-e9354fbad7f5/Cat_Sheel_Game.gif)\n\nEmotion. Biases. Mistakes. Politics. Laziness. We get in our own way—a lot.\n\nAnd while I could give you yet [another](https://twitter.com/SahilBloom/status/1418910006557265932?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=3-simple-but-effective-frameworks-for-making-better-decisions) [list](https://twitter.com/SystemSunday/status/1526539601489195008?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=3-simple-but-effective-frameworks-for-making-better-decisions) of [cognitive](https://twitter.com/adammgrant/status/650783127128948736?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=3-simple-but-effective-frameworks-for-making-better-decisions) [biases](https://twitter.com/VisualCap/status/1430963459567542272?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=3-simple-but-effective-frameworks-for-making-better-decisions), I wanted to push past understanding what disrupts our thinking and into **practical methods that we can use to make better decisions.**\n\nAwareness of these biases is critical. **And simply being less confident is a meaningful step towards better decisions.**\n\nBut we don't want to just understand the decisions we made.\n\nWe want to apply these lessons to decisions we've _**yet**_ to make.\n\nHere are three frameworks I've refined over the years.\n\n*   **Operating Principles**\n    \n*   **Decision Journal**\n    \n*   **Daily Answer Drip**\n\nI breakdown each one below.\n\nOperating Principles\n--------------------\n\nPerhaps the biggest gift I got from working at Bridgewater was learning the **leverage that comes from principles-based decision-making.**\n\nWe'd take the lessons from how we wanted to operate and what we've learned to be true, write them down, and then agree to use them when making future choices.\n\nThat doesn't mean they won't evolve. But operating this way allowed for two things:\n\n1.  Shared language\n    \n2.  Compounding of knowledge\n\nAnd it's not just Bridgewater that operates this way."
+            },
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "Write me a newsletter about How to Give Honest Feedback That Drives High Performance"
+            },
+            {
+              "type": "AIMessagePromptTemplate",
+              "message": "=# How to Give Honest Feedback That Drives High Performance\n\nThe simple formula to ensure your feedback is heard\n\nRadical Truth\n-------------\n\nBy the time I left Bridgewater in 2020, I had received **12,385 pieces of brutally honest feedback**. The math comes in just above a dozen each day. When was the last time one colleague weighed in on your performance, let alone hundreds?\n\nFor most people, \"feedback\" conjures the image of an annual [one-on-one](https://mgmt.beehiiv.com/p/effective-one-on-one-meetings) performance review with their boss or a casual comment on the walk back to their desk. **It's private. Whispered and forgotten.**\n\nMost of the feedback I received was far from private—a story.\n\nI'm bellied up to a sturdy conference room table in Westport, CT. Across from me is the founder and chairman of the world's largest hedge fund, Ray Dalio. Flanking him are a dozen leaders who'd make up the board at most companies.\n\nThe conference room is stuffy because nearly 75 other people are ringing the room's perimeter. My team. My peers. And a video crew. We recorded every meeting, but large ones needed higher production value. Ray never wanted to miss the chance to capture a case study.\n\nUnfortunately, I'm about to become a case study.\n\nSome of the observers are in chairs. Some lean against the glass wall. Others sprawl out on small squares of the carpeted floor. But every single one of them has an iPad. And every iPad has an app custom-designed for Bridgewater called the Dot Collector.\n\nThink of the Dot Collector as Twitter for feedback. Anyone in the company could give real-time feedback to anyone else, and it accumulated in their feed, which was publicly accessible to everyone. Every dot was on a scale of 1-10, mapped to 60 attributes, and required comments.\n\n**And it wasn't that you** _**could**_ **give feedback. It was** _**expected**_ **that you did.**\n\nSo as I steeled myself to start the meeting, everyone else readied their calloused, little dot-collecting fingers.\n\nWith Ray present, everyone knew **they would be judged through the feedback they gave.** That he'd see what they saw through their dots. And he'd hold them directly accountable for being in the room and not being engaged.\n\nWhat the topic was that day is of little consequence. What matters is that I took a big swing and missed. Badly."
+            },
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "Write me a newsletter on Lessons From C-Suite Leaders"
+            },
+            {
+              "type": "AIMessagePromptTemplate",
+              "message": "=# The CEO Coach's Corner: Steal These Lessons From Real C-Suite Leaders\n\nCome shadow some of my coaching sessions from this week and learn how to level up as a leader.\n\n**Read Time: 3 minutes.**\n\nWhenever we teach our live program, I share stories from CEOs I work with. It helps leaders better appreciate all it takes to run a company.\n\nIt also helps them feel better knowing that even those who've ascended to the top spot still face the same challenges leading a team.\n\nLeading is lonely.  \nUntil you realize you’re not alone.\n\nHere are 3 lessons from just this past week.\n\n25% Off Our MGMT Programs (until Sunday)\n----------------------------------------\n\nOur partners at Maven have created a **Fast Track program**. Think of it as an MBA you can do in half the time with instructors who’ve walked the talk.\n\n**And they’ve included both of our programs!**\n\n[MGMT Fundamentals](https://maven.com/dave-kline/mgmt-fundamentals/?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=the-ceo-coach-s-corner-steal-these-lessons-from-real-c-suite-leaders) - For newer managers, we train you on the 80/20 skills required to lead high-performing teams. Kicks off December 3rd.\n\n[MGMT Accelerator](https://maven.com/dave-kline/mgmt-accelerator?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=the-ceo-coach-s-corner-steal-these-lessons-from-real-c-suite-leaders) - For experienced managers, we build the systems to help you level up as a leader. The next session starts February 4th.\n\nHow To Keep The Urgent From Crowding Out The Important\n------------------------------------------------------\n\nI have one CEO who feels like he needs to be more productive. Which is odd since he's more productive than 99% of people I know.\n\n**But uncommon results demand unreasonable standards.**\n\nAnd when we audited his time, he was right. Against his most important goals, he was spending less than 20% of this time each week.\n\nWhen asked if he knew **Warren Buffett's 5/25 Method**, he said, \"No.\"\n\nSo, instead of explaining it, we just did it. Show instead of tell.\n\n*   He listed out the 25 things that he thought were most important (he only got to 17).\n    \n*   Then we worked together to **cross off** **all but the most important 5**. Some were dependent on others. Some were further down the road.\n    \n*   The commitment: put _**zero effort or attention**_ on the crossed-off list until you **complete** one of the 5 priorities.\n\nDon't shortcut this method. The value comes from **emptying your mind** of all the possibilities and **actively rejecting them**.\n\nAnd then structuring your time every day to relentlessly focus on pushing them to completion.\n\nHow To Get Teams To Embrace Change\n----------------------------------\n\n**Inertia is a powerful force.**\n\nOnce an object is in motion, it takes a lot of force to change direction.\n\nThis law is especially true within organizations. Why?\n\n**Because humans crave status.**\n\nWe design teams, set rules, and construct processes to preserve status. We may not do this consciously, but probe deeply into any bureaucracy, and you'll uncover this truth is the root cause more often than not.\n\nSo how do we get people to change despite this reality?\n\nBy making the _**reward for change**_ greater than the _**cost of change**_.\n\nRead that again.\n\n**The reward must exceed the cost.**\n\nThe perceived gain in status must be greater than the perceived risk for daring to change.\n\nWe focus too much effort on **the act of change**:\n\n*   Change management\n    \n*   Carrots and sticks\n    \n*   New SOPs\n    \n\nWe should focus on **ensuring the alternative is better** than the status quo.\n\nSo, if you're struggling to get people to change, examine if the new reality you're offering **elevates the status** of those you're asking to change.\n\nOnce it does, you won't be able to stop the stampede.\n\nPlay Games You're Uniquely Suited To Win\n----------------------------------------\n\nI work with an executive assigned to lead a function he has a) no experience in, b) a low affinity for, and c) little interest in developing.\n\nWhile noble, it worked out exactly as you'd expect. Terribly.\n\nJust because we _**can**_ do something doesn't mean we _**should**_ do it. I learned this lesson many times in my career.\n\nWith distance, we can all see it's a bad move. Because we'll never be as good or as committed as those who are committed to the craft we're selflessly pitching in on.\n\nWhich begs the obvious question:\n\n**What should we do when put in this position?**\n\nIf you truly can't say no (and more often than not, you can), then you need to redefine success as a game you can win.\n\nIn this case, we caught the falter early. And while he is misaligned to lead the function, he is a well-networked superstar recruiter.\n\nBy making the primary goal of finding a new leader and the secondary goal of \"keeping the lights on,\" he was able to succeed.\n\nLet me know what you think.\n\n### Should we include the CEO Coach's Corner again?\n\n*   [Yes, the more often, the better](https://mgmt.beehiiv.com/login)\n*   [Yes, but only occasionally](https://mgmt.beehiiv.com/login)\n*   [No thanks](https://mgmt.beehiiv.com/login)\n\n[Login](https://mgmt.beehiiv.com/login) or [Subscribe](https://mgmt.beehiiv.com/subscribe) to participate in polls.\n\n**And if you're a CEO looking for a coach,** please reach out.\n\nI have a couple of slots opening in the new year. They often get taken by founders and CEOs who take our [MGMT Accelerator](https://maven.com/dave-kline/mgmt-accelerator/?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=the-ceo-coach-s-corner-steal-these-lessons-from-real-c-suite-leaders), so this is your chance to beat them to it.\n\nWhat You Missed This Week\n-------------------------\n\nDid you miss last week’s **Monday MGMT Minute?** \n\n📌 I offered some [hard questions you should be asking](https://mgmt.beehiiv.com/p/monday-mgmt-minute-question-your-reality).\n\nWhat about our free Lighting Lesson?\n\n📌 We shared out playbook to [manage up like a boss](https://maven.com/p/9581b1/how-to-manage-up-like-a-boss-even-if-you-re-a-new-manager?utm_medium=ll_share_link&utm_source=instructor).\n\nAnd here are our 5 most popular posts from this week:\n\n1.  [The 5 Keys for High-Performing Teams](https://www.linkedin.com/posts/davidkline_the-5-keys-to-high-performing-teams-heres-activity-7266070738183376897-heV4?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=the-ceo-coach-s-corner-steal-these-lessons-from-real-c-suite-leaders)\n    \n2.  ⭐ [21 Phrases for Mastering Conflict](https://www.linkedin.com/posts/marsdenkline_21-phrases-for-mastering-conflict-activity-7266082335148720129-2_7t?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=the-ceo-coach-s-corner-steal-these-lessons-from-real-c-suite-leaders)\n    \n3.  [11 Visuals to Transform Your Life](https://www.linkedin.com/posts/davidkline_11-visuals-that-will-transform-your-life-activity-7263903247931740160-UBUY?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=the-ceo-coach-s-corner-steal-these-lessons-from-real-c-suite-leaders)\n    \n4.  [The Coaching You Need to Lead](https://www.linkedin.com/posts/marsdenkline_the-coaching-you-need-to-lead-activity-7265734722624851968-Qyv6?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=the-ceo-coach-s-corner-steal-these-lessons-from-real-c-suite-leaders)\n    \n5.  [21 Leadership Lessons](https://x.com/dklineii/status/1859600085836878180?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=the-ceo-coach-s-corner-steal-these-lessons-from-real-c-suite-leaders)\n    \n\nOur goal is to build a community of 1 million thoughtful, curious leaders.\n\n**Your ♻️ reposts on any or all of the above are always appreciated.**  \n\nThank you for reading. Appreciate you!\n\nDave & Mar\n\nWays To Work With Me\n--------------------\n\n**MGMT Fundamentals** \\- Join our next sprint. December 3 - 13, 12:00-1:00 pm ET. Perfect for managers with 0-3 years of experience looking to build their management muscles fast. [Enroll today!](https://maven.com/dave-kline/mgmt-fundamentals/?utm_source=mgmt.beehiiv.com&utm_medium=referral&utm_campaign=the-ceo-coach-s-corner-steal-these-lessons-from-real-c-suite-leaders)\n\n**Customized Leadership Programs** - Bring our MGMT Accelerator in-house for a tailored, two-day intensive workshop. Ideal for 20+ leaders.\n\n**1:1 Executive Coaching -** I have two slots open for 2025. If you want to see if I’m the right partner for you, please hit reply, and we’ll find time to see if it’s a fit.\n\n**Speaking** \\- We’re now booking keynotes for 2025. Hit reply on this note, and we can setup a time to discuss topics and pricing.\n\n**MGMT Playbook** - If you’re here because someone forwarded this email, please subscribe before you leave.\n\n[Subscribe: MGMT Playbook](https://mgmt.beehiiv.com/subscribe)"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        -1728,
+        832
+      ],
+      "id": "6d555b3b-a4e9-443a-933e-c6f059e52cd3",
+      "name": "Few Shot Prompting No Story1",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "id": "99282812-5365-48a2-993a-37059a58e526",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        624
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -912,
+        576
+      ],
+      "id": "8d6ba6da-cd90-42ae-95cb-e850fd8f687d",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-11T11:42:08.705Z",
+      "createdAt": "2025-12-11T11:42:08.705Z",
+      "role": "workflow:owner",
+      "workflowId": "AMaBWTc7cyZV6ndk",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-01-28T08:02:55.654Z",
+  "versionId": "cbc43c00-9fb0-4e96-b118-3a53afa2a0e9"
+}
