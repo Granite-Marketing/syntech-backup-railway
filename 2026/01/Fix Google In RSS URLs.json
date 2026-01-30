@@ -1,0 +1,208 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get Items With Bad URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates": {
+      "main": [
+        [
+          {
+            "node": "Update Bad URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Items With Bad URLs": {
+      "main": [
+        [
+          {
+            "node": "Set and Clean URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set and Clean URLs": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:26:50.998Z",
+  "id": "B6ukTtuUG5m6mIZA",
+  "isArchived": false,
+  "meta": null,
+  "name": "Fix Google In RSS URLs",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "62a577da-a261-430c-9cfd-da8f20e7c64e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [
+        672,
+        0
+      ],
+      "id": "5266675a-75f2-4e23-8e55-17bb6acaa6eb",
+      "name": "Remove Duplicates"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27c785c0-cfab-8137-800f-dcf3e01a3e97",
+          "mode": "list",
+          "cachedResultName": "Syntech Content Ideas",
+          "cachedResultUrl": "https://www.notion.so/27c785c0cfab8137800fdcf3e01a3e97"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "matchType": "allFilters",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Source|multi_select",
+              "condition": "contains",
+              "multiSelectValue": "RSS"
+            },
+            {
+              "key": "Source URL|url",
+              "condition": "contains",
+              "urlValue": "https://www.google.com/url?"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "bf1426c0-2740-4a9e-b61a-d470519ec784",
+      "name": "Get Items With Bad URLs",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Get Items With Bad URLs').item.json.id }}",
+          "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Source URL|url",
+              "urlValue": "={{ $json.property_source_url }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        896,
+        0
+      ],
+      "id": "450e1c8d-00b6-454c-8f7d-f287bb71d789",
+      "name": "Update Bad URLs",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4951d1c4-c86f-4242-a1a8-936136c0abca",
+              "name": "property_source_url",
+              "value": "={{ \n  decodeURIComponent(\n    $json.property_source_url.replace(\n      /^https?:\\/\\/www\\.google\\.com\\/url\\?.*?[?&]url=([^&]+).*$/,\n      '$1'\n    )\n  )\n}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        464,
+        0
+      ],
+      "id": "09643bfb-88ec-407d-83e7-c062aebed0e1",
+      "name": "Set and Clean URLs"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:26:50.998Z",
+      "createdAt": "2026-01-28T08:26:50.998Z",
+      "role": "workflow:owner",
+      "workflowId": "B6ukTtuUG5m6mIZA",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:26:50.998Z",
+  "versionId": "d7c43dcf-0ac8-47d9-a289-2769fde1a3cb"
+}
