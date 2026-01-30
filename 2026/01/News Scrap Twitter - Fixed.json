@@ -1,0 +1,552 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Initial Input": {
+      "main": [
+        [
+          {
+            "node": "Limit3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit3": {
+      "main": [
+        [
+          {
+            "node": "Categorize Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Categorize Items": {
+      "main": [
+        [
+          {
+            "node": "Set Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Data": {
+      "main": [
+        [
+          {
+            "node": "Has URLs?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Has Keywords?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has URLs?": {
+      "main": [
+        [
+          {
+            "node": "Extract URL Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Keywords?": {
+      "main": [
+        [
+          {
+            "node": "Extract Keyword Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "X Fields (URL)": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "X Fields (Keyword)": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Results": {
+      "main": [
+        [
+          {
+            "node": "Validate Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Content": {
+      "main": [
+        [
+          {
+            "node": "If Valid Content?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Valid Content?": {
+      "main": [
+        [
+          {
+            "node": "Get Many Rows",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Valid Content Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "main": [
+        [
+          {
+            "node": "Create Row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:26:50.796Z",
+  "id": "G5j4U9P6o6ZvU1n6",
+  "isArchived": false,
+  "meta": null,
+  "name": "News Scrap Twitter - Fixed",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "f8f5ca8a-1d8c-4c40-91df-88aa97614b9d",
+      "name": "Initial Input",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -512,
+        96
+      ]
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "id": "f78b3dda-9316-42a7-a51c-318b70ec70d7",
+      "name": "Limit3",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        96
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Separate items into URL and Keyword groups\n// This replaces the problematic Loop + IF branching\n\nconst urlItems = [];\nconst keywordItems = [];\n\nfor (const item of $input.all()) {\n  const data = item.json;\n  \n  // Adjust this condition based on your input data structure\n  // Check if item has a URL or is marked as URL type\n  const hasUrl = data.url || data.link || data.type === 'url' || data.inputType === 'url';\n  \n  if (hasUrl) {\n    urlItems.push({\n      json: {\n        ...data,\n        _processType: 'url',\n        _sourceUrl: data.url || data.link || ''\n      }\n    });\n  } else {\n    keywordItems.push({\n      json: {\n        ...data,\n        _processType: 'keyword',\n        _searchKeyword: data.keyword || data.query || data.search || ''\n      }\n    });\n  }\n}\n\n// Output summary for routing\nreturn [{\n  json: {\n    urlItems: urlItems.map(i => i.json),\n    keywordItems: keywordItems.map(i => i.json),\n    urlCount: urlItems.length,\n    keywordCount: keywordItems.length,\n    hasUrls: urlItems.length > 0,\n    hasKeywords: keywordItems.length > 0\n  }\n}];"
+      },
+      "id": "7381ea04-2011-4c73-a200-cd12326f3235",
+      "name": "Categorize Items",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -112,
+        96
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "urlItems",
+              "name": "urlItems",
+              "value": "={{ $json.urlItems }}",
+              "type": "array"
+            },
+            {
+              "id": "keywordItems",
+              "name": "keywordItems",
+              "value": "={{ $json.keywordItems }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d5bae9e8-269a-406d-a7aa-c92e926104ef",
+      "name": "Set Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        96,
+        96
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "url-check",
+              "leftValue": "={{ $json.urlItems.length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "cb2dda4f-4196-4369-b65a-5808a5403040",
+      "name": "Has URLs?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        288,
+        -16
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "keyword-check",
+              "leftValue": "={{ $json.keywordItems.length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "85ae37dc-0be3-468b-8b4b-adef9a2378ef",
+      "name": "Has Keywords?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        288,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract URL items as individual items for processing\nconst inputData = $('Set Data').first().json;\nconst urlItems = inputData.urlItems || [];\n\nif (urlItems.length === 0) {\n  return [{ json: { _empty: true, _source: 'url_path' } }];\n}\n\nreturn urlItems.map(item => ({ json: item }));"
+      },
+      "id": "dc3c7591-ab6d-44d2-8e44-db4e8e1d70ad",
+      "name": "Extract URL Items",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        496,
+        -16
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract Keyword items as individual items for processing\nconst inputData = $('Set Data').first().json;\nconst keywordItems = inputData.keywordItems || [];\n\nif (keywordItems.length === 0) {\n  return [{ json: { _empty: true, _source: 'keyword_path' } }];\n}\n\nreturn keywordItems.map(item => ({ json: item }));"
+      },
+      "id": "7f2b28b7-c35a-4d8a-a141-9f8c68674953",
+      "name": "Extract Keyword Items",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        496,
+        192
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d6456245-46ac-4c99-b10f-309a5b15afa9",
+      "name": "X Post Scraper - URLs",
+      "type": "n8n-nodes-base.apify",
+      "typeVersion": 1,
+      "position": [
+        688,
+        -16
+      ],
+      "notes": "CONFIGURE THIS: Replace YOUR_URL_ACTOR_ID_HERE with your actual Apify actor ID"
+    },
+    {
+      "parameters": {},
+      "id": "bf02fa80-c53c-4a64-a66b-94bb6606d047",
+      "name": "X Post Scraper - Keyword",
+      "type": "n8n-nodes-base.apify",
+      "typeVersion": 1,
+      "position": [
+        688,
+        192
+      ],
+      "notes": "CONFIGURE THIS: Replace YOUR_KEYWORD_ACTOR_ID_HERE with your actual Apify actor ID"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize and extract fields from URL scraper results\nconst results = [];\n\nfor (const item of $input.all()) {\n  const data = item.json;\n  \n  // Skip empty markers\n  if (data._empty) continue;\n  \n  // Handle nested data structures from Apify\n  const posts = data.items || data.tweets || data.posts || [data];\n  \n  for (const post of posts) {\n    if (!post || typeof post !== 'object') continue;\n    \n    results.push({\n      json: {\n        text: post.text || post.full_text || post.content || '',\n        author: post.author || post.user?.screen_name || post.username || '',\n        authorName: post.authorName || post.user?.name || '',\n        createdAt: post.created_at || post.createdAt || post.date || '',\n        url: post.url || post.tweetUrl || '',\n        likes: post.likes || post.favorite_count || 0,\n        retweets: post.retweets || post.retweet_count || 0,\n        replies: post.replies || post.reply_count || 0,\n        _source: 'url_scraper',\n        _rawData: post\n      }\n    });\n  }\n}\n\nif (results.length === 0) {\n  return [{ json: { _empty: true, _source: 'url_fields' } }];\n}\n\nreturn results;"
+      },
+      "id": "76263878-8667-4842-b022-bbb4a0bc6c53",
+      "name": "X Fields (URL)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        -16
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize and extract fields from Keyword scraper results\nconst results = [];\n\nfor (const item of $input.all()) {\n  const data = item.json;\n  \n  // Skip empty markers\n  if (data._empty) continue;\n  \n  // Handle nested data structures from Apify\n  const posts = data.items || data.tweets || data.posts || [data];\n  \n  for (const post of posts) {\n    if (!post || typeof post !== 'object') continue;\n    \n    results.push({\n      json: {\n        text: post.text || post.full_text || post.content || '',\n        author: post.author || post.user?.screen_name || post.username || '',\n        authorName: post.authorName || post.user?.name || '',\n        createdAt: post.created_at || post.createdAt || post.date || '',\n        url: post.url || post.tweetUrl || '',\n        likes: post.likes || post.favorite_count || 0,\n        retweets: post.retweets || post.retweet_count || 0,\n        replies: post.replies || post.reply_count || 0,\n        _source: 'keyword_scraper',\n        _rawData: post\n      }\n    });\n  }\n}\n\nif (results.length === 0) {\n  return [{ json: { _empty: true, _source: 'keyword_fields' } }];\n}\n\nreturn results;"
+      },
+      "id": "3774c698-a38d-45a4-a271-32dc147cdeb3",
+      "name": "X Fields (Keyword)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "7171eda8-20ee-4708-ae5f-fd45e27d6de1",
+      "name": "Merge Results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1088,
+        96
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Filter out empty items and validate content\nconst validItems = [];\n\nfor (const item of $input.all()) {\n  const data = item.json;\n  \n  // Skip empty markers\n  if (data._empty) continue;\n  \n  // Validate: must have text content with minimum length\n  const text = data.text || '';\n  if (text.length < 10) continue;\n  \n  // Add to valid items\n  validItems.push({\n    json: {\n      ...data,\n      _validated: true,\n      _textLength: text.length\n    }\n  });\n}\n\nif (validItems.length === 0) {\n  return [{\n    json: {\n      _error: true,\n      _errorMessage: 'No valid content found after filtering',\n      _totalProcessed: $input.all().length,\n      _validCount: 0\n    }\n  }];\n}\n\nreturn validItems;"
+      },
+      "id": "b3ad31c8-6182-406d-b23b-2280edecf938",
+      "name": "Validate Content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1296,
+        96
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "has-valid-content",
+              "leftValue": "={{ $json._error }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "efe07c54-7731-4195-84c8-079a527a572d",
+      "name": "If Valid Content?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1488,
+        96
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Your Sheet"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "id": "0d13af3e-8029-4364-9d51-df4eefb81905",
+      "name": "Get Many Rows",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1696,
+        48
+      ],
+      "notes": "CONFIGURE THIS: Replace with your actual Google Sheets or Airtable configuration"
+    },
+    {
+      "parameters": {
+        "model": "deepseek-chat",
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "id": "d9f954f4-9276-475e-bc9d-d0535dd89e07",
+      "name": "DeepSeek Processing",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1888,
+        48
+      ],
+      "notes": "CONFIGURE THIS: Set up your DeepSeek API credentials. Base URL: https://api.deepseek.com"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse DeepSeek/AI response and create structured output\nconst results = [];\n\nfor (const item of $input.all()) {\n  const data = item.json;\n  let parsed = {};\n  \n  try {\n    // Try to parse AI response as JSON\n    const content = data.message?.content || data.text || data.content || '';\n    \n    // Clean up potential markdown code blocks\n    const cleanContent = content\n      .replace(/```json\\n?/g, '')\n      .replace(/```\\n?/g, '')\n      .trim();\n    \n    if (cleanContent.startsWith('{')) {\n      parsed = JSON.parse(cleanContent);\n    } else {\n      // If not JSON, create structured object from text\n      parsed = {\n        summary: cleanContent.substring(0, 500),\n        title: 'Twitter Analysis',\n        topic: 'General',\n        sentiment: 'neutral',\n        entities: []\n      };\n    }\n  } catch (e) {\n    parsed = {\n      summary: 'Unable to parse AI response',\n      title: 'Analysis Error',\n      _parseError: e.message\n    };\n  }\n  \n  results.push({\n    json: {\n      title: parsed.title || 'Untitled',\n      summary: parsed.summary || '',\n      topic: parsed.topic || '',\n      sentiment: parsed.sentiment || 'neutral',\n      entities: parsed.entities || [],\n      originalText: data.text || '',\n      originalAuthor: data.author || '',\n      processedAt: new Date().toISOString(),\n      _source: data._source || 'unknown'\n    }\n  });\n}\n\nreturn results;"
+      },
+      "id": "2aaa38e0-2d3e-4345-8ab0-50a5885c7a8c",
+      "name": "Structured Output Parser",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2096,
+        48
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID_HERE",
+          "mode": "list"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Results",
+          "mode": "list"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Title": "={{ $json.title }}",
+            "Summary": "={{ $json.summary }}",
+            "Topic": "={{ $json.topic }}",
+            "Sentiment": "={{ $json.sentiment }}",
+            "Original Author": "={{ $json.originalAuthor }}",
+            "Original Text": "={{ $json.originalText }}",
+            "Processed At": "={{ $json.processedAt }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "3ad55302-b422-40e0-8d8d-08a088c97b76",
+      "name": "Create Row",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2288,
+        48
+      ],
+      "notes": "CONFIGURE THIS: Replace with your actual output destination"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Handle no valid content scenario\nreturn [{\n  json: {\n    status: 'completed_with_no_results',\n    message: 'No valid Twitter/X content was found to process',\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "8c416fa8-c071-4d19-a881-5e03d3ffbf99",
+      "name": "No Valid Content Handler",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1696,
+        240
+      ]
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:26:50.796Z",
+      "createdAt": "2026-01-28T08:26:50.796Z",
+      "role": "workflow:owner",
+      "workflowId": "G5j4U9P6o6ZvU1n6",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:26:50.796Z",
+  "versionId": "da417bc9-1eb9-466f-b64f-cca1298b93fe"
+}
