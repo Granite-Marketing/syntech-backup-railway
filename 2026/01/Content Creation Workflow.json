@@ -1,0 +1,47 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {},
+  "createdAt": "2026-01-28T08:12:42.673Z",
+  "id": "DqCr5D1ohcjjGsQq",
+  "isArchived": true,
+  "meta": null,
+  "name": "Content Creation Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "cbe7c159-3e6b-4d13-88d3-7c4a21792fbd",
+      "name": "When Executed by Another Workflow"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:12:42.673Z",
+      "createdAt": "2026-01-28T08:12:42.673Z",
+      "role": "workflow:owner",
+      "workflowId": "DqCr5D1ohcjjGsQq",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:20:07.792Z",
+  "versionId": "6872dc2d-f4bd-4f2e-a244-de398a38ca27"
+}
