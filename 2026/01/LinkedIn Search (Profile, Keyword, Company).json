@@ -1,0 +1,2224 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-28T19:32:02.317Z",
+    "createdAt": "2026-01-28T19:31:45.734Z",
+    "versionId": "e79e0566-350f-4b19-bedf-cec382f4edc9",
+    "workflowId": "p9T1CJ8sI5Q18MoG",
+    "nodes": [
+      {
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "id",
+                "type": "any"
+              },
+              {
+                "name": "name",
+                "type": "any"
+              },
+              {
+                "name": "url",
+                "type": "any"
+              },
+              {
+                "name": "property_keyword_category",
+                "type": "any"
+              },
+              {
+                "name": "property_priority",
+                "type": "any"
+              },
+              {
+                "name": "property_rss_feed",
+                "type": "any"
+              },
+              {
+                "name": "property_source",
+                "type": "any"
+              },
+              {
+                "name": "property_category",
+                "type": "any"
+              },
+              {
+                "name": "property_url",
+                "type": "any"
+              },
+              {
+                "name": "property_status",
+                "type": "any"
+              },
+              {
+                "name": "property_name",
+                "type": "any"
+              },
+              {
+                "name": "prompt",
+                "type": "any"
+              },
+              {
+                "name": "url_or_keyword",
+                "type": "any"
+              },
+              {
+                "name": "source",
+                "type": "any"
+              },
+              {
+                "name": "additional_formats",
+                "type": "any"
+              },
+              {
+                "name": "process_mode",
+                "type": "any"
+              },
+              {
+                "name": "bypass_filter",
+                "type": "any"
+              }
+            ]
+          }
+        },
+        "id": "1908423c-0a8e-4d48-bf60-6fc7ba9e0124",
+        "typeVersion": 1.1,
+        "name": "Start",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "position": [
+          -13792,
+          -3760
+        ]
+      },
+      {
+        "parameters": {
+          "operation": "Run actor and get dataset",
+          "actorSource": "store",
+          "actorId": {
+            "__rl": true,
+            "value": "A3cAPGpwBEG8RJwse",
+            "mode": "list",
+            "cachedResultName": "LinkedIn Profile Posts Bulk Scraper (No Cookies)⚡$2 per 1k (harvestapi/linkedin-profile-posts)",
+            "cachedResultUrl": "https://console.apify.com/actors/A3cAPGpwBEG8RJwse/input"
+          },
+          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
+        },
+        "type": "@apify/n8n-nodes-apify.apify",
+        "typeVersion": 1,
+        "position": [
+          -12672,
+          -4144
+        ],
+        "id": "9c012d8b-8c74-423c-8e9e-864f589ac80d",
+        "name": "Linkedin profile scraper",
+        "credentials": {
+          "apifyApi": {
+            "id": "JsuEKmvPtVt6JvXD",
+            "name": "Syntech GM Apify account"
+          }
+        },
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "maxItems": 100
+        },
+        "type": "n8n-nodes-base.limit",
+        "typeVersion": 1,
+        "position": [
+          -13568,
+          -3760
+        ],
+        "id": "6bb364ec-9f65-4cd5-a71e-03914fe8971d",
+        "name": "Limit4"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "8efead37-57d8-4101-9010-c855f2525db6",
+                "name": "url_or_keyword",
+                "value": "={{ $json.property_url || $json.url_or_keyword || $json.name }}",
+                "type": "string"
+              },
+              {
+                "id": "20618a33-4eba-4a9e-99e3-5271598f180c",
+                "name": "prompt",
+                "value": "={{ $json.prompt }}",
+                "type": "string"
+              },
+              {
+                "id": "f195a260-08af-4cc2-a6b1-7e5f306adb5c",
+                "name": "additional_formats",
+                "value": "={{ $json.additional_formats }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -13120,
+          -4192
+        ],
+        "id": "5dd9cd63-b40f-4281-b6e4-b749253b7b7a",
+        "name": "Either Url or Keyword2"
+      },
+      {
+        "parameters": {
+          "numberInputs": 3
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          -12224,
+          -4160
+        ],
+        "id": "e81ebcac-7c35-4a4c-9505-5cabe71be38f",
+        "name": "Merge5"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "85711e61-d413-47d4-b046-f368cd9ea7e6",
+                "name": "url",
+                "value": "={{ $json.linkedinUrl }}",
+                "type": "string"
+              },
+              {
+                "id": "3ecbaa12-9e7c-4210-adf3-8ae326daa833",
+                "name": "content",
+                "value": "={{ $json.content }}",
+                "type": "string"
+              },
+              {
+                "id": "b3e1beef-2b90-40f4-b275-f09998ec258b",
+                "name": "publication_date",
+                "value": "={{ $json.postedAt.date }}",
+                "type": "string"
+              },
+              {
+                "id": "bcd3d0bb-05f7-4e46-9292-c9f035648ba8",
+                "name": "search_query",
+                "value": "={{ $('Either Url or Keyword2').item.json.url_or_keyword }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -12448,
+          -4144
+        ],
+        "id": "1e62cb7e-3cd3-47d1-aad0-933af76a3aa5",
+        "name": "linkedin fields"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "85711e61-d413-47d4-b046-f368cd9ea7e6",
+                "name": "url",
+                "value": "={{ $json.linkedinUrl }}",
+                "type": "string"
+              },
+              {
+                "id": "3ecbaa12-9e7c-4210-adf3-8ae326daa833",
+                "name": "content",
+                "value": "={{ $json.content }}",
+                "type": "string"
+              },
+              {
+                "id": "b3e1beef-2b90-40f4-b275-f09998ec258b",
+                "name": "publication_date",
+                "value": "={{ $json.postedAt.date }}",
+                "type": "string"
+              },
+              {
+                "id": "bcd3d0bb-05f7-4e46-9292-c9f035648ba8",
+                "name": "search_query",
+                "value": "={{ $('Either Url or Keyword2').item.json.url_or_keyword }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -12448,
+          -3952
+        ],
+        "id": "f893a992-f5dc-4426-a28d-546ce0ed5508",
+        "name": "linkedin fields1"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3,
+        "position": [
+          -13344,
+          -3760
+        ],
+        "id": "4779a52e-eec3-455d-8929-0f5e51e7f392",
+        "name": "Loop Over Items2"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=<content>\n{{ $('If1').item.json.content }}\n</content>",
+          "hasOutputParser": true,
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=<prompt>\n  <task>\n    Your primary tasks are to analyze the provided content and generate a JSON object containing two key-value pairs:\n    1. **title:** A clear, descriptive, news-style title that reflects the core information or event in the content.\n    2. **summary:** A concise and informative summary of the key details in the content.\n  </task>\n\n  <steps>\n    1. Review the content thoroughly.\n    2. Identify the primary news, announcement, or action being reported.\n    3. Write a summary that distills the essential information, adhering to the word count limit.\n    4. Write a title in the style of a news or trade publication headline. Focus on describing what happened or is happening — not selling a benefit.\n    5. Format the final output as a single JSON object.\n  </steps>\n\n  <restrictions>\n    - **Summary Word Count:** Max 50 words.\n    - **Title Style:** Use objective, publication-style phrasing — not benefit-driven or marketing-style.\n    - **Clarity:** Avoid jargon; prioritize informative clarity.\n    - **JSON Formatting:** Final output must be a single, valid JSON object enclosed in a markdown code block. No text before or after the JSON.\n  </restrictions>\n\n  <output_rules>\n    - **Format:** Raw JSON object.\n    - **Keys:** Must contain exactly two keys: `title` and `summary`.\n    - **Values:** Both values must be strings.\n    - **Tone:** Professional, factual, and informative.\n  </output_rules>\n\n  <examples>\n    ### Example 1\n    **Input Content:** A press release detailing the launch of Syntech ASB and its ISCC certification.\n    **Output:**\n    [Start of JSON Output]\n    {\n      \"title\": \"Syntech Launches UK-Made ISCC-Certified Biofuel from Used Cooking Oil\",\n      \"summary\": \"Syntech ASB is a new ISCC-certified biofuel made entirely from used cooking oil. It is a drop-in replacement for diesel, allowing businesses to reduce carbon emissions by up to 90% without engine modifications or new equipment investments.\"\n    }\n    [End of JSON Output]\n  </examples>\n</prompt>"
+              }
+            ]
+          },
+          "batching": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.7,
+        "position": [
+          -11104,
+          -4144
+        ],
+        "id": "4e404d22-d31c-47d4-9f48-bb547a057a2b",
+        "name": "Create summary and title3",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
+      },
+      {
+        "parameters": {
+          "schemaType": "manual",
+          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+        },
+        "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "typeVersion": 1.3,
+        "position": [
+          -10976,
+          -3920
+        ],
+        "id": "1ff8f019-ed54-464f-b6ec-2cdfded1882f",
+        "name": "Structured Output Parser8"
+      },
+      {
+        "parameters": {
+          "operation": "Run actor and get dataset",
+          "actorSource": "store",
+          "actorId": {
+            "__rl": true,
+            "value": "WI0tj4Ieb5Kq458gB",
+            "mode": "list",
+            "cachedResultName": "LinkedIn Company Posts Scraper (No Cookies) ✅ $2 per 1k (harvestapi/linkedin-company-posts)",
+            "cachedResultUrl": "https://console.apify.com/actors/WI0tj4Ieb5Kq458gB/input"
+          },
+          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
+        },
+        "type": "@apify/n8n-nodes-apify.apify",
+        "typeVersion": 1,
+        "position": [
+          -12672,
+          -3952
+        ],
+        "id": "d970d390-4ab3-4abf-8b38-8d70b7b8e274",
+        "name": "Linkedin company post search scraper",
+        "credentials": {
+          "apifyApi": {
+            "id": "JsuEKmvPtVt6JvXD",
+            "name": "Syntech GM Apify account"
+          }
+        },
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $json.url_or_keyword }}",
+                      "rightValue": "https://",
+                      "operator": {
+                        "type": "string",
+                        "operation": "notContains"
+                      },
+                      "id": "9bd7a37d-5619-4b82-ac94-75dd3df5d5ca"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "Keyword"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "id": "89af75b5-0f31-4712-950f-767d7199e28f",
+                      "leftValue": "={{ $json.url_or_keyword }}",
+                      "rightValue": "https://www.linkedin.com/in/",
+                      "operator": {
+                        "type": "string",
+                        "operation": "contains"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "profile url"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "id": "a6aba742-8519-4530-9004-d805321fcd21",
+                      "leftValue": "={{ $json.url_or_keyword }}",
+                      "rightValue": "https://www.linkedin.com/company/",
+                      "operator": {
+                        "type": "string",
+                        "operation": "contains"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "company url"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.3,
+        "position": [
+          -12896,
+          -4208
+        ],
+        "id": "9c6d228c-026a-41ff-9479-271961df3214",
+        "name": "Switch1"
+      },
+      {
+        "parameters": {
+          "operation": "Run actor and get dataset",
+          "actorSource": "store",
+          "actorId": {
+            "__rl": true,
+            "value": "buIWk2uOUzTmcLsuB",
+            "mode": "list",
+            "cachedResultName": "Linkedin Post Search Scraper (No Cookies) (harvestapi/linkedin-post-search)",
+            "cachedResultUrl": "https://console.apify.com/actors/buIWk2uOUzTmcLsuB/input"
+          },
+          "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}"
+        },
+        "type": "@apify/n8n-nodes-apify.apify",
+        "typeVersion": 1,
+        "position": [
+          -12672,
+          -4336
+        ],
+        "id": "6a5c11a2-c447-47f5-8885-a7065fca8802",
+        "name": "Linkedin keword scraper",
+        "credentials": {
+          "apifyApi": {
+            "id": "JsuEKmvPtVt6JvXD",
+            "name": "Syntech GM Apify account"
+          }
+        },
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "43ef6d98-1769-479a-ab8a-0f9d4d543ce6",
+                "name": "title",
+                "value": "={{ $('Create summary and title3').item.json.output.title }}",
+                "type": "string"
+              },
+              {
+                "id": "014cb7eb-9846-4c41-8cee-4a809250264e",
+                "name": "content",
+                "value": "={{ $('Merge').item.json.content }}",
+                "type": "string"
+              },
+              {
+                "id": "b2be53b4-3451-4aeb-be78-c71beb7a8178",
+                "name": "url",
+                "value": "={{ \n  decodeURIComponent(\n    $('Merge').item.json.url\n      .replace(/^https:\\/\\/www\\.google\\.com\\/url\\?rct=j&sa=t&url=/, '')\n      .split('&')[0]\n  )\n}}",
+                "type": "string"
+              },
+              {
+                "id": "54293f71-70d3-40d0-9f40-19de090bcd63",
+                "name": "summary",
+                "value": "={{ $('Create summary and title3').item.json.output.summary }}",
+                "type": "string"
+              },
+              {
+                "id": "ce7b5d35-72b2-4f82-8744-f1643dd958eb",
+                "name": "search_query",
+                "value": "={{ $('Merge').first().json.search_query }}",
+                "type": "string"
+              },
+              {
+                "id": "db4f55e1-7247-4206-a654-e5d314dbd40b",
+                "name": "publication_date",
+                "value": "={{ $('Merge').item.json.publication_date }}",
+                "type": "string"
+              },
+              {
+                "id": "7674fce2-3c47-4703-88e3-c55a4990ee5c",
+                "name": "prompt",
+                "value": "={{ $('Either Url or Keyword2').first().json.prompt }}",
+                "type": "string"
+              },
+              {
+                "id": "694d03a3-b47b-4515-9ed7-fa8cf0d4b0b6",
+                "name": "additional_formats",
+                "value": "={{ $('Either Url or Keyword2').first().json.additional_formats }}",
+                "type": "string"
+              },
+              {
+                "id": "cdb58557-3653-4500-943e-71ea35ec0f27",
+                "name": "source",
+                "value": "LinkedIn",
+                "type": "string"
+              },
+              {
+                "id": "8546cd27-cefc-4d61-a3e7-86f0c66b12c9",
+                "name": "source_name",
+                "value": "={{ $('Start').item.json.property_name }}",
+                "type": "string"
+              },
+              {
+                "id": "070c84e8-8286-4abb-b573-4a18af055f6d",
+                "name": "mode",
+                "value": "={{ $('Start').first().json.process_mode }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -10528,
+          -3968
+        ],
+        "id": "0d25986b-cad1-44fc-bca0-03104edf2970",
+        "name": "Linkedin post search scraper fields"
+      },
+      {
+        "parameters": {
+          "content": "## News Scrap through LinkedIn url",
+          "height": 976,
+          "width": 3600,
+          "color": 4
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -13872,
+          -4448
+        ],
+        "typeVersion": 1,
+        "id": "b865c9e3-8bb3-4c43-9a1c-fce32593dd77",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "operation": "getAll",
+          "tableId": "Syntech linkedin url",
+          "returnAll": true,
+          "filterType": "none"
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          -11776,
+          -4000
+        ],
+        "id": "e3ed024e-fe05-4235-b96b-b2654416cfa1",
+        "name": "Get many rows",
+        "alwaysOutputData": false,
+        "executeOnce": true,
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "advanced": true,
+          "mergeByFields": {
+            "values": [
+              {
+                "field1": "url",
+                "field2": "url"
+              }
+            ]
+          },
+          "joinMode": "keepNonMatches",
+          "outputDataFrom": "input1",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          -11552,
+          -4144
+        ],
+        "id": "e154ca37-7cc4-4f6d-ad4e-140e9972ff3a",
+        "name": "Merge",
+        "alwaysOutputData": true
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "371490de-8c72-493f-8b9a-0cd3bb56f4c4",
+                "leftValue": "={{ $json.url }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "looseTypeValidation": true,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          -11328,
+          -4144
+        ],
+        "id": "04435cec-46d1-4b38-97bd-6ba36f4a439d",
+        "name": "If1"
+      },
+      {
+        "parameters": {
+          "tableId": "Syntech linkedin url",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldId": "url",
+                "fieldValue": "={{\n  $('Merge').item.json.url.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.url\n}}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          -10752,
+          -4144
+        ],
+        "id": "9a2e359f-1410-480b-9fb2-527dd19f15d6",
+        "name": "Create a row",
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "85711e61-d413-47d4-b046-f368cd9ea7e6",
+                "name": "url",
+                "value": "={{ $json.linkedinUrl }}",
+                "type": "string"
+              },
+              {
+                "id": "3ecbaa12-9e7c-4210-adf3-8ae326daa833",
+                "name": "content",
+                "value": "={{ $json.content }}",
+                "type": "string"
+              },
+              {
+                "id": "b3e1beef-2b90-40f4-b275-f09998ec258b",
+                "name": "publication_date",
+                "value": "={{ $json.postedAt.date }}",
+                "type": "string"
+              },
+              {
+                "id": "bcd3d0bb-05f7-4e46-9292-c9f035648ba8",
+                "name": "search_query",
+                "value": "={{ $('Either Url or Keyword2').item.json.url_or_keyword }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -12448,
+          -4336
+        ],
+        "id": "2d57f5c6-b31d-42e4-b63e-9ee1161e462f",
+        "name": "linkedin fields2"
+      },
+      {
+        "parameters": {
+          "model": "deepseek/deepseek-v3.2",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          -11104,
+          -3920
+        ],
+        "id": "e9be87fc-06bd-4498-9068-29111ca49c38",
+        "name": "DeepSeek 3.",
+        "credentials": {
+          "openRouterApi": {
+            "id": "kUkOiAL6PjmdfexG",
+            "name": "Syntech GM OpenRouter account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "4a79dc1a-993d-4f55-a508-0b1fd1055780",
+                "leftValue": "={{ $json.content }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              },
+              {
+                "id": "b4353be1-5da7-4423-9018-2139e44ad239",
+                "leftValue": "={{ $json.url }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              },
+              {
+                "id": "1acba9c2-9c44-4137-9da1-13473b6c47eb",
+                "leftValue": "={{ $json.content }}",
+                "rightValue": "https://",
+                "operator": {
+                  "type": "string",
+                  "operation": "notStartsWith"
+                }
+              },
+              {
+                "id": "6d8ad5a5-a39d-44f2-8564-bdc8880305f2",
+                "leftValue": "={{ $json.url }}",
+                "rightValue": "syntechbiofuel",
+                "operator": {
+                  "type": "string",
+                  "operation": "notContains"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          -12000,
+          -4144
+        ],
+        "id": "6b90dccb-1023-40fb-98e2-4e1ca8000d3a",
+        "name": "If Valid Content?"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-nano",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-nano"
+          },
+          "options": {
+            "temperature": 0.1
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -13792,
+          -4544
+        ],
+        "id": "2561ac0a-3d28-41e7-9e84-4e6dc55797f2",
+        "name": "OpenAI Chat Model",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Start": {
+        "main": [
+          [
+            {
+              "node": "Limit4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Linkedin profile scraper": {
+        "main": [
+          [
+            {
+              "node": "linkedin fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Limit4": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Either Url or Keyword2": {
+        "main": [
+          [
+            {
+              "node": "Switch1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Merge5": {
+        "main": [
+          [
+            {
+              "node": "If Valid Content?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "linkedin fields": {
+        "main": [
+          [
+            {
+              "node": "Merge5",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "linkedin fields1": {
+        "main": [
+          [
+            {
+              "node": "Merge5",
+              "type": "main",
+              "index": 2
+            }
+          ]
+        ]
+      },
+      "Loop Over Items2": {
+        "main": [
+          [],
+          [
+            {
+              "node": "Either Url or Keyword2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create summary and title3": {
+        "main": [
+          [
+            {
+              "node": "Create a row",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Structured Output Parser8": {
+        "ai_outputParser": [
+          [
+            {
+              "node": "Create summary and title3",
+              "type": "ai_outputParser",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Linkedin company post search scraper": {
+        "main": [
+          [
+            {
+              "node": "linkedin fields1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Switch1": {
+        "main": [
+          [
+            {
+              "node": "Linkedin keword scraper",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Linkedin profile scraper",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Linkedin company post search scraper",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Linkedin post search scraper fields": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many rows": {
+        "main": [
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Merge": {
+        "main": [
+          [
+            {
+              "node": "If1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If1": {
+        "main": [
+          [
+            {
+              "node": "Create summary and title3",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Loop Over Items2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a row": {
+        "main": [
+          [
+            {
+              "node": "Linkedin post search scraper fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Linkedin keword scraper": {
+        "main": [
+          [
+            {
+              "node": "linkedin fields2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "linkedin fields2": {
+        "main": [
+          [
+            {
+              "node": "Merge5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "DeepSeek 3.": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create summary and title3",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If Valid Content?": {
+        "main": [
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Get many rows",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Loop Over Items2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model": {
+        "ai_languageModel": [
+          []
+        ]
+      }
+    },
+    "authors": "Stephen Anindo",
+    "name": "add retry",
+    "description": "",
+    "autosaved": true
+  },
+  "activeVersionId": "e79e0566-350f-4b19-bedf-cec382f4edc9",
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Limit4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Linkedin profile scraper": {
+      "main": [
+        [
+          {
+            "node": "linkedin fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit4": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Either Url or Keyword2": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge5": {
+      "main": [
+        [
+          {
+            "node": "If Valid Content?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "linkedin fields": {
+      "main": [
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "linkedin fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Either Url or Keyword2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create summary and title3": {
+      "main": [
+        [
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser8": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Create summary and title3",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Linkedin company post search scraper": {
+      "main": [
+        [
+          {
+            "node": "linkedin fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Linkedin keword scraper",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Linkedin profile scraper",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Linkedin company post search scraper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Linkedin post search scraper fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Create summary and title3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row": {
+      "main": [
+        [
+          {
+            "node": "Linkedin post search scraper fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Linkedin keword scraper": {
+      "main": [
+        [
+          {
+            "node": "linkedin fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "linkedin fields2": {
+      "main": [
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek 3.": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Valid Content?": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get many rows",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:07.257Z",
+  "id": "p9T1CJ8sI5Q18MoG",
+  "isArchived": false,
+  "meta": null,
+  "name": "LinkedIn Search (Profile, Keyword, Company)",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "id",
+              "type": "any"
+            },
+            {
+              "name": "name",
+              "type": "any"
+            },
+            {
+              "name": "url",
+              "type": "any"
+            },
+            {
+              "name": "property_keyword_category",
+              "type": "any"
+            },
+            {
+              "name": "property_priority",
+              "type": "any"
+            },
+            {
+              "name": "property_rss_feed",
+              "type": "any"
+            },
+            {
+              "name": "property_source",
+              "type": "any"
+            },
+            {
+              "name": "property_category",
+              "type": "any"
+            },
+            {
+              "name": "property_url",
+              "type": "any"
+            },
+            {
+              "name": "property_status",
+              "type": "any"
+            },
+            {
+              "name": "property_name",
+              "type": "any"
+            },
+            {
+              "name": "prompt",
+              "type": "any"
+            },
+            {
+              "name": "url_or_keyword",
+              "type": "any"
+            },
+            {
+              "name": "source",
+              "type": "any"
+            },
+            {
+              "name": "additional_formats",
+              "type": "any"
+            },
+            {
+              "name": "process_mode",
+              "type": "any"
+            },
+            {
+              "name": "bypass_filter",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "id": "1908423c-0a8e-4d48-bf60-6fc7ba9e0124",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -13792,
+        -3760
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "Run actor and get dataset",
+        "actorSource": "store",
+        "actorId": {
+          "__rl": true,
+          "value": "A3cAPGpwBEG8RJwse",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Profile Posts Bulk Scraper (No Cookies)⚡$2 per 1k (harvestapi/linkedin-profile-posts)",
+          "cachedResultUrl": "https://console.apify.com/actors/A3cAPGpwBEG8RJwse/input"
+        },
+        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -12672,
+        -4144
+      ],
+      "id": "9c012d8b-8c74-423c-8e9e-864f589ac80d",
+      "name": "Linkedin profile scraper",
+      "credentials": {
+        "apifyApi": {
+          "id": "JsuEKmvPtVt6JvXD",
+          "name": "Syntech GM Apify account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "maxItems": 100
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -13568,
+        -3760
+      ],
+      "id": "6bb364ec-9f65-4cd5-a71e-03914fe8971d",
+      "name": "Limit4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8efead37-57d8-4101-9010-c855f2525db6",
+              "name": "url_or_keyword",
+              "value": "={{ $json.property_url || $json.url_or_keyword || $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "20618a33-4eba-4a9e-99e3-5271598f180c",
+              "name": "prompt",
+              "value": "={{ $json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "f195a260-08af-4cc2-a6b1-7e5f306adb5c",
+              "name": "additional_formats",
+              "value": "={{ $json.additional_formats }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -13120,
+        -4192
+      ],
+      "id": "5dd9cd63-b40f-4281-b6e4-b749253b7b7a",
+      "name": "Either Url or Keyword2"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -12224,
+        -4160
+      ],
+      "id": "e81ebcac-7c35-4a4c-9505-5cabe71be38f",
+      "name": "Merge5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "85711e61-d413-47d4-b046-f368cd9ea7e6",
+              "name": "url",
+              "value": "={{ $json.linkedinUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "3ecbaa12-9e7c-4210-adf3-8ae326daa833",
+              "name": "content",
+              "value": "={{ $json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "b3e1beef-2b90-40f4-b275-f09998ec258b",
+              "name": "publication_date",
+              "value": "={{ $json.postedAt.date }}",
+              "type": "string"
+            },
+            {
+              "id": "bcd3d0bb-05f7-4e46-9292-c9f035648ba8",
+              "name": "search_query",
+              "value": "={{ $('Either Url or Keyword2').item.json.url_or_keyword }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -12448,
+        -4144
+      ],
+      "id": "1e62cb7e-3cd3-47d1-aad0-933af76a3aa5",
+      "name": "linkedin fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "85711e61-d413-47d4-b046-f368cd9ea7e6",
+              "name": "url",
+              "value": "={{ $json.linkedinUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "3ecbaa12-9e7c-4210-adf3-8ae326daa833",
+              "name": "content",
+              "value": "={{ $json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "b3e1beef-2b90-40f4-b275-f09998ec258b",
+              "name": "publication_date",
+              "value": "={{ $json.postedAt.date }}",
+              "type": "string"
+            },
+            {
+              "id": "bcd3d0bb-05f7-4e46-9292-c9f035648ba8",
+              "name": "search_query",
+              "value": "={{ $('Either Url or Keyword2').item.json.url_or_keyword }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -12448,
+        -3952
+      ],
+      "id": "f893a992-f5dc-4426-a28d-546ce0ed5508",
+      "name": "linkedin fields1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -13344,
+        -3760
+      ],
+      "id": "4779a52e-eec3-455d-8929-0f5e51e7f392",
+      "name": "Loop Over Items2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ $('If1').item.json.content }}\n</content>",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=<prompt>\n  <task>\n    Your primary tasks are to analyze the provided content and generate a JSON object containing two key-value pairs:\n    1. **title:** A clear, descriptive, news-style title that reflects the core information or event in the content.\n    2. **summary:** A concise and informative summary of the key details in the content.\n  </task>\n\n  <steps>\n    1. Review the content thoroughly.\n    2. Identify the primary news, announcement, or action being reported.\n    3. Write a summary that distills the essential information, adhering to the word count limit.\n    4. Write a title in the style of a news or trade publication headline. Focus on describing what happened or is happening — not selling a benefit.\n    5. Format the final output as a single JSON object.\n  </steps>\n\n  <restrictions>\n    - **Summary Word Count:** Max 50 words.\n    - **Title Style:** Use objective, publication-style phrasing — not benefit-driven or marketing-style.\n    - **Clarity:** Avoid jargon; prioritize informative clarity.\n    - **JSON Formatting:** Final output must be a single, valid JSON object enclosed in a markdown code block. No text before or after the JSON.\n  </restrictions>\n\n  <output_rules>\n    - **Format:** Raw JSON object.\n    - **Keys:** Must contain exactly two keys: `title` and `summary`.\n    - **Values:** Both values must be strings.\n    - **Tone:** Professional, factual, and informative.\n  </output_rules>\n\n  <examples>\n    ### Example 1\n    **Input Content:** A press release detailing the launch of Syntech ASB and its ISCC certification.\n    **Output:**\n    [Start of JSON Output]\n    {\n      \"title\": \"Syntech Launches UK-Made ISCC-Certified Biofuel from Used Cooking Oil\",\n      \"summary\": \"Syntech ASB is a new ISCC-certified biofuel made entirely from used cooking oil. It is a drop-in replacement for diesel, allowing businesses to reduce carbon emissions by up to 90% without engine modifications or new equipment investments.\"\n    }\n    [End of JSON Output]\n  </examples>\n</prompt>"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -11104,
+        -4144
+      ],
+      "id": "4e404d22-d31c-47d4-9f48-bb547a057a2b",
+      "name": "Create summary and title3",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -10976,
+        -3920
+      ],
+      "id": "1ff8f019-ed54-464f-b6ec-2cdfded1882f",
+      "name": "Structured Output Parser8"
+    },
+    {
+      "parameters": {
+        "operation": "Run actor and get dataset",
+        "actorSource": "store",
+        "actorId": {
+          "__rl": true,
+          "value": "WI0tj4Ieb5Kq458gB",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Company Posts Scraper (No Cookies) ✅ $2 per 1k (harvestapi/linkedin-company-posts)",
+          "cachedResultUrl": "https://console.apify.com/actors/WI0tj4Ieb5Kq458gB/input"
+        },
+        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -12672,
+        -3952
+      ],
+      "id": "d970d390-4ab3-4abf-8b38-8d70b7b8e274",
+      "name": "Linkedin company post search scraper",
+      "credentials": {
+        "apifyApi": {
+          "id": "JsuEKmvPtVt6JvXD",
+          "name": "Syntech GM Apify account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.url_or_keyword }}",
+                    "rightValue": "https://",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notContains"
+                    },
+                    "id": "9bd7a37d-5619-4b82-ac94-75dd3df5d5ca"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Keyword"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "89af75b5-0f31-4712-950f-767d7199e28f",
+                    "leftValue": "={{ $json.url_or_keyword }}",
+                    "rightValue": "https://www.linkedin.com/in/",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "profile url"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a6aba742-8519-4530-9004-d805321fcd21",
+                    "leftValue": "={{ $json.url_or_keyword }}",
+                    "rightValue": "https://www.linkedin.com/company/",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "company url"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        -12896,
+        -4208
+      ],
+      "id": "9c6d228c-026a-41ff-9479-271961df3214",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "operation": "Run actor and get dataset",
+        "actorSource": "store",
+        "actorId": {
+          "__rl": true,
+          "value": "buIWk2uOUzTmcLsuB",
+          "mode": "list",
+          "cachedResultName": "Linkedin Post Search Scraper (No Cookies) (harvestapi/linkedin-post-search)",
+          "cachedResultUrl": "https://console.apify.com/actors/buIWk2uOUzTmcLsuB/input"
+        },
+        "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}"
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -12672,
+        -4336
+      ],
+      "id": "6a5c11a2-c447-47f5-8885-a7065fca8802",
+      "name": "Linkedin keword scraper",
+      "credentials": {
+        "apifyApi": {
+          "id": "JsuEKmvPtVt6JvXD",
+          "name": "Syntech GM Apify account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "43ef6d98-1769-479a-ab8a-0f9d4d543ce6",
+              "name": "title",
+              "value": "={{ $('Create summary and title3').item.json.output.title }}",
+              "type": "string"
+            },
+            {
+              "id": "014cb7eb-9846-4c41-8cee-4a809250264e",
+              "name": "content",
+              "value": "={{ $('Merge').item.json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "b2be53b4-3451-4aeb-be78-c71beb7a8178",
+              "name": "url",
+              "value": "={{ \n  decodeURIComponent(\n    $('Merge').item.json.url\n      .replace(/^https:\\/\\/www\\.google\\.com\\/url\\?rct=j&sa=t&url=/, '')\n      .split('&')[0]\n  )\n}}",
+              "type": "string"
+            },
+            {
+              "id": "54293f71-70d3-40d0-9f40-19de090bcd63",
+              "name": "summary",
+              "value": "={{ $('Create summary and title3').item.json.output.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "ce7b5d35-72b2-4f82-8744-f1643dd958eb",
+              "name": "search_query",
+              "value": "={{ $('Merge').first().json.search_query }}",
+              "type": "string"
+            },
+            {
+              "id": "db4f55e1-7247-4206-a654-e5d314dbd40b",
+              "name": "publication_date",
+              "value": "={{ $('Merge').item.json.publication_date }}",
+              "type": "string"
+            },
+            {
+              "id": "7674fce2-3c47-4703-88e3-c55a4990ee5c",
+              "name": "prompt",
+              "value": "={{ $('Either Url or Keyword2').first().json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "694d03a3-b47b-4515-9ed7-fa8cf0d4b0b6",
+              "name": "additional_formats",
+              "value": "={{ $('Either Url or Keyword2').first().json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "cdb58557-3653-4500-943e-71ea35ec0f27",
+              "name": "source",
+              "value": "LinkedIn",
+              "type": "string"
+            },
+            {
+              "id": "8546cd27-cefc-4d61-a3e7-86f0c66b12c9",
+              "name": "source_name",
+              "value": "={{ $('Start').item.json.property_name }}",
+              "type": "string"
+            },
+            {
+              "id": "070c84e8-8286-4abb-b573-4a18af055f6d",
+              "name": "mode",
+              "value": "={{ $('Start').first().json.process_mode }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -10528,
+        -3968
+      ],
+      "id": "0d25986b-cad1-44fc-bca0-03104edf2970",
+      "name": "Linkedin post search scraper fields"
+    },
+    {
+      "parameters": {
+        "content": "## News Scrap through LinkedIn url",
+        "height": 976,
+        "width": 3600,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -13872,
+        -4448
+      ],
+      "typeVersion": 1,
+      "id": "b865c9e3-8bb3-4c43-9a1c-fce32593dd77",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "Syntech linkedin url",
+        "returnAll": true,
+        "filterType": "none"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -11776,
+        -4000
+      ],
+      "id": "e3ed024e-fe05-4235-b96b-b2654416cfa1",
+      "name": "Get many rows",
+      "alwaysOutputData": false,
+      "executeOnce": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "url",
+              "field2": "url"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -11552,
+        -4144
+      ],
+      "id": "e154ca37-7cc4-4f6d-ad4e-140e9972ff3a",
+      "name": "Merge",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "371490de-8c72-493f-8b9a-0cd3bb56f4c4",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -11328,
+        -4144
+      ],
+      "id": "04435cec-46d1-4b38-97bd-6ba36f4a439d",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "tableId": "Syntech linkedin url",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "url",
+              "fieldValue": "={{\n  $('Merge').item.json.url.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.url\n}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -10752,
+        -4144
+      ],
+      "id": "9a2e359f-1410-480b-9fb2-527dd19f15d6",
+      "name": "Create a row",
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "85711e61-d413-47d4-b046-f368cd9ea7e6",
+              "name": "url",
+              "value": "={{ $json.linkedinUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "3ecbaa12-9e7c-4210-adf3-8ae326daa833",
+              "name": "content",
+              "value": "={{ $json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "b3e1beef-2b90-40f4-b275-f09998ec258b",
+              "name": "publication_date",
+              "value": "={{ $json.postedAt.date }}",
+              "type": "string"
+            },
+            {
+              "id": "bcd3d0bb-05f7-4e46-9292-c9f035648ba8",
+              "name": "search_query",
+              "value": "={{ $('Either Url or Keyword2').item.json.url_or_keyword }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -12448,
+        -4336
+      ],
+      "id": "2d57f5c6-b31d-42e4-b63e-9ee1161e462f",
+      "name": "linkedin fields2"
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-v3.2",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -11104,
+        -3920
+      ],
+      "id": "e9be87fc-06bd-4498-9068-29111ca49c38",
+      "name": "DeepSeek 3.",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kUkOiAL6PjmdfexG",
+          "name": "Syntech GM OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4a79dc1a-993d-4f55-a508-0b1fd1055780",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "b4353be1-5da7-4423-9018-2139e44ad239",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "1acba9c2-9c44-4137-9da1-13473b6c47eb",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "https://",
+              "operator": {
+                "type": "string",
+                "operation": "notStartsWith"
+              }
+            },
+            {
+              "id": "6d8ad5a5-a39d-44f2-8564-bdc8880305f2",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "syntechbiofuel",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -12000,
+        -4144
+      ],
+      "id": "6b90dccb-1023-40fb-98e2-4e1ca8000d3a",
+      "name": "If Valid Content?"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -13792,
+        -4544
+      ],
+      "id": "2561ac0a-3d28-41e7-9e84-4e6dc55797f2",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "timeSavedPerExecution": 1
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:07.257Z",
+      "createdAt": "2026-01-28T09:06:07.257Z",
+      "role": "workflow:owner",
+      "workflowId": "p9T1CJ8sI5Q18MoG",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T19:31:45.725Z",
+  "versionId": "e79e0566-350f-4b19-bedf-cec382f4edc9"
+}
