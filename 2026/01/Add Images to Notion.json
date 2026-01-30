@@ -1,0 +1,202 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Set Target Database": {
+      "main": [
+        [
+          {
+            "node": "Create New Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Content": {
+      "main": [
+        [
+          {
+            "node": "AI Generated Images2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Generated Images2": {
+      "main": [
+        [
+          {
+            "node": "Upload Image Blocks1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:06.505Z",
+  "id": "6lld1WGI83Kwwss0",
+  "isArchived": false,
+  "meta": null,
+  "name": "Add Images to Notion",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -656,
+        480
+      ],
+      "id": "abf0f7e5-59b2-4bf3-ac86-e869e3484c60",
+      "name": "Set Target Database"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "={{ $('Set Target Database').item.json.transformed_content_db_id }}",
+          "mode": "id"
+        },
+        "title": "={{ $json.content }}",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Image Prompt|relation",
+              "relationValue": [
+                "={{ $json.source_database_page }}"
+              ]
+            },
+            {
+              "key": "Status|status",
+              "statusValue": "Not started"
+            },
+            {
+              "key": "Prompt Source|rich_text",
+              "textContent": "={{ $json.title }} | {{ $now.format('DD - H:m') }}"
+            },
+            {
+              "key": "Aspect Ratio|rich_text",
+              "textContent": "={{ $json.property_aspect_ratio }}"
+            },
+            {
+              "key": "Chat Modal|multi_select",
+              "multiSelectValue": "={{ $json.chat_model }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -400,
+        480
+      ],
+      "id": "fb523863-7cba-4da0-bc4c-eceee5f1a9f2",
+      "name": "Create New Content",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "374abe10-a0be-4163-849a-6ef6ef399c22",
+              "name": "ai_images",
+              "value": "={{ $('Set Target Database').first().json[\"images\"] }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -160,
+        480
+      ],
+      "id": "6d9c967c-8f48-4ae8-9118-1890de209bfd",
+      "name": "AI Generated Images2",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/blocks/{{ $('Create New Content').item.json.id }}/children",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"children\": [\n        {\n            \"type\": \"image\",\n            \"image\": {\n                \"caption\": [],\n                \"type\": \"file_upload\",\n                \"file_upload\": {\n                    \"id\": \"{{ $json.ai_images.id }}\"\n                }\n            }\n        }\n        \n        \n    ]\n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 5000
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        96,
+        480
+      ],
+      "id": "8ccaf39d-f9fe-477c-b725-9d90b60ff30c",
+      "name": "Upload Image Blocks1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "Qsg1jSZ5AQScoAOn"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:06.505Z",
+      "createdAt": "2026-01-28T09:06:06.505Z",
+      "role": "workflow:owner",
+      "workflowId": "6lld1WGI83Kwwss0",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:06:06.505Z",
+  "versionId": "21954c01-11da-405a-a335-b636fba3d973"
+}
