@@ -1,0 +1,1607 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Payload": {
+      "main": [
+        [
+          {
+            "node": "Route Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page": {
+      "main": [
+        [
+          {
+            "node": "Remove Actions On Submit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Approved By Management": {
+      "main": [
+        [
+          {
+            "node": "Get Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Approve": {
+      "main": [
+        [
+          {
+            "node": "Get Content Prompts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Approved By Management",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Rejected By Management",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rejected By Management": {
+      "main": [
+        [
+          {
+            "node": "Send Email Confirmation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set ID and Prompt Name": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Content Prompts": {
+      "main": [
+        [
+          {
+            "node": "Set ID and Prompt Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Platform Name": {
+      "main": [
+        [
+          {
+            "node": "If Trigger All",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Trigger Notion Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Notion Workflow": {
+      "main": [
+        [
+          {
+            "node": "Send Email Confirmation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Curate Sources": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Research": {
+      "main": [
+        [
+          {
+            "node": "IF text longer than 2000 chars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Search Queries2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Internet2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF text longer than 2000 chars": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Splits text in small chuncks": {
+      "main": [
+        [
+          {
+            "node": "IF2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF2": {
+      "main": [
+        [
+          {
+            "node": "Get Source Article Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set Article URL": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Update Research Item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Set Platform Name",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Splits text in small chuncks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Research": {
+      "main": [
+        [
+          {
+            "node": "Set Platform Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Research Item": {
+      "main": [
+        [
+          {
+            "node": "Set Article URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Research Item": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Source Article Details": {
+      "main": [
+        [
+          {
+            "node": "Create New Research Item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Block Content": {
+      "main": [
+        [
+          {
+            "node": "Format Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Block Content": {
+      "main": [
+        [
+          {
+            "node": "Check If Research Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Research": {
+      "main": [
+        [
+          {
+            "node": "Set Platform Name",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check If Research Exists": {
+      "main": [
+        [
+          {
+            "node": "If Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Trigger All": {
+      "main": [
+        [
+          {
+            "node": "Get Content Prompts1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get Content Prompts1": {
+      "main": [
+        [
+          {
+            "node": "Extract Prompt Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Notion Workflow1": {
+      "main": [
+        [
+          {
+            "node": "Send Email Confirmation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Prompt Metadata": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Trigger Notion Workflow1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route Channel": {
+      "main": [
+        [
+          {
+            "node": "Update a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:12:44.409Z",
+  "id": "0beKQC6grgmJq5B5",
+  "isArchived": true,
+  "meta": null,
+  "name": "Handle Ticket Submissions",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "syntech-slack-monitor",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -432,
+        224
+      ],
+      "id": "1ab60ffb-08f4-428e-83f7-49184a7df312",
+      "name": "Webhook",
+      "webhookId": "d092c5f0-4357-4d6d-9ee3-98acab21082d"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "58e80ca5-567e-4097-9e42-0cc2284968c1",
+              "name": "payload",
+              "value": "={{ $json.body.payload }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        224
+      ],
+      "id": "c0e1e32a-374a-4a89-8d54-2533bf8626a4",
+      "name": "Extract Payload"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.payload.message.blocks[1].fields[1].text.split('|')[0].split('<')[1] }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|status",
+              "statusValue": "Done"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        240,
+        112
+      ],
+      "id": "ec92bf15-7bf0-421f-9110-efb780bc04bc",
+      "name": "Update a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "ts": "={{ $('Extract Payload').item.json.payload.container.message_ts }}",
+        "messageType": "block",
+        "blocksUi": "={\n\"blocks\":{{ $('Extract Payload').item.json.payload.message.blocks.filter(item => item.type !== 'actions').toJsonString() }}\n}",
+        "text": "=Error Resolved! ✅",
+        "updateFields": {},
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        448,
+        112
+      ],
+      "id": "736ad2fc-a35c-41d0-97af-f2aa75820339",
+      "name": "Remove Actions On Submit",
+      "webhookId": "187f2efb-575f-490b-9f8a-84d4ca5fd9c3",
+      "credentials": {
+        "slackApi": {
+          "id": "OK65YiwPuYd5tw8v",
+          "name": "Stephen Slack User account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.query.url }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|select",
+              "selectValue": "Approved By Management"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        464,
+        880
+      ],
+      "id": "2908fa35-833f-4ca8-9d39-2cc1569cef92",
+      "name": "Approved By Management",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8633dae9-9108-4f28-97f8-03854fe69dfb",
+              "leftValue": "approve",
+              "rightValue": "={{ $json.query.status }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        240,
+        448
+      ],
+      "id": "e9d9b1b9-210d-4d92-89d8-f3afec405a1c",
+      "name": "If Approve"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.query.url }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|select",
+              "selectValue": "Rejected By Management"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        3968,
+        448
+      ],
+      "id": "2c09c74a-3974-419a-a978-2a691caf18c1",
+      "name": "Rejected By Management",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "stephen@granitemarketing.co.uk, tim@syntechbiofuel.com, justin@syntechbiofuel.com, sue@syntechbiofuel.com",
+        "subject": "={{ $('Rejected By Management').isExecuted ? '❌ NEWS+ - Rejected the' : '✅ NEWS+ - Approved the'}}{{'article:' }}{{ $('Confirm Article').first().json.query.title }}",
+        "message": "=Good Morning! \n<br><br>\nThe {{ $('Confirm Article').first().json.query.platform }} article \"<strong>{{ $('Confirm Article').first().json.query.title }}</strong>\" has been updated to approved successfully!\n<br>\nYou can view it <a href=\"{{ $('Confirm Article').first().json.query.url }}\">here</a>\n<br><br>\nAgent 🤖",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "Syntech Content Engine 🤖"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        4192,
+        496
+      ],
+      "id": "84a69635-da6b-4972-baa8-157c1d95b79b",
+      "name": "Send Email Confirmation",
+      "webhookId": "b074baa4-bd4e-40ba-a139-ec9784e46c0e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9mY5EvAyVUsb5ikp",
+          "name": "Stephen Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "property_platform[0]",
+              "field2": "query_platform"
+            }
+          ]
+        },
+        "options": {
+          "fuzzyCompare": true
+        }
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        3072,
+        304
+      ],
+      "id": "b0b36010-23cb-4ef6-8d61-fa88cc5c49f4",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5b1d71ab-08c8-4eef-977d-ed6261ab0a5f",
+              "name": "property_platform[0]",
+              "value": "={{ $json.property_platform[0].toLowerCase() }}",
+              "type": "string"
+            },
+            {
+              "id": "a9decb65-cf07-422d-9d2f-cc1241012779",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2848,
+        304
+      ],
+      "id": "fcf5431f-2402-4017-aca4-f991abccc1b6",
+      "name": "Set ID and Prompt Name"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27c785c0-cfab-810e-9c97-cefeee3d04b3",
+          "mode": "list",
+          "cachedResultName": "Syntech Platform Prompts",
+          "cachedResultUrl": "https://www.notion.so/27c785c0cfab810e9c97cefeee3d04b3"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2624,
+        304
+      ],
+      "id": "be501776-7c78-4c86-ba23-2f0aed35057d",
+      "name": "Get Content Prompts",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d6dcf350-ef13-43ff-83f3-f5322a7f2737",
+              "name": "query_platform",
+              "value": "={{ $('Confirm Article').first().json.query.platform }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2624,
+        800
+      ],
+      "id": "4fb7683c-2ba3-4027-a969-d4ab82d780ce",
+      "name": "Set Platform Name"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        3296,
+        304
+      ],
+      "id": "6c39338d-e65f-4416-8e2f-a25a7554801d",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('Approved By Management').first().json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2025-09-03"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Additional Formats\": {\n      \"relation\": [\n        {\n          \"id\": \"{{ $json.id }}\"\n        }\n      ]\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"In Progress\"\n      }\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        3520,
+        304
+      ],
+      "id": "767085c2-43d6-40e5-a958-398782cd79f8",
+      "name": "Trigger Notion Workflow",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "curate_sources",
+        "description": "Call this tool to curate the best URLs from the generate_search_queries. The input should be the list of URLs from the generate_search_queries tool. ",
+        "workflowId": {
+          "__rl": true,
+          "value": "EAPhQjGU2ySyEXs7",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/EAPhQjGU2ySyEXs7",
+          "cachedResultName": "Curate Sources"
+        },
+        "fields": {
+          "values": [
+            {
+              "name": "question",
+              "stringValue": "={{ $('Format Block Content').item.json.body }"
+            },
+            {
+              "name": "max_results",
+              "stringValue": "=3"
+            },
+            {
+              "name": "in_depth",
+              "type": "booleanValue"
+            }
+          ]
+        },
+        "jsonSchemaExample": ""
+      },
+      "id": "5d5dcd3c-d397-4239-9d83-fe6f6e82f490",
+      "name": "Curate Sources",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1712,
+        1216
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your are responsible for managing and coordinating researching the users query.\n\n# Objectives\n- Prioritise UK sources first; include EU/global only when UK data is unavailable or to add context.\n- Default to the most recent information, ideally within the last 24 months, unless citing foundational standards or landmark studies.\n- Emphasise factual, standards-led, and operationally relevant information (e.g., BS EN 14214, RTFO, on-site/on-time deployment, measurable emissions impact).\n- Exclude partisan commentary and political opinion pieces. Factual policy/regulatory materials are allowed.\n- Prefer credible sources: government, standards bodies, peer-reviewed research, and recognised industry research. Include high-quality industry/blog sources when they present verifiable data or methodology.\n\n# Steps\n1. Research the internet to genrate additional context for the article: \"{{ $('Format Block Content').item.json.body }}\"\n2. Use the context from your web search to generate search queries.\n3. Search the internet with the queries generated by the generate_search_queries tool.\n4. Curate the best URLs from step 3.\n\n# Tools Available\n\"generate_search_queries\": Create initial search queries on the article\n\"search_internet\": Helps the agent better understand the task by obtaining real-time web data.\n\"curate_sources\": Evaluate and curate the best URLs from the research_search_queries tool\n\n# Output and Quality Notes\n- Capture sources that include measurable outcomes, standards/regulatory references, supply-chain/ESG implications, and concrete data.\n- Avoid redundancy; include overlapping sources only if each adds novel data, methodology, or perspective.\n- Note paywalls or inaccessible pages; prefer accessible sources for extraction and citation.\n- Assume todays date is {{ $now }}.",
+        "options": {}
+      },
+      "id": "637ce357-5183-4df8-8f98-79eec809d41a",
+      "name": "Research",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1712,
+        992
+      ]
+    },
+    {
+      "parameters": {
+        "name": "generate_search_queries",
+        "description": "Generates the search queries prompt for the given question and context.\nArgs:\n        question (str): The question to generate the search queries prompt for\n        report_type (str): The report type\n        max_iterations (int): The maximum number of search queries to generate\n        context (str): Context for better understanding of the task with realtime web information provided by calling the 'get_content' tool\n\nReturns: str: The search queries prompt for the given question",
+        "workflowId": {
+          "__rl": true,
+          "value": "3ZvtNy32wVNLZjZO",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/3ZvtNy32wVNLZjZO",
+          "cachedResultName": "Generate Search Queries"
+        },
+        "fields": {
+          "values": [
+            {
+              "name": "question",
+              "stringValue": "={{ $json.body.text }}"
+            },
+            {
+              "name": "report_type",
+              "stringValue": "=ada"
+            },
+            {
+              "name": "max_iterations",
+              "stringValue": "=3"
+            }
+          ]
+        },
+        "specifyInputSchema": true,
+        "schemaType": "manual",
+        "inputSchema": "{\n\"type\": \"object\",\n\"properties\": {\n\t\"query\": {\n\t\t\"type\": \"string\",\n\t\t\"description\": \"The query generated by the agent\"\n    },\n    \"context\": {\n  \t\t\"type\": \"string\",\n  \t\t\"description\": \"The output generated by calling the 'get_contet' tool\"\n    }\n  }\n}"
+      },
+      "id": "55689835-85d2-4f3a-b0f0-a299cd37315f",
+      "name": "Generate Search Queries2",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1840,
+        1216
+      ]
+    },
+    {
+      "parameters": {
+        "toolDescription": "Useful for searching search queries generated by the agent. ",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n    \"api_key\": \"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\",\n    \"query\": \"{query}\",\n}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "query",
+              "description": "The query provided by the Agent"
+            }
+          ]
+        },
+        "optimizeResponse": true,
+        "dataField": "results",
+        "fieldsToInclude": "selected",
+        "fields": "title, url, content, score"
+      },
+      "id": "26ee9070-2bb2-4a4b-8cb2-0d6e07ff15be",
+      "name": "Search Internet2",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        1968,
+        1216
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $('Research').item.json.output.length }}",
+              "operation": "larger",
+              "value2": 2000
+            }
+          ]
+        }
+      },
+      "id": "afd25a4c-0f73-4e6d-a511-a1a40efbfb69",
+      "name": "IF text longer than 2000 chars",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2176,
+        992
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let result = [];\nlet firstBlock = true;\n\n// Split text on \\n characters - FIXED: Use .item instead of .first() to get current item\nlet textBlocks = $('Loop Over Items1').item.json.output.split(/\\n/);\n\nfor (let block of textBlocks) {\n    if (block.length === 0) continue;\n    result.push({\n        \"textSubString\": block.trim(),\n        \"firstBlock\": firstBlock\n    });\n    firstBlock = false;\n}\n\nreturn result;"
+      },
+      "id": "edec0a8f-b4c6-4ce0-b581-6f2c42be2b3a",
+      "name": "Splits text in small chuncks",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2624,
+        1136
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.firstBlock }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "8b2920f7-ccee-4ad4-bca2-c61259970ab3",
+      "name": "IF2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2848,
+        1136
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "url",
+              "stringValue": "={{ $json.url }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "147322a0-8c76-4468-ba7f-14c2b1959f53",
+      "name": "Set Article URL",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        3520,
+        1024
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "a526769d-fa41-40f3-8b71-9bfe89133ae6",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        3744,
+        1136
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2400,
+        1088
+      ],
+      "id": "659d0fee-e41e-4543-9744-51ebc2c11ef6",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a2785c0-cfab-8086-9093-d7f79cb3bbae",
+          "mode": "list",
+          "cachedResultName": "Syntech Article Research",
+          "cachedResultUrl": "https://www.notion.so/2a2785c0cfab80869093d7f79cb3bbae"
+        },
+        "title": "={{ $('Approved By Management').item.json.name + ' ' + $now.format('yyyy-MM-dd HH:mm') }} Research",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Source Article|relation",
+              "relationValue": [
+                "={{ $('Approved By Management').item.json.id }}"
+              ]
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $('Research').item.json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2400,
+        832
+      ],
+      "id": "a7e804d9-90c7-4bc2-af90-39aca74228e7",
+      "name": "Add Research",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a2785c0-cfab-8086-9093-d7f79cb3bbae",
+          "mode": "list",
+          "cachedResultName": "Syntech Article Research",
+          "cachedResultUrl": "https://www.notion.so/2a2785c0cfab80869093d7f79cb3bbae"
+        },
+        "title": "={{ $('Get Source Article Details').item.json.name }} - Research",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Source Article|relation",
+              "relationValue": [
+                "={{ $('Approved By Management').first().json.id }}"
+              ]
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $('Splits text in small chuncks').item.json.textSubString }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        3296,
+        1024
+      ],
+      "id": "a296e659-d402-4f75-b982-014f5e9b1c12",
+      "name": "Create New Research Item",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $json.textSubString }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        3968,
+        1216
+      ],
+      "id": "9e0494e0-6ba7-4d43-9b67-95ba25002a99",
+      "name": "Update Research Item",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Approved By Management').first().json.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        3072,
+        1024
+      ],
+      "id": "a250715e-d292-4325-92c3-fbf2da4afb27",
+      "name": "Get Source Article Details",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4.1",
+        "options": {}
+      },
+      "id": "b26f359d-fc77-4200-b8cf-f6efc9e017d4",
+      "name": "OpenAI Chat Model4",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1584,
+        1216
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        688,
+        880
+      ],
+      "id": "861f044d-68ec-4f93-95ba-5a50f1f03848",
+      "name": "Get Block Content",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize output variables\nlet bodyParts = [];\nlet images = [];\n\nfor (const item of $input.all()) {\n  const block = item.json;\n\n  if (block.type === 'paragraph') {\n    const content = block.content?.trim();\n    if (content) {\n      bodyParts.push(content);\n    }\n  }\n\n  if (block.type === 'image') {\n    const imageUrl = block.image?.external?.url;\n    if (imageUrl) {\n      images.push(imageUrl);\n    }\n  }\n}\n\nreturn [\n  {\n    json: {\n      body: bodyParts.join('\\n'),\n      images,\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        912,
+        880
+      ],
+      "id": "54b0aa0e-4b42-4a80-91b5-d22fae6991e0",
+      "name": "Format Block Content"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "57ea1399-e8ec-41a4-b2ca-96cfa824375b",
+              "leftValue": "={{ $json.property_article_research }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1360,
+        880
+      ],
+      "id": "e07e0170-30e6-4a6c-b1d9-497d365e1dc6",
+      "name": "If Research"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Approved By Management').first().json.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1136,
+        880
+      ],
+      "id": "4a16fb3f-e69f-4358-a52b-66fa72f17a5b",
+      "name": "Check If Research Exists",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9689f4da-2d8a-4d91-9276-b9df7a0ebc6a",
+              "leftValue": "={{ $json.query_platform }}",
+              "rightValue": "all",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2848,
+        800
+      ],
+      "id": "8f90ec82-3ec2-4567-9be2-6f75cdd23ac1",
+      "name": "If Trigger All"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27c785c0-cfab-810e-9c97-cefeee3d04b3",
+          "mode": "list",
+          "cachedResultName": "Syntech Platform Prompts",
+          "cachedResultUrl": "https://www.notion.so/27c785c0cfab810e9c97cefeee3d04b3"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        3072,
+        832
+      ],
+      "id": "9b2c5a05-0068-4327-b5b2-2de00d0bd2fb",
+      "name": "Get Content Prompts1",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $('Approved By Management').first().json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2025-09-03"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"Additional Formats\": {\n      \"relation\": [\n        {{ $json.id.map(id => `{\"id\":\"${id}\"}`) }}\n      ]\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"In Progress\"\n      }\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        3968,
+        832
+      ],
+      "id": "6163d420-765f-4a73-a40a-19171fe4ad8d",
+      "name": "Trigger Notion Workflow1",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Input: array of Notion format objects\nconst input = $input.all();\n\n// Map and extract the fields you need\nconst extracted = input.map(item => ({\n  id: item.json.id,\n  name: item.json.name,\n  platform: Array.isArray(item.json.property_platform) ? item.json.property_platform[0] : null,\n  format: item.json.property_format || null\n}));\n\n// Return as individual n8n items\nreturn extracted.map(row => ({\n  json: row\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3296,
+        832
+      ],
+      "id": "d89d6854-e9ac-479a-ab4c-fb486f643e70",
+      "name": "Extract Prompt Metadata"
+    },
+    {
+      "parameters": {
+        "compare": "selectedFields",
+        "fieldsToCompare": "platform",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [
+        3520,
+        832
+      ],
+      "id": "bed1f514-32c5-4b16-a28f-203a2b0130f3",
+      "name": "Remove Duplicates"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3744,
+        832
+      ],
+      "id": "d943b440-96ef-4995-a6c5-2ee680a712c2",
+      "name": "Aggregate1"
+    },
+    {
+      "parameters": {
+        "content": "## Trigger All\nTriggers the automation with every single content type selected.",
+        "height": 288,
+        "width": 1072
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3040,
+        688
+      ],
+      "id": "53d397a8-23ee-405f-a781-89d1c9661545",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "syntech-n8n-error-tracker",
+                    "rightValue": "={{ $json.payload.channel.name }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "06e6e140-296f-459d-ac44-3cebfdf97d4f"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ticket_handler"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "c161d6dc-a849-446e-95b7-1b77f73fe2d6",
+                    "leftValue": "syntech-news-plus",
+                    "rightValue": "={{ $json.payload.channel.name }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "news_plus"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -32,
+        224
+      ],
+      "id": "8031b305-6f2f-4989-a24a-78bb066b1873",
+      "name": "Route Channel"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:12:44.409Z",
+      "createdAt": "2026-01-28T08:12:44.409Z",
+      "role": "workflow:owner",
+      "workflowId": "0beKQC6grgmJq5B5",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:18:50.003Z",
+  "versionId": "54bf2359-985c-407f-8b50-027611b828df"
+}
