@@ -1,0 +1,391 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Splits text in small chuncks": {
+      "main": [
+        [
+          {
+            "node": "IF2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF2": {
+      "main": [
+        [
+          {
+            "node": "Get Source Article Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set Article URL": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Update Research Item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Return",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Splits text in small chuncks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Research Item": {
+      "main": [
+        [
+          {
+            "node": "Set Article URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Research Item": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Source Article Details": {
+      "main": [
+        [
+          {
+            "node": "Create New Research Item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:26:51.084Z",
+  "id": "bXP9PtZX2G5y2AEB",
+  "isArchived": false,
+  "meta": null,
+  "name": "⚙️ Store Research",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "source_content_idea_id"
+            },
+            {
+              "name": "research_text"
+            },
+            {
+              "name": "research_title"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -912,
+        320
+      ],
+      "id": "d60969d5-d909-4499-b8bf-54201d346a2d",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f6ab457-a009-42df-8fce-f7f88fcf6563",
+              "name": "research_page_id",
+              "value": "={{ $('Create New Research Item').first().json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "bb85b6b3-2fb8-4c4a-a03d-4472390a1d63",
+              "name": "research_page_url",
+              "value": "={{ $('Create New Research Item').first().json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -464,
+        128
+      ],
+      "id": "757e106b-1369-4a17-b80d-593c8f420027",
+      "name": "Return",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "let result = [];\nlet firstBlock = true;\n\n// Split text on \\n characters - FIXED: Use .item instead of .first() to get current item\nlet textBlocks = $input.first().json.research_text.split(/\\n/);\n\nfor (let block of textBlocks) {\n    if (block.length === 0) continue;\n    result.push({\n        \"textSubString\": block.trim(),\n        \"firstBlock\": firstBlock\n    });\n    firstBlock = false;\n}\n\nreturn result;"
+      },
+      "id": "6b69343b-fea3-4253-bf83-647cad813dbc",
+      "name": "Splits text in small chuncks",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -464,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.firstBlock }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "eb7a1d5c-1712-4027-a5f2-6a34e8c86185",
+      "name": "IF2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "url",
+              "stringValue": "={{ $json.url }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "6b9b5e2a-388e-4f4b-9ec9-ce10e7a61e25",
+      "name": "Set Article URL",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        432,
+        248
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "f47948b5-4a10-4082-bce3-76587f6ffeb6",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        656,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -688,
+        320
+      ],
+      "id": "a8a1427c-08be-4e4c-a89a-61bc47f2e81a",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a2785c0-cfab-8086-9093-d7f79cb3bbae",
+          "mode": "list",
+          "cachedResultName": "Syntech Article Research",
+          "cachedResultUrl": "https://www.notion.so/2a2785c0cfab80869093d7f79cb3bbae"
+        },
+        "title": "={{ $('When Executed by Another Workflow').item.json.research_title }} - Research",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Source Article|relation",
+              "relationValue": [
+                "={{ $('When Executed by Another Workflow').first().json.source_content_idea_id }}"
+              ]
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $('Splits text in small chuncks').item.json.textSubString }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        248
+      ],
+      "id": "639dd869-845d-4193-87f7-3200c7b26b53",
+      "name": "Create New Research Item",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $json.textSubString }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        392
+      ],
+      "id": "5d0efd35-7e17-4c11-bb29-97ce50839429",
+      "name": "Update Research Item",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('When Executed by Another Workflow').first().json.source_content_idea_id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -16,
+        248
+      ],
+      "id": "5a8998c7-5840-4dce-9bc0-c9134cbac3ee",
+      "name": "Get Source Article Details",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:26:51.084Z",
+      "createdAt": "2026-01-28T08:26:51.084Z",
+      "role": "workflow:owner",
+      "workflowId": "bXP9PtZX2G5y2AEB",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:26:51.084Z",
+  "versionId": "bfb9af9b-4cdd-425b-98da-0f2d148f9abb"
+}
