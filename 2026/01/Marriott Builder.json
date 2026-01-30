@@ -1,0 +1,536 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get Initial Cookie",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Initial Cookie": {
+      "main": [
+        [
+          {
+            "node": "Extract Initial Cookies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Session": {
+      "main": [
+        [
+          {
+            "node": "Merge Cookies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Cookies": {
+      "main": [
+        [
+          {
+            "node": "Build URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Initial Cookies": {
+      "main": [
+        [
+          {
+            "node": "Update Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build URL": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:06.400Z",
+  "id": "gEjd7t6DGt36RSF8",
+  "isArchived": false,
+  "meta": null,
+  "name": "Marriott Builder",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5bbd0346-c9e4-4449-8675-ddc5d5439ff9",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://www.marriott.com/en-gb/default.mi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-GB,en;q=0.9"
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "priority",
+              "value": "u=0, i"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "document"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "navigate"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "same-origin"
+            },
+            {
+              "name": "sec-fetch-user",
+              "value": "?1"
+            },
+            {
+              "name": "upgrade-insecure-requests",
+              "value": "1"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        288,
+        0
+      ],
+      "id": "8e29d153-6410-425d-ab6c-0afd4caeba71",
+      "name": "Get Initial Cookie"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.redirectURL }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-GB,en-US;q=0.9,en;q=0.8"
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "priority",
+              "value": "u=0, i"
+            },
+            {
+              "name": "referer",
+              "value": "https://www.marriott.com/en-gb/reservation/rateListMenu.mi?scid="
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "document"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "navigate"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "same-origin"
+            },
+            {
+              "name": "sec-fetch-user",
+              "value": "?1"
+            },
+            {
+              "name": "upgrade-insecure-requests",
+              "value": "1"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "cookie",
+              "value": "={{ $('Merge Cookies').item.json.cookieHeader }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1600,
+        -256
+      ],
+      "id": "b3ac0b1d-03b6-45c7-b0d2-a85217c39571",
+      "name": "Get Details"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.marriott.com/mi/phoenix-gateway/v2/updateSession",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-GB"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Origin",
+              "value": "https://www.marriott.com"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15"
+            },
+            {
+              "name": "Referer",
+              "value": "https://www.marriott.com/en-gb/reservation/rateListMenu.mi?scid="
+            },
+            {
+              "name": "Content-Length",
+              "value": "4651"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Cookie",
+              "value": "={{ $json.cookieHeader }}"
+            },
+            {
+              "name": "dtt",
+              "value": "true"
+            },
+            {
+              "name": "x-dtpc",
+              "value": "5$436451921_130h23vFTHRKTJVONHPAGEQAMFDSKEMFTBULRGS-0e0"
+            },
+            {
+              "name": "Priority",
+              "value": "u=3, i"
+            },
+            {
+              "name": "cookie",
+              "value": "={{ $json.cookieHeader }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"createOrUpdate\": {\n    \"AriesSearch\": {\n      \"currentConversionRate\": null,\n      \"currentConversionRateDecimalPoint\": null,\n      \"iataNumber\": null,\n      \"searchCriteria\": {\n        \"propertyId\": \"santx\",\n        \"address\": {\n          \"latitude\": \"32.715908\",\n          \"longitude\": \"-117.167844\",\n          \"destination\": \"The Guild Hotel, San Diego Downtown, a Tribute Portfolio Hotel\",\n          \"destinationType\": \"Hotel Name\",\n          \"cityPopulation\": 0,\n          \"cityPopulationDensity\": 0\n        },\n        \"showAllHotel\": false,\n        \"distanceInMiles\": true,\n        \"searchRadius\": 50,\n        \"availabilityRequestVO\": {\n          \"checkInDate\": \"2025-12-13T00:00:00.000+0000\",\n          \"checkOutDate\": \"2025-12-18T00:00:00.000+0000\",\n          \"convertedCheckInDate\": \"2025-12-13\",\n          \"convertedCheckOutDate\": \"2025-12-14\",\n          \"numRooms\": 1,\n          \"numGuestsPerRoom\": 2,\n          \"numAdultsPerRoom\": 2,\n          \"maxRate\": 0,\n          \"minRate\": 0,\n          \"clusterCode\": \"NONE\",\n          \"defaultDateSearch\": false,\n          \"lengthOfStay\": 5,\n          \"defaultTabTotalCost\": false,\n          \"numChildrenPerRoom\": 0,\n          \"childrenAges\": \"0\",\n          \"multiRateRewardsRedemption\": false,\n          \"lowestRegularRate\": false,\n          \"multiRateMaxCount\": 0,\n          \"excludeUnavailableProperties\": false,\n          \"flexibleDatesOptionSelected\": false,\n          \"hideFlexibleDateCalendar\": false,\n          \"uxlMgp\": false,\n          \"dtt\": false,\n          \"groupRateUnavailable\": false,\n          \"reslink\": false,\n          \"associateFlow\": false,\n          \"fromFlexibleDateCalendar\": false,\n          \"flexibleDateSearchRateDisplay\": false,\n          \"multiRateSearch\": false,\n          \"rewardsRedemption\": false,\n          \"marriottRewardsNumberUnmasked\": false,\n          \"adfrequest\": false,\n          \"flexibleDate\": false\n        },\n        \"brandCodes\": [\n          \"all\"\n        ],\n        \"showHideBuckets\": false,\n        \"moreThanTwoFilters\": false,\n        \"moreThanOneFilter\": false,\n        \"incentiveType\": false,\n        \"groupSalesSearch\": false,\n        \"sgoSearch\": false,\n        \"hotelCategory\": 0,\n        \"varyByNightsPostPopulated\": false,\n        \"hwsSgoProperty\": false,\n        \"numberOfFutureHotels\": 0,\n        \"firstTimeGSTSearch\": true,\n        \"nightRestriction\": false,\n        \"miniStoreFormSubmit\": false,\n        \"endecaDown\": false,\n        \"regionMiniStorePage\": false,\n        \"countryMiniStorePage\": false,\n        \"stateMiniStorePage\": false,\n        \"singleSearchAutoSuggest\": false,\n        \"groupLandingPage\": false,\n        \"showDisambiguation\": false,\n        \"clickToSearch\": false,\n        \"showAddressPin\": false,\n        \"findAlternateProperties\": false,\n        \"invalidRequestCriteria\": false,\n        \"valhallaCodeEntered\": false,\n        \"promoteBrands\": false,\n        \"showAvailableHotels\": false,\n        \"initialRequest\": false,\n        \"endecaResultSet\": true,\n        \"showFullPrice\": null,\n        \"geoCode\": \"32.715908,-117.167844\",\n        \"destinationAddressSecondaryText\": \"undefined, undefined\"\n      },\n      \"search_google_places_destination\": \"\\\"Name:undefined|Locality:undefined|State:undefined|Postal Code:|Country:undefined|Latitude:32.715908|Longitude:-117.167844|Types:|Address:\\\"\",\n      \"search_keyword\": \"The Guild Hotel, San Diego Downtown, a Tribute Portfolio Hotel\"\n    },\n    \"AriesReservation\": {\n      \"uxlMigrationStatus\": null,\n      \"crsSystem\": \"MARSHA\",\n      \"isACRS\": null,\n      \"tripsStayXRequestedByHeaderDtt\": null,\n      \"errorMessages\": null,\n      \"productRateId\": null,\n      \"confirmationNumber\": null,\n      \"clarescoReceiptHash\": null,\n      \"tripId\": null,\n      \"upsellItemId\": null,\n      \"travelInsurancePreferenceDetails\": {\n        \"quantity\": null,\n        \"insuranceCost\": null,\n        \"insuranceCurrency\": null\n      },\n      \"tripsXRequestedByHeader\": null,\n      \"propertyId\": \"santx\",\n      \"locale\": null,\n      \"enrollmentStatus\": null,\n      \"RewardsNumber\": null,\n      \"enrollmentErrorMessage\": null,\n      \"rewardsNumber\": null,\n      \"numberOfRooms\": 1,\n      \"redemptionOptionsType\": null,\n      \"itemId\": null,\n      \"isRewardsRedemptionFlow\": null,\n      \"sessionContextCountryCode\": null,\n      \"suppressEmailConfirmation\": null,\n      \"isOriginalFlowRedemption\": null,\n      \"formData\": null,\n      \"mrbStatus\": null,\n      \"linkedReservations\": null,\n      \"isTripNonModifiable\": null,\n      \"cancelledReservation\": null,\n      \"numberInParty\": null,\n      \"shoppingCartId\": null,\n      \"productId\": null,\n      \"isAdvancePurchaseRate\": null,\n      \"currency\": null,\n      \"eta\": null,\n      \"comments\": null,\n      \"availabilityRequestVO\": {\n        \"checkInDate\": \"2025-12-13T00:00:00.000+0000\",\n        \"checkOutDate\": \"2025-12-18T00:00:00.000+0000\",\n        \"convertedCheckInDate\": \"2025-12-13\",\n        \"convertedCheckOutDate\": \"2025-12-14\",\n        \"numRooms\": 1,\n        \"numGuestsPerRoom\": 2,\n        \"numAdultsPerRoom\": 2,\n        \"maxRate\": 0,\n        \"minRate\": 0,\n        \"clusterCode\": \"NONE\",\n        \"defaultDateSearch\": false,\n        \"lengthOfStay\": 5,\n        \"defaultTabTotalCost\": false,\n        \"numChildrenPerRoom\": 0,\n        \"childrenAges\": \"0\",\n        \"multiRateRewardsRedemption\": false,\n        \"lowestRegularRate\": false,\n        \"multiRateMaxCount\": 0,\n        \"excludeUnavailableProperties\": false,\n        \"flexibleDatesOptionSelected\": false,\n        \"hideFlexibleDateCalendar\": false,\n        \"uxlMgp\": false,\n        \"dtt\": false,\n        \"groupRateUnavailable\": false,\n        \"reslink\": false,\n        \"associateFlow\": false,\n        \"fromFlexibleDateCalendar\": false,\n        \"flexibleDateSearchRateDisplay\": false,\n        \"multiRateSearch\": false,\n        \"rewardsRedemption\": false,\n        \"marriottRewardsNumberUnmasked\": false,\n        \"adfrequest\": false,\n        \"flexibleDate\": false\n      },\n      \"brandCode\": \"TX\",\n      \"prefPlusAccepted\": null,\n      \"propertyGmtOffset\": \"-08:00\",\n      \"ecommerceCartId\": null,\n      \"dataLayerProperties\": {\n        \"res_room_type\": null\n      },\n      \"isMemberRate\": null,\n      \"ersProperty\": false,\n      \"defaultTab\": null,\n      \"otaResConfoNums\": null,\n      \"propertyCurrency\": \"USD\",\n      \"selectedCurrency\": null,\n      \"isMax\": false,\n      \"messageObjectKey\": null,\n      \"isAffiliateFlow\": null,\n      \"passwordLessEnrollment\": null\n    }\n  }\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        832,
+        0
+      ],
+      "id": "0dff3fad-e207-4e20-b286-552bc0a2f886",
+      "name": "Update Session"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Cookies from initial request\nconst initialCookies = $('Extract Initial Cookies').first().json.cookieHeader\n\n// Extract updateSession response headers\nconst updateHeaders = $input.first().json.headers || {};\nconst updateSetCookies = updateHeaders[\"set-cookie\"] || [];\n\n// Normalize to array\nconst updateArray = Array.isArray(updateSetCookies)\n  ? updateSetCookies\n  : [updateSetCookies];\n\n// Extract only key=value from each\nconst updateCookies = updateArray\n  .filter(Boolean)\n  .map(c => c.split(\";\")[0]);\n\n// Merge and de-duplicate\nconst mergedCookies = [\n  ...initialCookies.split(\"; \").filter(Boolean),\n  ...updateCookies\n];\n\nconst deduped = [...new Set(mergedCookies)].join(\"; \");\n\nreturn [\n  {\n    json: {\n      cookieHeader: deduped\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        0
+      ],
+      "id": "5fbcca94-a927-47ef-bf4d-ed82a7137a51",
+      "name": "Merge Cookies"
+    },
+    {
+      "parameters": {
+        "jsCode": "const headers = $input.first().json.headers\n\n// Grab all set-cookie headers\nconst setCookies = headers[\"set-cookie\"];\n\n// Ensure it's always an array\nconst cookieArray = Array.isArray(setCookies) ? setCookies : [setCookies];\n\n// Reduce to a single cookie header string\nconst cookieHeader = cookieArray.map(c => c.split(\";\")[0]).join(\"; \");\n\nreturn [\n  {\n    json: {\n      cookieHeader\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        544,
+        0
+      ],
+      "id": "42ad93dc-132e-4f22-9c10-949483e84974",
+      "name": "Extract Initial Cookies"
+    },
+    {
+      "parameters": {
+        "jsCode": "const mergedCookies = $input.first().json.cookieHeader\nconst token = $('Update Session').first().json.body.sessionToken\n\n// Build the booking URL\n// Replace values with your dynamic ones if needed\nconst redirectURL = `https://www.marriott.com/reservation/availabilitySearch.mi?sessionToken=${token}&propertyId=santx&checkInDate=2025-12-13&checkOutDate=2025-12-17&numRooms=1&numAdults=2`;\n\n// Build the curl\nconst curl = `\ncurl \"${redirectURL}\" \\\\\n  -H \"Cookie: ${mergedCookies}\" \\\\\n  -H \"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)\" \\\\\n  -H \"Accept: text/html,application/xhtml+xml\"\n`;\n\nreturn [\n  {\n    json: {\n      redirectURL,\n      curl\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1344,
+        0
+      ],
+      "id": "600574c5-dbc3-4573-82b8-9bef80345f28",
+      "name": "Build URL"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.marriott.com/mi/query/PhoenixBookSearchProductsByProperty",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-GB"
+            },
+            {
+              "name": "apollographql-client-name",
+              "value": "phoenix_book"
+            },
+            {
+              "name": "apollographql-client-version",
+              "value": "1"
+            },
+            {
+              "name": "application-name",
+              "value": "book"
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": "graphql-force-safelisting",
+              "value": "true"
+            },
+            {
+              "name": "graphql-operation-name",
+              "value": "PhoenixBookSearchProductsByProperty"
+            },
+            {
+              "name": "graphql-operation-signature",
+              "value": "a1079a703a2d21d82c0c65e4337271c3029c69028c6189830f30882170075756"
+            },
+            {
+              "name": "graphql-require-safelisting",
+              "value": "true"
+            },
+            {
+              "name": "origin",
+              "value": "https://www.marriott.com"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "priority",
+              "value": "u=1, i"
+            },
+            {
+              "name": "referer",
+              "value": "https://www.marriott.com/en-gb/reservation/rateListMenu.mi"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "empty"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "cors"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "same-origin"
+            },
+            {
+              "name": "traceparent",
+              "value": "00-C6E4FF2848574F0B41427CEEECCD08C7-31BECA92333799DE-01"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "x-dtpc",
+              "value": "3$440740688_485h4vVTVWPLKTKVOHVUOCTKKHSUHOGAKNKFEA-0e0"
+            },
+            {
+              "name": "x-request-id"
+            },
+            {
+              "name": "cookie",
+              "value": "MarriottOrigin=B;akacd_phoenix=3943088901~rv=74~id=7eef2a9cb928f50be13f8ccb5e5f4aac;ak_bmsc=33238CFE3AABDEA3C169C1B69E360E17~000000000000000000000000000000~YAAQ4qMQAsULVAqbAQAAU0ogGB5OhvNZ4kTrJAyeNigMiDezXTjRpPQcH7L9qUnclisxkF2V5Y7BKC16UEte9Uykrsy6Ud558umXtmlYz3qdTKjKwl8CnBFe/twJEaUE2fLLWYXNeBqlts8Jp7jjFxzKz5SQrhlu/bqcp8Yym30MPO0bBZid+FpEw63LNdN3mlbkOZ6zoT1JBSuyIluWY/RKPPmeQU0bOfyxZUFJ3PnJeHcFO7T7ZnN7acmBvFdmOuXvQEkbi0U/iXWlYkE3lklnz5/rEYzCr156cbofWElmgnXVk5U6l9yIZINF4BxPDXaoREl4GCix3d957Py/CSb9p+wmdXnUTcNccQIFy2tUsSygUaEpzUv2t/PAiembsP1rQF0xA7dAmhLoisog0tlsOQiASrZSHw==;akacd_phoenix-dtt=3943089356~rv=54~id=2dee540a4fa2cf16a6b75336de6418c0;MI_SITE=prod17;dtCookie=v_4_srv_3_sn_34778D5AB2BEC0AF6F5FFAD70632BC19_perc_100000_ol_0_mul_1_app-3A220110cf75551a30_0_rcs-3Acss_0;device-characteristics=brand_name=Chrome&model_name=142&marketing_name=Chrome+142&device_os=Mac+OS+X&device_os_version=10.15&mobile_browser=Chrome&mobile_browser_version=142&is_mobile=false&is_tablet=false;sessionID=1A0B18F1-20BA-502A-B57B-84AB0B692988;JVMID=mi-interceptor-app-green;PIM-SESSION-ID=vzgG4rpKrRDnCtCp;OptanonAlertBoxClosed=2025-12-13T15:10:54.846Z;at_check=true;s_loginState=unauthenticated;useRequestedLanguage=true;authStateToken=;bm_ss=ab8e18ef4e;bm_lso=B3BC95C35A002A3C7E36E3B64E5154E4B51906570ACB106E60FBF04F51D24517~YAAQ4qMQAu2pXwqbAQAAa9BiGAYfEEeoNOARWZPUGjOIxzy8OnWa+o5SDP6pybF+7gA5wZ+NoykXOJXV/HuCFr+iFuH6bLPt/6Z8UuRZptFIngDTs8j0XFlYM91X4ARbHznuWBmoJWu11Qn8g6q09l/STcq+N6jnk6DS/dIzfukL0+PKak65JY0hish8rJpI5dOhXVeKgzawn3Jp90kNJhufovQetmuTGdT5aoO/J9I3zhibiaku1ztY3HMl2c5PoZH48U9aME2tOwqqxKQNrCIRB+1syqGa83sq1fyFV8QlQBJhHo0JnXzoC7ON5FdIzn5Z+nYBZ6jedDP5ZhEZkzXimAyQVyZzSZ4epyUQHzCKRmsFEuoWVS9vJ+JU/nVvZNmKP79I3+Yg8hBzcCpTklBwlyZYGu9sq5YoE87N505TXSXwCyT7AHu7JUBQFvE2YqQhoG+eLh5MOW7V2HbS7tA=~1765640688139;AKA_A2=A;Ddup=bc5f9242-2cb7-46d6-ab19-2b611d1bdff7;x-mi-tag=NA;OptanonConsent=isGpcEnabled=0&datestamp=Sat+Dec+13+2025+15%3A45%3A03+GMT%2B0000+(Greenwich+Mean+Time)&version=202411.2.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=aed1c021-d2b8-41ce-bffa-b3461eb86303&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=1%3A1%2C3%3A0%2C4%3A0%2C6%3A0&intType=2&geolocation=GB%3BENG&AwaitingReconsent=false;bm_s=YAAQ4qMQAoPLXwqbAQAAjp5jGAQ4zPGm9AqoncfRunb8b2eYQ2dU1Nz9WjiviQ2oO3CSWwO9vCTEASKgdgY6eaHYWtMykcnd68HikctUsQxlh+Y1VFUXlD9zIGC63liMZEvtxeJvCtnwgsuPjf5RDD69RQrmeYafFjMw8W8K2eYhpaUIZihWyNuFM6Z206loI8lhVRebJ9LAuPxrEJu/GhInB/qxtXtUvJgil+pEXiv0F18/eHw8Bz4kqGJwaHADY30CFvCd/RkIyII0beouqfCXA3nwj+4QCmMxCcBHZZuhY6OpGeGqdmQ+HTbsXL0rUWW7R5fpD2P8QdnwI2p/MkLb83XohSrbrRe2OJfY96gMqAVov24BhbB436vGe1Sr/TPO/QfwNg49P3LDHiq9urDFR7lD+NCJoKkcgNJO5ft160NyyySHyr+IgIrtOydxcn8R3Ils5AnMgrX0YyYNKgssuMZ8fAiXxN9tQYpGTvcJqcxn0cQ3djWwJ1CjGJzRR5NAp3U1PwHm3dMX/Vn9yjoIusQHKbWUdHHU4J/i42/+kMZmR8f9AhLjPIMSRaEJP+YFqcj07wI=;bm_so=51A46D6225316B19B0AE59B82030BD42930D3AB3EB68A8F4F66157734B85EBE0~YAAQ4qMQAoXLXwqbAQAAjp5jGAZyMm1f28OlzUr02Zah3g+ok6UL9EBveqHmZsAga4HdjReDzJrv44cnGfh+uWwIyZkjuIILBU9qNSWwvzTfuMhoTOjjVMDkKKasd2d7UF12PAuRUDZJBuU1uZjtWfbpiqsIcOIYOMvMgUuXHiq4dML30kp1eI334khSHdiKedDu4KkxpCED5rphEvJHHV1Te7qthnpjgti2uTXqoouVpca6CrjW70QpPIy+6CdAght2ddpqm/M7UX/7EfTQkAbxMInjKg0QPXPMgnL6T+XmmM8dbxb3GgHl2eHBVv2XN19CcUr32vEp/TxSN9/Knj3mp4wLEDDnumgexDM+b3iSOuuFjZFhjfe5p+4Xp45Y6oCbEskTLQMuZo5w7n8k3BUZ0RE3zzCCUXsz4t0OsowYgeGHMODfmsLcYdWFssq43SGDHYItmwXDpLlzW638ZKo=;bm_sz=1564C12677ADF3C90B801E89D26C744B~YAAQ4qMQAobLXwqbAQAAjp5jGB7gvYFHIX8aHwisPV1EgH/9ITmDp4FRGZppo/5bjVLv9s5RZngD11iaJGVELEu7/u5Wf44I27tJNKUDi2MWfu4OQJ38uw1z0QSAakvfLgOB5gh/NHHm5NQtHbjP7EIv6pLuY6BObSS7YwN4mtKBfFLcI8kjoAoZC4+EV3w1mo+5RtbareJ/JKtTS6e276++umfqeUgft2Nyy8jVITqQGoaTE/D6AdvH0FXhJm/Nk4SppTakTX9ivhqh5+LAw9Msm59lUEB4pkqZS/KXP9qv0u15DXnzLGlilDgUtbuG7PyT2GGfIh8Vm8Pdiwj01bRfS4xcvkRwwVTshFFg00dC6BLgx9VJL9Ps8QfNb+luotmDFfTQE81NfNuC/fzNXIwk94qbZJG4V+oiF/lJAVR0x3dnGyV+KMNi6THwfpYWc0kog5p7Pp5laX1QYA71EY9zG6lebJE6/VkXgZ5uQ5c61Jppffj2KpBdZfMDRVbKn89wWJfFIdlMilaCgKRTICUl6z9VL/Loy+WO1XGq~4538945~4342851;x_page_trace_id=/en-gb/reservation/rateListMenu.mi~X~610afe06-982d-467f-93c7-b61aeb361513;_abck=EF842D556B798112F15EE175686A8A26~0~YAAQ4qMQAurLXwqbAQAADaFjGA8a5vZaIkqLlqVxgXdYvRvohV9opfA3fSX6n/WAcGAhzkMYaCnlYZyod84C5HF1wfIcZgXLUkAFYeGxhIDe9dvkg+NDVjPRL20q1abXdZLNSYCvCDpmML4nqZa5dxmGPRrF7SfIkN2RtbrUw62eQ7yXf2L9ni+P0nc+/ynZ3SLC5fNncvhD79YpBRsCAVaN8vJxVdTVFk4BNsLvbQQHbEr7TV7ZySj0XAL1y+tV83VdmNFY7MLhUmpSXJps9H2+BatwBG58TL5VhySXANTl+rSqOxtzG3IA411msLGIP8v64yXN5+mwTOC7Ff73xHfhPNQY6iu1BwaFCAZIHXgefWpFy9AjSRdDJJ6NGLMsVrj+BfKjc6VLFB/wobjA1u9qD7o99Hn/PD0px3Ur9uPJvwu9QwKIfkKRTFWdqwglsc5j4os8BtOMsvSJIj6OSXrrKAN3EoWVu7yT7ERiSRH8uHekSa46XXTw8W+kDcWxC9nj3BXsq5Qg/gxRAbFcQvECUpB90jzkil9RpsnP+nZSgJAWs1O6bTC47jvdgJTiPXpe19LChNnNjcAp1/0IaTqpWZy//RlwY4641BVeN5plCEK5B4oG5xNF3jdIt8IGzYURAGNL6lp8IGCSr4bnjVV2ovh7Fc+12C4BrUNSOCEXhjND1ugZwfqbi5cQCo8wJ9BeF7A3gAE=~-1~-1~1765642252~AAQAAAAE%2f%2f%2f%2f%2f+fQ6YYbOJ7AEiuGrtWKblnKAr2AC13n5%2flWieTFIyspalOVtnmo7gaB9VV0DjIi0EVM%2f0HW3iHVyyVSIQSQi9X9DhyCPBaf8a37f%2f75FBGJ099xZFgtA0wjlv8W5zzh9jviz6NDoe3O41%2fFR9KuvntKZDMk%2f+WDkjfJ2QDJhg%3d%3d~-1;"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"operationName\": \"PhoenixBookSearchProductsByProperty\",\n  \"variables\": {\n    \"search\": {\n      \"options\": {\n        \"startDate\": \"2025-12-17\",\n        \"endDate\": \"2025-12-19\",\n        \"quantity\": 1,\n        \"numberInParty\": 2,\n        \"childAges\": [],\n        \"productRoomType\": [\n          \"ALL\"\n        ],\n        \"productStatusType\": [\n          \"AVAILABLE\"\n        ],\n        \"rateRequestTypes\": [\n          {\n            \"value\": \"\",\n            \"type\": \"STANDARD\"\n          },\n          {\n            \"value\": \"\",\n            \"type\": \"PREPAY\"\n          },\n          {\n            \"value\": \"\",\n            \"type\": \"PACKAGES\"\n          },\n          {\n            \"value\": \"MRM\",\n            \"type\": \"CLUSTER\"\n          }\n        ],\n        \"isErsProperty\": false\n      },\n      \"propertyId\": \"santx\"\n    },\n    \"offset\": 0,\n    \"limit\": 150\n  },\n  \"query\": \"query PhoenixBookSearchProductsByProperty($search: ProductByPropertySearchInput, $offset: Int, $limit: Int) {\\n  searchProductsByProperty(search: $search, offset: $offset, limit: $limit) {\\n    edges {\\n      node {\\n        ... on HotelRoom {\\n          availabilityAttributes {\\n            rateCategory {\\n              type {\\n                code\\n                __typename\\n              }\\n              value\\n              __typename\\n            }\\n            isNearSellout\\n            __typename\\n          }\\n          rates {\\n            name\\n            description\\n            rateAmounts {\\n              amount {\\n                origin {\\n                  amount\\n                  currency\\n                  valueDecimalPoint\\n                  __typename\\n                }\\n                __typename\\n              }\\n              points\\n              pointsSaved\\n              pointsToPurchase\\n              __typename\\n            }\\n            localizedDescription {\\n              translatedText\\n              sourceText\\n              __typename\\n            }\\n            localizedName {\\n              translatedText\\n              sourceText\\n              __typename\\n            }\\n            rateAmountsByMode {\\n              averageNightlyRatePerUnit {\\n                amount {\\n                  origin {\\n                    amount\\n                    currency\\n                    valueDecimalPoint\\n                    __typename\\n                  }\\n                  __typename\\n                }\\n                __typename\\n              }\\n              __typename\\n            }\\n            __typename\\n          }\\n          basicInformation {\\n            type\\n            name\\n            localizedName {\\n              translatedText\\n              __typename\\n            }\\n            description\\n            localizedDescription {\\n              translatedText\\n              __typename\\n            }\\n            membersOnly\\n            oldRates\\n            representativeRoom\\n            housingProtected\\n            actualRoomsAvailable\\n            depositRequired\\n            roomsAvailable\\n            roomsRequested\\n            ratePlan {\\n              ratePlanType\\n              ratePlanCode\\n              marketCode\\n              __typename\\n            }\\n            freeCancellationUntil\\n            __typename\\n          }\\n          roomAttributes {\\n            attributes {\\n              id\\n              description\\n              groupID\\n              category {\\n                code\\n                description\\n                __typename\\n              }\\n              accommodationCategory {\\n                code\\n                description\\n                __typename\\n              }\\n              __typename\\n            }\\n            __typename\\n          }\\n          totalPricing {\\n            quantity\\n            rateAmountsByMode {\\n              grandTotal {\\n                amount {\\n                  origin {\\n                    value: amount\\n                    valueDecimalPoint\\n                    __typename\\n                  }\\n                  __typename\\n                }\\n                __typename\\n              }\\n              subtotalPerQuantity {\\n                amount {\\n                  origin {\\n                    currency\\n                    value: amount\\n                    valueDecimalPoint\\n                    __typename\\n                  }\\n                  __typename\\n                }\\n                __typename\\n              }\\n              totalMandatoryFeesPerQuantity {\\n                amount {\\n                  origin {\\n                    currency\\n                    value: amount\\n                    valueDecimalPoint\\n                    __typename\\n                  }\\n                  __typename\\n                }\\n                __typename\\n              }\\n              __typename\\n            }\\n            __typename\\n          }\\n          id\\n          __typename\\n        }\\n        id\\n        __typename\\n      }\\n      __typename\\n    }\\n    total\\n    status {\\n      ... on UserInputError {\\n        httpStatus\\n        messages {\\n          user {\\n            message\\n            field\\n            __typename\\n          }\\n          __typename\\n        }\\n        __typename\\n      }\\n      ... on DateRangeTooLongError {\\n        httpStatus\\n        messages {\\n          user {\\n            message\\n            field\\n            __typename\\n          }\\n          __typename\\n        }\\n        __typename\\n      }\\n      __typename\\n    }\\n    __typename\\n  }\\n}\\n\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1568,
+        0
+      ],
+      "id": "745aa8e9-8c2d-4465-8d6b-6721dd45a961",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:06.400Z",
+      "createdAt": "2026-01-28T09:06:06.400Z",
+      "role": "workflow:owner",
+      "workflowId": "gEjd7t6DGt36RSF8",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:06:06.400Z",
+  "versionId": "68d45801-efdb-4aba-8912-7ea6845d097a"
+}
