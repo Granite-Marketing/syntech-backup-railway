@@ -1,0 +1,177 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Payload": {
+      "main": [
+        [
+          {
+            "node": "Update a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page": {
+      "main": [
+        [
+          {
+            "node": "Remove Actions On Submit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T11:25:51.435Z",
+  "id": "ctxuiyzAyu5spqxl",
+  "isArchived": true,
+  "meta": null,
+  "name": "Handle Ticket Submissions",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "syntech-slack-monitor",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        16,
+        320
+      ],
+      "id": "1ab60ffb-08f4-428e-83f7-49184a7df312",
+      "name": "Webhook",
+      "webhookId": "d092c5f0-4357-4d6d-9ee3-98acab21082d"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "58e80ca5-567e-4097-9e42-0cc2284968c1",
+              "name": "payload",
+              "value": "={{ $json.body.payload }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        320
+      ],
+      "id": "c0e1e32a-374a-4a89-8d54-2533bf8626a4",
+      "name": "Extract Payload"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.payload.message.blocks[1].fields[1].text.split('|')[0].split('<')[1] }}",
+          "mode": "url"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|status",
+              "statusValue": "Done"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        448,
+        320
+      ],
+      "id": "ec92bf15-7bf0-421f-9110-efb780bc04bc",
+      "name": "Update a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "ts": "={{ $('Extract Payload').item.json.payload.container.message_ts }}",
+        "messageType": "block",
+        "blocksUi": "={\n\"blocks\":{{ $('Extract Payload').item.json.payload.message.blocks.filter(item => item.type !== 'actions').toJsonString() }}\n}",
+        "text": "=Error Resolved! ✅",
+        "updateFields": {},
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        656,
+        320
+      ],
+      "id": "736ad2fc-a35c-41d0-97af-f2aa75820339",
+      "name": "Remove Actions On Submit",
+      "webhookId": "187f2efb-575f-490b-9f8a-84d4ca5fd9c3",
+      "credentials": {
+        "slackApi": {
+          "id": "OK65YiwPuYd5tw8v",
+          "name": "Stephen Slack User account"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-11T11:25:51.435Z",
+      "createdAt": "2025-12-11T11:25:51.435Z",
+      "role": "workflow:owner",
+      "workflowId": "ctxuiyzAyu5spqxl",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:04:19.804Z",
+  "versionId": "5db528bb-32c4-44a2-8a4d-b7656c881590"
+}
