@@ -1,0 +1,285 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        []
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:12:42.456Z",
+  "id": "jtQ4MCCeVekPGHNO",
+  "isArchived": true,
+  "meta": null,
+  "name": "Social Media (Sep 26 at 19:00:08)",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -288,
+        -32
+      ],
+      "id": "db527aa3-60db-4664-a68c-ab1ce533565c",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8be96555-17a2-4652-9c61-eb285340e1f2",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "c3c23d6b-6c35-4d1b-9d16-2ef12b32d1eb",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "2ca0da12-5386-4a4c-acd3-e44bd25874e0",
+              "name": "Platform",
+              "value": "={{ $json.property_platform }}",
+              "type": "string"
+            },
+            {
+              "id": "0137d7c3-a394-4de4-9379-9d7e0453ab9a",
+              "name": "scheduleTime",
+              "value": "={{ $json.property_schedule_post }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        144,
+        -32
+      ],
+      "id": "921a2f2f-8b8b-440b-911d-3d71d4f70a19",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "1d5785c0-cfab-813d-99a1-d30397ab76aa",
+          "mode": "list",
+          "cachedResultName": "Granite Marketing Transformed Content",
+          "cachedResultUrl": "https://www.notion.so/1d5785c0cfab813d99a1d30397ab76aa"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -80,
+        -32
+      ],
+      "id": "f2d1ce80-0d55-4bcc-9a66-e03103d6e8eb",
+      "name": "Get many database pages",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  data:$('Edit Fields').first().json.url\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        704,
+        -224
+      ],
+      "id": "3c2c0f00-2de4-4cd3-b663-fee4c4871aac",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ayrshare.com/api/media/upload",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer API_KEY"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "fileName",
+              "value": "test.png"
+            },
+            {
+              "name": "description",
+              "value": "best image"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1456,
+        80
+      ],
+      "id": "dca3c1c0-30f4-4b6c-9532-c5a6e9781872",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cbea803c-2fb6-4ba7-80cf-4651d44d6756",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "is not empty",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        -16
+      ],
+      "id": "c1d348b1-277e-4ebc-879b-07b01068a32c",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "// --- Platform Validation (Now accepts a single string) ---\n\n// Get the platform string from the Notion node\nconst platform = $('Get many database pages').first().json.property_platform\n// Check if the platform string is empty or not provided\nif (!platform) {\n  throw new Error('Platform is empty. You must specify a platform.');\n}\n\n// Define the new list of allowed platforms\nconst allowedPlatforms = ['linkedin', 'instagram', 'facebook', 'twitter', 'webflow'];\n\n// Check if the provided platform is in the allowed list (case-insensitive)\nconst isValidPlatform = allowedPlatforms.includes(platform.toLowerCase());\n\nif (!isValidPlatform) {\n  throw new Error(`Invalid platform: \"${platform}\". Must be one of: ${allowedPlatforms.join(', ')}.`);\n}\n\n\n// --- Media Type Validation (Unchanged) ---\n\n// Get the media type array from the Notion node\nconst mediaType = $('Getting Data from Notion').first().json.property_media_type;\n\n// Check if the media type is empty\nif (!mediaType || mediaType.length === 0) {\n  throw new Error('Media Type is empty. You must specify a media type.');\n}\n\n// Define allowed media types\nconst allowedMedia = ['post', 'story', 'reel'];\n\n// Normalize input values for case-insensitive comparison\nconst inputMedia = mediaType.map(m => m.toLowerCase());\n\n// Check if any allowed media type exists in the input\nconst isMediaValid = allowedMedia.some(media => inputMedia.includes(media));\n\nif (!isMediaValid) {\n  throw new Error('At least one valid media type is required: post, story, or reel.');\n}\n\n// If all checks pass, continue the workflow\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        32
+      ],
+      "id": "61877e52-9e0c-40fb-b007-9d1c47f088d5",
+      "name": "Code in JavaScript1"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:12:42.456Z",
+      "createdAt": "2026-01-28T08:12:42.456Z",
+      "role": "workflow:owner",
+      "workflowId": "jtQ4MCCeVekPGHNO",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:20:15.856Z",
+  "versionId": "b1fdb3c9-7eb8-4389-b377-cfee5fb6cdba"
+}
