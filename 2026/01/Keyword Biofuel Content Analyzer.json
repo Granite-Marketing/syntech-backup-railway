@@ -1,0 +1,899 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Limit7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Either Url or Keyword5": {
+      "main": [
+        [
+          {
+            "node": "Filter5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items6": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Either Url or Keyword5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit7": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "markdown present?": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get many rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RAG Web - Keyword Search": {
+      "main": [
+        [
+          {
+            "node": "Date formate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "create longtail keyword5",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser3": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "create longtail keyword5",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create summary and title8": {
+      "main": [
+        [
+          {
+            "node": "RAG Web - Keyword Search1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model13": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title8",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser15": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Create summary and title8",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter5": {
+      "main": [
+        [
+          {
+            "node": "create longtail keyword5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create longtail keyword5": {
+      "main": [
+        [
+          {
+            "node": "RAG Web - Keyword Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date formate": {
+      "main": [
+        [
+          {
+            "node": "markdown present?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RAG Web - Keyword Search1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Create a row1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create summary and title8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Create summary and title8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:07.048Z",
+  "id": "BKYzejzXggQ60X2a",
+  "isArchived": false,
+  "meta": null,
+  "name": "Keyword Biofuel Content Analyzer",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "id",
+              "type": "any"
+            },
+            {
+              "name": "name",
+              "type": "any"
+            },
+            {
+              "name": "url",
+              "type": "any"
+            },
+            {
+              "name": "property_keyword_category",
+              "type": "any"
+            },
+            {
+              "name": "property_priority",
+              "type": "any"
+            },
+            {
+              "name": "property_rss_feed",
+              "type": "any"
+            },
+            {
+              "name": "property_source",
+              "type": "any"
+            },
+            {
+              "name": "property_category",
+              "type": "any"
+            },
+            {
+              "name": "property_url",
+              "type": "any"
+            },
+            {
+              "name": "property_status",
+              "type": "any"
+            },
+            {
+              "name": "property_name",
+              "type": "any"
+            },
+            {
+              "name": "prompt",
+              "type": "any"
+            },
+            {
+              "name": "url_or_keyword",
+              "type": "any"
+            },
+            {
+              "name": "source",
+              "type": "any"
+            },
+            {
+              "name": "additional_formats",
+              "type": "any"
+            },
+            {
+              "name": "process_mode",
+              "type": "any"
+            },
+            {
+              "name": "bypass_filter",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "id": "c055762a-8fe7-4141-a639-df2372f30060",
+      "typeVersion": 1.1,
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -1232,
+        656
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8efead37-57d8-4101-9010-c855f2525db6",
+              "name": "url_or_keyword",
+              "value": "={{ $json.url_or_keyword || $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "7ca00974-25ef-4c7a-ac32-42d318e2efaa",
+              "name": "prompt",
+              "value": "={{ $json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "2a3d10ea-9972-4e63-a289-f79cfec66ac6",
+              "name": "additional_formats",
+              "value": "={{ $json.additional_formats }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -416,
+        672
+      ],
+      "id": "f23baa8f-b04e-41e5-89a8-e5158c45421a",
+      "name": "Either Url or Keyword5"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -704,
+        656
+      ],
+      "id": "7a16d88c-3197-4eed-ac36-f2f50a66d6ac",
+      "name": "Loop Over Items6"
+    },
+    {
+      "parameters": {
+        "maxItems": 100
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -976,
+        656
+      ],
+      "id": "ff313397-b988-4cfc-a872-ea3df44f725e",
+      "name": "Limit7"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b7af449b-1b66-41eb-bd3c-8528f3a342e5",
+              "leftValue": "={{ $json.markdown }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "733accc0-809e-4828-b8fc-d17d6dc8bf0a",
+              "leftValue": "={{ $json.searchResult.url }}",
+              "rightValue": "https://syntechbiofuel.com/",
+              "operator": {
+                "type": "string",
+                "operation": "notStartsWith"
+              }
+            },
+            {
+              "id": "faf4d1af-50a1-45f0-b260-f5156b7bc1f6",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        784,
+        640
+      ],
+      "id": "8c6c670c-c771-4c9f-8e24-89f69048cd71",
+      "name": "markdown present?"
+    },
+    {
+      "parameters": {
+        "operation": "Run actor and get dataset",
+        "actorSource": "store",
+        "actorId": {
+          "__rl": true,
+          "value": "3ox4R101TgZz67sLr",
+          "mode": "list",
+          "cachedResultName": "RAG Web Browser (apify/rag-web-browser)",
+          "cachedResultUrl": "https://console.apify.com/actors/3ox4R101TgZz67sLr/input"
+        },
+        "customBody": "={\n    \"debugMode\": false,\n    \"maxResults\": 5,\n    \"outputFormats\": [\n        \"markdown\"\n    ],\n    \"proxyConfiguration\": {\n        \"useApifyProxy\": true\n    },\n    \"query\": \"{{ $json.output.keyword_variant + \" after:\" + $now.minus({days: 30}).toFormat('yyyy-MM-dd') }}\",\n    \"removeCookieWarnings\": true,\n    \"requestTimeoutSecs\": 40\n}\n",
+        "timeout": "=300",
+        "memory": 2048
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        336,
+        672
+      ],
+      "id": "8a3e8820-301a-4672-80f4-768c5b9b9214",
+      "name": "RAG Web - Keyword Search",
+      "credentials": {
+        "apifyApi": {
+          "id": "CtQfLZVS6CSwrUIV",
+          "name": "Apify account stephen"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -16,
+        864
+      ],
+      "id": "b321a833-7fbb-4516-b9d9-ae58319df621",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"keyword_variant\": {\n      \"type\": \"string\",\n      \"description\": \"SEO keyword variant\"\n    }\n  },\n  \"required\": [\"keyword_variant\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        144,
+        848
+      ],
+      "id": "0abd8468-2b63-4ffa-ba9c-92ecce3ae06b",
+      "name": "Structured Output Parser3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ $json.markdown }}\n</content>",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=<prompt>\n  <task>\n    Your primary tasks are to analyze the provided content and generate a JSON object containing two key-value pairs:\n    1. **title:** A clear, descriptive, news-style title that reflects the core information or event in the content.\n    2. **summary:** A concise and informative summary of the key details in the content.\n  </task>\n\n  <steps>\n    1. Review the content thoroughly.\n    2. Identify the primary news, announcement, or action being reported.\n    3. Write a summary that distills the essential information, adhering to the word count limit.\n    4. Write a title in the style of a news or trade publication headline. Focus on describing what happened or is happening — not selling a benefit.\n    5. Format the final output as a single JSON object.\n  </steps>\n\n  <restrictions>\n    - **Summary Word Count:** Max 50 words.\n    - **Title Style:** Use objective, publication-style phrasing — not benefit-driven or marketing-style.\n    - **Clarity:** Avoid jargon; prioritize informative clarity.\n    - **JSON Formatting:** Final output must be a single, valid JSON object enclosed in a markdown code block. No text before or after the JSON.\n  </restrictions>\n\n  <output_rules>\n    - **Format:** Raw JSON object.\n    - **Keys:** Must contain exactly two keys: `title` and `summary`.\n    - **Values:** Both values must be strings.\n    - **Tone:** Professional, factual, and informative.\n  </output_rules>\n\n  <examples>\n    ### Example 1\n    **Input Content:** A press release detailing the launch of Syntech ASB and its ISCC certification.\n    **Output:**\n    [Start of JSON Output]\n    {\n      \"title\": \"Syntech Launches UK-Made ISCC-Certified Biofuel from Used Cooking Oil\",\n      \"summary\": \"Syntech ASB is a new ISCC-certified biofuel made entirely from used cooking oil. It is a drop-in replacement for diesel, allowing businesses to reduce carbon emissions by up to 90% without engine modifications or new equipment investments.\"\n    }\n    [End of JSON Output]\n  </examples>\n</prompt>"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1808,
+        640
+      ],
+      "id": "720b3a70-d6c0-494d-b452-9f3e8924a2a3",
+      "name": "Create summary and title8",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1872,
+        928
+      ],
+      "id": "3f813bc6-2ff8-4230-93fd-960bf31c6884",
+      "name": "OpenAI Chat Model13",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 500,
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2096,
+        864
+      ],
+      "id": "36952a81-f852-4865-a344-4909c6f68c48",
+      "name": "Structured Output Parser15"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e6382e72-d90b-4631-98ac-b4d6cfe0801c",
+              "leftValue": "={{ $json.url_or_keyword }}",
+              "rightValue": ".",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -192,
+        672
+      ],
+      "id": "af49910a-9939-492e-af58-3e301f79c279",
+      "name": "Filter5"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ $json.url_or_keyword }}\n</content>",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Act as a Google search query generator.\n\nYou will receive a single keyword related to sustainable biofuels (e.g., “B20 FAME”, “used cooking oil”, etc.).\n\nYour task is to generate a **concise, Google-optimized search phrase** that includes the keyword exactly as provided. The goal is to surface the **latest news, regulatory updates, market trends, or scientific/technical advancements**, with a **primary focus on the UK**, and **secondarily on the EU**.\n\n---\n\n**Rules:**\n- Always include the input keyword exactly as provided.\n- Use natural language optimized for Google search (e.g., “latest news on…”).\n- Keep it short (max 10–12 words).\n- Emphasize **recency** and **location** (e.g., \"2025\", \"UK\", \"EU\").\n- You may include words like: `latest`, `2025`, `news`, `update`, `policy`, `UK`, `EU`, `biofuel market`, etc.\n\n---\n\n**Input format:** A single keyword (string)  \n**Output format:** One concise Google search phrase\n\n---\n\n**Examples:**\n- Input: `used cooking oil` → Output: `latest UK news on used cooking oil biofuels 2025`\n- Input: `B20 FAME` → Output: `B20 FAME UK EU biofuel regulation update 2025`\n- Input: `waste-derived biodiesel` → Output: `waste-derived biodiesel market forecast UK 2025`"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        0,
+        672
+      ],
+      "id": "83381930-ce50-4bf1-b4e1-cf68c62e71d0",
+      "name": "create longtail keyword5",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over all input items\nfor (const item of items) {\n  try {\n    // Check if searchResult and description exist\n    if (item.json.searchResult && item.json.searchResult.description) {\n      \n      let description = item.json.searchResult.description;\n\n      // Regex to find patterns like \"2 days ago\", \"5 hours ago\", \"1 week ago\"\n      // It captures the number (Group 1) and the unit (Group 2)\n      const relativeRegex = /(\\d+)\\s+(minute|minutes|hour|hours|day|days|week|weeks|month|months|year|years)\\s+ago/i;\n      \n      const match = description.match(relativeRegex);\n\n      // Only proceed if a relative date pattern is found\n      if (match) {\n        const amount = parseInt(match[1]);\n        const unit = match[2].toLowerCase();\n        \n        // Get the current actual date/time dynamically\n        let calculatedDate = new Date();\n\n        // Subtract time based on the unit\n        if (unit.includes('minute')) {\n          calculatedDate.setMinutes(calculatedDate.getMinutes() - amount);\n        } else if (unit.includes('hour')) {\n          calculatedDate.setHours(calculatedDate.getHours() - amount);\n        } else if (unit.includes('day')) {\n          calculatedDate.setDate(calculatedDate.getDate() - amount);\n        } else if (unit.includes('week')) {\n          calculatedDate.setDate(calculatedDate.getDate() - (amount * 7));\n        } else if (unit.includes('month')) {\n          calculatedDate.setMonth(calculatedDate.getMonth() - amount);\n        } else if (unit.includes('year')) {\n          calculatedDate.setFullYear(calculatedDate.getFullYear() - amount);\n        }\n\n        // Format the date to \"Mmm DD, YYYY\" (e.g., Nov 28, 2025)\n        const formattedDate = calculatedDate.toLocaleDateString('en-US', {\n          month: 'short',\n          day: 'numeric',\n          year: 'numeric'\n        });\n\n        // Replace the \"2 days ago\" part with the new formatted date\n        item.json.searchResult.description = description.replace(match[0], formattedDate);\n      }\n      // If 'match' is null (meaning it already has a date or no \"ago\" text), we do nothing.\n    }\n  } catch (error) {\n    // Log error but allow other items to continue\n    console.log(\"Error processing date:\", error);\n  }\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        592,
+        640
+      ],
+      "id": "38d65fa3-41ab-4831-856d-9c9c61991843",
+      "name": "Date formate"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d34aa6b-dce8-4761-9a9a-a663f61a86ac",
+              "name": "title",
+              "value": "={{ $json.output.title }}",
+              "type": "string"
+            },
+            {
+              "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
+              "name": "content",
+              "value": "={{ $('Merge').item.json.markdown.removeMarkdown() }}",
+              "type": "string"
+            },
+            {
+              "id": "f0c15fc7-071d-406d-8200-abecbf458836",
+              "name": "url",
+              "value": "={{ $('Merge').item.json.searchResult.url }}",
+              "type": "string"
+            },
+            {
+              "id": "81fb049e-bbc7-49f8-b932-9f2d3ae0305d",
+              "name": "summary",
+              "value": "={{ $json.output.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "39872c24-4acc-4513-b7fb-7689cd511afb",
+              "name": "search_query",
+              "value": "={{ $('Merge').item.json.query }}",
+              "type": "string"
+            },
+            {
+              "id": "42852696-c7af-4ce4-a273-e61970ef2e8f",
+              "name": "publication_date",
+              "value": "={{ (()=>{\n  const s = $('Merge').item.json.searchResult.description?? '';\n  const m = s.match(/\\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\\s+\\d{1,2},\\s+\\d{4}\\b/i);\n  return m ? m[0] : null;\n})() }}",
+              "type": "string"
+            },
+            {
+              "id": "6bd73285-c360-4b10-8567-8ae66ecba2bd",
+              "name": "prompt",
+              "value": "={{ $('When Executed by Another Workflow').item.json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "101c6d7f-6e56-4362-9238-0b3e4fd7f14d",
+              "name": "additional_formats",
+              "value": "={{ $('When Executed by Another Workflow').item.json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "a0b9d46b-67d2-4152-b1fa-2306fa5751e4",
+              "name": "source",
+              "value": "Website",
+              "type": "string"
+            },
+            {
+              "id": "9aea88f6-a629-4f42-ba37-8608bb631772",
+              "name": "mode",
+              "value": "={{ $('When Executed by Another Workflow').item.json.process_mode }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2224,
+        640
+      ],
+      "id": "d391374c-1e17-4643-a9de-c75514ec9b31",
+      "name": "RAG Web - Keyword Search1"
+    },
+    {
+      "parameters": {
+        "content": "## News Scrap through keyword",
+        "height": 608,
+        "width": 3824
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1328,
+        528
+      ],
+      "typeVersion": 1,
+      "id": "c1d78170-d24d-415b-ae94-52bd7a210bce",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "Keyword url",
+        "returnAll": true,
+        "filterType": "none"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1024,
+        720
+      ],
+      "id": "97bef8e4-024c-48f1-9eda-35e4000a23aa",
+      "name": "Get many rows",
+      "alwaysOutputData": false,
+      "executeOnce": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "WzRqvoBujG4ARKMR",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "searchResult.url",
+              "field2": "url"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1216,
+        608
+      ],
+      "id": "e89c4820-4db5-4e01-90bc-87bf76b2e879",
+      "name": "Merge",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "tableId": "Keyword url",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "url",
+              "fieldValue": "={{ $json.searchResult.url }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1472,
+        896
+      ],
+      "id": "265ab601-dfbc-4d4f-bc27-cec1e72daac7",
+      "name": "Create a row1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "WzRqvoBujG4ARKMR",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "371490de-8c72-493f-8b9a-0cd3bb56f4c4",
+              "leftValue": "={{ $json.crawl }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1408,
+        608
+      ],
+      "id": "df70cec8-6847-4bf1-bf9d-97329cc7eecb",
+      "name": "If1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        896
+      ],
+      "id": "191c94e0-8459-4979-9382-47c68417275a",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:07.048Z",
+      "createdAt": "2026-01-28T09:06:07.048Z",
+      "role": "workflow:owner",
+      "workflowId": "BKYzejzXggQ60X2a",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:06:07.048Z",
+  "versionId": "8784e378-3cbb-458a-a060-3e4566fc4b45"
+}
