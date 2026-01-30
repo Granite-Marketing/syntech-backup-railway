@@ -1,0 +1,628 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Get Block Content": {
+      "main": [
+        [
+          {
+            "node": "Format Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Block Content": {
+      "main": [
+        [
+          {
+            "node": "Set Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Convert File to Base64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields": {
+      "main": [
+        [
+          {
+            "node": "Create a Notion File Upload object1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input Data": {
+      "main": [
+        [
+          {
+            "node": "Get Block Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert File to Base64": {
+      "main": [
+        [
+          {
+            "node": "Edit Image With Gemini",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Image With Gemini": {
+      "main": [
+        [
+          {
+            "node": "Split Out Parts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file contents1": {
+      "main": [
+        [
+          {
+            "node": "Upload Image Blocks1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a Notion File Upload object1": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Image Blocks1": {
+      "main": [
+        [
+          {
+            "node": "Add Change Log Comment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Notion Success2": {
+      "main": [
+        []
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Upload file contents1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Change Log Comment": {
+      "main": [
+        [
+          {
+            "node": "Set Notion Success2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Parts": {
+      "main": [
+        [
+          {
+            "node": "Grab Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Grab Image": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T11:25:51.864Z",
+  "id": "FK7p6vIM3XNT2zt5",
+  "isArchived": true,
+  "meta": null,
+  "name": "Update Images",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.body.data.id }}",
+          "mode": "id"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -16,
+        0
+      ],
+      "id": "09364adb-f6f9-456c-8cdf-226ec74e1ee4",
+      "name": "Get Block Content",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Initialize output variables\nlet images = [];\n\nfor (const item of $input.all()) {\n  const block = item.json;\n\n  if (block.type === 'image') {\n    const imageUrl = block.image?.file?.url;\n    if (imageUrl) {\n      images.push(imageUrl);\n    }\n  }\n}\n\nreturn [\n  {\n    json: {\n      images,\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "2007b81c-0b00-4f24-b6ee-84a7e115caec",
+      "name": "Format Block Content"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Format Block Content').item.json.images.last() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        880,
+        0
+      ],
+      "id": "a7d327ff-7f28-47a0-88c8-1cf3a2ac1f8a",
+      "name": "Download File"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aa8bf9e4-a243-4a0f-851d-0d815dd6f4ed",
+              "name": "prompt_update",
+              "value": "={{ `Using the provided image, please do the following: ${$('Input Data').first().json.body.data.properties[\"Prompt Update\"].rich_text[0].plain_text}. Do not change any other aspect of the image.` }}",
+              "type": "string"
+            },
+            {
+              "id": "7a409b00-882e-4e16-b132-b5f14b49dd68",
+              "name": "file_name",
+              "value": "={{ $('Input Data').first().json.body.data.properties.Content.title[0].plain_text }}",
+              "type": "string"
+            },
+            {
+              "id": "20a976a7-c3b0-4d94-91a0-2740fb9b9867",
+              "name": "post_id",
+              "value": "={{ $('Input Data').first().json.body.data.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f47ba44a-7976-4066-b97b-29ab9fe1cc60",
+              "name": "comment",
+              "value": "={{ $now.format('yyyy MMM dd, HH:mm') + ' - ' + $('Input Data').first().json.body.data.properties[\"Prompt Update\"].rich_text[0].plain_text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        432,
+        0
+      ],
+      "id": "d676cae2-d663-4c48-b464-25d6614aec5e",
+      "name": "Set Fields"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "udpate-images",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        0
+      ],
+      "id": "636d042d-e59c-4482-a079-422ec3a71dee",
+      "name": "Input Data",
+      "webhookId": "d52a57fa-e8e8-4458-9e6d-9aea8d5de245"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": {{ $('Set Fields').item.json.prompt_update.toJsonString() }}\n        },\n        {\n          \"inline_data\": {\n            \"mime_type\": \"image/png\",\n            \"data\": \"{{ $('Convert File to Base64').item.json.data }}\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1328,
+        0
+      ],
+      "id": "90ec2504-4d32-4b13-b954-8df66943096f",
+      "name": "Edit Image With Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "ZmbuA0PXohNwTNly",
+          "name": "Google Gemini(PaLM) paid"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1104,
+        0
+      ],
+      "id": "aa62793b-dadb-42b1-bf9f-8cb90ea1a247",
+      "name": "Convert File to Base64"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/blocks/{{ $('Set Fields').first().json.post_id }}/children",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"children\": [\n        {\n            \"type\": \"image\",\n            \"image\": {\n                \"caption\": [],\n                \"type\": \"file_upload\",\n                \"file_upload\": {\n                    \"id\": \"{{ $('Upload file contents1').first().json.id }}\"\n                }\n            }\n        }\n    ]\n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 5000
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2448,
+        0
+      ],
+      "id": "934b6596-dca8-49ff-8f67-9392cbd3de23",
+      "name": "Upload Image Blocks1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Create a Notion File Upload object1').item.json.upload_url }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "=data"
+            },
+            {
+              "name": "content_type",
+              "value": "={{ $binary.data.mimeType }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2224,
+        0
+      ],
+      "id": "60a3b7b1-20f1-4a76-ba8c-0a9708f8c5bb",
+      "name": "Upload file contents1",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/file_uploads",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "filename",
+              "value": "={{ $('Set Fields').item.json.file_name.split(' ').join('-').toLowerCase().replaceAll('.','') + $now.toDateTime().format('yyyy-MM-dd-HH-mm-ss') }}"
+            },
+            {
+              "name": "content_type",
+              "value": "=image/png"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        656,
+        0
+      ],
+      "id": "3feafcc3-8486-402f-a1fb-36edbd1df886",
+      "name": "Create a Notion File Upload object1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Set Fields').first().json.post_id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|status",
+              "statusValue": "Update Completed"
+            },
+            {
+              "key": "Prompt Update|rich_text",
+              "textContent": "={{ '' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2896,
+        0
+      ],
+      "id": "587b59c4-cf99-4d2e-ad99-f4be0cca0b78",
+      "name": "Set Notion Success2",
+      "executeOnce": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "inlineData.data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        0
+      ],
+      "id": "7fd4670c-9c53-4ffd-ae6e-60d0b703579f",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/comments",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"page_id\": \"{{ $('Set Fields').item.json.post_id }}\"\n  },\n  \"rich_text\": [\n    {\n      \"text\": {\n        \"content\": {{ $('Set Fields').item.json.comment.toJsonString() }}\n      }\n    }\n  ],\n\t\"display_name\": {\n    \"type\": \"integration\"\n  }\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        2672,
+        0
+      ],
+      "id": "76fa3f3a-662b-4d31-99ed-8b976f7fbf01",
+      "name": "Add Change Log Comment",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "candidates[0].content.parts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1552,
+        0
+      ],
+      "id": "33075f32-eaf3-4bf6-89e2-28c72617146a",
+      "name": "Split Out Parts"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6f57c194-a475-4c13-bb0d-1ba4f29c704b",
+              "leftValue": "={{ $json.inlineData.mimeType }}",
+              "rightValue": "image",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1776,
+        0
+      ],
+      "id": "c0339343-52d2-496c-bad6-2b3204a7a6b8",
+      "name": "Grab Image"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "Qsg1jSZ5AQScoAOn"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-11T11:25:51.864Z",
+      "createdAt": "2025-12-11T11:25:51.864Z",
+      "role": "workflow:owner",
+      "workflowId": "FK7p6vIM3XNT2zt5",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:04:03.812Z",
+  "versionId": "01c1f63a-1e2b-4ed4-b421-680044a5de3c"
+}
