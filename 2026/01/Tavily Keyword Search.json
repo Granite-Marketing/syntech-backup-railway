@@ -1,0 +1,1297 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Limit2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search": {
+      "main": [
+        [
+          {
+            "node": "Split Out Results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape a url and get its content4": {
+      "main": [
+        [
+          {
+            "node": "If Not Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Either Url or Keyword3": {
+      "main": [
+        [
+          {
+            "node": "create longtail keyword claude optimised",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge8": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extract content1": {
+      "main": [
+        [
+          {
+            "node": "extract date",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Scrape a url and get its content4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items5": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Either Url or Keyword3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown6": {
+      "main": [
+        [
+          {
+            "node": "Create summary and title2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extract date": {
+      "main": [
+        [
+          {
+            "node": "Markdown6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser5": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "create longtail keyword claude optimised",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create summary and title2": {
+      "main": [
+        [
+          {
+            "node": "Create a row1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model6": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Structured Output Parser7": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Create summary and title2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "https fields": {
+      "main": [
+        [
+          {
+            "node": "Merge8",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "tavily search fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "If URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row": {
+      "main": [
+        [
+          {
+            "node": "tavily search fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If URL": {
+      "main": [
+        [
+          {
+            "node": "extract content1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Searches": {
+      "main": [
+        [
+          {
+            "node": "Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Results": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get many rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek 3.2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "create longtail keyword claude optimised",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek 3.": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create longtail keyword claude optimised": {
+      "main": [
+        [
+          {
+            "node": "Split Out Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "create longtail keyword OLD",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Not Error": {
+      "main": [
+        [
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row1": {
+      "main": [
+        [
+          {
+            "node": "https fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T08:12:44.539Z",
+  "id": "cWMpw7HuitfgfNMh",
+  "isArchived": true,
+  "meta": null,
+  "name": "Tavily Keyword Search",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "id",
+              "type": "any"
+            },
+            {
+              "name": "name",
+              "type": "any"
+            },
+            {
+              "name": "url",
+              "type": "any"
+            },
+            {
+              "name": "property_keyword_category",
+              "type": "any"
+            },
+            {
+              "name": "property_priority",
+              "type": "any"
+            },
+            {
+              "name": "property_rss_feed",
+              "type": "any"
+            },
+            {
+              "name": "property_source",
+              "type": "any"
+            },
+            {
+              "name": "property_category",
+              "type": "any"
+            },
+            {
+              "name": "property_url",
+              "type": "any"
+            },
+            {
+              "name": "property_status",
+              "type": "any"
+            },
+            {
+              "name": "property_name",
+              "type": "any"
+            },
+            {
+              "name": "prompt",
+              "type": "any"
+            },
+            {
+              "name": "url_or_keyword",
+              "type": "any"
+            },
+            {
+              "name": "source",
+              "type": "any"
+            },
+            {
+              "name": "additional_formats",
+              "type": "any"
+            },
+            {
+              "name": "process_mode",
+              "type": "any"
+            },
+            {
+              "name": "bypass_filter",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2976,
+        720
+      ],
+      "id": "ee25570c-8668-4102-a1c6-e1d825a0a800",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "query": "={{ $json.output.trim() }}",
+        "options": {
+          "topic": "general",
+          "search_depth": "advanced",
+          "max_results": 5,
+          "time_range": "month",
+          "include_images": false
+        }
+      },
+      "type": "@tavily/n8n-nodes-tavily.tavily",
+      "typeVersion": 1,
+      "position": [
+        -1504,
+        240
+      ],
+      "id": "5921a686-3040-48fa-a8fb-5cafcb9e19f3",
+      "name": "Search",
+      "alwaysOutputData": false,
+      "credentials": {
+        "tavilyApi": {
+          "id": "ZcHvfAvaiPVC9onF",
+          "name": "Tavily account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "maxItems": 100
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -2752,
+        720
+      ],
+      "id": "4d819dfa-2e7e-44ce-a1c6-aefca308dde8",
+      "name": "Limit2"
+    },
+    {
+      "parameters": {
+        "operation": "scrape",
+        "url": "={{ $('Merge').item.json.url }}",
+        "scrapeOptions": {
+          "options": {
+            "formats": {
+              "format": [
+                {},
+                {
+                  "type": "summary"
+                }
+              ]
+            },
+            "excludeTags": {
+              "items": [
+                {
+                  "tag": "footer"
+                },
+                {
+                  "tag": "script"
+                },
+                {
+                  "tag": "nav"
+                },
+                {
+                  "tag": "style"
+                }
+              ]
+            },
+            "headers": {}
+          }
+        },
+        "requestOptions": {}
+      },
+      "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        80
+      ],
+      "id": "ceb073d5-46c8-4738-8d8b-cb935ca0d772",
+      "name": "Scrape a url and get its content4",
+      "executeOnce": false,
+      "credentials": {
+        "firecrawlApi": {
+          "id": "BNVJqHXn81DoWSYA",
+          "name": "Firecrawl account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8efead37-57d8-4101-9010-c855f2525db6",
+              "name": "url_or_keyword",
+              "value": "={{ $json.property_name || $json.url_or_keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "1bf13ab6-84ba-4faf-ae05-c664b1e9c8cd",
+              "name": "prompt",
+              "value": "={{ $json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "e49600f7-c2d9-46d2-9903-5bc13fbb7f78",
+              "name": "additional_formats",
+              "value": "={{ $json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "7654f174-9525-47d6-aa35-eda8fe63abfa",
+              "name": "set_source_name",
+              "value": "={{ $('When Executed by Another Workflow').item.json.property_name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2304,
+        240
+      ],
+      "id": "c5f87772-46f4-49b3-8648-708db0bcf7f1",
+      "name": "Either Url or Keyword3"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1088,
+        384
+      ],
+      "id": "35c579c4-ea75-4729-a9f6-5fbf144f9f84",
+      "name": "Merge8"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Merge').item.json.url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -384,
+        240
+      ],
+      "id": "7e8a0203-0f91-4305-b4f0-2e1ffe5b5fbb",
+      "name": "extract content1",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -2528,
+        720
+      ],
+      "id": "54beadde-9687-443b-93db-36dfc7576678",
+      "name": "Loop Over Items5"
+    },
+    {
+      "parameters": {
+        "html": "={{ $('extract content1').item.json.data || '' }}",
+        "destinationKey": "linebreak",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        64,
+        384
+      ],
+      "id": "3ec8f51c-38e4-4cf1-aea8-1c26be3c608b",
+      "name": "Markdown6"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const htmlContent = $node[\"extract content1\"].json[\"data\"];\n\n// Function to extract published date from various HTML patterns\nconst extractPublishedDate = (html) => {\n    if (!html) return null;\n    \n    // 1. Open Graph meta tags (most common)\n    let match = html.match(/<meta[^>]*property=[\"']article:published_time[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*property=[\"']article:published_time[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // 2. Schema.org meta tags\n    match = html.match(/<meta[^>]*itemprop=[\"']datePublished[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*itemprop=[\"']datePublished[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // 3. Standard meta name tags\n    const metaNames = [\n        'publishdate', 'publication-date', 'date', 'pubdate', 'publish_date',\n        'published-date', 'article.published', 'article:published',\n        'datePublished', 'dc.date', 'DC.date', 'dc.date.issued',\n        'sailthru.date', 'article.created', 'last-modified', 'created'\n    ];\n    \n    for (const name of metaNames) {\n        match = html.match(new RegExp(`<meta[^>]*name=[\"']${name}[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>`, 'i'));\n        if (match?.[1]) return match[1];\n        \n        match = html.match(new RegExp(`<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*name=[\"']${name}[\"'][^>]*>`, 'i'));\n        if (match?.[1]) return match[1];\n    }\n    \n    // 4. JSON-LD structured data\n    const jsonLdMatch = html.match(/<script[^>]*type=[\"']application\\/ld\\+json[\"'][^>]*>([\\s\\S]*?)<\\/script>/gi);\n    if (jsonLdMatch) {\n        for (const jsonBlock of jsonLdMatch) {\n            try {\n                const jsonContent = jsonBlock.replace(/<script[^>]*>|<\\/script>/gi, '').trim();\n                const data = JSON.parse(jsonContent);\n                \n                // Handle both single objects and arrays\n                const items = Array.isArray(data) ? data : [data];\n                \n                for (const item of items) {\n                    if (item.datePublished) return item.datePublished;\n                    if (item.publishedDate) return item.publishedDate;\n                    if (item.dateCreated) return item.dateCreated;\n                    if (item.article?.datePublished) return item.article.datePublished;\n                }\n            } catch (e) {\n                // Continue if JSON parsing fails\n            }\n        }\n    }\n    \n    // 5. Time tags with datetime attribute\n    match = html.match(/<time[^>]*datetime=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // 6. Data attributes\n    match = html.match(/data-published[-_]?(?:time|date)=[\"']([^\"']+)[\"']/i);\n    if (match?.[1]) return match[1];\n    \n    match = html.match(/data-date=[\"']([^\"']+)[\"']/i);\n    if (match?.[1]) return match[1];\n    \n    // 7. Twitter card meta tags\n    match = html.match(/<meta[^>]*name=[\"']twitter:data1[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1] && /\\d{4}/.test(match[1])) return match[1];\n    \n    // 8. Specific publisher formats\n    // WordPress\n    match = html.match(/<abbr[^>]*class=[\"'][^\"']*published[\"'][^>]*title=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1];\n    \n    // Medium\n    match = html.match(/data-post-published-at=[\"']([^\"']+)[\"']/i);\n    if (match?.[1]) return match[1];\n    \n    // 9. Look for ISO date patterns in the HTML (last resort)\n    const isoDateMatch = html.match(/\\b(20\\d{2}[-\\/](0[1-9]|1[0-2])[-\\/](0[1-9]|[12]\\d|3[01])(?:T[\\d:]+(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?)?)\\b/);\n    if (isoDateMatch?.[1]) return isoDateMatch[1];\n    \n    return null;\n};\n\n// Function to extract page title\nconst extractTitle = (html) => {\n    if (!html) return null;\n\n    let match = html.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*property=[\"']og:title[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*property=[\"']og:title[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*name=[\"']twitter:title[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    return null;\n};\n\n// Function to extract meta description\nconst extractMetaDescription = (html) => {\n    if (!html) return null;\n\n    let match = html.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*name=[\"']description[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*content=[\"']([^\"']+)[\"'][^>]*property=[\"']og:description[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    match = html.match(/<meta[^>]*name=[\"']twitter:description[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>/i);\n    if (match?.[1]) return match[1].trim();\n\n    return null;\n};\n\n// Extract values\nconst publishedDate = extractPublishedDate(htmlContent);\nconst title = extractTitle(htmlContent);\nconst metaDescription = extractMetaDescription(htmlContent);\n\n// Return result\nreturn {\n    publishedDate,\n    title,\n    metaDescription\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        384
+      ],
+      "id": "b00d76aa-84fb-4a9d-aabb-664afb048a18",
+      "name": "extract date"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"raw\": {\n      \"type\": \"string\",\n      \"description\": \"Keyword unchanged\"\n    },\n    \"uk_strategic\": {\n      \"type\": \"string\",\n      \"description\": \"UK/EU-focused strategic query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"regulatory\": {\n      \"type\": \"string\",\n      \"description\": \"Policy/compliance/mandate query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"market\": {\n      \"type\": \"string\",\n      \"description\": \"Supply/price/capacity query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    }\n  },\n  \"required\": [\"raw\", \"uk_strategic\", \"regulatory\", \"market\"],\n  \"additionalProperties\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -1888,
+        448
+      ],
+      "id": "d79b50a6-33a5-4c9f-bfd5-09c69dee0410",
+      "name": "Structured Output Parser5"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown6').item.json.linebreak && $('Markdown6').item.json.linebreak.length > 0)\n    ? $('Markdown6').item.json.linebreak\n    : ($('extract content1').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}\n</content>",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=<prompt>\n  <task>\n    Your primary tasks are to analyze the provided content and generate a JSON object containing two key-value pairs:\n    1. **title:** A clear, descriptive, news-style title that reflects the core information or event in the content.\n    2. **summary:** A concise and informative summary of the key details in the content.\n  </task>\n\n  <steps>\n    1. Review the content thoroughly.\n    2. Identify the primary news, announcement, or action being reported.\n    3. Write a summary that distills the essential information, adhering to the word count limit.\n    4. Write a title in the style of a news or trade publication headline. Focus on describing what happened or is happening — not selling a benefit.\n    5. Format the final output as a single JSON object.\n  </steps>\n\n  <restrictions>\n    - **Summary Word Count:** Max 50 words.\n    - **Title Style:** Use objective, publication-style phrasing — not benefit-driven or marketing-style.\n    - **Clarity:** Avoid jargon; prioritize informative clarity.\n    - **JSON Formatting:** Final output must be a single, valid JSON object enclosed in a markdown code block. No text before or after the JSON.\n  </restrictions>\n\n  <output_rules>\n    - **Format:** Raw JSON object.\n    - **Keys:** Must contain exactly two keys: `title` and `summary`.\n    - **Values:** Both values must be strings.\n    - **Tone:** Professional, factual, and informative.\n  </output_rules>\n\n  <examples>\n    ### Example 1\n    **Input Content:** A press release detailing the launch of Syntech ASB and its ISCC certification.\n    **Output:**\n    [Start of JSON Output]\n    {\n      \"title\": \"Syntech Launches UK-Made ISCC-Certified Biofuel from Used Cooking Oil\",\n      \"summary\": \"Syntech ASB is a new ISCC-certified biofuel made entirely from used cooking oil. It is a drop-in replacement for diesel, allowing businesses to reduce carbon emissions by up to 90% without engine modifications or new equipment investments.\"\n    }\n    [End of JSON Output]\n  </examples>\n</prompt>"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        288,
+        384
+      ],
+      "id": "ef38d5fb-637e-4d65-85e9-72011e9d49fc",
+      "name": "Create summary and title2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2976,
+        1824
+      ],
+      "id": "0e047562-94f9-48a1-8bbc-08995c4ad461",
+      "name": "OpenAI Chat Model6",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        432,
+        608
+      ],
+      "id": "13ad4863-17b0-486c-8cb0-0defd2acb0f7",
+      "name": "Structured Output Parser7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d34aa6b-dce8-4761-9a9a-a663f61a86ac",
+              "name": "title",
+              "value": "={{ $('Merge').item.json.title || $('Create summary and title2').item.json.output.title }}",
+              "type": "string"
+            },
+            {
+              "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
+              "name": "content",
+              "value": "={{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown6').item.json.linebreak && $('Markdown6').item.json.linebreak.length > 0)\n    ? $('Markdown6').item.json.linebreak.removeMarkdown()\n    : ($('extract content1').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() }}",
+              "type": "string"
+            },
+            {
+              "id": "f0c15fc7-071d-406d-8200-abecbf458836",
+              "name": "url",
+              "value": "={{\n  decodeURIComponent(\n    ($('Merge').item.json.url || '')\n      .replace(/^https?:\\/\\/www\\.google\\.com\\/url\\?.*?url=/, '')\n      .split('&')[0]\n  )\n}}",
+              "type": "string"
+            },
+            {
+              "id": "81fb049e-bbc7-49f8-b932-9f2d3ae0305d",
+              "name": "summary",
+              "value": "={{ $('Create summary and title2').item.json.output.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "da6884f3-275c-41e7-87c5-c20fb29e9419",
+              "name": "search_query",
+              "value": "={{ $('Search').item.json.query }}",
+              "type": "string"
+            },
+            {
+              "id": "42852696-c7af-4ce4-a273-e61970ef2e8f",
+              "name": "publication_date",
+              "value": "={{ $('extract date').item.json.publishedDate || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "a0b9d46b-67d2-4152-b1fa-2306fa5751e4",
+              "name": "source",
+              "value": "=Tavily",
+              "type": "string"
+            },
+            {
+              "id": "2d48f306-c0cc-4c2b-9a28-1d810282b524",
+              "name": "source_name",
+              "value": "={{ $('Either Url or Keyword3').first().json.set_source_name }}",
+              "type": "string"
+            },
+            {
+              "id": "b6707082-f321-40a8-8174-678e004169df",
+              "name": "=additional_formats",
+              "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "ac5d4a60-217d-4291-a6cd-ef525481c403",
+              "name": "prompt",
+              "value": "={{ $('When Executed by Another Workflow').first().json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "eb7d506e-d06c-448f-a6a1-7726df3f6bbb",
+              "name": "=mode",
+              "value": "={{ $('When Executed by Another Workflow').first().json.process_mode }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        864,
+        384
+      ],
+      "id": "03d2f660-d9e4-4247-9511-b173d55b9298",
+      "name": "https fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d34aa6b-dce8-4761-9a9a-a663f61a86ac",
+              "name": "title",
+              "value": "={{ $('Merge').item.json.title || $('Scrape a url and get its content4').item.json.data.metadata.title }}",
+              "type": "string"
+            },
+            {
+              "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
+              "name": "content",
+              "value": "={{ \n  $('Scrape a url and get its content4').item.json.data.markdown.removeMarkdown()\n}}",
+              "type": "string"
+            },
+            {
+              "id": "f0c15fc7-071d-406d-8200-abecbf458836",
+              "name": "url",
+              "value": "={{\n  decodeURIComponent(\n    ($('Scrape a url and get its content4').item.json.data.metadata.url || '')\n      .replace(/^https?:\\/\\/www\\.google\\.com\\/url\\?.*?url=/, '')\n      .split('&')[0]\n  )\n}}",
+              "type": "string"
+            },
+            {
+              "id": "0276c4d6-4a0f-49c5-95e1-9cece3690cc8",
+              "name": "summary",
+              "value": "={{ $('Scrape a url and get its content4').item.json.data.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "9573ac47-f760-4075-af1e-41774d546f60",
+              "name": "search_query",
+              "value": "={{ $('Either Url or Keyword3').item.json.url_or_keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "42852696-c7af-4ce4-a273-e61970ef2e8f",
+              "name": "publication_date",
+              "value": "={{ $('Merge').item.json.published_date || $json.data.metadata.citation_publication_date || $('Scrape a url and get its content4').item.json.data.metadata['cXenseParse:publishtime'] || $('Scrape a url and get its content4').item.json.data.metadata.publishedTime || $('Scrape a url and get its content4').item.json.data.metadata.publishedTime || $('Scrape a url and get its content4').item.json.data.metadata['article:published_time'] }}\n\n",
+              "type": "string"
+            },
+            {
+              "id": "156a551e-8b0b-49ae-9543-4337fd48f33f",
+              "name": "source",
+              "value": "Tavily",
+              "type": "string"
+            },
+            {
+              "id": "a9551812-83e1-4e44-a212-a8d4e81952a6",
+              "name": "source_name",
+              "value": "={{ $('Either Url or Keyword3').first().json.set_source_name }}",
+              "type": "string"
+            },
+            {
+              "id": "40580acd-9a0c-4de0-91cd-0605052a5810",
+              "name": "prompt",
+              "value": "={{ $('When Executed by Another Workflow').first().json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "a1839b94-f160-4685-8932-0258bd67b0cf",
+              "name": "additional_formats",
+              "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "8cad40d7-a7a0-46cb-a90e-a20807fe81b9",
+              "name": "=mode",
+              "value": "={{ $('When Executed by Another Workflow').first().json.process_mode }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        80
+      ],
+      "id": "11ae2d33-22d8-42dd-8eee-9add787cd7c2",
+      "name": "tavily search fields1"
+    },
+    {
+      "parameters": {
+        "content": "##  News scrap through Keyword using Firecrawl",
+        "height": 1088,
+        "width": 4352,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3056,
+        -160
+      ],
+      "typeVersion": 1,
+      "id": "94f292fc-0737-453e-be17-d3c0d8490d91",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "Syntech keyword firecrawl url",
+        "returnAll": true,
+        "filterType": "none"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1056,
+        432
+      ],
+      "id": "cb3796b7-a215-4945-bc2d-88a2b26ecf5b",
+      "name": "Get many rows",
+      "alwaysOutputData": false,
+      "executeOnce": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "WzRqvoBujG4ARKMR",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "url",
+              "field2": "url"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -832,
+        240
+      ],
+      "id": "d3df7199-6462-44c3-b231-46237708530f",
+      "name": "Merge",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "tableId": "Syntech keyword firecrawl url",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "url",
+              "fieldValue": "={{\n  $('Merge').item.json.url.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.url\n}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        352,
+        80
+      ],
+      "id": "8bd33cc2-eb79-49f4-b2ba-0e3169fd196d",
+      "name": "Create a row",
+      "credentials": {
+        "supabaseApi": {
+          "id": "WzRqvoBujG4ARKMR",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "371490de-8c72-493f-8b9a-0cd3bb56f4c4",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -608,
+        240
+      ],
+      "id": "80e44e56-4c8b-45e2-9499-f0b1c3d18848",
+      "name": "If URL"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ $json.url_or_keyword }}\n</content>",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Act as a search query generator.\n\nYou will receive a single keyword related to sustainable biofuels (e.g., “B20 FAME”, “used cooking oil”, etc.).\n\nYour task is to generate a **concise and relevant search phrase** that includes the keyword exactly as provided. The search phrase should aim to surface the **latest news, market trends, regulatory updates, or technological advancements** related to that keyword, with a **primary focus on the UK**, and **secondarily on the EU**.\n\nKeep the output **short, clear, and snappy** — like a search engine query. Make sure it sounds natural but is optimized to find **recent insights**.\n\n---\n\n**Rules:**\n- **Always include the input keyword as-is** in the output.\n- Keep the total phrase **under 10 words**.\n- Focus the query on **UK and EU news or insights**.\n- Prioritize recent, relevant developments (e.g., past few months).\n\n---\n\n**Input format:** A single keyword (string)  \n**Output format:** One concise search phrase\n\n---\n\n**Examples:**\n- Input: `used cooking oil` → Output: `UK and EU news on used cooking oil`\n- Input: `B20 FAME` → Output: `Market trends and news for B20 FAME UK`\n- Input: `waste-derived biodiesel` → Output: `UK updates on waste-derived biodiesel`"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -3024,
+        1344
+      ],
+      "id": "348108d5-5a6f-490a-8d61-ba069beda3c8",
+      "name": "create longtail keyword OLD",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -1728,
+        240
+      ],
+      "id": "7a4cb8c7-3306-481b-8bac-9b69fa271ccd",
+      "name": "Split Out Searches"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "results",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -1280,
+        240
+      ],
+      "id": "834c1109-5249-4681-a55c-369d2bd7d5e5",
+      "name": "Split Out Results",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-v3.2",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -2080,
+        464
+      ],
+      "id": "8f94b440-6066-49d2-a48a-2668024cb60d",
+      "name": "DeepSeek 3.2",
+      "credentials": {
+        "openRouterApi": {
+          "id": "3MXuGd2YhZxORJU4",
+          "name": "Syntech OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-v3.2",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        304,
+        608
+      ],
+      "id": "2cfb7524-760b-4574-a85e-d86d69a2b866",
+      "name": "DeepSeek 3.",
+      "credentials": {
+        "openRouterApi": {
+          "id": "3MXuGd2YhZxORJU4",
+          "name": "Syntech OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ $json.url_or_keyword }}\n</content>",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=# 📌 Prompt: Compact Google News Search Query Generator\n\nAct as a compact Google News search query generator.\n\nYou will receive a single keyword related to sustainable biofuels (e.g., FAME Biodiesel, used cooking oil).\n\nYour task is to generate **three short, keyword-optimized search phrases**, each focused on a different type of insight:\n\n1. Recent News  \n2. Market Price  \n3. Investment Activity  \n\nAll queries should be focused on developments relevant to the **EU**.\n\n---\n\n## ✅ Rules\n\n- Always include the input keyword exactly as provided  \n- Keep each output compact, non-conversational, and max 5–6 words  \n- Each output must emphasize one of the following:\n  - **News** – general updates and coverage  \n  - **Market** – price trends, market movements  \n  - **Investment** – funding, company moves, infrastructure investment  \n- Use compact terms like: news, update, market, price, investment, EU, policy  \n- Never use punctuation or quotation marks  \n- Never include years or dates  \n- Use “EU” for location when helpful  \n- Output exactly three variants following the output schema  \n- Do not add commentary, markdown, or formatting  \n- Output must be parsable by an output parser  \n\n---\n\n## 🧾 Input\n\nA single keyword (string)\n\n**Example Input:**  \nused cooking oil\n\n---\n\n## 🧾 Output Schema\n\nThe output must follow **this exact structure** so it can be parsed reliably:\n\n- `news`: a compact query focused on recent news  \n- `market`: a compact query focused on price/market activity  \n- `investment`: a compact query focused on funding/investment  \n\nStructure:\n```json\n{  \n  news: [search phrase]  \n  market: [search phrase]  \n  investment: [search phrase]  \n}\n\n---\n\n## 🧪 Example Output\n```json\n{  \n  news: used cooking oil EU biofuel news  \n  market: used cooking oil EU market price  \n  investment: used cooking oil EU investment update  \n}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -2976,
+        2032
+      ],
+      "id": "9bae8f0a-7874-4ca8-886a-c03de3038e2a",
+      "name": "create longtail keyword",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ $json.url_or_keyword }}\n</content>",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Act as a compact search query generator optimized for discovering strategically relevant biofuel industry content.\n\nYou will receive a single keyword related to sustainable biofuels, renewable energy, infrastructure projects, or market entities.\n\nYour task is to generate **four short, keyword-optimized search phrases**, each designed to capture different types of strategic intelligence:\n\n1. **Raw** – Unchanged keyword (baseline search)\n2. **UK Strategic** – UK/EU-focused content\n3. **Regulatory** – Policy, compliance, mandates\n4. **Market** – Supply, demand, pricing, capacity\n\n---\n\n## ✅ Rules\n\n**Query Construction:**\n- Keep each query **extremely compact: 2-3 words maximum**\n- Include the input keyword exactly as provided (unless it's the raw query)\n- Add only ONE additional term: UK, policy, market, price, etc.\n- Trust Google News to find semantically related content\n- Never use punctuation, quotation marks, or special characters\n- Never include years, dates, or time references\n\n**Query Pattern:**\n- `raw`: [keyword] (unchanged)\n- `uk_strategic`: [keyword] UK (or [keyword] EU)\n- `regulatory`: [keyword] policy (or mandate/compliance/regulation)\n- `market`: [keyword] market (or price/supply/capacity)\n\n**Philosophy:**\n- **Simpler is better** - Google News is smart enough to find relevant content\n- **Broad captures more** - Let the algorithm handle semantic variations\n- **2-3 words maximum** - Avoid over-specifying and limiting results\n\n**Output Format:**\n- Flat JSON structure with exactly 4 fields\n- No commentary, markdown, or additional formatting\n- Must be directly parsable by automated systems\n\n---\n\n## 🧾 Input\n\nA single keyword (string)\n\n**Example Inputs:**\n- Technical terms: `B100`, `FAME biodiesel`, `HVO`, `UCO`\n- Geographic: `Lower Thames Crossing`, `Kingsnorth`, `Grangemouth`\n- Companies: `Balfour Beatty`, `SSE`, `Neste`, `Volvo`, `Caterpillar`\n- Regulatory: `RTFO`, `EN 14214`\n- General: `used cooking oil`, `waste feedstock`, `drop-in fuel`\n- OEMs: `Volvo`, `DAF`, `MAN`, `Scania`, `JCB`, `Caterpillar`\n\n---\n\n## 🧾 Output Schema\n\nThe output must follow **this exact structure**:\n```json\n{\n  \"raw\": \"[keyword unchanged]\",\n  \"uk_strategic\": \"[keyword] UK\",\n  \"regulatory\": \"[keyword] policy\",\n  \"market\": \"[keyword] market\"\n}\n```\n\n**Field Definitions:**\n\n- `raw`: The keyword exactly as input, unchanged\n- `uk_strategic`: Keyword + UK (or EU) - 2-3 words total\n- `regulatory`: Keyword + policy (or mandate/compliance/regulation) - 2-3 words total\n- `market`: Keyword + market (or price/supply/capacity) - 2-3 words total\n\n---\n\n## 🧪 Example Outputs\n\n### Example 1: Technical Term\n**Input:** `B100`\n```json\n{\n  \"raw\": \"B100\",\n  \"uk_strategic\": \"B100 UK\",\n  \"regulatory\": \"B100 policy\",\n  \"market\": \"B100 market\"\n}\n```\n\n---\n\n### Example 2: Feedstock Term\n**Input:** `used cooking oil`\n```json\n{\n  \"raw\": \"used cooking oil\",\n  \"uk_strategic\": \"used cooking oil UK\",\n  \"regulatory\": \"used cooking oil policy\",\n  \"market\": \"used cooking oil price\"\n}\n```\n\n---\n\n### Example 3: Infrastructure Project\n**Input:** `Lower Thames Crossing`\n```json\n{\n  \"raw\": \"Lower Thames Crossing\",\n  \"uk_strategic\": \"Lower Thames Crossing UK\",\n  \"regulatory\": \"Lower Thames Crossing policy\",\n  \"market\": \"Lower Thames Crossing market\"\n}\n```\n\n---\n\n### Example 4: OEM Company\n**Input:** `Volvo`\n```json\n{\n  \"raw\": \"Volvo\",\n  \"uk_strategic\": \"Volvo UK\",\n  \"regulatory\": \"Volvo emissions\",\n  \"market\": \"Volvo market\"\n}\n```\n\n---\n\n### Example 5: Equipment Manufacturer\n**Input:** `Caterpillar`\n```json\n{\n  \"raw\": \"Caterpillar\",\n  \"uk_strategic\": \"Caterpillar UK\",\n  \"regulatory\": \"Caterpillar sustainability\",\n  \"market\": \"Caterpillar market\"\n}\n```\n\n---\n\n### Example 6: Regulatory Term\n**Input:** `RTFO`\n```json\n{\n  \"raw\": \"RTFO\",\n  \"uk_strategic\": \"RTFO UK\",\n  \"regulatory\": \"RTFO compliance\",\n  \"market\": \"RTFO price\"\n}\n```\n\n---\n\n### Example 7: Adjacent Technology\n**Input:** `sustainable aviation fuel`\n```json\n{\n  \"raw\": \"sustainable aviation fuel\",\n  \"uk_strategic\": \"sustainable aviation fuel UK\",\n  \"regulatory\": \"sustainable aviation fuel mandate\",\n  \"market\": \"sustainable aviation fuel supply\"\n}\n```\n\n---\n\n### Example 8: Power Generation\n**Input:** `generators`\n```json\n{\n  \"raw\": \"generators\",\n  \"uk_strategic\": \"generators UK\",\n  \"regulatory\": \"generators emissions\",\n  \"market\": \"generators market\"\n}\n```\n\n---\n\n### Example 9: Hydrogen/EV Context\n**Input:** `hydrogen vehicles`\n```json\n{\n  \"raw\": \"hydrogen vehicles\",\n  \"uk_strategic\": \"hydrogen vehicles UK\",\n  \"regulatory\": \"hydrogen vehicles policy\",\n  \"market\": \"hydrogen vehicles market\"\n}\n```\n\n---\n\n### Example 10: VIP Client\n**Input:** `Balfour Beatty`\n```json\n{\n  \"raw\": \"Balfour Beatty\",\n  \"uk_strategic\": \"Balfour Beatty UK\",\n  \"regulatory\": \"Balfour Beatty sustainability\",\n  \"market\": \"Balfour Beatty market\"\n}\n```\n\n---\n\n### Example 11: HVO\n**Input:** `HVO`\n```json\n{\n  \"raw\": \"HVO\",\n  \"uk_strategic\": \"HVO UK\",\n  \"regulatory\": \"HVO policy\",\n  \"market\": \"HVO supply\"\n}\n```\n\n---\n\n### Example 12: Biodiesel\n**Input:** `biodiesel`\n```json\n{\n  \"raw\": \"biodiesel\",\n  \"uk_strategic\": \"biodiesel UK\",\n  \"regulatory\": \"biodiesel mandate\",\n  \"market\": \"biodiesel price\"\n}\n```\n\n---\n\n## 📝 Query Design Principles\n\n### **Trust Google News**\n- Google's algorithm finds semantically related content automatically\n- Simpler queries = broader coverage = more relevant results\n- Over-specifying limits results unnecessarily\n\n### **2-3 Words Maximum**\n- Most queries should be exactly 2 words: `[keyword] + [modifier]`\n- Only exception: multi-word input keywords (e.g., \"used cooking oil\")\n- Total length after adding modifier: 2-3 words\n\n### **Modifier Selection Guide**\n\n**For uk_strategic:**\n- Default: `UK`\n- Alternative: `EU` (for EU-focused terms)\n\n**For regulatory:**\n- Default: `policy`\n- For regulatory terms (RTFO, EN 14214): `compliance` or `update`\n- For companies: `emissions` or `sustainability`\n- Alternatives: `mandate`, `regulation`\n\n**For market:**\n- Default: `market`\n- For feedstocks: `price` or `supply`\n- For technical terms: `capacity` or `supply`\n- Alternatives: `demand`, `trends`\n\n---\n\n## 🎯 Special Handling for Different Keyword Types\n\n### **Technical Terms** (B100, FAME, HVO, UCO)\n```json\n{\n  \"raw\": \"[keyword]\",\n  \"uk_strategic\": \"[keyword] UK\",\n  \"regulatory\": \"[keyword] policy\",\n  \"market\": \"[keyword] market\"\n}\n```\n\n### **Feedstocks** (used cooking oil, waste oils, tallow)\n```json\n{\n  \"raw\": \"[keyword]\",\n  \"uk_strategic\": \"[keyword] UK\",\n  \"regulatory\": \"[keyword] policy\",\n  \"market\": \"[keyword] price\"\n}\n```\n\n### **Infrastructure/VIP** (Lower Thames Crossing, Balfour Beatty)\n```json\n{\n  \"raw\": \"[keyword]\",\n  \"uk_strategic\": \"[keyword] UK\",\n  \"regulatory\": \"[keyword] policy\",\n  \"market\": \"[keyword] market\"\n}\n```\n\n### **OEMs** (Volvo, Caterpillar, DAF, JCB)\n```json\n{\n  \"raw\": \"[keyword]\",\n  \"uk_strategic\": \"[keyword] UK\",\n  \"regulatory\": \"[keyword] emissions\",\n  \"market\": \"[keyword] market\"\n}\n```\n\n### **Regulatory Terms** (RTFO, EN 14214, SAF mandate)\n```json\n{\n  \"raw\": \"[keyword]\",\n  \"uk_strategic\": \"[keyword] UK\",\n  \"regulatory\": \"[keyword] compliance\",\n  \"market\": \"[keyword] price\"\n}\n```\n\n---\n\n## ⚠️ Critical Reminders\n\n1. **Always output exactly 4 queries** in the specified JSON format\n2. **Keep queries 2-3 words total** - trust Google to find relevant content\n3. **Include the input keyword** in every query except `raw`\n4. **Add only ONE modifier** per query (UK, policy, market, etc.)\n5. **No punctuation, quotes, or special characters**\n6. **No dates, years, or time references**\n7. **Output only the JSON** – no commentary or markdown\n8. **Be directly parsable** by automated systems\n9. **Simpler is better** - broader queries yield more comprehensive results\n\n---\n\n## Example Decision Process\n\n**Input:** `biodiesel`\n\n**Think:**\n- raw: Keep unchanged → `biodiesel`\n- uk_strategic: Add UK → `biodiesel UK`\n- regulatory: Policy term → `biodiesel mandate` (mandate more specific than policy for fuel)\n- market: Pricing focus → `biodiesel price` (price more specific than market for commodity)\n\n**Output:**\n```json\n{\n  \"raw\": \"biodiesel\",\n  \"uk_strategic\": \"biodiesel UK\",\n  \"regulatory\": \"biodiesel mandate\",\n  \"market\": \"biodiesel price\"\n}\n```\n\n---\n\n**Input:** `Caterpillar`\n\n**Think:**\n- raw: Keep unchanged → `Caterpillar`\n- uk_strategic: Add UK → `Caterpillar UK`\n- regulatory: Company sustainability → `Caterpillar emissions` (emissions more relevant than policy for OEM)\n- market: General market → `Caterpillar market`\n\n**Output:**\n```json\n{\n  \"raw\": \"Caterpillar\",\n  \"uk_strategic\": \"Caterpillar UK\",\n  \"regulatory\": \"Caterpillar emissions\",\n  \"market\": \"Caterpillar market\"\n}\n```"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -2080,
+        240
+      ],
+      "id": "c153faf4-41b1-430d-8e84-481cf78a5bcb",
+      "name": "create longtail keyword claude optimised",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"news\": {\n      \"type\": \"string\",\n      \"description\": \"Compact query focused on recent news\"\n    },\n    \"market\": {\n      \"type\": \"string\",\n      \"description\": \"Compact query focused on price or market activity\"\n    },\n    \"investment\": {\n      \"type\": \"string\",\n      \"description\": \"Compact query focused on funding or investment\"\n    }\n  },\n  \"required\": [\"news\", \"market\", \"investment\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -2912,
+        1488
+      ],
+      "id": "e4c25586-314a-4725-b1eb-982dbbc2ad6a",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<content>\n{{ $json.url_or_keyword }}\n</content>",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=# 📌 Optimized Search Query Generator for Syntech Biofuel Content Discovery\n\nAct as a compact search query generator optimized for discovering strategically relevant biofuel industry content.\n\nYou will receive a single keyword related to sustainable biofuels, renewable energy, infrastructure projects, or market entities.\n\nYour task is to generate **seven short, keyword-optimized search phrases**, each designed to capture different types of strategic intelligence:\n\n1. **Raw** – Unchanged keyword (baseline search)\n2. **News (EU)** – EU-focused regulatory and policy developments\n3. **News (Strategic)** – Broader geographic scope for operational intelligence and market parallels\n4. **Regulatory** – Compliance, standards, mandates, frameworks\n5. **Market** – Supply/demand dynamics, pricing, capacity trends\n6. **Infrastructure** – Plant operations, logistics, collection networks, facilities\n7. **Investment** – Funding, expansions, partnerships, strategic moves\n\n---\n\n## ✅ Rules\n\n**Query Construction:**\n- Keep each query compact: **3-5 words maximum**\n- Include the input keyword exactly as provided (unless it's the raw query)\n- Use concise industry terms: news, policy, supply, price, capacity, plant, operations, funding, expansion\n- Never use punctuation, quotation marks, or special characters\n- Never include years, dates, or time references\n- Let search engines handle semantic variants naturally\n\n**Geographic Approach:**\n- Mix EU-specific and broader queries strategically\n- Use \"EU\" when focusing on regulatory/policy developments\n- Use \"UK\" for infrastructure and operations when appropriate\n- Use broader terms (capacity, operations, trends) for global strategic intelligence\n\n**Content Focus:**\nEach query should target content types that score highly in relevance:\n- Operational intelligence (plant operations, capacity changes, infrastructure)\n- Market dynamics (supply/demand, pricing, production trends)\n- Regulatory developments (policy updates, compliance, standards)\n- Strategic moves (investments, partnerships, expansions)\n- Business model insights (waste collection, processing, logistics)\n\n**Output Format:**\n- Flat JSON structure with exactly 7 fields\n- No commentary, markdown, or additional formatting\n- Must be directly parsable by automated systems\n\n---\n\n## 🧾 Input\n\nA single keyword (string)\n\n**Example Inputs:**\n- Technical terms: `B100`, `FAME biodiesel`, `HVO`, `UCO`\n- Geographic: `Lower Thames Crossing`, `Kingsnorth`, `Grangemouth`\n- Companies: `Balfour Beatty`, `SSE`, `Neste`\n- Regulatory: `RTFO`, `EN 14214`\n- General: `used cooking oil`, `waste feedstock`, `drop-in fuel`\n\n---\n\n## 🧾 Output Schema\n\nThe output must follow **this exact structure**:\n\n```json\n{\n  \"raw\": \"[keyword unchanged]\",\n  \"news_eu\": \"[keyword] + EU + [news/policy term]\",\n  \"news_broad\": \"[keyword] + [strategic term]\",\n  \"regulatory\": \"[keyword] + [compliance/policy term]\",\n  \"market\": \"[keyword] + [supply/price term]\",\n  \"infrastructure\": \"[keyword] + [operations/facility term]\",\n  \"investment\": \"[keyword] + [funding/expansion term]\"\n}\n```\n\n**Field Definitions:**\n\n- `raw`: The keyword exactly as input, unchanged\n- `news_eu`: EU-focused regulatory, policy, or general news (3-5 words)\n- `news_broad`: Broader geographic scope focusing on capacity, operations, market developments (3-5 words)\n- `regulatory`: Policy, compliance, standards, mandates, frameworks (3-5 words)\n- `market`: Supply, demand, price, capacity, production trends (3-5 words)\n- `infrastructure`: Plant, facility, operations, logistics, collection networks (3-5 words)\n- `investment`: Funding, expansion, partnerships, strategic investments (3-5 words)\n\n---\n\n## 🧪 Example Outputs\n\n### Example 1: Technical Term\n**Input:** `B100`\n\n```json\n{\n  \"raw\": \"B100\",\n  \"news_eu\": \"B100 EU policy\",\n  \"news_broad\": \"B100 capacity trends\",\n  \"regulatory\": \"B100 compliance standards\",\n  \"market\": \"B100 supply price\",\n  \"infrastructure\": \"B100 plant operations\",\n  \"investment\": \"B100 expansion funding\"\n}\n```\n\n---\n\n### Example 2: Feedstock Term\n**Input:** `used cooking oil`\n\n```json\n{\n  \"raw\": \"used cooking oil\",\n  \"news_eu\": \"used cooking oil EU regulation\",\n  \"news_broad\": \"used cooking oil collection logistics\",\n  \"regulatory\": \"used cooking oil policy mandate\",\n  \"market\": \"used cooking oil supply price\",\n  \"infrastructure\": \"used cooking oil processing plant\",\n  \"investment\": \"used cooking oil facility expansion\"\n}\n```\n\n---\n\n### Example 3: Infrastructure Project\n**Input:** `Lower Thames Crossing`\n\n```json\n{\n  \"raw\": \"Lower Thames Crossing\",\n  \"news_eu\": \"Lower Thames Crossing UK biofuel\",\n  \"news_broad\": \"Lower Thames Crossing fuel supply\",\n  \"regulatory\": \"Lower Thames Crossing emissions policy\",\n  \"market\": \"Lower Thames Crossing contract suppliers\",\n  \"infrastructure\": \"Lower Thames Crossing operations logistics\",\n  \"investment\": \"Lower Thames Crossing funding decarbonisation\"\n}\n```\n\n---\n\n### Example 4: Company Name\n**Input:** `Balfour Beatty`\n\n```json\n{\n  \"raw\": \"Balfour Beatty\",\n  \"news_eu\": \"Balfour Beatty UK sustainability\",\n  \"news_broad\": \"Balfour Beatty biofuel operations\",\n  \"regulatory\": \"Balfour Beatty emissions compliance\",\n  \"market\": \"Balfour Beatty supply contracts\",\n  \"infrastructure\": \"Balfour Beatty project fuel\",\n  \"investment\": \"Balfour Beatty decarbonisation investment\"\n}\n```\n\n---\n\n### Example 5: Regulatory Term\n**Input:** `RTFO`\n\n```json\n{\n  \"raw\": \"RTFO\",\n  \"news_eu\": \"RTFO UK policy update\",\n  \"news_broad\": \"RTFO compliance trends\",\n  \"regulatory\": \"RTFO mandate requirements\",\n  \"market\": \"RTFO credit price\",\n  \"infrastructure\": \"RTFO certified suppliers\",\n  \"investment\": \"RTFO eligible projects\"\n}\n```\n\n---\n\n### Example 6: Adjacent Technology\n**Input:** `sustainable aviation fuel`\n\n```json\n{\n  \"raw\": \"sustainable aviation fuel\",\n  \"news_eu\": \"sustainable aviation fuel EU mandate\",\n  \"news_broad\": \"sustainable aviation fuel production capacity\",\n  \"regulatory\": \"sustainable aviation fuel policy standards\",\n  \"market\": \"sustainable aviation fuel feedstock supply\",\n  \"infrastructure\": \"sustainable aviation fuel refinery operations\",\n  \"investment\": \"sustainable aviation fuel facility expansion\"\n}\n```\n\n---\n\n### Example 7: Competitor\n**Input:** `Neste`\n\n```json\n{\n  \"raw\": \"Neste\",\n  \"news_eu\": \"Neste EU operations\",\n  \"news_broad\": \"Neste HVO capacity\",\n  \"regulatory\": \"Neste renewable diesel compliance\",\n  \"market\": \"Neste production supply\",\n  \"infrastructure\": \"Neste refinery expansion\",\n  \"investment\": \"Neste renewable fuel investment\"\n}\n```\n\n---\n\n## 📝 Query Design Principles\n\n### **Balancing Specificity vs Coverage**\n\n**Too specific (avoid):**\n- ❌ `B100 biodiesel UK infrastructure investment Q4 2024`\n- Why: Too narrow, will return very few results\n\n**Too generic (avoid):**\n- ❌ `renewable energy`\n- Why: Too broad, returns irrelevant content\n\n**Optimal (target):**\n- ✅ `B100 plant operations`\n- Why: Specific enough to be relevant, broad enough to return results\n\n---\n\n### **Geographic Strategy**\n\n**Use \"EU\" for:**\n- Regulatory and policy queries (`news_eu`, `regulatory`)\n- Content focused on European market developments\n\n**Use \"UK\" for:**\n- Infrastructure projects (Lower Thames Crossing, Sizewell C)\n- Company operations in UK market\n- UK-specific regulatory terms (RTFO, UK SAF mandate)\n\n**Use broader terms for:**\n- Market intelligence (`capacity`, `trends`, `supply`)\n- Operational insights (`plant operations`, `collection logistics`)\n- Strategic parallels from other regions\n\n**Why this works:**\n- Captures EU/UK regulatory developments (Syntech's primary market)\n- Also finds US/global content with strategic business model parallels\n- Aligns with revised scoring prompt that values strategic context regardless of geography\n\n---\n\n### **Terminology Choices**\n\n**Compact industry terms to use:**\n- Policy, regulation, mandate, compliance, standards\n- Supply, demand, price, capacity, production\n- Plant, facility, refinery, operations, logistics\n- Expansion, funding, investment, partnership\n- Collection, processing, feedstock, waste\n\n**Terms to avoid:**\n- Long regulatory names (use abbreviations: RTFO not \"Renewable Transport Fuel Obligation\")\n- Qualifiers like \"latest\", \"recent\", \"new\" (search engines prioritize recent content automatically)\n- Company descriptors like \"manufacturer\", \"producer\" (implied by context)\n\n---\n\n### **Content Type Targeting**\n\nQueries are designed to surface content that scores highly:\n\n**Operational Intelligence:**\n- Plant operations, capacity changes, facility expansions\n- Collection networks, logistics, processing infrastructure\n- Technology implementations, processing improvements\n\n**Market Dynamics:**\n- Supply/demand shifts, pricing trends\n- Production capacity changes, plant closures/openings\n- Feedstock availability, cost pressures\n\n**Regulatory Developments:**\n- Policy updates, mandate changes\n- Compliance requirements, certification standards\n- Framework adoptions, regulatory navigation\n\n**Strategic Moves:**\n- Investments, partnerships, expansions\n- Company acquisitions, strategic alliances\n- Funding announcements, financial backing\n\n---\n\n## 🎯 Special Handling for Different Keyword Types\n\nThe prompt should work intelligently across different input types:\n\n### **Technical Terms** (B100, FAME, HVO, UCO)\n- Focus on production, processing, market dynamics\n- Include regulatory compliance and standards\n- Capture supply chain and logistics\n\n### **Geographic/Infrastructure** (Lower Thames Crossing, Kingsnorth)\n- Emphasize UK context and project specifics\n- Focus on fuel supply, operations, decarbonisation\n- Capture contractor and supplier relationships\n\n### **Companies** (Balfour Beatty, SSE, Neste)\n- Balance competitive intelligence with partnership opportunities\n- Capture operations, projects, sustainability initiatives\n- Include investment and strategic moves\n\n### **Regulatory** (RTFO, EN 14214, SAF mandate)\n- Emphasize policy updates and compliance requirements\n- Capture market impacts and industry responses\n- Include certification and eligibility criteria\n\n### **Feedstocks** (used cooking oil, waste oils, tallow)\n- Focus on supply chain and collection logistics\n- Capture pricing and availability dynamics\n- Include processing and conversion technologies\n\n---\n\n## ⚠️ Critical Reminders\n\n1. **Always output exactly 7 queries** in the specified JSON format\n2. **Keep queries 3-5 words** for maximum search coverage\n3. **Include the input keyword** in every query except `raw`\n4. **No punctuation, quotes, or special characters**\n5. **No dates, years, or time references**\n6. **Output only the JSON** – no commentary or markdown\n7. **Be directly parsable** by automated systems\n\n---\n\n## 🔄 Relationship to Content Scoring\n\nThese queries feed into the revised scoring system which evaluates:\n- Strategic context and business model parallels\n- Market intelligence and competitive landscape\n- Regulatory developments and compliance insights\n- Operational intelligence and infrastructure developments\n- Source quality and content sentiment\n\n**Query strategy aligns with scoring priorities:**\n- Broader queries (`news_broad`, `infrastructure`) capture strategic parallels from any geography\n- EU-focused queries (`news_eu`, `regulatory`) maintain regional focus\n- Market queries surface capacity trends and competitive intelligence\n- Investment queries capture expansions and strategic moves\n\nThe scoring system will filter for quality, relevance, and strategic value after search results are retrieved."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -2976,
+        2256
+      ],
+      "id": "b348b27d-d1c6-42c8-bbae-c48b22287a2f",
+      "name": "create longtail keyword claude optimised1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6e532ff2-3eee-4984-88ef-3cc30f2e6bdf",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        64,
+        80
+      ],
+      "id": "a9a3139d-36f2-4bb0-8b89-6dfb318d75bb",
+      "name": "If Not Error"
+    },
+    {
+      "parameters": {
+        "tableId": "Syntech keyword firecrawl url",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "url",
+              "fieldValue": "={{\n  $('Merge').item.json.url.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.url\n}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        640,
+        384
+      ],
+      "id": "5a4be416-adcd-49ed-a778-fe9a2b35f4fe",
+      "name": "Create a row1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "WzRqvoBujG4ARKMR",
+          "name": "Supabase account"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T08:12:44.539Z",
+      "createdAt": "2026-01-28T08:12:44.539Z",
+      "role": "workflow:owner",
+      "workflowId": "cWMpw7HuitfgfNMh",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:18:44.483Z",
+  "versionId": "a3941006-95b4-4718-a637-5df5f85c2864"
+}
