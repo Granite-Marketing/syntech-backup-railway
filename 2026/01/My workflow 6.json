@@ -1,0 +1,470 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Edit Image6": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get overlay2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Create Watermarked Image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Content To Post": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:03:52.528Z",
+  "id": "G2maCvha29wSBX9zmJhjL",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 6",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2512,
+        224
+      ],
+      "id": "9fbe93e2-91e5-43e4-aa1e-43ebea1a5419",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "inlineData.data",
+        "options": {
+          "mimeType": "image/jpeg"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -1920,
+        32
+      ],
+      "id": "665a949a-0cd2-4b82-802b-fef66a693404",
+      "name": "Convert to File2"
+    },
+    {
+      "parameters": {
+        "operation": "crop",
+        "width": "={{ $json.size.width }}",
+        "height": "={{ $json.size.height*0.2}}",
+        "positionY": "={{ $json.size.height - $json.size.height*0.2}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        -1456,
+        32
+      ],
+      "id": "231e706b-097d-4ed8-8d72-adb340a94a21",
+      "name": "Edit Image6"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.image_url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "overlay"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -544,
+        96
+      ],
+      "id": "4a08f1b4-c3e5-4e18-83ab-6c1e82a11b48",
+      "name": "get overlay2"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -352,
+        0
+      ],
+      "id": "bf376abc-a196-49a8-83c1-c0e9996d34b3",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "operation": "composite",
+        "dataPropertyNameComposite": "overlay",
+        "options": {
+          "fileName": "result",
+          "format": "jpeg"
+        }
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        -96
+      ],
+      "id": "93650f14-2f15-4cc0-b4d0-955eed7fc7ba",
+      "name": "Create Watermarked Image1"
+    },
+    {
+      "parameters": {
+        "operation": "information"
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        -1344,
+        704
+      ],
+      "id": "0039d19c-f330-48a8-97d7-d5f1576f8d4d",
+      "name": "Edit Image"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c8136679-45bd-4eca-94b0-b2c95fd1c6cb",
+              "name": "name ",
+              "value": "syntech",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1792,
+        704
+      ],
+      "id": "1677af20-16c4-4bfd-a8a2-7a91b11fa4af",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3cc30605-5c1a-4e2b-aae8-207fc1dfb7bd",
+              "name": "name ",
+              "value": "={{ $json[\"name1 \"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1584,
+        704
+      ],
+      "id": "08111243-f6c3-47b4-81c3-b06ce655b0ad",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6f57c194-a475-4c13-bb0d-1ba4f29c704b",
+              "leftValue": "={{ $json.inlineData.mimeType }}",
+              "rightValue": "image",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -2320,
+        192
+      ],
+      "id": "9409cd72-0f78-4585-b089-7c2001e8ae0c",
+      "name": "Grab Image2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2025-09-03"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"type\": \"database_id\",\n    \"database_id\": \"27c785c0-cfab-8137-800f-dcf3e01a3e97\"\n  },\n  \"properties\": {\n    \"Article Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion1').item.json.title }}\"\n          }\n        }\n      ]\n    },\n    \"Publication Date\": {\n      \"date\": {\n        \"start\": \"{{ $('Map Data for Notion1').item.json.publication_date }}\"\n      }\n    },\n    \"Source URL\": {\n      \"url\": \"{{ $('Map Data for Notion1').item.json.url }}\"\n    },\n    \"Source\": {\n      \"multi_select\": [\n        {\n          \"name\": \"{{ $('Map Data for Notion1').item.json.source }}\"\n        }\n      ]\n    },\n    \"Source Name\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion1').item.json.source_name }}\"\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"Not Reviewed\"\n      }\n    },\n    \"Search Query\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion1').item.json.search_query }}\"\n          }\n        }\n      ]\n    },\n    \"Summary\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion1').item.json.summary }}\"\n          }\n        }\n      ]\n    },\n    \"Own Analysis\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion1').item.json.prompt }}\"\n          }\n        }\n      ]\n    },\n    \"Fact Fingerprint\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion1').item.json.fact_extraction }}\"\n          }\n        }\n      ]\n    },\n    \"Topic Action\": {\n      \"multi_select\": [\n        {\n          \"name\": \"{{ $('Map Data for Notion1').item.json.topical_signature.topic_action }}\"\n        }\n      ]\n    },\n    \"Topic Entities\": {\n      \"multi_select\": [\n        {{ $('Map Data for Notion1').item.json.topical_signature.topic_entities }}\n      ]\n    },\n    \"Topic Geo\": {\n      \"multi_select\": [\n        {\n          \"name\": \"{{ $('Map Data for Notion1').item.json.topical_signature.topic_geo }}\"\n        }\n      ]\n    },\n    \"Topic Signature\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion1').item.json.topical_signature.topic_signature }}\"\n          }\n        }\n      ]\n    },\n    \"Topic Subject\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion1').item.json.topical_signature.topic_subject }}\"\n          }\n        }\n      ]\n    },\n    \"Update Status\": {\n      \"select\": {\n        \"name\": \"{{ $('Map Data for Notion1').item.json.classification }}\"\n      }\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.textSubString.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -2096,
+        464
+      ],
+      "id": "93646e35-458c-445b-9838-bc214764e17c",
+      "name": "Add Content With Date",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "text": "=*Workflow Execution Error* ⚠️\n\n- *Workflow Name:* News Sourcing Production (V2)\n- *Error Node:* Add Content With Date1\n- *Error Message:* {{ $json.error }}\n- *Timestamp:* {{ $now.toFormat('dd-MM-yyyy HH:mm:ss') }}\n- *Issue:* News sourcing workflow skipped some news\n\n*Next Steps:*\nPlease review the workflow and retry the execution.\n\n<https://syntech.granite-automations.app/workflow/{{ $workflow.id }}/executions/{{ $execution.id }}|View Execution>",
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        -320,
+        816
+      ],
+      "id": "b98b631f-4f66-43ef-941b-ce5b6c63c76e",
+      "name": "Send a message1",
+      "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.url }}",
+          "mode": "url"
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $json.textSubString }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -704,
+        816
+      ],
+      "id": "4d0a22c0-5558-4b1f-b25a-69750ede2a63",
+      "name": "Add Content To Post",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "messageType": "block",
+        "blocksUi": "={\n  \"blocks\": [\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"\\n*Workflow Name:* {{ $workflow.name }}\\n*Error Node:* Add Content With Date1\\n*Error Message:* {{ $json.error }}\\n*Timestamp:* {{ $now.toFormat('dd-MM-yyyy HH:mm:ss') }}\\n*Issue:* News sourcing workflow skipped some news\"\n      }\n    },\n    {\n      \"type\": \"actions\",\n      \"elements\": [\n        {\n          \"type\": \"button\",\n          \"text\": {\n            \"type\": \"plain_text\",\n            \"text\": \"View Execution\"\n          },\n          \"url\": \"https://syntech.granite-automations.app/workflow/{{ $workflow.id }}/executions/{{ $execution.id }}\",\n          \"style\": \"primary\"\n        }\n      ]\n    }\n  ]\n}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        -880,
+        528
+      ],
+      "id": "971925af-07d6-4901-973f-fa6ca9e2a835",
+      "name": "Send a message",
+      "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -2080,
+        704
+      ],
+      "id": "af8ecfd2-3da2-4bab-b528-fadff8879272",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {
+    "Convert to File2": [
+      {
+        "json": {},
+        "binary": {
+          "data": {
+            "mimeType": "image/jpeg",
+            "fileType": "image",
+            "fileExtension": "jpg",
+            "data": "filesystem-v2",
+            "id": "filesystem-v2:workflows/IwI5jOluI1f7e7rU/executions/12135/binary_data/46e2255d-81aa-4ad4-9971-8a2af6e372f4",
+            "fileSize": "571 kB",
+            "fileName": "file.jpg"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {},
+        "binary": {
+          "data": {
+            "mimeType": "image/jpeg",
+            "fileType": "image",
+            "fileExtension": "jpg",
+            "data": "filesystem-v2",
+            "id": "filesystem-v2:workflows/IwI5jOluI1f7e7rU/executions/12135/binary_data/385749c3-3c02-479d-8c1b-9bb17c49c0f2",
+            "fileSize": "518 kB",
+            "fileName": "file.jpg"
+          }
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      },
+      {
+        "json": {},
+        "binary": {
+          "data": {
+            "mimeType": "image/jpeg",
+            "fileType": "image",
+            "fileExtension": "jpg",
+            "data": "filesystem-v2",
+            "id": "filesystem-v2:workflows/IwI5jOluI1f7e7rU/executions/12135/binary_data/ac2adc4a-ee9d-45d1-9cce-429cce81e4ac",
+            "fileSize": "504 kB",
+            "fileName": "file.jpg"
+          }
+        },
+        "pairedItem": {
+          "item": 2
+        }
+      }
+    ]
+  },
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:03:52.528Z",
+      "createdAt": "2026-01-28T09:03:52.528Z",
+      "role": "workflow:owner",
+      "workflowId": "G2maCvha29wSBX9zmJhjL",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:03:52.528Z",
+  "versionId": "8c47e934-2fcb-482a-aac2-c5674df41383"
+}
