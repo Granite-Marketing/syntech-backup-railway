@@ -1,0 +1,802 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Set Article JSON": {
+      "main": [
+        [
+          {
+            "node": "Create Topical Signature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Topical Signature": {
+      "main": [
+        [
+          {
+            "node": "Fact Extraction Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Fact Extraction Prompt",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fact Extraction Prompt": {
+      "main": [
+        [
+          {
+            "node": "Construct Notion Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construct Notion Filter": {
+      "main": [
+        [
+          {
+            "node": "Search Notion With Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Notion With Filter": {
+      "main": [
+        [
+          {
+            "node": "Extract Filter Matches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Filter Matches": {
+      "main": [
+        [
+          {
+            "node": "Find Matching Topic",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Find Matching Topic",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Matching Topic": {
+      "main": [
+        [
+          {
+            "node": "Is Matching Topic?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Final Classification": {
+      "main": [
+        [
+          {
+            "node": "Set Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser21": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Create Topical Signature",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Topical Signature",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser22": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Fact Extraction Prompt",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser24": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Find Matching Topic",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Duplicate vs Update Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Duplicate vs Update Classifier": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser23": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Duplicate vs Update Classifier",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge7": {
+      "main": [
+        [
+          {
+            "node": "If Empty Object",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Matching Topic?": {
+      "main": [
+        [
+          {
+            "node": "Duplicate vs Update Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "If Empty Object": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Final Classification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Set Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initial Input": {
+      "main": [
+        [
+          {
+            "node": "Set Article JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Output": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T11:25:51.502Z",
+  "id": "FcIQSAicUwsMS5En",
+  "isArchived": true,
+  "meta": null,
+  "name": "Filter Articles By Topic",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4bd2b214-e84d-44e3-b214-e8b86c8d4a70",
+              "name": "article",
+              "value": "={{ $('Initial Input').item.json }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1152,
+        -320
+      ],
+      "id": "6ffb1c9d-9689-414d-ab93-44aeb3b639f7",
+      "name": "Set Article JSON"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Set Article JSON').item.json.article }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are a topic-normalisation engine.\n\nGiven an article’s TITLE and SUMMARY, extract the core semantic components of the topic using **controlled, normalised vocabulary**.\n\nFollow these strict rules:\n\n1. **topic_subject**  \n   - A 1–3 word noun phrase describing the core subject.  \n   - Choose from WHAT is being discussed (e.g. “biodiesel imports”, “B100 deployment”, “UCO supply”, “biofuel policy”).  \n   - Always lowercase, hyphen-separated.\n\n2. **topic_action**  \n   - The primary event or action.  \n   - Normalise to one of the following controlled verbs if applicable:  \n     [\"expansion\", \"tariff\", \"duty\", \"ban\", \"investment\", \"deployment\", \"policy-change\", \"acquisition\", \"regulation\", \"production-increase\", \"production-decrease\"]  \n   - If none apply, use a short 1–2 word verb phrase.  \n   - Always lowercase, hyphen-separated.\n\n3. **topic_entities**  \n   - Up to 3 key actors (countries, companies, agencies).  \n   - Normalised to lowercase tokens, hyphen for spaces.  \n   - Examples: “uk”, “china”, “balfour-beatty”, “sizewell-c”.\n\n4. **topic_geo**  \n   - Primary geography (country or region).  \n   - Normalised to lowercase (e.g. “uk”, “eu”, “gulf”, “mena”).\n\n5. **topic_signature**  \n   - Compose a deterministic signature in this format:  \n     `<topic_subject>__<topic_action>__<topic_geo>__<entity1>-<entity2>-<entity3>`  \n   - Omit empty entities but preserve structure.\n\nReturn ONLY JSON:\n\n{\n  \"topic_subject\": \"...\",\n  \"topic_action\": \"...\",\n  \"topic_entities\": [\"...\", \"...\"],\n  \"topic_geo\": \"...\",\n  \"topic_signature\": \"...\"\n}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -928,
+        -320
+      ],
+      "id": "c3389081-4014-4262-a0ea-c2a348cb77cd",
+      "name": "Create Topical Signature",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -560,
+        -80
+      ],
+      "id": "96278fd9-6c64-403e-bc06-01af9856f4be",
+      "name": "Anthropic Chat Model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "5bvanokrfgZFZkQx",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Set Article JSON').item.json.article }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are an information extractor.\n\nGiven ARTICLE CONTENT + SUMMARY, extract structured facts using the schema below.\n\nExtraction must be literal, objective, and short.\n\nReturn ONLY JSON:\n\n{\n  \"entities\": [\"list of countries, companies, organisations\"],\n  \"actions\": [\"key actions or events, normalised\"],\n  \"numerical_values\": [\"percentages, volumes, dates, £ amounts\"],\n  \"policy_terms\": [\"tariff\", \"duty\", \"RTFO\", \"RTFC\", \"regulation\", etc],\n  \"dates\": [\"explicit dates or months mentioned\"],\n  \"impacts\": [\"short phrases summarising consequences or effects\"]\n}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -576,
+        -320
+      ],
+      "id": "9362d953-c93e-438c-ae8c-5489f3eb7931",
+      "name": "Fact Extraction Prompt",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsCode": "const subject = $('Create Topical Signature').first().json.output.topic_subject;\nconst action = $('Create Topical Signature').first().json.output.topic_action;\nconst entities = $('Create Topical Signature').first().json.output.topic_entities || [];\n\nconst orFilters = [];\n\n// subject contains\nif (subject) {\n  orFilters.push({\n    property: \"Topic Subject\",\n    rich_text: { contains: subject }\n  });\n}\n\n// action contains\nif (action) {\n  orFilters.push({\n    property: \"Topic Action\",\n    multi_select: { contains: action }\n  });\n}\n\n// entity matches (create one filter per entity)\nfor (const e of entities) {\n  orFilters.push({\n    property: \"Topic Entities\",\n    multi_select: { contains: e }\n  });\n}\n\nreturn [\n  {\n    json: {\n      notionFilter: {\n        filter: {\n          or: orFilters\n        }\n      }\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        -320
+      ],
+      "id": "806ee665-6e27-43f2-bb4a-143b30ca65f5",
+      "name": "Construct Notion Filter"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/databases/27c785c0cfab8137800fdcf3e01a3e97/query",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.notionFilter.toJsonString() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        96,
+        -320
+      ],
+      "id": "4c4d537c-7246-4a9e-856f-9df96b6d6edd",
+      "name": "Search Notion With Filter",
+      "credentials": {
+        "notionApi": {
+          "id": "WaawMco9CQO56cmm",
+          "name": "Stephen New Notion"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// The Notion API response is inside the current item under $json.\n// It contains: { object: \"list\", results: [ ...pages... ] }\n\nconst list = $input.first().json;\n\n// Safety check:\nif (!list.results || !Array.isArray(list.results)) {\n  return [{ json: { error: \"No Notion results found\" }}];\n}\n\nconst extracted = list.results.map(page => {\n  const props = page.properties || {};\n\n  // Helper to unwrap Notion rich_text → plain text\n  const getRichText = (prop) => {\n    try {\n      const arr = props[prop]?.rich_text;\n      if (arr && arr.length > 0) {\n        return arr.map(t => t.plain_text || \"\").join(\" \").trim();\n      }\n      return \"\";\n    } catch {\n      return \"\";\n    }\n  };\n\n  // topic fields\n  const topic_subject = getRichText(\"Topic Subject\");\n  const topic_action = getRichText(\"Topic Action\");\n  const topic_entities_raw = getRichText(\"Topic Entities\");\n  const topic_geo = getRichText(\"Topic Geo\");\n  const topic_signature = getRichText(\"Topic Signature\");\n\n  // Convert \"a, b, c\" → [\"a\", \"b\", \"c\"]\n  const topic_entities = topic_entities_raw\n    ? topic_entities_raw.split(\",\").map(e => e.trim()).filter(e => e.length > 0)\n    : [];\n\n  // fact fingerprint (stored as JSON string inside rich_text)\n  let fact_fingerprint_raw = getRichText(\"Fact Fingerprint\");\n  let fact_fingerprint = {};\n  try {\n    fact_fingerprint = JSON.parse(fact_fingerprint_raw);\n  } catch {\n    fact_fingerprint = { parse_error: true, raw: fact_fingerprint_raw };\n  }\n\n  return {\n    page_id: page.id,\n    url: page.url,\n    topic_subject,\n    topic_action,\n    topic_entities,\n    topic_geo,\n    topic_signature,\n    fact_fingerprint\n  };\n});\n\nreturn extracted.map(item => ({ json: item }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -944,
+        96
+      ],
+      "id": "676ffbd4-d610-40f1-adab-e22429c8675e",
+      "name": "Extract Filter Matches",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-sonnet-4-5-20250929",
+          "mode": "list",
+          "cachedResultName": "Claude Sonnet 4.5"
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -720,
+        320
+      ],
+      "id": "a9615678-2f16-4818-baf2-fa2a67201321",
+      "name": "Anthropic Chat Model7",
+      "credentials": {
+        "anthropicApi": {
+          "id": "5bvanokrfgZFZkQx",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=# EXISTING Article:\ntopic_subject:{{ $('Extract Filter Matches').item.json.topic_subject || 'No Match Found' }}\ntopic_action:{{ $('Extract Filter Matches').item.json.topic_action || 'No Match Found' }}\ntopic_entities:{{ $('Extract Filter Matches').item.json.topic_entities || 'No Match Found' }}\ntopic_geo:{{ $('Extract Filter Matches').item.json.topic_geo || 'No Match Found'}}\ntopic_signature:{{ $('Extract Filter Matches').item.json.topic_signature || 'No Match Found'}}\nfact_fingerprint:{{ $('Extract Filter Matches').item.json.fact_fingerprint ? $('Extract Filter Matches').item.json.fact_fingerprint.toJsonString() : 'No Match Found' }}\n\n# NEW Article:\ntopic_subject:{{ $('Create Topical Signature').item.json.output.topic_subject }}\ntopic_action:{{ $('Create Topical Signature').item.json.output.topic_action }}\ntopic_entities:{{ $('Create Topical Signature').item.json.output.topic_entities }}\ntopic_geo:{{ $('Create Topical Signature').item.json.output.topic_geo }}\ntopic_signature:{{ $('Create Topical Signature').item.json.output.topic_signature }}\nfact_fingerprint:{{ $('Fact Extraction Prompt').item.json.output.toJsonString() }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are a topic similarity gate.\n\nGiven two articles' topic signatures AND summaries, decide if they refer to the *same underlying news event or topic*, not just the same sector.\n\nTwo articles are the same topic if:\n- They share the same topic_subject or highly similar one\n- Their topic_action is identical or highly similar\n- They share at least one major entity (country, agency, company)\n- Their summaries describe the same event, decision, investigation, tariff, or development\n\nReturn ONLY:\n\n{\n  \"match\": \"yes\" or \"no\",\n  \"reason\": \"short explanation\"\n}"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 10
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -672,
+        96
+      ],
+      "id": "c4b7eef9-4a14-416d-912b-20abef8130e2",
+      "name": "Find Matching Topic",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(\"$input: \", $input)\n\nif ($input.all().map(i => i.json.output.classification) === undefined) {\n  return [{ json: { final_classification: \"new\" } }];\n}\n\nconst results = $input.all().map(i => i.json.output.classification);\n\nif (results.includes(\"update\")) {\n  return [{ json: { final_classification: \"update\" } }];\n}\n\nconst allDuplicates = results.every(r => r === \"duplicate\");\n\nif (allDuplicates) {\n  return [{ json: { final_classification: \"duplicate\" } }];\n}\n\nreturn [{ json: { final_classification: \"new\" } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        656,
+        192
+      ],
+      "id": "70e95b3f-d14b-4ed8-99c4-7e6b75718e43",
+      "name": "Final Classification"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"topic_subject\": \"\",\n  \"topic_action\": \"\",\n  \"topic_entities\": [],\n  \"topic_geo\": \"\",\n  \"topic_signature\": \"\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -784,
+        -80
+      ],
+      "id": "dda76859-4d55-4742-b892-5e3c9e72a3d5",
+      "name": "Structured Output Parser21"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -960,
+        -80
+      ],
+      "id": "bfc7097a-0035-46c9-b6a7-b802c1c6ac1e",
+      "name": "Anthropic Chat Model3",
+      "credentials": {
+        "anthropicApi": {
+          "id": "5bvanokrfgZFZkQx",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"entities\": [\"list of countries, companies, organisations\"],\n  \"actions\": [\"key actions or events, normalised\"],\n  \"numerical_values\": [\"percentages, volumes, dates, £ amounts\"],\n  \"policy_terms\": [\"tariff\", \"duty\", \"RTFO\", \"RTFC\", \"regulation\"],\n  \"dates\": [\"explicit dates or months mentioned\"],\n  \"impacts\": [\"short phrases summarising consequences or effects\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -384,
+        -80
+      ],
+      "id": "8ab07bc8-7fd4-4d2a-a632-88dfe81d5f41",
+      "name": "Structured Output Parser22"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"match\": \"yes or no\",\n  \"reason\": \"short explanation\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -528,
+        320
+      ],
+      "id": "4c9f1ed6-a1de-43b8-86ad-aa2a37328ccd",
+      "name": "Structured Output Parser24"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-sonnet-4-5-20250929",
+          "mode": "list",
+          "cachedResultName": "Claude Sonnet 4.5"
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -208,
+        336
+      ],
+      "id": "3b3cad86-16b5-48b1-8ff3-0e2317d33cd5",
+      "name": "Anthropic Chat Model2",
+      "credentials": {
+        "anthropicApi": {
+          "id": "5bvanokrfgZFZkQx",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=# EXISTING Article:\ntopic_subject:{{ $('Extract Filter Matches').item.json.topic_subject }}\ntopic_action:{{ $('Extract Filter Matches').item.json.topic_action }}\ntopic_entities:{{ $('Extract Filter Matches').item.json.topic_entities }}\ntopic_geo:{{ $('Extract Filter Matches').item.json.topic_geo }}\ntopic_signature:{{ $('Extract Filter Matches').item.json.topic_signature }}\nfact_fingerprint:{{ $('Extract Filter Matches').item.json.fact_fingerprint.toJsonString() }}\n\n# NEW Article:\ntopic_subject:{{ $('Create Topical Signature').item.json.output.topic_subject }}\ntopic_action:{{ $('Create Topical Signature').item.json.output.topic_action }}\ntopic_entities:{{ $('Create Topical Signature').item.json.output.topic_entities }}\ntopic_geo:{{ $('Create Topical Signature').item.json.output.topic_geo }}\ntopic_signature:{{ $('Create Topical Signature').item.json.output.topic_signature }}\nfact_fingerprint:{{ $('Fact Extraction Prompt').item.json.output.toJsonString() }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are a semantic comparison engine.\n\nYour job is to decide whether the NEW article introduces any **meaningful**, **impactful**, or **substantive** developments compared to the EXISTING article.\n\n### Important: Apply a MATERIALITY RULE\nDo NOT classify as an update if the only differences are:\n- trivial numerical changes (small % shifts, minor rounding, small adjustments)\n- routine data refresh (e.g., weekly price changes, minor emissions recalculations)\n- rephrasing, summarisation, or order changes\n- stylistic differences without factual impact\n\n### Classify as \"update\" ONLY if the NEW article contains:\n- a new event, decision, approval, withdrawal, milestone, or phase\n- a new policy, regulation, mandate, or government announcement\n- a new significant numerical change (large jump, reversal, major shift)\n- a new organisation, country, agency, stakeholder, or actor entering the story\n- a meaningful new impact, consequence, risk, or implication\n- a new timeline development (e.g., delay, acceleration, expansion, cancellation)\n\n### Classify as \"duplicate\" if:\n- the facts are the same\n- differences are trivial, cosmetic, or numerically insignificant\n- the NEW article restates the same information in another wording\n- the NEW article provides context but no **new developments**\n\n### Output format:\n{\n  \"classification\": \"duplicate\" OR \"update\",\n  \"reason\": \"one-sentence explanation\"\n}"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 10
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -96,
+        -16
+      ],
+      "id": "2d04b658-b24c-432e-bb5f-aa5e40f1f007",
+      "name": "Duplicate vs Update Classifier",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"classification\": \"\",\n  \"reason\": \"one sentence explanation\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        32,
+        352
+      ],
+      "id": "15bb4a20-37a9-4572-bae9-d6d57821adf7",
+      "name": "Structured Output Parser23"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        240,
+        80
+      ],
+      "id": "d4b0d7db-04bd-4532-bf43-c19d53753691",
+      "name": "Merge7",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e489f132-fb2d-469e-8d31-9e6bdee2b80e",
+              "leftValue": "yes",
+              "rightValue": "={{ $('Find Matching Topic').item.json.output.match.toLowerCase() }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -336,
+        96
+      ],
+      "id": "f713d63f-9929-4bd6-ade2-88fd027f22c0",
+      "name": "Is Matching Topic?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3b1e34a8-8864-4a64-b219-6443f6a77b09",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        448,
+        80
+      ],
+      "id": "ffe78713-ba9c-40ea-af23-56cccdd2a42c",
+      "name": "If Empty Object"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { final_classification: \"new\" } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        656,
+        -32
+      ],
+      "id": "8da34bbe-ca65-490c-89bf-d9ef4a5adf69",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "article"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1344,
+        -320
+      ],
+      "id": "d21b2fcd-7690-4beb-bf10-937d7e1837d5",
+      "name": "Initial Input"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f5f32b31-cf6e-4d13-a2b5-863915e19fd0",
+              "name": "classification",
+              "value": "={{ $json.final_classification.toLowerCase() }}",
+              "type": "string"
+            },
+            {
+              "id": "2ca11d2d-4bd6-4837-b69d-b35f8afe67f5",
+              "name": "topical_signature",
+              "value": "={{ $('Create Topical Signature').first().json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "4ddc61c6-3b6f-4f62-a633-681351346218",
+              "name": "fact_extraction",
+              "value": "={{ $('Fact Extraction Prompt').first().json.output }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        80
+      ],
+      "id": "59f687e2-b654-4e3a-ac35-4604a4a5ea8a",
+      "name": "Set Output"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-11T11:25:51.502Z",
+      "createdAt": "2025-12-11T11:25:51.502Z",
+      "role": "workflow:owner",
+      "workflowId": "FcIQSAicUwsMS5En",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:04:14.954Z",
+  "versionId": "1ec11078-6208-4876-b602-6be45718ed1c"
+}
