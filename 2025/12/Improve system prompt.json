@@ -1,0 +1,214 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classification agent with Batch1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Classification agent with Batch1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Classification agent with Batch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T11:25:51.516Z",
+  "id": "FNIDoeCETNZAy3WC",
+  "isArchived": true,
+  "meta": null,
+  "name": "Improve system prompt",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0fc969d4-402a-4ea3-81fa-2990bedb6ab2",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        0
+      ],
+      "id": "fad21590-08be-46a4-a827-f54a69cf9be1",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "KtxUrOdQhOl4VgmB",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        656,
+        192
+      ],
+      "id": "1035d45e-5b3a-45b9-a163-7f5f43572cfa",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.content }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=<prompt>\n\n    <introduction>\n        You are an expert evaluator of sustainability and renewable fuel content.  \n        Your mission is to determine how closely a given article aligns with **Syntech Biofuel's ecosystem**, mission, and focus.  \n        Syntech specializes in **advanced biofuels** (e.g., B100, HVO, ASB) derived from waste streams, emphasizing **UK-based innovation, decarbonisation, and drop-in liquid fuel substitution**.  \n    </introduction>\n\n    <task>\n        Assign a **relevance relevance_score** from 0 to 5 based on:\n        1. **Keyword presence and frequency** from the provided keyword list\n        2. **Centrality** of those keywords to the article's main message\n        3. Alignment with Syntech's brand values and focus areas\n        \n        Return a **raw JSON object** with ONLY two fields:\n```json\n        {\"relevance_score\": number, \"reason\": \"short factual explanation\"}\n```\n    </task>\n\n    <keywords>\n        {{ \n$if($('Get All Sources1').isExecuted,\n$('Get All Sources1').all().filter(item => item.json.property_source === 'Keyword')\n.map(\nitem => '\\n' + item.json.name\n),\n$('Get All Sources').all().filter(item => item.json.property_source === 'Keyword')\n.map(\nitem => '\\n' + item.json.name\n)) \n}} \n    </keywords>\n\n    <steps>\n        1. **Extract the keyword list** from <keywords> section and store all keywords.\n        2. Read the full article content carefully.  \n        3. **Search the article for ALL keywords** from the keyword list. Count total occurrences and identify which specific keywords appear. Use this internally for scoring but do NOT output it.\n        4. Identify the article's **primary topic** — the main focus, not peripheral mentions.  \n        5. Assess whether keywords appear **centrally** (in main topic) or **peripherally** (passing mentions).\n        6. Distinguish between **direct biofuel relevance** (keywords in core context) and **generic sustainability mentions** (keywords mentioned but not in fuel context).  \n        7. **Downweight** references to hydrogen, EVs, solar, or wind unless explicitly linked to biofuels or liquid fuels.  \n        8. Apply the <scoring_criteria> using keyword presence, frequency, and centrality as your internal evaluation logic.\n        9. Output **only** the JSON object with `relevance_score` and `reason` — no other text.\n    </steps>\n\n    <scoring_criteria>\n        **0 — Unrelated:**  \n        None or 0 keywords from the keyword list detected. Article has no connection to fuels, biofuels, or sustainability. Focuses on unrelated technologies like hydrogen or EVs with no keyword matches.  \n\n        **1 — Slightly Related:**  \n        1-2 keywords present with low frequency (1-2 occurrences total). Keywords appear as isolated mentions in generic sustainability or decarbonisation context. Not connected to Syntech's fuel focus.  \n\n        **2 — Somewhat Related:**  \n        2-4 keywords present with low-to-moderate frequency (3-5 total occurrences). Multiple keywords mentioned with passing references to renewable energy, emissions, or sustainability, but biofuels are not central. Keywords scattered throughout rather than concentrated.  \n\n        **3 — Moderately Related:**  \n        3-5 keywords present with moderate frequency (6-10 total occurrences). Keywords appear with meaningful presence in low-carbon fuel or decarbonisation discussion. Biofuel or UK focus is present but not the dominant topic. Keywords clustered in relevant sections.  \n\n        **4 — Strongly Related:**  \n        5+ keywords present with high frequency (11-20+ occurrences). Clear focus on biofuels with strong keyword presence. Keywords concentrated in main article narrative. UK context or decarbonisation clearly linked to fuel solutions.  \n\n        **5 — Highly Relevant:**  \n        6+ keywords present with very high frequency (20+ occurrences) OR multiple keywords appearing 5+ times each. Core emphasis on Syntech-aligned topics with dominant keyword presence throughout. Article centers on biofuels, UK production, circular economy fuel technology, or measurable decarbonisation via fuel switching.\n    </scoring_criteria>\n\n    <brand_alignment_rules>\n        * **Upweight** articles with high keyword density in UK-based biofuel innovation, infrastructure, or production contexts.\n        * **Upweight** coverage featuring keywords related to B100, HVO, ASB, RTFO, or circular economy fuel technologies.\n        * **Upweight** factual, data-driven pieces where keywords appear in context of measurable decarbonisation or waste-to-fuel conversion.\n        * **Downweight** articles centered on hydrogen, EVs, or renewable electricity unless keywords are explicitly connected to liquid fuels or biofuels.\n        * **Downweight** pieces highlighting imported feedstocks (palm, soy, POME) or global supply chains unless balanced with UK waste-derived references.\n        * **Ignore** sustainability mentions that contain no keywords from the provided keyword list.\n    </brand_alignment_rules>\n\n    <restrictions>\n        * Output must be **ONLY** a valid JSON object with `relevance_score` and `reason` fields.  \n        * Keep reasoning factual, one to two sentences maximum.    \n        * Do not generate markdown, code blocks, or prose.\n        * Do NOT output keywords_found or keyword_frequency — use these only for internal scoring logic.\n        * Keywords are dynamic — always reference the <keywords> section, never assume specific keywords.\n    </restrictions>\n\n    <output_rules>\n        Output format example:\n```json\n        {\"relevance_score\": 4, \"reason\": \"Article extensively discusses UK waste-derived biofuels with strong focus on B100 and ASB technology for decarbonisation.\"}\n```\n        Output nothing else. Only these two fields.\n    </output_rules>\n\n</prompt>"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 10,
+          "delayBetweenBatches": 1000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        672,
+        0
+      ],
+      "id": "eb19e52a-3bd1-420b-ba30-721d45c99317",
+      "name": "Classification agent with Batch1"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"relevance_score\": {\n      \"type\": \"integer\",\n      \"description\": \"Relevance score from 0 to 5 indicating how closely the article aligns with Syntech Biofuel's focus\",\n      \"minimum\": 0,\n      \"maximum\": 5\n    },\n    \"reason\": {\n      \"type\": \"string\",\n      \"description\": \"Short factual explanation of the score (1-2 sentences maximum)\"\n    }\n  },\n  \"required\": [\"score\", \"reason\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        832,
+        192
+      ],
+      "id": "d41b550c-824f-42ad-8984-1ef29f859572",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        384,
+        0
+      ],
+      "id": "0a235b5d-552b-4d03-9185-53a900c49f87",
+      "name": "Aggregate"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-11T11:25:51.516Z",
+      "createdAt": "2025-12-11T11:25:51.516Z",
+      "role": "workflow:owner",
+      "workflowId": "FNIDoeCETNZAy3WC",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:04:11.178Z",
+  "versionId": "390f2cec-9120-4726-838c-6357b48c01a1"
+}
