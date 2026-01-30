@@ -1,0 +1,193 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Edit Image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Template": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "New File": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "New File",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T11:25:51.129Z",
+  "id": "HShPcp1Q8CJXBKMA",
+  "isArchived": true,
+  "meta": null,
+  "name": "My workflow 5",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "composite",
+        "dataPropertyName": "data_2",
+        "dataPropertyNameComposite": "data_1",
+        "positionX": 10,
+        "positionY": 10,
+        "options": {
+          "fileName": "Result",
+          "format": "png"
+        }
+      },
+      "id": "a49658cd-bc40-4aae-91d2-729fa2b2401f",
+      "name": "Edit Image1",
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        848,
+        144
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "9ab44cfc-ad26-451d-89c1-86583ef04d34",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        640,
+        144
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1yivFIZrKD4UWBEFc_tZ5z232m3VEifNp",
+          "mode": "list",
+          "cachedResultName": "syntech-test-image-1x1.png",
+          "cachedResultUrl": "https://drive.google.com/file/d/1yivFIZrKD4UWBEFc_tZ5z232m3VEifNp/view?usp=drivesdk"
+        },
+        "options": {
+          "binaryPropertyName": "data_2",
+          "fileName": "Template for Meta Ads"
+        }
+      },
+      "id": "2b6cc203-bd8c-4b60-b347-a03bfe17e10b",
+      "name": "Template",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        240,
+        208
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "peVpqLZNVch8ZSgS",
+          "name": "Stephen Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1tQ1eVO2ejMC7XXVBsywlLVkQpNk2i5eE",
+          "mode": "list",
+          "cachedResultName": "syntech-watermark-1x1.png",
+          "cachedResultUrl": "https://drive.google.com/file/d/1tQ1eVO2ejMC7XXVBsywlLVkQpNk2i5eE/view?usp=drivesdk"
+        },
+        "options": {
+          "binaryPropertyName": "data_1"
+        }
+      },
+      "id": "7aa53e8d-2c2d-4504-b856-116659e5979c",
+      "name": "New File",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        240,
+        0
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "peVpqLZNVch8ZSgS",
+          "name": "Stephen Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "86f4fdd4-21df-4e14-a7ee-efdad462eb32",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-11T11:25:51.129Z",
+      "createdAt": "2025-12-11T11:25:51.129Z",
+      "role": "workflow:owner",
+      "workflowId": "HShPcp1Q8CJXBKMA",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:04:26.512Z",
+  "versionId": "f8cb5f08-7de1-4144-aa15-03e92b75a524"
+}
