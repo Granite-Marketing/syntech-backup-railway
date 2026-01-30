@@ -1,0 +1,848 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get Image Copy's",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Image Copy's": {
+      "main": [
+        [
+          {
+            "node": "Filter Out Incorrect Cells",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Out Incorrect Cells": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Set Content Hash",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Copy Title",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Find Matching Image Prompt ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Find Matching Image Prompt ID",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Matching Image Prompt ID": {
+      "main": [
+        [
+          {
+            "node": "Create Copy Title",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Find Matching Image Prompt ID",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Copy Title": {
+      "main": [
+        [
+          {
+            "node": "Set Input Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Input Fields": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Add Notion Copy & Trigger Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Notion Copy & Trigger Workflow": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Content Hash": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Google Sheets Trigger": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T11:25:52.232Z",
+  "id": "cJRlAyYSYiysVnbz",
+  "isArchived": true,
+  "meta": null,
+  "name": "Google Sheets Copy's -> Notion Image Creation",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        -144
+      ],
+      "id": "80f26144-40da-4876-8f9d-351b1883250b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1r0RTsVjoJ5_v3iCJ-KfPH3XeCqrjavOPvmH20wnKbtA",
+          "mode": "list",
+          "cachedResultName": "AI Workflow - v27 socials for automation testing",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r0RTsVjoJ5_v3iCJ-KfPH3XeCqrjavOPvmH20wnKbtA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2137704154,
+          "mode": "list",
+          "cachedResultName": "v27 AI Auto Testing",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r0RTsVjoJ5_v3iCJ-KfPH3XeCqrjavOPvmH20wnKbtA/edit#gid=2137704154"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "detectAutomatically"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        -160
+      ],
+      "id": "403616b0-78f6-41b9-8d5b-d719cb0cf1df",
+      "name": "Get Image Copy's",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "TvN6HmHHfgKukni4",
+          "name": "Stephen Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "03e38478-d811-40c7-9f82-f6e2ddd325ba",
+              "leftValue": "={{ $json.col_2 }}",
+              "rightValue": "Theme",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "0764ac44-88cf-41c4-a46d-cbb1ee707506",
+              "leftValue": "={{ $json.col_2 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        -160
+      ],
+      "id": "4da7ef8e-5d46-494d-99cf-f4c354f08054",
+      "name": "Filter Out Incorrect Cells"
+    },
+    {
+      "parameters": {
+        "maxItems": 2
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        656,
+        -160
+      ],
+      "id": "d0416b49-c15a-4219-bb1a-a8c3624b7e08",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "gpt-3.5-turbo"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        2880,
+        80
+      ],
+      "id": "48e857e7-fcaf-4780-acec-0a3b52a42c0f",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "S2kEpGa9PHsoI7on",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+          "mode": "list",
+          "cachedResultName": "Syntech Image Prompts",
+          "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Title|title",
+              "condition": "contains",
+              "titleValue": "S+J"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1552,
+        -224
+      ],
+      "id": "262a26ed-b4bf-4a9f-a18c-8ee250a0cf18",
+      "name": "Get many database pages",
+      "executeOnce": true,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2224,
+        -160
+      ],
+      "id": "7766fa91-25d7-4cee-8c48-5f53f3f91805",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1776,
+        -224
+      ],
+      "id": "8f362c65-01ec-4313-ad9a-23e0333ddc97",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Assuming your input JSON array is passed as the first item, e.g. via a previous Set or HTTP node.\n// For example: [ { id: \"...\", name: \"...\", ... }, { ... } ]\n\n// Get the full array from the first input item\nconst data = $input.first().json.data;\n\n// Map to an array of { id, name } objects\nconst slim = data.map(item => {\n  return {\n    id: item.id,\n    name: item.name,\n  };\n});\n\n// Return as a single item whose json key “items” contains the array.\n// (You could also just return one of them, or restructure differently.)\nreturn [\n  {\n    json: {\n      items: slim,\n    },\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        -224
+      ],
+      "id": "1a398a0f-1921-4071-b907-784662d2b7cd",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"id\": {\n\t\t\t\"type\": \"string\",\n            \"description\":\"The id of the matching data eg. '2b8785c0-cfab-805b-b15e-d174bc3a9dfd'\"\n\t\t},\n\t\t\"name\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"description\":\"The name of the matching data eg. 'Sustainability & Nature S+J'\"\n\t\t}\n\t}\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2640,
+        80
+      ],
+      "id": "c58531c0-2850-4466-bf71-f9c067091b4f",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=DATA:\nItems: {{ $json.items.toJsonString() }}\nInput: \"{{ $('Filter Out Incorrect Cells').item.json.col_3 }}\"",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are a strict fuzzy-match resolver.\n\nTASK:\nGiven:\n1. An array of items (each with \"id\" and \"name\")\n2. An input text string\n\nReturn ONLY the single best-matching item by comparing the input text to item.name using fuzzy, semantic, and approximate reasoning.\n\nRULES:\n- Match does NOT need to be exact.\n- Choose ONLY from items in the array.\n- Do NOT create or guess IDs or names.\n- If multiple items are similar, choose the closest one.\n- Do NOT output explanations.\n- Output MUST be valid JSON matching this exact schema:\n\n{\n  \"id\": \"<id>\",\n  \"name\": \"<name>\"\n}"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        2448,
+        -160
+      ],
+      "id": "cbc4ea3c-7e46-4538-bd8f-79268630a390",
+      "name": "Find Matching Image Prompt ID",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-3-5-haiku-20241022",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 3.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        2400,
+        80
+      ],
+      "id": "f9965496-21db-4cb9-b27d-40e5453acdf1",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "uv5ovuIM0W5fmRTp",
+          "name": "Stephen Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Filter Out Incorrect Cells').item.json['v27 Socials for AI Automation Testing'] }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Given the following image copy, write a short reflective title in no more than 3-5 words. Don't add any quotations or custom punctuation.\n\nExample output:\n\nDriving Change With Innivation"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        2800,
+        -160
+      ],
+      "id": "e0602825-c9a0-4938-97cd-2c5658924a48",
+      "name": "Create Copy Title"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7b28d51f-827b-4de1-8456-64266f0d8227",
+              "name": "image_prompt_database_id",
+              "value": "={{ $('Find Matching Image Prompt ID').item.json.output.id }}",
+              "type": "string"
+            },
+            {
+              "id": "999d1895-e63a-4b71-bd32-5e3c3b297207",
+              "name": "image_prompt_name",
+              "value": "={{ $('Find Matching Image Prompt ID').item.json.output.name }}",
+              "type": "string"
+            },
+            {
+              "id": "27835713-35f2-40ed-bd86-69a6a3b435d3",
+              "name": "copy_title",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "24040dd0-1350-4d2c-bbfe-6071e1075271",
+              "name": "copy_body",
+              "value": "={{ $('Filter Out Incorrect Cells').item.json['v27 Socials for AI Automation Testing'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3152,
+        -160
+      ],
+      "id": "a676f6fc-2dff-4369-9762-3b9cbf942b2e",
+      "name": "Set Input Fields"
+    },
+    {
+      "parameters": {
+        "keep": "lastItems"
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        3376,
+        -160
+      ],
+      "id": "6f2be682-394f-4e3d-b5f7-42bf3d74aed4",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2025-09-03"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"2a2785c0-cfab-805f-ae13-ceed4cac4710\"\n  },\n  \"properties\": {\n    \"Concept\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $json.copy_title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"status\": {\n        \"name\": \"In progress\"\n      }\n    },\n    \"Update Prompt\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"Create a social media post for this content. Ensure the image that you create is cinematic\"\n          }\n        }\n      ]\n    },\n    \"content_hash\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json?.copy_body?.hash() || '' }}\"\n          }\n        }\n      ]\n    },\n    \"Variants\": {\n      \"number\": 3\n    },\n    \"Image Prompt Template\": {\n      \"relation\": [\n        {\n          \"id\": \"{{ $json.image_prompt_database_id }}\"\n        }\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.copy_body.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        3600,
+        -160
+      ],
+      "id": "cf3c532b-a1ae-4fcc-9014-a9009675d6d8",
+      "name": "Add Notion Copy & Trigger Workflow",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1328,
+        -160
+      ],
+      "id": "a83fdf73-15fc-4f9a-9ae2-6decee2d7819",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3824,
+        -32
+      ],
+      "id": "ca7eb955-2769-4d64-a26a-3bb0f2892c0e",
+      "name": "Wait",
+      "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1552,
+        -416
+      ],
+      "id": "84e67fcb-4fd7-456b-a074-ec52758b972f",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2a2785c0-cfab-805f-ae13-ceed4cac4710",
+          "mode": "list",
+          "cachedResultName": "Syntech Image Creator",
+          "cachedResultUrl": "https://www.notion.so/2a2785c0cfab805fae13ceed4cac4710"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        -256
+      ],
+      "id": "158778b2-62c7-4303-81d6-c7e8400e1a70",
+      "name": "Get many database pages1",
+      "executeOnce": true,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "property_content_hash",
+              "field2": "content_hash"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1104,
+        -160
+      ],
+      "id": "98253aa8-1b09-4dbc-ac15-44c7af291fcc",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "93ee8ef6-00ba-4946-800b-6c41fe568053",
+              "name": "content_hash",
+              "value": "={{ $json[\"v27 Socials for AI Automation Testing\"].hash() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        -64
+      ],
+      "id": "fb760bb5-63bb-472c-8d28-05c91421d813",
+      "name": "Set Content Hash"
+    },
+    {
+      "parameters": {
+        "content": "## Check for duplicates",
+        "height": 416,
+        "width": 480
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        768,
+        -304
+      ],
+      "id": "7465d835-6255-4da6-883a-4ad293b39e6b",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        80,
+        192
+      ],
+      "id": "da5584f0-44df-47b1-a9cc-f88e1e913751",
+      "name": "Google Sheets Trigger",
+      "disabled": true
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-11T11:25:52.232Z",
+      "createdAt": "2025-12-11T11:25:52.232Z",
+      "role": "workflow:owner",
+      "workflowId": "cJRlAyYSYiysVnbz",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T08:03:39.864Z",
+  "versionId": "299529cc-e930-4144-96c2-b92af1dfaf75"
+}
