@@ -1,0 +1,2370 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Validate Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extracting URl",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Extracting URl": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Notion Links",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Notion Links": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Media",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Download Notion Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Notion Image": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Notion Links",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Media": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Links",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "To Base",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "To Base": {
+      "main": [
+        [
+          {
+            "node": "To Binary (Presign)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "All Links": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Link Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "To Binary (Presign)": {
+      "main": [
+        [
+          {
+            "node": "creating Presign URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "creating Presign URL": {
+      "main": [
+        [
+          {
+            "node": "Get Base",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Base": {
+      "main": [
+        [
+          {
+            "node": "To Binary (Upload)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "To Binary (Upload)": {
+      "main": [
+        [
+          {
+            "node": "Upload Media in presign URl",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Media in presign URl": {
+      "main": [
+        [
+          {
+            "node": "Fomat Link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fomat Link": {
+      "main": [
+        [
+          {
+            "node": "JPG file Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "JPG file Filter": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Media",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Download Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Links": {
+      "main": [
+        [
+          {
+            "node": "All Links",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Link Error": {
+      "main": [
+        []
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Calling Ayrshare",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calling Ayrshare": {
+      "main": [
+        [
+          {
+            "node": "Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Notion [Done]": {
+      "main": [
+        [
+          {
+            "node": "Done Upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter For Image/Videos": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages": {
+      "main": [
+        [
+          {
+            "node": "Compare Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Get a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Time": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compare Time": {
+      "main": [
+        [
+          {
+            "node": "Check Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a database page": {
+      "main": [
+        [
+          {
+            "node": "Append a block",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append a block": {
+      "main": [
+        [
+          {
+            "node": "Filter For Image/Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET Post From Ayrshare": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Posted Successfully": {
+      "main": [
+        [
+          {
+            "node": "Split Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert Image to JPG": {
+      "main": [
+        [
+          {
+            "node": "To Base",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Error": {
+      "main": [
+        [
+          {
+            "node": "Check Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Error": {
+      "main": [
+        [
+          {
+            "node": "Update Error Logs",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Posted Successfully",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Occured",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error": {
+      "main": [
+        [
+          {
+            "node": "Filter Text For Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Notion [Done]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Text For Error": {
+      "main": [
+        [
+          {
+            "node": "Update Notion [Error]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Image": {
+      "main": [
+        [
+          {
+            "node": "Convert Image to JPG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "GET Post From Ayrshare",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Occured": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger for Analytics": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET Analytics": {
+      "main": [
+        [
+          {
+            "node": "Check Error1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "GET Analytics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert Json into String": {
+      "main": [
+        [
+          {
+            "node": "Update Analytics [Success]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Done Upload": {
+      "main": [
+        []
+      ]
+    },
+    "Add Data to Analytics Page": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Data": {
+      "main": [
+        [
+          {
+            "node": "Add Data to Analytics Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Analytics ID": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Update a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Analytics [Success]": {
+      "main": [
+        [
+          {
+            "node": "Get Analytics ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Error Message": {
+      "main": [
+        [
+          {
+            "node": "Update Analytics [Error]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Error1": {
+      "main": [
+        [
+          {
+            "node": "Extract Error Message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert Json into String",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Analytics [Error]": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:06.380Z",
+  "id": "AD6wawh5g5NIgo92",
+  "isArchived": false,
+  "meta": null,
+  "name": "Social Media Posting",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "227112c4-a058-4c41-a144-67f529b119ec",
+              "name": "Content",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "e9767cb2-2265-4dc5-8b0d-8681ef4b176b",
+              "name": "Media Type",
+              "value": "={{ $('Get a database page').item.json.property_media_type }}",
+              "type": "array"
+            },
+            {
+              "id": "acf2f26f-8175-4885-9f9b-b6ffb5cf3ad9",
+              "name": "Media URL",
+              "value": "={{ $json.mediaUrls }}",
+              "type": "array"
+            },
+            {
+              "id": "db4afd7c-d1e1-477c-b593-f9b824074c20",
+              "name": "scheduleTime",
+              "value": "={{ $('Get a database page').item.json.property_schedule_date }}",
+              "type": "string"
+            },
+            {
+              "id": "cb41bff9-b207-4ac6-b8b8-b58440da1dd3",
+              "name": "PlatForm",
+              "value": "={{ $('Get a database page').item.json.property_platform }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2560,
+        80
+      ],
+      "id": "65083cb3-7668-4db8-ab55-de845961dbea",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7f63f4a9-678d-4107-b345-41350a1455a8",
+              "leftValue": "={{ JSON.stringify($json['Media URL'] )}}",
+              "rightValue": "=[]",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1952,
+        80
+      ],
+      "id": "64f45287-fb5a-4014-9625-da244e39f3e2",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "content": "# Downloading media ",
+        "height": 532,
+        "width": 996,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1760,
+        -688
+      ],
+      "id": "051ea2b5-e7a2-4c86-82d0-3236b718e64a",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  data:$input.first().json['Media URL']\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1584,
+        -496
+      ],
+      "id": "7b512bf4-13d2-47d4-a63f-8987b708405b",
+      "name": "Extracting URl"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -1424,
+        -496
+      ],
+      "id": "b458971e-a2db-42e2-a764-66f632fbe883",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1264,
+        -496
+      ],
+      "id": "21b2ec6e-cc6c-4d85-af51-fc22defb9837",
+      "name": "Loop Over Notion Links"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1056,
+        -432
+      ],
+      "id": "b58236a8-ab02-4f29-8093-c7ac00845e66",
+      "name": "Download Notion Image"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -656,
+        -736
+      ],
+      "id": "e0c2c701-137c-4892-b110-ef1a9fe27e09",
+      "name": "Loop Over Media"
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "binaryPropertyName": "=data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        -672
+      ],
+      "id": "66854291-c72e-416e-b3e3-147e1784fd14",
+      "name": "To Base"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract all URLs from input JSON\nconst input = items[0].json.data;\nif(!input){\n  throw new Error(\"np input Data\")\n}\nconst urls = input\n  .map(entry => entry.url || entry.mediaUrl)\n  .filter(url => typeof url === 'string');\n\nreturn [\n  {\n    json: {\n      urls: urls\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        160,
+        -816
+      ],
+      "id": "00ab8206-c735-48bb-838e-310d3ec17814",
+      "name": "All Links",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        64,
+        -672
+      ],
+      "id": "4fe8d512-18ef-48cc-83b3-8bc0a6dd65e1",
+      "name": "To Binary (Presign)"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.ayrshare.com/api/media/uploadUrl?fileName={{ $('To Binary (Presign)').first().binary.data.fileName }}&contentType={{ $('To Binary (Presign)').first().binary.data.mimeType }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer CC4448DD-FC794E0A-90AEDEF0-EBC10FAF"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        464,
+        -672
+      ],
+      "id": "8111de50-55ab-4880-aa7e-905323cf0f26",
+      "name": "creating Presign URL"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "33628811-5d72-4581-8b86-155d3a748617",
+              "name": "data",
+              "value": "={{ $('To Base').first().json.data }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        704,
+        -672
+      ],
+      "id": "98665d94-ca7a-44e0-8c6b-85b45068ae80",
+      "name": "Get Base"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -144,
+        -432
+      ],
+      "id": "9bc7edc8-6911-47a9-b86b-ab7a49e9a2c8",
+      "name": "To Binary (Upload)"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $('creating Presign URL').first().json.uploadUrl }}",
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        96,
+        -432
+      ],
+      "id": "4bc138fb-7e52-4bdd-85bf-717555d2e151",
+      "name": "Upload Media in presign URl"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  mediaUrl: $('creating Presign URL').first().json.accessUrl,\n  contentType: $('creating Presign URL').first().json.contentType,\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        288,
+        -432
+      ],
+      "id": "18503daa-1b15-49da-b573-87ae3d01a393",
+      "name": "Fomat Link"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "63ce4057-55f0-4b51-9d0d-939f85187a89",
+              "leftValue": "={{ $json.contentType }}",
+              "rightValue": "image/webp",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "6b92577c-3944-4e96-a84c-29949ea99960",
+              "leftValue": "={{ $json.contentType }}",
+              "rightValue": "image/png",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        464,
+        -432
+      ],
+      "id": "6a8ba7d6-e7ed-45f6-a78d-fd5b9a85abe4",
+      "name": "JPG file Filter"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        912,
+        -800
+      ],
+      "id": "edf22a66-3ebc-4223-aa4a-9b9396bb5071",
+      "name": "Link Error"
+    },
+    {
+      "parameters": {
+        "content": "# File Upload",
+        "height": 668,
+        "width": 1868,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -752,
+        -832
+      ],
+      "id": "723c4d54-baee-4b83-a455-7f65382be4a7",
+      "name": "Sticky Note33"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        -800
+      ],
+      "id": "bb7775d6-f3a0-49c9-9059-bde2f01c1397",
+      "name": "Aggregate Links"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ayrshare.com/api/post",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer CC4448DD-FC794E0A-90AEDEF0-EBC10FAF"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1472,
+        -16
+      ],
+      "id": "875d64b6-df10-45a2-bb8d-484a67979cd7",
+      "name": "Calling Ayrshare",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Node B: Ayrshare Payload Builder (consumes Node A output)\n// Produces JSON payload { data: payload } ready for HTTP Request node (Ayrshare)\n\nlet item;\nconst allInputs = $input.all();\nif (allInputs.length > 1 && allInputs[0].json.urls) {\n  const mediaData = allInputs[0].json;\n  const contentData = allInputs[1].json;\n  item = { ...contentData, 'Media URL': mediaData.urls };\n} else {\n  item = $input.first().json;\n}\n\nfunction parseScheduleObj(s) {\n  if (!s) return null;\n  if (typeof s === 'object') return s;\n  if (typeof s === 'string') {\n    try { return JSON.parse(s); } catch (e) { return { start: s }; }\n  }\n  return null;\n}\n\n// Convert schedule start (which may be Europe/London offset string) to UTC ISO string (Ayrshare accepts UTC)\nfunction toUtcIso(dateStrOrDate) {\n  const d = (dateStrOrDate instanceof Date) ? dateStrOrDate : new Date(dateStrOrDate);\n  if (isNaN(d.getTime())) return null;\n  return d.toISOString();\n}\n\nconst content = item.Content || \"\";\nconst mediaUrls = Array.isArray(item['Media URL']) ? item['Media URL'] : (item['Media URL'] ? [item['Media URL']] : []);\nconst rawPlatforms = item.PlatForm || item.processedPlatforms || [];\nconst platforms = (Array.isArray(rawPlatforms) ? rawPlatforms : [rawPlatforms]).map(p => p && String(p).toLowerCase()).filter(Boolean);\n\n// schedule\nconst scheduleObj = item.schedule ?? parseScheduleObj(item.scheduleTime);\nlet scheduleDate = null;\nif (scheduleObj && scheduleObj.start) scheduleDate = toUtcIso(scheduleObj.start);\n\n// Build post payload:\n// If a thread was prepared (threadNeeded true and threadParts array present), join with \"\\n\" so Ayrshare receives parts without extra blank lines.\nlet postString = content;\nif ((platforms.includes('twitter') || platforms.includes('x')) && item.threadNeeded && Array.isArray(item.threadParts) && item.threadParts.length) {\n  // join pre-split parts with single newline to preserve exact spacing between parts\n  postString = item.threadParts.join('\\n');\n}\n\nconst payload = {\n  post: postString,\n  platforms: platforms.map(p => p === 'x' ? 'twitter' : p), // normalize 'x' -> 'twitter' for Ayrshare\n};\n\n// scheduleDate in UTC if present\nif (scheduleDate) payload.scheduleDate = scheduleDate;\n\n// media handling for threads: create twitterOptions.mediaUrls array sized to number of parts (first media -> first tweet by default)\nconst isThread = (platforms.includes('twitter') || platforms.includes('x')) && item.threadNeeded && Array.isArray(item.threadParts) && item.threadParts.length;\nif (isThread) {\n  const partsCount = item.threadParts.length;\n  const mediaArr = new Array(partsCount).fill(null);\n  if (mediaUrls.length > 0) {\n    // put first media onto first tweet by default; you can customize mapping here\n    mediaArr[0] = mediaUrls[0];\n  }\n  payload.twitterOptions = {\n    thread: true,\n    threadNumber: true,\n    mediaUrls: mediaArr\n  };\n} else {\n  // Non-thread or no pre-split thread: attach media normally (Ayrshare supports up to 4 images etc.)\n  if (mediaUrls.length > 0) payload.mediaUrls = mediaUrls;\n}\n\n// optional: set shortform if video detected\nconst isVideo = mediaUrls.some(url => typeof url === 'string' && url.split('?')[0].toLowerCase().endsWith('.mp4'));\nif (isVideo) payload.shortform = true;\n\n// return payload ready for HTTP Request node\nreturn [{ json: { data: payload } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1296,
+        -16
+      ],
+      "id": "acc46ff5-1c85-43f7-b43a-a2f923bba347",
+      "name": "Code in JavaScript",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "retryOnFail": false
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        528,
+        112
+      ],
+      "id": "e72439d6-f3d9-45a2-a659-5efd5fd8ed70",
+      "name": "Merge",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get a database page').first().json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Error Message|rich_text",
+              "textContent": "={{ $json.cleanErrorMessage }}"
+            },
+            {
+              "key": "Status|status",
+              "statusValue": "Not started"
+            },
+            {
+              "key": "Ayrshare Response|select",
+              "selectValue": "Error"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2256,
+        -80
+      ],
+      "id": "d716c404-5974-4de7-b858-7e5caf6ea606",
+      "name": "Update Notion [Error]",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Update Notion",
+        "height": 448,
+        "width": 704,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1824,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "d054ff32-dfa9-462d-9012-44ba30a6bcea",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2256,
+        112
+      ],
+      "id": "9de57354-c0c8-483a-bae5-e7f7164c9b67",
+      "name": "Done Upload"
+    },
+    {
+      "parameters": {
+        "content": "# Ayrshare Request",
+        "height": 448,
+        "width": 688,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1120,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "b193257e-79f2-44b9-b7d8-2434d2737b98",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get a database page').first().json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "=Ayrshare Response|select",
+              "selectValue": "Pending"
+            },
+            {
+              "key": "=Status|status",
+              "statusValue": "Scheduled"
+            },
+            {
+              "key": "=Id|rich_text",
+              "textContent": "={{ $json.id }}"
+            },
+            {
+              "key": "Error Message|rich_text"
+            },
+            {
+              "key": "Schedule Date|date",
+              "date": "={{ $json.scheduleDate }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2048,
+        112
+      ],
+      "id": "190aba47-0566-4f5e-b0c2-65cae67ef84d",
+      "name": "Update Notion [Done]",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Get Data From Notion",
+        "height": 640,
+        "width": 1648,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3424,
+        -160
+      ],
+      "typeVersion": 1,
+      "id": "23ac2beb-8420-4c9e-9ee2-7441875d0762",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1312,
+        592
+      ],
+      "id": "a827ccb4-272a-42f8-b6a8-638735169cf2",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * Extract all concatenated text and media URLs from Notion page blocks\n * Input: $input.first().json.results\n * Output: { text: string, mediaUrls: string[] }\n * \n * Rules:\n *  - If text not found → return empty string \"\"\n *  - If media not found → return empty array []\n *  - If both missing → throw Error\n */\n\nfunction extractTextAndMedia(blocks) {\n  if (!Array.isArray(blocks)) {\n    throw new Error(\"Invalid Notion input: expected an array of blocks.\");\n  }\n\n  const texts = [];\n  const mediaUrls = [];\n\n  for (const block of blocks) {\n    if (!block || !block.type) continue;\n    const t = block.type;\n\n    // Text-type blocks\n    const textTypes = [\n      \"paragraph\", \"heading_1\", \"heading_2\", \"heading_3\",\n      \"quote\", \"callout\", \"bulleted_list_item\", \"numbered_list_item\", \"to_do\", \"toggle\"\n    ];\n\n    if (textTypes.includes(t)) {\n      const obj = block[t];\n      if (obj) {\n        const textArray = obj.text ?? obj.rich_text ?? [];\n        if (Array.isArray(textArray)) {\n          const plain = textArray.map(p => p.plain_text ?? (p.text?.content ?? \"\")).join(\"\");\n          if (plain.trim()) texts.push(plain.trim());\n        }\n      }\n      continue;\n    }\n\n    // Blocks that have rich_text directly\n    if (block[t] && Array.isArray(block[t].rich_text)) {\n      const plain = block[t].rich_text.map(p => p.plain_text ?? (p.text?.content ?? \"\")).join(\"\");\n      if (plain.trim()) texts.push(plain.trim());\n    }\n\n    // Media blocks\n    const mediaTypes = [\"image\", \"file\", \"video\", \"pdf\", \"audio\", \"embed\", \"bookmark\", \"link_preview\"];\n    if (mediaTypes.includes(t)) {\n      const obj = block[t];\n      if (obj) {\n        if (obj.type === \"file\" && obj.file?.url) mediaUrls.push(obj.file.url);\n        else if (obj.type === \"external\" && obj.external?.url) mediaUrls.push(obj.external.url);\n        else if (obj.url) mediaUrls.push(obj.url);\n\n        // caption text\n        if (Array.isArray(obj.caption)) {\n          const cap = obj.caption.map(p => p.plain_text ?? (p.text?.content ?? \"\")).join(\"\");\n          if (cap.trim()) texts.push(cap.trim());\n        }\n      }\n      continue;\n    }\n\n    // fallback for any block with text/rich_text fields\n    if (block[t]) {\n      const candidate = block[t];\n      if (Array.isArray(candidate.text)) {\n        const plain = candidate.text.map(p => p.plain_text ?? (p.text?.content ?? \"\")).join(\"\");\n        if (plain.trim()) texts.push(plain.trim());\n      } else if (Array.isArray(candidate.rich_text)) {\n        const plain = candidate.rich_text.map(p => p.plain_text ?? (p.text?.content ?? \"\")).join(\"\");\n        if (plain.trim()) texts.push(plain.trim());\n      }\n    }\n  }\n\n  const allText = texts.length ? texts.join(\"\\n\\n\") : \"\";\n  const dedupedMedia = Array.from(new Set(mediaUrls.filter(u => typeof u === \"string\" && u.trim() !== \"\")));\n\n  if (allText === \"\" && dedupedMedia.length === 0) {\n    throw new Error(\"No text or media found in Notion response.\");\n  }\n\n  return { text: allText, mediaUrls: dedupedMedia };\n}\n\n// ---------------- EXECUTION for n8n ----------------\n\ntry {\n  const notionBlocks = $input.first().json.results;\n  const output = extractTextAndMedia(notionBlocks);\n  return [{ json: output }];\n} catch (err) {\n  throw new Error(`Notion extraction failed: ${err.message}`);\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2752,
+        80
+      ],
+      "id": "0c6f6b23-5098-4b31-b476-ad3d92d3f309",
+      "name": "Filter For Image/Videos"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27c785c0-cfab-8184-b393-f557e7150135",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Transformed Content",
+          "cachedResultUrl": "https://www.notion.so/27c785c0cfab8184b393f557e7150135"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Status|status",
+              "condition": "equals",
+              "statusValue": "Scheduled"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1136,
+        592
+      ],
+      "id": "608e0722-eb89-42f2-8fda-b0ec4a0fdcfd",
+      "name": "Get many database pages",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Update Notion",
+        "height": 528,
+        "width": 2224,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1376,
+        400
+      ],
+      "typeVersion": 1,
+      "id": "f53d864b-f15e-4020-8737-55f93fd06227",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "social-posting",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -3360,
+        80
+      ],
+      "id": "7bee6cd2-d8c8-412f-ac1c-9e383dfe5530",
+      "name": "Webhook1",
+      "webhookId": "c47e9b78-5ff5-4a4a-b3e0-5f11a3698710"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "60701bc5-ec5b-43a3-b8f8-b6341e47982c",
+              "leftValue": "={{ $json.isDueForCheck }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -736,
+        592
+      ],
+      "id": "3fea0996-4d85-4214-bbc3-3a6a8b90a675",
+      "name": "Check Time"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Code node: set property_schedule_date to current local datetime when it's null\nconst item = $input.item.json;\n\n// helper: format local date with timezone offset like \"2025-10-06T12:10:00.000+05:30\"\nfunction formatLocalWithOffset(date) {\n  const pad = (n, width = 2) => String(n).padStart(width, \"0\");\n  const year = date.getFullYear();\n  const month = pad(date.getMonth() + 1);\n  const day = pad(date.getDate());\n  const hours = pad(date.getHours());\n  const minutes = pad(date.getMinutes());\n  const seconds = pad(date.getSeconds());\n  const ms = pad(date.getMilliseconds(), 3);\n\n  // timezone offset in minutes (note: getTimezoneOffset returns minutes *behind* UTC)\n  const offsetMinutes = -date.getTimezoneOffset(); // minutes east of UTC\n  const sign = offsetMinutes >= 0 ? \"+\" : \"-\";\n  const absOffset = Math.abs(offsetMinutes);\n  const offsetHours = pad(Math.floor(absOffset / 60));\n  const offsetMins = pad(absOffset % 60);\n\n  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${ms}${sign}${offsetHours}:${offsetMins}`;\n}\n\n// use local current time\nconst now = new Date();\n\n// If property_schedule_date is null or undefined, populate it with current time\nif (item.property_schedule_date == null) {\n  item.property_schedule_date = {\n    start: formatLocalWithOffset(now),\n    end: null,\n    time_zone: null\n  };\n} else if (!item.property_schedule_date.start) {\n  // if property exists but start missing/empty, also fill it (optional safety)\n  item.property_schedule_date.start = formatLocalWithOffset(now);\n}\n\n// Now compute isDueForCheck based on property_schedule_date.start\nconst scheduleDateString = item.property_schedule_date?.start;\nlet isDue = false;\n\ntry {\n  const scheduledDateTime = new Date(scheduleDateString);\n  // If scheduledDateTime is invalid, treat as not due; otherwise compare\n  if (!isNaN(scheduledDateTime.getTime())) {\n    isDue = scheduledDateTime <= now;\n  } else {\n    isDue = false;\n  }\n} catch (e) {\n  isDue = false;\n}\n\nitem.isDueForCheck = isDue;\n\nreturn item;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -944,
+        592
+      ],
+      "id": "6efab057-0dc3-4936-a5d9-8cbb88ebcb92",
+      "name": "Compare Time"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.body.data.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -3136,
+        80
+      ],
+      "id": "1c5bb20e-e540-4914-bc57-1f887b35882c",
+      "name": "Get a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -2944,
+        80
+      ],
+      "id": "96a437a7-8e15-4029-a3c5-6520d8b5d5fc",
+      "name": "Append a block",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.ayrshare.com/api/post/{{ $json.property_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer CC4448DD-FC794E0A-90AEDEF0-EBC10FAF"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -272,
+        592
+      ],
+      "id": "542146ab-d5e5-48ba-b26d-c4354da210a3",
+      "name": "GET Post From Ayrshare"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get many database pages').item.json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "=Status|status",
+              "statusValue": "=Posted"
+            },
+            {
+              "key": "=Ayrshare Response|select",
+              "selectValue": "=Success"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        192,
+        448
+      ],
+      "id": "76bc60f1-bc31-4686-a425-a037424aa752",
+      "name": "Posted Successfully",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get many database pages').item.json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "=Status|status",
+              "statusValue": "Not started"
+            },
+            {
+              "key": "=Ayrshare Response|select",
+              "selectValue": "=Error"
+            },
+            {
+              "key": "Error Message|rich_text",
+              "textContent": "={{ $json.errors[0].message }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        192,
+        592
+      ],
+      "id": "e042481a-e7ac-46b9-b742-717ff372132f",
+      "name": "Error Occured",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2832,
+        640
+      ],
+      "id": "86b636b1-2905-4722-9a31-cd8691c9d888",
+      "name": "Error Trigger",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "subject": "=",
+        "emailType": "text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -2528,
+        640
+      ],
+      "id": "512a87c3-1a1e-4b7e-a73a-ad4d992c5fa4",
+      "name": "Send a message",
+      "webhookId": "fe4d5a56-6637-4fdb-bdb5-4990482acb35",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "resize",
+        "width": null,
+        "height": null,
+        "options": {
+          "fileName": "data",
+          "format": "jpeg",
+          "quality": 100
+        }
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        912,
+        -416
+      ],
+      "id": "215683b9-180a-4d0a-84b7-93aff820c917",
+      "name": "Convert Image to JPG"
+    },
+    {
+      "parameters": {
+        "content": "# Send Error Report",
+        "height": 400,
+        "width": 656,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2928,
+        576
+      ],
+      "typeVersion": 1,
+      "id": "4dbc5ec8-9b66-4a6a-ae73-66815c0d3d7c",
+      "name": "Sticky Note4",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1f931b2b-517c-4fab-b850-723c92be9592",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2176,
+        80
+      ],
+      "id": "32932412-c5a8-430c-8c49-8474a89f4db1",
+      "name": "Check Error"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Node A: Validator + Schedule Normalizer (Europe/London) + Robust Thread Splitter\n// Outputs: schedule (Europe/London offset), scheduleTime (string), threadNeeded, threadParts, processedPlatforms, validationErrors\n\nconst item = $input.first().json || {};\n\n// ---------- Timezone helpers (Europe/London formatting) ----------\nfunction partsFor(date, timeZone = 'Europe/London') {\n  const df = new Intl.DateTimeFormat('en-GB', {\n    timeZone,\n    hour12: false,\n    year: 'numeric',\n    month: '2-digit',\n    day: '2-digit',\n    hour: '2-digit',\n    minute: '2-digit',\n    second: '2-digit',\n  });\n  const parts = df.formatToParts(date);\n  const map = {};\n  for (const p of parts) if (p.type !== 'literal') map[p.type] = p.value;\n  return {\n    year: parseInt(map.year, 10),\n    month: parseInt(map.month, 10),\n    day: parseInt(map.day, 10),\n    hour: parseInt(map.hour, 10),\n    minute: parseInt(map.minute, 10),\n    second: parseInt(map.second, 10),\n  };\n}\n\nfunction formatInTimeZone(date, timeZone = 'Europe/London') {\n  const p = partsFor(date, timeZone);\n  const localMs = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);\n  // offsetMinutes = localMs - actual UTC ms\n  const offsetMinutes = Math.round((localMs - date.getTime()) / 60000);\n  const sign = offsetMinutes >= 0 ? '+' : '-';\n  const absOff = Math.abs(offsetMinutes);\n  const offHours = String(Math.floor(absOff / 60)).padStart(2, '0');\n  const offMins = String(absOff % 60).padStart(2, '0');\n  const YYYY = String(p.year).padStart(4, '0');\n  const MM = String(p.month).padStart(2, '0');\n  const DD = String(p.day).padStart(2, '0');\n  const hh = String(p.hour).padStart(2, '0');\n  const mm = String(p.minute).padStart(2, '0');\n  const ss = String(p.second).padStart(2, '0');\n  return `${YYYY}-${MM}-${DD}T${hh}:${mm}:${ss}${sign}${offHours}:${offMins}`;\n}\n\nfunction toValidDate(v) {\n  const d = (v instanceof Date) ? v : new Date(v);\n  return isNaN(d.getTime()) ? null : d;\n}\n\n// ---------- Schedule parsing/normalization for Europe/London ----------\nfunction parseSchedule(raw) {\n  if (!raw) return null;\n  if (typeof raw === 'string') {\n    try { return JSON.parse(raw); } catch (e) { return { start: raw }; }\n  }\n  if (typeof raw === 'object') return raw;\n  return null;\n}\n\nfunction normalizeScheduleForLondon(rawSchedule) {\n  const nowUtc = new Date();\n  const schedule = Object.assign({}, rawSchedule || {});\n  const tz = 'Europe/London';\n\n  // If start exists\n  if (schedule.start) {\n    if (typeof schedule.start === 'string' && !schedule.start.includes('T')) {\n      // date-only, inject current London time\n      const m = schedule.start.match(/^(\\d{4})-(\\d{2})-(\\d{2})/);\n      if (m) {\n        const y = parseInt(m[1], 10);\n        const mo = parseInt(m[2], 10);\n        const d = parseInt(m[3], 10);\n        const londonNowParts = partsFor(new Date(), tz);\n        const localMs = Date.UTC(y, mo - 1, d, londonNowParts.hour, londonNowParts.minute, londonNowParts.second);\n        const offsetNowMinutes = Math.round((Date.UTC(londonNowParts.year, londonNowParts.month - 1, londonNowParts.day, londonNowParts.hour, londonNowParts.minute, londonNowParts.second) - (new Date()).getTime()) / 60000);\n        const candidateUtcMs = localMs - offsetNowMinutes * 60000;\n        schedule.start = formatInTimeZone(new Date(candidateUtcMs), tz);\n      } else {\n        schedule.start = formatInTimeZone(nowUtc, tz);\n      }\n    } else {\n      const parsed = toValidDate(schedule.start);\n      schedule.start = parsed ? formatInTimeZone(parsed, tz) : formatInTimeZone(nowUtc, tz);\n    }\n  } else {\n    schedule.start = formatInTimeZone(nowUtc, tz);\n  }\n\n  // If start in the past -> bump to now\n  const startInstant = toValidDate(schedule.start);\n  if (!startInstant || startInstant.getTime() < (new Date()).getTime()) {\n    schedule.start = formatInTimeZone(new Date(), tz);\n  }\n\n  // Normalize end\n  if (schedule.end) {\n    const ed = toValidDate(schedule.end);\n    if (!ed) schedule.end = null;\n    else {\n      schedule.end = formatInTimeZone(ed, tz);\n      if (toValidDate(schedule.end).getTime() <= toValidDate(schedule.start).getTime()) schedule.end = null;\n    }\n  } else {\n    schedule.end = null;\n  }\n\n  schedule.time_zone = schedule.time_zone ?? 'Europe/London';\n  return schedule;\n}\n\n// ---------- Validation logic (preserve your platform rules) ----------\nconst content = item.Content || \"\";\nconst mediaUrls = Array.isArray(item['Media URL']) ? item['Media URL'] : (item['Media URL'] ? [item['Media URL']] : []);\nconst platformsRaw = Array.isArray(item.PlatForm) ? item.PlatForm : (item.PlatForm ? [item.PlatForm] : []);\nconst platforms = platformsRaw.map(p => (typeof p === 'string' ? p.toLowerCase() : String(p).toLowerCase()));\n\nconst mediaCount = mediaUrls.length;\nconst hasText = typeof content === 'string' && content.trim().length > 0;\nconst hasMedia = mediaCount > 0;\nconst hasVideo = hasMedia && mediaUrls.some(url => typeof url === 'string' && url.toLowerCase().includes('.mp4'));\nconst hasImage = hasMedia && mediaUrls.some(url => typeof url === 'string' && !url.toLowerCase().includes('.mp4'));\n\nconst validationErrors = [];\n\n// same rules as before (kept intact, except we won't throw for twitter length)\nfor (const rawPlatform of platforms) {\n  const platform = rawPlatform.toLowerCase();\n  const platformTitle = platform.charAt(0).toUpperCase() + platform.slice(1);\n  let message = null;\n  switch (platform) {\n    case 'instagram':\n      if (!hasMedia && hasText) message = 'Text-only posts are not supported.';\n      else if (hasImage && mediaCount > 10) message = 'A maximum of 10 images are allowed.';\n      break;\n    case 'facebook':\n      if (hasImage && hasVideo) message = 'Posts with mixed images and videos are not consistently supported.';\n      else if (hasVideo && !hasImage && mediaCount > 1) message = 'Only single video posts are allowed.';\n      break;\n    case 'linkedin':\n      if (hasVideo && mediaCount > 1) message = 'Only single video posts are allowed.';\n      else if (hasImage && hasVideo) message = 'Posts with mixed images and videos are not supported.';\n      else if (hasImage && mediaCount > 9) message = 'A maximum of 9 images are allowed.';\n      break;\n    case 'x':\n    case 'twitter':\n      // handle twitter length below (no throw)\n      if (hasVideo && mediaCount > 1) message = 'Only single video posts are allowed.';\n      else if (hasImage && mediaCount > 4) message = 'A maximum of 4 images are allowed.';\n      else if (hasImage && hasVideo) message = 'Posts with mixed images and videos are not supported.';\n      break;\n    case 'tiktok':\n  if (hasVideo && mediaCount > 1) message = 'Only single video posts are allowed.';\n  break;\n    case 'threads':\n      if (hasVideo) message = 'Video posts are not supported via the API.';\n      else if (mediaCount > 10) message = 'A maximum of 10 images are allowed.';\n      break;\n    default:\n      break;\n  }\n  if (message) validationErrors.push({ platform: platformTitle, message, error: `${platformTitle}: ${message}` });\n}\n\n// ---------- Robust thread splitter (ensures part + numbering <= 280) ----------\nconst TWEET_LIMIT = 280;\n\n// split text into candidate paragraphs by double-newline, keep paragraphs intact initially\nfunction paragraphSplit(text) {\n  return String(text).split(/\\n{2,}/).map(p => p.trim()).filter(Boolean);\n}\n\n// split a long paragraph into word-chunks with maxLen\nfunction splitParagraphByWords(paragraph, maxLen) {\n  const words = paragraph.split(/\\s+/);\n  const parts = [];\n  let current = '';\n  for (const w of words) {\n    if ((current + ' ' + w).trim().length <= maxLen) {\n      current = (current + ' ' + w).trim();\n    } else {\n      if (current) parts.push(current);\n      // if word itself longer than maxLen, break the word\n      if (w.length > maxLen) {\n        let i = 0;\n        while (i < w.length) {\n          parts.push(w.slice(i, i + maxLen));\n          i += maxLen;\n        }\n        current = '';\n      } else {\n        current = w;\n      }\n    }\n  }\n  if (current) parts.push(current);\n  return parts;\n}\n\n// Iterative splitter which accounts for numbering length \" i/n\" appended by threadNumber\nfunction createThreadPartsWithNumbering(text) {\n  if (!text || !text.trim()) return [];\n\n  // initial paragraphs split\n  let candidates = paragraphSplit(text);\n  if (candidates.length === 0) return [];\n\n  // iterative approach: assume a digits(n) and re-split until stable\n  let parts = [];\n  let maxIterations = 6;\n  for (let iter = 0; iter < maxIterations; iter++) {\n    // estimate n from previous pass (or 1 at first)\n    const estimatedN = Math.max(1, parts.length || 1);\n    const digitsN = String(estimatedN).length;\n    const suffixLen = 1 + digitsN + 1 + digitsN; // \" \" + digits(i) + \"/\" + digits(n) (we assume digits(i)=digits(n] worst case)\n    const maxLen = TWEET_LIMIT - suffixLen;\n\n    // build new parts by splitting each paragraph to maxLen\n    const newParts = [];\n    for (const para of candidates) {\n      if (para.length <= maxLen) newParts.push(para);\n      else {\n        const sub = splitParagraphByWords(para, maxLen);\n        for (const s of sub) newParts.push(s);\n      }\n    }\n\n    // if stable (length didn't change) and digits(n) matches estimated digits, break\n    if (newParts.length === parts.length) {\n      // recompute digits with true n\n      const trueDigits = String(newParts.length).length;\n      const recomputedSuffix = 1 + trueDigits + 1 + trueDigits;\n      const recomputedMaxLen = TWEET_LIMIT - recomputedSuffix;\n      // verify no part exceeds recomputedMaxLen; if any do, continue another iteration\n      const anyTooLong = newParts.some(p => p.length > recomputedMaxLen);\n      if (!anyTooLong) {\n        parts = newParts;\n        break;\n      }\n    }\n    parts = newParts;\n    // after final iteration, check if need one more because the digits changed\n    const newDigits = String(parts.length).length;\n    const checkSuffix = 1 + newDigits + 1 + newDigits;\n    const checkMaxLen = TWEET_LIMIT - checkSuffix;\n    if (parts.every(p => p.length <= checkMaxLen)) break;\n    // else continue to next iteration to shrink parts more\n    candidates = parts; // treat current parts as paragraphs for next pass\n  }\n\n  // final safety: if any part STILL too long, truncate to allowed length (rare)\n  const finalDigits = String(parts.length).length;\n  const finalSuffix = 1 + finalDigits + 1 + finalDigits;\n  const finalMax = TWEET_LIMIT - finalSuffix;\n  parts = parts.map(p => (p.length > finalMax ? p.slice(0, finalMax) : p));\n  return parts;\n}\n\n// If twitter and content too long, create threadParts\nlet threadNeeded = false;\nlet threadParts = [];\nif (platforms.includes('twitter') || platforms.includes('x')) {\n  if (typeof content === 'string' && content.length > TWEET_LIMIT) {\n    threadNeeded = true;\n    threadParts = createThreadPartsWithNumbering(content);\n  }\n}\n\n// ---------- Normalize schedule (London) ----------\nconst scheduleRaw = item.scheduleTime ?? item.schedule ?? null;\nconst parsedSchedule = parseSchedule(scheduleRaw);\nconst normalizedSchedule = normalizeScheduleForLondon(parsedSchedule);\nconst scheduleTimeString = JSON.stringify(normalizedSchedule);\n\n// ---------- Build result ----------\nconst result = {\n  ...item,\n  processedPlatforms: platforms,\n  validationErrors,\n  scheduleTime: scheduleTimeString,\n  schedule: normalizedSchedule,\n  threadNeeded,\n  threadParts\n};\n\nif (validationErrors.length > 0) result.error = validationErrors.map(e => e.error).join(' | ');\n\nreturn [{ json: result }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2336,
+        80
+      ],
+      "id": "ff48f49d-4f12-4d84-bf6f-a7184e8e17c6",
+      "name": "Validate Error",
+      "retryOnFail": false,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get a database page').item.json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Error Message|rich_text",
+              "textContent": "={{ $json.error }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1952,
+        -64
+      ],
+      "id": "7afb2b34-abd1-4b23-88f7-60a1c377392d",
+      "name": "Update Error Logs",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "success",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "3d2f53b9-43fc-44a7-87ff-9a85d9d856be"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Success"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a9f801c4-8b19-43db-b9cd-3639bd467db7",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "error",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Error"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "28cd8638-5fe0-47e3-8e23-2b658e1b5d2f",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "scheduled",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Scheduled"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        -112,
+        576
+      ],
+      "id": "f272c939-07f9-4283-b353-d3e3f31b75a2",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "29046bdd-5780-4163-911d-dc27258947d3",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1664,
+        -16
+      ],
+      "id": "10dcda5a-843f-4465-b885-050aadb4dfaa",
+      "name": "Error"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n// This code expects the incoming item(s) to contain the error payload you posted.\n// It returns items with { cleanErrorMessage: \"...\" }\n\nconst output = items.map(item => {\n  // get the raw input (could be object, string, array, etc.)\n  const input = item.json ?? item;\n  let raw = '';\n\n  // try some likely places for the error text\n  if (input.error && typeof input.error.message === 'string') {\n    raw = input.error.message;\n  } else if (Array.isArray(input) && input[0] && input[0].error && typeof input[0].error.message === 'string') {\n    raw = input[0].error.message;\n  } else if (typeof input === 'string') {\n    raw = input;\n  } else {\n    // fallback: stringify whatever we have\n    raw = JSON.stringify(input);\n  }\n\n  // Helper: try to parse JSON substring between the first { and last }\n  function tryParseJsonFromString(s) {\n    const first = s.indexOf('{');\n    const last = s.lastIndexOf('}');\n    if (first === -1 || last === -1 || last <= first) return null;\n    const candidate = s.substring(first, last + 1);\n    try {\n      return JSON.parse(candidate);\n    } catch (e) {\n      // maybe it's escaped (\\\" inside). Unescape quotes and try again.\n      try {\n        const unescaped = candidate.replace(/\\\\\"/g, '\"').replace(/\\\\'/g, \"'\");\n        return JSON.parse(unescaped);\n      } catch (e2) {\n        return null;\n      }\n    }\n  }\n\n  let cleanMessage = null;\n\n  // 1) Try parsing a JSON blob inside raw\n  const parsed = tryParseJsonFromString(raw);\n  if (parsed) {\n    // common shape: { status: 'error', errors: [ { message: '...' } ] }\n    if (Array.isArray(parsed.errors) && parsed.errors.length) {\n      for (const e of parsed.errors) {\n        if (e && e.message && typeof e.message === 'string') {\n          cleanMessage = e.message;\n          break;\n        }\n      }\n    }\n    // other possibilities\n    if (!cleanMessage && parsed.message && typeof parsed.message === 'string') {\n      cleanMessage = parsed.message;\n    }\n    // nested id -> maybe parsed.errors is a JSON string inside parsed (rare), try again\n    if (!cleanMessage && typeof parsed.errors === 'string') {\n      const nested = tryParseJsonFromString(parsed.errors);\n      if (nested && Array.isArray(nested) && nested[0] && nested[0].message) {\n        cleanMessage = nested[0].message;\n      }\n    }\n  }\n\n  // 2) If still missing, try regex to catch obvious phrase (like \"PNG files are not supported...\")\n  if (!cleanMessage) {\n    const txtMatch = raw.match(/([A-Z][A-Za-z0-9 \\-:\\/.#?&%()]{10,}?(?:jpg|jpeg|png|supported|not supported|convert|Max Pack)[\\w \\-:\\/.#?&%()]+)/i);\n    if (txtMatch) cleanMessage = txtMatch[0].trim();\n  }\n\n  // 3) final fallback: try smaller targeted phrase search\n  if (!cleanMessage) {\n    const m = raw.match(/(PNG files are not supported[^\"'\\n\\r]*)/i);\n    if (m) cleanMessage = m[0].trim();\n  }\n\n  // 4) fallback to raw if nothing else worked\n  if (!cleanMessage) cleanMessage = raw;\n\n  return { json: { cleanErrorMessage: cleanMessage } };\n});\n\nreturn output;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2048,
+        -80
+      ],
+      "id": "f3afc743-e00f-48ce-9fe7-dc37400bf4a2",
+      "name": "Filter Text For Error"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.mediaUrl }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        704,
+        -416
+      ],
+      "id": "e198fab7-fc4b-464f-a64e-fafa6c5dad7f",
+      "name": "Download Image"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -512,
+        576
+      ],
+      "id": "5e8514ad-be85-4151-86eb-2b51eb958552",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 3
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1248,
+        1056
+      ],
+      "id": "12745379-d264-4698-a15c-59a9fcb62a1b",
+      "name": "Schedule Trigger for Analytics"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ayrshare.com/api/analytics/post",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer CC4448DD-FC794E0A-90AEDEF0-EBC10FAF"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"id\": \"{{ $json.property_id }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -400,
+        1072
+      ],
+      "id": "c6840998-3a52-4a35-9d1f-42045b89bf6e",
+      "name": "GET Analytics",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -624,
+        1056
+      ],
+      "id": "73299a86-776c-4486-9460-cf63f49c08b7",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "content": "# Update Analytics\n",
+        "height": 368,
+        "width": 2224,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1376,
+        960
+      ],
+      "typeVersion": 1,
+      "id": "578ac9d7-6992-4c9d-b579-54c63ded4f9a",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27c785c0-cfab-8184-b393-f557e7150135",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Transformed Content",
+          "cachedResultUrl": "https://www.notion.so/27c785c0cfab8184b393f557e7150135"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Status|status",
+              "condition": "equals",
+              "statusValue": "Posted"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1040,
+        1056
+      ],
+      "id": "f4fa2343-bae0-4427-bf32-ebab84339028",
+      "name": "Get many database pages1",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code Node: Universal Social Media Analytics Formatter (clean + emojis)\n//\n// Output:\n// - item.json.analyticsSummary => text summary\n// - item.json.postUrl => detected post URL (platform-agnostic)\n\nreturn items.map(item => {\n  const META_KEYS = new Set([\"id\", \"status\", \"__metadata\", \"statusCode\", \"headers\"]);\n\n  // Friendly labels with emojis for common metrics (in preferred order)\n  const METRIC_MAP = {\n    likeCount: \"❤️ Likes\",\n    likes: \"❤️ Likes\",\n    favorite_count: \"❤️ Likes\",\n    retweetCount: \"🔁 Retweets/Shares\",\n    shareCount: \"🔁 Shares\",\n    sharesCount: \"🔁 Shares\",\n    share: \"🔁 Share\",\n    replyCount: \"💬 Replies/Comments\",\n    commentsCount: \"💬 Comments\",\n    comments: \"💬 Comments\",\n    comment_count: \"💬 Comments\",\n    quoteCount: \"💭 Quote Tweets\",\n    impressionCount: \"👀 Impressions\",\n    impressions: \"👀 Impressions\",\n    viewCount: \"👀 Views\",\n    viewsCount: \"👀 Views\",\n    videoViews: \"👀 Video Views\",\n    savedCount: \"🔖 Saves\",\n    bookmarkCount: \"🔖 Bookmarks\",\n    reach: \"🌍 Reach\",\n    reachCount: \"🌍 Reach\",\n    profileViews: \"👤 Profile Views\",\n    profileVisitsCount: \"👤 Profile Visits\",\n    engagementCount: \"✨ Engagements\",\n    engagement_rate: \"✨ Engagement Rate\",\n    followsCount: \"➕ Follows\",\n    followersGained: \"➕ Followers Gained\",\n    created: \"🕒 Created\",\n    created_at: \"🕒 Created\",\n    lastUpdated: \"♻️ Last Updated\",\n    last_updated: \"♻️ Last Updated\",\n    nextUpdate: \"⏭️ Next Update\",\n    mediaType: \"🖼️ Media Type\",\n    mediaProductType: \"🖼️ Media Product Type\",\n    username: \"👤 Username\",\n    postUrl: \"🔗 Post URL\",\n    url: \"🔗 URL\",\n    commentsState: \"💬 Comments State\",\n    totalFirstLevelComments: \"💬 Total First Level Comments\",\n    selectedComments: \"💬 Selected Comments\",\n    selectedLikes: \"❤️ Selected Likes\"\n  };\n\n  const TWITTER_METRICS_ORDER = [\n    \"retweetCount\", \"replyCount\", \"likeCount\", \"quoteCount\", \"bookmarkCount\", \"impressionCount\"\n  ];\n\n  function formatNumber(n) {\n    if (n === null || n === undefined) return \"\";\n    if (typeof n === \"number\") {\n      try { return new Intl.NumberFormat('en-IN').format(n); } catch(e) { return String(n); }\n    }\n    return String(n);\n  }\n\n  function detectPlatformLabel(key, post) {\n    if (key && typeof key === \"string\") {\n      const k = key.toLowerCase();\n      if (k.includes(\"instagram\")) return \"Instagram\";\n      if (k.includes(\"twitter\") || k === \"x\" || k.includes(\"x_\")) return \"Twitter/X\";\n      if (k.includes(\"tiktok\")) return \"TikTok\";\n      if (k.includes(\"facebook\") || k.includes(\"fb\")) return \"Facebook\";\n      if (k.includes(\"linkedin\")) return \"LinkedIn\";\n      if (k.includes(\"youtube\")) return \"YouTube\";\n      if (k.includes(\"pinterest\")) return \"Pinterest\";\n      if (k.includes(\"reddit\")) return \"Reddit\";\n      if (k.includes(\"snapchat\")) return \"Snapchat\";\n      if (k.includes(\"twitch\")) return \"Twitch\";\n      if (k.includes(\"telegram\")) return \"Telegram\";\n      if (k.includes(\"ayrshare\")) return \"Ayrshare\";\n    }\n    if (post && post.username) return post.username;\n    return (key && typeof key === \"string\") ? key : \"Unknown\";\n  }\n\n  function isTwitterPlatform(platformLabel) {\n    const label = platformLabel.toLowerCase();\n    return label.includes(\"twitter\") || label === \"x\" || label.includes(\"x/\");\n  }\n\n  function extractPosts(candidate) {\n    if (!candidate) return [];\n    if (Array.isArray(candidate)) return candidate;\n    const keys = Object.keys(candidate || {});\n    if (keys.includes(\"analytics\") || keys.includes(\"postUrl\") || keys.includes(\"mediaUrls\") || keys.includes(\"mediaType\") || keys.includes(\"created\") || keys.includes(\"created_at\")) {\n      return [candidate];\n    }\n    for (const key of [\"data\",\"body\",\"items\",\"results\",\"posts\",\"entries\"]) {\n      if (candidate[key]) {\n        return Array.isArray(candidate[key]) ? candidate[key] : [candidate[key]];\n      }\n    }\n    const possible = [];\n    for (const v of Object.values(candidate)) {\n      if (v && (v.analytics || v.postUrl || v.mediaUrls || v.mediaType || v.viewsCount)) possible.push(v);\n    }\n    if (possible.length) return possible;\n    return [candidate];\n  }\n\n  function getMetrics(post) {\n    if (!post) return {};\n    const candidates = [\"analytics\",\"publicMetrics\",\"metrics\",\"statistics\",\"stats\",\"insights\"];\n    for (const c of candidates) {\n      if (post[c] && typeof post[c] === \"object\") return post[c];\n    }\n    const out = {};\n    for (const [k,v] of Object.entries(post)) out[k] = v;\n    return out;\n  }\n\n  function humanKey(k) {\n    if (METRIC_MAP[k]) return METRIC_MAP[k];\n    return k.replace(/([A-Z])/g, ' $1').replace(/_/g, ' ').replace(/\\b\\w/g, s => s.toUpperCase());\n  }\n\n  function summarizePost(platformLabel, post) {\n    const metrics = getMetrics(post) || {};\n    const lines = [];\n    lines.push(`📊 ${platformLabel}`);\n    const isTwitter = isTwitterPlatform(platformLabel);\n\n    if (isTwitter) {\n      for (const metricKey of TWITTER_METRICS_ORDER) {\n        const value = metrics[metricKey] !== null && metrics[metricKey] !== undefined ? metrics[metricKey] : 0;\n        const label = humanKey(metricKey);\n        const val = (typeof value === \"number\") ? formatNumber(value) : String(value);\n        lines.push(`${label}: ${val}`);\n      }\n      const postUrl = post.postUrl || post.url || metrics.postUrl || metrics.url;\n      if (postUrl) lines.push(`🔗 Post URL: ${postUrl}`);\n    } else {\n      const ordered = [];\n      for (const [k,v] of Object.entries(metrics)) {\n        if (v === null || v === undefined) continue;\n        let valueToUse;\n        if (Array.isArray(v)) valueToUse = v.length;\n        else if (typeof v === \"object\") continue;\n        else valueToUse = v;\n        ordered.push({k, value: valueToUse});\n      }\n\n      const preferredOrder = Object.keys(METRIC_MAP);\n      ordered.sort((a,b) => {\n        const ai = preferredOrder.indexOf(a.k);\n        const bi = preferredOrder.indexOf(b.k);\n        if (ai === -1 && bi === -1) return 0;\n        if (ai === -1) return 1;\n        if (bi === -1) return -1;\n        return ai - bi;\n      });\n\n      for (const entry of ordered) {\n        const label = humanKey(entry.k);\n        const val = (typeof entry.value === \"number\") ? formatNumber(entry.value) : String(entry.value);\n        lines.push(`${label}: ${val}`);\n      }\n\n      if (lines.length === 1) lines.push(\"No metrics found\");\n    }\n\n    return lines.join(\"\\n\");\n  }\n\n  const sections = [];\n  const top = item.json;\n\n  if (Array.isArray(top)) {\n    top.forEach(t => {\n      const posts = extractPosts(t);\n      posts.forEach(p => sections.push(summarizePost(detectPlatformLabel(null,p), p)));\n    });\n  } else {\n    for (const [key, value] of Object.entries(top || {})) {\n      if (META_KEYS.has(key)) continue;\n      if (value === null || value === undefined) continue;\n      const posts = extractPosts(value);\n      if (!posts.length) continue;\n      const platformLabel = detectPlatformLabel(key, posts[0]);\n      posts.forEach(p => sections.push(summarizePost(platformLabel, p)));\n    }\n  }\n\n  item.json.analyticsSummary = sections.length ? sections.join(\"\\n\\n\") : \"No analytics data found.\";\n\n  // 🆕 ADDITION: extract universal postUrl (keeps previous logic 100% intact)\n  try {\n    const possiblePlatforms = ['instagram','linkedin','facebook','twitter','x','youtube','tiktok','pinterest','reddit'];\n    let foundUrl = null;\n    for (const key of possiblePlatforms) {\n      if (top[key] && typeof top[key] === 'object') {\n        foundUrl = top[key].postUrl || top[key].url || (top[key].analytics && top[key].analytics.postUrl);\n        if (foundUrl) break;\n      }\n    }\n    item.json.postUrl = foundUrl || null;\n  } catch (e) {\n    item.json.postUrl = null;\n  }\n\n  return item;\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        16,
+        1120
+      ],
+      "id": "d409d910-5734-4814-901e-061773c02c98",
+      "name": "Convert Json into String"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "29d785c0-cfab-80fc-9c13-fb36c9fb6dc6",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Analytics",
+          "cachedResultUrl": "https://www.notion.so/29d785c0cfab80fc9c13fb36c9fb6dc6"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Content|title",
+              "title": "={{ $json.name }}"
+            },
+            {
+              "key": "Ayrshare Id|rich_text",
+              "textContent": "={{ $json.property_id }}"
+            },
+            {
+              "key": "Platform|select",
+              "selectValue": "={{ $json.platform }}"
+            },
+            {
+              "key": "Preview|url",
+              "urlValue": "={{ $('Posted Successfully').item.json.url }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        608,
+        448
+      ],
+      "id": "c214d9f3-1893-4608-8763-67ea00ed9bb2",
+      "name": "Add Data to Analytics Page",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all input items (as an array)\nconst items = $input.all();\n\nconst results = [];\n\nfor (const item of items) {\n  const data = item.json;\n\n  // Ensure property_platform exists and is an array\n  if (Array.isArray(data.property_platform)) {\n    for (const platform of data.property_platform) {\n      results.push({\n        json: {\n          name: data.name || \"\",\n          property_id: data.property_id || \"\",\n          platform: platform\n        }\n      });\n    }\n  }\n}\n\nreturn results;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        384,
+        448
+      ],
+      "id": "17d9aa54-2874-4ae2-8908-7043c800f202",
+      "name": "Split Data"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "29d785c0-cfab-80fc-9c13-fb36c9fb6dc6",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuel Analytics",
+          "cachedResultUrl": "https://www.notion.so/29d785c0cfab80fc9c13fb36c9fb6dc6"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Ayrshare Id|rich_text",
+              "condition": "equals",
+              "richTextValue": "={{ $json.properties.Id.rich_text[0].text.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        352,
+        1120
+      ],
+      "id": "3b48e1ba-e0c7-4d46-9894-ba8a75a02fcc",
+      "name": "Get Analytics ID",
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code Node: Parse Analytics Summary into Separate Fields\n\nconst outputItems = items.map(item => {\n  const summary = $('Convert Json into String').first().json.analyticsSummary|| \"\";\n  \n  // Initialize output object with all fields set to 0 or empty\n  const parsed = {\n    platform: \"\",\n    likes: 0,\n    shares: 0,\n    retweets: 0,\n    comments: 0,\n    replies: 0,\n    views: 0,\n    impressions: 0,\n    saves: 0,\n    bookmarks: 0,\n    reach: 0,\n    profileVisits: 0,\n    engagements: 0,\n    follows: 0,\n    quoteTweets: 0,\n    created: \"\",\n    mediaType: \"\",\n    mediaProductType: \"\",\n    username: \"\",\n    postUrl: \"\"\n  };\n\n  // Extract platform name from first line\n  const platformMatch = summary.match(/📊\\s+(.+)/);\n  if (platformMatch) {\n    parsed.platform = platformMatch[1].trim();\n  }\n\n  // Helper function to extract numeric value from a line\n  function extractValue(label) {\n    const regex = new RegExp(`${label}:\\\\s*([\\\\d,]+)`, 'i');\n    const match = summary.match(regex);\n    if (match) {\n      // Remove commas and convert to number\n      return parseInt(match[1].replace(/,/g, ''), 10) || 0;\n    }\n    return 0;\n  }\n\n  // Helper function to extract text value from a line\n  function extractText(label) {\n    const regex = new RegExp(`${label}:\\\\s*(.+?)(?:\\\\n|$)`, 'i');\n    const match = summary.match(regex);\n    return match ? match[1].trim() : \"\";\n  }\n\n  // Extract all metrics\n  parsed.likes = extractValue(\"❤️ Likes\") || extractValue(\"Likes\");\n  parsed.shares = extractValue(\"🔁 Shares\") || extractValue(\"Shares\");\n  parsed.retweets = extractValue(\"🔁 Retweets\") || extractValue(\"Retweets\");\n  parsed.comments = extractValue(\"💬 Comments\") || extractValue(\"Comments\");\n  parsed.replies = extractValue(\"💬 Replies\") || extractValue(\"Replies\");\n  parsed.views = extractValue(\"👀 Views\") || extractValue(\"Views\");\n  parsed.impressions = extractValue(\"👀 Impressions\") || extractValue(\"Impressions\");\n  parsed.saves = extractValue(\"🔖 Saves\") || extractValue(\"Saves\");\n  parsed.bookmarks = extractValue(\"🔖 Bookmarks\") || extractValue(\"Bookmarks\");\n  parsed.reach = extractValue(\"🌍 Reach\") || extractValue(\"Reach\");\n  parsed.profileVisits = extractValue(\"👤 Profile Visits\") || extractValue(\"Profile Visits\");\n  parsed.engagements = extractValue(\"✨ Engagements\") || extractValue(\"Engagements\");\n  parsed.follows = extractValue(\"➕ Follows\") || extractValue(\"Follows\");\n  parsed.quoteTweets = extractValue(\"💭 Quote Tweets\") || extractValue(\"Quote Tweets\");\n\n  // Extract text fields\n  parsed.created = extractText(\"🕒 Created\") || extractText(\"Created\");\n  parsed.mediaType = extractText(\"🖼️ Media Type\") || extractText(\"Media Type\");\n  parsed.mediaProductType = extractText(\"🖼️ Media Product Type\") || extractText(\"Media Product Type\");\n  parsed.username = extractText(\"👤 Username\") || extractText(\"Username\");\n  parsed.postUrl = extractText(\"🔗 Post URL\") || extractText(\"Post URL\");\n\n  // Keep existing data and add parsed fields\n  return {\n    json: {\n      ...item.json,\n      platform: parsed.platform,\n      likes: parsed.likes,\n      shares: parsed.shares,\n      retweets: parsed.retweets,\n      comments: parsed.comments,\n      replies: parsed.replies,\n      views: parsed.views,\n      impressions: parsed.impressions,\n      saves: parsed.saves,\n      bookmarks: parsed.bookmarks,\n      reach: parsed.reach,\n      profileVisits: parsed.profileVisits,\n      engagements: parsed.engagements,\n      follows: parsed.follows,\n      quoteTweets: parsed.quoteTweets,\n      created: parsed.created,\n      mediaType: parsed.mediaType,\n      mediaProductType: parsed.mediaProductType,\n      username: parsed.username,\n      postUrl: parsed.postUrl\n    }\n  };\n});\n\nreturn outputItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        512,
+        1120
+      ],
+      "id": "262ea694-f72e-4ab2-bf8b-442d744dfbc5",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get Analytics ID').item.json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Share|number",
+              "numberValue": "={{ $json.shares }}"
+            },
+            {
+              "key": "Comments|number",
+              "numberValue": "={{ $json.comments }}"
+            },
+            {
+              "key": "Views|number",
+              "numberValue": "={{ $json.views }}"
+            },
+            {
+              "key": "Likes|number",
+              "numberValue": "={{ $json.likes }}"
+            },
+            {
+              "key": "Post URL|url",
+              "urlValue": "={{ $('Convert Json into String').item.json.postUrl }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        688,
+        1120
+      ],
+      "id": "d87b2265-fd44-4129-82df-700b105ada08",
+      "name": "Update a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get many database pages1').item.json.id }}",
+          "mode": "id"
+        },
+        "simple": "=",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Error Message|rich_text",
+              "textContent": "={{ $json.errorMessage }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        240,
+        976
+      ],
+      "id": "ef7a54c1-bb7f-4038-bae1-578f97e805c5",
+      "name": "Update Analytics [Error]",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Get many database pages1').item.json.id }}",
+          "mode": "id"
+        },
+        "simple": "=",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Raw Analytics|rich_text",
+              "textContent": "={{ $json.analyticsSummary }}"
+            },
+            {
+              "key": "Error Message|rich_text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        192,
+        1120
+      ],
+      "id": "280f3076-fa6b-406e-bb6e-59c85260d79c",
+      "name": "Update Analytics [Success]",
+      "credentials": {
+        "notionApi": {
+          "id": "v7nNI35XIwsY1JzB",
+          "name": "Syntech.granite"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node - paste this as-is\n// Input: items (default n8n variable)\n// Output: array of items with { json: { errorMessage: \"<short clean message>\" } }\n\nfunction isString(x) {\n  return typeof x === 'string' || x instanceof String;\n}\n\nfunction unescapeCommon(s) {\n  if (!isString(s)) return s;\n  return s\n    .replace(/\\\\r/g, '\\r')\n    .replace(/\\\\n/g, ' ')\n    .replace(/\\\\\"/g, '\"')\n    .replace(/\\\\\\\\/g, '\\\\');\n}\n\nfunction findJsonSubstring(raw) {\n  if (!isString(raw)) return null;\n  var first = raw.indexOf('{');\n  if (first === -1) return null;\n  var depth = 0;\n  for (var i = first; i < raw.length; i++) {\n    var ch = raw[i];\n    if (ch === '{') depth++;\n    else if (ch === '}') {\n      depth--;\n      if (depth === 0) {\n        return raw.slice(first, i + 1);\n      }\n    }\n  }\n  return null;\n}\n\nfunction tryParseJsonFromString(raw) {\n  if (!isString(raw)) return null;\n  var s = raw.trim();\n  // Remove HTTP code prefix like \"400 - \"\n  var dashIdx = s.indexOf(' - ');\n  if (dashIdx !== -1) s = s.slice(dashIdx + 3).trim();\n  // Remove wrapping quotes\n  if ((s.startsWith('\"') && s.endsWith('\"')) || (s.startsWith(\"'\") && s.endsWith(\"'\"))) {\n    s = s.slice(1, -1);\n  }\n  s = unescapeCommon(s);\n\n  try {\n    if (s.startsWith('{') || s.startsWith('[')) {\n      return JSON.parse(s);\n    }\n  } catch (e) {\n    // fall through\n  }\n\n  var sub = findJsonSubstring(s);\n  if (sub) {\n    try {\n      return JSON.parse(unescapeCommon(sub));\n    } catch (e) {\n      return null;\n    }\n  }\n  return null;\n}\n\nfunction gatherMessagesFromObject(obj, out) {\n  if (!obj || typeof obj !== 'object') return;\n  if (Object.prototype.hasOwnProperty.call(obj, 'message') && isString(obj.message)) out.push(obj.message);\n  if (Array.isArray(obj.errors)) {\n    for (var i = 0; i < obj.errors.length; i++) {\n      var e = obj.errors[i];\n      if (e && typeof e === 'object') {\n        if (isString(e.message)) out.push(e.message);\n        gatherMessagesFromObject(e, out);\n      } else if (isString(e)) out.push(e);\n    }\n  }\n  var social = ['facebook', 'instagram', 'tiktok', 'threads', 'linkedin'];\n  for (var k = 0; k < social.length; k++) {\n    var key = social[k];\n    if (obj[key] && typeof obj[key] === 'object') {\n      if (isString(obj[key].message)) out.push(obj[key].message);\n      gatherMessagesFromObject(obj[key], out);\n    }\n  }\n  for (var prop in obj) {\n    if (!Object.prototype.hasOwnProperty.call(obj, prop)) continue;\n    var v = obj[prop];\n    if (isString(v) && (prop.toLowerCase().includes('msg') || prop.toLowerCase().includes('message'))) out.push(v);\n    else if (v && typeof v === 'object') gatherMessagesFromObject(v, out);\n  }\n}\n\nfunction cleanCandidate(s) {\n  if (!isString(s)) return '';\n  var t = s.replace(/^\\d{3}\\s*-\\s*/, ''); // remove leading codes like \"400 - \"\n  // remove stack trace lines and node/Axios noise by splitting on patterns\n  var lines = t.split(/\\r?\\n/).filter(function (line) {\n    return !/^\\s*at\\s+/.test(line) && !/AxiosError|Traceback|node:|Error: /.test(line);\n  });\n  t = lines.join(' ');\n  t = t.replace(/\\s+/g, ' ').trim();\n  // cut extremely long strings (we'll trim later if necessary)\n  return t;\n}\n\nfunction pickBestMessage(candidates) {\n  if (!Array.isArray(candidates) || candidates.length === 0) return '';\n  var cleaned = candidates.map(function (s) { return cleanCandidate(s); }).filter(Boolean);\n  cleaned = Array.from(new Set(cleaned)); // dedupe\n  if (cleaned.length === 0) return '';\n\n  var priorities = ['please verify', 'not found', 'is not linked', 'please confirm', 'failed', 'unauthorized', 'forbidden', 'deleted'];\n  for (var i = 0; i < priorities.length; i++) {\n    var kw = priorities[i];\n    for (var j = 0; j < cleaned.length; j++) {\n      if (cleaned[j].toLowerCase().includes(kw)) return cleaned[j];\n    }\n  }\n\n  // prefer sentence-like strings\n  var sentenceLike = cleaned.filter(function (c) { return /[A-Za-z].+[.!?]$/.test(c); });\n  if (sentenceLike.length) {\n    sentenceLike.sort(function (a, b) { return a.length - b.length; });\n    return sentenceLike[Math.floor(sentenceLike.length / 2)];\n  }\n\n  // fallback: shortest descriptive string > 10 chars\n  var longEnough = cleaned.filter(function (c) { return c.length >= 10; });\n  if (longEnough.length) {\n    longEnough.sort(function (a, b) { return a.length - b.length; });\n    return longEnough[0];\n  }\n\n  return cleaned[0] || '';\n}\n\n// Main loop\nvar output = [];\n\nfor (var idx = 0; idx < items.length; idx++) {\n  var item = items[idx];\n  var rawCandidates = [];\n\n  // Common places\n  if (item.json && item.json.error && isString(item.json.error.message)) rawCandidates.push(item.json.error.message);\n  if (item.json && isString(item.json.message)) rawCandidates.push(item.json.message);\n\n  // If payload is array-like\n  if (Array.isArray(item.json)) {\n    for (var a = 0; a < item.json.length; a++) {\n      var el = item.json[a];\n      if (el && el.error && isString(el.error.message)) rawCandidates.push(el.error.message);\n      if (el && isString(el.message)) rawCandidates.push(el.message);\n    }\n  }\n\n  // Gather message-like strings recursively from item.json\n  if (item.json && typeof item.json === 'object') {\n    gatherMessagesFromObject(item.json, rawCandidates);\n  }\n\n  // Parse embedded JSON from each candidate and gather messages\n  var parsedMessages = [];\n  for (var c = 0; c < rawCandidates.length; c++) {\n    var rc = rawCandidates[c];\n    var parsed = tryParseJsonFromString(rc);\n    if (parsed && typeof parsed === 'object') {\n      gatherMessagesFromObject(parsed, parsedMessages);\n    }\n  }\n\n  // Combine, dedupe and pick best\n  var all = parsedMessages.concat(rawCandidates);\n  all = all.filter(isString).map(function (s) { return s.trim(); }).filter(Boolean);\n  all = Array.from(new Set(all));\n\n  var best = pickBestMessage(all);\n\n  // Final fallback: clean first candidate\n  if (!best && rawCandidates.length) best = cleanCandidate(rawCandidates[0]);\n\n  // Limit length\n  if (best.length > 400) {\n    var truncated = best.slice(0, 400);\n    var lastPeriod = truncated.lastIndexOf('.');\n    if (lastPeriod > 50) best = truncated.slice(0, lastPeriod + 1);\n    else best = truncated + '...';\n  }\n\n  output.push({ json: { errorMessage: best } });\n}\n\nreturn output;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        16,
+        976
+      ],
+      "id": "845d70f8-7d3a-4871-b4e9-6775486ba2fd",
+      "name": "Extract Error Message"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "bc35c05c-33e0-4644-8e10-8202b46eac60",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -192,
+        1072
+      ],
+      "id": "76b04116-5de2-4a69-b0c8-95e4b8a60385",
+      "name": "Check Error1"
+    }
+  ],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "Qsg1jSZ5AQScoAOn"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:06.380Z",
+      "createdAt": "2026-01-28T09:06:06.380Z",
+      "role": "workflow:owner",
+      "workflowId": "AD6wawh5g5NIgo92",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": [
+        0
+      ]
+    },
+    "node:Schedule Trigger for Analytics": {
+      "recurrenceRules": [
+        0
+      ]
+    }
+  },
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:06:06.380Z",
+  "versionId": "21b84330-6a93-4042-a9d2-9df60c25a841"
+}
