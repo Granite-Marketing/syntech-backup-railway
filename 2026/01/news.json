@@ -1,0 +1,35 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {},
+  "createdAt": "2026-01-28T09:06:05.960Z",
+  "id": "b1ghNZnZ0G4aPQgN",
+  "isArchived": false,
+  "meta": null,
+  "name": "news",
+  "nodes": [],
+  "pinData": null,
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:05.960Z",
+      "createdAt": "2026-01-28T09:06:05.960Z",
+      "role": "workflow:owner",
+      "workflowId": "b1ghNZnZ0G4aPQgN",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-28T09:06:05.960Z",
+  "versionId": "10af495f-86fe-454f-be6e-8195810dd610"
+}
