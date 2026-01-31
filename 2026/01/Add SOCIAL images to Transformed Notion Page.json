@@ -1,0 +1,1050 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-30T09:41:30.345Z",
+    "createdAt": "2026-01-30T09:40:53.969Z",
+    "versionId": "1a97e2a4-1533-48e3-ac4c-8fc66ea41d8c",
+    "workflowId": "4AHLSNlzpGEVoBDr",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "transformed-notion-page-approval",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -544,
+          -80
+        ],
+        "id": "dde1ce6b-e01d-47d8-afc1-e25ea1c5ceae",
+        "name": "Webhook",
+        "webhookId": "7aff71d5-fb87-4f71-bf8b-0ee258b7f9d0"
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "databaseId": {
+            "__rl": true,
+            "value": "27c785c0-cfab-8184-b393-f557e7150135",
+            "mode": "list",
+            "cachedResultName": "Syntech Transformed Content",
+            "cachedResultUrl": "https://www.notion.so/27c785c0cfab8184b393f557e7150135"
+          },
+          "title": "={{ $('Webhook').first().json.body.data.properties.Content.title[0].text.content }}",
+          "propertiesUi": {
+            "propertyValues": [
+              {
+                "key": "Platform|multi_select",
+                "multiSelectValue": "={{ [\"Instagram\",\"LinkedIn\",\"Facebook\",\"Threads\"] }}"
+              },
+              {
+                "key": "Media Type|multi_select",
+                "multiSelectValue": [
+                  "Post"
+                ]
+              },
+              {
+                "key": "Status|status",
+                "statusValue": "Ready to Post"
+              },
+              {
+                "key": "Schedule Date|date",
+                "date": "={{ $json.scheduledDate }}"
+              },
+              {
+                "key": "Type|select",
+                "selectValue": "=SOCIAL"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          1456,
+          -80
+        ],
+        "id": "10e68fc6-8053-43d8-be6b-ff4dfc4b821b",
+        "name": "Create a database page",
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "block",
+          "operation": "getAll",
+          "blockId": {
+            "__rl": true,
+            "value": "={{ $json.body.data.id }}",
+            "mode": "id"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          -304,
+          -80
+        ],
+        "id": "20ae657b-892b-420a-8736-19a45d065b37",
+        "name": "Get many child blocks",
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "// Get all items (blocks) from the previous node\nconst items = $input.all();\n\n// Initialize variables\nlet foundImage = null;\nlet foundText = null;\n\n// Loop through the items to find the image and the text\nfor (const item of items) {\n  if (item.json.type === 'image') {\n    foundImage = item.json.image.file.url;\n  }\n  if (item.json.type === 'paragraph') {\n    foundText = item.json.content;\n  }\n}\n\n// Return a single combined item\nreturn [{\n  json: {\n    final_image_url: foundImage,\n    final_content: foundText\n  }\n}];"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -48,
+          -80
+        ],
+        "id": "11e9b291-c27b-4c47-b12f-f1fe47017228",
+        "name": "Code in JavaScript"
+      },
+      {
+        "parameters": {
+          "url": "={{ $('Code in JavaScript').item.json.final_image_url }}",
+          "options": {
+            "response": {
+              "response": {
+                "responseFormat": "file"
+              }
+            }
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          432,
+          -80
+        ],
+        "id": "c9ac5192-6034-4a83-9ac6-804bd175938b",
+        "name": "HTTP Request"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Create a Notion File Upload object1').item.json.upload_url }}",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "notionApi",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Notion-Version",
+                "value": "2022-06-28"
+              }
+            ]
+          },
+          "sendBody": true,
+          "contentType": "multipart-form-data",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "parameterType": "formBinaryData",
+                "name": "file",
+                "inputDataFieldName": "=data"
+              },
+              {
+                "name": "content_type",
+                "value": "={{ $binary.data.mimeType }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          640,
+          -80
+        ],
+        "id": "bfed3724-cc5b-4208-ab92-1d04b50ec020",
+        "name": "Upload file contents1",
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.notion.com/v1/file_uploads",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "notionApi",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Notion-Version",
+                "value": "2022-06-28"
+              }
+            ]
+          },
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "content_type",
+                "value": "=image/jpeg"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          192,
+          -80
+        ],
+        "id": "79eb85c5-4334-43c7-a9ae-d73f4d4cb7fd",
+        "name": "Create a Notion File Upload object1",
+        "alwaysOutputData": false,
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "PATCH",
+          "url": "=https://api.notion.com/v1/blocks/{{ $json.id }}/children",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "notionApi",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Notion-Version",
+                "value": "2022-06-28"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n    \"children\": [\n        {\n            \"type\": \"image\",\n            \"image\": {\n                \"caption\": [],\n                \"type\": \"file_upload\",\n                \"file_upload\": {\n                    \"id\": \"{{ $('Upload file contents1').item.json.id }}\"\n                }\n            }\n        }\n       ] \n}",
+          "options": {
+            "batching": {
+              "batch": {
+                "batchSize": 1,
+                "batchInterval": 5000
+              }
+            }
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          1696,
+          -80
+        ],
+        "id": "09e322d3-03ea-41d9-8c37-f369b9ae217e",
+        "name": "Upload Image Blocks",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000,
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "// 1. INITIALIZE DATES\n// Start with \"Now\" as the baseline\nconst now = new Date();\nlet trackerDate = new Date(now); \n\n// 2. CHECK NOTION DATE\nif ($input.all().length > 0) {\n  const firstItem = $input.first().json;\n  \n  // Check 'property_schedule_date' because Simplify is ON\n  const dateObj = firstItem.property_schedule_date || firstItem.property_Date;\n  \n  if (dateObj && dateObj.start) {\n    const notionDate = new Date(dateObj.start);\n\n    // --- FIX STARTS HERE ---\n    // If the date from Notion is in the FUTURE relative to now, use it.\n    // If the date from Notion is in the PAST (old), stick with 'now'.\n    if (notionDate > now) {\n      trackerDate = new Date(notionDate);\n    }\n    // --- FIX ENDS HERE ---\n  }\n}\n\n// 3. GET FILES\nconst newFiles = $('Upload file contents1').all(); \nconst allowedDays = [1, 3, 5]; // 1=Mon, 3=Wed, 5=Fri\n\n// 4. LOOP & ASSIGN DATES\nreturn newFiles.map((file) => {\n  \n  // LOGIC: Start searching from the day AFTER the tracker date\n  let nextDate = new Date(trackerDate);\n  nextDate.setDate(nextDate.getDate() + 1); // Jump to tomorrow\n\n  // Keep adding days until we hit Mon/Wed/Fri\n  while (!allowedDays.includes(nextDate.getDay())) {\n    nextDate.setDate(nextDate.getDate() + 1);\n  }\n\n  // Update tracker for the next file in the loop\n  trackerDate = new Date(nextDate);\n\n  // Set time to 10:00 AM\n  nextDate.setHours(10, 0, 0, 0);\n\n  return {\n    json: {\n      ...file.json,\n      scheduledDate: nextDate.toISOString()\n    }\n  };\n});"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1200,
+          -80
+        ],
+        "id": "5003b11d-26d6-4eae-8ecc-502434f559ca",
+        "name": "time"
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "operation": "getAll",
+          "databaseId": {
+            "__rl": true,
+            "value": "27c785c0-cfab-8184-b393-f557e7150135",
+            "mode": "list",
+            "cachedResultName": "Syntech Transformed Content",
+            "cachedResultUrl": "https://www.notion.so/27c785c0cfab8184b393f557e7150135"
+          },
+          "limit": 1,
+          "filterType": "manual",
+          "filters": {
+            "conditions": [
+              {
+                "key": "Type|select",
+                "condition": "equals",
+                "selectValue": "SOCIAL"
+              }
+            ]
+          },
+          "options": {
+            "sort": {
+              "sortValue": [
+                {
+                  "timestamp": true,
+                  "key": "created_time",
+                  "direction": "descending"
+                }
+              ]
+            }
+          }
+        },
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          912,
+          -80
+        ],
+        "id": "90e4ccde-bfc8-46f7-98f1-abd2f7dd9bcc",
+        "name": "Get many database pages",
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "### Download and Add to Transformed Notion page",
+          "height": 400,
+          "width": 1632
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -576,
+          -176
+        ],
+        "typeVersion": 1,
+        "id": "1743dd1e-3640-4fa8-9f83-80024089c68a",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Schedule",
+          "height": 384,
+          "width": 752,
+          "color": 4
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1120,
+          -176
+        ],
+        "typeVersion": 1,
+        "id": "5c64b58a-41d2-4fcf-a48b-66736c3df305",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "operation": "update",
+          "pageId": {
+            "__rl": true,
+            "value": "={{ $('Webhook').first().json.body.data.id }}",
+            "mode": "id"
+          },
+          "propertiesUi": {
+            "propertyValues": [
+              {
+                "key": "Status|status",
+                "statusValue": "Approved"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          1904,
+          -80
+        ],
+        "id": "164d84f1-41ba-4214-af00-09ae2a3f2671",
+        "name": "Update a database page to Approved",
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "Get many child blocks",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a database page": {
+        "main": [
+          [
+            {
+              "node": "Upload Image Blocks",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many child blocks": {
+        "main": [
+          [
+            {
+              "node": "Code in JavaScript",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Code in JavaScript": {
+        "main": [
+          [
+            {
+              "node": "Create a Notion File Upload object1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTP Request": {
+        "main": [
+          [
+            {
+              "node": "Upload file contents1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Upload file contents1": {
+        "main": [
+          [
+            {
+              "node": "Get many database pages",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a Notion File Upload object1": {
+        "main": [
+          [
+            {
+              "node": "HTTP Request",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "time": {
+        "main": [
+          [
+            {
+              "node": "Create a database page",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many database pages": {
+        "main": [
+          [
+            {
+              "node": "time",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Upload Image Blocks": {
+        "main": [
+          [
+            {
+              "node": "Update a database page to Approved",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Stephen Anindo",
+    "name": "init",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "1a97e2a4-1533-48e3-ac4c-8fc66ea41d8c",
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get many child blocks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a database page": {
+      "main": [
+        [
+          {
+            "node": "Upload Image Blocks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many child blocks": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Create a Notion File Upload object1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Upload file contents1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file contents1": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a Notion File Upload object1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "time": {
+      "main": [
+        [
+          {
+            "node": "Create a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages": {
+      "main": [
+        [
+          {
+            "node": "time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Image Blocks": {
+      "main": [
+        [
+          {
+            "node": "Update a database page to Approved",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:06.622Z",
+  "id": "4AHLSNlzpGEVoBDr",
+  "isArchived": false,
+  "meta": null,
+  "name": "Add SOCIAL images to Transformed Notion Page",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "transformed-notion-page-approval",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -544,
+        -80
+      ],
+      "id": "dde1ce6b-e01d-47d8-afc1-e25ea1c5ceae",
+      "name": "Webhook",
+      "webhookId": "7aff71d5-fb87-4f71-bf8b-0ee258b7f9d0"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "27c785c0-cfab-8184-b393-f557e7150135",
+          "mode": "list",
+          "cachedResultName": "Syntech Transformed Content",
+          "cachedResultUrl": "https://www.notion.so/27c785c0cfab8184b393f557e7150135"
+        },
+        "title": "={{ $('Webhook').first().json.body.data.properties.Content.title[0].text.content }}",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Platform|multi_select",
+              "multiSelectValue": "={{ [\"Instagram\",\"LinkedIn\",\"Facebook\",\"Threads\"] }}"
+            },
+            {
+              "key": "Media Type|multi_select",
+              "multiSelectValue": [
+                "Post"
+              ]
+            },
+            {
+              "key": "Status|status",
+              "statusValue": "Ready to Post"
+            },
+            {
+              "key": "Schedule Date|date",
+              "date": "={{ $json.scheduledDate }}"
+            },
+            {
+              "key": "Type|select",
+              "selectValue": "=SOCIAL"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1456,
+        -80
+      ],
+      "id": "10e68fc6-8053-43d8-be6b-ff4dfc4b821b",
+      "name": "Create a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "value": "={{ $json.body.data.id }}",
+          "mode": "id"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -304,
+        -80
+      ],
+      "id": "20ae657b-892b-420a-8736-19a45d065b37",
+      "name": "Get many child blocks",
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all items (blocks) from the previous node\nconst items = $input.all();\n\n// Initialize variables\nlet foundImage = null;\nlet foundText = null;\n\n// Loop through the items to find the image and the text\nfor (const item of items) {\n  if (item.json.type === 'image') {\n    foundImage = item.json.image.file.url;\n  }\n  if (item.json.type === 'paragraph') {\n    foundText = item.json.content;\n  }\n}\n\n// Return a single combined item\nreturn [{\n  json: {\n    final_image_url: foundImage,\n    final_content: foundText\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        -80
+      ],
+      "id": "11e9b291-c27b-4c47-b12f-f1fe47017228",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Code in JavaScript').item.json.final_image_url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        432,
+        -80
+      ],
+      "id": "c9ac5192-6034-4a83-9ac6-804bd175938b",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Create a Notion File Upload object1').item.json.upload_url }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "=data"
+            },
+            {
+              "name": "content_type",
+              "value": "={{ $binary.data.mimeType }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        -80
+      ],
+      "id": "bfed3724-cc5b-4208-ab92-1d04b50ec020",
+      "name": "Upload file contents1",
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/file_uploads",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content_type",
+              "value": "=image/jpeg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        192,
+        -80
+      ],
+      "id": "79eb85c5-4334-43c7-a9ae-d73f4d4cb7fd",
+      "name": "Create a Notion File Upload object1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/blocks/{{ $json.id }}/children",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"children\": [\n        {\n            \"type\": \"image\",\n            \"image\": {\n                \"caption\": [],\n                \"type\": \"file_upload\",\n                \"file_upload\": {\n                    \"id\": \"{{ $('Upload file contents1').item.json.id }}\"\n                }\n            }\n        }\n       ] \n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 5000
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1696,
+        -80
+      ],
+      "id": "09e322d3-03ea-41d9-8c37-f369b9ae217e",
+      "name": "Upload Image Blocks",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. INITIALIZE DATES\n// Start with \"Now\" as the baseline\nconst now = new Date();\nlet trackerDate = new Date(now); \n\n// 2. CHECK NOTION DATE\nif ($input.all().length > 0) {\n  const firstItem = $input.first().json;\n  \n  // Check 'property_schedule_date' because Simplify is ON\n  const dateObj = firstItem.property_schedule_date || firstItem.property_Date;\n  \n  if (dateObj && dateObj.start) {\n    const notionDate = new Date(dateObj.start);\n\n    // --- FIX STARTS HERE ---\n    // If the date from Notion is in the FUTURE relative to now, use it.\n    // If the date from Notion is in the PAST (old), stick with 'now'.\n    if (notionDate > now) {\n      trackerDate = new Date(notionDate);\n    }\n    // --- FIX ENDS HERE ---\n  }\n}\n\n// 3. GET FILES\nconst newFiles = $('Upload file contents1').all(); \nconst allowedDays = [1, 3, 5]; // 1=Mon, 3=Wed, 5=Fri\n\n// 4. LOOP & ASSIGN DATES\nreturn newFiles.map((file) => {\n  \n  // LOGIC: Start searching from the day AFTER the tracker date\n  let nextDate = new Date(trackerDate);\n  nextDate.setDate(nextDate.getDate() + 1); // Jump to tomorrow\n\n  // Keep adding days until we hit Mon/Wed/Fri\n  while (!allowedDays.includes(nextDate.getDay())) {\n    nextDate.setDate(nextDate.getDate() + 1);\n  }\n\n  // Update tracker for the next file in the loop\n  trackerDate = new Date(nextDate);\n\n  // Set time to 10:00 AM\n  nextDate.setHours(10, 0, 0, 0);\n\n  return {\n    json: {\n      ...file.json,\n      scheduledDate: nextDate.toISOString()\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        -80
+      ],
+      "id": "5003b11d-26d6-4eae-8ecc-502434f559ca",
+      "name": "time"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27c785c0-cfab-8184-b393-f557e7150135",
+          "mode": "list",
+          "cachedResultName": "Syntech Transformed Content",
+          "cachedResultUrl": "https://www.notion.so/27c785c0cfab8184b393f557e7150135"
+        },
+        "limit": 1,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Type|select",
+              "condition": "equals",
+              "selectValue": "SOCIAL"
+            }
+          ]
+        },
+        "options": {
+          "sort": {
+            "sortValue": [
+              {
+                "timestamp": true,
+                "key": "created_time",
+                "direction": "descending"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        912,
+        -80
+      ],
+      "id": "90e4ccde-bfc8-46f7-98f1-abd2f7dd9bcc",
+      "name": "Get many database pages",
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "### Download and Add to Transformed Notion page",
+        "height": 400,
+        "width": 1632
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -576,
+        -176
+      ],
+      "typeVersion": 1,
+      "id": "1743dd1e-3640-4fa8-9f83-80024089c68a",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Schedule",
+        "height": 384,
+        "width": 752,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1120,
+        -176
+      ],
+      "typeVersion": 1,
+      "id": "5c64b58a-41d2-4fcf-a48b-66736c3df305",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Webhook').first().json.body.data.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|status",
+              "statusValue": "Approved"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1904,
+        -80
+      ],
+      "id": "164d84f1-41ba-4214-af00-09ae2a3f2671",
+      "name": "Update a database page to Approved",
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "o41mt2JfV10VTV65"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:06.622Z",
+      "createdAt": "2026-01-28T09:06:06.622Z",
+      "role": "workflow:owner",
+      "workflowId": "4AHLSNlzpGEVoBDr",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-01-30T09:40:53.965Z",
+  "versionId": "1a97e2a4-1533-48e3-ac4c-8fc66ea41d8c"
+}
