@@ -15,9 +15,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:42.738Z",
-  "id": "EljI2Ghlanj0KTnq",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.387Z",
+  "id": "wcJpLROYaBePzzNX",
+  "isArchived": false,
   "meta": null,
   "name": "My Sub-Workflow 1",
   "nodes": [
@@ -56,16 +56,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:42.738Z",
-      "createdAt": "2026-01-28T08:12:42.738Z",
+      "updatedAt": "2026-01-28T09:06:06.387Z",
+      "createdAt": "2026-01-28T09:06:06.387Z",
       "role": "workflow:owner",
-      "workflowId": "EljI2Ghlanj0KTnq",
+      "workflowId": "wcJpLROYaBePzzNX",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:20:03.307Z",
-  "versionId": "4653c74b-8a0d-431e-8367-ed65994928bc"
+  "updatedAt": "2026-01-28T09:06:06.387Z",
+  "versionId": "68ef0453-c64a-4ab5-988e-d2389f8549c2"
 }
