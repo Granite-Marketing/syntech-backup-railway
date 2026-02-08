@@ -462,9 +462,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:43.299Z",
-  "id": "4HXqEX0HKE01eBMW",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.703Z",
+  "id": "6Kxlb19fD5Xqed1q",
+  "isArchived": false,
   "meta": null,
   "name": "Image Gen Playground",
   "nodes": [
@@ -1419,16 +1419,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:43.299Z",
-      "createdAt": "2026-01-28T08:12:43.299Z",
+      "updatedAt": "2026-01-28T09:06:06.703Z",
+      "createdAt": "2026-01-28T09:06:06.703Z",
       "role": "workflow:owner",
-      "workflowId": "4HXqEX0HKE01eBMW",
+      "workflowId": "6Kxlb19fD5Xqed1q",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:19:41.438Z",
-  "versionId": "1c6bc319-6eaf-4b35-ad60-f816da075621"
+  "updatedAt": "2026-01-28T09:06:06.703Z",
+  "versionId": "d44d9082-c015-4a02-b0eb-13f74028816d"
 }
