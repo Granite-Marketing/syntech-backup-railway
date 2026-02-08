@@ -126,9 +126,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:43.519Z",
-  "id": "P7vekpwwIOHurCQ8",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.883Z",
+  "id": "OdfESUqOA1RsnWb7",
+  "isArchived": false,
   "meta": null,
   "name": "SUB - URL -> Scrape using Apify",
   "nodes": [
@@ -521,16 +521,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:43.519Z",
-      "createdAt": "2026-01-28T08:12:43.519Z",
+      "updatedAt": "2026-01-28T09:06:06.883Z",
+      "createdAt": "2026-01-28T09:06:06.883Z",
       "role": "workflow:owner",
-      "workflowId": "P7vekpwwIOHurCQ8",
+      "workflowId": "OdfESUqOA1RsnWb7",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:19:28.547Z",
-  "versionId": "19254eac-0fb2-435d-8475-ed3c10bccf10"
+  "updatedAt": "2026-01-28T09:06:06.883Z",
+  "versionId": "58f7c207-7cfd-4493-8930-5bdb1cb85933"
 }
