@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-08T20:50:45.304Z",
-    "createdAt": "2026-02-08T20:50:38.666Z",
-    "versionId": "6e35cbd8-54cb-4e4c-bf17-1a7389c69746",
+    "updatedAt": "2026-02-08T20:59:22.333Z",
+    "createdAt": "2026-02-08T20:59:16.326Z",
+    "versionId": "391eb3ad-285b-4ddf-b4b3-5b1afa946d8f",
     "workflowId": "GKIImSvFvvHwdCFp",
     "nodes": [
       {
@@ -396,7 +396,7 @@
             "mode": "list",
             "cachedResultName": "syntech-n8n-error-tracker"
           },
-          "text": "=:information_source:  Starting Workflow Backup [{{ $execution.id }}]",
+          "text": "=:information_source:  Starting Syntech Workflow Backup [{{ $execution.id }}]",
           "otherOptions": {
             "includeLinkToWorkflow": false
           }
@@ -442,7 +442,7 @@
             "mode": "list",
             "cachedResultName": "syntech-n8n-error-tracker"
           },
-          "text": "=# NEW n8n:\n✅ Backup has completed - {{ $('n8n').all().length }} workflows have been processed.",
+          "text": "=# Syntech n8n:\n✅ Backup has completed - {{ $('n8n').all().length }} workflows have been processed.",
           "otherOptions": {}
         },
         "id": "f7ad0b5c-aa28-474d-a29c-8e466ef17258",
@@ -471,7 +471,7 @@
             "mode": "list",
             "cachedResultName": "syntech-n8n-error-tracker"
           },
-          "text": "=# NEW n8n:\n:x: Failed to backup {{ $('Loop Over Items').item.json.id }}",
+          "text": "=# Syntech n8n:\n:x: Failed to backup {{ $('Loop Over Items').item.json.id }}",
           "otherOptions": {
             "includeLinkToWorkflow": false
           }
@@ -907,11 +907,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "add git credential",
+    "name": "update slack message name",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "6e35cbd8-54cb-4e4c-bf17-1a7389c69746",
+  "activeVersionId": "391eb3ad-285b-4ddf-b4b3-5b1afa946d8f",
   "connections": {
     "n8n": {
       "main": [
@@ -1603,7 +1603,7 @@
           "mode": "list",
           "cachedResultName": "syntech-n8n-error-tracker"
         },
-        "text": "=:information_source:  Starting Workflow Backup [{{ $execution.id }}]",
+        "text": "=:information_source:  Starting Syntech Workflow Backup [{{ $execution.id }}]",
         "otherOptions": {
           "includeLinkToWorkflow": false
         }
@@ -1649,7 +1649,7 @@
           "mode": "list",
           "cachedResultName": "syntech-n8n-error-tracker"
         },
-        "text": "=# NEW n8n:\n✅ Backup has completed - {{ $('n8n').all().length }} workflows have been processed.",
+        "text": "=# Syntech n8n:\n✅ Backup has completed - {{ $('n8n').all().length }} workflows have been processed.",
         "otherOptions": {}
       },
       "id": "f7ad0b5c-aa28-474d-a29c-8e466ef17258",
@@ -1678,7 +1678,7 @@
           "mode": "list",
           "cachedResultName": "syntech-n8n-error-tracker"
         },
-        "text": "=# NEW n8n:\n:x: Failed to backup {{ $('Loop Over Items').item.json.id }}",
+        "text": "=# Syntech n8n:\n:x: Failed to backup {{ $('Loop Over Items').item.json.id }}",
         "otherOptions": {
           "includeLinkToWorkflow": false
         }
@@ -5394,6 +5394,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-08T20:50:38.665Z",
-  "versionId": "6e35cbd8-54cb-4e4c-bf17-1a7389c69746"
+  "updatedAt": "2026-02-08T20:59:16.325Z",
+  "versionId": "391eb3ad-285b-4ddf-b4b3-5b1afa946d8f"
 }
