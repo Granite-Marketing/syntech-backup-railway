@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-28T18:53:38.461Z",
-    "createdAt": "2026-01-28T18:53:35.966Z",
-    "versionId": "7791f7ed-b0ae-4f87-80d2-6c65d5b6b7e6",
+    "updatedAt": "2026-02-06T11:47:14.378Z",
+    "createdAt": "2026-02-06T11:47:05.385Z",
+    "versionId": "fa202cad-6258-4a1e-8383-396f8919c4f2",
     "workflowId": "sK-5ZAHQNG8DcOcN6Ggch",
     "nodes": [
       {
@@ -34,6 +34,7 @@
           "promptType": "define",
           "text": "={{ $('Set Article JSON').item.json.article }}",
           "hasOutputParser": true,
+          "needsFallback": true,
           "messages": {
             "messageValues": [
               {
@@ -70,7 +71,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          944,
+          992,
           256
         ],
         "id": "d5ca567c-7514-4909-baaf-913f52dca1fd",
@@ -87,6 +88,7 @@
           "promptType": "define",
           "text": "={{ $('Set Article JSON').item.json.article }}",
           "hasOutputParser": true,
+          "needsFallback": true,
           "messages": {
             "messageValues": [
               {
@@ -153,8 +155,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          416,
-          736
+          336,
+          848
         ],
         "id": "7e0b17ad-dc0a-41e4-8a98-e34616782d73",
         "name": "Extract Filter Matches",
@@ -175,8 +177,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          640,
-          960
+          464,
+          1056
         ],
         "id": "005a69d6-08e5-429e-9a73-ca0f0ee6f505",
         "name": "Anthropic Chat Model7",
@@ -192,6 +194,7 @@
           "promptType": "define",
           "text": "=# EXISTING Article:\ntopic_subject:{{ $('Extract Filter Matches').item.json.topic_subject || 'No Match Found' }}\ntopic_action:{{ $('Extract Filter Matches').item.json.topic_action || 'No Match Found' }}\ntopic_entities:{{ $('Extract Filter Matches').item.json.topic_entities || 'No Match Found' }}\ntopic_geo:{{ $('Extract Filter Matches').item.json.topic_geo || 'No Match Found'}}\ntopic_signature:{{ $('Extract Filter Matches').item.json.topic_signature || 'No Match Found'}}\nfact_fingerprint:{{ $('Extract Filter Matches').item.json.fact_fingerprint ? $('Extract Filter Matches').item.json.fact_fingerprint.toJsonString() : 'No Match Found' }}\n\n# NEW Article:\ntopic_subject:{{ $('Create Topical Signature').item.json.output.topic_subject }}\ntopic_action:{{ $('Create Topical Signature').item.json.output.topic_action }}\ntopic_entities:{{ $('Create Topical Signature').item.json.output.topic_entities }}\ntopic_geo:{{ $('Create Topical Signature').item.json.output.topic_geo }}\ntopic_signature:{{ $('Create Topical Signature').item.json.output.topic_signature }}\nfact_fingerprint:{{ $('Fact Extraction Prompt').item.json.output.toJsonString() }}",
           "hasOutputParser": true,
+          "needsFallback": true,
           "messages": {
             "messageValues": [
               {
@@ -206,8 +209,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          688,
-          736
+          608,
+          848
         ],
         "id": "0f805542-362d-4ad2-8097-fb92be425528",
         "name": "Find Matching Topic",
@@ -221,20 +224,21 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          2016,
-          832
+          1936,
+          944
         ],
         "id": "372ade0b-951d-4949-84d3-965561156367",
         "name": "Final Classification"
       },
       {
         "parameters": {
-          "jsonSchemaExample": "{\n  \"topic_subject\": \"\",\n  \"topic_action\": \"\",\n  \"topic_entities\": [],\n  \"topic_geo\": \"\",\n  \"topic_signature\": \"\"\n}"
+          "jsonSchemaExample": "{\n  \"topic_subject\": \"\",\n  \"topic_action\": \"\",\n  \"topic_entities\": [],\n  \"topic_geo\": \"\",\n  \"topic_signature\": \"\"\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          736,
+          704,
           256
         ],
         "id": "dbee4edf-b6d7-4d0f-850a-d92b90058a4a",
@@ -255,8 +259,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          576,
-          256
+          400,
+          240
         ],
         "id": "05711be8-75a9-4415-8145-0556ab4df1de",
         "name": "Anthropic Chat Model3",
@@ -269,12 +273,13 @@
       },
       {
         "parameters": {
-          "jsonSchemaExample": "{\n  \"entities\": [\"list of countries, companies, organisations\"],\n  \"actions\": [\"key actions or events, normalised\"],\n  \"numerical_values\": [\"percentages, volumes, dates, £ amounts\"],\n  \"policy_terms\": [\"tariff\", \"duty\", \"RTFO\", \"RTFC\", \"regulation\"],\n  \"dates\": [\"explicit dates or months mentioned\"],\n  \"impacts\": [\"short phrases summarising consequences or effects\"]\n}"
+          "jsonSchemaExample": "{\n  \"entities\": [\"list of countries, companies, organisations\"],\n  \"actions\": [\"key actions or events, normalised\"],\n  \"numerical_values\": [\"percentages, volumes, dates, £ amounts\"],\n  \"policy_terms\": [\"tariff\", \"duty\", \"RTFO\", \"RTFC\", \"regulation\"],\n  \"dates\": [\"explicit dates or months mentioned\"],\n  \"impacts\": [\"short phrases summarising consequences or effects\"]\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1136,
+          1312,
           256
         ],
         "id": "4655715f-875f-4ca9-a5af-02ccbec3315e",
@@ -282,13 +287,14 @@
       },
       {
         "parameters": {
-          "jsonSchemaExample": "{\n  \"match\": \"yes or no\",\n  \"reason\": \"short explanation\"\n}"
+          "jsonSchemaExample": "{\n  \"match\": \"yes or no\",\n  \"reason\": \"short explanation\"\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          832,
-          960
+          800,
+          1072
         ],
         "id": "333ac4fb-bc4b-4445-995d-42b54576fa1f",
         "name": "Structured Output Parser24"
@@ -308,8 +314,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          1152,
-          976
+          1072,
+          1088
         ],
         "id": "62436151-7aac-40d4-9dff-3902f8ed0e88",
         "name": "Anthropic Chat Model2",
@@ -325,6 +331,7 @@
           "promptType": "define",
           "text": "=# EXISTING Article:\ntopic_subject:{{ $('Extract Filter Matches').item.json.topic_subject }}\ntopic_action:{{ $('Extract Filter Matches').item.json.topic_action }}\ntopic_entities:{{ $('Extract Filter Matches').item.json.topic_entities }}\ntopic_geo:{{ $('Extract Filter Matches').item.json.topic_geo }}\ntopic_signature:{{ $('Extract Filter Matches').item.json.topic_signature }}\nfact_fingerprint:{{ $('Extract Filter Matches').item.json.fact_fingerprint.toJsonString() }}\n\n# NEW Article:\ntopic_subject:{{ $('Create Topical Signature').item.json.output.topic_subject }}\ntopic_action:{{ $('Create Topical Signature').item.json.output.topic_action }}\ntopic_entities:{{ $('Create Topical Signature').item.json.output.topic_entities }}\ntopic_geo:{{ $('Create Topical Signature').item.json.output.topic_geo }}\ntopic_signature:{{ $('Create Topical Signature').item.json.output.topic_signature }}\nfact_fingerprint:{{ $('Fact Extraction Prompt').item.json.output.toJsonString() }}",
           "hasOutputParser": true,
+          "needsFallback": true,
           "messages": {
             "messageValues": [
               {
@@ -339,8 +346,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          1264,
-          624
+          1184,
+          736
         ],
         "id": "d6fc283b-66f4-48bf-a3ce-cc404864c6eb",
         "name": "Duplicate vs Update Classifier",
@@ -349,13 +356,14 @@
       },
       {
         "parameters": {
-          "jsonSchemaExample": "{\n  \"classification\": \"\",\n  \"reason\": \"one sentence explanation\"\n}"
+          "jsonSchemaExample": "{\n  \"classification\": \"\",\n  \"reason\": \"one sentence explanation\"\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1392,
-          992
+          1408,
+          1088
         ],
         "id": "edca9e5c-e603-4490-ae22-fba416ceddea",
         "name": "Structured Output Parser23"
@@ -369,8 +377,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          1600,
-          720
+          1520,
+          832
         ],
         "id": "68d8ad5b-796c-4f07-a159-6dfe29a4c4e1",
         "name": "Merge7",
@@ -404,8 +412,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          1024,
-          736
+          944,
+          848
         ],
         "id": "b9888465-7a3a-4f0d-8756-f767adaf7eac",
         "name": "Is Matching Topic?"
@@ -438,8 +446,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          1808,
-          720
+          1728,
+          832
         ],
         "id": "c67b9ef2-496c-45bb-af26-43c25ad6da12",
         "name": "If Empty Object"
@@ -451,8 +459,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          2016,
-          656
+          1936,
+          768
         ],
         "id": "daae99f5-8133-4d80-9486-be30cccad4b6",
         "name": "Code in JavaScript"
@@ -505,8 +513,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2240,
-          720
+          2160,
+          832
         ],
         "id": "7e7efc50-2a77-4cd5-85a7-02577b2d2c1a",
         "name": "Set Output"
@@ -535,12 +543,232 @@
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          240,
-          464
+          160,
+          576
         ],
         "typeVersion": 1,
         "id": "5eaa7891-1179-4e80-aad3-dec98d6b31ca",
         "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-5.1",
+            "mode": "list",
+            "cachedResultName": "gpt-5.1"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          624,
+          1072
+        ],
+        "id": "abc49b4d-8625-477f-9460-09dda42d32a4",
+        "name": "OpenAI Chat Model",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-5.1",
+            "mode": "list",
+            "cachedResultName": "gpt-5.1"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          1152,
+          256
+        ],
+        "id": "b29ef555-e690-4464-9849-c041a7369413",
+        "name": "OpenAI Chat Model1",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-5.1",
+            "mode": "list",
+            "cachedResultName": "gpt-5.1"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          544,
+          240
+        ],
+        "id": "cb61c024-15a3-40fb-9458-8643c936dd6b",
+        "name": "OpenAI Chat Model2",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-5.1",
+            "mode": "list",
+            "cachedResultName": "gpt-5.1"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          1232,
+          1072
+        ],
+        "id": "bde85d14-597e-4cae-a159-4013b4136aaf",
+        "name": "OpenAI Chat Model3",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "claude-sonnet-4-5-20250929",
+            "cachedResultName": "Claude Sonnet 4.5"
+          },
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          1264,
+          432
+        ],
+        "id": "add79ae0-5df3-417a-aeb1-3063bd88a969",
+        "name": "Anthropic Chat Model",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "claude-sonnet-4-5-20250929",
+            "cachedResultName": "Claude Sonnet 4.5"
+          },
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          656,
+          432
+        ],
+        "id": "b62e9823-98f2-4b78-af3b-74313cd97f1c",
+        "name": "Anthropic Chat Model4",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "claude-sonnet-4-5-20250929",
+            "cachedResultName": "Claude Sonnet 4.5"
+          },
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          736,
+          1280
+        ],
+        "id": "3caa96cd-bc2c-47ee-a00a-3df75ffbe868",
+        "name": "Anthropic Chat Model5",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "claude-sonnet-4-5-20250929",
+            "cachedResultName": "Claude Sonnet 4.5"
+          },
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          1344,
+          1296
+        ],
+        "id": "5e125ac6-ad92-4833-8b78-5faafe784ef1",
+        "name": "Anthropic Chat Model6",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
       }
     ],
     "connections": {
@@ -799,14 +1027,102 @@
             }
           ]
         ]
+      },
+      "OpenAI Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Find Matching Topic",
+              "type": "ai_languageModel",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model2": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create Topical Signature",
+              "type": "ai_languageModel",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Fact Extraction Prompt",
+              "type": "ai_languageModel",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model3": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Duplicate vs Update Classifier",
+              "type": "ai_languageModel",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Anthropic Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser22",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Anthropic Chat Model4": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser21",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Anthropic Chat Model5": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser24",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Anthropic Chat Model6": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser23",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Init",
+    "name": "add output fixer",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "7791f7ed-b0ae-4f87-80d2-6c65d5b6b7e6",
+  "activeVersionId": "fa202cad-6258-4a1e-8383-396f8919c4f2",
   "connections": {
     "Set Article JSON": {
       "main": [
@@ -1063,6 +1379,94 @@
           }
         ]
       ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Find Matching Topic",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Topical Signature",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Fact Extraction Prompt",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Duplicate vs Update Classifier",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser22",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser21",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser24",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser23",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:11:05.040Z",
@@ -1101,6 +1505,7 @@
         "promptType": "define",
         "text": "={{ $('Set Article JSON').item.json.article }}",
         "hasOutputParser": true,
+        "needsFallback": true,
         "messages": {
           "messageValues": [
             {
@@ -1137,7 +1542,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        944,
+        992,
         256
       ],
       "id": "d5ca567c-7514-4909-baaf-913f52dca1fd",
@@ -1154,6 +1559,7 @@
         "promptType": "define",
         "text": "={{ $('Set Article JSON').item.json.article }}",
         "hasOutputParser": true,
+        "needsFallback": true,
         "messages": {
           "messageValues": [
             {
@@ -1220,8 +1626,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        416,
-        736
+        336,
+        848
       ],
       "id": "7e0b17ad-dc0a-41e4-8a98-e34616782d73",
       "name": "Extract Filter Matches",
@@ -1242,8 +1648,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        640,
-        960
+        464,
+        1056
       ],
       "id": "005a69d6-08e5-429e-9a73-ca0f0ee6f505",
       "name": "Anthropic Chat Model7",
@@ -1259,6 +1665,7 @@
         "promptType": "define",
         "text": "=# EXISTING Article:\ntopic_subject:{{ $('Extract Filter Matches').item.json.topic_subject || 'No Match Found' }}\ntopic_action:{{ $('Extract Filter Matches').item.json.topic_action || 'No Match Found' }}\ntopic_entities:{{ $('Extract Filter Matches').item.json.topic_entities || 'No Match Found' }}\ntopic_geo:{{ $('Extract Filter Matches').item.json.topic_geo || 'No Match Found'}}\ntopic_signature:{{ $('Extract Filter Matches').item.json.topic_signature || 'No Match Found'}}\nfact_fingerprint:{{ $('Extract Filter Matches').item.json.fact_fingerprint ? $('Extract Filter Matches').item.json.fact_fingerprint.toJsonString() : 'No Match Found' }}\n\n# NEW Article:\ntopic_subject:{{ $('Create Topical Signature').item.json.output.topic_subject }}\ntopic_action:{{ $('Create Topical Signature').item.json.output.topic_action }}\ntopic_entities:{{ $('Create Topical Signature').item.json.output.topic_entities }}\ntopic_geo:{{ $('Create Topical Signature').item.json.output.topic_geo }}\ntopic_signature:{{ $('Create Topical Signature').item.json.output.topic_signature }}\nfact_fingerprint:{{ $('Fact Extraction Prompt').item.json.output.toJsonString() }}",
         "hasOutputParser": true,
+        "needsFallback": true,
         "messages": {
           "messageValues": [
             {
@@ -1273,8 +1680,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        688,
-        736
+        608,
+        848
       ],
       "id": "0f805542-362d-4ad2-8097-fb92be425528",
       "name": "Find Matching Topic",
@@ -1288,20 +1695,21 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2016,
-        832
+        1936,
+        944
       ],
       "id": "372ade0b-951d-4949-84d3-965561156367",
       "name": "Final Classification"
     },
     {
       "parameters": {
-        "jsonSchemaExample": "{\n  \"topic_subject\": \"\",\n  \"topic_action\": \"\",\n  \"topic_entities\": [],\n  \"topic_geo\": \"\",\n  \"topic_signature\": \"\"\n}"
+        "jsonSchemaExample": "{\n  \"topic_subject\": \"\",\n  \"topic_action\": \"\",\n  \"topic_entities\": [],\n  \"topic_geo\": \"\",\n  \"topic_signature\": \"\"\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        736,
+        704,
         256
       ],
       "id": "dbee4edf-b6d7-4d0f-850a-d92b90058a4a",
@@ -1322,8 +1730,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        576,
-        256
+        400,
+        240
       ],
       "id": "05711be8-75a9-4415-8145-0556ab4df1de",
       "name": "Anthropic Chat Model3",
@@ -1336,12 +1744,13 @@
     },
     {
       "parameters": {
-        "jsonSchemaExample": "{\n  \"entities\": [\"list of countries, companies, organisations\"],\n  \"actions\": [\"key actions or events, normalised\"],\n  \"numerical_values\": [\"percentages, volumes, dates, £ amounts\"],\n  \"policy_terms\": [\"tariff\", \"duty\", \"RTFO\", \"RTFC\", \"regulation\"],\n  \"dates\": [\"explicit dates or months mentioned\"],\n  \"impacts\": [\"short phrases summarising consequences or effects\"]\n}"
+        "jsonSchemaExample": "{\n  \"entities\": [\"list of countries, companies, organisations\"],\n  \"actions\": [\"key actions or events, normalised\"],\n  \"numerical_values\": [\"percentages, volumes, dates, £ amounts\"],\n  \"policy_terms\": [\"tariff\", \"duty\", \"RTFO\", \"RTFC\", \"regulation\"],\n  \"dates\": [\"explicit dates or months mentioned\"],\n  \"impacts\": [\"short phrases summarising consequences or effects\"]\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1136,
+        1312,
         256
       ],
       "id": "4655715f-875f-4ca9-a5af-02ccbec3315e",
@@ -1349,13 +1758,14 @@
     },
     {
       "parameters": {
-        "jsonSchemaExample": "{\n  \"match\": \"yes or no\",\n  \"reason\": \"short explanation\"\n}"
+        "jsonSchemaExample": "{\n  \"match\": \"yes or no\",\n  \"reason\": \"short explanation\"\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        832,
-        960
+        800,
+        1072
       ],
       "id": "333ac4fb-bc4b-4445-995d-42b54576fa1f",
       "name": "Structured Output Parser24"
@@ -1375,8 +1785,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        1152,
-        976
+        1072,
+        1088
       ],
       "id": "62436151-7aac-40d4-9dff-3902f8ed0e88",
       "name": "Anthropic Chat Model2",
@@ -1392,6 +1802,7 @@
         "promptType": "define",
         "text": "=# EXISTING Article:\ntopic_subject:{{ $('Extract Filter Matches').item.json.topic_subject }}\ntopic_action:{{ $('Extract Filter Matches').item.json.topic_action }}\ntopic_entities:{{ $('Extract Filter Matches').item.json.topic_entities }}\ntopic_geo:{{ $('Extract Filter Matches').item.json.topic_geo }}\ntopic_signature:{{ $('Extract Filter Matches').item.json.topic_signature }}\nfact_fingerprint:{{ $('Extract Filter Matches').item.json.fact_fingerprint.toJsonString() }}\n\n# NEW Article:\ntopic_subject:{{ $('Create Topical Signature').item.json.output.topic_subject }}\ntopic_action:{{ $('Create Topical Signature').item.json.output.topic_action }}\ntopic_entities:{{ $('Create Topical Signature').item.json.output.topic_entities }}\ntopic_geo:{{ $('Create Topical Signature').item.json.output.topic_geo }}\ntopic_signature:{{ $('Create Topical Signature').item.json.output.topic_signature }}\nfact_fingerprint:{{ $('Fact Extraction Prompt').item.json.output.toJsonString() }}",
         "hasOutputParser": true,
+        "needsFallback": true,
         "messages": {
           "messageValues": [
             {
@@ -1406,8 +1817,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        1264,
-        624
+        1184,
+        736
       ],
       "id": "d6fc283b-66f4-48bf-a3ce-cc404864c6eb",
       "name": "Duplicate vs Update Classifier",
@@ -1416,13 +1827,14 @@
     },
     {
       "parameters": {
-        "jsonSchemaExample": "{\n  \"classification\": \"\",\n  \"reason\": \"one sentence explanation\"\n}"
+        "jsonSchemaExample": "{\n  \"classification\": \"\",\n  \"reason\": \"one sentence explanation\"\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1392,
-        992
+        1408,
+        1088
       ],
       "id": "edca9e5c-e603-4490-ae22-fba416ceddea",
       "name": "Structured Output Parser23"
@@ -1436,8 +1848,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        1600,
-        720
+        1520,
+        832
       ],
       "id": "68d8ad5b-796c-4f07-a159-6dfe29a4c4e1",
       "name": "Merge7",
@@ -1471,8 +1883,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1024,
-        736
+        944,
+        848
       ],
       "id": "b9888465-7a3a-4f0d-8756-f767adaf7eac",
       "name": "Is Matching Topic?"
@@ -1505,8 +1917,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1808,
-        720
+        1728,
+        832
       ],
       "id": "c67b9ef2-496c-45bb-af26-43c25ad6da12",
       "name": "If Empty Object"
@@ -1518,8 +1930,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2016,
-        656
+        1936,
+        768
       ],
       "id": "daae99f5-8133-4d80-9486-be30cccad4b6",
       "name": "Code in JavaScript"
@@ -1572,8 +1984,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2240,
-        720
+        2160,
+        832
       ],
       "id": "7e7efc50-2a77-4cd5-85a7-02577b2d2c1a",
       "name": "Set Output"
@@ -1602,19 +2014,239 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        240,
-        464
+        160,
+        576
       ],
       "typeVersion": 1,
       "id": "5eaa7891-1179-4e80-aad3-dec98d6b31ca",
       "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        624,
+        1072
+      ],
+      "id": "abc49b4d-8625-477f-9460-09dda42d32a4",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1152,
+        256
+      ],
+      "id": "b29ef555-e690-4464-9849-c041a7369413",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        544,
+        240
+      ],
+      "id": "cb61c024-15a3-40fb-9458-8643c936dd6b",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1232,
+        1072
+      ],
+      "id": "bde85d14-597e-4cae-a159-4013b4136aaf",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-5-20250929",
+          "cachedResultName": "Claude Sonnet 4.5"
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        1264,
+        432
+      ],
+      "id": "add79ae0-5df3-417a-aeb1-3063bd88a969",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-5-20250929",
+          "cachedResultName": "Claude Sonnet 4.5"
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        656,
+        432
+      ],
+      "id": "b62e9823-98f2-4b78-af3b-74313cd97f1c",
+      "name": "Anthropic Chat Model4",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-5-20250929",
+          "cachedResultName": "Claude Sonnet 4.5"
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        736,
+        1280
+      ],
+      "id": "3caa96cd-bc2c-47ee-a00a-3df75ffbe868",
+      "name": "Anthropic Chat Model5",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-5-20250929",
+          "cachedResultName": "Claude Sonnet 4.5"
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        1344,
+        1296
+      ],
+      "id": "5e125ac6-ad92-4833-8b78-5faafe784ef1",
+      "name": "Anthropic Chat Model6",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
     }
   ],
   "pinData": {
     "Initial Input": [
       {
         "json": {
-          "article": "{\"title\":\"Viewpoint: EU policy to boost Asia spec tanker demand\",\"content\":\"Login\\nEnglish\\n\\nCommodities  \\n   Oil products  \\n   Gas and power  \\n   Net zero  \\n   Chemicals  \\n   Fertilizers  \\n   Metals\\nIndustries\\nSolutions  \\n   Commodity prices  \\n   Analytics and forecasting  \\n   How we deliver\\nEvents\\nNews and insights\\nMethodology\\n\\nSpeak to a specialist\\n\\nSearchSearch\\n\\nSearch\\n\\nSearchSearch\\n\\nSearch\\n\\nCommodities  \\n   Oil products  \\n   Gas and power  \\n   Net zero  \\n   Chemicals  \\n   Fertilizers  \\n   Metals\\nIndustries\\nSolutions  \\n   Commodity prices  \\n   Analytics and forecasting  \\n   How we deliver\\nEvents\\nNews and insights\\nMethodology\\n\\nLogin\\nEnglish\\n\\nSpeak to a specialist\\n\\nSpeak to a specialist\\n\\nRegister and we will customize a solution that meets your exact needs. When you speak to one of our experts, you may be qualified to sample our industry-leading products on a no-cost basis.\\n\\nYou can unsubscribe from these updates at any time. We manage your personal data in accordance with our .\\n\\nClose\\n\\nSpeak to a specialist\\n\\nViewpoint: EU policy to boost Asia spec tanker demand\\n\\nMarket: Biofuels, Freight\\n30/12/25\\n\\nEU legislation and new biofuels mandates should drive up 2026 demand for specialised tankers to move biofuels and renewable feedstocks from Asia-Pacific. This could offset any loss in US demand because of new terms in its 45Z tax credit policy.\\n\\nExports of biofuels and feedstocks to Europe make up the bulk of long-haul demand for specialised tankers in Asia-Pacific. This trade should grow in 2026 when EU states implement the revised renewable energy directive (RED III). \\n\\nBut many of the EU's largest biofuels consumers — including Germany, France, Italy and Spain — missed the 21 May 2025 deadline, and some have pushed back launch dates to 2027, which may limit the export surge that market participants were forecasting for 2026.\\n\\nGermany's new legislation should offer partial support. As the EU's largest biofuels consumer, its RED III transposition is pivotal. The German cabinet approved legislation to implement the EU's RED III  on 10 December, including provisions to end double-counting of advanced biofuels made from waste products, such as used cooking oil (UCO) or tall oil. This would require a much higher amount of physical biofuels to reach the same level of greenhouse gas (GHG) credits, driving up consumption. The bill still needs to pass through Germany's lower and upper parliaments for debate, meaning it is unlikely it will pass into law until later in 2026\\\\. But the abolition of double counting will apply to the entire compliance year, so it will be retroactive to 1 January.\\n\\nHydrotreated vegetable oil (HVO) is the primary way to reach blending targets, because ethanol and biodiesel have strict blend walls limiting any sizeable jump in consumption. Higher HVO demand will probably require a rise in imports from Singapore, given the EU has anti-dumping duties on US and Chinese product.\\n\\nThis will buoy demand for specialised tankers in southeast Asia in 2026, although a larger demand rise will depend on RED III implementation across the bloc.\\n\\n Fading US incentives\\n\\nNew terms of the US' 45Z tax credit scheme, which will only incentivise biofuels produced using feedstocks from the US, Canada or Mexico from 1 January 2026, have already weighed on imports from Asia-Pacific.\\n\\nSome wider trade should continue as certain biofuels producers buy feedstocks to produce for export markets. Prices of north American feedstocks should eventually be pushed up to parity with other feedstocks, making the latter competitive in US markets even without the 45Z.\\n\\nWhile this would kick out exports from Asia-Pacific again, these dynamics will take some time and will probably leave flows reduced in the early months of 2026.\\n\\nUS demand for biofuels and feedstocks from Asia-Pacific had tapered off in 2025, meaning further losses in exports should be easily offset by growth in trade to Europe — supporting specialised tanker rates.\\n\\nAround 43pc of the 15.2mn t of biofuels and renewable feedstocks exported from Asia-Pacific in 2025 headed to Europe, and only around 13pc to the US, Kpler data show. This means a loss in exports to the US could be easily offset by growth in European demand. If exports to the US dropped by 50pc in 2026 to just under 1mn t, there would need to only be a 15pc jump in exports to the EU, to around 7.5mn t, to keep overall exports from Asia-Pacific flat on the year.\\n\\nBy Leonard Fisher-Matthews\\n\\n---\\n\\nShare\\n\\nRelated news posts\\n\\nArgus illuminates the markets by putting a lens on the areas that matter most to you. The market news and commentary we publish reveals vital insights that enable you to make stronger, well-informed decisions. Explore a selection of news stories related to this one.\\n\\n Related Products\\n\\nBusiness intelligence reports\\n\\nGet concise, trustworthy and unbiased analysis of the latest trends and developments in oil and energy markets. These reports are specially created for decision makers who don’t have time to track markets day-by-day, minute-by-minute.\\n\\nilluminating the markets\\n\\nBy accessing this site you agree that you will not copy or reproduce any part of its contents (including, but not limited to, single prices, graphs or news content) in any form or for any purpose whatsoever without the prior written consent of the publisher.\\n\\n© 2026 Argus Media group. All rights reserved.\",\"url\":\"https://www.argusmedia.com/en/news-and-insights/latest-market-news/2770687-viewpoint-eu-policy-to-boost-asia-spec-tanker-demand\",\"summary\":\"EU RED III legislation and Germany's upcoming abolition of biofuel double-counting are set to increase demand for specialized tankers from Asia-Pacific. While new U.S. tax credit rules may dampen imports, the European demand surge is expected to support freight rates and offset potential U.S. trade losses.\",\"search_query\":\"used cooking oil biodiesel EU policy news\",\"publication_date\":\"2025-12-30T17:44:35Z\",\"source\":\"Tavily\",\"additional_formats\":null,\"prompt\":null,\"mode\":null}"
+          "article": "{\"title\":\"Sizewell C Doubles Workforce in Year, Hosts MP to Showcase Growth and Local Investment\",\"content\":\"We welcomed local MP Jess Asato MP to our construction site today to show her all our recent progress and to meet some of our team. It was great talking with her about our work in and with Lowestoft and what we're doing to reduce our impact on local roads. \\n\\n🚜With 2,000 workers on our site now, Sizewell C has grown. In fact, we've doubled in size within the last year. What's more, we have a willing workforce right on our doorstep with a third of our team coming from the East of England.\\n\\n👷We've got big ambitions to grow our workforce even more while we build the power station. We continue to work closely with local partners on expanding and improving local infrastructure such as our two park and rides, on-site accommodation and our proposed bus depot in Ipswich to minimise pressure on local communities as we get busier on and around site. \\n\\n⬇️Read our press release for full details (link in comments)\\n#SizewellC #Suffolk #Construction #BritishBuilt #Nuclear\",\"url\":\"https://www.linkedin.com/posts/sizewellc_sizewellc-suffolk-construction-activity-7423030422793539584-qLxX\",\"summary\":\"Sizewell C nuclear project doubled its workforce to 2,000 in the past year, with one-third from the East of England. MP Jess Asato visited the site to discuss growth, local road impact reduction, and planned infrastructure improvements to support the expanding construction.\",\"search_query\":\"https://www.linkedin.com/company/sizewellc/posts/\",\"publication_date\":\"2026-01-30T15:52:46.030Z\",\"prompt\":null,\"additional_formats\":null,\"source\":\"LinkedIn\",\"source_name\":\"Sizewell C\",\"mode\":null}"
         },
         "pairedItem": {
           "item": 0
@@ -1639,8 +2271,15 @@
     }
   ],
   "staticData": null,
-  "tags": [],
+  "tags": [
+    {
+      "updatedAt": "2026-02-04T09:42:46.339Z",
+      "createdAt": "2026-02-04T09:42:46.339Z",
+      "id": "ftTaThoU1OADDb6u",
+      "name": "NEWS+"
+    }
+  ],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T18:53:35.958Z",
-  "versionId": "7791f7ed-b0ae-4f87-80d2-6c65d5b6b7e6"
+  "updatedAt": "2026-02-06T11:47:05.381Z",
+  "versionId": "fa202cad-6258-4a1e-8383-396f8919c4f2"
 }
