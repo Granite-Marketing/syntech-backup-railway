@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-28T15:29:31.598Z",
-    "createdAt": "2026-01-28T09:06:07.268Z",
-    "versionId": "898b4724-0982-4bc3-950a-44d603f1eebf",
+    "updatedAt": "2026-02-04T12:32:19.779Z",
+    "createdAt": "2026-02-04T12:32:14.870Z",
+    "versionId": "b666b8be-a680-4697-b56a-5e2c910d1afd",
     "workflowId": "o41mt2JfV10VTV65",
     "nodes": [
       {
@@ -207,8 +207,8 @@
         "name": "Add Error Ticket",
         "credentials": {
           "notionApi": {
-            "id": "v7nNI35XIwsY1JzB",
-            "name": "Syntech.granite"
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
           }
         }
       },
@@ -245,8 +245,8 @@
         "name": "Send Error Message To Content Engine",
         "credentials": {
           "notionApi": {
-            "id": "v7nNI35XIwsY1JzB",
-            "name": "Syntech.granite"
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
           }
         }
       },
@@ -285,8 +285,8 @@
         "name": "Anthropic Chat Model",
         "credentials": {
           "anthropicApi": {
-            "id": "uv5ovuIM0W5fmRTp",
-            "name": "Stephen Anthropic account"
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
           }
         }
       },
@@ -315,8 +315,8 @@
         "alwaysOutputData": false,
         "credentials": {
           "notionApi": {
-            "id": "v7nNI35XIwsY1JzB",
-            "name": "Syntech.granite"
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
           }
         }
       },
@@ -425,8 +425,8 @@
         "name": "Add Error Ticket1",
         "credentials": {
           "notionApi": {
-            "id": "v7nNI35XIwsY1JzB",
-            "name": "Syntech.granite"
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
           }
         },
         "onError": "continueRegularOutput"
@@ -456,8 +456,8 @@
         "alwaysOutputData": false,
         "credentials": {
           "notionApi": {
-            "id": "v7nNI35XIwsY1JzB",
-            "name": "Syntech.granite"
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
           }
         }
       },
@@ -567,8 +567,8 @@
         "name": "Anthropic Chat Model1",
         "credentials": {
           "anthropicApi": {
-            "id": "uv5ovuIM0W5fmRTp",
-            "name": "Stephen Anthropic account"
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
           }
         }
       },
@@ -717,8 +717,8 @@
         "name": "Add Error Ticket2",
         "credentials": {
           "notionApi": {
-            "id": "v7nNI35XIwsY1JzB",
-            "name": "Syntech.granite"
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
           }
         },
         "onError": "continueRegularOutput"
@@ -756,8 +756,8 @@
         "name": "Send Error Message To Content Engine1",
         "credentials": {
           "notionApi": {
-            "id": "v7nNI35XIwsY1JzB",
-            "name": "Syntech.granite"
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
           }
         }
       },
@@ -778,9 +778,9 @@
         "parameters": {
           "model": {
             "__rl": true,
-            "value": "claude-3-5-haiku-20241022",
+            "value": "claude-haiku-4-5-20251001",
             "mode": "list",
-            "cachedResultName": "Claude Haiku 3.5"
+            "cachedResultName": "Claude Haiku 4.5"
           },
           "options": {
             "temperature": 0
@@ -796,8 +796,8 @@
         "name": "Anthropic Chat Model2",
         "credentials": {
           "anthropicApi": {
-            "id": "uv5ovuIM0W5fmRTp",
-            "name": "Stephen Anthropic account"
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
           }
         }
       },
@@ -826,8 +826,8 @@
         "alwaysOutputData": false,
         "credentials": {
           "notionApi": {
-            "id": "v7nNI35XIwsY1JzB",
-            "name": "Syntech.granite"
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
           }
         }
       },
@@ -918,8 +918,8 @@
         "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
         "credentials": {
           "slackApi": {
-            "id": "OK65YiwPuYd5tw8v",
-            "name": "Stephen Slack User account"
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
           }
         }
       },
@@ -950,8 +950,8 @@
         "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
         "credentials": {
           "slackApi": {
-            "id": "OK65YiwPuYd5tw8v",
-            "name": "Stephen Slack User account"
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
           }
         }
       },
@@ -982,8 +982,8 @@
         "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
         "credentials": {
           "slackApi": {
-            "id": "OK65YiwPuYd5tw8v",
-            "name": "Stephen Slack User account"
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
           }
         }
       },
@@ -1014,8 +1014,8 @@
         "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
         "credentials": {
           "slackApi": {
-            "id": "OK65YiwPuYd5tw8v",
-            "name": "Stephen Slack User account"
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
           }
         }
       }
@@ -1404,11 +1404,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "init",
+    "name": "hook up creds",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "898b4724-0982-4bc3-950a-44d603f1eebf",
+  "activeVersionId": "b666b8be-a680-4697-b56a-5e2c910d1afd",
   "connections": {
     "Error Trigger": {
       "main": [
@@ -1999,8 +1999,8 @@
       "name": "Add Error Ticket",
       "credentials": {
         "notionApi": {
-          "id": "v7nNI35XIwsY1JzB",
-          "name": "Syntech.granite"
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
         }
       }
     },
@@ -2037,8 +2037,8 @@
       "name": "Send Error Message To Content Engine",
       "credentials": {
         "notionApi": {
-          "id": "v7nNI35XIwsY1JzB",
-          "name": "Syntech.granite"
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
         }
       }
     },
@@ -2077,8 +2077,8 @@
       "name": "Anthropic Chat Model",
       "credentials": {
         "anthropicApi": {
-          "id": "uv5ovuIM0W5fmRTp",
-          "name": "Stephen Anthropic account"
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
         }
       }
     },
@@ -2107,8 +2107,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "notionApi": {
-          "id": "v7nNI35XIwsY1JzB",
-          "name": "Syntech.granite"
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
         }
       }
     },
@@ -2217,8 +2217,8 @@
       "name": "Add Error Ticket1",
       "credentials": {
         "notionApi": {
-          "id": "v7nNI35XIwsY1JzB",
-          "name": "Syntech.granite"
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
         }
       },
       "onError": "continueRegularOutput"
@@ -2248,8 +2248,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "notionApi": {
-          "id": "v7nNI35XIwsY1JzB",
-          "name": "Syntech.granite"
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
         }
       }
     },
@@ -2359,8 +2359,8 @@
       "name": "Anthropic Chat Model1",
       "credentials": {
         "anthropicApi": {
-          "id": "uv5ovuIM0W5fmRTp",
-          "name": "Stephen Anthropic account"
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
         }
       }
     },
@@ -2509,8 +2509,8 @@
       "name": "Add Error Ticket2",
       "credentials": {
         "notionApi": {
-          "id": "v7nNI35XIwsY1JzB",
-          "name": "Syntech.granite"
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
         }
       },
       "onError": "continueRegularOutput"
@@ -2548,8 +2548,8 @@
       "name": "Send Error Message To Content Engine1",
       "credentials": {
         "notionApi": {
-          "id": "v7nNI35XIwsY1JzB",
-          "name": "Syntech.granite"
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
         }
       }
     },
@@ -2570,9 +2570,9 @@
       "parameters": {
         "model": {
           "__rl": true,
-          "value": "claude-3-5-haiku-20241022",
+          "value": "claude-haiku-4-5-20251001",
           "mode": "list",
-          "cachedResultName": "Claude Haiku 3.5"
+          "cachedResultName": "Claude Haiku 4.5"
         },
         "options": {
           "temperature": 0
@@ -2588,8 +2588,8 @@
       "name": "Anthropic Chat Model2",
       "credentials": {
         "anthropicApi": {
-          "id": "uv5ovuIM0W5fmRTp",
-          "name": "Stephen Anthropic account"
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
         }
       }
     },
@@ -2618,8 +2618,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "notionApi": {
-          "id": "v7nNI35XIwsY1JzB",
-          "name": "Syntech.granite"
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
         }
       }
     },
@@ -2710,8 +2710,8 @@
       "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
       "credentials": {
         "slackApi": {
-          "id": "OK65YiwPuYd5tw8v",
-          "name": "Stephen Slack User account"
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
         }
       }
     },
@@ -2742,8 +2742,8 @@
       "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
       "credentials": {
         "slackApi": {
-          "id": "OK65YiwPuYd5tw8v",
-          "name": "Stephen Slack User account"
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
         }
       }
     },
@@ -2774,8 +2774,8 @@
       "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
       "credentials": {
         "slackApi": {
-          "id": "OK65YiwPuYd5tw8v",
-          "name": "Stephen Slack User account"
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
         }
       }
     },
@@ -2806,13 +2806,13 @@
       "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
       "credentials": {
         "slackApi": {
-          "id": "OK65YiwPuYd5tw8v",
-          "name": "Stephen Slack User account"
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
         }
       }
     }
   ],
-  "pinData": null,
+  "pinData": {},
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -2833,6 +2833,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T09:06:07.142Z",
-  "versionId": "898b4724-0982-4bc3-950a-44d603f1eebf"
+  "updatedAt": "2026-02-04T12:32:14.864Z",
+  "versionId": "b666b8be-a680-4697-b56a-5e2c910d1afd"
 }
