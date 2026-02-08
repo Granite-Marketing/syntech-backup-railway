@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-28T18:51:45.827Z",
-    "createdAt": "2026-01-28T18:51:42.653Z",
-    "versionId": "a04d7652-cf2e-4624-95b0-a5100126de6b",
+    "updatedAt": "2026-02-04T15:25:25.868Z",
+    "createdAt": "2026-02-04T15:25:23.159Z",
+    "versionId": "e4e63fb1-8501-4825-b2cb-413dfedcf397",
     "workflowId": "zykTHDZ-r8op3Zitq25Y2",
     "nodes": [
       {
@@ -85,7 +85,7 @@
         "typeVersion": 1.1,
         "position": [
           -32,
-          448
+          400
         ],
         "id": "ac1ae95d-6052-4baa-9b84-16a651ac9bee",
         "name": "Initial Input"
@@ -98,7 +98,7 @@
         "typeVersion": 1,
         "position": [
           192,
-          448
+          400
         ],
         "id": "e66f8732-4bdc-4d17-aaec-e252b30fa4c8",
         "name": "Limit3"
@@ -131,7 +131,7 @@
         "typeVersion": 2.2,
         "position": [
           864,
-          96
+          112
         ],
         "id": "3b56d10b-209e-4b7f-84de-0d217537c204",
         "name": "keyword or url"
@@ -142,7 +142,7 @@
         "typeVersion": 3.2,
         "position": [
           1536,
-          96
+          112
         ],
         "id": "e30d20d5-0bdb-4f7c-a786-715b4036e175",
         "name": "Merge4",
@@ -178,7 +178,7 @@
         "typeVersion": 3.4,
         "position": [
           640,
-          96
+          112
         ],
         "id": "b448ab9b-3456-4564-9be9-4e31de885082",
         "name": "Either Url or Keyword"
@@ -219,7 +219,7 @@
         "typeVersion": 3.4,
         "position": [
           1312,
-          192
+          208
         ],
         "id": "be8b5a9a-6bef-4a02-90d1-5f28f63033b6",
         "name": "X fields1",
@@ -236,13 +236,14 @@
             "cachedResultName": "Twitter Scraper PPR (danek/twitter-scraper-ppr)",
             "cachedResultUrl": "https://console.apify.com/actors/ghSpYIW3L1RvT57NT/input"
           },
-          "customBody": "={\n    \"max_posts\": 10,\n    \"username\": \"{{ \n  (() => {\n    const input = $json.url_or_keyword;\n    \n    // If input contains x.com or twitter.com, extract username\n    if (input.includes('x.com/') || input.includes('twitter.com/')) {\n      // Remove protocol and domain\n      const urlPart = input\n        .replace(/^https?:\\/\\//, '')           // Remove http:// or https://\n        .replace(/^(www\\.)?twitter\\.com\\//, '') // Remove twitter.com/\n        .replace(/^(www\\.)?x\\.com\\//, '');      // Remove x.com/\n      \n      // Extract username (everything before / or end of string)\n      const username = urlPart.split(/[/?#]/)[0];\n      \n      // Remove @ if present\n      return username.replace(/^@/, '');\n    }\n    \n    // If it's already just a username, return it (remove @ if present)\n    return input.replace(/^@/, '');\n  })()\n}}\"\n}\n\n"
+          "customBody": "={\n    \"max_posts\": 10,\n    \"username\": \"{{ \n  (() => {\n    const input = $json.url_or_keyword;\n    \n    // If input contains x.com or twitter.com, extract username\n    if (input.includes('x.com/') || input.includes('twitter.com/')) {\n      // Remove protocol and domain\n      const urlPart = input\n        .replace(/^https?:\\/\\//, '')           // Remove http:// or https://\n        .replace(/^(www\\.)?twitter\\.com\\//, '') // Remove twitter.com/\n        .replace(/^(www\\.)?x\\.com\\//, '');      // Remove x.com/\n      \n      // Extract username (everything before / or end of string)\n      const username = urlPart.split(/[/?#]/)[0];\n      \n      // Remove @ if present\n      return username.replace(/^@/, '');\n    }\n    \n    // If it's already just a username, return it (remove @ if present)\n    return input.replace(/^@/, '');\n  })()\n}}\"\n}\n\n",
+          "timeout": {}
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
         "position": [
           1088,
-          0
+          16
         ],
         "id": "6ff06bec-75d8-42d3-be82-da5abdfcfb6d",
         "name": "Twitter/ X post scraper - urls",
@@ -266,13 +267,14 @@
             "cachedResultName": "Twitter (X.com) Scraper Unlimited: No Limits (apidojo/twitter-scraper-lite)",
             "cachedResultUrl": "https://console.apify.com/actors/nfp1fpt5gUlBwPcor/input"
           },
-          "customBody": "={\n    \"customMapFunction\": \"(object) => { return {...object} }\",\n    \"includeSearchTerms\": false,\n    \"maxItems\": 5,\n    \"onlyImage\": false,\n    \"onlyQuote\": false,\n    \"onlyTwitterBlue\": false,\n    \"onlyVerifiedUsers\": false,\n    \"onlyVideo\": false,\n    \"searchTerms\": [\n        \"{{ $json.url_or_keyword }}\"\n    ],\n    \"sort\": \"Top\",\n    \"tweetLanguage\": \"en\"\n}"
+          "customBody": "={\n    \"customMapFunction\": \"(object) => { return {...object} }\",\n    \"includeSearchTerms\": false,\n    \"maxItems\": 5,\n    \"onlyImage\": false,\n    \"onlyQuote\": false,\n    \"onlyTwitterBlue\": false,\n    \"onlyVerifiedUsers\": false,\n    \"onlyVideo\": false,\n    \"searchTerms\": [\n        \"{{ $json.url_or_keyword }}\"\n    ],\n    \"sort\": \"Top\",\n    \"tweetLanguage\": \"en\"\n}",
+          "timeout": {}
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
         "position": [
           1088,
-          192
+          208
         ],
         "id": "7021c8f1-fd12-4069-8adf-3fe10c3f61da",
         "name": "Twitter/ X post scraper - keyword",
@@ -293,7 +295,7 @@
         "typeVersion": 3,
         "position": [
           416,
-          448
+          400
         ],
         "id": "3c5bf1b0-1599-4513-a429-d3989b68cfef",
         "name": "Loop Over Items3",
@@ -314,7 +316,7 @@
         "typeVersion": 1.2,
         "position": [
           -32,
-          1008
+          1184
         ],
         "id": "b75ddd43-2938-4ea2-8dca-c5f41dbd5538",
         "name": "OpenAI Chat Model9",
@@ -333,8 +335,8 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          96,
-          1008
+          112,
+          1184
         ],
         "id": "b435b683-23e4-47e8-8a76-93568061f31b",
         "name": "Structured Output Parser9"
@@ -357,7 +359,7 @@
         "typeVersion": 1.7,
         "position": [
           2656,
-          96
+          112
         ],
         "id": "34499045-0965-4cde-9cc9-ad641456f780",
         "name": "Create summary and title4"
@@ -398,7 +400,7 @@
         "typeVersion": 1.3,
         "position": [
           2800,
-          320
+          336
         ],
         "id": "578a9e6e-f207-4867-9d59-75b63e0dcfd2",
         "name": "Structured Output Parser10"
@@ -439,7 +441,7 @@
         "typeVersion": 3.4,
         "position": [
           1312,
-          0
+          16
         ],
         "id": "80350079-cfa5-44f9-b611-1a3c8525611f",
         "name": "X fields"
@@ -462,7 +464,7 @@
         "typeVersion": 1.7,
         "position": [
           -32,
-          784
+          960
         ],
         "id": "5b919ad1-83c4-47c2-8bd2-8e8508077530",
         "name": "create longtail keyword"
@@ -533,7 +535,7 @@
         "typeVersion": 2.2,
         "position": [
           1760,
-          96
+          112
         ],
         "id": "d0c37b9b-b1a8-4a75-a390-9760cf0dc86b",
         "name": "If Valid Content?",
@@ -617,7 +619,7 @@
         "typeVersion": 3.4,
         "position": [
           3232,
-          224
+          240
         ],
         "id": "c55f0799-d496-4442-8cc8-d1a71625cd81",
         "name": "Twitter/ X post fields1",
@@ -632,36 +634,12 @@
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          -112,
-          -208
+          -176,
+          -320
         ],
         "typeVersion": 1,
         "id": "4b31e3e8-708e-4b7c-ac6f-d0ad6eb2f766",
         "name": "Sticky Note"
-      },
-      {
-        "parameters": {
-          "operation": "getAll",
-          "tableId": "Syntech Twitter url",
-          "returnAll": true,
-          "filterType": "none"
-        },
-        "type": "n8n-nodes-base.supabase",
-        "typeVersion": 1,
-        "position": [
-          1984,
-          192
-        ],
-        "id": "333692fa-0d24-42ce-8455-be33f4e36657",
-        "name": "Get many rows",
-        "alwaysOutputData": false,
-        "executeOnce": true,
-        "credentials": {
-          "supabaseApi": {
-            "id": "IT46INDKsZaZyCZQ",
-            "name": "Stephen Supabase account"
-          }
-        }
       },
       {
         "parameters": {
@@ -683,7 +661,7 @@
         "typeVersion": 3.2,
         "position": [
           2208,
-          96
+          112
         ],
         "id": "c71290b8-aebe-4098-a4cf-c61e45690b90",
         "name": "Merge",
@@ -719,10 +697,76 @@
         "typeVersion": 2.3,
         "position": [
           2432,
-          96
+          112
         ],
         "id": "609aba6e-7378-4efd-9373-28cddc689055",
         "name": "If1"
+      },
+      {
+        "parameters": {
+          "model": "deepseek/deepseek-v3.2",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          2672,
+          336
+        ],
+        "id": "59e2937d-2f20-4696-a29a-5fd0051036b5",
+        "name": "DeepSeek 3.",
+        "credentials": {
+          "openRouterApi": {
+            "id": "kUkOiAL6PjmdfexG",
+            "name": "Syntech GM OpenRouter account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "getAll",
+          "tableId": "Syntech Twitter url",
+          "returnAll": true,
+          "filterType": "none"
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          -32,
+          624
+        ],
+        "id": "333692fa-0d24-42ce-8455-be33f4e36657",
+        "name": "Get many rows supabase",
+        "alwaysOutputData": false,
+        "executeOnce": true,
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "kqFbg6Y3MSPn65xN",
+            "mode": "list",
+            "cachedResultName": "NEWS+ Twitter",
+            "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/kqFbg6Y3MSPn65xN"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
+        "position": [
+          1984,
+          208
+        ],
+        "id": "c90091a4-d828-4803-ae55-2f677897a505",
+        "name": "Get many rows",
+        "executeOnce": true
       },
       {
         "parameters": {
@@ -739,11 +783,11 @@
         "type": "n8n-nodes-base.supabase",
         "typeVersion": 1,
         "position": [
-          3008,
-          96
+          224,
+          624
         ],
         "id": "f55eb577-51e3-433a-9dae-e3c4ba7079bd",
-        "name": "Create a row",
+        "name": "Create a row supabase",
         "credentials": {
           "supabaseApi": {
             "id": "IT46INDKsZaZyCZQ",
@@ -753,23 +797,75 @@
       },
       {
         "parameters": {
-          "model": "deepseek/deepseek-v3.2",
+          "operation": "upsert",
+          "dataTableId": {
+            "__rl": true,
+            "value": "kqFbg6Y3MSPn65xN",
+            "mode": "list",
+            "cachedResultName": "NEWS+ Twitter",
+            "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/kqFbg6Y3MSPn65xN"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "url",
+                "keyValue": "={{   $('Merge').item.json.url.includes('url=')     ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])     : $('Merge').item.json.url }}"
+              }
+            ]
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "url": "={{\n  $('Merge').item.json.url.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.url\n}}",
+              "created_at": "={{ $now }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "id_sb",
+                "displayName": "id_sb",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "created_at",
+                "displayName": "created_at",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "dateTime",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "url",
+                "displayName": "url",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
           "options": {}
         },
-        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-        "typeVersion": 1,
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
         "position": [
-          2672,
-          320
+          2992,
+          128
         ],
-        "id": "59e2937d-2f20-4696-a29a-5fd0051036b5",
-        "name": "DeepSeek 3.",
-        "credentials": {
-          "openRouterApi": {
-            "id": "kUkOiAL6PjmdfexG",
-            "name": "Syntech GM OpenRouter account"
-          }
-        }
+        "id": "a8cfd738-4abb-4bd1-90ea-e6f73ce42b1b",
+        "name": "Create a row",
+        "executeOnce": false
       }
     ],
     "connections": {
@@ -948,6 +1044,13 @@
               "type": "main",
               "index": 0
             }
+          ],
+          [
+            {
+              "node": "Loop Over Items3",
+              "type": "main",
+              "index": 0
+            }
           ]
         ]
       },
@@ -958,17 +1061,6 @@
               "node": "Loop Over Items3",
               "type": "main",
               "index": 0
-            }
-          ]
-        ]
-      },
-      "Get many rows": {
-        "main": [
-          [
-            {
-              "node": "Merge",
-              "type": "main",
-              "index": 1
             }
           ]
         ]
@@ -1002,17 +1094,6 @@
           ]
         ]
       },
-      "Create a row": {
-        "main": [
-          [
-            {
-              "node": "Twitter/ X post fields1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "DeepSeek 3.": {
         "ai_languageModel": [
           [
@@ -1023,14 +1104,52 @@
             }
           ]
         ]
+      },
+      "Get many rows supabase": {
+        "main": [
+          [
+            {
+              "node": "Create a row supabase",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many rows": {
+        "main": [
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Create a row supabase": {
+        "main": [
+          []
+        ]
+      },
+      "Create a row": {
+        "main": [
+          [
+            {
+              "node": "Twitter/ X post fields1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Init",
+    "name": "upsert",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "a04d7652-cf2e-4624-95b0-a5100126de6b",
+  "activeVersionId": "e4e63fb1-8501-4825-b2cb-413dfedcf397",
   "connections": {
     "Initial Input": {
       "main": [
@@ -1207,6 +1326,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
@@ -1217,17 +1343,6 @@
             "node": "Loop Over Items3",
             "type": "main",
             "index": 0
-          }
-        ]
-      ]
-    },
-    "Get many rows": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 1
           }
         ]
       ]
@@ -1261,23 +1376,50 @@
         ]
       ]
     },
-    "Create a row": {
-      "main": [
-        [
-          {
-            "node": "Twitter/ X post fields1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "DeepSeek 3.": {
       "ai_languageModel": [
         [
           {
             "node": "Create summary and title4",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows supabase": {
+      "main": [
+        [
+          {
+            "node": "Create a row supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Create a row supabase": {
+      "main": [
+        []
+      ]
+    },
+    "Create a row": {
+      "main": [
+        [
+          {
+            "node": "Twitter/ X post fields1",
+            "type": "main",
             "index": 0
           }
         ]
@@ -1371,7 +1513,7 @@
       "typeVersion": 1.1,
       "position": [
         -32,
-        448
+        400
       ],
       "id": "ac1ae95d-6052-4baa-9b84-16a651ac9bee",
       "name": "Initial Input"
@@ -1384,7 +1526,7 @@
       "typeVersion": 1,
       "position": [
         192,
-        448
+        400
       ],
       "id": "e66f8732-4bdc-4d17-aaec-e252b30fa4c8",
       "name": "Limit3"
@@ -1417,7 +1559,7 @@
       "typeVersion": 2.2,
       "position": [
         864,
-        96
+        112
       ],
       "id": "3b56d10b-209e-4b7f-84de-0d217537c204",
       "name": "keyword or url"
@@ -1428,7 +1570,7 @@
       "typeVersion": 3.2,
       "position": [
         1536,
-        96
+        112
       ],
       "id": "e30d20d5-0bdb-4f7c-a786-715b4036e175",
       "name": "Merge4",
@@ -1464,7 +1606,7 @@
       "typeVersion": 3.4,
       "position": [
         640,
-        96
+        112
       ],
       "id": "b448ab9b-3456-4564-9be9-4e31de885082",
       "name": "Either Url or Keyword"
@@ -1505,7 +1647,7 @@
       "typeVersion": 3.4,
       "position": [
         1312,
-        192
+        208
       ],
       "id": "be8b5a9a-6bef-4a02-90d1-5f28f63033b6",
       "name": "X fields1",
@@ -1522,13 +1664,14 @@
           "cachedResultName": "Twitter Scraper PPR (danek/twitter-scraper-ppr)",
           "cachedResultUrl": "https://console.apify.com/actors/ghSpYIW3L1RvT57NT/input"
         },
-        "customBody": "={\n    \"max_posts\": 10,\n    \"username\": \"{{ \n  (() => {\n    const input = $json.url_or_keyword;\n    \n    // If input contains x.com or twitter.com, extract username\n    if (input.includes('x.com/') || input.includes('twitter.com/')) {\n      // Remove protocol and domain\n      const urlPart = input\n        .replace(/^https?:\\/\\//, '')           // Remove http:// or https://\n        .replace(/^(www\\.)?twitter\\.com\\//, '') // Remove twitter.com/\n        .replace(/^(www\\.)?x\\.com\\//, '');      // Remove x.com/\n      \n      // Extract username (everything before / or end of string)\n      const username = urlPart.split(/[/?#]/)[0];\n      \n      // Remove @ if present\n      return username.replace(/^@/, '');\n    }\n    \n    // If it's already just a username, return it (remove @ if present)\n    return input.replace(/^@/, '');\n  })()\n}}\"\n}\n\n"
+        "customBody": "={\n    \"max_posts\": 10,\n    \"username\": \"{{ \n  (() => {\n    const input = $json.url_or_keyword;\n    \n    // If input contains x.com or twitter.com, extract username\n    if (input.includes('x.com/') || input.includes('twitter.com/')) {\n      // Remove protocol and domain\n      const urlPart = input\n        .replace(/^https?:\\/\\//, '')           // Remove http:// or https://\n        .replace(/^(www\\.)?twitter\\.com\\//, '') // Remove twitter.com/\n        .replace(/^(www\\.)?x\\.com\\//, '');      // Remove x.com/\n      \n      // Extract username (everything before / or end of string)\n      const username = urlPart.split(/[/?#]/)[0];\n      \n      // Remove @ if present\n      return username.replace(/^@/, '');\n    }\n    \n    // If it's already just a username, return it (remove @ if present)\n    return input.replace(/^@/, '');\n  })()\n}}\"\n}\n\n",
+        "timeout": {}
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
         1088,
-        0
+        16
       ],
       "id": "6ff06bec-75d8-42d3-be82-da5abdfcfb6d",
       "name": "Twitter/ X post scraper - urls",
@@ -1552,13 +1695,14 @@
           "cachedResultName": "Twitter (X.com) Scraper Unlimited: No Limits (apidojo/twitter-scraper-lite)",
           "cachedResultUrl": "https://console.apify.com/actors/nfp1fpt5gUlBwPcor/input"
         },
-        "customBody": "={\n    \"customMapFunction\": \"(object) => { return {...object} }\",\n    \"includeSearchTerms\": false,\n    \"maxItems\": 5,\n    \"onlyImage\": false,\n    \"onlyQuote\": false,\n    \"onlyTwitterBlue\": false,\n    \"onlyVerifiedUsers\": false,\n    \"onlyVideo\": false,\n    \"searchTerms\": [\n        \"{{ $json.url_or_keyword }}\"\n    ],\n    \"sort\": \"Top\",\n    \"tweetLanguage\": \"en\"\n}"
+        "customBody": "={\n    \"customMapFunction\": \"(object) => { return {...object} }\",\n    \"includeSearchTerms\": false,\n    \"maxItems\": 5,\n    \"onlyImage\": false,\n    \"onlyQuote\": false,\n    \"onlyTwitterBlue\": false,\n    \"onlyVerifiedUsers\": false,\n    \"onlyVideo\": false,\n    \"searchTerms\": [\n        \"{{ $json.url_or_keyword }}\"\n    ],\n    \"sort\": \"Top\",\n    \"tweetLanguage\": \"en\"\n}",
+        "timeout": {}
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
         1088,
-        192
+        208
       ],
       "id": "7021c8f1-fd12-4069-8adf-3fe10c3f61da",
       "name": "Twitter/ X post scraper - keyword",
@@ -1579,7 +1723,7 @@
       "typeVersion": 3,
       "position": [
         416,
-        448
+        400
       ],
       "id": "3c5bf1b0-1599-4513-a429-d3989b68cfef",
       "name": "Loop Over Items3",
@@ -1600,7 +1744,7 @@
       "typeVersion": 1.2,
       "position": [
         -32,
-        1008
+        1184
       ],
       "id": "b75ddd43-2938-4ea2-8dca-c5f41dbd5538",
       "name": "OpenAI Chat Model9",
@@ -1619,8 +1763,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        96,
-        1008
+        112,
+        1184
       ],
       "id": "b435b683-23e4-47e8-8a76-93568061f31b",
       "name": "Structured Output Parser9"
@@ -1643,7 +1787,7 @@
       "typeVersion": 1.7,
       "position": [
         2656,
-        96
+        112
       ],
       "id": "34499045-0965-4cde-9cc9-ad641456f780",
       "name": "Create summary and title4"
@@ -1684,7 +1828,7 @@
       "typeVersion": 1.3,
       "position": [
         2800,
-        320
+        336
       ],
       "id": "578a9e6e-f207-4867-9d59-75b63e0dcfd2",
       "name": "Structured Output Parser10"
@@ -1725,7 +1869,7 @@
       "typeVersion": 3.4,
       "position": [
         1312,
-        0
+        16
       ],
       "id": "80350079-cfa5-44f9-b611-1a3c8525611f",
       "name": "X fields"
@@ -1748,7 +1892,7 @@
       "typeVersion": 1.7,
       "position": [
         -32,
-        784
+        960
       ],
       "id": "5b919ad1-83c4-47c2-8bd2-8e8508077530",
       "name": "create longtail keyword"
@@ -1819,7 +1963,7 @@
       "typeVersion": 2.2,
       "position": [
         1760,
-        96
+        112
       ],
       "id": "d0c37b9b-b1a8-4a75-a390-9760cf0dc86b",
       "name": "If Valid Content?",
@@ -1903,7 +2047,7 @@
       "typeVersion": 3.4,
       "position": [
         3232,
-        224
+        240
       ],
       "id": "c55f0799-d496-4442-8cc8-d1a71625cd81",
       "name": "Twitter/ X post fields1",
@@ -1918,36 +2062,12 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -112,
-        -208
+        -176,
+        -320
       ],
       "typeVersion": 1,
       "id": "4b31e3e8-708e-4b7c-ac6f-d0ad6eb2f766",
       "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "operation": "getAll",
-        "tableId": "Syntech Twitter url",
-        "returnAll": true,
-        "filterType": "none"
-      },
-      "type": "n8n-nodes-base.supabase",
-      "typeVersion": 1,
-      "position": [
-        1984,
-        192
-      ],
-      "id": "333692fa-0d24-42ce-8455-be33f4e36657",
-      "name": "Get many rows",
-      "alwaysOutputData": false,
-      "executeOnce": true,
-      "credentials": {
-        "supabaseApi": {
-          "id": "IT46INDKsZaZyCZQ",
-          "name": "Stephen Supabase account"
-        }
-      }
     },
     {
       "parameters": {
@@ -1969,7 +2089,7 @@
       "typeVersion": 3.2,
       "position": [
         2208,
-        96
+        112
       ],
       "id": "c71290b8-aebe-4098-a4cf-c61e45690b90",
       "name": "Merge",
@@ -2005,10 +2125,76 @@
       "typeVersion": 2.3,
       "position": [
         2432,
-        96
+        112
       ],
       "id": "609aba6e-7378-4efd-9373-28cddc689055",
       "name": "If1"
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-v3.2",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        2672,
+        336
+      ],
+      "id": "59e2937d-2f20-4696-a29a-5fd0051036b5",
+      "name": "DeepSeek 3.",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kUkOiAL6PjmdfexG",
+          "name": "Syntech GM OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "Syntech Twitter url",
+        "returnAll": true,
+        "filterType": "none"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        624
+      ],
+      "id": "333692fa-0d24-42ce-8455-be33f4e36657",
+      "name": "Get many rows supabase",
+      "alwaysOutputData": false,
+      "executeOnce": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "kqFbg6Y3MSPn65xN",
+          "mode": "list",
+          "cachedResultName": "NEWS+ Twitter",
+          "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/kqFbg6Y3MSPn65xN"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1984,
+        208
+      ],
+      "id": "c90091a4-d828-4803-ae55-2f677897a505",
+      "name": "Get many rows",
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -2025,11 +2211,11 @@
       "type": "n8n-nodes-base.supabase",
       "typeVersion": 1,
       "position": [
-        3008,
-        96
+        224,
+        624
       ],
       "id": "f55eb577-51e3-433a-9dae-e3c4ba7079bd",
-      "name": "Create a row",
+      "name": "Create a row supabase",
       "credentials": {
         "supabaseApi": {
           "id": "IT46INDKsZaZyCZQ",
@@ -2039,23 +2225,75 @@
     },
     {
       "parameters": {
-        "model": "deepseek/deepseek-v3.2",
+        "operation": "upsert",
+        "dataTableId": {
+          "__rl": true,
+          "value": "kqFbg6Y3MSPn65xN",
+          "mode": "list",
+          "cachedResultName": "NEWS+ Twitter",
+          "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/kqFbg6Y3MSPn65xN"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "url",
+              "keyValue": "={{   $('Merge').item.json.url.includes('url=')     ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])     : $('Merge').item.json.url }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{\n  $('Merge').item.json.url.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.url\n}}",
+            "created_at": "={{ $now }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_sb",
+              "displayName": "id_sb",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
         "options": {}
       },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-      "typeVersion": 1,
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
       "position": [
-        2672,
-        320
+        2992,
+        128
       ],
-      "id": "59e2937d-2f20-4696-a29a-5fd0051036b5",
-      "name": "DeepSeek 3.",
-      "credentials": {
-        "openRouterApi": {
-          "id": "kUkOiAL6PjmdfexG",
-          "name": "Syntech GM OpenRouter account"
-        }
-      }
+      "id": "a8cfd738-4abb-4bd1-90ea-e6f73ce42b1b",
+      "name": "Create a row",
+      "executeOnce": false
     }
   ],
   "pinData": {
@@ -2127,7 +2365,12 @@
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
   "settings": {
     "executionOrder": "v1",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "o41mt2JfV10VTV65",
+    "callerPolicy": "workflowsFromSameOwner",
+    "binaryMode": "separate",
+    "timeSavedPerExecution": 5
   },
   "shared": [
     {
@@ -2139,8 +2382,15 @@
     }
   ],
   "staticData": null,
-  "tags": [],
+  "tags": [
+    {
+      "updatedAt": "2026-02-04T09:42:46.339Z",
+      "createdAt": "2026-02-04T09:42:46.339Z",
+      "id": "ftTaThoU1OADDb6u",
+      "name": "NEWS+"
+    }
+  ],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T18:51:42.644Z",
-  "versionId": "a04d7652-cf2e-4624-95b0-a5100126de6b"
+  "updatedAt": "2026-02-04T15:25:23.158Z",
+  "versionId": "e4e63fb1-8501-4825-b2cb-413dfedcf397"
 }
