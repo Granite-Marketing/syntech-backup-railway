@@ -15,9 +15,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:42.656Z",
-  "id": "GEJd9nqLotrOqttS",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.326Z",
+  "id": "j8boajTQAj0dI7pk",
+  "isArchived": false,
   "meta": null,
   "name": "Urgently Watched List",
   "nodes": [
@@ -94,16 +94,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:42.656Z",
-      "createdAt": "2026-01-28T08:12:42.656Z",
+      "updatedAt": "2026-01-28T09:06:06.326Z",
+      "createdAt": "2026-01-28T09:06:06.326Z",
       "role": "workflow:owner",
-      "workflowId": "GEJd9nqLotrOqttS",
+      "workflowId": "j8boajTQAj0dI7pk",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:20:08.963Z",
-  "versionId": "310aff7f-4136-45b8-bfc5-20bd616a4bd0"
+  "updatedAt": "2026-01-28T09:06:06.326Z",
+  "versionId": "1eb9f1e1-17d7-454b-906d-5b2ad83a3ed0"
 }
