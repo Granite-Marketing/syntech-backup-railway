@@ -2817,9 +2817,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:44.799Z",
-  "id": "Be5nh3GfAivENE22",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:07.652Z",
+  "id": "JBXXB5swJNKgRDuD",
+  "isArchived": false,
   "meta": null,
   "name": "News Sourcing Production",
   "nodes": [
@@ -10655,10 +10655,10 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:44.799Z",
-      "createdAt": "2026-01-28T08:12:44.799Z",
+      "updatedAt": "2026-01-28T09:06:07.652Z",
+      "createdAt": "2026-01-28T09:06:07.652Z",
       "role": "workflow:owner",
-      "workflowId": "Be5nh3GfAivENE22",
+      "workflowId": "JBXXB5swJNKgRDuD",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
@@ -10677,6 +10677,6 @@
   },
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:18:35.896Z",
-  "versionId": "7d31b3bc-4a76-4b89-9551-80839295bb1a"
+  "updatedAt": "2026-01-28T09:06:07.652Z",
+  "versionId": "614ce470-29d8-4ea6-a09f-dfbedd57369c"
 }
