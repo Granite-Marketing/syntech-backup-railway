@@ -333,9 +333,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:44.196Z",
-  "id": "3MdpvOntrDcnH81W",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:07.257Z",
+  "id": "UyFjEkgDdoTOj6rD",
+  "isArchived": false,
   "meta": null,
   "name": "Keyword Biofuel Content Analyzer Firecrawl",
   "nodes": [
@@ -1203,16 +1203,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:44.196Z",
-      "createdAt": "2026-01-28T08:12:44.196Z",
+      "updatedAt": "2026-01-28T09:06:07.257Z",
+      "createdAt": "2026-01-28T09:06:07.257Z",
       "role": "workflow:owner",
-      "workflowId": "3MdpvOntrDcnH81W",
+      "workflowId": "UyFjEkgDdoTOj6rD",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:18:58.509Z",
-  "versionId": "7663d72d-c4f6-4f25-8b97-82ee3a787f7a"
+  "updatedAt": "2026-01-28T09:06:07.257Z",
+  "versionId": "e1f8b954-b9ea-433e-9ccc-63f4009b8921"
 }
