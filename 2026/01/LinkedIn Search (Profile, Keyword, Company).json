@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-28T19:32:02.317Z",
-    "createdAt": "2026-01-28T19:31:45.734Z",
-    "versionId": "e79e0566-350f-4b19-bedf-cec382f4edc9",
+    "updatedAt": "2026-02-04T15:21:25.198Z",
+    "createdAt": "2026-02-04T15:21:21.119Z",
+    "versionId": "843b318a-e6ba-4d76-8838-397c43caf002",
     "workflowId": "p9T1CJ8sI5Q18MoG",
     "nodes": [
       {
@@ -570,8 +570,8 @@
         "type": "n8n-nodes-base.supabase",
         "typeVersion": 1,
         "position": [
-          -11776,
-          -4000
+          -13808,
+          -3360
         ],
         "id": "e3ed024e-fe05-4235-b96b-b2654416cfa1",
         "name": "Get many rows",
@@ -660,8 +660,8 @@
         "type": "n8n-nodes-base.supabase",
         "typeVersion": 1,
         "position": [
-          -10752,
-          -4144
+          -13616,
+          -3360
         ],
         "id": "9a2e359f-1410-480b-9fb2-527dd19f15d6",
         "name": "Create a row",
@@ -821,6 +821,100 @@
             "name": "Syntech GM OpenAi account"
           }
         }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "ZxmRSG3yvK2zI93g",
+            "mode": "list",
+            "cachedResultName": "NEWS+ LinkedIn",
+            "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/ZxmRSG3yvK2zI93g"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
+        "position": [
+          -11760,
+          -4032
+        ],
+        "id": "e8c3a733-9a88-4ec8-9fa8-abec3078e639",
+        "name": "Get many rows1",
+        "executeOnce": true
+      },
+      {
+        "parameters": {
+          "operation": "upsert",
+          "dataTableId": {
+            "__rl": true,
+            "value": "ZxmRSG3yvK2zI93g",
+            "mode": "list",
+            "cachedResultName": "NEWS+ LinkedIn",
+            "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/ZxmRSG3yvK2zI93g"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "url",
+                "keyValue": "={{   $('Merge').item.json.url.includes('url=')     ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])     : $('Merge').item.json.url }}"
+              }
+            ]
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "url": "={{\n  $('Merge').item.json.url.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.url\n}}",
+              "created_at": "={{ $now }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "id_sb",
+                "displayName": "id_sb",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "created_at",
+                "displayName": "created_at",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "dateTime",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "url",
+                "displayName": "url",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
+        "position": [
+          -10736,
+          -4112
+        ],
+        "id": "a66723db-2eb2-4456-b7cc-df8008a5d095",
+        "name": "Create a row1",
+        "executeOnce": false
       }
     ],
     "connections": {
@@ -917,7 +1011,7 @@
         "main": [
           [
             {
-              "node": "Create a row",
+              "node": "Create a row1",
               "type": "main",
               "index": 0
             }
@@ -986,9 +1080,9 @@
         "main": [
           [
             {
-              "node": "Merge",
+              "node": "Create a row",
               "type": "main",
-              "index": 1
+              "index": 0
             }
           ]
         ]
@@ -1024,13 +1118,7 @@
       },
       "Create a row": {
         "main": [
-          [
-            {
-              "node": "Linkedin post search scraper fields",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "Linkedin keword scraper": {
@@ -1075,7 +1163,7 @@
               "index": 0
             },
             {
-              "node": "Get many rows",
+              "node": "Get many rows1",
               "type": "main",
               "index": 0
             }
@@ -1093,14 +1181,36 @@
         "ai_languageModel": [
           []
         ]
+      },
+      "Create a row1": {
+        "main": [
+          [
+            {
+              "node": "Linkedin post search scraper fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many rows1": {
+        "main": [
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "add retry",
+    "name": "change to upsert",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "e79e0566-350f-4b19-bedf-cec382f4edc9",
+  "activeVersionId": "843b318a-e6ba-4d76-8838-397c43caf002",
   "connections": {
     "Start": {
       "main": [
@@ -1195,7 +1305,7 @@
       "main": [
         [
           {
-            "node": "Create a row",
+            "node": "Create a row1",
             "type": "main",
             "index": 0
           }
@@ -1264,9 +1374,9 @@
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Create a row",
             "type": "main",
-            "index": 1
+            "index": 0
           }
         ]
       ]
@@ -1302,13 +1412,7 @@
     },
     "Create a row": {
       "main": [
-        [
-          {
-            "node": "Linkedin post search scraper fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Linkedin keword scraper": {
@@ -1353,7 +1457,7 @@
             "index": 0
           },
           {
-            "node": "Get many rows",
+            "node": "Get many rows1",
             "type": "main",
             "index": 0
           }
@@ -1370,6 +1474,28 @@
     "OpenAI Chat Model": {
       "ai_languageModel": [
         []
+      ]
+    },
+    "Create a row1": {
+      "main": [
+        [
+          {
+            "node": "Linkedin post search scraper fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
       ]
     }
   },
@@ -1943,8 +2069,8 @@
       "type": "n8n-nodes-base.supabase",
       "typeVersion": 1,
       "position": [
-        -11776,
-        -4000
+        -13808,
+        -3360
       ],
       "id": "e3ed024e-fe05-4235-b96b-b2654416cfa1",
       "name": "Get many rows",
@@ -2033,8 +2159,8 @@
       "type": "n8n-nodes-base.supabase",
       "typeVersion": 1,
       "position": [
-        -10752,
-        -4144
+        -13616,
+        -3360
       ],
       "id": "9a2e359f-1410-480b-9fb2-527dd19f15d6",
       "name": "Create a row",
@@ -2194,6 +2320,100 @@
           "name": "Syntech GM OpenAi account"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "ZxmRSG3yvK2zI93g",
+          "mode": "list",
+          "cachedResultName": "NEWS+ LinkedIn",
+          "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/ZxmRSG3yvK2zI93g"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -11760,
+        -4032
+      ],
+      "id": "e8c3a733-9a88-4ec8-9fa8-abec3078e639",
+      "name": "Get many rows1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "dataTableId": {
+          "__rl": true,
+          "value": "ZxmRSG3yvK2zI93g",
+          "mode": "list",
+          "cachedResultName": "NEWS+ LinkedIn",
+          "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/ZxmRSG3yvK2zI93g"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "url",
+              "keyValue": "={{   $('Merge').item.json.url.includes('url=')     ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])     : $('Merge').item.json.url }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{\n  $('Merge').item.json.url.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.url.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.url\n}}",
+            "created_at": "={{ $now }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_sb",
+              "displayName": "id_sb",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -10736,
+        -4112
+      ],
+      "id": "a66723db-2eb2-4456-b7cc-df8008a5d095",
+      "name": "Create a row1",
+      "executeOnce": false
     }
   ],
   "pinData": {},
@@ -2205,7 +2425,10 @@
     "saveExecutionProgress": true,
     "callerPolicy": "workflowsFromSameOwner",
     "availableInMCP": false,
-    "timeSavedPerExecution": 1
+    "timeSavedPerExecution": 1,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "o41mt2JfV10VTV65",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -2217,8 +2440,15 @@
     }
   ],
   "staticData": null,
-  "tags": [],
+  "tags": [
+    {
+      "updatedAt": "2026-02-04T09:42:46.339Z",
+      "createdAt": "2026-02-04T09:42:46.339Z",
+      "id": "ftTaThoU1OADDb6u",
+      "name": "NEWS+"
+    }
+  ],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T19:31:45.725Z",
-  "versionId": "e79e0566-350f-4b19-bedf-cec382f4edc9"
+  "updatedAt": "2026-02-04T15:21:21.119Z",
+  "versionId": "843b318a-e6ba-4d76-8838-397c43caf002"
 }
