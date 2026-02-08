@@ -71,9 +71,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:42.456Z",
-  "id": "jtQ4MCCeVekPGHNO",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.271Z",
+  "id": "YGddq9lMk6MkJhQe",
+  "isArchived": false,
   "meta": null,
   "name": "Social Media (Sep 26 at 19:00:08)",
   "nodes": [
@@ -270,16 +270,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:42.456Z",
-      "createdAt": "2026-01-28T08:12:42.456Z",
+      "updatedAt": "2026-01-28T09:06:06.271Z",
+      "createdAt": "2026-01-28T09:06:06.271Z",
       "role": "workflow:owner",
-      "workflowId": "jtQ4MCCeVekPGHNO",
+      "workflowId": "YGddq9lMk6MkJhQe",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:20:15.856Z",
-  "versionId": "b1fdb3c9-7eb8-4389-b377-cfee5fb6cdba"
+  "updatedAt": "2026-01-28T09:06:06.271Z",
+  "versionId": "e35a8386-8038-440a-89ba-a8345503d4ab"
 }
