@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-29T10:12:58.012Z",
-    "createdAt": "2026-01-29T10:12:52.895Z",
-    "versionId": "b9437d3b-8673-48bc-b787-095d43e15c96",
+    "updatedAt": "2026-02-08T20:50:07.524Z",
+    "createdAt": "2026-02-08T20:49:54.470Z",
+    "versionId": "54421ced-68ca-4fb2-a76f-ee45a03b5d46",
     "workflowId": "LD5_Lrj2Q4hN9kpTCWyxC",
     "nodes": [
       {
@@ -159,7 +159,7 @@
         "typeVersion": 1.2,
         "position": [
           -16,
-          1776
+          2000
         ],
         "id": "1c29e3f3-7248-4484-92b2-3b0a3e5fa86e",
         "name": "OpenAI Chat Model2",
@@ -179,7 +179,7 @@
         "typeVersion": 1.3,
         "position": [
           128,
-          1776
+          2000
         ],
         "id": "ea9780d2-10af-47d5-b33f-5c3a6e4305fa",
         "name": "Structured Output Parser3"
@@ -204,7 +204,7 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          3920,
+          4208,
           592
         ],
         "id": "00eb2811-f423-4d7f-913f-5bfaf8dcfd19",
@@ -250,7 +250,7 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          4064,
+          4400,
           816
         ],
         "id": "0f6e93cd-fd0b-4cf1-8283-c80cdc84a52b",
@@ -308,7 +308,7 @@
         "typeVersion": 1.7,
         "position": [
           -16,
-          1552
+          1776
         ],
         "id": "cb0de23d-9c32-40f9-9c19-1b2e2402d55b",
         "name": "create longtail keyword5",
@@ -392,7 +392,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4496,
+          4832,
           592
         ],
         "id": "308630f8-64eb-4a12-ad50-e4647ceaf761",
@@ -402,40 +402,16 @@
         "parameters": {
           "content": "## News Scrap through keyword",
           "height": 1200,
-          "width": 5184
+          "width": 5392
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          -192,
+          -128,
           -160
         ],
         "typeVersion": 1,
         "id": "765fdb89-6486-4a92-aa31-dbf8ea97503f",
         "name": "Sticky Note"
-      },
-      {
-        "parameters": {
-          "operation": "getAll",
-          "tableId": "Syntech Keyword url",
-          "returnAll": true,
-          "filterType": "none"
-        },
-        "type": "n8n-nodes-base.supabase",
-        "typeVersion": 1,
-        "position": [
-          2352,
-          640
-        ],
-        "id": "a19c6c4e-7972-4ffb-8b10-e243cd4796f4",
-        "name": "Get many rows",
-        "alwaysOutputData": false,
-        "executeOnce": true,
-        "credentials": {
-          "supabaseApi": {
-            "id": "IT46INDKsZaZyCZQ",
-            "name": "Stephen Supabase account"
-          }
-        }
       },
       {
         "parameters": {
@@ -462,33 +438,6 @@
         "id": "7632a17b-4b2a-4d1c-b620-8d4a2474f135",
         "name": "Merge",
         "alwaysOutputData": true
-      },
-      {
-        "parameters": {
-          "tableId": "Syntech Keyword url",
-          "fieldsUi": {
-            "fieldValues": [
-              {
-                "fieldId": "url",
-                "fieldValue": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}"
-              }
-            ]
-          }
-        },
-        "type": "n8n-nodes-base.supabase",
-        "typeVersion": 1,
-        "position": [
-          4272,
-          592
-        ],
-        "id": "f83cf61d-c1d2-43cd-a1ad-cf6b82800fce",
-        "name": "Create a row1",
-        "credentials": {
-          "supabaseApi": {
-            "id": "IT46INDKsZaZyCZQ",
-            "name": "Stephen Supabase account"
-          }
-        }
       },
       {
         "parameters": {
@@ -559,7 +508,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.2,
         "position": [
-          3248,
+          3472,
           384
         ],
         "id": "8400c198-0db0-4b0b-86d1-543fa385912f",
@@ -575,7 +524,7 @@
         "type": "n8n-nodes-base.markdown",
         "typeVersion": 1,
         "position": [
-          3696,
+          3920,
           592
         ],
         "id": "27e31fbf-cb0e-45ec-8e5a-93b50807656d",
@@ -589,7 +538,7 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          3472,
+          3696,
           592
         ],
         "id": "e902ccc6-6218-4913-ae6d-f3935cf6498f",
@@ -651,7 +600,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          3744,
+          4144,
           816
         ],
         "id": "46bd8f3e-c729-4fcc-bfc8-f818816085ae",
@@ -681,7 +630,7 @@
         "typeVersion": 1.7,
         "position": [
           -16,
-          1984
+          2208
         ],
         "id": "4cd282c9-1042-4561-83f0-b98bd0b8052d",
         "name": "create longtail keyword",
@@ -732,7 +681,7 @@
         "typeVersion": 1.7,
         "position": [
           -16,
-          2208
+          2432
         ],
         "id": "95bb4d6c-0bc2-465f-b504-5301534c4b8e",
         "name": "create longtail keyword6 claude optimised1",
@@ -768,7 +717,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          3696,
+          3920,
           192
         ],
         "id": "c13bc929-e293-4f91-85ad-9228c43ef139",
@@ -794,7 +743,7 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          3920,
+          4208,
           80
         ],
         "id": "d048df84-93bf-40aa-ab31-182f6577a79f",
@@ -810,7 +759,7 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          4144,
+          4400,
           304
         ],
         "id": "ecd8da24-4f0a-4dff-b966-12095d4c3ed0",
@@ -821,7 +770,7 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          4720,
+          5056,
           592
         ],
         "id": "fddc3745-2504-4172-998a-57c999eb5615",
@@ -835,7 +784,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          3840,
+          4144,
           304
         ],
         "id": "2e89ec00-05ed-4a82-8cce-e44cc1482aeb",
@@ -924,38 +873,11 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4496,
+          4832,
           192
         ],
         "id": "9224d8fd-9f72-43db-9e8b-7a90965dca1f",
         "name": "RAG Web - Keyword Search"
-      },
-      {
-        "parameters": {
-          "tableId": "Syntech Keyword url",
-          "fieldsUi": {
-            "fieldValues": [
-              {
-                "fieldId": "url",
-                "fieldValue": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}"
-              }
-            ]
-          }
-        },
-        "type": "n8n-nodes-base.supabase",
-        "typeVersion": 1,
-        "position": [
-          4272,
-          192
-        ],
-        "id": "82e7f5d8-5357-49ae-a409-3011ebd25aa2",
-        "name": "Create a row",
-        "credentials": {
-          "supabaseApi": {
-            "id": "IT46INDKsZaZyCZQ",
-            "name": "Stephen Supabase account"
-          }
-        }
       },
       {
         "parameters": {
@@ -1013,7 +935,7 @@
         "typeVersion": 2,
         "position": [
           -16,
-          1328
+          1552
         ],
         "id": "fd554637-06ad-40a0-88b8-d925223889cd",
         "name": "SerpAPI API Example"
@@ -1038,7 +960,14 @@
               }
             ]
           },
-          "options": {}
+          "options": {
+            "batching": {
+              "batch": {
+                "batchSize": 1,
+                "batchInterval": 5000
+              }
+            }
+          }
         },
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
@@ -1086,11 +1015,12 @@
         "type": "n8n-nodes-base.removeDuplicates",
         "typeVersion": 2,
         "position": [
-          2800,
+          3248,
           384
         ],
         "id": "cced6341-eb09-48f7-a7bb-5afdf9c58780",
-        "name": "Remove Duplicates"
+        "name": "Remove Duplicates",
+        "alwaysOutputData": true
       },
       {
         "parameters": {
@@ -1130,7 +1060,7 @@
         "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
         "typeVersion": 1,
         "position": [
-          3472,
+          3696,
           192
         ],
         "id": "bc00a1d9-506d-4467-b609-e71b607fab99",
@@ -1171,7 +1101,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          3904,
+          4272,
           816
         ],
         "id": "f8917362-20e0-46f2-8eee-f44ccff1199c",
@@ -1197,7 +1127,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          4000,
+          4272,
           304
         ],
         "id": "6ca8dd22-41e5-42b4-b02b-6078d70b9b61",
@@ -1208,6 +1138,310 @@
             "name": "Syntech GM OpenAi account"
           }
         }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "b2056f8a-6181-477a-856c-fc3300582464",
+                "leftValue": "={{ $json?.date?.toDateTime().diffToNow('days').abs() < 21 }}",
+                "rightValue": "14",
+                "operator": {
+                  "type": "boolean",
+                  "operation": "true",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "looseTypeValidation": true,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.3,
+        "position": [
+          2800,
+          384
+        ],
+        "id": "113967fc-e9cd-4ce3-98c8-f02c3a4cc7f8",
+        "name": "Is Less Than 3 Weeks Old",
+        "alwaysOutputData": true
+      },
+      {
+        "parameters": {
+          "operation": "getAll",
+          "tableId": "Syntech Keyword url",
+          "returnAll": true,
+          "filterType": "none"
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          -16,
+          1328
+        ],
+        "id": "0989ded2-6b5f-472d-8c82-696ff3eddfd1",
+        "name": "Get many rows1",
+        "alwaysOutputData": false,
+        "executeOnce": true,
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "getAll",
+          "tableId": "Syntech Keyword url",
+          "returnAll": true,
+          "filterType": "none"
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          544,
+          1168
+        ],
+        "id": "a19c6c4e-7972-4ffb-8b10-e243cd4796f4",
+        "name": "Get many rows sb",
+        "alwaysOutputData": false,
+        "executeOnce": true,
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "tableId": "Syntech Keyword url",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldId": "url",
+                "fieldValue": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          832,
+          1184
+        ],
+        "id": "82e7f5d8-5357-49ae-a409-3011ebd25aa2",
+        "name": "Create a row sb",
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "tableId": "Syntech Keyword url",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldId": "url",
+                "fieldValue": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.supabase",
+        "typeVersion": 1,
+        "position": [
+          1088,
+          1168
+        ],
+        "id": "f83cf61d-c1d2-43cd-a1ad-cf6b82800fce",
+        "name": "Create a row sb1",
+        "credentials": {
+          "supabaseApi": {
+            "id": "IT46INDKsZaZyCZQ",
+            "name": "Stephen Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "7q6kT90w9D0EjUGe",
+            "mode": "list",
+            "cachedResultName": "NEWS+ Google News",
+            "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/7q6kT90w9D0EjUGe"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
+        "position": [
+          2336,
+          480
+        ],
+        "id": "44d58c74-d13f-4b2d-a299-762c32f8f7f0",
+        "name": "Create a row",
+        "executeOnce": true
+      },
+      {
+        "parameters": {
+          "operation": "upsert",
+          "dataTableId": {
+            "__rl": true,
+            "value": "7q6kT90w9D0EjUGe",
+            "mode": "list",
+            "cachedResultName": "NEWS+ Google News",
+            "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/7q6kT90w9D0EjUGe"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "url",
+                "keyValue": "={{   $('Merge').item.json.link.includes('url=')     ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])     : $('Merge').item.json.link }}"
+              }
+            ]
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "url": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}",
+              "created_at": "={{ $now }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "id_sb",
+                "displayName": "id_sb",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "created_at",
+                "displayName": "created_at",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "dateTime",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "url",
+                "displayName": "url",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
+        "position": [
+          4576,
+          576
+        ],
+        "id": "5956e36c-c76a-4048-9a3d-3435c55e31c5",
+        "name": "Create a row1",
+        "executeOnce": false
+      },
+      {
+        "parameters": {
+          "operation": "upsert",
+          "dataTableId": {
+            "__rl": true,
+            "value": "7q6kT90w9D0EjUGe",
+            "mode": "list",
+            "cachedResultName": "NEWS+ Google News",
+            "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/7q6kT90w9D0EjUGe"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "url",
+                "keyValue": "={{   $('Merge').item.json.link.includes('url=')     ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])     : $('Merge').item.json.link }}"
+              }
+            ]
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "url": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}",
+              "created_at": "={{ $now }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "id_sb",
+                "displayName": "id_sb",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "created_at",
+                "displayName": "created_at",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "dateTime",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "url",
+                "displayName": "url",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
+        "position": [
+          4576,
+          128
+        ],
+        "id": "3e06f62b-a212-40b9-a8f5-cc8926181334",
+        "name": "Create a row2",
+        "executeOnce": false
       }
     ],
     "connections": {
@@ -1311,33 +1545,11 @@
           ]
         ]
       },
-      "Get many rows": {
-        "main": [
-          [
-            {
-              "node": "Merge",
-              "type": "main",
-              "index": 1
-            }
-          ]
-        ]
-      },
       "Merge": {
         "main": [
           [
             {
-              "node": "Remove Duplicates",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Create a row1": {
-        "main": [
-          [
-            {
-              "node": "RAG Web - Keyword Search1",
+              "node": "Is Less Than 3 Weeks Old",
               "type": "main",
               "index": 0
             }
@@ -1461,7 +1673,7 @@
         "main": [
           [
             {
-              "node": "Create a row",
+              "node": "Create a row2",
               "type": "main",
               "index": 0
             }
@@ -1512,22 +1724,11 @@
           ]
         ]
       },
-      "Create a row": {
-        "main": [
-          [
-            {
-              "node": "RAG Web - Keyword Search",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "If": {
         "main": [
           [
             {
-              "node": "extract content",
+              "node": "Remove Duplicates",
               "type": "main",
               "index": 0
             }
@@ -1546,6 +1747,13 @@
           [
             {
               "node": "Split Out News Articles",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Loop Over Items6",
               "type": "main",
               "index": 0
             }
@@ -1572,7 +1780,7 @@
               "index": 0
             },
             {
-              "node": "Get many rows",
+              "node": "Create a row",
               "type": "main",
               "index": 0
             }
@@ -1583,7 +1791,7 @@
         "main": [
           [
             {
-              "node": "If",
+              "node": "extract content",
               "type": "main",
               "index": 0
             }
@@ -1633,14 +1841,96 @@
             }
           ]
         ]
+      },
+      "Is Less Than 3 Weeks Old": {
+        "main": [
+          [
+            {
+              "node": "If",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many rows sb": {
+        "main": [
+          [
+            {
+              "node": "Create a row sb",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a row sb": {
+        "main": [
+          [
+            {
+              "node": "Create a row sb1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a row sb1": {
+        "main": [
+          []
+        ]
+      },
+      "Has Data API Example": {
+        "main": [
+          [
+            {
+              "node": "Get many rows sb",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a row1": {
+        "main": [
+          [
+            {
+              "node": "RAG Web - Keyword Search1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a row": {
+        "main": [
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Create a row2": {
+        "main": [
+          [
+            {
+              "node": "RAG Web - Keyword Search",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "link up fallback correct",
+    "name": "add batch to serpapi node",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "b9437d3b-8673-48bc-b787-095d43e15c96",
+  "activeVersionId": "54421ced-68ca-4fb2-a76f-ee45a03b5d46",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -1742,33 +2032,11 @@
         ]
       ]
     },
-    "Get many rows": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
     "Merge": {
       "main": [
         [
           {
-            "node": "Remove Duplicates",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Create a row1": {
-      "main": [
-        [
-          {
-            "node": "RAG Web - Keyword Search1",
+            "node": "Is Less Than 3 Weeks Old",
             "type": "main",
             "index": 0
           }
@@ -1892,7 +2160,7 @@
       "main": [
         [
           {
-            "node": "Create a row",
+            "node": "Create a row2",
             "type": "main",
             "index": 0
           }
@@ -1943,22 +2211,11 @@
         ]
       ]
     },
-    "Create a row": {
-      "main": [
-        [
-          {
-            "node": "RAG Web - Keyword Search",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "If": {
       "main": [
         [
           {
-            "node": "extract content",
+            "node": "Remove Duplicates",
             "type": "main",
             "index": 0
           }
@@ -1977,6 +2234,13 @@
         [
           {
             "node": "Split Out News Articles",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items6",
             "type": "main",
             "index": 0
           }
@@ -2003,7 +2267,7 @@
             "index": 0
           },
           {
-            "node": "Get many rows",
+            "node": "Create a row",
             "type": "main",
             "index": 0
           }
@@ -2014,7 +2278,7 @@
       "main": [
         [
           {
-            "node": "If",
+            "node": "extract content",
             "type": "main",
             "index": 0
           }
@@ -2061,6 +2325,88 @@
             "node": "Create summary and title",
             "type": "ai_languageModel",
             "index": 1
+          }
+        ]
+      ]
+    },
+    "Is Less Than 3 Weeks Old": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows sb": {
+      "main": [
+        [
+          {
+            "node": "Create a row sb",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row sb": {
+      "main": [
+        [
+          {
+            "node": "Create a row sb1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row sb1": {
+      "main": [
+        []
+      ]
+    },
+    "Has Data API Example": {
+      "main": [
+        [
+          {
+            "node": "Get many rows sb",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row1": {
+      "main": [
+        [
+          {
+            "node": "RAG Web - Keyword Search1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Create a row2": {
+      "main": [
+        [
+          {
+            "node": "RAG Web - Keyword Search",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -2227,7 +2573,7 @@
       "typeVersion": 1.2,
       "position": [
         -16,
-        1776
+        2000
       ],
       "id": "1c29e3f3-7248-4484-92b2-3b0a3e5fa86e",
       "name": "OpenAI Chat Model2",
@@ -2247,7 +2593,7 @@
       "typeVersion": 1.3,
       "position": [
         128,
-        1776
+        2000
       ],
       "id": "ea9780d2-10af-47d5-b33f-5c3a6e4305fa",
       "name": "Structured Output Parser3"
@@ -2272,7 +2618,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        3920,
+        4208,
         592
       ],
       "id": "00eb2811-f423-4d7f-913f-5bfaf8dcfd19",
@@ -2318,7 +2664,7 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        4064,
+        4400,
         816
       ],
       "id": "0f6e93cd-fd0b-4cf1-8283-c80cdc84a52b",
@@ -2376,7 +2722,7 @@
       "typeVersion": 1.7,
       "position": [
         -16,
-        1552
+        1776
       ],
       "id": "cb0de23d-9c32-40f9-9c19-1b2e2402d55b",
       "name": "create longtail keyword5",
@@ -2460,7 +2806,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4496,
+        4832,
         592
       ],
       "id": "308630f8-64eb-4a12-ad50-e4647ceaf761",
@@ -2470,40 +2816,16 @@
       "parameters": {
         "content": "## News Scrap through keyword",
         "height": 1200,
-        "width": 5184
+        "width": 5392
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -192,
+        -128,
         -160
       ],
       "typeVersion": 1,
       "id": "765fdb89-6486-4a92-aa31-dbf8ea97503f",
       "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "operation": "getAll",
-        "tableId": "Syntech Keyword url",
-        "returnAll": true,
-        "filterType": "none"
-      },
-      "type": "n8n-nodes-base.supabase",
-      "typeVersion": 1,
-      "position": [
-        2352,
-        640
-      ],
-      "id": "a19c6c4e-7972-4ffb-8b10-e243cd4796f4",
-      "name": "Get many rows",
-      "alwaysOutputData": false,
-      "executeOnce": true,
-      "credentials": {
-        "supabaseApi": {
-          "id": "IT46INDKsZaZyCZQ",
-          "name": "Stephen Supabase account"
-        }
-      }
     },
     {
       "parameters": {
@@ -2530,33 +2852,6 @@
       "id": "7632a17b-4b2a-4d1c-b620-8d4a2474f135",
       "name": "Merge",
       "alwaysOutputData": true
-    },
-    {
-      "parameters": {
-        "tableId": "Syntech Keyword url",
-        "fieldsUi": {
-          "fieldValues": [
-            {
-              "fieldId": "url",
-              "fieldValue": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.supabase",
-      "typeVersion": 1,
-      "position": [
-        4272,
-        592
-      ],
-      "id": "f83cf61d-c1d2-43cd-a1ad-cf6b82800fce",
-      "name": "Create a row1",
-      "credentials": {
-        "supabaseApi": {
-          "id": "IT46INDKsZaZyCZQ",
-          "name": "Stephen Supabase account"
-        }
-      }
     },
     {
       "parameters": {
@@ -2627,7 +2922,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3248,
+        3472,
         384
       ],
       "id": "8400c198-0db0-4b0b-86d1-543fa385912f",
@@ -2643,7 +2938,7 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        3696,
+        3920,
         592
       ],
       "id": "27e31fbf-cb0e-45ec-8e5a-93b50807656d",
@@ -2657,7 +2952,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3472,
+        3696,
         592
       ],
       "id": "e902ccc6-6218-4913-ae6d-f3935cf6498f",
@@ -2719,7 +3014,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        3744,
+        4144,
         816
       ],
       "id": "46bd8f3e-c729-4fcc-bfc8-f818816085ae",
@@ -2749,7 +3044,7 @@
       "typeVersion": 1.7,
       "position": [
         -16,
-        1984
+        2208
       ],
       "id": "4cd282c9-1042-4561-83f0-b98bd0b8052d",
       "name": "create longtail keyword",
@@ -2800,7 +3095,7 @@
       "typeVersion": 1.7,
       "position": [
         -16,
-        2208
+        2432
       ],
       "id": "95bb4d6c-0bc2-465f-b504-5301534c4b8e",
       "name": "create longtail keyword6 claude optimised1",
@@ -2836,7 +3131,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3696,
+        3920,
         192
       ],
       "id": "c13bc929-e293-4f91-85ad-9228c43ef139",
@@ -2862,7 +3157,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        3920,
+        4208,
         80
       ],
       "id": "d048df84-93bf-40aa-ab31-182f6577a79f",
@@ -2878,7 +3173,7 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        4144,
+        4400,
         304
       ],
       "id": "ecd8da24-4f0a-4dff-b966-12095d4c3ed0",
@@ -2889,7 +3184,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        4720,
+        5056,
         592
       ],
       "id": "fddc3745-2504-4172-998a-57c999eb5615",
@@ -2903,7 +3198,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        3840,
+        4144,
         304
       ],
       "id": "2e89ec00-05ed-4a82-8cce-e44cc1482aeb",
@@ -2992,38 +3287,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4496,
+        4832,
         192
       ],
       "id": "9224d8fd-9f72-43db-9e8b-7a90965dca1f",
       "name": "RAG Web - Keyword Search"
-    },
-    {
-      "parameters": {
-        "tableId": "Syntech Keyword url",
-        "fieldsUi": {
-          "fieldValues": [
-            {
-              "fieldId": "url",
-              "fieldValue": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.supabase",
-      "typeVersion": 1,
-      "position": [
-        4272,
-        192
-      ],
-      "id": "82e7f5d8-5357-49ae-a409-3011ebd25aa2",
-      "name": "Create a row",
-      "credentials": {
-        "supabaseApi": {
-          "id": "IT46INDKsZaZyCZQ",
-          "name": "Stephen Supabase account"
-        }
-      }
     },
     {
       "parameters": {
@@ -3081,7 +3349,7 @@
       "typeVersion": 2,
       "position": [
         -16,
-        1328
+        1552
       ],
       "id": "fd554637-06ad-40a0-88b8-d925223889cd",
       "name": "SerpAPI API Example"
@@ -3106,7 +3374,14 @@
             }
           ]
         },
-        "options": {}
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 5000
+            }
+          }
+        }
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
@@ -3154,11 +3429,12 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 2,
       "position": [
-        2800,
+        3248,
         384
       ],
       "id": "cced6341-eb09-48f7-a7bb-5afdf9c58780",
-      "name": "Remove Duplicates"
+      "name": "Remove Duplicates",
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -3198,7 +3474,7 @@
       "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
       "typeVersion": 1,
       "position": [
-        3472,
+        3696,
         192
       ],
       "id": "bc00a1d9-506d-4467-b609-e71b607fab99",
@@ -3239,7 +3515,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        3904,
+        4272,
         816
       ],
       "id": "f8917362-20e0-46f2-8eee-f44ccff1199c",
@@ -3265,7 +3541,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        4000,
+        4272,
         304
       ],
       "id": "6ca8dd22-41e5-42b4-b02b-6078d70b9b61",
@@ -3276,15 +3552,319 @@
           "name": "Syntech GM OpenAi account"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b2056f8a-6181-477a-856c-fc3300582464",
+              "leftValue": "={{ $json?.date?.toDateTime().diffToNow('days').abs() < 21 }}",
+              "rightValue": "14",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        2800,
+        384
+      ],
+      "id": "113967fc-e9cd-4ce3-98c8-f02c3a4cc7f8",
+      "name": "Is Less Than 3 Weeks Old",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "Syntech Keyword url",
+        "returnAll": true,
+        "filterType": "none"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        1328
+      ],
+      "id": "0989ded2-6b5f-472d-8c82-696ff3eddfd1",
+      "name": "Get many rows1",
+      "alwaysOutputData": false,
+      "executeOnce": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "Syntech Keyword url",
+        "returnAll": true,
+        "filterType": "none"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        544,
+        1168
+      ],
+      "id": "a19c6c4e-7972-4ffb-8b10-e243cd4796f4",
+      "name": "Get many rows sb",
+      "alwaysOutputData": false,
+      "executeOnce": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableId": "Syntech Keyword url",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "url",
+              "fieldValue": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        832,
+        1184
+      ],
+      "id": "82e7f5d8-5357-49ae-a409-3011ebd25aa2",
+      "name": "Create a row sb",
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableId": "Syntech Keyword url",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "url",
+              "fieldValue": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1088,
+        1168
+      ],
+      "id": "f83cf61d-c1d2-43cd-a1ad-cf6b82800fce",
+      "name": "Create a row sb1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "IT46INDKsZaZyCZQ",
+          "name": "Stephen Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "7q6kT90w9D0EjUGe",
+          "mode": "list",
+          "cachedResultName": "NEWS+ Google News",
+          "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/7q6kT90w9D0EjUGe"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        2336,
+        480
+      ],
+      "id": "44d58c74-d13f-4b2d-a299-762c32f8f7f0",
+      "name": "Create a row",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "dataTableId": {
+          "__rl": true,
+          "value": "7q6kT90w9D0EjUGe",
+          "mode": "list",
+          "cachedResultName": "NEWS+ Google News",
+          "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/7q6kT90w9D0EjUGe"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "url",
+              "keyValue": "={{   $('Merge').item.json.link.includes('url=')     ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])     : $('Merge').item.json.link }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}",
+            "created_at": "={{ $now }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_sb",
+              "displayName": "id_sb",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        4576,
+        576
+      ],
+      "id": "5956e36c-c76a-4048-9a3d-3435c55e31c5",
+      "name": "Create a row1",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "dataTableId": {
+          "__rl": true,
+          "value": "7q6kT90w9D0EjUGe",
+          "mode": "list",
+          "cachedResultName": "NEWS+ Google News",
+          "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/7q6kT90w9D0EjUGe"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "url",
+              "keyValue": "={{   $('Merge').item.json.link.includes('url=')     ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])     : $('Merge').item.json.link }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{\n  $('Merge').item.json.link.includes('url=')\n    ? decodeURIComponent($('Merge').item.json.link.split('url=')[1].split('&')[0])\n    : $('Merge').item.json.link\n}}",
+            "created_at": "={{ $now }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_sb",
+              "displayName": "id_sb",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        4576,
+        128
+      ],
+      "id": "3e06f62b-a212-40b9-a8f5-cc8926181334",
+      "name": "Create a row2",
+      "executeOnce": false
     }
   ],
   "pinData": {
     "When Executed by Another Workflow": [
       {
         "json": {
-          "id": "293785c0-cfab-8006-934a-f9d1ec21cf71",
-          "name": "FAME Biofuel",
-          "url": "https://www.notion.so/FAME-Biofuel-293785c0cfab8006934af9d1ec21cf71",
+          "id": "2f7785c0-cfab-8040-9221-e5a8e8414351",
+          "name": "Biodiesel",
+          "url": "https://www.notion.so/Biodiesel-2f7785c0cfab80409221e5a8e8414351",
           "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3292,280 +3872,10 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "FAME Biofuel"
+          "property_name": "Biodiesel"
         },
         "pairedItem": {
           "item": 0
-        }
-      },
-      {
-        "json": {
-          "id": "293785c0-cfab-8065-85cf-c2d65ec610c5",
-          "name": "B100 Biofuel",
-          "url": "https://www.notion.so/B100-Biofuel-293785c0cfab806585cfc2d65ec610c5",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "B100 Biofuel"
-        },
-        "pairedItem": {
-          "item": 1
-        }
-      },
-      {
-        "json": {
-          "id": "293785c0-cfab-806f-9a9c-f72a1fdd96fd",
-          "name": "“used cooking oil” Biodiesel",
-          "url": "https://www.notion.so/used-cooking-oil-Biodiesel-293785c0cfab806f9a9cf72a1fdd96fd",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "“used cooking oil” Biodiesel"
-        },
-        "pairedItem": {
-          "item": 2
-        }
-      },
-      {
-        "json": {
-          "id": "293785c0-cfab-807c-96bb-f668e2e4de33",
-          "name": "FAME Biodiesel",
-          "url": "https://www.notion.so/FAME-Biodiesel-293785c0cfab807c96bbf668e2e4de33",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "FAME Biodiesel"
-        },
-        "pairedItem": {
-          "item": 3
-        }
-      },
-      {
-        "json": {
-          "id": "293785c0-cfab-80d3-a1fe-f9ac88cf1c5a",
-          "name": "“used cooking oil” Biofuel",
-          "url": "https://www.notion.so/used-cooking-oil-Biofuel-293785c0cfab80d3a1fef9ac88cf1c5a",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "“used cooking oil” Biofuel"
-        },
-        "pairedItem": {
-          "item": 4
-        }
-      },
-      {
-        "json": {
-          "id": "293785c0-cfab-80e6-a9ab-f89502a74429",
-          "name": "B100 Biodiesel",
-          "url": "https://www.notion.so/B100-Biodiesel-293785c0cfab80e6a9abf89502a74429",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "B100 Biodiesel"
-        },
-        "pairedItem": {
-          "item": 5
-        }
-      },
-      {
-        "json": {
-          "id": "29b785c0-cfab-8061-99a3-cf4a3f89931d",
-          "name": "B100 FAME",
-          "url": "https://www.notion.so/B100-FAME-29b785c0cfab806199a3cf4a3f89931d",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "B100 FAME"
-        },
-        "pairedItem": {
-          "item": 6
-        }
-      },
-      {
-        "json": {
-          "id": "29d785c0-cfab-802d-bb85-cb6b04b2d235",
-          "name": "“Used Cooking Oil”",
-          "url": "https://www.notion.so/Used-Cooking-Oil-29d785c0cfab802dbb85cb6b04b2d235",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "“Used Cooking Oil”"
-        },
-        "pairedItem": {
-          "item": 7
-        }
-      },
-      {
-        "json": {
-          "id": "29d785c0-cfab-8045-a1e8-edf8aa745ba4",
-          "name": "14214 Biodiesel",
-          "url": "https://www.notion.so/14214-Biodiesel-29d785c0cfab8045a1e8edf8aa745ba4",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "14214 Biodiesel"
-        },
-        "pairedItem": {
-          "item": 8
-        }
-      },
-      {
-        "json": {
-          "id": "29d785c0-cfab-8089-ac75-d8b7e02418f6",
-          "name": "14214 Biofuel",
-          "url": "https://www.notion.so/14214-Biofuel-29d785c0cfab8089ac75d8b7e02418f6",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "14214 Biofuel"
-        },
-        "pairedItem": {
-          "item": 9
-        }
-      },
-      {
-        "json": {
-          "id": "2c7785c0-cfab-8029-81e5-e657acaa454a",
-          "name": "Lower Thames Crossing",
-          "url": "https://www.notion.so/Lower-Thames-Crossing-2c7785c0cfab802981e5e657acaa454a",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Lower Thames Crossing"
-        },
-        "pairedItem": {
-          "item": 10
-        }
-      },
-      {
-        "json": {
-          "id": "2c7785c0-cfab-8062-a6dd-d34b12f8a675",
-          "name": "Balfour Beatty",
-          "url": "https://www.notion.so/Balfour-Beatty-2c7785c0cfab8062a6ddd34b12f8a675",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Balfour Beatty"
-        },
-        "pairedItem": {
-          "item": 11
-        }
-      },
-      {
-        "json": {
-          "id": "2c7785c0-cfab-80b4-b37f-d1c959c5d769",
-          "name": "NetZero Teesside",
-          "url": "https://www.notion.so/NetZero-Teesside-2c7785c0cfab80b4b37fd1c959c5d769",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "NetZero Teesside"
-        },
-        "pairedItem": {
-          "item": 12
-        }
-      },
-      {
-        "json": {
-          "id": "2c7785c0-cfab-80c4-8ec4-e8406e8dd855",
-          "name": "SSE",
-          "url": "https://www.notion.so/SSE-2c7785c0cfab80c48ec4e8406e8dd855",
-          "property_keyword_category": "Industry",
-          "property_priority": "Low",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "SSE"
-        },
-        "pairedItem": {
-          "item": 13
-        }
-      },
-      {
-        "json": {
-          "id": "293785c0-cfab-80fe-a2ca-eda2b1d66e83",
-          "name": "Scope 3 Emissions",
-          "url": "https://www.notion.so/Scope-3-Emissions-293785c0cfab80fea2caeda2b1d66e83",
-          "property_keyword_category": "Decarbonisation",
-          "property_priority": "Low",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Scope 3 Emissions"
-        },
-        "pairedItem": {
-          "item": 14
-        }
-      },
-      {
-        "json": {
-          "id": "27a785c0-cfab-80a5-b9ad-f16d695a33d1",
-          "name": "Decarbonisation",
-          "url": "https://www.notion.so/Decarbonisation-27a785c0cfab80a5b9adf16d695a33d1",
-          "property_keyword_category": "Decarbonisation",
-          "property_priority": "Low",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Decarbonisation"
-        },
-        "pairedItem": {
-          "item": 15
         }
       }
     ]
@@ -3575,7 +3885,12 @@
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
   "settings": {
     "executionOrder": "v1",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "o41mt2JfV10VTV65",
+    "callerPolicy": "workflowsFromSameOwner",
+    "binaryMode": "separate",
+    "timeSavedPerExecution": 5
   },
   "shared": [
     {
@@ -3587,8 +3902,15 @@
     }
   ],
   "staticData": null,
-  "tags": [],
+  "tags": [
+    {
+      "updatedAt": "2026-02-04T09:42:46.339Z",
+      "createdAt": "2026-02-04T09:42:46.339Z",
+      "id": "ftTaThoU1OADDb6u",
+      "name": "NEWS+"
+    }
+  ],
   "triggerCount": 0,
-  "updatedAt": "2026-01-29T10:12:52.879Z",
-  "versionId": "b9437d3b-8673-48bc-b787-095d43e15c96"
+  "updatedAt": "2026-02-08T20:49:54.468Z",
+  "versionId": "54421ced-68ca-4fb2-a76f-ee45a03b5d46"
 }
