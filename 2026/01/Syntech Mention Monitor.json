@@ -544,9 +544,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:43.827Z",
-  "id": "2VzzKPuM0PqR1Boa",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.952Z",
+  "id": "XO9Or6DUoTqXgAA5",
+  "isArchived": false,
   "meta": null,
   "name": "Syntech Mention Monitor",
   "nodes": [
@@ -2567,10 +2567,10 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:43.827Z",
-      "createdAt": "2026-01-28T08:12:43.827Z",
+      "updatedAt": "2026-01-28T09:06:06.952Z",
+      "createdAt": "2026-01-28T09:06:06.952Z",
       "role": "workflow:owner",
-      "workflowId": "2VzzKPuM0PqR1Boa",
+      "workflowId": "XO9Or6DUoTqXgAA5",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
@@ -2586,6 +2586,6 @@
   },
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:19:23.070Z",
-  "versionId": "477969ce-6475-4d1d-8d16-daaf0e196d9b"
+  "updatedAt": "2026-01-28T09:06:06.952Z",
+  "versionId": "3bc29fe7-f732-445d-b86b-9f30f766ee2a"
 }
