@@ -154,9 +154,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:43.552Z",
-  "id": "NphjSFuvGdI2YV52",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.906Z",
+  "id": "jh2QpFwcipI5tR73",
+  "isArchived": false,
   "meta": null,
   "name": "Website Biofuel Content Analyzer Firecrawl",
   "nodes": [
@@ -733,16 +733,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:43.552Z",
-      "createdAt": "2026-01-28T08:12:43.552Z",
+      "updatedAt": "2026-01-28T09:06:06.906Z",
+      "createdAt": "2026-01-28T09:06:06.906Z",
       "role": "workflow:owner",
-      "workflowId": "NphjSFuvGdI2YV52",
+      "workflowId": "jh2QpFwcipI5tR73",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:19:26.005Z",
-  "versionId": "9eb2fa18-ef83-442b-bdca-139464612f8d"
+  "updatedAt": "2026-01-28T09:06:06.906Z",
+  "versionId": "29cc22ab-09ec-494e-b478-7e1a827ac0e3"
 }
