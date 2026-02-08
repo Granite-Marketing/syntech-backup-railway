@@ -15,9 +15,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:42.793Z",
-  "id": "OSbaUDbpHPJrC0vB",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.491Z",
+  "id": "hndmZrU3rREe5NHI",
+  "isArchived": false,
   "meta": null,
   "name": "testing another sub",
   "nodes": [
@@ -59,16 +59,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:42.793Z",
-      "createdAt": "2026-01-28T08:12:42.793Z",
+      "updatedAt": "2026-01-28T09:06:06.491Z",
+      "createdAt": "2026-01-28T09:06:06.491Z",
       "role": "workflow:owner",
-      "workflowId": "OSbaUDbpHPJrC0vB",
+      "workflowId": "hndmZrU3rREe5NHI",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:19:59.161Z",
-  "versionId": "1178ce2b-f8b1-40e1-b9c9-00d207ab7483"
+  "updatedAt": "2026-01-28T09:06:06.491Z",
+  "versionId": "e96a5ee2-cb27-4a0f-8a2b-f049f3596705"
 }
