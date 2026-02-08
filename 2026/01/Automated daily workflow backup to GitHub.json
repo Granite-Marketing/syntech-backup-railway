@@ -121,9 +121,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:43.175Z",
-  "id": "mKFuS4HcwHuSblDN",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.430Z",
+  "id": "h97S17V0g9uad2Z2",
+  "isArchived": false,
   "meta": null,
   "name": "Automated daily workflow backup to GitHub",
   "nodes": [
@@ -501,10 +501,10 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:43.175Z",
-      "createdAt": "2026-01-28T08:12:43.175Z",
+      "updatedAt": "2026-01-28T09:06:06.430Z",
+      "createdAt": "2026-01-28T09:06:06.430Z",
       "role": "workflow:owner",
-      "workflowId": "mKFuS4HcwHuSblDN",
+      "workflowId": "h97S17V0g9uad2Z2",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
@@ -515,6 +515,6 @@
   },
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:19:44.077Z",
-  "versionId": "bf57aced-2cdc-475c-92ed-2d58cc26c71e"
+  "updatedAt": "2026-01-28T09:06:06.430Z",
+  "versionId": "f1088c9b-af8c-40e3-ac49-99ce3543fca6"
 }
