@@ -66,9 +66,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:43.243Z",
-  "id": "QIqrsJMqaDhLPMzh",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:06.682Z",
+  "id": "xbgcGM7AYz0S7uOi",
+  "isArchived": false,
   "meta": null,
   "name": "🔀 Content Transformation Sub Workflow",
   "nodes": [
@@ -288,16 +288,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:43.243Z",
-      "createdAt": "2026-01-28T08:12:43.243Z",
+      "updatedAt": "2026-01-28T09:06:06.682Z",
+      "createdAt": "2026-01-28T09:06:06.682Z",
       "role": "workflow:owner",
-      "workflowId": "QIqrsJMqaDhLPMzh",
+      "workflowId": "xbgcGM7AYz0S7uOi",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:19:42.809Z",
-  "versionId": "2021c748-0493-4e5c-b099-84a82bb0679d"
+  "updatedAt": "2026-01-28T09:06:06.682Z",
+  "versionId": "c3d73525-cffe-4ea0-83f6-650c544133fa"
 }
