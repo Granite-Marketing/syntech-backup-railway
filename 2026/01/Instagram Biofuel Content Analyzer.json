@@ -322,9 +322,9 @@
       ]
     }
   },
-  "createdAt": "2026-01-28T08:12:44.186Z",
-  "id": "5qATT6w7gIRcnuXW",
-  "isArchived": true,
+  "createdAt": "2026-01-28T09:06:07.244Z",
+  "id": "hGAdVawTCT705GZ5",
+  "isArchived": false,
   "meta": null,
   "name": "Instagram Biofuel Content Analyzer",
   "nodes": [
@@ -1178,16 +1178,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2026-01-28T08:12:44.186Z",
-      "createdAt": "2026-01-28T08:12:44.186Z",
+      "updatedAt": "2026-01-28T09:06:07.244Z",
+      "createdAt": "2026-01-28T09:06:07.244Z",
       "role": "workflow:owner",
-      "workflowId": "5qATT6w7gIRcnuXW",
+      "workflowId": "hGAdVawTCT705GZ5",
       "projectId": "U9sMeJya1DaokkjK"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T08:19:01.055Z",
-  "versionId": "c585ab25-a116-4991-84be-78922dafdee7"
+  "updatedAt": "2026-01-28T09:06:07.244Z",
+  "versionId": "7b8ca2e8-95a0-4200-9d8b-d147750bbab0"
 }
