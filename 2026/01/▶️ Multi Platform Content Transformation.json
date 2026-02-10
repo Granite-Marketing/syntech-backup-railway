@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-04T12:40:49.935Z",
-    "createdAt": "2026-02-04T12:40:46.558Z",
-    "versionId": "bef353ac-ec0b-49c9-8517-7d41d15d7003",
+    "updatedAt": "2026-02-09T11:21:03.792Z",
+    "createdAt": "2026-02-09T11:21:02.259Z",
+    "versionId": "d43434da-1889-4ea1-8dbb-f20450dd8948",
     "workflowId": "G9d4WGYeBHbsulNC",
     "nodes": [
       {
@@ -19,8 +19,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -2240,
-          536
+          -1792,
+          336
         ],
         "id": "bd3824d8-a4ac-46ac-8a9b-3dc9967137fe",
         "name": "Extract Content Type Prompt",
@@ -47,7 +47,7 @@
         "typeVersion": 2.2,
         "position": [
           -3360,
-          464
+          216
         ],
         "id": "8d2bf0d1-0205-4c0d-9855-bfcbc227511e",
         "name": "Get Content With Block ID",
@@ -67,8 +67,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          -2464,
-          536
+          -2016,
+          336
         ],
         "id": "5c14aa08-95b6-4b54-be1c-fe7924eb52c4",
         "name": "Split Content Type"
@@ -90,8 +90,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -2688,
-          536
+          -2240,
+          336
         ],
         "id": "82622f0f-af72-4949-b2ac-3e1df5e8e27e",
         "name": "Set Content Type"
@@ -110,7 +110,7 @@
         "typeVersion": 2.2,
         "position": [
           -3136,
-          464
+          216
         ],
         "id": "d5894528-f920-4aca-bb1f-be662579673a",
         "name": "Get Parent DB ID",
@@ -246,8 +246,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -672,
-          536
+          -224,
+          288
         ],
         "id": "1a184579-4090-42d5-810d-b60022dbcb16",
         "name": "Set Input3"
@@ -266,8 +266,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -1120,
-          464
+          -672,
+          216
         ],
         "id": "67c499ff-b038-4ef0-8fa8-9bfc02663deb",
         "name": "Get Block Content",
@@ -285,8 +285,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          -896,
-          464
+          -448,
+          216
         ],
         "id": "5dd4fa97-9fdc-4661-b790-46e7e6b2526f",
         "name": "Format Block Content"
@@ -298,8 +298,8 @@
         "type": "n8n-nodes-base.splitInBatches",
         "typeVersion": 3,
         "position": [
-          -1344,
-          464
+          -896,
+          216
         ],
         "id": "f4b3a43a-902c-4aec-ac75-f7f38ab3047d",
         "name": "Loop Over Items"
@@ -314,7 +314,7 @@
         "typeVersion": 2.1,
         "position": [
           -3584,
-          464
+          216
         ],
         "id": "768823b8-65b9-46dc-aa8b-8dd277155fd0",
         "name": "Get Initial Article",
@@ -345,8 +345,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          -1120,
-          272
+          -672,
+          24
         ],
         "id": "88229ce5-6daa-4b3f-9435-1c37e9b80b7e",
         "name": "Execute Content Writer Workflow"
@@ -367,7 +367,7 @@
         "typeVersion": 1.1,
         "position": [
           1536,
-          1036
+          836
         ],
         "id": "dc9c2805-1a91-49e6-a300-ed8d22137a97",
         "name": "Add Social Media Post2",
@@ -396,7 +396,7 @@
         "typeVersion": 2.2,
         "position": [
           1760,
-          1432
+          1232
         ],
         "id": "3d5ba772-731f-4a4c-9136-279644d45826",
         "name": "Set Notion API Error2",
@@ -430,7 +430,7 @@
         "typeVersion": 2.2,
         "position": [
           1760,
-          940
+          740
         ],
         "id": "ce53092d-8f56-4f50-ad1a-b551ea6c3d8c",
         "name": "Set Notion Success2",
@@ -492,7 +492,7 @@
         "typeVersion": 3.4,
         "position": [
           1312,
-          1036
+          836
         ],
         "id": "9c9006f5-0827-402a-802f-eb7f93184086",
         "name": "Set Subflow Fields4"
@@ -505,7 +505,7 @@
         "typeVersion": 1.1,
         "position": [
           -3584,
-          1404
+          1204
         ],
         "id": "55bf7f64-b943-4063-b001-28ba7ef3fbfc",
         "name": "Initial Input"
@@ -528,8 +528,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.2,
         "position": [
-          688,
-          1536
+          656,
+          1332
         ],
         "id": "0cb49c00-2c8b-47e8-914c-ac656e91e987",
         "name": "OpenAI Chat Model",
@@ -575,7 +575,7 @@
         "typeVersion": 1.2,
         "position": [
           -736,
-          1952
+          1752
         ]
       },
       {
@@ -598,7 +598,7 @@
         "typeVersion": 3.4,
         "position": [
           176,
-          1308
+          1108
         ],
         "executeOnce": true
       },
@@ -614,7 +614,7 @@
         "typeVersion": 1.7,
         "position": [
           -744,
-          1728
+          1528
         ],
         "onError": "continueErrorOutput"
       },
@@ -655,7 +655,7 @@
         "typeVersion": 1.2,
         "position": [
           -608,
-          1952
+          1752
         ]
       },
       {
@@ -685,7 +685,7 @@
         "typeVersion": 1.1,
         "position": [
           -480,
-          1952
+          1752
         ]
       },
       {
@@ -699,7 +699,7 @@
         "typeVersion": 1,
         "position": [
           -864,
-          1952
+          1752
         ],
         "credentials": {
           "openAiApi": {
@@ -714,7 +714,7 @@
         "typeVersion": 1,
         "position": [
           -272,
-          1824
+          1624
         ],
         "id": "a4d7c02b-52be-4b57-b170-4b568494091d",
         "name": "No Operation, do nothing"
@@ -737,7 +737,7 @@
         "typeVersion": 3.4,
         "position": [
           -2688,
-          320
+          72
         ],
         "id": "346b8dab-80fa-4286-9c8f-c17f08e589f4",
         "name": "Set Image Prompts"
@@ -751,7 +751,7 @@
         "typeVersion": 1,
         "position": [
           -2464,
-          320
+          72
         ],
         "id": "b107ab08-9e67-452f-8ec8-32d6b102758d",
         "name": "Split Image Prompts",
@@ -771,7 +771,7 @@
         "typeVersion": 2.2,
         "position": [
           -2240,
-          320
+          72
         ],
         "id": "b7045c04-c5f2-402e-9375-86a6fc12ba51",
         "name": "Extract Image Prompts",
@@ -793,8 +793,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          -1792,
-          392
+          -1344,
+          144
         ],
         "id": "776abe76-2950-4b88-938a-912663e2a800",
         "name": "Merge",
@@ -807,8 +807,8 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          -1568,
-          464
+          -1120,
+          216
         ],
         "id": "d79f3450-68e9-40ed-807c-823ab1e90258",
         "name": "Limit"
@@ -829,7 +829,7 @@
         "typeVersion": 1.2,
         "position": [
           -2616,
-          1088
+          888
         ],
         "id": "19df18a3-7bb2-4dfd-8467-b601c2c74e9a",
         "name": "OpenAI Chat Model2",
@@ -857,7 +857,7 @@
         "typeVersion": 1.7,
         "position": [
           -2688,
-          864
+          664
         ],
         "id": "30ef3ca9-8b2d-4495-84f1-a30b8342583d",
         "name": "Image Prompt Generator",
@@ -874,7 +874,7 @@
         "typeVersion": 1,
         "position": [
           -3136,
-          864
+          664
         ],
         "id": "b7f3e1c8-df24-455f-9d11-0dfa1093dc80",
         "name": "Split Out Image Prompts"
@@ -897,7 +897,7 @@
         "typeVersion": 3.4,
         "position": [
           -2336,
-          864
+          664
         ],
         "id": "b3f40758-31a1-4b00-ab74-4ca246316873",
         "name": "Set Final Image Prompts"
@@ -912,7 +912,7 @@
         "typeVersion": 3.2,
         "position": [
           1088,
-          1036
+          836
         ],
         "id": "4ba42483-d763-4e1c-a6e6-cd1db32be881",
         "name": "Merge1",
@@ -952,7 +952,7 @@
         "typeVersion": 4.2,
         "position": [
           -1760,
-          864
+          664
         ],
         "id": "84df7acc-fc82-468b-ae3c-2ae11285bda3",
         "name": "Create a Notion File Upload object1",
@@ -1000,7 +1000,7 @@
         "typeVersion": 4.2,
         "position": [
           520,
-          864
+          664
         ],
         "id": "8222c5d1-767f-432a-bd42-dff3cdb68516",
         "name": "Upload file contents1",
@@ -1020,8 +1020,8 @@
         "type": "n8n-nodes-base.aggregate",
         "typeVersion": 1,
         "position": [
-          -2016,
-          320
+          -1568,
+          72
         ],
         "id": "16c01429-6c10-4481-b476-50a2270e0407",
         "name": "Aggregate Image Prompts",
@@ -1037,7 +1037,7 @@
         "typeVersion": 1,
         "position": [
           864,
-          864
+          664
         ],
         "id": "dad39ac1-eda8-4c45-bd4f-ae5d902cbc0b",
         "name": "Aggregate Image Files"
@@ -1064,7 +1064,7 @@
         "typeVersion": 4.3,
         "position": [
           -1536,
-          864
+          664
         ],
         "id": "2b53fcb3-71b6-4fd9-8e4a-e041ad807217",
         "name": "Generate Image HTTP",
@@ -1092,7 +1092,7 @@
         "typeVersion": 2.2,
         "position": [
           -2912,
-          464
+          216
         ],
         "id": "45f5b99d-351b-4c59-a648-a99ae63dd6b2",
         "name": "Get Transformed Content DB ID",
@@ -1115,7 +1115,7 @@
         "typeVersion": 1.1,
         "position": [
           -680,
-          864
+          664
         ],
         "id": "1a6c51da-8eca-44a5-bc84-b37db357026a",
         "name": "Convert to File"
@@ -1129,7 +1129,7 @@
         "typeVersion": 1,
         "position": [
           -1312,
-          864
+          664
         ],
         "id": "c7c94f04-5638-4364-b7ee-e42f404f48e7",
         "name": "Split Out Parts"
@@ -1162,7 +1162,7 @@
         "typeVersion": 2.2,
         "position": [
           -1088,
-          864
+          664
         ],
         "id": "cebbf022-0ff7-435b-8f77-4d2511b18193",
         "name": "Grab Image"
@@ -1196,7 +1196,7 @@
         "typeVersion": 2.2,
         "position": [
           -1088,
-          1604
+          1404
         ],
         "id": "84f7c606-6a06-4e32-897d-0267cdb6f884",
         "name": "If Research"
@@ -1215,7 +1215,7 @@
         "typeVersion": 2.2,
         "position": [
           -1312,
-          1604
+          1404
         ],
         "id": "2f182f29-754b-4738-a90f-70834589f5b0",
         "name": "Check If Research Exists",
@@ -1244,7 +1244,7 @@
         "typeVersion": 1,
         "position": [
           -272,
-          1632
+          1432
         ]
       },
       {
@@ -1257,7 +1257,7 @@
         "typeVersion": 2,
         "position": [
           176,
-          1728
+          1528
         ]
       },
       {
@@ -1277,7 +1277,7 @@
         "typeVersion": 1,
         "position": [
           520,
-          1728
+          1528
         ]
       },
       {
@@ -1299,7 +1299,7 @@
         "typeVersion": 3.2,
         "position": [
           1312,
-          1624
+          1424
         ]
       },
       {
@@ -1314,7 +1314,7 @@
         "typeVersion": 2.1,
         "position": [
           1536,
-          1728
+          1528
         ]
       },
       {
@@ -1325,7 +1325,7 @@
         "typeVersion": 3,
         "position": [
           -48,
-          1728
+          1528
         ],
         "id": "9336022d-c3e5-418d-8bc0-e79f8a1238ed",
         "name": "Loop Over Items1"
@@ -1345,7 +1345,7 @@
         "typeVersion": 2.2,
         "position": [
           -272,
-          1108
+          908
         ],
         "id": "cb939c0f-276f-44e1-a99d-5b9cdb6e3770",
         "name": "Get Research",
@@ -1390,7 +1390,7 @@
         "typeVersion": 2.2,
         "position": [
           -48,
-          1328
+          1128
         ],
         "id": "ffcf4b78-1863-4969-bc30-d5bd1b6196e5",
         "name": "Add Research",
@@ -1410,7 +1410,7 @@
         "typeVersion": 2,
         "position": [
           -48,
-          1108
+          908
         ],
         "id": "3c68d0d8-7e91-44ed-a49a-2ecb338498c5",
         "name": "Format Research Blocks"
@@ -1449,7 +1449,7 @@
         "typeVersion": 2.2,
         "position": [
           1088,
-          1624
+          1424
         ],
         "id": "745d3590-f514-44db-b287-deeef7cf0ada",
         "name": "Create New Research Item",
@@ -1481,7 +1481,7 @@
         "typeVersion": 2.2,
         "position": [
           1760,
-          1776
+          1576
         ],
         "id": "6d580e80-b47c-4cf2-97f5-2e65b879c2ae",
         "name": "Update Research Item",
@@ -1508,7 +1508,7 @@
         "typeVersion": 2.2,
         "position": [
           864,
-          1624
+          1424
         ],
         "id": "8d4747c3-843a-4503-98b5-ce18fba515fb",
         "name": "Get Source Article Details",
@@ -1534,8 +1534,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          320,
-          1536
+          400,
+          1332
         ],
         "id": "bb3dc4ce-f3bb-4533-92e2-f285135b16f1",
         "name": "Anthropic Chat Model",
@@ -1562,7 +1562,7 @@
         "typeVersion": 1.5,
         "position": [
           456,
-          1100
+          900
         ],
         "id": "5f35827a-b9a4-4455-a598-940b1ff6fab6",
         "name": "Create Content1",
@@ -1586,7 +1586,7 @@
         "typeVersion": 3.4,
         "position": [
           864,
-          1308
+          1108
         ],
         "id": "6bcca1e9-fe17-417e-bbef-a634fbb4343f",
         "name": "Set Content"
@@ -1620,7 +1620,7 @@
         "typeVersion": 2.2,
         "position": [
           -3360,
-          864
+          664
         ],
         "id": "f0614fba-3612-47c9-9d9d-727fd12e4d62",
         "name": "Has Image Prompt?"
@@ -1636,8 +1636,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatXAiGrok",
         "typeVersion": 1,
         "position": [
-          512,
-          1536
+          528,
+          1332
         ],
         "id": "2dc5db6d-3dc4-4351-9555-d37a8cca36fd",
         "name": "xAI Grok Chat Model",
@@ -1728,7 +1728,7 @@
         "typeVersion": 1,
         "position": [
           448,
-          1324
+          1124
         ],
         "id": "188c9c94-405a-4347-95b7-8e63fd573784",
         "name": "Model Selector"
@@ -1761,8 +1761,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          -2016,
-          536
+          -1568,
+          336
         ],
         "id": "c4c45cb7-f18a-4c0e-adfc-f46b006d90ae",
         "name": "If Images"
@@ -1784,7 +1784,7 @@
         "typeVersion": 1.3,
         "position": [
           -2040,
-          1088
+          888
         ],
         "id": "3603b796-de01-4df8-8389-b7b31fb60314",
         "name": "OpenAI Chat Model3",
@@ -1812,7 +1812,7 @@
         "typeVersion": 1.7,
         "position": [
           -2112,
-          864
+          664
         ],
         "id": "dec6f742-f1bc-4b97-8221-085a0b8c58e0",
         "name": "Refine Prompt to NanoBanana Style"
@@ -1825,7 +1825,7 @@
         "typeVersion": 1,
         "position": [
           -2912,
-          864
+          664
         ],
         "id": "b40764f0-d9a6-40ea-8c34-587a42e81905",
         "name": "Limit1"
@@ -1846,7 +1846,7 @@
         "typeVersion": 4.3,
         "position": [
           -272,
-          796
+          596
         ],
         "id": "353815e2-fb97-4c36-b9cc-ab1b28d062cd",
         "name": "Get Syntech Overlay"
@@ -1861,7 +1861,7 @@
         "typeVersion": 3.2,
         "position": [
           -48,
-          864
+          664
         ],
         "id": "4e2fbdd5-bdf4-4ba4-849e-9b215017c8d0",
         "name": "Merge3"
@@ -1879,10 +1879,51 @@
         "typeVersion": 1,
         "position": [
           176,
-          864
+          664
         ],
         "id": "7298f259-2bd0-40e6-b89d-adbc29e91aa1",
         "name": "Create Watermarked Image"
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "operation": "get",
+          "pageId": {
+            "__rl": true,
+            "value": "={{ $('Extract Image Prompts').item.json.property_version[0] }}",
+            "mode": "id"
+          }
+        },
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          -2016,
+          0
+        ],
+        "id": "5fe8c0c6-3a6a-4b11-b03b-f15ec423a46c",
+        "name": "Extract Image Version Prompts",
+        "executeOnce": false,
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "combineBy": "combineByPosition",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          -1792,
+          72
+        ],
+        "id": "7ebf9b61-1d93-4ecd-98b8-62f963f06c8e",
+        "name": "Merge4"
       }
     ],
     "connections": {
@@ -2034,18 +2075,7 @@
       },
       "Initial Input": {
         "main": [
-          [
-            {
-              "node": "Check If Research Exists",
-              "type": "main",
-              "index": 0
-            },
-            {
-              "node": "Has Image Prompt?",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "OpenAI Chat Model": {
@@ -2158,9 +2188,14 @@
         "main": [
           [
             {
-              "node": "Aggregate Image Prompts",
+              "node": "Extract Image Version Prompts",
               "type": "main",
               "index": 0
+            },
+            {
+              "node": "Merge4",
+              "type": "main",
+              "index": 1
             }
           ]
         ]
@@ -2692,14 +2727,36 @@
             }
           ]
         ]
+      },
+      "Extract Image Version Prompts": {
+        "main": [
+          [
+            {
+              "node": "Merge4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Merge4": {
+        "main": [
+          [
+            {
+              "node": "Aggregate Image Prompts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "fix notion link",
+    "name": "Version d43434da",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "bef353ac-ec0b-49c9-8517-7d41d15d7003",
+  "activeVersionId": "d43434da-1889-4ea1-8dbb-f20450dd8948",
   "connections": {
     "Extract Content Type Prompt": {
       "main": [
@@ -2851,12 +2908,12 @@
       "main": [
         [
           {
-            "node": "Check If Research Exists",
+            "node": "Has Image Prompt?",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Has Image Prompt?",
+            "node": "Check If Research Exists",
             "type": "main",
             "index": 0
           }
@@ -2973,9 +3030,14 @@
       "main": [
         [
           {
-            "node": "Aggregate Image Prompts",
+            "node": "Extract Image Version Prompts",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 1
           }
         ]
       ]
@@ -2997,17 +3059,6 @@
           {
             "node": "Loop Over Items",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model2": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Image Prompt Generator",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -3132,12 +3183,7 @@
       "main": [
         [
           {
-            "node": "Merge3",
-            "type": "main",
-            "index": 1
-          },
-          {
-            "node": "Get Syntech Overlay",
+            "node": "Upload file contents1",
             "type": "main",
             "index": 0
           }
@@ -3442,17 +3488,6 @@
         ]
       ]
     },
-    "OpenAI Chat Model3": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Refine Prompt to NanoBanana Style",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Refine Prompt to NanoBanana Style": {
       "main": [
         [
@@ -3468,40 +3503,133 @@
       "main": [
         [
           {
+            "node": "Create Duplicate Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Image Version Prompts": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge4": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "Get Syntech Overlay1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get Syntech Overlay1": {
+      "main": [
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge5": {
+      "main": [
+        [
+          {
+            "node": "Create Watermarked Image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Watermarked Image1": {
+      "main": [
+        [
+          {
+            "node": "Upload file contents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Refine Prompt to NanoBanana Style",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
             "node": "Image Prompt Generator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Duplicate Prompts": {
+      "main": [
+        [
+          {
+            "node": "Split Out Duplicate Prompts",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Get Syntech Overlay": {
+    "Split Out Duplicate Prompts": {
       "main": [
         [
           {
-            "node": "Merge3",
+            "node": "Split Out Chat Modals",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Merge3": {
+    "Split Out Chat Modals": {
       "main": [
         [
           {
-            "node": "Create Watermarked Image",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Create Watermarked Image": {
-      "main": [
-        [
-          {
-            "node": "Upload file contents1",
+            "node": "Image Prompt Generator",
             "type": "main",
             "index": 0
           }
@@ -3512,7 +3640,9 @@
   "createdAt": "2026-01-28T09:06:07.499Z",
   "id": "G9d4WGYeBHbsulNC",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "▶️ Multi Platform Content Transformation",
   "nodes": [
     {
@@ -3528,8 +3658,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        -2240,
-        536
+        -1888,
+        -1760
       ],
       "id": "bd3824d8-a4ac-46ac-8a9b-3dc9967137fe",
       "name": "Extract Content Type Prompt",
@@ -3555,8 +3685,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        -3360,
-        464
+        -3456,
+        -1880
       ],
       "id": "8d2bf0d1-0205-4c0d-9855-bfcbc227511e",
       "name": "Get Content With Block ID",
@@ -3576,8 +3706,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -2464,
-        536
+        -2112,
+        -1760
       ],
       "id": "5c14aa08-95b6-4b54-be1c-fe7924eb52c4",
       "name": "Split Content Type"
@@ -3599,8 +3729,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2688,
-        536
+        -2336,
+        -1760
       ],
       "id": "82622f0f-af72-4949-b2ac-3e1df5e8e27e",
       "name": "Set Content Type"
@@ -3618,8 +3748,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        -3136,
-        464
+        -3232,
+        -1880
       ],
       "id": "d5894528-f920-4aca-bb1f-be662579673a",
       "name": "Get Parent DB ID",
@@ -3755,8 +3885,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -672,
-        536
+        -320,
+        -1808
       ],
       "id": "1a184579-4090-42d5-810d-b60022dbcb16",
       "name": "Set Input3"
@@ -3775,8 +3905,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        -1120,
-        464
+        -768,
+        -1880
       ],
       "id": "67c499ff-b038-4ef0-8fa8-9bfc02663deb",
       "name": "Get Block Content",
@@ -3794,8 +3924,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -896,
-        464
+        -544,
+        -1880
       ],
       "id": "5dd4fa97-9fdc-4661-b790-46e7e6b2526f",
       "name": "Format Block Content"
@@ -3807,8 +3937,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -1344,
-        464
+        -992,
+        -1880
       ],
       "id": "f4b3a43a-902c-4aec-ac75-f7f38ab3047d",
       "name": "Loop Over Items"
@@ -3822,8 +3952,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -3584,
-        464
+        -3680,
+        -1880
       ],
       "id": "768823b8-65b9-46dc-aa8b-8dd277155fd0",
       "name": "Get Initial Article",
@@ -3854,8 +3984,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        -1120,
-        272
+        -768,
+        -2072
       ],
       "id": "88229ce5-6daa-4b3f-9435-1c37e9b80b7e",
       "name": "Execute Content Writer Workflow"
@@ -3875,8 +4005,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.1,
       "position": [
-        1536,
-        1036
+        1440,
+        -1260
       ],
       "id": "dc9c2805-1a91-49e6-a300-ed8d22137a97",
       "name": "Add Social Media Post2",
@@ -3904,8 +4034,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        1760,
-        1432
+        1664,
+        -864
       ],
       "id": "3d5ba772-731f-4a4c-9136-279644d45826",
       "name": "Set Notion API Error2",
@@ -3938,8 +4068,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        1760,
-        940
+        1664,
+        -1356
       ],
       "id": "ce53092d-8f56-4f50-ad1a-b551ea6c3d8c",
       "name": "Set Notion Success2",
@@ -4000,8 +4130,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1312,
-        1036
+        1216,
+        -1260
       ],
       "id": "9c9006f5-0827-402a-802f-eb7f93184086",
       "name": "Set Subflow Fields4"
@@ -4013,8 +4143,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
-        -3584,
-        1404
+        -3680,
+        -892
       ],
       "id": "55bf7f64-b943-4063-b001-28ba7ef3fbfc",
       "name": "Initial Input"
@@ -4037,8 +4167,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        688,
-        1536
+        560,
+        -764
       ],
       "id": "0cb49c00-2c8b-47e8-914c-ac656e91e987",
       "name": "OpenAI Chat Model",
@@ -4083,8 +4213,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1.2,
       "position": [
-        -736,
-        1952
+        -832,
+        -344
       ]
     },
     {
@@ -4106,8 +4236,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        176,
-        1308
+        80,
+        -988
       ],
       "executeOnce": true
     },
@@ -4122,8 +4252,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        -744,
-        1728
+        -840,
+        -568
       ],
       "onError": "continueErrorOutput"
     },
@@ -4163,8 +4293,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1.2,
       "position": [
-        -608,
-        1952
+        -704,
+        -344
       ]
     },
     {
@@ -4193,8 +4323,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "typeVersion": 1.1,
       "position": [
-        -480,
-        1952
+        -576,
+        -344
       ]
     },
     {
@@ -4207,8 +4337,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        -864,
-        1952
+        -960,
+        -344
       ],
       "credentials": {
         "openAiApi": {
@@ -4222,8 +4352,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -272,
-        1824
+        -368,
+        -472
       ],
       "id": "a4d7c02b-52be-4b57-b170-4b568494091d",
       "name": "No Operation, do nothing"
@@ -4245,8 +4375,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2688,
-        320
+        -2784,
+        -2024
       ],
       "id": "346b8dab-80fa-4286-9c8f-c17f08e589f4",
       "name": "Set Image Prompts"
@@ -4259,8 +4389,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -2464,
-        320
+        -2560,
+        -2024
       ],
       "id": "b107ab08-9e67-452f-8ec8-32d6b102758d",
       "name": "Split Image Prompts",
@@ -4279,8 +4409,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        -2240,
-        320
+        -2336,
+        -2024
       ],
       "id": "b7045c04-c5f2-402e-9375-86a6fc12ba51",
       "name": "Extract Image Prompts",
@@ -4302,8 +4432,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        -1792,
-        392
+        -1440,
+        -1952
       ],
       "id": "776abe76-2950-4b88-938a-912663e2a800",
       "name": "Merge",
@@ -4316,38 +4446,11 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        -1568,
-        464
+        -1216,
+        -1880
       ],
       "id": "d79f3450-68e9-40ed-807c-823ab1e90258",
       "name": "Limit"
-    },
-    {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "value": "gpt-5.1",
-          "mode": "list",
-          "cachedResultName": "gpt-5.1"
-        },
-        "options": {
-          "temperature": 0.2
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        -2616,
-        1088
-      ],
-      "id": "19df18a3-7bb2-4dfd-8467-b601c2c74e9a",
-      "name": "OpenAI Chat Model2",
-      "credentials": {
-        "openAiApi": {
-          "id": "NoEKitspBJb0zQrp",
-          "name": "Syntech GM OpenAi account"
-        }
-      }
     },
     {
       "parameters": {
@@ -4356,7 +4459,7 @@
         "messages": {
           "messageValues": [
             {
-              "message": "={{ $json.property_system_message }}"
+              "message": "={{ $json.property_system_prompt }}\n\n{{ $json.property_system_message }}"
             }
           ]
         },
@@ -4365,8 +4468,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -2688,
-        864
+        -2112,
+        -1432
       ],
       "id": "30ef3ca9-8b2d-4495-84f1-a30b8342583d",
       "name": "Image Prompt Generator",
@@ -4382,8 +4485,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -3136,
-        864
+        -3232,
+        -1432
       ],
       "id": "b7f3e1c8-df24-455f-9d11-0dfa1093dc80",
       "name": "Split Out Image Prompts"
@@ -4405,8 +4508,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2336,
-        864
+        -1760,
+        -1432
       ],
       "id": "b3f40758-31a1-4b00-ab74-4ca246316873",
       "name": "Set Final Image Prompts"
@@ -4420,8 +4523,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        1088,
-        1036
+        992,
+        -1260
       ],
       "id": "4ba42483-d763-4e1c-a6e6-cd1db32be881",
       "name": "Merge1",
@@ -4460,8 +4563,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1760,
-        864
+        -1184,
+        -1432
       ],
       "id": "84df7acc-fc82-468b-ae3c-2ae11285bda3",
       "name": "Create a Notion File Upload object1",
@@ -4508,8 +4611,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        520,
-        864
+        424,
+        -1432
       ],
       "id": "8222c5d1-767f-432a-bd42-dff3cdb68516",
       "name": "Upload file contents1",
@@ -4529,8 +4632,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        -2016,
-        320
+        -1664,
+        -2024
       ],
       "id": "16c01429-6c10-4481-b476-50a2270e0407",
       "name": "Aggregate Image Prompts",
@@ -4545,8 +4648,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        864,
-        864
+        768,
+        -1432
       ],
       "id": "dad39ac1-eda8-4c45-bd4f-ae5d902cbc0b",
       "name": "Aggregate Image Files"
@@ -4572,8 +4675,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -1536,
-        864
+        -776,
+        -1432
       ],
       "id": "2b53fcb3-71b6-4fd9-8e4a-e041ad807217",
       "name": "Generate Image HTTP",
@@ -4600,8 +4703,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        -2912,
-        464
+        -3008,
+        -1880
       ],
       "id": "45f5b99d-351b-4c59-a648-a99ae63dd6b2",
       "name": "Get Transformed Content DB ID",
@@ -4623,8 +4726,8 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        -680,
-        864
+        80,
+        -1432
       ],
       "id": "1a6c51da-8eca-44a5-bc84-b37db357026a",
       "name": "Convert to File"
@@ -4637,8 +4740,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -1312,
-        864
+        -368,
+        -1432
       ],
       "id": "c7c94f04-5638-4364-b7ee-e42f404f48e7",
       "name": "Split Out Parts"
@@ -4670,8 +4773,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        -1088,
-        864
+        -144,
+        -1432
       ],
       "id": "cebbf022-0ff7-435b-8f77-4d2511b18193",
       "name": "Grab Image"
@@ -4704,8 +4807,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -1088,
-        1604
+        -1184,
+        -692
       ],
       "id": "84f7c606-6a06-4e32-897d-0267cdb6f884",
       "name": "If Research"
@@ -4723,8 +4826,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        -1312,
-        1604
+        -1472,
+        -692
       ],
       "id": "2f182f29-754b-4738-a90f-70834589f5b0",
       "name": "Check If Research Exists",
@@ -4752,8 +4855,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -272,
-        1632
+        -368,
+        -664
       ]
     },
     {
@@ -4765,8 +4868,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        176,
-        1728
+        80,
+        -568
       ]
     },
     {
@@ -4785,8 +4888,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        520,
-        1728
+        424,
+        -568
       ]
     },
     {
@@ -4807,8 +4910,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1312,
-        1624
+        1216,
+        -672
       ]
     },
     {
@@ -4822,8 +4925,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1536,
-        1728
+        1440,
+        -568
       ]
     },
     {
@@ -4833,8 +4936,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -48,
-        1728
+        -144,
+        -564
       ],
       "id": "9336022d-c3e5-418d-8bc0-e79f8a1238ed",
       "name": "Loop Over Items1"
@@ -4853,8 +4956,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        -272,
-        1108
+        -368,
+        -1184
       ],
       "id": "cb939c0f-276f-44e1-a99d-5b9cdb6e3770",
       "name": "Get Research",
@@ -4898,8 +5001,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        -48,
-        1328
+        -144,
+        -964
       ],
       "id": "ffcf4b78-1863-4969-bc30-d5bd1b6196e5",
       "name": "Add Research",
@@ -4918,8 +5021,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -48,
-        1108
+        -144,
+        -1184
       ],
       "id": "3c68d0d8-7e91-44ed-a49a-2ecb338498c5",
       "name": "Format Research Blocks"
@@ -4957,8 +5060,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        1088,
-        1624
+        992,
+        -672
       ],
       "id": "745d3590-f514-44db-b287-deeef7cf0ada",
       "name": "Create New Research Item",
@@ -4989,8 +5092,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        1760,
-        1776
+        1664,
+        -516
       ],
       "id": "6d580e80-b47c-4cf2-97f5-2e65b879c2ae",
       "name": "Update Research Item",
@@ -5016,8 +5119,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        864,
-        1624
+        768,
+        -672
       ],
       "id": "8d4747c3-843a-4503-98b5-ce18fba515fb",
       "name": "Get Source Article Details",
@@ -5043,8 +5146,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        320,
-        1536
+        304,
+        -764
       ],
       "id": "bb3dc4ce-f3bb-4533-92e2-f285135b16f1",
       "name": "Anthropic Chat Model",
@@ -5070,8 +5173,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        456,
-        1100
+        360,
+        -1196
       ],
       "id": "5f35827a-b9a4-4455-a598-940b1ff6fab6",
       "name": "Create Content1",
@@ -5094,8 +5197,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        864,
-        1308
+        768,
+        -988
       ],
       "id": "6bcca1e9-fe17-417e-bbef-a634fbb4343f",
       "name": "Set Content"
@@ -5128,8 +5231,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        -3360,
-        864
+        -3456,
+        -1432
       ],
       "id": "f0614fba-3612-47c9-9d9d-727fd12e4d62",
       "name": "Has Image Prompt?"
@@ -5145,8 +5248,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatXAiGrok",
       "typeVersion": 1,
       "position": [
-        512,
-        1536
+        432,
+        -764
       ],
       "id": "2dc5db6d-3dc4-4351-9555-d37a8cca36fd",
       "name": "xAI Grok Chat Model",
@@ -5236,8 +5339,8 @@
       "type": "@n8n/n8n-nodes-langchain.modelSelector",
       "typeVersion": 1,
       "position": [
-        448,
-        1324
+        352,
+        -972
       ],
       "id": "188c9c94-405a-4347-95b7-8e63fd573784",
       "name": "Model Selector"
@@ -5270,39 +5373,11 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -2016,
-        536
+        -1664,
+        -1760
       ],
       "id": "c4c45cb7-f18a-4c0e-adfc-f46b006d90ae",
       "name": "If Images"
-    },
-    {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "value": "gpt-5.1",
-          "mode": "list",
-          "cachedResultName": "gpt-5.1"
-        },
-        "builtInTools": {},
-        "options": {
-          "temperature": 0.4
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.3,
-      "position": [
-        -2040,
-        1088
-      ],
-      "id": "3603b796-de01-4df8-8389-b7b31fb60314",
-      "name": "OpenAI Chat Model3",
-      "credentials": {
-        "openAiApi": {
-          "id": "NoEKitspBJb0zQrp",
-          "name": "Syntech GM OpenAi account"
-        }
-      }
     },
     {
       "parameters": {
@@ -5311,7 +5386,7 @@
         "messages": {
           "messageValues": [
             {
-              "message": "=You are Stage-2 of Syntech’s Image Generation System.\n\nStage-1 has already produced a complete, structured visual blueprint.\nYour ONLY job is to:\n\n→ compress the Stage-1 blueprint  \n→ into one single, clean, NanoBanana-ready text prompt  \n→ that perfectly obeys the example pack’s visual universe  \n→ with NO interpretation, debate, or deviation.\n\nStage-1 is ALWAYS correct.  \nStage-1 is the law.  \nYou DO NOT rethink, reinterpret, or add extra opinion.\n\n--------------------------------------------------------------------\n# 🔐 PACK-UNIVERSE LOCK (MANDATORY)\n\nThe EXAMPLE PACK determines:\n\n• medium (photo, CGI, vector, icon, diagram, conceptual, industrial)  \n• object grammar  \n• lighting  \n• colour logic  \n• geometry  \n• texture  \n• realism level  \n• negative space ratio  \n• where text sits  \n• how text behaves  \n• emotional tone  \n\nYou MUST enforce this.\n\nExamples:\n\n→ Icon Pack  \nConvert every object into iconographic form: flat vector, geometric, symbolic shapes, consistent line/shape system. NO realism. NO depth unless shown in examples.\n\n→ Futuristic CGI Pack  \nHigh-fidelity CGI. Engineered surfaces. Controlled volumetric light. Cinematic tech atmosphere. No photography.\n\n→ Industrial Smoke Pack  \nMinimal industrial structures. Smokestacks. Monochrome tension. No trucks unless examples allow them.\n\n→ Human Close-Up Pack  \nPhotographic macro human interaction with equipment. Real skin, materials, shallow depth, clean composition.\n\n→ Data & Information Pack  \nDiagrams, schematics, shapes, flows, stats, information systems. No photographic vehicles.\n\nStage-2 MUST reshape all content into the pack’s medium.  \nIf Stage-1 references “a truck” in an Icon Pack → you output an *icon-style truck*, not a photo.\n\n--------------------------------------------------------------------\n# 🎯 PRIMARY TASK\n\nTransform Stage-1 into a SINGLE ultra-precise prompt that includes:\n\n1. The PACK’S REQUIRED MEDIUM  \n2. The PACK’S STYLE UNIVERSE  \n3. The COMPOSITIONAL LOGIC defined by Stage-1  \n4. The FOCAL ZONE + NEGATIVE SPACE rules  \n5. The TEXT (if Stage-1 includes text) using Montserrat  \n6. Colour behaviour that matches the pack  \n7. Lighting behaviour matching the pack  \n8. The metaphor/theme extracted by Stage-1  \n9. The correct bottom-20% calm zone  \n\nThis output must be the exact style the pack demands.\n\nNo meta-text.  \nNo headings.  \nNo lists.  \nOnly the final compressed prompt.\n\n--------------------------------------------------------------------\n# 🎨 STYLE ENFORCEMENT RULES\n\nApply these automatically:\n\n### 1. **Object Grammar Transformer**\nAny object mentioned MUST be expressed in the style of the pack.\n\n• Icon pack → iconified silhouettes  \n• CGI → engineered CGI assets  \n• Data pack → abstracted geometric placeholders, shapes, lines  \n• Industrial pack → metallic, minimal, smokestack logic  \n• Human close-up → real human macro photography  \n\nNever output an object in a style not supported by the pack.\n\n### 2. **Colour Behaviour Transformer**\n• Use pack colours first  \n• Then allow Syntech brand tint subtly  \n• Only add additional colours if pack examples clearly support that palette\n\n### 3. **Lighting Transformer**\nNever default to realism if pack uses flat lighting.  \nNever flatten lighting if pack uses volumetrics.\n\n### 4. **Text Transformer**\nText MUST follow Stage-1’s hierarchy and placement exactly.  \nFont: Montserrat family.  \nNo text shadow.  \nNo glow.  \nNo cheating.\n\n### 5. **Bottom 20–25% Calm Zone**\nYou are NOT rendering a white bar.  \nSimply avoid:\n• strong contrast  \n• focal detail  \n• dense texture  \n• active shapes  \n\nSubtle gradients or soft ground tones are allowed.\n\n--------------------------------------------------------------------\n# 🧩 OUTPUT FORMAT (MANDATORY)\n\nOutput **ONE single paragraph** containing:\n\n• medium  \n• style  \n• lighting  \n• colour  \n• objects in correct grammar  \n• metaphor expression  \n• composition  \n• focal zone logic  \n• bottom calm zone  \n• text placement if applicable  \n• brand tone  \n\nNo lists.  \nNo headings.  \nNo explanations.  \nOnly the final rendering prompt.\n\n--------------------------------------------------------------------\n# 🚫 PROHIBITIONS\n\nNEVER include:\n• people unless the pack explicitly uses humans  \n• realism inside iconographic packs  \n• trucks/fuel pumps unless the pack supports them  \n• white bars, text shadows, UI artifacts  \n• surreal chaos, neon sci-fi, grunge  \n• breaking pack boundaries  \n• outputting Stage-1 sections\n\n--------------------------------------------------------------------\n# ✔️ WHEN READY\n\nWhen Stage-1 says “Go right”, you:\n\n→ Read ALL sections  \n→ Compress them into a single faithful rendering prompt  \n→ Output only the final prompt, nothing else"
+              "message": "=You are Syntech's Stage-2 Image Execution Engine.\n\nYou receive:\n• ONE structured Stage-1 visual brief  \n• An example-pack style universe (already selected)  \n• Optional user guidelines  \n\nYour job is to **faithfully execute** the Stage-1 brief into a final image prompt suitable for image generation.\n\nYou DO NOT reinterpret strategy.  \nYou DO NOT invent concepts.  \nYou DO NOT override the example universe.  \n\nYour role is precise visual execution.\n\n---\n\n# 🔒 EXECUTION HIERARCHY (STRICT)\n\n1. Stage-1 structured brief (highest authority)  \n2. Example-pack universe  \n3. Syntech brand foundations  \n4. Optional user guidelines  \n\nIf conflicts exist:  \n• Resolve silently  \n• Never explain decisions  \n• Always protect visual quality and coherence  \n\n---\n\n# 🎨 CORE EXECUTION PRINCIPLES\n\n• Execute the **visual universe**, not the literal wording  \n• Maintain stylistic consistency with the example pack  \n• Preserve creative variation **within** the universe  \n• Avoid visual repetition across outputs  \n• Keep imagery relevant to sustainability, energy, systems, or progress — even when abstract  \n\nDo NOT default to:  \n• Trucks  \n• Fuel pumps  \n• Vehicles  \nUnless the Stage-1 brief explicitly requires them  \nOR the example pack strongly supports them  \n\n---\n\n# 🖼️ IMAGE COMPOSITION RULES\n\n• Full-frame image — no poster cards, no white blocks  \n• No artificial reserved space anywhere  \n• No visual framing that implies logos or captions  \n• The image must feel complete on its own  \n\n## Bottom 20% Zone (Watermark Guidance)\n• The **bottom 20% of the image must remain visually clear** for a watermark overlay  \n• This does NOT mean leaving it blank, faded, bordered, or gradiented  \n• It must:\n  - Remain fully part of the image\n  - Contain **no essential content**\n  - Avoid contrast, text, or detail that would compete with a watermark\n• Do not generate any visual device (e.g. border, frame, bar, glow) to reserve the space\n\n---\n\n# ✍️ TEXT HANDLING (VERY IMPORTANT)\n\nIf text is required by Stage-1:\n\nALLOWED:  \n• Headline only  \n• Headline + subheadline  \n• Short phrases  \n• Clean, minimal placement  \n• Colours chosen for legibility (brand or universe-appropriate)  \n\nFORBIDDEN:  \n• Text shadows  \n• Glow effects  \n• Outlines  \n• Describing what the text \"means\"  \n• Describing fonts, weights, sizes, or typography metadata  \n• Writing labels like \"Headline:\" or \"Subheadline:\"  \n• Writing the word \"Syntech\", slogans, or logos  \n\n**Typography must always use Syntech’s brand family (Montserrat)**  \nText must appear natural, intentional, and designer-placed.\n\n---\n\n# 👤 HUMAN IMAGE RULES\n\nIf the image includes human subjects:\n\n• The image must feel like a **documentary photograph** taken by a commercial photographer inside a real, functioning facility  \n• No stylization, beauty filters, influencer lighting, or cinematic effects  \n• Humans must appear as **real working professionals**, not models  \n\nFaces must show:\n- Natural skin texture and imperfections  \n- Pores, uneven tone, shine, and subtle pigmentation  \n- Asymmetry, natural under-eye shadows, and real lip texture  \n\nBlack subjects must show:\n- Authentic melanin response in light/shadow  \n- Natural hairline, baby hairs, visible follicles  \n\nEyes must appear:\n- Moist with natural reflections  \n- Imperfect lashes and visible sclera details  \n\nClothing and PPE must:\n- Appear worn, creased, or slightly scuffed  \n- Include safety gear like high-vis jackets, hard hats, gloves, or goggles  \n- Show fabric texture and realistic folds — never costume-grade or fake clean  \n\nSubjects must be mid-task — **no posing or looking at the camera**  \n\nEnvironments must be industrially authentic:\n- Control rooms, turbine halls, refinery floors, substations, data rooms  \n- Include pipes, gauges, cables, control panels, machinery, or structural elements  \n\nLighting must reflect real-world conditions:\n- Overhead fluorescents, sodium vapor, LED glow, or ambient industrial lighting  \n- Realistic shadows and specular highlights — no surreal color grading  \n\nCamera logic must feel candid:\n- Eye-level or over-shoulder POV, shallow depth of field, slight lens falloff  \n- Natural motion blur if needed, never hyper-sharp digital look  \n\nIf it **feels like AI**, it fails.  \nThe image must pass as a **real industrial photo** in a Chevron, Shell, or Siemens report.\n\nDo not stylize.  \nDo not beautify.  \nDo not idealize.  \nOnly realism, context, and respect.\n\n---\n\n# 🏗️ INFRASTRUCTURE IMAGE RULES\n\n• **Prefer micro or detailed views** of infrastructure over wide macro shots  \n• Wide macro views are only acceptable if:\n  - The image pack explicitly supports them\n  - The scene does not resemble generic or third-party facilities  \n\n• Infrastructure must feel “owned,” not borrowed — abstract, close-up, schematic, or brand-aligned\n\n---\n\n# 🎨 COLOUR EXECUTION LOGIC\n\n• Prioritise colour **impact**, legibility, and mood over neutrality  \n• You may increase vibrancy, colour contrast, or saturation when:\n  - The Stage-1 brief supports it  \n  - The example universe allows flexibility  \n  - The image benefits emotionally or visually from enhanced colour  \n\n• Do NOT inject artificial or irrelevant colour  \n• All colour choices must feel **natural, intentional, and grounded in context**  \n• Brand colours may appear subtly or atmospherically — but do not suppress them if their presence enhances clarity or tone  \n• When in doubt, **favour clarity and contrast over muted neutrality**  \n\nRemain engineered, confident, and clean — but not flat or washed out.\n\n---\n\n# 🧬 STYLE FIDELITY RULE\n\nIf the example pack is:  \n• Iconography → create illustrative / symbolic forms  \n• CGI → produce clean, high-fidelity renders  \n• Photographic → realistic lighting and materials  \n• Abstract → controlled abstraction with relevance  \n\nNever mix universes.  \nNever \"photo-realise\" an icon pack.  \nNever \"illustrate\" a photographic pack.  \n\n---\n\n# 🚫 HARD PROHIBITIONS\n\nNever include:  \n• Logos  \n• Brand marks  \n• Watermarks  \n• Text shadows  \n• Overlays  \n• Poster frames  \n• Artificial borders or bottom bars  \n• Generated or placeholder Syntech logos  \n• Aesthetic drift outside the example pack  \n• Generic or irrelevant objects that do not connect to message, metaphor, or Syntech’s domain  \n\n---\n\n# 💡 SYMBOLIC + METAPHOR GUIDANCE\n\n• All visual elements must carry **intentional meaning**  \n• Avoid random object placement or meaningless scenery  \n• Images must express metaphor, relevance, or visual logic  \n• Expand creatively using Syntech’s core themes:\n  - Environmental responsibility  \n  - Fuel systems and transitions  \n  - Engineering-led sustainability  \n  - Ecological improvement  \n  - Energy infrastructure  \n  - Circular economy  \n\nDo not rely on literal fuel references unless clearly required.  \nUse metaphor and theme to deliver conceptual strength.\n\n---\n\n# 🎯 FINAL OUTPUT REQUIREMENTS\n\nOutput ONE final image-generation prompt that is:  \n\n• Visually diverse  \n• Style-faithful to the example pack  \n• Executed with senior-designer judgment  \n• Relevant to Syntech Biofuel themes (directly or metaphorically)  \n• Free of branding artefacts  \n• Clean, confident, and intentional  \n• Composed for watermark compatibility  \n• Incorporates richer colour, contrast, or natural imperfection where appropriate  \n• Never random — always grounded in meaning, metaphor, or domain logic  \n\n**If human subjects are present, apply full Human Realism Lock logic.**\n\nDo not explain.  \nDo not justify.  \nDo not add commentary.  \n\nJust output the final prompt."
             }
           ]
         },
@@ -5320,24 +5395,127 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -2112,
-        864
+        -1536,
+        -1432
       ],
       "id": "dec6f742-f1bc-4b97-8221-085a0b8c58e0",
       "name": "Refine Prompt to NanoBanana Style"
     },
     {
-      "parameters": {
-        "maxItems": 100
-      },
+      "parameters": {},
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        -2912,
-        864
+        -3008,
+        -1432
       ],
       "id": "b40764f0-d9a6-40ea-8c34-587a42e81905",
       "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Extract Image Prompts').item.json.property_version[0] }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -2112,
+        -2096
+      ],
+      "id": "5fe8c0c6-3a6a-4b11-b03b-f15ec423a46c",
+      "name": "Extract Image Version Prompts",
+      "executeOnce": false,
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1888,
+        -2024
+      ],
+      "id": "7ebf9b61-1d93-4ecd-98b8-62f963f06c8e",
+      "name": "Merge4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Create a Notion File Upload object1').item.json.upload_url }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "=data"
+            },
+            {
+              "name": "content_type",
+              "value": "={{ $binary.data.mimeType }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2784,
+        -168
+      ],
+      "id": "ae0b837b-afbb-41aa-9105-96b74b2072b0",
+      "name": "Upload file contents",
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "inlineData.data",
+        "options": {
+          "mimeType": "image/jpeg"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -3680,
+        -168
+      ],
+      "id": "17167540-f75a-4381-9adb-c8d1faae742e",
+      "name": "Convert to File1"
     },
     {
       "parameters": {
@@ -5354,11 +5532,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -272,
-        796
+        -3456,
+        -240
       ],
-      "id": "353815e2-fb97-4c36-b9cc-ab1b28d062cd",
-      "name": "Get Syntech Overlay"
+      "id": "99056ab1-8219-4c16-829f-42791e1e0a03",
+      "name": "Get Syntech Overlay1"
     },
     {
       "parameters": {
@@ -5369,11 +5547,11 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        -48,
-        864
+        -3232,
+        -168
       ],
-      "id": "4e2fbdd5-bdf4-4ba4-849e-9b215017c8d0",
-      "name": "Merge3"
+      "id": "0200bf52-51ba-423b-9802-9f427b8ce560",
+      "name": "Merge5"
     },
     {
       "parameters": {
@@ -5387,14 +5565,746 @@
       "type": "n8n-nodes-base.editImage",
       "typeVersion": 1,
       "position": [
-        176,
-        864
+        -3008,
+        -168
       ],
-      "id": "7298f259-2bd0-40e6-b89d-adbc29e91aa1",
-      "name": "Create Watermarked Image"
+      "id": "7b384472-be06-42cd-8bf5-994056f6821f",
+      "name": "Create Watermarked Image1"
+    },
+    {
+      "parameters": {
+        "model": "={{ $('Split Out Chat Modals').item.json.property_model || 'google/gemini-2.5-pro' }}",
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -2040,
+        -1208
+      ],
+      "id": "952bb523-e344-411c-91ef-b40f5c1aa78a",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kUkOiAL6PjmdfexG",
+          "name": "Syntech GM OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "={{ $('Split Out Chat Modals').item.json.property_model || 'google/gemini-2.5-pro' }}",
+        "options": {
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -1464,
+        -1208
+      ],
+      "id": "26ed2626-bce8-446c-9744-41b567107302",
+      "name": "OpenRouter Chat Model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kUkOiAL6PjmdfexG",
+          "name": "Syntech GM OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "function duplicateObject(obj, count) {\n  const n = Number(count) || 1;\n  return Array.from({ length: n }, () => ({ ...obj }));\n}\n\nconst incomingPrompt = $json;\nconst numberOfVariants = $('Initial Input').first().json.num_variants || 1;\n\nconsole.log(\"incomingPrompt: \",incomingPrompt)\n\nconst output = duplicateObject(incomingPrompt, numberOfVariants);\n\nreturn {output}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2784,
+        -1432
+      ],
+      "id": "97c19c46-7121-4a37-9880-cd5292ea2976",
+      "name": "Create Duplicate Prompts"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2560,
+        -1432
+      ],
+      "id": "fd0e8ae8-6f07-4917-b3f2-8817d35f30a1",
+      "name": "Split Out Duplicate Prompts"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "property_model",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2336,
+        -1432
+      ],
+      "id": "2cc677d1-e056-4ba0-b021-1f4623658c0b",
+      "name": "Split Out Chat Modals"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Get Initial Article": [
+      {
+        "json": {
+          "headers": {
+            "host": "syntech-biofuels.granite-automations.app",
+            "user-agent": "NotionAutomation",
+            "content-length": "15679",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "44.241.75.17",
+            "cf-ipcountry": "US",
+            "cf-ray": "9cb2f0c99e6e1bed-PDX",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "traceparent": "00-a72267ed61cbf25fbbfdf8fabddd92cf-7a74cf8451a1c8a3-00",
+            "x-forwarded-for": "44.241.75.17, 104.23.160.98",
+            "x-forwarded-host": "syntech-biofuels.granite-automations.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-west2",
+            "x-railway-request-id": "p97SkkUzSmW3YezALPU1MQ",
+            "x-real-ip": "104.23.160.98",
+            "x-request-start": "1770635639415"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "source": {
+              "type": "automation",
+              "automation_id": "2e7785c0-cfab-8082-8cef-004d8b2b8289",
+              "action_id": "2e7785c0-cfab-8034-b0e9-005a4adb23e0",
+              "event_id": "a2eaaa7f-5a65-4522-907c-3e63af732b61",
+              "attempt": 1
+            },
+            "data": {
+              "object": "page",
+              "id": "301785c0-cfab-81f5-bf01-c7c5dab69cbb",
+              "created_time": "2026-02-08T05:33:00.000Z",
+              "last_edited_time": "2026-02-09T11:13:00.000Z",
+              "created_by": {
+                "object": "user",
+                "id": "db438902-568d-4824-9139-86cb0e748004"
+              },
+              "last_edited_by": {
+                "object": "user",
+                "id": "b4ebd45f-4b8e-4852-8989-2078a21811d7"
+              },
+              "cover": null,
+              "icon": null,
+              "parent": {
+                "type": "data_source_id",
+                "data_source_id": "27c785c0-cfab-8112-81cc-000bf648b3f9",
+                "database_id": "27c785c0-cfab-8137-800f-dcf3e01a3e97"
+              },
+              "archived": false,
+              "in_trash": false,
+              "is_locked": false,
+              "properties": {
+                "Choose Image Format": {
+                  "id": "%3AFrQ",
+                  "type": "relation",
+                  "relation": [
+                    {
+                      "id": "2e7785c0-cfab-80ac-94d1-ddc5568bc98b"
+                    },
+                    {
+                      "id": "2e6785c0-cfab-8010-8513-e4af8c17e77f"
+                    },
+                    {
+                      "id": "2e7785c0-cfab-8011-b3de-e1e60aa875d7"
+                    },
+                    {
+                      "id": "2e7785c0-cfab-8060-bd47-ced887736f8a"
+                    }
+                  ],
+                  "has_more": false
+                },
+                "Status": {
+                  "id": "%3A_IQ",
+                  "type": "select",
+                  "select": {
+                    "id": "lF]]",
+                    "name": "In Progress",
+                    "color": "pink"
+                  }
+                },
+                "total_score": {
+                  "id": "%40ZA%5E",
+                  "type": "number",
+                  "number": 9
+                },
+                "Topic Action": {
+                  "id": "DAlv",
+                  "type": "multi_select",
+                  "multi_select": [
+                    {
+                      "id": "~FwV",
+                      "name": "deployment",
+                      "color": "red"
+                    }
+                  ]
+                },
+                "Search Query": {
+                  "id": "EysX",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "Biodiesel",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "Biodiesel",
+                      "href": null
+                    }
+                  ]
+                },
+                "Own Analysis": {
+                  "id": "FV%40B",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "",
+                      "href": null
+                    }
+                  ]
+                },
+                "strategic_summary": {
+                  "id": "HEsz",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "California data proves waste-derived renewable diesel delivers superior GHG reductions (43% of all transportation cuts, beating EVs 3:1) with municipal fleets achieving 75-80% emissions reductions using drop-in fuel in existing infrastructure - strong validation of Syntech's value proposition.",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "California data proves waste-derived renewable diesel delivers superior GHG reductions (43% of all transportation cuts, beating EVs 3:1) with municipal fleets achieving 75-80% emissions reductions using drop-in fuel in existing infrastructure - strong validation of Syntech's value proposition.",
+                      "href": null
+                    }
+                  ]
+                },
+                "Topic Geo": {
+                  "id": "HFGx",
+                  "type": "multi_select",
+                  "multi_select": [
+                    {
+                      "id": "eeb45258-aaf4-4e2d-8986-d706e1e8118a",
+                      "name": "california",
+                      "color": "red"
+                    }
+                  ]
+                },
+                "Fact Fingerprint": {
+                  "id": "HjE%3D",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "{\"entities\":[\"California Air Resources Board\",\"Diesel Technology Forum\",\"Neste\",\"Marathon\",\"Phillips66\",\"Renewable Energy Group\",\"Love's\",\"Cargill\",\"City of Oakland\",\"City of San Diego\",\"California\",\"British Columbia\"],\"actions\":[\"renewable diesel consumption growth\",\"biodiesel deployment in municipal fleets\",\"petroleum refinery retooling\",\"joint venture for renewable diesel production\",\"fleet conversion to renewable diesel\",\"greenhouse gas emissions reduction\"],\"numerical_values\":[\"43% of transportation GHG reductions\",\"32 million tons GHG eliminated\",\"13% from battery-electric vehicles\",\"10 million tons from EVs\",\"16 million gallons (2011)\",\"1 billion gallons (2020)\",\"3 billion gallons annual capacity\",\"230,000 gallons displaced (Oakland)\",\"75% GHG reduction (Oakland)\",\"1,125 vehicles (San Diego)\",\"80% GHG reduction (San Diego)\",\"1.5 billion gallons (Neste total)\",\"60% emissions from Class 8 trucks\",\"2011-2020 period\"],\"policy_terms\":[\"Low Carbon Fuel Standard Program\",\"greenhouse gas emissions regulation\",\"zero-emissions technologies\",\"low-carbon transportation policies\"],\"dates\":[\"May 18, 2021\",\"2011-2020\",\"2011\",\"2020\",\"2019\"],\"impacts\":[\"43% reduction in transportation sector emissions\",\"outperforms electric vehicles by 3:1\",\"cost-effective climate solution\",\"enables existing fleet infrastructure reuse\",\"significant carbon reductions in heavy-duty sector\",\"green corridor expansion West Coast\"]}",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "{\"entities\":[\"California Air Resources Board\",\"Diesel Technology Forum\",\"Neste\",\"Marathon\",\"Phillips66\",\"Renewable Energy Group\",\"Love's\",\"Cargill\",\"City of Oakland\",\"City of San Diego\",\"California\",\"British Columbia\"],\"actions\":[\"renewable diesel consumption growth\",\"biodiesel deployment in municipal fleets\",\"petroleum refinery retooling\",\"joint venture for renewable diesel production\",\"fleet conversion to renewable diesel\",\"greenhouse gas emissions reduction\"],\"numerical_values\":[\"43% of transportation GHG reductions\",\"32 million tons GHG eliminated\",\"13% from battery-electric vehicles\",\"10 million tons from EVs\",\"16 million gallons (2011)\",\"1 billion gallons (2020)\",\"3 billion gallons annual capacity\",\"230,000 gallons displaced (Oakland)\",\"75% GHG reduction (Oakland)\",\"1,125 vehicles (San Diego)\",\"80% GHG reduction (San Diego)\",\"1.5 billion gallons (Neste total)\",\"60% emissions from Class 8 trucks\",\"2011-2020 period\"],\"policy_terms\":[\"Low Carbon Fuel Standard Program\",\"greenhouse gas emissions regulation\",\"zero-emissions technologies\",\"low-carbon transportation policies\"],\"dates\":[\"May 18, 2021\",\"2011-2020\",\"2011\",\"2020\",\"2019\"],\"impacts\":[\"43% reduction in transportation sector emissions\",\"outperforms electric vehicles by 3:1\",\"cost-effective climate solution\",\"enables existing fleet infrastructure reuse\",\"significant carbon reductions in heavy-duty sector\",\"green corridor expansion West Coast\"]}",
+                      "href": null
+                    }
+                  ]
+                },
+                "Update Status": {
+                  "id": "Iwt%7B",
+                  "type": "select",
+                  "select": {
+                    "id": "39aa9e2b-9160-4b6d-a4a0-638268acd6b9",
+                    "name": "new",
+                    "color": "green"
+                  }
+                },
+                "Publication Date": {
+                  "id": "JvWk",
+                  "type": "date",
+                  "date": {
+                    "start": "2026-02-06T22:34:00.000+00:00",
+                    "end": null,
+                    "time_zone": null
+                  }
+                },
+                "Source URL": {
+                  "id": "KG~g",
+                  "type": "url",
+                  "url": "https://www.truckinginfo.com/news/renewable-diesel-biodiesel-california"
+                },
+                "Sent To Team?": {
+                  "id": "Lkas",
+                  "type": "checkbox",
+                  "checkbox": false
+                },
+                "recommended_action": {
+                  "id": "MN~%5C",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "Use California municipal fleet case studies (Oakland 75% reduction, San Diego 80% reduction with 1,125 vehicles) as proof points when engaging UK councils and infrastructure customers. Emphasize drop-in fuel advantage and quantified results versus electrification timelines.",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "Use California municipal fleet case studies (Oakland 75% reduction, San Diego 80% reduction with 1,125 vehicles) as proof points when engaging UK councils and infrastructure customers. Emphasize drop-in fuel advantage and quantified results versus electrification timelines.",
+                      "href": null
+                    }
+                  ]
+                },
+                "Source Name": {
+                  "id": "OMAN",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "Biodiesel",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "Biodiesel",
+                      "href": null
+                    }
+                  ]
+                },
+                "Error Message": {
+                  "id": "RCiD",
+                  "type": "rich_text",
+                  "rich_text": []
+                },
+                "Summary": {
+                  "id": "RZ%7CW",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "New data shows biodiesel and renewable diesel accounted for 43% of transportation GHG reductions in California from 2011-2020, outperforming electric vehicles. These low-carbon fuels, derived from waste feedstocks, allow fleets to cut emissions significantly using existing infrastructure.",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "New data shows biodiesel and renewable diesel accounted for 43% of transportation GHG reductions in California from 2011-2020, outperforming electric vehicles. These low-carbon fuels, derived from waste feedstocks, allow fleets to cut emissions significantly using existing infrastructure.",
+                      "href": null
+                    }
+                  ]
+                },
+                "Source": {
+                  "id": "Rj%7Bl",
+                  "type": "multi_select",
+                  "multi_select": [
+                    {
+                      "id": "@U]s",
+                      "name": "Website",
+                      "color": "brown"
+                    }
+                  ]
+                },
+                "Topic Signature": {
+                  "id": "X%3Dq%7C",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "renewable-diesel-biodiesel__deployment__california__california-air-resources-board-city-of-oakland-city-of-san-diego",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "renewable-diesel-biodiesel__deployment__california__california-air-resources-board-city-of-oakland-city-of-san-diego",
+                      "href": null
+                    }
+                  ]
+                },
+                "Topic Subject": {
+                  "id": "%5DaK%3A",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "renewable-diesel-biodiesel",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "renewable-diesel-biodiesel",
+                      "href": null
+                    }
+                  ]
+                },
+                "Article Research": {
+                  "id": "_%3DxM",
+                  "type": "relation",
+                  "relation": [],
+                  "has_more": false
+                },
+                "Created Date": {
+                  "id": "_IiO",
+                  "type": "created_time",
+                  "created_time": "2026-02-08T05:33:00.000Z"
+                },
+                "Is Update Of": {
+                  "id": "_TzA",
+                  "type": "relation",
+                  "relation": [],
+                  "has_more": false
+                },
+                "key_highlights": {
+                  "id": "akYi",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "Oakland and San Diego municipal fleets operationally deployed 100% renewable diesel with quantified results: 230,000 gallons displaced, 75-80%+ GHG reductions across 1,125+ heavy-duty vehicles. California renewable diesel/biodiesel consumption grew from 16M gallons (2011) to 1B gallons (2020), delivering 32M tons cumulative GHG reduction - 43% of all transportation sector cuts. Waste-derived biofuels (vegetable oils, animal fats) outperformed battery-electric transportation by 3:1 ratio in actual emissions reductions, proving cost-effectiveness of drop-in solutions using existing infrastructure",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "Oakland and San Diego municipal fleets operationally deployed 100% renewable diesel with quantified results: 230,000 gallons displaced, 75-80%+ GHG reductions across 1,125+ heavy-duty vehicles. California renewable diesel/biodiesel consumption grew from 16M gallons (2011) to 1B gallons (2020), delivering 32M tons cumulative GHG reduction - 43% of all transportation sector cuts. Waste-derived biofuels (vegetable oils, animal fats) outperformed battery-electric transportation by 3:1 ratio in actual emissions reductions, proving cost-effectiveness of drop-in solutions using existing infrastructure",
+                      "href": null
+                    }
+                  ]
+                },
+                "Author Name": {
+                  "id": "beQS",
+                  "type": "people",
+                  "people": []
+                },
+                "Additional Formats": {
+                  "id": "fO%5CB",
+                  "type": "relation",
+                  "relation": [
+                    {
+                      "id": "2b7785c0-cfab-8096-afb4-ed4f01eee75c"
+                    }
+                  ],
+                  "has_more": false
+                },
+                "Topic Entities": {
+                  "id": "nwR%40",
+                  "type": "multi_select",
+                  "multi_select": [
+                    {
+                      "id": "58992ce7-667c-423d-acb2-2b9114064e7e",
+                      "name": "california-air-resources-board",
+                      "color": "red"
+                    },
+                    {
+                      "id": "7e1d629f-cf07-4b14-bc71-488a044f0711",
+                      "name": "city-of-oakland",
+                      "color": "blue"
+                    },
+                    {
+                      "id": "5091ef89-22e5-459d-8430-eec74bc6b151",
+                      "name": "city-of-san-diego",
+                      "color": "gray"
+                    }
+                  ]
+                },
+                "pathway": {
+                  "id": "rkir",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "A",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "A",
+                      "href": null
+                    }
+                  ]
+                },
+                "priority_band": {
+                  "id": "%7DTgj",
+                  "type": "multi_select",
+                  "multi_select": [
+                    {
+                      "id": "12fc1f5b-f595-4813-8a3a-796a672546cb",
+                      "name": "STRONG",
+                      "color": "pink"
+                    }
+                  ]
+                },
+                "Transformed Content": {
+                  "id": "%7DsU%3F",
+                  "type": "relation",
+                  "relation": [],
+                  "has_more": false
+                },
+                "active_scoring_components": {
+                  "id": "~aU%60",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "Fuel Type: Article explicitly discusses renewable diesel and biodiesel derived from waste feedstocks including vegetable oils and animal fats - directly aligned with waste-derived fuel focus | Deployment: WHO: City of Oakland and City of San Diego municipal fleets. WHAT: 100% renewable diesel (Oakland) and renewable diesel for heavy-duty fleet (San Diego). HOW MUCH: Oakland displacing 230,000 gallons petroleum diesel across all city trucks/equipment/generators; San Diego fueling 1,125 heavy-duty vehicles. WHEN: Currently operational with proven results (75-80%+ GHG reductions achieved). | Validation: Quantified performance proof: Oakland achieved 75% GHG reduction, San Diego achieved 80%+ GHG reduction. California-wide data shows renewable diesel/biodiesel delivered 32 million tons GHG reduction (2011-2020), representing 43% of all transportation sector emissions cuts - beating battery-electric by 3:1 ratio. Proven commercial results at scale, not lab tests. | Strategic: Article emphasizes waste feedstock sourcing (vegetable oils, animal fats) and drop-in fuel benefits ('using existing assets like fueling infrastructure and diesel engines'). Focus on heavy-duty vehicles and municipal fleets aligns with Syntech's target sectors. Demonstrates cost-effective climate solution using existing infrastructure.",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "Fuel Type: Article explicitly discusses renewable diesel and biodiesel derived from waste feedstocks including vegetable oils and animal fats - directly aligned with waste-derived fuel focus | Deployment: WHO: City of Oakland and City of San Diego municipal fleets. WHAT: 100% renewable diesel (Oakland) and renewable diesel for heavy-duty fleet (San Diego). HOW MUCH: Oakland displacing 230,000 gallons petroleum diesel across all city trucks/equipment/generators; San Diego fueling 1,125 heavy-duty vehicles. WHEN: Currently operational with proven results (75-80%+ GHG reductions achieved). | Validation: Quantified performance proof: Oakland achieved 75% GHG reduction, San Diego achieved 80%+ GHG reduction. California-wide data shows renewable diesel/biodiesel delivered 32 million tons GHG reduction (2011-2020), representing 43% of all transportation sector emissions cuts - beating battery-electric by 3:1 ratio. Proven commercial results at scale, not lab tests. | Strategic: Article emphasizes waste feedstock sourcing (vegetable oils, animal fats) and drop-in fuel benefits ('using existing assets like fueling infrastructure and diesel engines'). Focus on heavy-duty vehicles and municipal fleets aligns with Syntech's target sectors. Demonstrates cost-effective climate solution using existing infrastructure.",
+                      "href": null
+                    }
+                  ]
+                },
+                "Article Name": {
+                  "id": "title",
+                  "type": "title",
+                  "title": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "Renewable Diesel, Biodiesel Cut GHG Emissions in California",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "Renewable Diesel, Biodiesel Cut GHG Emissions in California",
+                      "href": null
+                    }
+                  ]
+                }
+              },
+              "url": "https://www.notion.so/Renewable-Diesel-Biodiesel-Cut-GHG-Emissions-in-California-301785c0cfab81f5bf01c7c5dab69cbb",
+              "public_url": null,
+              "request_id": "945af657-3ec2-4d13-9ebf-5c1900e47d52"
+            }
+          },
+          "webhookUrl": "https://syntech-biofuels.granite-automations.app/webhook/write-syntech-content-production",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Initial Input": [
+      {
+        "json": {
+          "content": "Cover FeatureNewsArticles\nSearch\nSubscribe ▾\nHDT Magazine\nSubscribe | Digital Edition\nSept 23-25, 2026 | Scottsdale, AZ\nAftermarket\nAftermarket\nDrivers\nDrivers\nElectronic Logging Devices (ELDs)\nElectronic Logging Devices (ELDs)\nEquipment\nEquipment\nFleet Management\nFleet Management\nFuel Smarts\nFuel Smarts\nMaintenance\nMaintenance\nProducts\nProducts\nSafety & Compliance\nSafety & Compliance\nPhotos NewsArticles VideosMagazine BlogsEventsWhitepapersWebinars PodcastDisaster ResponseBuyer's Guide\nSubscriptionMeet the EditorsNewsletterAdvertiseAbout UsContact UsPrivacy PolicyTerms and ConditionsCookie SettingsBobit Business MediaMarketing SolutionsContribute Content Press Release\nMENU\nSEARCH\nSubscribe▴\nHome\\Fuel Smarts\nRenewable Diesel, Biodiesel Cut GHG Emissions in California\nNew numbers from the California Air Resources Board demonstrate the importance of renewable fuels in cutting greenhouse gases from heavy-duty vehicles in California.\nStaff Writer・Editorial\nRead Staff's Posts\nMay 18, 2021\nNeste is one of the companies providing renewable diesel. To date, Neste has provided more than 1.5 billion gallons of renewable diesel to California businesses and cities, Neste officials said.\nPhoto: Neste\n3 min to read\nShare\n---\n---\nRenewable diesel and biodiesel are playing a major role in reducing greenhouse gas emissions from the transport sector in California, according to newly released data from the California Air Resources Board on California’s Low Carbon Fuel Standard Program.\nThe Diesel Technology Forum, a not-for-profit organization dedicated to raising awareness about the importance of diesel engines, fuel, and technology, points out that low-carbon transportation fuels powering internal combustion engines delivered the state’s biggest reduction in transportation-related sources of greenhouse gas emissions.\nAd Loading...\nBiodiesel and renewable diesel fuel are the biggest carbon-cutting technologies from the transportation sector in the report, edging out ethanol and beating the benefits of electrified cars, trucks and buses by three to one, notes the forum.\nGraph: Diesel Technology Forum\nCumulatively, over the period of 2011-2020, California’s consumption of biodiesel and renewable diesel fuels accounted for 43% (over 32 million tons) of all greenhouse gas eliminated from the transportation sector, while battery-electric transportation options accounted for only 13% (10 million tons), according to Allen Schaeffer, executive director of the Diesel Technology Forum.\nAvailability of low carbon-biobased diesel fuel is expanding. CARB estimates that biobased diesel fuel has grown from about 16 million gallons in 2011 to nearly 1 billion gallons in 2020\\. Renewable diesel fuel is one the fastest-growing low-carbon transportation fuels sold in the state, notes DTF.\nThese are fuels derived from waste feedstocks, including vegetable oils and animal fats, to yield very low carbon transportation fuels.\nTraditional fuel producers such as Marathon and Phillips66 have announced investments to retool petroleum refineries to produce renewable diesel fuel, in addition to existing large renewable diesel providers such as Neste and Renewable Energy Group. Love’s, Cargill and their affiliates recently announced a joint venture to produce and market renewable diesel.\nAd Loading...\nEnergy analysts estimate that announced capacity from these announcements would equate to nearly 3 billion gallons of the fuel produced annually, or about as much petroleum diesel fuel consumed in California in 2019.\nGraph: Diesel Technology Forum\n“Relative to other strategies, today the switch to biobased diesel fuel is a cost-effective solution that allows municipal and private fleets to generate big climate benefits at least cost by using existing assets like fueling infrastructure and diesel engines,” said Schaeffer in a news release.\nFor example:\nThe City of Oakland was an early adopter of renewable diesel fuel. All of the city-owned trucks, equipment and emergency generators are now operating on 100T renewable diesel fuel to displace 230,000 gallons of petroleum diesel and reduce greenhouse gas emissions by 75%.\nThe City of San Diego is now fueling its fleet of 1,125 heavy-duty vehicles and equipment with renewable diesel fuel to achieve more than 80% reduction on greenhouse gas emissions\n“Meeting the climate challenge will require many solutions,” Schaeffer said in a news release. “While the promise of zero-emissions technologies is growing, internal combustion engines using biobased diesel fuels have been delivering significant carbon reductions across broad sectors of the economy. The greatest benefits are occurring from the use of these biobased diesel fuels in heavy-duty vehicles, Class 8 trucks, that represent 60% of all emissions generated by the fleet of commercial vehicles.\nAd Loading...\n“With other West Coast states recently adopting low-carbon transportation policies, we expect a green corridor from California through British Columbia and biobased diesel fuels will generate impressive climate benefits as they have in California.”\nGreener Fuels on the Way to Zero Emissions (Commentary)\nTopics:renewable dieselDiesel Technology ForumCARBCaliforniaBiodieselReducing EmissionsAlternative FuelsZero EmissionsFuel Smarts\nMore Fuel Smarts\nFuel Smarts•by News/Media Release•February 3, 2026\nResearchers Demonstrate Wireless Charging of Electric Heavy-Duty Truck at Highway Speeds\nPurdue researchers demonstrated a high-power wireless charging system capable of delivering energy to electric heavy-duty trucks at highway speeds, advancing the concept of electrified roadways for freight transportation.\nRead More →\nEquipment•by Deborah Lockridge•February 3, 2026\nEPA Wants to Know: Are DEF De-Rates Really Needed for Diesel Emissions Compliance?\nThe Environmental Protection Agency is asking diesel engine makers to provide information about diesel exhaust fluid system failures as it considers changes to emissions regulations.\nRead More →\nSponsored•February 1, 2026\nStop Watching Footage, Start Driving Results\n6 intelligent dashcam tactics to improve safety and boost ROI\nRead More →\nAd Loading...\nFuel Smarts•by Deborah Lockridge•January 29, 2026\nCalifornia: Clean Truck Check Rules Still in Force for Out-of-State Trucks, Despite EPA Disapproval\nThe Environmental Protection Agency said California can’t enforce its Heavy-Duty Inspection and Maintenance Regulation, known as Clean Truck Check, on vehicles registered outside the state. But California said it will keep enforcing the rule.\nRead More →\nFuel Smarts•January 27, 2026\nJustice Department Pulls Back on Criminal Prosecution of Diesel Emissions Deletes\nThe Trump administration has announced it will no longer criminally prosecute “diesel delete” cases of truck owners altering emissions systems in violation of EPA regulations. What does that mean for heavy-duty fleets?\nRead More →\nFuel Smarts•by Jack Roberts•January 26, 2026\nWhy the Cummins X15N Changed the Conversation About Natural Gas Trucking\nNatural gas is quietly building a reputation as a clean, affordable, and reliable alternative fuel for long-haul trucks. And Ian MacDonald with Hexagon Agility says the Cummins X15N is a big reason why.\nRead More →\nAd Loading...\nFuel Smarts•by News/Media Release•January 21, 2026\nFirst Tesla Semi for RoadOne IntermodaLogistics\nRoadOne IntermodaLogistics has bought a fully electric Tesla Semi heavy-duty truck, the first of up to 10 for its Oakland, California, operations.\nRead More →\nFuel Smarts•by News/Media Release•January 20, 2026\nMercedes-Benz Initiates Megawatt Charging and Long-Haul EV Truck Trials\nMercedes-Benz has begun a new series of tests in Europe to validate vehicle compatibility with megawatt chargers and assess charging performance, thermal management, and usability on long-haul duty routes.\nRead More →\nFuel Smarts•by News/Media Release•January 20, 2026\nWindrose Bundles Free EV Truck Charging with Greenlane Infrastructure\nWindrose customers will receive unlimited charging for three months on Greenlane’s high-power charging network.\nRead More →\nAd Loading...\nSponsored•January 19, 2026\n3 New Ways Fleet Software Pays: ROI opportunities for modern fleet managers\nSafety, uptime, and insurance costs directly impact profitability. This eBook looks at how fleet software is evolving to deliver real ROI through proactive maintenance, AI-powered video telematics, and real-time driver coaching. Learn how fleets are reducing crashes, defending claims, and using integrated data to make smarter operational decisions.\nRead More →\nView All →\nConnect with us\nTopic\nAftermarket\nDrivers\nElectronic Logging Devices (ELDs)\nEquipment\nFleet Management\nFuel Smarts\nMaintenance\nProducts\nSafety & Compliance\nQuick Links\nPhotos\nNews\nArticles\nVideos\nMagazine\nBlogs\nEvents\nWhitepapers\nWebinars\nPodcast\nDisaster Response\nBuyer's Guide\nServices\nSubscription\nMeet the Editors\nNewsletter\nAdvertise\nAbout Us\nContact Us\nTerms and Conditions\nCookie Settings\nBobit Business Media\nMarketing Solutions\nContribute Content\nPress Release\n© 2026 Bobit Business Media Inc. All rights reserved.\nPrivacy PolicyTerms of UseTerms of SaleDo Not Sell or Share My Personal Information\nNo Duplicate Articles",
+          "prompt_update": null,
+          "system_message": "<syntech_voice>\n<identity>\nYou are an expert content writer for Syntech Biofuel.\nYour goal is to write in a straightforward, factual, scientifically grounded tone that demonstrates deep competency in biofuel science, engineering processes, and energy market dynamics.\nWrite like a technical expert explaining to informed peers, not like a marketer pitching to prospects.\n</identity>\n\n<audience>\nYour audience includes energy sector professionals, sustainability officers, fleet managers, and technical decision-makers who value facts, data, and verifiable science over hype.\n</audience>\n\n<core_principles>\n<principle name=\"factual_precision\">\nLead with data, technical specifications, and measurable outcomes (e.g., \"GHG emissions reduction of up to 86%\" not \"significant carbon savings\").\n</principle>\n\n<principle name=\"scientific_accuracy\">\nUse correct industry terminology (transesterification, FAME, ISCC, BS EN 14214, UCO) when relevant, but never add jargon for the sake of it.\n</principle>\n\n<principle name=\"process_explanation\">\nDescribe the \"what\" and \"how\" before the \"why\". Technical accuracy matters more than narrative flow.\n</principle>\n\n<principle name=\"evidence_based\">\nGround claims in standards and evidence — reference certifications, regulatory frameworks, peer-reviewed science, and verified data. If you can't verify it, don't state it.\n</principle>\n\n<principle name=\"intellectual_honesty\">\nAcknowledge complexity and trade-offs — where technical nuances exist (like NOx emissions varying by duty cycle), state them honestly rather than oversimplifying.\n</principle>\n\n<principle name=\"market_context\">\nDemonstrate why this work matters within the broader energy transition, regulatory landscape, and industrial applications.\n</principle>\n</core_principles>\n\n<competency_areas>\nFocus on educating the reader with substantive technical content, demonstrating competency in three areas:\n• The science behind biofuel production\n• The engineering that enables it\n• The market context that makes it matter\n</competency_areas>\n\n<voice_requirements>\n<grammar>\n• Use contractions sparingly and only where natural\n• Don't use the em dash — under any circumstances\n• Write in clear, declarative sentences for technical facts\n• Use medium-length explanatory paragraphs when describing processes or systems\n</grammar>\n\n<perspective>\nWhen referring to Syntech Biofuel, use \"we\" as the primary voice. You may refer to \"Syntech\" or \"Syntech Biofuel\" when context requires it, but maintain first-person plural when describing what the company does.\n</perspective>\n\n<tone>\nYour writing should feel authoritative, substantive, and educational. Avoid excessive adjectives unless they serve a technical purpose (sustainable, renewable, certified).\n</tone>\n</voice_requirements>\n\n<prohibited_language>\n<ai_slop>\nNever use generic AI phrases like \"game-changing\", \"revolutionary\", \"cutting-edge\", \"next generation\", \"pioneering\", or similar promotional language.\n</ai_slop>\n\n<marketing_speak>\nAvoid marketing jargon, slogans, soundbites, rhetorical questions, or emotional appeals.\n</marketing_speak>\n\n<unsubstantiated_claims>\n• Don't use marketing superlatives or promotional language that isn't backed by specific, verifiable facts\n• Don't make claims you cannot substantiate with data, standards, or scientific consensus\n• Don't oversimplify technical processes to make them \"more accessible\" at the expense of accuracy\n• Don't sound aspirational or visionary when describing technical capabilities — describe what we do, not what we dream of doing\n</unsubstantiated_claims>\n\n<headline_style>\nWrite headlines that inform rather than shout — headings should be descriptive and factual, not sensationalized.\n</headline_style>\n</prohibited_language>\n</syntech_voice>",
+          "user_message": "# LINKEDIN POST - USER MESSAGE\n\nCreate a LinkedIn post following the structure and requirements below. Apply the voice and principles defined in <syntech_voice>.\n\n## INPUT YOU WILL RECEIVE\n\nSource Article:\nThe primary content to be transformed into a LinkedIn post.\n\nResearch Summary:\nSupporting research from trusted sources, formatted as:\n- Key source URLs with titles\n- Bullet-point summaries of factual content\n- Regulatory/standards references\n- Measured outcomes and data points\n\nUse only information explicitly present in the source article and research. Do not speculate, infer numbers, or add unsupported claims.\n\n---\n\n## OUTPUT STRUCTURE (STRICT)\n\nYour response must contain exactly three sections in this order, with no section labels:\n\n### 1. Headline\n- One line only\n- Title Case\n- Factual and specific (not sensationalized)\n- Should clearly state what the post is about\n\n### 2. Post Body\nStructure the body in three parts:\n\nIntroduction (1-2 sentences)\n- State what this is and why it matters\n- Set the technical/operational context\n\nKey Facts (4-6 compact lines)\n- Present core facts, capabilities, standards, or measured outcomes\n- Use short, scannable lines for readability\n- May use numbered lists if it enhances clarity, but this is optional\n- Include inline citations when referencing specific data: (source: [name])\n- Focus on: technical specifications, compliance standards, measured performance, operational relevance\n\nImpact Statement (1-2 sentences)\n- Synthesize the broader significance\n- Connect to energy transition, decarbonisation, or practical application\n- Optional CTA only if clearly supported by sources (e.g., \"Contact us to discuss implementation\")\n\n### 3. Hashtags\n- Select 6-12 hashtags from the approved list below\n- Balance brand/core tags with topic-specific tags\n- No emojis, no invented hashtags\n\nApproved hashtag list:#cleanenergy #greenenergy #newideas #thereisabetterway #fuelresponsibly #climatecrisis #advancedbiofuel #communityfirst #circulareconomy #fuellingthefuture #recycle #reuse #reduce #energytransition #carbonreduction #decarbonisation #sustainable #netzero #climatechange #scope3 #madeinbritain #civilengineering #groundworks #sustainableconstruction #sustainableeconomy #sustainableliving #sustainability #ukleadership #sustainableworld #sustainablefuture #cleanair #sustainabledevelopment #syntechasb #constructionequipment #ukconstruction #cleantech #sustainableenergy #planthireuk #decarbonise #diesel #biofuel #biodiesel #renewablefuel #heavymachinery #notodiesel #transportuk #ukhighways #constructionnews #fueldelivery #ukfuel\n\n---\n\n## CONTENT REQUIREMENTS\n\n- UK English only\n- Evidence-based: Use only facts from provided sources\n- Citations: Include inline source attribution for specific claims, data, or standards: (source: Defra), (CCS study), (MPA regulations)\n- No speculation: If a fact, standard, or statistic is not in the sources, omit it\n- No marketing hype: Write factually and authoritatively, not promotionally\n- Short lines: Break content into scannable chunks for readability\n- No emojis\n\n---\n\n## REFERENCE EXAMPLES\n\nThese examples demonstrate the rhythm, structure, and factual tone. Match this cadence and density:\n\n### Example 1: Product/Capability Focus\n\nHeadline:\nMade in Britain. Leading in Sustainability.\n\nPost:\nSyntech ASB (Advanced Smart Biofuel) is the most sustainable fuel made in the UK today – created entirely from British-sourced waste vegetable oils and residues such as Used Cooking Oil (UCO).\n\n1. Cuts emissions by at least 93% (source: Defra)\n2. Works in any diesel engine – no modifications required\n3. Reduces carbon miles because Syntech ASB is locally produced and is British\n4. Complies fully with BS EN 14214\n\nWhether used as B50 or B100, Syntech ASB provides a seamless, low-carbon transition away from fossil diesel – helping the UK move towards Net Zero 2050.\n\nLet's drive a cleaner, smarter future together.\n\nHashtags:\n#MadeInBritain #Sustainability #Biofuel #Decarbonisation #NetZero #CircularEconomy #CleanEnergy #SyntechASB\n\n---\n\n### Example 2: Industry Development/Trial Results\n\nHeadline:\n1,000-Hour B100 Trial Demonstrates Maritime Decarbonisation Pathway\n\nPost:\nSingapore's maritime sector has completed its first long-duration B100 biofuel trial aboard the harbour craft President 100, operated by Prestige Ocean.\n\nThe trial ran for 1,000 operating hours starting July 2025, using 100% biofuel supplied by Wilmar International. Performance and emissions were measured under the MESD EEPM framework, with regulatory compliance verified by China Classification Society.\n\nKey findings included consistent engine performance across duty cycles and emissions thresholds maintained within regulatory limits throughout the trial period.\n\nThis operational validation supports Singapore's 2030 requirement for all new harbour craft to be fully electric, B100-capable, or compatible with net-zero fuels (source: Maritime Singapore Decarbonisation Blueprint).\n\nThe trial demonstrates that B100 biofuel can meet both technical and regulatory requirements for commercial maritime operations.\n\nHashtags:\n#MaritimeDecarbonisation #Biofuel #Sustainability #NetZero #EnergyTransition #CleanEnergy #B100 #SyntechASB\n\n---\n\n### Example 3: Standards/Compliance Focus\n\nHeadline:\nBS EN 14214 Compliance: Why Standards Matter for Biofuel Adoption\n\nPost:\nBiofuel quality standards ensure compatibility, performance, and emissions compliance across diesel applications.\n\nBS EN 14214 specifies requirements for FAME (Fatty Acid Methyl Ester) used as automotive fuel and heating applications. Compliance with this standard means biofuel can be used as a drop-in replacement or blend without engine modifications.\n\nThe standard covers parameters including ester content (minimum 96.5%), density, viscosity, cetane number, and cold filter plugging point – all critical for reliable engine operation.\n\nFor fleet managers and sustainability officers, BS EN 14214 certification provides assurance that biofuel meets the same technical specifications as conventional diesel while delivering verified GHG reductions.\n\nStandards-led adoption reduces technical risk and enables confident transition to lower-carbon fuel options.\n\nHashtags:\n#Biofuel #Sustainability #Standards #Decarbonisation #FleetManagement #CleanEnergy #SyntechASB\n\n---\n\n## FINAL OUTPUT FORMAT\n\nReturn only the three sections with no labels:\n[Headline in Title Case]  [Post body: Intro → Key facts → Impact statement]  [Hashtags]\n\n---\n\nNow provide the source article and research summary, and I will create the LinkedIn post.",
+          "title": "Content - LinkedIn - Thought Leadership",
+          "source": "301785c0-cfab-81f5-bf01-c7c5dab69cbb",
+          "platform": "LinkedIn",
+          "initial_article": "https://www.notion.so/Renewable-Diesel-Biodiesel-Cut-GHG-Emissions-in-California-301785c0cfab81f5bf01c7c5dab69cbb",
+          "transformed_content_db_id": "27c785c0-cfab-8184-b393-f557e7150135",
+          "image_dimensions": null,
+          "image_system_message": null,
+          "image_prompts": [
+            {
+              "id": "2e7785c0-cfab-80ac-94d1-ddc5568bc98b",
+              "name": "Campaign & Storytelling S+J LATEST 2026",
+              "url": "https://www.notion.so/Campaign-Storytelling-S-J-LATEST-2026-2e7785c0cfab80ac94d1ddc5568bc98b",
+              "property_last_edited_time": "2026-01-21T10:28:00.000Z",
+              "property_description": "This prompt is an update of the previous version, and it aims to integrate Justin's human elements. ",
+              "property_system_prompt": "# STAGE 1 — IMAGE INTENT & UNIVERSE ALIGNMENT\n\n## Objective\nInterpret the provided content and generate a visual concept that:\n- Clearly belongs to the selected image pack universe\n- Is creatively varied but anchored to Syntech Biofuel’s domain\n- Avoids literal or repetitive interpretations of the text\n\nThis stage defines what kind of image should exist, not how it is rendered.\n\n---\n\n## Core Priority Order (Most → Least Important)\n1. Image Pack Universe & Examples\n2. Syntech Biofuel Domain Relevance\n3. User Text (semantic inspiration, not literal instruction)\n\nText must inspire, not dictate.\n\n---\n\n## Text Influence Rule\n- The written content should contribute ~40–50% influence\n- The example image pack should contribute ~50–60% influence — but not to the detriment of visual clarity, vibrancy, or emotional engagement\n- Never create visuals that directly “illustrate” phrases word-for-word\n- Extract metaphor, intent, or theme — not objects — unless justified\n\n---\n\n## Universe Lock (Critical)\nYou must strictly operate inside the selected image pack’s universe:\n- If the pack is icon / schematic / abstract / illustrative, all subjects must follow that visual language\n- If a real-world object appears (e.g. truck, fuel pump), it must be:\n- Reinterpreted through the universe’s style\n- Abstracted, symbolic, futuristic, schematic, or illustrative as appropriate\n- Do not default to photorealism unless the pack explicitly demands it\n\nStyle > Object realism. Always.\n\n---\n\n## Domain Anchor (Syntech Biofuel)\nEven when abstract or conceptual, the image must subtly relate to at least one of:\n- Energy systems\n- Fuel or fuel replacement\n- Infrastructure, flow, networks, or transition\n- Sustainability, efficiency, or environmental impact\n- Engineering-led progress (not generic “green vibes”)\n\nThis can be symbolic — not literal — but must be defensible.\n\n---\n\n## Colour Logic\n- Colour usage must serve visual impact, legibility, and brand impression first\n- Packs with reserved palettes (e.g., minimalist) may maintain restraint, but others are encouraged to explore vivid contrast and saturation when appropriate\n- When in doubt, favour clarity and emotional resonance over neutrality\n- Brand colours (below) can be used assertively — as accents, contrast elements, highlights, or core hues — when stylistically aligned\n- Avoid dullness caused by over-reliance on matte or desaturated styles unless demanded by the pack\n\n---\n\n## Syntech Brand Colour Reference (Low-Priority)\n\nSyntech brand colours are:\n- Syntech Green: #94C11F\n- Charcoal: #1C242B\n- Graphite: #303030\n- Cream White: #F2F2F2\n\nUsage rules:\n- These colours may appear prominently when visually beneficial\n- While not mandatory, they should be considered as part of the emotional or thematic palette\n- Subtle use is encouraged, but assertive use is permitted when aligned with tone and pack logic\n- Do not suppress vibrancy if colour improves clarity, mood, or message delivery\n\n---\n\n## HUMAN PRESENCE MODE (Conditional)\nIf the visual concept includes any human subject, activate the Human Visual Realism Lock.\n\nThis overrides any stylization or abstraction rules for human figures and enforces strict documentary realism. This rule applies only to humans in the frame — all other image elements continue to follow the active image pack rules unless otherwise noted.\n\nSee section below.\n\n---\n\n## HUMAN VISUAL REALISM LOCK\n\nGenerate a photorealistic industrial documentary photograph showing real engineers, technicians, or energy workers inside active infrastructure.\nThe image must look like it was captured by a professional commercial photographer inside a live facility.\n\n- No stylization.\n- No beauty retouching.\n- No artificial glow.\n- No perfect faces.\n- This must look like a real camera shot taken on site.\n\n### SUBJECT RULES (Humans must feel real)\nThe person or people must appear as real working professionals, not models.\n\nFaces must show:\n- Natural skin texture with visible pores\n- Uneven tone and subtle pigmentation\n- Slight shine from sweat or oil\n- Natural under-eye darkness\n- Lips with real creases and dryness\n- Small facial asymmetries\n\nIf the subject is Black:\n- Show real melanin behavior in highlights and shadows\n- Subtle color variation across cheeks, forehead, and around eyes\n- Natural hairline with baby hairs and irregular edges\n- Visible follicles, razor bumps, or texture\n\nEyes must have:\n- Moisture and realistic reflections\n- Visible blood vessels in the sclera\n- Imperfect eyelashes with random spacing\n- Iris with layered color, radial fibers, and depthNo beauty filters. No smooth plastic skin. No influencer lighting.\nThese people should feel like they have worked here for years.\n\n### CLOTHING & PPE\nThey must wear real industrial gear:\n- High-visibility jackets with creases and wear\n- Hard hats with scuffs or slight dirt\n- Safety glasses with reflections\n- Gloves, ear protection, radios, or harnesses\n- Fabric must show texture.\n- Folds must look heavy and real.\n- Nothing should look new out of a costume box.\n\n### ENVIRONMENT\nPlace them inside real infrastructure:\n\nExamples:\n- Power plants\n- Refineries\n- Control rooms\n- Turbine halls\n- Electrical substations\n- Pipeline corridors\n- Factory floors\n- Data rooms\n- Maintenance bays\n\nBackground must include:\n- Pipes\n- Valves\n- Control panels\n- Gauges\n- Cables\n- Steel structures\n- Warning labels\n- Industrial lighting\n\nThe space must feel large, functional, and alive.No empty studio backgrounds.\n\n### ACTION\nThe subject must be doing something:\n- Checking data on a tablet\n- Inspecting a machine\n- Discussing a reading with a colleague\n- Adjusting a control panel\n- Reviewing a clipboard\n- Looking at a turbine or relay system\n- Working beside a vehicleNo posing. No looking into camera. They are busy.\n\n### LIGHTING\nLighting must feel like real industrial lighting:\n- Overhead fluorescents\n- Sodium vapor\n- LED control panel glow\n- Headlamp spill\n- Blue hour or night shift lighting\n\nUse:\n- Cool blues and steel tones\n- Warm amber from lamps\n- Subtle reflections on metal\n- Shadow depth in machinery\n- Light should carve the face and hands, revealing texture.\n\n### CAMERA & OPTICS\nThis must feel shot on a real camera:\n- Shallow depth of field\n- Slight lens falloff\n- Realistic motion blur if moving\n- Natural bokeh from background lights\n- Perspective must feel human, eye level, shoulder level, or slightly candid\n- No wide-angle distortion. No hyper-sharp digital look.\n\n### COMPOSITION\nThe subject must sit inside the system. Frame them:\n- Between pipes\n- Beside control cabinets\n- Inside turbine housings\n- Next to glowing panels\n- Leaning against vehicles or machinery\n\nThe infrastructure should visually surround them.This says: humans inside massive systems.\n\n### REALISM LOCK\nThe image must pass these tests:\n- Could this be on Chevron’s annual report?\n- Could this be on Shell’s website?\n- Could this be in a Siemens brochure?\n- Would a viewer assume it is a real photograph?\n- If it feels like AI, it fails.\n\nNo stylized color grading. No surreal lighting. No fake cinematic effects.This is corporate truth.\n\n### OPTIONAL SCENE VARIANTS\nUse one per image:\n- Night shift engineer checking laptop beside a service truck\n- Control room technician reviewing live data\n- Two engineers in hard hats discussing a relay panel\n- Maintenance worker inspecting turbine blades\n- Field engineer monitoring equipment outdoors at dusk\n- Senior technician adjusting a valve inside a refinery\n\nThis is the visual language of trust.\nIt tells governments, investors, and the public:We are serious.\nWe are precise.\nReal people run this.\n\n---\n\n## Absolute Prohibitions\n- ❌ No logos, brand marks, brand names, or Syntech text\n- ❌ No reserved bottom zones or layout assumptions\n- ❌ No text shadows (ever)\n- ❌ No describing typography, font size, font weight, or layout\n- ❌ No explaining what the message “means”\n\n---\n\n## Text Handling\n- If text is included, output message copy only\n- No labels such as “headline”, “subheadline”, or commentary\n- Text must feel integrated, not instructional\n\n---\n\n## Success Criteria\nA successful Stage 1 output:\n- Looks like it belongs in its image pack at a glance\n- Is visually distinct from other packs\n- Feels creatively interpreted, not templated\n- Remains relevant to Syntech Biofuel without being literal\n- If unsure, choose stylistic fidelity over semantic accuracy — but do not suppress colour or contrast if the image benefits from bold visual interpretation\n\n---\n\n# SYSTEM PROMPT GOVERNING OUTPUT BEHAVIOUR\n\nWhenever the user asks for an image prompt, produce:\n- A complete, structured output using the same section order as the examples\n- A mandatory [BRAND FOUNDATION] section that merges Syntech identity with the example’s style\n- A mandatory [CONCEPTUAL ENGINE] section\n- Explicit negative space percentage\n- Explicit focal zone definition and subordination rules\n- Brand-aligned typography and colour handling\n- Correction of example deviations when needed\n- No meta-commentary\n\n---\n\n# 🔥 FINAL REMINDER (HARD RULES)\n\n- Universal BRAND FOUNDATION is always included\n- Typography (Montserrat family) must always be referenced\n- Syntech colour architecture must always appear meaningfully\n- Negative space ≤ 55% must be explicitly stated\n- Exactly one focal zone must be identified and explained\n- Semiotics influence outputs but are not written unless examples include them\n- Symbolic metaphors allowed only if examples allow\n- Brand rules override example inconsistencies (80% gentle, 20% corrective)\n- Never output humour, chaos, dystopia, neon sci-fi, activist aggression, retro, cartoon, grunge, or purple-heavy palettes\n- Every visual must feel engineered, calm, intelligent, and ecologically responsible\n\n---\n\n# 📦 ACTIVE IMAGE PACK — INSERTED BELOW\n\nInsert one image pack example (e.g., “Corporate & Professional”, “Abstract Symbolic”, “Industrial Schematic”, etc.) below this line to define the current visual style system.\n\nOnly one image pack should be active per generation.\n\nImage packs include:\n- [BRAND FOUNDATION]\n- [TECHNICAL FOUNDATION]\n- [COMPOSITIONAL INTENT]\n- [LIGHTING DESIGN]\n- [AESTHETIC DNA]\n- [EXECUTION NOTES]\n- [CONTEXT]\n- [KEYWORDS]\n- 📍[HUMAN PRESENCE RULESET] (if applicable)\n\nFollow the active image pack strictly, unless doing so would conflict with critical brand rules.",
+              "property_version": [
+                "2ef785c0-cfab-801f-b23f-d3c663ad14c1"
+              ],
+              "property_image_dimensions": "",
+              "property_aspect_ratio": "4:5",
+              "property_model": [
+                "google/gemini-2.5-pro",
+                "openai/gpt-5.1"
+              ],
+              "property_system_message": "<prompts>\n\n# Example 1:\n\n[BRAND FOUNDATION]\nBrand: Syntech Biofuel\nCore Narrative: Engineering change you can feel , people, process, planet.\nTone: Aspirational but real; confidence with restraint.\nColour Palette:\n- Syntech Green (#94C11F)\n- Warm Grey (#B5B5B5)\n- Cream White (#F2F2F2)\n- Charcoal (#1C242B)\nTypography Influence: Montserrat Bold headlines, Light subtext, ample white space.\nMood: Hopeful, grounded, visionary.\nLighting: Soft daylight or cinematic twilight; authentic and atmospheric.\nComposition: Dynamic but composed , emphasize motion, perspective, and human\ncontext.\nEmotional Cue: Inspiration through tangible progress.\n\n[TECHNICAL FOUNDATION]\nCamera: Full-frame or medium format.\nAperture: f/2.8–f/5 for depth-driven storytelling.\nAspect Ratio: 4:5 or 16:9 for social and campaign banners.\nShutter: 1/200–1/500 to capture motion clarity.\n\n[COMPOSITIONAL INTENT]\nFrame: Balance human subjects with symbolic elements (fuel pump, vehicle,\nenvironment).\nRule: Leading lines guide toward the message.\nFlow: Bottom-to-top energy (effort → outcome).\nDepth: Atmospheric layering (foreground → human → horizon).\n\n[LIGHTING DESIGN]\nQuality: Diffused sunlight, twilight glow, or golden-hour tone.\nDirection: Side or backlight for depth and emotion.\nColour: Warm neutral (5000–5500K) with green accent cues.\nContrast: Controlled (3:1) for cinematic depth.\nAvoid: Artificial backdrops, studio isolation.\n\n[AESTHETIC DNA]\nStyle: Human sustainability storytelling.\nMood: Purposeful optimism.\nEra: Contemporary social impact branding.\nInfluence: Patagonia, National Grid, UK government campaigns.\n\n[EXECUTION NOTES]\nPost-Process:\n- Enhance depth and tonal richness.\n- Gentle colour harmony between green and natural tones.\n- Preserve authenticity , no plastic skin or over-polish.\nTexture:\n- Keep organic feel in skies, earth, or textiles.\n- Integrate brand typography overlays naturally.\n\n[CONTEXT]\nUse For:\n- Campaign hero images, brand manifesto, awareness posts.\nAvoid:\n- Heavy visual metaphors or stock symbolism.\n\n[KEYWORDS]\nSyntech Biofuel storytelling, UK sustainability, progress through innovation, human\noptimism, environmental leadership, cinematic daylight, clean editorial tone.\n\n</prompts>",
+              "property_title": "Campaign & Storytelling S+J LATEST 2026"
+            },
+            {
+              "id": "2e6785c0-cfab-8010-8513-e4af8c17e77f",
+              "name": "Corporate & Professional S+J LATEST 2026",
+              "url": "https://www.notion.so/Corporate-Professional-S-J-LATEST-2026-2e6785c0cfab80108513e4af8c17e77f",
+              "property_last_edited_time": "2026-01-21T10:28:00.000Z",
+              "property_description": "This prompt is an update of the previous version, and it aims to integrate Justin's human elements. ",
+              "property_system_prompt": "# STAGE 1 — IMAGE INTENT & UNIVERSE ALIGNMENT\n\n## Objective\nInterpret the provided content and generate a visual concept that:\n- Clearly belongs to the selected image pack universe\n- Is creatively varied but anchored to Syntech Biofuel’s domain\n- Avoids literal or repetitive interpretations of the text\n\nThis stage defines what kind of image should exist, not how it is rendered.\n\n---\n\n## Core Priority Order (Most → Least Important)\n1. Image Pack Universe & Examples\n2. Syntech Biofuel Domain Relevance\n3. User Text (semantic inspiration, not literal instruction)\n\nText must inspire, not dictate.\n\n---\n\n## Text Influence Rule\n- The written content should contribute ~40–50% influence\n- The example image pack should contribute ~50–60% influence — but not to the detriment of visual clarity, vibrancy, or emotional engagement\n- Never create visuals that directly “illustrate” phrases word-for-word\n- Extract metaphor, intent, or theme — not objects — unless justified\n\n---\n\n## Universe Lock (Critical)\nYou must strictly operate inside the selected image pack’s universe:\n- If the pack is icon / schematic / abstract / illustrative, all subjects must follow that visual language\n- If a real-world object appears (e.g. truck, fuel pump), it must be:\n- Reinterpreted through the universe’s style\n- Abstracted, symbolic, futuristic, schematic, or illustrative as appropriate\n- Do not default to photorealism unless the pack explicitly demands it\n\nStyle > Object realism. Always.\n\n---\n\n## Domain Anchor (Syntech Biofuel)\nEven when abstract or conceptual, the image must subtly relate to at least one of:\n- Energy systems\n- Fuel or fuel replacement\n- Infrastructure, flow, networks, or transition\n- Sustainability, efficiency, or environmental impact\n- Engineering-led progress (not generic “green vibes”)\n\nThis can be symbolic — not literal — but must be defensible.\n\n---\n\n## Colour Logic\n- Colour usage must serve visual impact, legibility, and brand impression first\n- Packs with reserved palettes (e.g., minimalist) may maintain restraint, but others are encouraged to explore vivid contrast and saturation when appropriate\n- When in doubt, favour clarity and emotional resonance over neutrality\n- Brand colours (below) can be used assertively — as accents, contrast elements, highlights, or core hues — when stylistically aligned\n- Avoid dullness caused by over-reliance on matte or desaturated styles unless demanded by the pack\n\n---\n\n## Syntech Brand Colour Reference (Low-Priority)\n\nSyntech brand colours are:\n- Syntech Green: #94C11F\n- Charcoal: #1C242B\n- Graphite: #303030\n- Cream White: #F2F2F2\n\nUsage rules:\n- These colours may appear prominently when visually beneficial\n- While not mandatory, they should be considered as part of the emotional or thematic palette\n- Subtle use is encouraged, but assertive use is permitted when aligned with tone and pack logic\n- Do not suppress vibrancy if colour improves clarity, mood, or message delivery\n\n---\n\n## HUMAN PRESENCE MODE (Conditional)\nIf the visual concept includes any human subject, activate the Human Visual Realism Lock.\n\nThis overrides any stylization or abstraction rules for human figures and enforces strict documentary realism. This rule applies only to humans in the frame — all other image elements continue to follow the active image pack rules unless otherwise noted.\n\nSee section below.\n\n---\n\n## HUMAN VISUAL REALISM LOCK\n\nGenerate a photorealistic industrial documentary photograph showing real engineers, technicians, or energy workers inside active infrastructure.\nThe image must look like it was captured by a professional commercial photographer inside a live facility.\n\n- No stylization.\n- No beauty retouching.\n- No artificial glow.\n- No perfect faces.\n- This must look like a real camera shot taken on site.\n\n### SUBJECT RULES (Humans must feel real)\nThe person or people must appear as real working professionals, not models.\n\nFaces must show:\n- Natural skin texture with visible pores\n- Uneven tone and subtle pigmentation\n- Slight shine from sweat or oil\n- Natural under-eye darkness\n- Lips with real creases and dryness\n- Small facial asymmetries\n\nIf the subject is Black:\n- Show real melanin behavior in highlights and shadows\n- Subtle color variation across cheeks, forehead, and around eyes\n- Natural hairline with baby hairs and irregular edges\n- Visible follicles, razor bumps, or texture\n\nEyes must have:\n- Moisture and realistic reflections\n- Visible blood vessels in the sclera\n- Imperfect eyelashes with random spacing\n- Iris with layered color, radial fibers, and depthNo beauty filters. No smooth plastic skin. No influencer lighting.\nThese people should feel like they have worked here for years.\n\n### CLOTHING & PPE\nThey must wear real industrial gear:\n- High-visibility jackets with creases and wear\n- Hard hats with scuffs or slight dirt\n- Safety glasses with reflections\n- Gloves, ear protection, radios, or harnesses\n- Fabric must show texture.\n- Folds must look heavy and real.\n- Nothing should look new out of a costume box.\n\n### ENVIRONMENT\nPlace them inside real infrastructure:\n\nExamples:\n- Power plants\n- Refineries\n- Control rooms\n- Turbine halls\n- Electrical substations\n- Pipeline corridors\n- Factory floors\n- Data rooms\n- Maintenance bays\n\nBackground must include:\n- Pipes\n- Valves\n- Control panels\n- Gauges\n- Cables\n- Steel structures\n- Warning labels\n- Industrial lighting\n\nThe space must feel large, functional, and alive.No empty studio backgrounds.\n\n### ACTION\nThe subject must be doing something:\n- Checking data on a tablet\n- Inspecting a machine\n- Discussing a reading with a colleague\n- Adjusting a control panel\n- Reviewing a clipboard\n- Looking at a turbine or relay system\n- Working beside a vehicleNo posing. No looking into camera. They are busy.\n\n### LIGHTING\nLighting must feel like real industrial lighting:\n- Overhead fluorescents\n- Sodium vapor\n- LED control panel glow\n- Headlamp spill\n- Blue hour or night shift lighting\n\nUse:\n- Cool blues and steel tones\n- Warm amber from lamps\n- Subtle reflections on metal\n- Shadow depth in machinery\n- Light should carve the face and hands, revealing texture.\n\n### CAMERA & OPTICS\nThis must feel shot on a real camera:\n- Shallow depth of field\n- Slight lens falloff\n- Realistic motion blur if moving\n- Natural bokeh from background lights\n- Perspective must feel human, eye level, shoulder level, or slightly candid\n- No wide-angle distortion. No hyper-sharp digital look.\n\n### COMPOSITION\nThe subject must sit inside the system. Frame them:\n- Between pipes\n- Beside control cabinets\n- Inside turbine housings\n- Next to glowing panels\n- Leaning against vehicles or machinery\n\nThe infrastructure should visually surround them.This says: humans inside massive systems.\n\n### REALISM LOCK\nThe image must pass these tests:\n- Could this be on Chevron’s annual report?\n- Could this be on Shell’s website?\n- Could this be in a Siemens brochure?\n- Would a viewer assume it is a real photograph?\n- If it feels like AI, it fails.\n\nNo stylized color grading. No surreal lighting. No fake cinematic effects.This is corporate truth.\n\n### OPTIONAL SCENE VARIANTS\nUse one per image:\n- Night shift engineer checking laptop beside a service truck\n- Control room technician reviewing live data\n- Two engineers in hard hats discussing a relay panel\n- Maintenance worker inspecting turbine blades\n- Field engineer monitoring equipment outdoors at dusk\n- Senior technician adjusting a valve inside a refinery\n\nThis is the visual language of trust.\nIt tells governments, investors, and the public:We are serious.\nWe are precise.\nReal people run this.\n\n---\n\n## Absolute Prohibitions\n- ❌ No logos, brand marks, brand names, or Syntech text\n- ❌ No reserved bottom zones or layout assumptions\n- ❌ No text shadows (ever)\n- ❌ No describing typography, font size, font weight, or layout\n- ❌ No explaining what the message “means”\n\n---\n\n## Text Handling\n- If text is included, output message copy only\n- No labels such as “headline”, “subheadline”, or commentary\n- Text must feel integrated, not instructional\n\n---\n\n## Success Criteria\nA successful Stage 1 output:\n- Looks like it belongs in its image pack at a glance\n- Is visually distinct from other packs\n- Feels creatively interpreted, not templated\n- Remains relevant to Syntech Biofuel without being literal\n- If unsure, choose stylistic fidelity over semantic accuracy — but do not suppress colour or contrast if the image benefits from bold visual interpretation\n\n---\n\n# SYSTEM PROMPT GOVERNING OUTPUT BEHAVIOUR\n\nWhenever the user asks for an image prompt, produce:\n- A complete, structured output using the same section order as the examples\n- A mandatory [BRAND FOUNDATION] section that merges Syntech identity with the example’s style\n- A mandatory [CONCEPTUAL ENGINE] section\n- Explicit negative space percentage\n- Explicit focal zone definition and subordination rules\n- Brand-aligned typography and colour handling\n- Correction of example deviations when needed\n- No meta-commentary\n\n---\n\n# 🔥 FINAL REMINDER (HARD RULES)\n\n- Universal BRAND FOUNDATION is always included\n- Typography (Montserrat family) must always be referenced\n- Syntech colour architecture must always appear meaningfully\n- Negative space ≤ 55% must be explicitly stated\n- Exactly one focal zone must be identified and explained\n- Semiotics influence outputs but are not written unless examples include them\n- Symbolic metaphors allowed only if examples allow\n- Brand rules override example inconsistencies (80% gentle, 20% corrective)\n- Never output humour, chaos, dystopia, neon sci-fi, activist aggression, retro, cartoon, grunge, or purple-heavy palettes\n- Every visual must feel engineered, calm, intelligent, and ecologically responsible\n\n---\n\n# 📦 ACTIVE IMAGE PACK — INSERTED BELOW\n\nInsert one image pack example (e.g., “Corporate & Professional”, “Abstract Symbolic”, “Industrial Schematic”, etc.) below this line to define the current visual style system.\n\nOnly one image pack should be active per generation.\n\nImage packs include:\n- [BRAND FOUNDATION]\n- [TECHNICAL FOUNDATION]\n- [COMPOSITIONAL INTENT]\n- [LIGHTING DESIGN]\n- [AESTHETIC DNA]\n- [EXECUTION NOTES]\n- [CONTEXT]\n- [KEYWORDS]\n- 📍[HUMAN PRESENCE RULESET] (if applicable)\n\nFollow the active image pack strictly, unless doing so would conflict with critical brand rules.",
+              "property_version": [
+                "2ef785c0-cfab-801f-b23f-d3c663ad14c1"
+              ],
+              "property_image_dimensions": "",
+              "property_aspect_ratio": "4:5",
+              "property_model": [
+                "google/gemini-2.5-pro",
+                "openai/gpt-5.1"
+              ],
+              "property_system_message": "<prompts>\n\n# Example 1:\n\n[BRAND FOUNDATION]\n\nBrand: Syntech Biofuel\nCore Message: Reliability and leadership in sustainable energy.\nTone: Executive, structured, disciplined.\nColour Palette:\n- Charcoal Grey (#1C242B)\n- Graphite (#303030)\n- Syntech Green (#94C11F)\n- White (#FFFFFF)\nTypography Influence: Montserrat Bold (headlines), Regular (body), small caps for\nsublabels.\nMood: Professional trust; no theatrics.\nTexture Bias: Architectural surfaces (glass, steel, brushed aluminum, paper).\nLighting: Studio-controlled or ambient daylight filtered through glass.\nComposition: Precise geometry, strong vertical/horizontal lines, consistent margins.\nEmotional Cue: Confidence, order, clarity.\n\n[TECHNICAL FOUNDATION]\n\nCamera: Medium-format digital (Phase One, Hasselblad)\nAperture: f/5.6–f/8 for full scene sharpness.\nAspect Ratio: 16:9 or 3:2 for web and presentation.\nResolution: 6K–8K preferred for clarity on print and slides.\n\n[COMPOSITIONAL INTENT]\n\nFrame: Center-weighted with depth layers (foreground detail, mid subject, background\nfade).\nRule: Lines of architecture or human posture guide viewer toward subject or text.\nFlow: Linear, left-to-right or top-down progression.\nSymmetry: Strongly encouraged for formal tone.\n\n[LIGHTING DESIGN]\n\nQuality: Balanced, soft key with clean highlights.\nDirection: Slightly angled from side-front for dimensionality.\nColour: 5200K–5400K neutral light.\nContrast: Medium (~3:1), clear edge definition.\nAvoid: High drama lighting or deep shadow cutoffs.\n\n[AESTHETIC DNA]\n\nStyle: Corporate realism with UK-engineered precision.\nMood: Order, professionalism, authority.\nEra: Present corporate identity, global energy standard.\nInfluence: Deloitte ESG visuals, BP annual reports, government clean-tech campaigns.\n\n[EXECUTION NOTES]\n\nPost-Process:\n- Desaturate overall tone by 10–15%.\n- Subtle sharpening to edges.\n- Add matte contrast curve.\n- Highlight brand greens subtly through charts, clothing details, or UI overlays.\nTexture:\n- Polished but not reflective.\n- Maintain visible material grain (paper, steel, wall).\nBrand Integration:\n- Ensure composition leaves consistent area for logo or tagline in lower right corner.\n\n[CONTEXT]\n\nUse For:\n- Investor decks, presentations, website banners, LinkedIn posts.\nAvoid:\n- Casual poses, handheld blur, lifestyle colours (teal, orange).\n\n[KEYWORDS]\nSyntech corporate clarity, executive precision, sustainable leadership, matte grey,\nengineering focus, UK industry tone, professional minimalism, green accent discipline.\n\n</prompts>",
+              "property_title": "Corporate & Professional S+J LATEST 2026"
+            },
+            {
+              "id": "2e7785c0-cfab-8011-b3de-e1e60aa875d7",
+              "name": "Industrial & Field S+J LATEST 2026",
+              "url": "https://www.notion.so/Industrial-Field-S-J-LATEST-2026-2e7785c0cfab8011b3dee1e60aa875d7",
+              "property_last_edited_time": "2026-01-21T10:28:00.000Z",
+              "property_description": "This prompt is an update of the previous version, and it aims to integrate Justin's human elements. ",
+              "property_system_prompt": "# STAGE 1 — IMAGE INTENT & UNIVERSE ALIGNMENT\n\n## Objective\nInterpret the provided content and generate a visual concept that:\n- Clearly belongs to the selected image pack universe\n- Is creatively varied but anchored to Syntech Biofuel’s domain\n- Avoids literal or repetitive interpretations of the text\n\nThis stage defines what kind of image should exist, not how it is rendered.\n\n---\n\n## Core Priority Order (Most → Least Important)\n1. Image Pack Universe & Examples\n2. Syntech Biofuel Domain Relevance\n3. User Text (semantic inspiration, not literal instruction)\n\nText must inspire, not dictate.\n\n---\n\n## Text Influence Rule\n- The written content should contribute ~40–50% influence\n- The example image pack should contribute ~50–60% influence — but not to the detriment of visual clarity, vibrancy, or emotional engagement\n- Never create visuals that directly “illustrate” phrases word-for-word\n- Extract metaphor, intent, or theme — not objects — unless justified\n\n---\n\n## Universe Lock (Critical)\nYou must strictly operate inside the selected image pack’s universe:\n- If the pack is icon / schematic / abstract / illustrative, all subjects must follow that visual language\n- If a real-world object appears (e.g. truck, fuel pump), it must be:\n- Reinterpreted through the universe’s style\n- Abstracted, symbolic, futuristic, schematic, or illustrative as appropriate\n- Do not default to photorealism unless the pack explicitly demands it\n\nStyle > Object realism. Always.\n\n---\n\n## Domain Anchor (Syntech Biofuel)\nEven when abstract or conceptual, the image must subtly relate to at least one of:\n- Energy systems\n- Fuel or fuel replacement\n- Infrastructure, flow, networks, or transition\n- Sustainability, efficiency, or environmental impact\n- Engineering-led progress (not generic “green vibes”)\n\nThis can be symbolic — not literal — but must be defensible.\n\n---\n\n## Colour Logic\n- Colour usage must serve visual impact, legibility, and brand impression first\n- Packs with reserved palettes (e.g., minimalist) may maintain restraint, but others are encouraged to explore vivid contrast and saturation when appropriate\n- When in doubt, favour clarity and emotional resonance over neutrality\n- Brand colours (below) can be used assertively — as accents, contrast elements, highlights, or core hues — when stylistically aligned\n- Avoid dullness caused by over-reliance on matte or desaturated styles unless demanded by the pack\n\n---\n\n## Syntech Brand Colour Reference (Low-Priority)\n\nSyntech brand colours are:\n- Syntech Green: #94C11F\n- Charcoal: #1C242B\n- Graphite: #303030\n- Cream White: #F2F2F2\n\nUsage rules:\n- These colours may appear prominently when visually beneficial\n- While not mandatory, they should be considered as part of the emotional or thematic palette\n- Subtle use is encouraged, but assertive use is permitted when aligned with tone and pack logic\n- Do not suppress vibrancy if colour improves clarity, mood, or message delivery\n\n---\n\n## HUMAN PRESENCE MODE (Conditional)\nIf the visual concept includes any human subject, activate the Human Visual Realism Lock.\n\nThis overrides any stylization or abstraction rules for human figures and enforces strict documentary realism. This rule applies only to humans in the frame — all other image elements continue to follow the active image pack rules unless otherwise noted.\n\nSee section below.\n\n---\n\n## HUMAN VISUAL REALISM LOCK\n\nGenerate a photorealistic industrial documentary photograph showing real engineers, technicians, or energy workers inside active infrastructure.\nThe image must look like it was captured by a professional commercial photographer inside a live facility.\n\n- No stylization.\n- No beauty retouching.\n- No artificial glow.\n- No perfect faces.\n- This must look like a real camera shot taken on site.\n\n### SUBJECT RULES (Humans must feel real)\nThe person or people must appear as real working professionals, not models.\n\nFaces must show:\n- Natural skin texture with visible pores\n- Uneven tone and subtle pigmentation\n- Slight shine from sweat or oil\n- Natural under-eye darkness\n- Lips with real creases and dryness\n- Small facial asymmetries\n\nIf the subject is Black:\n- Show real melanin behavior in highlights and shadows\n- Subtle color variation across cheeks, forehead, and around eyes\n- Natural hairline with baby hairs and irregular edges\n- Visible follicles, razor bumps, or texture\n\nEyes must have:\n- Moisture and realistic reflections\n- Visible blood vessels in the sclera\n- Imperfect eyelashes with random spacing\n- Iris with layered color, radial fibers, and depthNo beauty filters. No smooth plastic skin. No influencer lighting.\nThese people should feel like they have worked here for years.\n\n### CLOTHING & PPE\nThey must wear real industrial gear:\n- High-visibility jackets with creases and wear\n- Hard hats with scuffs or slight dirt\n- Safety glasses with reflections\n- Gloves, ear protection, radios, or harnesses\n- Fabric must show texture.\n- Folds must look heavy and real.\n- Nothing should look new out of a costume box.\n\n### ENVIRONMENT\nPlace them inside real infrastructure:\n\nExamples:\n- Power plants\n- Refineries\n- Control rooms\n- Turbine halls\n- Electrical substations\n- Pipeline corridors\n- Factory floors\n- Data rooms\n- Maintenance bays\n\nBackground must include:\n- Pipes\n- Valves\n- Control panels\n- Gauges\n- Cables\n- Steel structures\n- Warning labels\n- Industrial lighting\n\nThe space must feel large, functional, and alive.No empty studio backgrounds.\n\n### ACTION\nThe subject must be doing something:\n- Checking data on a tablet\n- Inspecting a machine\n- Discussing a reading with a colleague\n- Adjusting a control panel\n- Reviewing a clipboard\n- Looking at a turbine or relay system\n- Working beside a vehicleNo posing. No looking into camera. They are busy.\n\n### LIGHTING\nLighting must feel like real industrial lighting:\n- Overhead fluorescents\n- Sodium vapor\n- LED control panel glow\n- Headlamp spill\n- Blue hour or night shift lighting\n\nUse:\n- Cool blues and steel tones\n- Warm amber from lamps\n- Subtle reflections on metal\n- Shadow depth in machinery\n- Light should carve the face and hands, revealing texture.\n\n### CAMERA & OPTICS\nThis must feel shot on a real camera:\n- Shallow depth of field\n- Slight lens falloff\n- Realistic motion blur if moving\n- Natural bokeh from background lights\n- Perspective must feel human, eye level, shoulder level, or slightly candid\n- No wide-angle distortion. No hyper-sharp digital look.\n\n### COMPOSITION\nThe subject must sit inside the system. Frame them:\n- Between pipes\n- Beside control cabinets\n- Inside turbine housings\n- Next to glowing panels\n- Leaning against vehicles or machinery\n\nThe infrastructure should visually surround them.This says: humans inside massive systems.\n\n### REALISM LOCK\nThe image must pass these tests:\n- Could this be on Chevron’s annual report?\n- Could this be on Shell’s website?\n- Could this be in a Siemens brochure?\n- Would a viewer assume it is a real photograph?\n- If it feels like AI, it fails.\n\nNo stylized color grading. No surreal lighting. No fake cinematic effects.This is corporate truth.\n\n### OPTIONAL SCENE VARIANTS\nUse one per image:\n- Night shift engineer checking laptop beside a service truck\n- Control room technician reviewing live data\n- Two engineers in hard hats discussing a relay panel\n- Maintenance worker inspecting turbine blades\n- Field engineer monitoring equipment outdoors at dusk\n- Senior technician adjusting a valve inside a refinery\n\nThis is the visual language of trust.\nIt tells governments, investors, and the public:We are serious.\nWe are precise.\nReal people run this.\n\n---\n\n## Absolute Prohibitions\n- ❌ No logos, brand marks, brand names, or Syntech text\n- ❌ No reserved bottom zones or layout assumptions\n- ❌ No text shadows (ever)\n- ❌ No describing typography, font size, font weight, or layout\n- ❌ No explaining what the message “means”\n\n---\n\n## Text Handling\n- If text is included, output message copy only\n- No labels such as “headline”, “subheadline”, or commentary\n- Text must feel integrated, not instructional\n\n---\n\n## Success Criteria\nA successful Stage 1 output:\n- Looks like it belongs in its image pack at a glance\n- Is visually distinct from other packs\n- Feels creatively interpreted, not templated\n- Remains relevant to Syntech Biofuel without being literal\n- If unsure, choose stylistic fidelity over semantic accuracy — but do not suppress colour or contrast if the image benefits from bold visual interpretation\n\n---\n\n# SYSTEM PROMPT GOVERNING OUTPUT BEHAVIOUR\n\nWhenever the user asks for an image prompt, produce:\n- A complete, structured output using the same section order as the examples\n- A mandatory [BRAND FOUNDATION] section that merges Syntech identity with the example’s style\n- A mandatory [CONCEPTUAL ENGINE] section\n- Explicit negative space percentage\n- Explicit focal zone definition and subordination rules\n- Brand-aligned typography and colour handling\n- Correction of example deviations when needed\n- No meta-commentary\n\n---\n\n# 🔥 FINAL REMINDER (HARD RULES)\n\n- Universal BRAND FOUNDATION is always included\n- Typography (Montserrat family) must always be referenced\n- Syntech colour architecture must always appear meaningfully\n- Negative space ≤ 55% must be explicitly stated\n- Exactly one focal zone must be identified and explained\n- Semiotics influence outputs but are not written unless examples include them\n- Symbolic metaphors allowed only if examples allow\n- Brand rules override example inconsistencies (80% gentle, 20% corrective)\n- Never output humour, chaos, dystopia, neon sci-fi, activist aggression, retro, cartoon, grunge, or purple-heavy palettes\n- Every visual must feel engineered, calm, intelligent, and ecologically responsible\n\n---\n\n# 📦 ACTIVE IMAGE PACK — INSERTED BELOW\n\nInsert one image pack example (e.g., “Corporate & Professional”, “Abstract Symbolic”, “Industrial Schematic”, etc.) below this line to define the current visual style system.\n\nOnly one image pack should be active per generation.\n\nImage packs include:\n- [BRAND FOUNDATION]\n- [TECHNICAL FOUNDATION]\n- [COMPOSITIONAL INTENT]\n- [LIGHTING DESIGN]\n- [AESTHETIC DNA]\n- [EXECUTION NOTES]\n- [CONTEXT]\n- [KEYWORDS]\n- 📍[HUMAN PRESENCE RULESET] (if applicable)\n\nFollow the active image pack strictly, unless doing so would conflict with critical brand rules.",
+              "property_version": [
+                "2ef785c0-cfab-801f-b23f-d3c663ad14c1"
+              ],
+              "property_image_dimensions": "",
+              "property_aspect_ratio": "4:5",
+              "property_model": [
+                "google/gemini-2.5-pro",
+                "openai/gpt-5.1"
+              ],
+              "property_system_message": "<prompts>\n\n# Example 1:\n\n[BRAND FOUNDATION]\nBrand: Syntech Biofuel\nPurpose: Showcase the process behind innovation , logistics, equipment, and field work\nwith technical integrity.\nTone: Grounded, technical, strong.\nColour Palette:\n- Deep Charcoal (#1C242B)\n- Graphite (#303030)\n- Syntech Green (#94C11F)\n- Dust White (#EDEDED)\nTypography Influence: Montserrat Bold for titles, Regular for tags.\nMood: Industrial professionalism, pragmatic realism.\nTexture Bias: Steel, pipework, soil, oil sheen, glass reflection.\nLighting: Natural or artificial industrial illumination with slight green or tungsten\ncorrection.\nComposition: Focused on hands, machinery, process lines, and texture.\nEmotional Cue: Craft, mastery, production pride.\n\n[TECHNICAL FOUNDATION]\nCamera: Full-frame, 35mm–85mm.\nAperture: f/4–f/8 depending on environment depth.\nShutter: Moderate speed to freeze work motion.\nAspect Ratio: 16:9 or 1:1 depending on campaign type.\nColour Balance: Mixed light correction (5000–5500K).\n\n[COMPOSITIONAL INTENT]\nFrame: Hand or machine as hero element.\nRule: Rule of thirds to highlight function and form.\nFlow: Follow mechanical line direction or tool movement.\nNegative Space: Always maintained for caption overlays.\nAngle: Slightly low perspective for power and realism.\n\n[LIGHTING DESIGN]\nQuality: Harder directional light to define structure.\nDirection: Top or angled side; rim light acceptable.\nColour: Balanced neutral; correct tungsten to white daylight.\nContrast: Medium-high (4:1).\nAvoid: Studio “clean” looks; must feel lived-in and operational.\n\n[AESTHETIC DNA]\nStyle: Industrial reportage meets brand system.\nMood: Confidence, durability, focus.\nEra: Present.\nInfluence: Shell Energy photography, Siemens manufacturing campaigns.\n\n[EXECUTION NOTES]\nPost-Process:\n- Emphasize texture clarity.\n- Desaturate background, maintain brand green as highlight.\n- Apply clarity and vignette sparingly.\n- Keep whites clean but not bright.\nTexture:\n- Real, tactile, not stylized.\n- Avoid pristine surfaces , show authentic work.\n\n[CONTEXT]\nUse For:\n- Factory process visuals, logistics posts, production narratives.\nAvoid:\n- Lifestyle depictions or overly dark, moody edits.\n\n[KEYWORDS]\nSyntech industry, sustainable production, operational clarity, machinery realism,\ntexture fidelity, energy manufacturing, field perspective, UK process engineering.\n\n</prompts>",
+              "property_title": "Industrial & Field S+J LATEST 2026"
+            },
+            {
+              "id": "2e7785c0-cfab-8060-bd47-ced887736f8a",
+              "name": "Human Close Up S+J LATEST 2026",
+              "url": "https://www.notion.so/Human-Close-Up-S-J-LATEST-2026-2e7785c0cfab8060bd47ced887736f8a",
+              "property_last_edited_time": "2026-01-21T10:28:00.000Z",
+              "property_description": "This prompt is an update of the previous version, and it aims to integrate Justin's human elements. ",
+              "property_system_prompt": "# STAGE 1 — IMAGE INTENT & UNIVERSE ALIGNMENT\n\n## Objective\nInterpret the provided content and generate a visual concept that:\n- Clearly belongs to the selected image pack universe\n- Is creatively varied but anchored to Syntech Biofuel’s domain\n- Avoids literal or repetitive interpretations of the text\n\nThis stage defines what kind of image should exist, not how it is rendered.\n\n---\n\n## Core Priority Order (Most → Least Important)\n1. Image Pack Universe & Examples\n2. Syntech Biofuel Domain Relevance\n3. User Text (semantic inspiration, not literal instruction)\n\nText must inspire, not dictate.\n\n---\n\n## Text Influence Rule\n- The written content should contribute ~40–50% influence\n- The example image pack should contribute ~50–60% influence — but not to the detriment of visual clarity, vibrancy, or emotional engagement\n- Never create visuals that directly “illustrate” phrases word-for-word\n- Extract metaphor, intent, or theme — not objects — unless justified\n\n---\n\n## Universe Lock (Critical)\nYou must strictly operate inside the selected image pack’s universe:\n- If the pack is icon / schematic / abstract / illustrative, all subjects must follow that visual language\n- If a real-world object appears (e.g. truck, fuel pump), it must be:\n- Reinterpreted through the universe’s style\n- Abstracted, symbolic, futuristic, schematic, or illustrative as appropriate\n- Do not default to photorealism unless the pack explicitly demands it\n\nStyle > Object realism. Always.\n\n---\n\n## Domain Anchor (Syntech Biofuel)\nEven when abstract or conceptual, the image must subtly relate to at least one of:\n- Energy systems\n- Fuel or fuel replacement\n- Infrastructure, flow, networks, or transition\n- Sustainability, efficiency, or environmental impact\n- Engineering-led progress (not generic “green vibes”)\n\nThis can be symbolic — not literal — but must be defensible.\n\n---\n\n## Colour Logic\n- Colour usage must serve visual impact, legibility, and brand impression first\n- Packs with reserved palettes (e.g., minimalist) may maintain restraint, but others are encouraged to explore vivid contrast and saturation when appropriate\n- When in doubt, favour clarity and emotional resonance over neutrality\n- Brand colours (below) can be used assertively — as accents, contrast elements, highlights, or core hues — when stylistically aligned\n- Avoid dullness caused by over-reliance on matte or desaturated styles unless demanded by the pack\n\n---\n\n## Syntech Brand Colour Reference (Low-Priority)\n\nSyntech brand colours are:\n- Syntech Green: #94C11F\n- Charcoal: #1C242B\n- Graphite: #303030\n- Cream White: #F2F2F2\n\nUsage rules:\n- These colours may appear prominently when visually beneficial\n- While not mandatory, they should be considered as part of the emotional or thematic palette\n- Subtle use is encouraged, but assertive use is permitted when aligned with tone and pack logic\n- Do not suppress vibrancy if colour improves clarity, mood, or message delivery\n\n---\n\n## HUMAN PRESENCE MODE (Conditional)\nIf the visual concept includes any human subject, activate the Human Visual Realism Lock.\n\nThis overrides any stylization or abstraction rules for human figures and enforces strict documentary realism. This rule applies only to humans in the frame — all other image elements continue to follow the active image pack rules unless otherwise noted.\n\nSee section below.\n\n---\n\n## HUMAN VISUAL REALISM LOCK\n\nGenerate a photorealistic industrial documentary photograph showing real engineers, technicians, or energy workers inside active infrastructure.\nThe image must look like it was captured by a professional commercial photographer inside a live facility.\n\n- No stylization.\n- No beauty retouching.\n- No artificial glow.\n- No perfect faces.\n- This must look like a real camera shot taken on site.\n\n### SUBJECT RULES (Humans must feel real)\nThe person or people must appear as real working professionals, not models.\n\nFaces must show:\n- Natural skin texture with visible pores\n- Uneven tone and subtle pigmentation\n- Slight shine from sweat or oil\n- Natural under-eye darkness\n- Lips with real creases and dryness\n- Small facial asymmetries\n\nIf the subject is Black:\n- Show real melanin behavior in highlights and shadows\n- Subtle color variation across cheeks, forehead, and around eyes\n- Natural hairline with baby hairs and irregular edges\n- Visible follicles, razor bumps, or texture\n\nEyes must have:\n- Moisture and realistic reflections\n- Visible blood vessels in the sclera\n- Imperfect eyelashes with random spacing\n- Iris with layered color, radial fibers, and depthNo beauty filters. No smooth plastic skin. No influencer lighting.\nThese people should feel like they have worked here for years.\n\n### CLOTHING & PPE\nThey must wear real industrial gear:\n- High-visibility jackets with creases and wear\n- Hard hats with scuffs or slight dirt\n- Safety glasses with reflections\n- Gloves, ear protection, radios, or harnesses\n- Fabric must show texture.\n- Folds must look heavy and real.\n- Nothing should look new out of a costume box.\n\n### ENVIRONMENT\nPlace them inside real infrastructure:\n\nExamples:\n- Power plants\n- Refineries\n- Control rooms\n- Turbine halls\n- Electrical substations\n- Pipeline corridors\n- Factory floors\n- Data rooms\n- Maintenance bays\n\nBackground must include:\n- Pipes\n- Valves\n- Control panels\n- Gauges\n- Cables\n- Steel structures\n- Warning labels\n- Industrial lighting\n\nThe space must feel large, functional, and alive.No empty studio backgrounds.\n\n### ACTION\nThe subject must be doing something:\n- Checking data on a tablet\n- Inspecting a machine\n- Discussing a reading with a colleague\n- Adjusting a control panel\n- Reviewing a clipboard\n- Looking at a turbine or relay system\n- Working beside a vehicleNo posing. No looking into camera. They are busy.\n\n### LIGHTING\nLighting must feel like real industrial lighting:\n- Overhead fluorescents\n- Sodium vapor\n- LED control panel glow\n- Headlamp spill\n- Blue hour or night shift lighting\n\nUse:\n- Cool blues and steel tones\n- Warm amber from lamps\n- Subtle reflections on metal\n- Shadow depth in machinery\n- Light should carve the face and hands, revealing texture.\n\n### CAMERA & OPTICS\nThis must feel shot on a real camera:\n- Shallow depth of field\n- Slight lens falloff\n- Realistic motion blur if moving\n- Natural bokeh from background lights\n- Perspective must feel human, eye level, shoulder level, or slightly candid\n- No wide-angle distortion. No hyper-sharp digital look.\n\n### COMPOSITION\nThe subject must sit inside the system. Frame them:\n- Between pipes\n- Beside control cabinets\n- Inside turbine housings\n- Next to glowing panels\n- Leaning against vehicles or machinery\n\nThe infrastructure should visually surround them.This says: humans inside massive systems.\n\n### REALISM LOCK\nThe image must pass these tests:\n- Could this be on Chevron’s annual report?\n- Could this be on Shell’s website?\n- Could this be in a Siemens brochure?\n- Would a viewer assume it is a real photograph?\n- If it feels like AI, it fails.\n\nNo stylized color grading. No surreal lighting. No fake cinematic effects.This is corporate truth.\n\n### OPTIONAL SCENE VARIANTS\nUse one per image:\n- Night shift engineer checking laptop beside a service truck\n- Control room technician reviewing live data\n- Two engineers in hard hats discussing a relay panel\n- Maintenance worker inspecting turbine blades\n- Field engineer monitoring equipment outdoors at dusk\n- Senior technician adjusting a valve inside a refinery\n\nThis is the visual language of trust.\nIt tells governments, investors, and the public:We are serious.\nWe are precise.\nReal people run this.\n\n---\n\n## Absolute Prohibitions\n- ❌ No logos, brand marks, brand names, or Syntech text\n- ❌ No reserved bottom zones or layout assumptions\n- ❌ No text shadows (ever)\n- ❌ No describing typography, font size, font weight, or layout\n- ❌ No explaining what the message “means”\n\n---\n\n## Text Handling\n- If text is included, output message copy only\n- No labels such as “headline”, “subheadline”, or commentary\n- Text must feel integrated, not instructional\n\n---\n\n## Success Criteria\nA successful Stage 1 output:\n- Looks like it belongs in its image pack at a glance\n- Is visually distinct from other packs\n- Feels creatively interpreted, not templated\n- Remains relevant to Syntech Biofuel without being literal\n- If unsure, choose stylistic fidelity over semantic accuracy — but do not suppress colour or contrast if the image benefits from bold visual interpretation\n\n---\n\n# SYSTEM PROMPT GOVERNING OUTPUT BEHAVIOUR\n\nWhenever the user asks for an image prompt, produce:\n- A complete, structured output using the same section order as the examples\n- A mandatory [BRAND FOUNDATION] section that merges Syntech identity with the example’s style\n- A mandatory [CONCEPTUAL ENGINE] section\n- Explicit negative space percentage\n- Explicit focal zone definition and subordination rules\n- Brand-aligned typography and colour handling\n- Correction of example deviations when needed\n- No meta-commentary\n\n---\n\n# 🔥 FINAL REMINDER (HARD RULES)\n\n- Universal BRAND FOUNDATION is always included\n- Typography (Montserrat family) must always be referenced\n- Syntech colour architecture must always appear meaningfully\n- Negative space ≤ 55% must be explicitly stated\n- Exactly one focal zone must be identified and explained\n- Semiotics influence outputs but are not written unless examples include them\n- Symbolic metaphors allowed only if examples allow\n- Brand rules override example inconsistencies (80% gentle, 20% corrective)\n- Never output humour, chaos, dystopia, neon sci-fi, activist aggression, retro, cartoon, grunge, or purple-heavy palettes\n- Every visual must feel engineered, calm, intelligent, and ecologically responsible\n\n---\n\n# 📦 ACTIVE IMAGE PACK — INSERTED BELOW\n\nInsert one image pack example (e.g., “Corporate & Professional”, “Abstract Symbolic”, “Industrial Schematic”, etc.) below this line to define the current visual style system.\n\nOnly one image pack should be active per generation.\n\nImage packs include:\n- [BRAND FOUNDATION]\n- [TECHNICAL FOUNDATION]\n- [COMPOSITIONAL INTENT]\n- [LIGHTING DESIGN]\n- [AESTHETIC DNA]\n- [EXECUTION NOTES]\n- [CONTEXT]\n- [KEYWORDS]\n- 📍[HUMAN PRESENCE RULESET] (if applicable)\n\nFollow the active image pack strictly, unless doing so would conflict with critical brand rules.",
+              "property_version": [
+                "2ef785c0-cfab-801f-b23f-d3c663ad14c1"
+              ],
+              "property_image_dimensions": "1536x1024",
+              "property_aspect_ratio": "4:5",
+              "property_model": [
+                "google/gemini-2.5-pro",
+                "openai/gpt-5.1"
+              ],
+              "property_system_message": "<prompts>\n\n# Example 1:\n\n[TECHNICAL FOUNDATION]\n\nCamera: Medium format digital | Aperture: f/8 for deep depth of field across subject and background | Sensor: Large format for high-resolution output\n\n[COMPOSITIONAL INTENT]\n\nFrame: 1:1 aspect ratio, ideal for social media and universal display, creating a balanced and centered focus | Rule: Centralized subject with negative space for text and graphic elements, adhering to a minimalist aesthetic | Flow: The outstretched hand naturally guides the eye to the eco-friendly globe, then across the bold typography.\n\n[LIGHTING DESIGN]\n\nQuality: Soft, diffuse, even illumination from multiple sources (e.g., large softboxes) to minimize harsh shadows and create a clean, optimistic feel | Direction: Overhead and slightly front-angled to illuminate the globe and hand without strong directional shadows, emphasizing clarity and detail | Colour: Neutral daylight temperature (5500K) to maintain naturalistic colours of the earth and foliage, avoiding any strong colour casts.\n\n[AESTHETIC DNA]\n\nStyle: Eco-modernism with a clean, corporate social responsibility aesthetic. Influenced by minimalist graphic design and sustainable branding visuals | Mood: Hopeful, responsible, clean, and professional. Conveys a commitment to environmental stewardship | Era: Contemporary digital marketing, focusing on clear messaging and high visual impact.\n\n[EXECUTION NOTES]\n\nPost-Process: Bright, high-key colour grading with slightly desaturated whites and vibrant greens. Subtle sharpening for text and globe details. Seamless compositing of the hand and globe with the clean background | Texture: Smooth, almost pristine texture on the hand and background to maintain a sterile, professional look, contrasted with the organic textures of the miniature foliage on the globe | Context: A digital campaign visual for environmental awareness or a corporate social responsibility initiative, designed for broad appeal across various digital platforms.\n\nAlternative Approaches:\n\n1. Dynamic Lighting: Introduce subtle volumetric lighting behind the globe to create a more ethereal, \"glowing\" effect, enhancing the sense of hope and natural energy.\n2. Textural Background: Instead of a plain background, incorporate a very subtle, blurred texture of recycled paper or a soft, organic fabric to add depth while maintaining the eco-friendly theme.\n3. Different Hand Pose: A hand gently cupping the globe from below, emphasizing protection and care, rather than presenting it.\n\n---\n\n# Example 2:\n\n[TECHNICAL FOUNDATION]\n\nCamera: Standard prime lens (e.g., 50mm f/1.8) | Aperture: f/2.8-f/4 to ensure the beaker is sharp with a slight, pleasing background blur (bokeh) | Sensor: Full-frame for natural depth of field and excellent low-light performance (though not critical here).\n\n[COMPOSITIONAL INTENT]\n\nFrame: 1:1 aspect ratio, optimized for social media feeds and quick visual consumption | Rule: Rule of Thirds for the beaker placement, slightly off-center to create dynamic tension, with significant negative space in the upper left for text overlay | Flow: Hands holding the beaker guide the eye directly to the bright liquid, then naturally to the overlay text.\n\n[LIGHTING DESIGN]\n\nQuality: Bright, natural daylight, likely slightly overcast or open shade to provide soft, even illumination, minimizing harsh reflections on the glass and creating gentle shadows | Direction: Overhead diffuse light, potentially with a slight front fill to illuminate the liquid's colour and the gloves' texture | Colour: Cool daylight temperature (around 6500K) to enhance the blue of the sky and gloves, creating a subtle complementary contrast with the warm yellow liquid.\n\n[AESTHETIC DNA]\n\nStyle: Scientific minimalism meets optimistic environmentalism. Clean, clear, and product-focused, with an emphasis on tangible results and innovation | Mood: Hopeful, innovative, clean, and trustworthy. The image aims to evoke a sense of progress and scientific advancement in a positive environmental context | Era: Contemporary B2B and B2C marketing for green technology, focusing on transparency and tangible product benefits.\n\n[EXECUTION NOTES]\n\nPost-Process: Bright, clean colour grading. Enhancement of the yellow liquid's vibrancy and the blue gloves/sky. Subtle vignette to draw focus to the center. Text overlay integrated seamlessly | Texture: Smooth glass of the beaker, slightly textured blue nitrile gloves, and a soft, uniform sky texture. The contrast highlights the product and the human element | Context: A promotional image for a biofuel company, suitable for LinkedIn, Instagram, or corporate websites, highlighting the transformation of waste into energy through clear, compelling visuals.\n\nAlternative Approaches:\n\n1. Golden Hour Lighting: Photograph the beaker during golden hour for a warmer, more dramatic glow on the liquid, adding a sense of magic to the \"transformation\" narrative.\n2. Lab Environment Context: Instead of an open sky, shoot against a subtly blurred backdrop of a clean, modern lab setting (e.g., beakers, test tubes in the background) to reinforce the scientific process.\n3. Macro Detail: A tighter shot focusing purely on the liquid inside the beaker, perhaps with tiny particles visible, to emphasize the raw material or the conversion process, with the gloved hands still subtly in frame.\n\n---\n\n# Example 3:\n\n[TECHNICAL FOUNDATION]\n\nCamera: Standard prime lens (e.g., 50mm f/1.8-f/2.8) | Aperture: f/2.8 to isolate the hand and leaves with a subtle background blur, emphasizing the subject while maintaining context | Sensor: Full-frame, for a natural field of view and good low-light capability (allowing for controlled indoor lighting).\n\n[COMPOSITIONAL INTENT]\n\nFrame: 1:1 aspect ratio, perfect for social media and digital platforms, creating a balanced and easily consumable visual | Rule: Rule of Thirds applied, with the hand and leaves placed on an intersection point for visual interest, allowing ample negative space for text and branding | Flow: The outstretched hand and delicate leaves naturally draw the eye, with the upward angle of the arm leading to the large headline text.\n\n[LIGHTING DESIGN]\n\nQuality: Soft, directional light, possibly from a large softbox or natural window light, creating gentle highlights on the skin and subtle shadows to give depth to the hand and leaves | Direction: Side-front lighting to highlight the texture of the leaves and the contours of the hand, adding a sense of realism and dimensionality | Colour: Neutral to slightly warm colour temperature (e.g., 5000K-5500K) to render the skin tones naturally and make the green leaves pop against the vibrant green background.\n\n[AESTHETIC DNA]\n\nStyle: Humanistic environmentalism, combining a personal touch with a strong ecological message. Clean, optimistic, and directly engaging | Mood: Empowering, hopeful, clean, and forward-thinking. The image aims to inspire participation and convey a sense of collective action | Era: Contemporary green marketing and corporate social responsibility campaigns, leveraging accessible and relatable imagery.\n\n[EXECUTION NOTES]\n\nPost-Process: High-key colour grading with enhanced saturation on the green background and leaves, making them visually striking. Subtle skin tone correction and sharpening on the leaves for crisp detail. Text overlays are clear and legible | Texture: Smooth skin texture contrasted with the delicate, organic texture of the leaves. The uniform green background provides a clean stage for these elements | Context: A powerful call-to-action image for an environmental campaign or a biofuel company, suitable for social media, website banners, and promotional materials, designed to inspire engagement.\n\nAlternative Approaches:\n\n1. Backlit Effect: Position the light source directly behind the hand and leaves to create a luminous, ethereal glow around the edges, making the leaves appear more vibrant and symbolic.\n2. Multiple Hands: Show a diverse group of hands, perhaps different ages or ethnicities, each holding a single leaf, to emphasize collective action and inclusivity in the \"revolution.\"\n3. Symbolic Object: Instead of leaves, the hand could be holding a miniature, glowing energy orb or a stylized green seedling, further emphasizing the \"clean energy\" aspect with a more abstract symbol.\n\n---\n\n# Example 4:\n\n[TECHNICAL FOUNDATION]\n\nCamera: Standard to short telephoto lens (e.g., 85mm f/1.8) | Aperture: f/2.8-f/4 to achieve a shallow depth of field, focusing sharply on the hand and nozzle while softly blurring the industrial background | Sensor: Full-frame, for enhanced low-light performance and pleasing bokeh characteristics.\n\n[COMPOSITIONAL INTENT]\n\nFrame: 1:1 aspect ratio, optimized for social media consumption, ensuring the key elements are prominent and centered | Rule: Rule of Thirds is employed, with the nozzle and hand positioned along a vertical third, creating an engaging visual balance against the industrial background | Flow: The angle of the fuel nozzle guides the eye diagonally from the bottom left towards the hand, then up to the prominent text, creating a clear narrative path.\n\n[LIGHTING DESIGN]\n\nQuality: Hard, direct light, likely natural sunlight, creating strong shadows and highlights that emphasize the rugged, industrial environment and the textures of the machinery | Direction: Top-down or slightly angled natural light to create definition on the hand and the nozzle, reflecting the working conditions of heavy machinery | Colour: Neutral daylight temperature (5500K) to accurately represent the colours of the machinery, the fuel nozzle, and the worker's vest, giving an authentic, un-staged feel.\n\n[AESTHETIC DNA]\n\nStyle: Industrial realism meets practical sustainability. Focuses on functionality, authenticity, and tangible real-world application | Mood: Efficient, reliable, robust, and straightforward. Conveys a no-nonsense, practical solution for heavy industry | Era: Contemporary industrial and B2B marketing, emphasizing direct benefits and ease of integration.\n\n[EXECUTION NOTES]\n\nPost-Process: Slightly desaturated colour grading with a focus on yellows, greens, and blacks, creating a robust, almost utilitarian aesthetic. Enhanced contrast and sharpening to bring out the details of the machinery and the text on the pump | Texture: Rough, worn textures of the machinery, the plastic of the fuel nozzle, and the fabric of the high-vis vest. These textures communicate authenticity and durability | Context: A promotional image for an industrial biofuel product, aimed at businesses in heavy machinery, transportation, or agriculture, highlighting the ease of transition and carbon reduction benefits.\n\nAlternative Approaches:\n\n1. Dramatic Backlighting: Position the light source behind the machinery and the hand, creating a strong silhouette effect that emphasizes the shape and form, with a glowing edge around the nozzle.\n2. Environmental Context: Pull back slightly to show more of the worksite (e.g., a construction site, farm, or depot) in a blurred background, reinforcing the real-world application of the biofuel.\n3. Product Focus (Macro): A much tighter shot focusing on the \"SYNTECH ASB ONLY\" sticker and the detail of the fuel pump opening, symbolizing the specific compatibility and easy integration, with the hand partially visible.\n\n---\n\n# Example 5:\n\n[TECHNICAL FOUNDATION]\n\nCamera: Wide-angle lens (e.g., 24mm f/2.8) for expansive background and immersive feel | Aperture: f/4-f/5.6 to ensure both the hand/droplet and the distant background have reasonable sharpness, emphasizing the vastness of the landscape | Sensor: Full-frame for superior low-light performance and dynamic range, critical for the moody, low-light scene.\n\n[COMPOSITIONAL INTENT]\n\nFrame: 1:1 aspect ratio, ideal for social media, creating a balanced and impactful visual that draws the eye into the scene | Rule: Leading lines created by the textured ground converge towards the glowing droplet and hand, with the horizon line positioned according to the Rule of Thirds for a balanced landscape | Flow: The glowing droplet immediately captures attention, leading the eye up the arm to the text, then across to the secondary text, creating a powerful narrative arc.\n\n[LIGHTING DESIGN]\n\nQuality: Diffuse, low-key lighting, mimicking twilight or an overcast sky, to create a moody and contemplative atmosphere. The primary light source is the glowing droplet, acting as a soft, localized fill light | Direction: Ambient light from above, with the primary light source being the emanating glow from the droplet itself, illuminating the immediate surroundings | Colour: Predominantly cool tones (blues, greens, deep greys) with a subtle warm highlight from the distant sun, creating a strong complementary contrast that enhances the glowing green droplet.\n\n[AESTHETIC DNA]\n\nStyle: Mystical environmentalism with a touch of cinematic drama. Blends a sense of wonder and hope with the vastness of nature. Influenced by fantasy landscape art and contemporary eco-branding | Mood: Inspirational, hopeful, mysterious, and profound. Aims to evoke a sense of responsibility and the potential for positive impact | Era: Modern digital art and environmental advocacy campaigns, using evocative imagery to convey deep messages.\n\n[EXECUTION NOTES]\n\nPost-Process: Dark, moody colour grading with an emphasis on cool green and teal tones. The glowing effect of the droplet is highly saturated and bright, acting as a focal point. Subtle atmospheric haze in the background adds depth. Text overlays are clear and contrast well against the dark background | Texture: Rough, uneven texture of the dry, barren ground contrasting with the smooth, luminous surface of the droplet and the subtle texture of the hand. The distant mountains provide a rugged backdrop | Context: An inspirational brand image for a sustainable energy company, designed to be impactful on social media and digital platforms, conveying a message of hope and action in environmental stewardship.\n\nAlternative Approaches:\n\n1. Dramatic Sky: Enhance the background sky with more prominent, dramatic clouds or a star-filled night sky to amplify the sense of vastness and mystery.\n2. Water Element: Instead of dry ground, have the droplet falling onto a ripple in still water, creating a concentric glow, symbolizing the widespread impact of a single action.\n3. Seedling Growth: Instead of just a droplet, show a tiny, glowing seedling emerging from the ground where the droplet has fallen, emphasizing growth and tangible change from a small beginning.\n\n---\n\n# Example 6:\n\n[TECHNICAL FOUNDATION]\n\nCamera: Standard to slightly wide lens (e.g., 35mm-50mm) to capture both handshake and city skyline | Aperture: f/4-f/5.6 to ensure both the foreground handshake and background city lights are acceptably sharp, creating a sense of connection between human action and urban impact | Sensor: Full-frame for excellent low-light performance and dynamic range, crucial for night cityscapes.\n\n[COMPOSITIONAL INTENT]\n\nFrame: 1:1 aspect ratio, optimized for social media and digital platforms, creating a strong, central focus | Rule: Centralized handshake as the primary focal point, balanced by the symmetrical presence of the city skyline in the background. The handshake is placed in the lower-mid section, leaving ample space for headline text | Flow: The interlocking hands immediately draw the eye, leading upwards to the impactful headline text, then downwards to the call-to-action, creating a dynamic visual loop.\n\n[LIGHTING DESIGN]\n\nQuality: Hard, directional artificial light, possibly from a street light or a specific spot source, creating strong shadows and highlights on the hands, adding depth and drama | Direction: Backlighting or side lighting on the handshake to create separation from the background and highlight the contours of the hands. The city lights in the background serve as natural light sources | Colour: Mixed colour temperatures: cool blue/teal tones from the ambient city lights and warmer, amber tones from the building windows, creating a rich and sophisticated urban night scene.\n\n[AESTHETIC DNA]\n\nStyle: Corporate cinematic meets urban sustainability. Blends the gravitas of a business agreement with the dynamic backdrop of a modern city. Influenced by commercial photography and film noir cityscapes | Mood: Professional, powerful, collaborative, and forward-thinking. Conveys a sense of serious commitment and impactful partnerships in an urban context | Era: Contemporary business and sustainability marketing, focusing on B2B partnerships and leadership in green initiatives.\n\n[EXECUTION NOTES]\n\nPost-Process: Dark, moody colour grading with an emphasis on blues, teals, and amber tones, creating a sophisticated night-time aesthetic. Enhanced contrast to make the city lights pop and define the handshake. Text overlays are crisp and stand out against the dark background | Texture: Fine texture of suit fabric, skin texture on hands, and the illuminated architectural details of the city buildings. The reflection on the water (if present) adds another textural layer | Context: A powerful corporate image for a biofuel company, targeting business leaders and partners, suitable for LinkedIn, corporate websites, annual reports, and high-impact digital campaigns, emphasizing collaboration for a sustainable future.\n\nAlternative Approaches:\n\n1. Dynamic Perspective: A slightly lower angle, looking up at the handshake and the towering city, emphasizing the monumental scale of the partnership and its ambition.\n2. Subtle Motion Blur: A very slight motion blur on the background city lights (achieved with a slightly longer exposure) to give a sense of dynamism and bustling urban life, contrasted with the static, resolute handshake.\n3. Green Accent Lighting: Introduce a subtle, targeted green light (e.g., a green gelled LED) to cast a soft green glow on one of the hands or a specific part of the handshake, subtly reinforcing the \"go green\" message.\n\n---\n\n# Example 7:\n\n[TECHNICAL FOUNDATION]\n\nCamera: Standard prime lens (e.g., 50mm f/1.8) | Aperture: f/2.8-f/4 to achieve a shallow depth of field, focusing sharply on the plant and hands, while creating a soft, pleasing bokeh in the background | Sensor: Full-frame for natural depth of field and excellent rendering of skin tones and natural colours.\n\n[COMPOSITIONAL INTENT]\n\nFrame: 1:1 aspect ratio, optimized for social media, providing a focused and balanced visual narrative | Rule: The plant and hands are centrally placed, forming a strong focal point. The subjects are positioned to create a natural V-shape leading to the plant, emphasizing collective effort | Flow: The eyes are naturally drawn to the central act of planting, then follow the implied lines of the arms to understand the collaborative nature, and finally upwards to the headline text.\n\n[LIGHTING DESIGN]\n\nQuality: Soft, warm, natural light, likely during golden hour (late afternoon or early morning) to create long, pleasing shadows and a glowing, ethereal quality to the background | Direction: Backlighting or strong side lighting from a low sun angle to create beautiful rim lighting on the plant leaves and hands, separating them from the background and adding depth | Colour: Predominantly warm colour temperature (e.g., 3000K-4500K) with rich golden and amber tones from the sun, enhancing the natural, earthy palette and creating a sense of warmth and optimism.\n\n[AESTHETIC DNA]\n\nStyle: Authentic environmentalism with a human touch. Combines a genuine, hands-on approach to nature with a soft, inviting aesthetic. Influenced by lifestyle photography and sustainable living campaigns | Mood: Nurturing, hopeful, collaborative, and grounded. Evokes a sense of care, growth, and shared responsibility towards the environment | Era: Contemporary lifestyle and green marketing, emphasizing community, personal action, and natural well-being.\n\n[EXECUTION NOTES]\n\nPost-Process: Warm colour grading with enhanced golden and green tones. The bokeh is smooth and creamy, making the plant stand out. Subtle vignetting to draw focus to the center. Text overlays are clear and legible against the softer background | Texture: Earthy textures of soil, soft green of the plant leaves, natural skin texture on hands, and the rustic fabric of the plaid shirt. These textures convey authenticity and the tactile nature of gardening | Context: A powerful image for an environmental initiative or a biofuel company, suitable for social media, website banners, and educational materials, emphasizing hands-on commitment to ecological sustainability.\n\nAlternative Approaches:\n\n1. Diverse Hands: Feature more hands, representing different ages or communities, all contributing to the planting, to emphasize collective action and inclusivity.\n2. Growth Stages: Incorporate a subtle visual hint of growth, perhaps a blurred background showing older, thriving trees, to represent the long-term impact of planting.\n3. Symbolic Object: Instead of a natural seedling, the hands could be planting a symbolic, glowing green object (e.g., a stylized \"energy seed\") that metaphorically grows into clean energy, linking directly to biofuel.\n\n</prompts>",
+              "property_title": "Human Close Up S+J LATEST 2026"
+            }
+          ],
+          "image_aspect_ratio": "4:5",
+          "model": "claude-sonnet-4-5-20250929",
+          "temperature": "0.48",
+          "top_p": "1",
+          "frequency_penalty": "0.25",
+          "presence_penalty": "0.08",
+          "max_tokens": "1000"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -5426,6 +6336,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-02-04T12:40:46.553Z",
-  "versionId": "bef353ac-ec0b-49c9-8517-7d41d15d7003"
+  "updatedAt": "2026-02-09T11:32:45.595Z",
+  "versionId": "968517f7-11b0-4c5e-a85b-789deca3b467"
 }
