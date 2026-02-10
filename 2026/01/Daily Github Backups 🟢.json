@@ -5376,7 +5376,9 @@
     "availableInMCP": false,
     "errorWorkflow": "o41mt2JfV10VTV65",
     "timeSavedMode": "fixed",
-    "timeSavedPerExecution": 80
+    "timeSavedPerExecution": 80,
+    "timezone": "Europe/London",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -5394,6 +5396,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-08T20:59:16.325Z",
+  "updatedAt": "2026-02-09T07:16:12.880Z",
   "versionId": "391eb3ad-285b-4ddf-b4b3-5b1afa946d8f"
 }
