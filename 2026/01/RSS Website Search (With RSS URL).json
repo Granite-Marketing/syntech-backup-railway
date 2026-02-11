@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-09T10:24:57.086Z",
-    "createdAt": "2026-02-09T10:22:46.633Z",
-    "versionId": "07b2417a-fb0a-4d61-a520-839efe408efe",
+    "updatedAt": "2026-02-10T10:42:10.848Z",
+    "createdAt": "2026-02-10T10:38:14.577Z",
+    "versionId": "7ea7c91d-6f64-47bb-a349-2cb44c79eb26",
     "workflowId": "iMG6XApQjSxVQxIe",
     "nodes": [
       {
@@ -332,7 +332,7 @@
       {
         "parameters": {
           "promptType": "define",
-          "text": "=<content>\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}\n\n</content>\n",
+          "text": "=<content>\n{{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak;\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n\n</content>",
           "hasOutputParser": true,
           "messages": {
             "messageValues": [
@@ -430,7 +430,7 @@
               {
                 "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
                 "name": "content",
-                "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------",
+                "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------\nArticle page:\n{{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}",
                 "type": "string"
               },
               {
@@ -1645,11 +1645,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Increase limit to 20",
+    "name": "Version 7ea7c91d",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "07b2417a-fb0a-4d61-a520-839efe408efe",
+  "activeVersionId": "7ea7c91d-6f64-47bb-a349-2cb44c79eb26",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2387,7 +2387,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=<content>\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}\n\n</content>\n",
+        "text": "=<content>\n{{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak;\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n\n</content>",
         "hasOutputParser": true,
         "messages": {
           "messageValues": [
@@ -2485,7 +2485,7 @@
             {
               "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
               "name": "content",
-              "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------",
+              "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------\nArticle page:\n{{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}",
               "type": "string"
             },
             {
@@ -3431,6 +3431,44 @@
       },
       {
         "json": {
+          "id": "288785c0-cfab-80d3-bca5-dcc9207de8b8",
+          "name": "Biofuels International Magazine - News",
+          "url": "https://www.notion.so/Biofuels-International-Magazine-News-288785c0cfab80d3bca5dcc9207de8b8",
+          "property_keyword_category": null,
+          "property_priority": "Low",
+          "property_rss_feed": "https://biofuels-news.com/feed",
+          "property_source": "RSS",
+          "property_category": null,
+          "property_url": "biofuels-news.com",
+          "property_status": "Active",
+          "property_name": "Biofuels International Magazine - News",
+          "prompt": " "
+        },
+        "pairedItem": {
+          "item": 7
+        }
+      },
+      {
+        "json": {
+          "id": "28b785c0-cfab-800f-9d3e-f202e6d17664",
+          "name": "Fuel Oil News",
+          "url": "https://www.notion.so/Fuel-Oil-News-28b785c0cfab800f9d3ef202e6d17664",
+          "property_keyword_category": null,
+          "property_priority": "Low",
+          "property_rss_feed": "https://fueloilnews.co.uk/feed/",
+          "property_source": "RSS",
+          "property_category": null,
+          "property_url": "fueloilnews.co.uk/",
+          "property_status": "Active",
+          "property_name": "Fuel Oil News",
+          "prompt": " "
+        },
+        "pairedItem": {
+          "item": 8
+        }
+      },
+      {
+        "json": {
           "id": "28b785c0-cfab-80dc-9908-f3ba0ec81280",
           "name": "Biofuel Digest",
           "url": "https://www.notion.so/Biofuel-Digest-28b785c0cfab80dc9908f3ba0ec81280",
@@ -3445,26 +3483,7 @@
           "prompt": " "
         },
         "pairedItem": {
-          "item": 7
-        }
-      },
-      {
-        "json": {
-          "id": "27a785c0-cfab-80cf-b427-c56f62fdf077",
-          "name": "Growth Energy Blog",
-          "url": "https://www.notion.so/Growth-Energy-Blog-27a785c0cfab80cfb427c56f62fdf077",
-          "property_keyword_category": null,
-          "property_priority": "Low",
-          "property_rss_feed": "https://growthenergy.org/category/blog/feed",
-          "property_source": "RSS",
-          "property_category": null,
-          "property_url": "growthenergy.org/category/blog",
-          "property_status": "Active",
-          "property_name": "Growth Energy Blog",
-          "prompt": " "
-        },
-        "pairedItem": {
-          "item": 8
+          "item": 9
         }
       }
     ]
@@ -3500,6 +3519,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-09T10:22:46.630Z",
-  "versionId": "07b2417a-fb0a-4d61-a520-839efe408efe"
+  "updatedAt": "2026-02-10T10:38:14.573Z",
+  "versionId": "7ea7c91d-6f64-47bb-a349-2cb44c79eb26"
 }
