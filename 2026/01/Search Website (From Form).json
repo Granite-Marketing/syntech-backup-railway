@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-28T19:13:58.633Z",
-    "createdAt": "2026-01-28T19:13:54.373Z",
-    "versionId": "00a96c04-2a3d-41b4-8675-fd73cbb77087",
+    "updatedAt": "2026-02-10T10:49:27.025Z",
+    "createdAt": "2026-02-10T10:49:16.687Z",
+    "versionId": "95fd4054-1698-442f-8b6b-cd22d456b5ed",
     "workflowId": "ycHkaKQLsL4xE1sD",
     "nodes": [
       {
@@ -170,7 +170,7 @@
       {
         "parameters": {
           "promptType": "define",
-          "text": "=<content>\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown8').item.json.linebreak && $('Markdown8').item.json.linebreak.length > 0)\n    ? $('Markdown8').item.json.linebreak\n    : ($('extract content2').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}\n</content>",
+          "text": "=<content>\n{{ (function () {\n\n  const mdNode = $('Markdown8').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak;\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content2').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n\n</content>",
           "hasOutputParser": true,
           "messages": {
             "messageValues": [
@@ -317,7 +317,7 @@
               {
                 "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
                 "name": "content",
-                "value": "={{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown8').item.json.linebreak && $('Markdown8').item.json.linebreak.length > 0)\n    ? $('Markdown8').item.json.linebreak.removeMarkdown()\n    : ($('extract content2').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}",
+                "value": "={{ (function () {\n\n  const mdNode = $('Markdown8').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content2').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n",
                 "type": "string"
               },
               {
@@ -655,11 +655,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "fix creds with republish",
+    "name": "Version 95fd4054",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "00a96c04-2a3d-41b4-8675-fd73cbb77087",
+  "activeVersionId": "95fd4054-1698-442f-8b6b-cd22d456b5ed",
   "connections": {
     "Scrape a url and get its content": {
       "main": [
@@ -966,7 +966,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=<content>\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown8').item.json.linebreak && $('Markdown8').item.json.linebreak.length > 0)\n    ? $('Markdown8').item.json.linebreak\n    : ($('extract content2').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}\n</content>",
+        "text": "=<content>\n{{ (function () {\n\n  const mdNode = $('Markdown8').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak;\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content2').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n\n</content>",
         "hasOutputParser": true,
         "messages": {
           "messageValues": [
@@ -1113,7 +1113,7 @@
             {
               "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
               "name": "content",
-              "value": "={{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown8').item.json.linebreak && $('Markdown8').item.json.linebreak.length > 0)\n    ? $('Markdown8').item.json.linebreak.removeMarkdown()\n    : ($('extract content2').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}",
+              "value": "={{ (function () {\n\n  const mdNode = $('Markdown8').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content2').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n",
               "type": "string"
             },
             {
@@ -1337,6 +1337,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-28T19:13:54.366Z",
-  "versionId": "00a96c04-2a3d-41b4-8675-fd73cbb77087"
+  "updatedAt": "2026-02-10T10:49:16.686Z",
+  "versionId": "95fd4054-1698-442f-8b6b-cd22d456b5ed"
 }
