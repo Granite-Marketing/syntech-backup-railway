@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-09T10:30:53.234Z",
-    "createdAt": "2026-02-09T10:30:32.288Z",
-    "versionId": "4f089a5e-bcc7-4391-abf2-8daa5cc306c2",
+    "updatedAt": "2026-02-10T10:26:37.980Z",
+    "createdAt": "2026-02-10T10:24:23.351Z",
+    "versionId": "d0ac2104-1a70-4cb8-ab98-d90692c8976e",
     "workflowId": "LD5_Lrj2Q4hN9kpTCWyxC",
     "nodes": [
       {
@@ -158,7 +158,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.2,
         "position": [
-          -8,
+          -16,
           2048
         ],
         "id": "1c29e3f3-7248-4484-92b2-3b0a3e5fa86e",
@@ -178,7 +178,7 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          120,
+          128,
           2048
         ],
         "id": "ea9780d2-10af-47d5-b33f-5c3a6e4305fa",
@@ -187,7 +187,7 @@
       {
         "parameters": {
           "promptType": "define",
-          "text": "=<content>\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}\n</content>",
+          "text": "=<content>\n{{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak;\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n\n</content>",
           "hasOutputParser": true,
           "needsFallback": true,
           "messages": {
@@ -204,8 +204,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          4200,
-          584
+          4208,
+          592
         ],
         "id": "00eb2811-f423-4d7f-913f-5bfaf8dcfd19",
         "name": "Create summary and title8",
@@ -251,7 +251,7 @@
         "typeVersion": 1.3,
         "position": [
           4400,
-          808
+          816
         ],
         "id": "0f6e93cd-fd0b-4cf1-8283-c80cdc84a52b",
         "name": "Structured Output Parser15"
@@ -328,7 +328,7 @@
               {
                 "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
                 "name": "content",
-                "value": "={{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak.removeMarkdown()\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() }}",
+                "value": "={{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n",
                 "type": "string"
               },
               {
@@ -393,7 +393,7 @@
         "typeVersion": 3.4,
         "position": [
           4832,
-          584
+          592
         ],
         "id": "308630f8-64eb-4a12-ad50-e4647ceaf761",
         "name": "RAG Web - Keyword Search1"
@@ -525,7 +525,7 @@
         "typeVersion": 1,
         "position": [
           3920,
-          584
+          592
         ],
         "id": "27e31fbf-cb0e-45ec-8e5a-93b50807656d",
         "name": "Markdown1"
@@ -539,7 +539,7 @@
         "typeVersion": 2,
         "position": [
           3696,
-          584
+          592
         ],
         "id": "e902ccc6-6218-4913-ae6d-f3935cf6498f",
         "name": "extract date1"
@@ -552,7 +552,7 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1240,
+          1248,
           608
         ],
         "id": "337f85ff-5c4e-45f0-b77c-f77b20c1f9b9",
@@ -566,7 +566,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          1112,
+          1120,
           608
         ],
         "id": "64c41938-f4b5-4d17-ae00-e36bab7b2a17",
@@ -601,7 +601,7 @@
         "typeVersion": 1,
         "position": [
           4144,
-          808
+          816
         ],
         "id": "46bd8f3e-c729-4fcc-bfc8-f818816085ae",
         "name": "DeepSeek 3.",
@@ -718,7 +718,7 @@
         "typeVersion": 2.2,
         "position": [
           3920,
-          184
+          192
         ],
         "id": "c13bc929-e293-4f91-85ad-9228c43ef139",
         "name": "If Not Error"
@@ -743,7 +743,7 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          4200,
+          4208,
           80
         ],
         "id": "d048df84-93bf-40aa-ab31-182f6577a79f",
@@ -771,7 +771,7 @@
         "typeVersion": 3.2,
         "position": [
           5056,
-          584
+          592
         ],
         "id": "fddc3745-2504-4172-998a-57c999eb5615",
         "name": "Merge9"
@@ -874,7 +874,7 @@
         "typeVersion": 3.4,
         "position": [
           4832,
-          184
+          192
         ],
         "id": "9224d8fd-9f72-43db-9e8b-7a90965dca1f",
         "name": "RAG Web - Keyword Search"
@@ -1061,7 +1061,7 @@
         "typeVersion": 1,
         "position": [
           3696,
-          184
+          192
         ],
         "id": "bc00a1d9-506d-4467-b609-e71b607fab99",
         "name": "Scrape a url and get its content2",
@@ -1102,7 +1102,7 @@
         "typeVersion": 1.3,
         "position": [
           4272,
-          808
+          816
         ],
         "id": "f8917362-20e0-46f2-8eee-f44ccff1199c",
         "name": "OpenAI Chat Model",
@@ -1293,7 +1293,7 @@
         "typeVersion": 1.1,
         "position": [
           2352,
-          636
+          640
         ],
         "id": "44d58c74-d13f-4b2d-a299-762c32f8f7f0",
         "name": "Create a row",
@@ -1365,7 +1365,7 @@
         "typeVersion": 1.1,
         "position": [
           4608,
-          584
+          592
         ],
         "id": "5956e36c-c76a-4048-9a3d-3435c55e31c5",
         "name": "Create a row1",
@@ -1437,7 +1437,7 @@
         "typeVersion": 1.1,
         "position": [
           4608,
-          184
+          192
         ],
         "id": "3e06f62b-a212-40b9-a8f5-cc8926181334",
         "name": "Create a row2",
@@ -1983,11 +1983,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "test new data cleaner",
+    "name": "Version d0ac2104",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "4f089a5e-bcc7-4391-abf2-8daa5cc306c2",
+  "activeVersionId": "d0ac2104-1a70-4cb8-ab98-d90692c8976e",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2646,7 +2646,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -8,
+        -16,
         2048
       ],
       "id": "1c29e3f3-7248-4484-92b2-3b0a3e5fa86e",
@@ -2666,7 +2666,7 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        120,
+        128,
         2048
       ],
       "id": "ea9780d2-10af-47d5-b33f-5c3a6e4305fa",
@@ -2675,7 +2675,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=<content>\n{{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() \n}}\n</content>",
+        "text": "=<content>\n{{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak;\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n\n</content>",
         "hasOutputParser": true,
         "needsFallback": true,
         "messages": {
@@ -2692,8 +2692,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        4200,
-        584
+        4208,
+        592
       ],
       "id": "00eb2811-f423-4d7f-913f-5bfaf8dcfd19",
       "name": "Create summary and title8",
@@ -2739,7 +2739,7 @@
       "typeVersion": 1.3,
       "position": [
         4400,
-        808
+        816
       ],
       "id": "0f6e93cd-fd0b-4cf1-8283-c80cdc84a52b",
       "name": "Structured Output Parser15"
@@ -2816,7 +2816,7 @@
             {
               "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
               "name": "content",
-              "value": "={{ (function() {\n  // 1. Get the raw data\n  let rawData = ($('Markdown1').item.json.linebreak && $('Markdown1').item.json.linebreak.length > 0)\n    ? $('Markdown1').item.json.linebreak.removeMarkdown()\n    : ($('extract content').item.json.data || '');\n\n  // 2. Extract Metadata Description (Caption)\n  // This is the most important part for Instagram links\n  let metaMatch = rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) \n               || rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3. Clean the HTML for the body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '') \n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  // 4. Return combined results\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n})() }}",
+              "value": "={{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}\n",
               "type": "string"
             },
             {
@@ -2881,7 +2881,7 @@
       "typeVersion": 3.4,
       "position": [
         4832,
-        584
+        592
       ],
       "id": "308630f8-64eb-4a12-ad50-e4647ceaf761",
       "name": "RAG Web - Keyword Search1"
@@ -3013,7 +3013,7 @@
       "typeVersion": 1,
       "position": [
         3920,
-        584
+        592
       ],
       "id": "27e31fbf-cb0e-45ec-8e5a-93b50807656d",
       "name": "Markdown1"
@@ -3027,7 +3027,7 @@
       "typeVersion": 2,
       "position": [
         3696,
-        584
+        592
       ],
       "id": "e902ccc6-6218-4913-ae6d-f3935cf6498f",
       "name": "extract date1"
@@ -3040,7 +3040,7 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1240,
+        1248,
         608
       ],
       "id": "337f85ff-5c4e-45f0-b77c-f77b20c1f9b9",
@@ -3054,7 +3054,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1112,
+        1120,
         608
       ],
       "id": "64c41938-f4b5-4d17-ae00-e36bab7b2a17",
@@ -3089,7 +3089,7 @@
       "typeVersion": 1,
       "position": [
         4144,
-        808
+        816
       ],
       "id": "46bd8f3e-c729-4fcc-bfc8-f818816085ae",
       "name": "DeepSeek 3.",
@@ -3206,7 +3206,7 @@
       "typeVersion": 2.2,
       "position": [
         3920,
-        184
+        192
       ],
       "id": "c13bc929-e293-4f91-85ad-9228c43ef139",
       "name": "If Not Error"
@@ -3231,7 +3231,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        4200,
+        4208,
         80
       ],
       "id": "d048df84-93bf-40aa-ab31-182f6577a79f",
@@ -3259,7 +3259,7 @@
       "typeVersion": 3.2,
       "position": [
         5056,
-        584
+        592
       ],
       "id": "fddc3745-2504-4172-998a-57c999eb5615",
       "name": "Merge9"
@@ -3362,7 +3362,7 @@
       "typeVersion": 3.4,
       "position": [
         4832,
-        184
+        192
       ],
       "id": "9224d8fd-9f72-43db-9e8b-7a90965dca1f",
       "name": "RAG Web - Keyword Search"
@@ -3549,7 +3549,7 @@
       "typeVersion": 1,
       "position": [
         3696,
-        184
+        192
       ],
       "id": "bc00a1d9-506d-4467-b609-e71b607fab99",
       "name": "Scrape a url and get its content2",
@@ -3590,7 +3590,7 @@
       "typeVersion": 1.3,
       "position": [
         4272,
-        808
+        816
       ],
       "id": "f8917362-20e0-46f2-8eee-f44ccff1199c",
       "name": "OpenAI Chat Model",
@@ -3781,7 +3781,7 @@
       "typeVersion": 1.1,
       "position": [
         2352,
-        636
+        640
       ],
       "id": "44d58c74-d13f-4b2d-a299-762c32f8f7f0",
       "name": "Create a row",
@@ -3853,7 +3853,7 @@
       "typeVersion": 1.1,
       "position": [
         4608,
-        584
+        592
       ],
       "id": "5956e36c-c76a-4048-9a3d-3435c55e31c5",
       "name": "Create a row1",
@@ -3925,7 +3925,7 @@
       "typeVersion": 1.1,
       "position": [
         4608,
-        184
+        192
       ],
       "id": "3e06f62b-a212-40b9-a8f5-cc8926181334",
       "name": "Create a row2",
@@ -4025,6 +4025,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-09T10:30:32.284Z",
-  "versionId": "4f089a5e-bcc7-4391-abf2-8daa5cc306c2"
+  "updatedAt": "2026-02-10T10:24:23.347Z",
+  "versionId": "d0ac2104-1a70-4cb8-ab98-d90692c8976e"
 }
