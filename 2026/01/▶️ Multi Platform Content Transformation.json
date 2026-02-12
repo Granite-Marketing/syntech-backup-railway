@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-09T11:21:03.792Z",
-    "createdAt": "2026-02-09T11:21:02.259Z",
-    "versionId": "d43434da-1889-4ea1-8dbb-f20450dd8948",
+    "updatedAt": "2026-02-11T14:56:17.731Z",
+    "createdAt": "2026-02-11T14:52:46.768Z",
+    "versionId": "5c1fd980-d55b-437f-8d58-9939b572ae39",
     "workflowId": "G9d4WGYeBHbsulNC",
     "nodes": [
       {
@@ -19,8 +19,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -1792,
-          336
+          -1888,
+          -1760
         ],
         "id": "bd3824d8-a4ac-46ac-8a9b-3dc9967137fe",
         "name": "Extract Content Type Prompt",
@@ -46,8 +46,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -3360,
-          216
+          -3456,
+          -1888
         ],
         "id": "8d2bf0d1-0205-4c0d-9855-bfcbc227511e",
         "name": "Get Content With Block ID",
@@ -67,8 +67,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          -2016,
-          336
+          -2112,
+          -1760
         ],
         "id": "5c14aa08-95b6-4b54-be1c-fe7924eb52c4",
         "name": "Split Content Type"
@@ -90,8 +90,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -2240,
-          336
+          -2336,
+          -1760
         ],
         "id": "82622f0f-af72-4949-b2ac-3e1df5e8e27e",
         "name": "Set Content Type"
@@ -109,8 +109,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -3136,
-          216
+          -3232,
+          -1888
         ],
         "id": "d5894528-f920-4aca-bb1f-be662579673a",
         "name": "Get Parent DB ID",
@@ -246,8 +246,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -224,
-          288
+          -320,
+          -1808
         ],
         "id": "1a184579-4090-42d5-810d-b60022dbcb16",
         "name": "Set Input3"
@@ -266,8 +266,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -672,
-          216
+          -768,
+          -1888
         ],
         "id": "67c499ff-b038-4ef0-8fa8-9bfc02663deb",
         "name": "Get Block Content",
@@ -285,8 +285,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          -448,
-          216
+          -544,
+          -1888
         ],
         "id": "5dd4fa97-9fdc-4661-b790-46e7e6b2526f",
         "name": "Format Block Content"
@@ -298,8 +298,8 @@
         "type": "n8n-nodes-base.splitInBatches",
         "typeVersion": 3,
         "position": [
-          -896,
-          216
+          -992,
+          -1888
         ],
         "id": "f4b3a43a-902c-4aec-ac75-f7f38ab3047d",
         "name": "Loop Over Items"
@@ -313,8 +313,8 @@
         "type": "n8n-nodes-base.webhook",
         "typeVersion": 2.1,
         "position": [
-          -3584,
-          216
+          -3680,
+          -1888
         ],
         "id": "768823b8-65b9-46dc-aa8b-8dd277155fd0",
         "name": "Get Initial Article",
@@ -345,8 +345,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          -672,
-          24
+          -768,
+          -2080
         ],
         "id": "88229ce5-6daa-4b3f-9435-1c37e9b80b7e",
         "name": "Execute Content Writer Workflow"
@@ -366,8 +366,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.1,
         "position": [
-          1536,
-          836
+          1440,
+          -1264
         ],
         "id": "dc9c2805-1a91-49e6-a300-ed8d22137a97",
         "name": "Add Social Media Post2",
@@ -395,8 +395,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          1760,
-          1232
+          1664,
+          -864
         ],
         "id": "3d5ba772-731f-4a4c-9136-279644d45826",
         "name": "Set Notion API Error2",
@@ -429,8 +429,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          1760,
-          740
+          1664,
+          -1360
         ],
         "id": "ce53092d-8f56-4f50-ad1a-b551ea6c3d8c",
         "name": "Set Notion Success2",
@@ -491,8 +491,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1312,
-          836
+          1216,
+          -1264
         ],
         "id": "9c9006f5-0827-402a-802f-eb7f93184086",
         "name": "Set Subflow Fields4"
@@ -504,8 +504,8 @@
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "typeVersion": 1.1,
         "position": [
-          -3584,
-          1204
+          -3680,
+          -896
         ],
         "id": "55bf7f64-b943-4063-b001-28ba7ef3fbfc",
         "name": "Initial Input"
@@ -528,8 +528,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.2,
         "position": [
-          656,
-          1332
+          560,
+          -768
         ],
         "id": "0cb49c00-2c8b-47e8-914c-ac656e91e987",
         "name": "OpenAI Chat Model",
@@ -574,8 +574,8 @@
         "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
         "typeVersion": 1.2,
         "position": [
-          -736,
-          1752
+          -832,
+          -352
         ]
       },
       {
@@ -597,8 +597,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          176,
-          1108
+          80,
+          -992
         ],
         "executeOnce": true
       },
@@ -613,8 +613,8 @@
         "type": "@n8n/n8n-nodes-langchain.agent",
         "typeVersion": 1.7,
         "position": [
-          -744,
-          1528
+          -848,
+          -576
         ],
         "onError": "continueErrorOutput"
       },
@@ -654,8 +654,8 @@
         "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
         "typeVersion": 1.2,
         "position": [
-          -608,
-          1752
+          -704,
+          -352
         ]
       },
       {
@@ -684,8 +684,8 @@
         "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
         "typeVersion": 1.1,
         "position": [
-          -480,
-          1752
+          -576,
+          -352
         ]
       },
       {
@@ -698,8 +698,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1,
         "position": [
-          -864,
-          1752
+          -960,
+          -352
         ],
         "credentials": {
           "openAiApi": {
@@ -713,8 +713,8 @@
         "type": "n8n-nodes-base.noOp",
         "typeVersion": 1,
         "position": [
-          -272,
-          1624
+          -368,
+          -480
         ],
         "id": "a4d7c02b-52be-4b57-b170-4b568494091d",
         "name": "No Operation, do nothing"
@@ -736,8 +736,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -2688,
-          72
+          -2784,
+          -2032
         ],
         "id": "346b8dab-80fa-4286-9c8f-c17f08e589f4",
         "name": "Set Image Prompts"
@@ -750,8 +750,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          -2464,
-          72
+          -2560,
+          -2032
         ],
         "id": "b107ab08-9e67-452f-8ec8-32d6b102758d",
         "name": "Split Image Prompts",
@@ -770,8 +770,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -2240,
-          72
+          -2336,
+          -2032
         ],
         "id": "b7045c04-c5f2-402e-9375-86a6fc12ba51",
         "name": "Extract Image Prompts",
@@ -793,8 +793,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          -1344,
-          144
+          -1440,
+          -1952
         ],
         "id": "776abe76-2950-4b88-938a-912663e2a800",
         "name": "Merge",
@@ -807,38 +807,11 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          -1120,
-          216
+          -1216,
+          -1888
         ],
         "id": "d79f3450-68e9-40ed-807c-823ab1e90258",
         "name": "Limit"
-      },
-      {
-        "parameters": {
-          "model": {
-            "__rl": true,
-            "value": "gpt-5.1",
-            "mode": "list",
-            "cachedResultName": "gpt-5.1"
-          },
-          "options": {
-            "temperature": 0.2
-          }
-        },
-        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "typeVersion": 1.2,
-        "position": [
-          -2616,
-          888
-        ],
-        "id": "19df18a3-7bb2-4dfd-8467-b601c2c74e9a",
-        "name": "OpenAI Chat Model2",
-        "credentials": {
-          "openAiApi": {
-            "id": "NoEKitspBJb0zQrp",
-            "name": "Syntech GM OpenAi account"
-          }
-        }
       },
       {
         "parameters": {
@@ -847,7 +820,7 @@
           "messages": {
             "messageValues": [
               {
-                "message": "={{ $json.property_system_message }}"
+                "message": "={{ $json.property_system_prompt }}\n\n{{ $json.property_system_message }}"
               }
             ]
           },
@@ -856,8 +829,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          -2688,
-          664
+          -2112,
+          -1440
         ],
         "id": "30ef3ca9-8b2d-4495-84f1-a30b8342583d",
         "name": "Image Prompt Generator",
@@ -873,8 +846,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          -3136,
-          664
+          -3232,
+          -1440
         ],
         "id": "b7f3e1c8-df24-455f-9d11-0dfa1093dc80",
         "name": "Split Out Image Prompts"
@@ -896,8 +869,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -2336,
-          664
+          -1760,
+          -1440
         ],
         "id": "b3f40758-31a1-4b00-ab74-4ca246316873",
         "name": "Set Final Image Prompts"
@@ -911,8 +884,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          1088,
-          836
+          992,
+          -1264
         ],
         "id": "4ba42483-d763-4e1c-a6e6-cd1db32be881",
         "name": "Merge1",
@@ -951,8 +924,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.2,
         "position": [
-          -1760,
-          664
+          -1184,
+          -1440
         ],
         "id": "84df7acc-fc82-468b-ae3c-2ae11285bda3",
         "name": "Create a Notion File Upload object1",
@@ -999,8 +972,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.2,
         "position": [
-          520,
-          664
+          432,
+          -1440
         ],
         "id": "8222c5d1-767f-432a-bd42-dff3cdb68516",
         "name": "Upload file contents1",
@@ -1020,8 +993,8 @@
         "type": "n8n-nodes-base.aggregate",
         "typeVersion": 1,
         "position": [
-          -1568,
-          72
+          -1664,
+          -2032
         ],
         "id": "16c01429-6c10-4481-b476-50a2270e0407",
         "name": "Aggregate Image Prompts",
@@ -1036,8 +1009,8 @@
         "type": "n8n-nodes-base.aggregate",
         "typeVersion": 1,
         "position": [
-          864,
-          664
+          768,
+          -1440
         ],
         "id": "dad39ac1-eda8-4c45-bd4f-ae5d902cbc0b",
         "name": "Aggregate Image Files"
@@ -1063,8 +1036,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          -1536,
-          664
+          -784,
+          -1440
         ],
         "id": "2b53fcb3-71b6-4fd9-8e4a-e041ad807217",
         "name": "Generate Image HTTP",
@@ -1091,8 +1064,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -2912,
-          216
+          -3008,
+          -1888
         ],
         "id": "45f5b99d-351b-4c59-a648-a99ae63dd6b2",
         "name": "Get Transformed Content DB ID",
@@ -1114,8 +1087,8 @@
         "type": "n8n-nodes-base.convertToFile",
         "typeVersion": 1.1,
         "position": [
-          -680,
-          664
+          80,
+          -1440
         ],
         "id": "1a6c51da-8eca-44a5-bc84-b37db357026a",
         "name": "Convert to File"
@@ -1128,8 +1101,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          -1312,
-          664
+          -368,
+          -1440
         ],
         "id": "c7c94f04-5638-4364-b7ee-e42f404f48e7",
         "name": "Split Out Parts"
@@ -1161,8 +1134,8 @@
         "type": "n8n-nodes-base.filter",
         "typeVersion": 2.2,
         "position": [
-          -1088,
-          664
+          -144,
+          -1440
         ],
         "id": "cebbf022-0ff7-435b-8f77-4d2511b18193",
         "name": "Grab Image"
@@ -1195,8 +1168,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          -1088,
-          1404
+          -1184,
+          -688
         ],
         "id": "84f7c606-6a06-4e32-897d-0267cdb6f884",
         "name": "If Research"
@@ -1214,8 +1187,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -1312,
-          1404
+          -1472,
+          -688
         ],
         "id": "2f182f29-754b-4738-a90f-70834589f5b0",
         "name": "Check If Research Exists",
@@ -1243,8 +1216,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 1,
         "position": [
-          -272,
-          1432
+          -368,
+          -672
         ]
       },
       {
@@ -1256,8 +1229,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          176,
-          1528
+          80,
+          -576
         ]
       },
       {
@@ -1276,8 +1249,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 1,
         "position": [
-          520,
-          1528
+          432,
+          -576
         ]
       },
       {
@@ -1298,8 +1271,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.2,
         "position": [
-          1312,
-          1424
+          1216,
+          -672
         ]
       },
       {
@@ -1313,8 +1286,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 2.1,
         "position": [
-          1536,
-          1528
+          1440,
+          -576
         ]
       },
       {
@@ -1324,8 +1297,8 @@
         "type": "n8n-nodes-base.splitInBatches",
         "typeVersion": 3,
         "position": [
-          -48,
-          1528
+          -144,
+          -560
         ],
         "id": "9336022d-c3e5-418d-8bc0-e79f8a1238ed",
         "name": "Loop Over Items1"
@@ -1344,8 +1317,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -272,
-          908
+          -368,
+          -1184
         ],
         "id": "cb939c0f-276f-44e1-a99d-5b9cdb6e3770",
         "name": "Get Research",
@@ -1389,8 +1362,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -48,
-          1128
+          -144,
+          -960
         ],
         "id": "ffcf4b78-1863-4969-bc30-d5bd1b6196e5",
         "name": "Add Research",
@@ -1409,8 +1382,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          -48,
-          908
+          -144,
+          -1184
         ],
         "id": "3c68d0d8-7e91-44ed-a49a-2ecb338498c5",
         "name": "Format Research Blocks"
@@ -1448,8 +1421,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          1088,
-          1424
+          992,
+          -672
         ],
         "id": "745d3590-f514-44db-b287-deeef7cf0ada",
         "name": "Create New Research Item",
@@ -1480,8 +1453,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          1760,
-          1576
+          1664,
+          -512
         ],
         "id": "6d580e80-b47c-4cf2-97f5-2e65b879c2ae",
         "name": "Update Research Item",
@@ -1507,8 +1480,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          864,
-          1424
+          768,
+          -672
         ],
         "id": "8d4747c3-843a-4503-98b5-ce18fba515fb",
         "name": "Get Source Article Details",
@@ -1534,8 +1507,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          400,
-          1332
+          304,
+          -768
         ],
         "id": "bb3dc4ce-f3bb-4533-92e2-f285135b16f1",
         "name": "Anthropic Chat Model",
@@ -1561,8 +1534,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.5,
         "position": [
-          456,
-          900
+          368,
+          -1200
         ],
         "id": "5f35827a-b9a4-4455-a598-940b1ff6fab6",
         "name": "Create Content1",
@@ -1585,8 +1558,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          864,
-          1108
+          768,
+          -992
         ],
         "id": "6bcca1e9-fe17-417e-bbef-a634fbb4343f",
         "name": "Set Content"
@@ -1619,8 +1592,8 @@
         "type": "n8n-nodes-base.filter",
         "typeVersion": 2.2,
         "position": [
-          -3360,
-          664
+          -3456,
+          -1440
         ],
         "id": "f0614fba-3612-47c9-9d9d-727fd12e4d62",
         "name": "Has Image Prompt?"
@@ -1636,8 +1609,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatXAiGrok",
         "typeVersion": 1,
         "position": [
-          528,
-          1332
+          432,
+          -768
         ],
         "id": "2dc5db6d-3dc4-4351-9555-d37a8cca36fd",
         "name": "xAI Grok Chat Model",
@@ -1727,8 +1700,8 @@
         "type": "@n8n/n8n-nodes-langchain.modelSelector",
         "typeVersion": 1,
         "position": [
-          448,
-          1124
+          352,
+          -976
         ],
         "id": "188c9c94-405a-4347-95b7-8e63fd573784",
         "name": "Model Selector"
@@ -1761,39 +1734,11 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          -1568,
-          336
+          -1664,
+          -1760
         ],
         "id": "c4c45cb7-f18a-4c0e-adfc-f46b006d90ae",
         "name": "If Images"
-      },
-      {
-        "parameters": {
-          "model": {
-            "__rl": true,
-            "value": "gpt-5.1",
-            "mode": "list",
-            "cachedResultName": "gpt-5.1"
-          },
-          "builtInTools": {},
-          "options": {
-            "temperature": 0.4
-          }
-        },
-        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "typeVersion": 1.3,
-        "position": [
-          -2040,
-          888
-        ],
-        "id": "3603b796-de01-4df8-8389-b7b31fb60314",
-        "name": "OpenAI Chat Model3",
-        "credentials": {
-          "openAiApi": {
-            "id": "NoEKitspBJb0zQrp",
-            "name": "Syntech GM OpenAi account"
-          }
-        }
       },
       {
         "parameters": {
@@ -1802,7 +1747,7 @@
           "messages": {
             "messageValues": [
               {
-                "message": "=You are Stage-2 of Syntech’s Image Generation System.\n\nStage-1 has already produced a complete, structured visual blueprint.\nYour ONLY job is to:\n\n→ compress the Stage-1 blueprint  \n→ into one single, clean, NanoBanana-ready text prompt  \n→ that perfectly obeys the example pack’s visual universe  \n→ with NO interpretation, debate, or deviation.\n\nStage-1 is ALWAYS correct.  \nStage-1 is the law.  \nYou DO NOT rethink, reinterpret, or add extra opinion.\n\n--------------------------------------------------------------------\n# 🔐 PACK-UNIVERSE LOCK (MANDATORY)\n\nThe EXAMPLE PACK determines:\n\n• medium (photo, CGI, vector, icon, diagram, conceptual, industrial)  \n• object grammar  \n• lighting  \n• colour logic  \n• geometry  \n• texture  \n• realism level  \n• negative space ratio  \n• where text sits  \n• how text behaves  \n• emotional tone  \n\nYou MUST enforce this.\n\nExamples:\n\n→ Icon Pack  \nConvert every object into iconographic form: flat vector, geometric, symbolic shapes, consistent line/shape system. NO realism. NO depth unless shown in examples.\n\n→ Futuristic CGI Pack  \nHigh-fidelity CGI. Engineered surfaces. Controlled volumetric light. Cinematic tech atmosphere. No photography.\n\n→ Industrial Smoke Pack  \nMinimal industrial structures. Smokestacks. Monochrome tension. No trucks unless examples allow them.\n\n→ Human Close-Up Pack  \nPhotographic macro human interaction with equipment. Real skin, materials, shallow depth, clean composition.\n\n→ Data & Information Pack  \nDiagrams, schematics, shapes, flows, stats, information systems. No photographic vehicles.\n\nStage-2 MUST reshape all content into the pack’s medium.  \nIf Stage-1 references “a truck” in an Icon Pack → you output an *icon-style truck*, not a photo.\n\n--------------------------------------------------------------------\n# 🎯 PRIMARY TASK\n\nTransform Stage-1 into a SINGLE ultra-precise prompt that includes:\n\n1. The PACK’S REQUIRED MEDIUM  \n2. The PACK’S STYLE UNIVERSE  \n3. The COMPOSITIONAL LOGIC defined by Stage-1  \n4. The FOCAL ZONE + NEGATIVE SPACE rules  \n5. The TEXT (if Stage-1 includes text) using Montserrat  \n6. Colour behaviour that matches the pack  \n7. Lighting behaviour matching the pack  \n8. The metaphor/theme extracted by Stage-1  \n9. The correct bottom-20% calm zone  \n\nThis output must be the exact style the pack demands.\n\nNo meta-text.  \nNo headings.  \nNo lists.  \nOnly the final compressed prompt.\n\n--------------------------------------------------------------------\n# 🎨 STYLE ENFORCEMENT RULES\n\nApply these automatically:\n\n### 1. **Object Grammar Transformer**\nAny object mentioned MUST be expressed in the style of the pack.\n\n• Icon pack → iconified silhouettes  \n• CGI → engineered CGI assets  \n• Data pack → abstracted geometric placeholders, shapes, lines  \n• Industrial pack → metallic, minimal, smokestack logic  \n• Human close-up → real human macro photography  \n\nNever output an object in a style not supported by the pack.\n\n### 2. **Colour Behaviour Transformer**\n• Use pack colours first  \n• Then allow Syntech brand tint subtly  \n• Only add additional colours if pack examples clearly support that palette\n\n### 3. **Lighting Transformer**\nNever default to realism if pack uses flat lighting.  \nNever flatten lighting if pack uses volumetrics.\n\n### 4. **Text Transformer**\nText MUST follow Stage-1’s hierarchy and placement exactly.  \nFont: Montserrat family.  \nNo text shadow.  \nNo glow.  \nNo cheating.\n\n### 5. **Bottom 20–25% Calm Zone**\nYou are NOT rendering a white bar.  \nSimply avoid:\n• strong contrast  \n• focal detail  \n• dense texture  \n• active shapes  \n\nSubtle gradients or soft ground tones are allowed.\n\n--------------------------------------------------------------------\n# 🧩 OUTPUT FORMAT (MANDATORY)\n\nOutput **ONE single paragraph** containing:\n\n• medium  \n• style  \n• lighting  \n• colour  \n• objects in correct grammar  \n• metaphor expression  \n• composition  \n• focal zone logic  \n• bottom calm zone  \n• text placement if applicable  \n• brand tone  \n\nNo lists.  \nNo headings.  \nNo explanations.  \nOnly the final rendering prompt.\n\n--------------------------------------------------------------------\n# 🚫 PROHIBITIONS\n\nNEVER include:\n• people unless the pack explicitly uses humans  \n• realism inside iconographic packs  \n• trucks/fuel pumps unless the pack supports them  \n• white bars, text shadows, UI artifacts  \n• surreal chaos, neon sci-fi, grunge  \n• breaking pack boundaries  \n• outputting Stage-1 sections\n\n--------------------------------------------------------------------\n# ✔️ WHEN READY\n\nWhen Stage-1 says “Go right”, you:\n\n→ Read ALL sections  \n→ Compress them into a single faithful rendering prompt  \n→ Output only the final prompt, nothing else"
+                "message": "=You are Syntech's Stage-2 Image Execution Engine.\n\nYou receive:\n• ONE structured Stage-1 visual brief  \n• An example-pack style universe (already selected)  \n• Optional user guidelines  \n\nYour job is to **faithfully execute** the Stage-1 brief into a final image prompt suitable for image generation.\n\nYou DO NOT reinterpret strategy.  \nYou DO NOT invent concepts.  \nYou DO NOT override the example universe.  \n\nYour role is precise visual execution.\n\n---\n\n# 🔒 EXECUTION HIERARCHY (STRICT)\n\n1. Stage-1 structured brief (highest authority)  \n2. Example-pack universe  \n3. Syntech brand foundations  \n4. Optional user guidelines  \n\nIf conflicts exist:  \n• Resolve silently  \n• Never explain decisions  \n• Always protect visual quality and coherence  \n\n---\n\n# 🎨 CORE EXECUTION PRINCIPLES\n\n• Execute the **visual universe**, not the literal wording  \n• Maintain stylistic consistency with the example pack  \n• Preserve creative variation **within** the universe  \n• Avoid visual repetition across outputs  \n• Keep imagery relevant to sustainability, energy, systems, or progress — even when abstract  \n\nDo NOT default to:  \n• Trucks  \n• Fuel pumps  \n• Vehicles  \nUnless the Stage-1 brief explicitly requires them  \nOR the example pack strongly supports them  \n\n---\n\n# 🖼️ IMAGE COMPOSITION RULES\n\n• Full-frame image — no poster cards, no white blocks  \n• No artificial reserved space anywhere  \n• No visual framing that implies logos or captions  \n• The image must feel complete on its own  \n\n## Bottom 20% Zone (Watermark Guidance)\n• The **bottom 20% of the image must remain visually clear** for a watermark overlay  \n• This does NOT mean leaving it blank, faded, bordered, or gradiented  \n• It must:\n  - Remain fully part of the image\n  - Contain **no essential content**\n  - Avoid contrast, text, or detail that would compete with a watermark\n• Do not generate any visual device (e.g. border, frame, bar, glow) to reserve the space\n\n---\n\n# ✍️ TEXT HANDLING (VERY IMPORTANT)\n\nIf text is required by Stage-1:\n\nALLOWED:  \n• Headline only  \n• Headline + subheadline  \n• Short phrases  \n• Clean, minimal placement  \n• Colours chosen for legibility (brand or universe-appropriate)  \n\nFORBIDDEN:  \n• Text shadows  \n• Glow effects  \n• Outlines  \n• Describing what the text \"means\"  \n• Describing fonts, weights, sizes, or typography metadata  \n• Writing labels like \"Headline:\" or \"Subheadline:\"  \n• Writing the word \"Syntech\", slogans, or logos  \n\n**Typography must always use Syntech’s brand family (Montserrat)**  \nText must appear natural, intentional, and designer-placed.\n\n---\n\n# 👤 HUMAN IMAGE RULES\n\nIf the image includes human subjects:\n\n• The image must feel like a **documentary photograph** taken by a commercial photographer inside a real, functioning facility  \n• No stylization, beauty filters, influencer lighting, or cinematic effects  \n• Humans must appear as **real working professionals**, not models  \n\nFaces must show:\n- Natural skin texture and imperfections  \n- Pores, uneven tone, shine, and subtle pigmentation  \n- Asymmetry, natural under-eye shadows, and real lip texture  \n\nBlack subjects must show:\n- Authentic melanin response in light/shadow  \n- Natural hairline, baby hairs, visible follicles  \n\nEyes must appear:\n- Moist with natural reflections  \n- Imperfect lashes and visible sclera details  \n\nClothing and PPE must:\n- Appear worn, creased, or slightly scuffed  \n- Include safety gear like high-vis jackets, hard hats, gloves, or goggles  \n- Show fabric texture and realistic folds — never costume-grade or fake clean  \n\nSubjects must be mid-task — **no posing or looking at the camera**  \n\nEnvironments must be industrially authentic:\n- Control rooms, turbine halls, refinery floors, substations, data rooms  \n- Include pipes, gauges, cables, control panels, machinery, or structural elements  \n\nLighting must reflect real-world conditions:\n- Overhead fluorescents, sodium vapor, LED glow, or ambient industrial lighting  \n- Realistic shadows and specular highlights — no surreal color grading  \n\nCamera logic must feel candid:\n- Eye-level or over-shoulder POV, shallow depth of field, slight lens falloff  \n- Natural motion blur if needed, never hyper-sharp digital look  \n\nIf it **feels like AI**, it fails.  \nThe image must pass as a **real industrial photo** in a Chevron, Shell, or Siemens report.\n\nDo not stylize.  \nDo not beautify.  \nDo not idealize.  \nOnly realism, context, and respect.\n\n---\n\n# 🏗️ INFRASTRUCTURE IMAGE RULES\n\n• **Prefer micro or detailed views** of infrastructure over wide macro shots  \n• Wide macro views are only acceptable if:\n  - The image pack explicitly supports them\n  - The scene does not resemble generic or third-party facilities  \n\n• Infrastructure must feel “owned,” not borrowed — abstract, close-up, schematic, or brand-aligned\n\n---\n\n# 🎨 COLOUR EXECUTION LOGIC\n\n• Prioritise colour **impact**, legibility, and mood over neutrality  \n• You may increase vibrancy, colour contrast, or saturation when:\n  - The Stage-1 brief supports it  \n  - The example universe allows flexibility  \n  - The image benefits emotionally or visually from enhanced colour  \n\n• Do NOT inject artificial or irrelevant colour  \n• All colour choices must feel **natural, intentional, and grounded in context**  \n• Brand colours may appear subtly or atmospherically — but do not suppress them if their presence enhances clarity or tone  \n• When in doubt, **favour clarity and contrast over muted neutrality**  \n\nRemain engineered, confident, and clean — but not flat or washed out.\n\n---\n\n# 🧬 STYLE FIDELITY RULE\n\nIf the example pack is:  \n• Iconography → create illustrative / symbolic forms  \n• CGI → produce clean, high-fidelity renders  \n• Photographic → realistic lighting and materials  \n• Abstract → controlled abstraction with relevance  \n\nNever mix universes.  \nNever \"photo-realise\" an icon pack.  \nNever \"illustrate\" a photographic pack.  \n\n---\n\n# 🚫 HARD PROHIBITIONS\n\nNever include:  \n• Logos  \n• Brand marks  \n• Watermarks  \n• Text shadows  \n• Overlays  \n• Poster frames  \n• Artificial borders or bottom bars  \n• Generated or placeholder Syntech logos  \n• Aesthetic drift outside the example pack  \n• Generic or irrelevant objects that do not connect to message, metaphor, or Syntech’s domain  \n\n---\n\n# 💡 SYMBOLIC + METAPHOR GUIDANCE\n\n• All visual elements must carry **intentional meaning**  \n• Avoid random object placement or meaningless scenery  \n• Images must express metaphor, relevance, or visual logic  \n• Expand creatively using Syntech’s core themes:\n  - Environmental responsibility  \n  - Fuel systems and transitions  \n  - Engineering-led sustainability  \n  - Ecological improvement  \n  - Energy infrastructure  \n  - Circular economy  \n\nDo not rely on literal fuel references unless clearly required.  \nUse metaphor and theme to deliver conceptual strength.\n\n---\n\n# 🎯 FINAL OUTPUT REQUIREMENTS\n\nOutput ONE final image-generation prompt that is:  \n\n• Visually diverse  \n• Style-faithful to the example pack  \n• Executed with senior-designer judgment  \n• Relevant to Syntech Biofuel themes (directly or metaphorically)  \n• Free of branding artefacts  \n• Clean, confident, and intentional  \n• Composed for watermark compatibility  \n• Incorporates richer colour, contrast, or natural imperfection where appropriate  \n• Never random — always grounded in meaning, metaphor, or domain logic  \n\n**If human subjects are present, apply full Human Realism Lock logic.**\n\nDo not explain.  \nDo not justify.  \nDo not add commentary.  \n\nJust output the final prompt."
               }
             ]
           },
@@ -1811,78 +1756,22 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          -2112,
-          664
+          -1536,
+          -1440
         ],
         "id": "dec6f742-f1bc-4b97-8221-085a0b8c58e0",
         "name": "Refine Prompt to NanoBanana Style"
       },
       {
-        "parameters": {
-          "maxItems": 100
-        },
+        "parameters": {},
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          -2912,
-          664
+          -3008,
+          -1440
         ],
         "id": "b40764f0-d9a6-40ea-8c34-587a42e81905",
         "name": "Limit1"
-      },
-      {
-        "parameters": {
-          "url": "https://supabase.granite-automations.app/storage/v1/object/sign/n8n-images/syntech-watermark-1x1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJuOG4taW1hZ2VzL3N5bnRlY2gtd2F0ZXJtYXJrLTF4MS5wbmciLCJpYXQiOjE3NjQxNTI3NjcsImV4cCI6NDkxNzc1Mjc2N30.kEnx2KBJdQpCk8yUrnFikIUHo5b4_hUkGv9626S-dLg&t=2025-11-26T10%3A26%3A07.142Z",
-          "options": {
-            "response": {
-              "response": {
-                "responseFormat": "file",
-                "outputPropertyName": "overlay"
-              }
-            }
-          }
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          -272,
-          596
-        ],
-        "id": "353815e2-fb97-4c36-b9cc-ab1b28d062cd",
-        "name": "Get Syntech Overlay"
-      },
-      {
-        "parameters": {
-          "mode": "combine",
-          "combineBy": "combineByPosition",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.merge",
-        "typeVersion": 3.2,
-        "position": [
-          -48,
-          664
-        ],
-        "id": "4e2fbdd5-bdf4-4ba4-849e-9b215017c8d0",
-        "name": "Merge3"
-      },
-      {
-        "parameters": {
-          "operation": "composite",
-          "dataPropertyNameComposite": "overlay",
-          "options": {
-            "fileName": "result",
-            "format": "jpeg"
-          }
-        },
-        "type": "n8n-nodes-base.editImage",
-        "typeVersion": 1,
-        "position": [
-          176,
-          664
-        ],
-        "id": "7298f259-2bd0-40e6-b89d-adbc29e91aa1",
-        "name": "Create Watermarked Image"
       },
       {
         "parameters": {
@@ -1897,8 +1786,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          -2016,
-          0
+          -2112,
+          -2096
         ],
         "id": "5fe8c0c6-3a6a-4b11-b03b-f15ec423a46c",
         "name": "Extract Image Version Prompts",
@@ -1919,11 +1808,216 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          -1792,
-          72
+          -1888,
+          -2032
         ],
         "id": "7ebf9b61-1d93-4ecd-98b8-62f963f06c8e",
         "name": "Merge4"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Create a Notion File Upload object1').item.json.upload_url }}",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "notionApi",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Notion-Version",
+                "value": "2022-06-28"
+              }
+            ]
+          },
+          "sendBody": true,
+          "contentType": "multipart-form-data",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "parameterType": "formBinaryData",
+                "name": "file",
+                "inputDataFieldName": "=data"
+              },
+              {
+                "name": "content_type",
+                "value": "={{ $binary.data.mimeType }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          -2784,
+          -176
+        ],
+        "id": "ae0b837b-afbb-41aa-9105-96b74b2072b0",
+        "name": "Upload file contents",
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "toBinary",
+          "sourceProperty": "inlineData.data",
+          "options": {
+            "mimeType": "image/jpeg"
+          }
+        },
+        "type": "n8n-nodes-base.convertToFile",
+        "typeVersion": 1.1,
+        "position": [
+          -3680,
+          -176
+        ],
+        "id": "17167540-f75a-4381-9adb-c8d1faae742e",
+        "name": "Convert to File1"
+      },
+      {
+        "parameters": {
+          "url": "https://supabase.granite-automations.app/storage/v1/object/sign/n8n-images/syntech-watermark-1x1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJuOG4taW1hZ2VzL3N5bnRlY2gtd2F0ZXJtYXJrLTF4MS5wbmciLCJpYXQiOjE3NjQxNTI3NjcsImV4cCI6NDkxNzc1Mjc2N30.kEnx2KBJdQpCk8yUrnFikIUHo5b4_hUkGv9626S-dLg&t=2025-11-26T10%3A26%3A07.142Z",
+          "options": {
+            "response": {
+              "response": {
+                "responseFormat": "file",
+                "outputPropertyName": "overlay"
+              }
+            }
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          -3456,
+          -240
+        ],
+        "id": "99056ab1-8219-4c16-829f-42791e1e0a03",
+        "name": "Get Syntech Overlay1"
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "combineBy": "combineByPosition",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          -3232,
+          -176
+        ],
+        "id": "0200bf52-51ba-423b-9802-9f427b8ce560",
+        "name": "Merge5"
+      },
+      {
+        "parameters": {
+          "operation": "composite",
+          "dataPropertyNameComposite": "overlay",
+          "options": {
+            "fileName": "result",
+            "format": "jpeg"
+          }
+        },
+        "type": "n8n-nodes-base.editImage",
+        "typeVersion": 1,
+        "position": [
+          -3008,
+          -176
+        ],
+        "id": "7b384472-be06-42cd-8bf5-994056f6821f",
+        "name": "Create Watermarked Image1"
+      },
+      {
+        "parameters": {
+          "model": "={{ $('Split Out Chat Modals').item.json.property_model || 'google/gemini-2.5-pro' }}",
+          "options": {
+            "temperature": 0.2
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          -2048,
+          -1216
+        ],
+        "id": "952bb523-e344-411c-91ef-b40f5c1aa78a",
+        "name": "OpenRouter Chat Model",
+        "credentials": {
+          "openRouterApi": {
+            "id": "kUkOiAL6PjmdfexG",
+            "name": "Syntech GM OpenRouter account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": "={{ $('Split Out Chat Modals').item.json.property_model || 'google/gemini-2.5-pro' }}",
+          "options": {
+            "temperature": 0.4
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          -1472,
+          -1216
+        ],
+        "id": "26ed2626-bce8-446c-9744-41b567107302",
+        "name": "OpenRouter Chat Model1",
+        "credentials": {
+          "openRouterApi": {
+            "id": "kUkOiAL6PjmdfexG",
+            "name": "Syntech GM OpenRouter account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "function duplicateObject(obj, count) {\n  const n = Number(count) || 1;\n  return Array.from({ length: n }, () => ({ ...obj }));\n}\n\nconst incomingPrompt = $json;\nconst numberOfVariants = $('Initial Input').first().json.num_variants || 1;\n\nconsole.log(\"incomingPrompt: \",incomingPrompt)\n\nconst output = duplicateObject(incomingPrompt, numberOfVariants);\n\nreturn {output}"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -2784,
+          -1440
+        ],
+        "id": "97c19c46-7121-4a37-9880-cd5292ea2976",
+        "name": "Create Duplicate Prompts"
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "output",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          -2560,
+          -1440
+        ],
+        "id": "fd0e8ae8-6f07-4917-b3f2-8817d35f30a1",
+        "name": "Split Out Duplicate Prompts"
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "property_model",
+          "include": "allOtherFields",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          -2336,
+          -1440
+        ],
+        "id": "2cc677d1-e056-4ba0-b021-1f4623658c0b",
+        "name": "Split Out Chat Modals"
       }
     ],
     "connections": {
@@ -2075,7 +2169,18 @@
       },
       "Initial Input": {
         "main": [
-          []
+          [
+            {
+              "node": "Has Image Prompt?",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Check If Research Exists",
+              "type": "main",
+              "index": 0
+            }
+          ]
         ]
       },
       "OpenAI Chat Model": {
@@ -2222,17 +2327,6 @@
           ]
         ]
       },
-      "OpenAI Chat Model2": {
-        "ai_languageModel": [
-          [
-            {
-              "node": "Image Prompt Generator",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "Image Prompt Generator": {
         "main": [
           [
@@ -2352,12 +2446,7 @@
         "main": [
           [
             {
-              "node": "Merge3",
-              "type": "main",
-              "index": 1
-            },
-            {
-              "node": "Get Syntech Overlay",
+              "node": "Upload file contents1",
               "type": "main",
               "index": 0
             }
@@ -2662,17 +2751,6 @@
           ]
         ]
       },
-      "OpenAI Chat Model3": {
-        "ai_languageModel": [
-          [
-            {
-              "node": "Refine Prompt to NanoBanana Style",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "Refine Prompt to NanoBanana Style": {
         "main": [
           [
@@ -2688,40 +2766,7 @@
         "main": [
           [
             {
-              "node": "Image Prompt Generator",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Get Syntech Overlay": {
-        "main": [
-          [
-            {
-              "node": "Merge3",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Merge3": {
-        "main": [
-          [
-            {
-              "node": "Create Watermarked Image",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Create Watermarked Image": {
-        "main": [
-          [
-            {
-              "node": "Upload file contents1",
+              "node": "Create Duplicate Prompts",
               "type": "main",
               "index": 0
             }
@@ -2749,14 +2794,118 @@
             }
           ]
         ]
+      },
+      "Convert to File1": {
+        "main": [
+          [
+            {
+              "node": "Get Syntech Overlay1",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Merge5",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Get Syntech Overlay1": {
+        "main": [
+          [
+            {
+              "node": "Merge5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Merge5": {
+        "main": [
+          [
+            {
+              "node": "Create Watermarked Image1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Watermarked Image1": {
+        "main": [
+          [
+            {
+              "node": "Upload file contents",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenRouter Chat Model1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Refine Prompt to NanoBanana Style",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenRouter Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Image Prompt Generator",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Duplicate Prompts": {
+        "main": [
+          [
+            {
+              "node": "Split Out Duplicate Prompts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out Duplicate Prompts": {
+        "main": [
+          [
+            {
+              "node": "Split Out Chat Modals",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out Chat Modals": {
+        "main": [
+          [
+            {
+              "node": "Image Prompt Generator",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Version d43434da",
+    "name": "stable backup",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "d43434da-1889-4ea1-8dbb-f20450dd8948",
+  "activeVersionId": "5c1fd980-d55b-437f-8d58-9939b572ae39",
   "connections": {
     "Extract Content Type Prompt": {
       "main": [
@@ -3686,7 +3835,7 @@
       "typeVersion": 2.2,
       "position": [
         -3456,
-        -1880
+        -1888
       ],
       "id": "8d2bf0d1-0205-4c0d-9855-bfcbc227511e",
       "name": "Get Content With Block ID",
@@ -3749,7 +3898,7 @@
       "typeVersion": 2.2,
       "position": [
         -3232,
-        -1880
+        -1888
       ],
       "id": "d5894528-f920-4aca-bb1f-be662579673a",
       "name": "Get Parent DB ID",
@@ -3906,7 +4055,7 @@
       "typeVersion": 2.2,
       "position": [
         -768,
-        -1880
+        -1888
       ],
       "id": "67c499ff-b038-4ef0-8fa8-9bfc02663deb",
       "name": "Get Block Content",
@@ -3925,7 +4074,7 @@
       "typeVersion": 2,
       "position": [
         -544,
-        -1880
+        -1888
       ],
       "id": "5dd4fa97-9fdc-4661-b790-46e7e6b2526f",
       "name": "Format Block Content"
@@ -3938,7 +4087,7 @@
       "typeVersion": 3,
       "position": [
         -992,
-        -1880
+        -1888
       ],
       "id": "f4b3a43a-902c-4aec-ac75-f7f38ab3047d",
       "name": "Loop Over Items"
@@ -3953,7 +4102,7 @@
       "typeVersion": 2.1,
       "position": [
         -3680,
-        -1880
+        -1888
       ],
       "id": "768823b8-65b9-46dc-aa8b-8dd277155fd0",
       "name": "Get Initial Article",
@@ -3985,7 +4134,7 @@
       "typeVersion": 1.3,
       "position": [
         -768,
-        -2072
+        -2080
       ],
       "id": "88229ce5-6daa-4b3f-9435-1c37e9b80b7e",
       "name": "Execute Content Writer Workflow"
@@ -4006,7 +4155,7 @@
       "typeVersion": 1.1,
       "position": [
         1440,
-        -1260
+        -1264
       ],
       "id": "dc9c2805-1a91-49e6-a300-ed8d22137a97",
       "name": "Add Social Media Post2",
@@ -4069,7 +4218,7 @@
       "typeVersion": 2.2,
       "position": [
         1664,
-        -1356
+        -1360
       ],
       "id": "ce53092d-8f56-4f50-ad1a-b551ea6c3d8c",
       "name": "Set Notion Success2",
@@ -4131,7 +4280,7 @@
       "typeVersion": 3.4,
       "position": [
         1216,
-        -1260
+        -1264
       ],
       "id": "9c9006f5-0827-402a-802f-eb7f93184086",
       "name": "Set Subflow Fields4"
@@ -4144,7 +4293,7 @@
       "typeVersion": 1.1,
       "position": [
         -3680,
-        -892
+        -896
       ],
       "id": "55bf7f64-b943-4063-b001-28ba7ef3fbfc",
       "name": "Initial Input"
@@ -4168,7 +4317,7 @@
       "typeVersion": 1.2,
       "position": [
         560,
-        -764
+        -768
       ],
       "id": "0cb49c00-2c8b-47e8-914c-ac656e91e987",
       "name": "OpenAI Chat Model",
@@ -4214,7 +4363,7 @@
       "typeVersion": 1.2,
       "position": [
         -832,
-        -344
+        -352
       ]
     },
     {
@@ -4237,7 +4386,7 @@
       "typeVersion": 3.4,
       "position": [
         80,
-        -988
+        -992
       ],
       "executeOnce": true
     },
@@ -4252,8 +4401,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        -840,
-        -568
+        -848,
+        -576
       ],
       "onError": "continueErrorOutput"
     },
@@ -4294,7 +4443,7 @@
       "typeVersion": 1.2,
       "position": [
         -704,
-        -344
+        -352
       ]
     },
     {
@@ -4324,7 +4473,7 @@
       "typeVersion": 1.1,
       "position": [
         -576,
-        -344
+        -352
       ]
     },
     {
@@ -4338,7 +4487,7 @@
       "typeVersion": 1,
       "position": [
         -960,
-        -344
+        -352
       ],
       "credentials": {
         "openAiApi": {
@@ -4353,7 +4502,7 @@
       "typeVersion": 1,
       "position": [
         -368,
-        -472
+        -480
       ],
       "id": "a4d7c02b-52be-4b57-b170-4b568494091d",
       "name": "No Operation, do nothing"
@@ -4376,7 +4525,7 @@
       "typeVersion": 3.4,
       "position": [
         -2784,
-        -2024
+        -2032
       ],
       "id": "346b8dab-80fa-4286-9c8f-c17f08e589f4",
       "name": "Set Image Prompts"
@@ -4390,7 +4539,7 @@
       "typeVersion": 1,
       "position": [
         -2560,
-        -2024
+        -2032
       ],
       "id": "b107ab08-9e67-452f-8ec8-32d6b102758d",
       "name": "Split Image Prompts",
@@ -4410,7 +4559,7 @@
       "typeVersion": 2.2,
       "position": [
         -2336,
-        -2024
+        -2032
       ],
       "id": "b7045c04-c5f2-402e-9375-86a6fc12ba51",
       "name": "Extract Image Prompts",
@@ -4447,7 +4596,7 @@
       "typeVersion": 1,
       "position": [
         -1216,
-        -1880
+        -1888
       ],
       "id": "d79f3450-68e9-40ed-807c-823ab1e90258",
       "name": "Limit"
@@ -4469,7 +4618,7 @@
       "typeVersion": 1.7,
       "position": [
         -2112,
-        -1432
+        -1440
       ],
       "id": "30ef3ca9-8b2d-4495-84f1-a30b8342583d",
       "name": "Image Prompt Generator",
@@ -4486,7 +4635,7 @@
       "typeVersion": 1,
       "position": [
         -3232,
-        -1432
+        -1440
       ],
       "id": "b7f3e1c8-df24-455f-9d11-0dfa1093dc80",
       "name": "Split Out Image Prompts"
@@ -4509,7 +4658,7 @@
       "typeVersion": 3.4,
       "position": [
         -1760,
-        -1432
+        -1440
       ],
       "id": "b3f40758-31a1-4b00-ab74-4ca246316873",
       "name": "Set Final Image Prompts"
@@ -4524,7 +4673,7 @@
       "typeVersion": 3.2,
       "position": [
         992,
-        -1260
+        -1264
       ],
       "id": "4ba42483-d763-4e1c-a6e6-cd1db32be881",
       "name": "Merge1",
@@ -4564,7 +4713,7 @@
       "typeVersion": 4.2,
       "position": [
         -1184,
-        -1432
+        -1440
       ],
       "id": "84df7acc-fc82-468b-ae3c-2ae11285bda3",
       "name": "Create a Notion File Upload object1",
@@ -4611,8 +4760,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        424,
-        -1432
+        432,
+        -1440
       ],
       "id": "8222c5d1-767f-432a-bd42-dff3cdb68516",
       "name": "Upload file contents1",
@@ -4633,7 +4782,7 @@
       "typeVersion": 1,
       "position": [
         -1664,
-        -2024
+        -2032
       ],
       "id": "16c01429-6c10-4481-b476-50a2270e0407",
       "name": "Aggregate Image Prompts",
@@ -4649,7 +4798,7 @@
       "typeVersion": 1,
       "position": [
         768,
-        -1432
+        -1440
       ],
       "id": "dad39ac1-eda8-4c45-bd4f-ae5d902cbc0b",
       "name": "Aggregate Image Files"
@@ -4675,8 +4824,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -776,
-        -1432
+        -784,
+        -1440
       ],
       "id": "2b53fcb3-71b6-4fd9-8e4a-e041ad807217",
       "name": "Generate Image HTTP",
@@ -4704,7 +4853,7 @@
       "typeVersion": 2.2,
       "position": [
         -3008,
-        -1880
+        -1888
       ],
       "id": "45f5b99d-351b-4c59-a648-a99ae63dd6b2",
       "name": "Get Transformed Content DB ID",
@@ -4727,7 +4876,7 @@
       "typeVersion": 1.1,
       "position": [
         80,
-        -1432
+        -1440
       ],
       "id": "1a6c51da-8eca-44a5-bc84-b37db357026a",
       "name": "Convert to File"
@@ -4741,7 +4890,7 @@
       "typeVersion": 1,
       "position": [
         -368,
-        -1432
+        -1440
       ],
       "id": "c7c94f04-5638-4364-b7ee-e42f404f48e7",
       "name": "Split Out Parts"
@@ -4774,7 +4923,7 @@
       "typeVersion": 2.2,
       "position": [
         -144,
-        -1432
+        -1440
       ],
       "id": "cebbf022-0ff7-435b-8f77-4d2511b18193",
       "name": "Grab Image"
@@ -4808,7 +4957,7 @@
       "typeVersion": 2.2,
       "position": [
         -1184,
-        -692
+        -688
       ],
       "id": "84f7c606-6a06-4e32-897d-0267cdb6f884",
       "name": "If Research"
@@ -4827,7 +4976,7 @@
       "typeVersion": 2.2,
       "position": [
         -1472,
-        -692
+        -688
       ],
       "id": "2f182f29-754b-4738-a90f-70834589f5b0",
       "name": "Check If Research Exists",
@@ -4856,7 +5005,7 @@
       "typeVersion": 1,
       "position": [
         -368,
-        -664
+        -672
       ]
     },
     {
@@ -4869,7 +5018,7 @@
       "typeVersion": 2,
       "position": [
         80,
-        -568
+        -576
       ]
     },
     {
@@ -4888,8 +5037,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        424,
-        -568
+        432,
+        -576
       ]
     },
     {
@@ -4926,7 +5075,7 @@
       "typeVersion": 2.1,
       "position": [
         1440,
-        -568
+        -576
       ]
     },
     {
@@ -4937,7 +5086,7 @@
       "typeVersion": 3,
       "position": [
         -144,
-        -564
+        -560
       ],
       "id": "9336022d-c3e5-418d-8bc0-e79f8a1238ed",
       "name": "Loop Over Items1"
@@ -5002,7 +5151,7 @@
       "typeVersion": 2.2,
       "position": [
         -144,
-        -964
+        -960
       ],
       "id": "ffcf4b78-1863-4969-bc30-d5bd1b6196e5",
       "name": "Add Research",
@@ -5093,7 +5242,7 @@
       "typeVersion": 2.2,
       "position": [
         1664,
-        -516
+        -512
       ],
       "id": "6d580e80-b47c-4cf2-97f5-2e65b879c2ae",
       "name": "Update Research Item",
@@ -5147,7 +5296,7 @@
       "typeVersion": 1.3,
       "position": [
         304,
-        -764
+        -768
       ],
       "id": "bb3dc4ce-f3bb-4533-92e2-f285135b16f1",
       "name": "Anthropic Chat Model",
@@ -5173,8 +5322,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
       "position": [
-        360,
-        -1196
+        368,
+        -1200
       ],
       "id": "5f35827a-b9a4-4455-a598-940b1ff6fab6",
       "name": "Create Content1",
@@ -5198,7 +5347,7 @@
       "typeVersion": 3.4,
       "position": [
         768,
-        -988
+        -992
       ],
       "id": "6bcca1e9-fe17-417e-bbef-a634fbb4343f",
       "name": "Set Content"
@@ -5232,7 +5381,7 @@
       "typeVersion": 2.2,
       "position": [
         -3456,
-        -1432
+        -1440
       ],
       "id": "f0614fba-3612-47c9-9d9d-727fd12e4d62",
       "name": "Has Image Prompt?"
@@ -5249,7 +5398,7 @@
       "typeVersion": 1,
       "position": [
         432,
-        -764
+        -768
       ],
       "id": "2dc5db6d-3dc4-4351-9555-d37a8cca36fd",
       "name": "xAI Grok Chat Model",
@@ -5340,7 +5489,7 @@
       "typeVersion": 1,
       "position": [
         352,
-        -972
+        -976
       ],
       "id": "188c9c94-405a-4347-95b7-8e63fd573784",
       "name": "Model Selector"
@@ -5396,7 +5545,7 @@
       "typeVersion": 1.7,
       "position": [
         -1536,
-        -1432
+        -1440
       ],
       "id": "dec6f742-f1bc-4b97-8221-085a0b8c58e0",
       "name": "Refine Prompt to NanoBanana Style"
@@ -5407,7 +5556,7 @@
       "typeVersion": 1,
       "position": [
         -3008,
-        -1432
+        -1440
       ],
       "id": "b40764f0-d9a6-40ea-8c34-587a42e81905",
       "name": "Limit1"
@@ -5448,7 +5597,7 @@
       "typeVersion": 3.2,
       "position": [
         -1888,
-        -2024
+        -2032
       ],
       "id": "7ebf9b61-1d93-4ecd-98b8-62f963f06c8e",
       "name": "Merge4"
@@ -5489,7 +5638,7 @@
       "typeVersion": 4.2,
       "position": [
         -2784,
-        -168
+        -176
       ],
       "id": "ae0b837b-afbb-41aa-9105-96b74b2072b0",
       "name": "Upload file contents",
@@ -5512,7 +5661,7 @@
       "typeVersion": 1.1,
       "position": [
         -3680,
-        -168
+        -176
       ],
       "id": "17167540-f75a-4381-9adb-c8d1faae742e",
       "name": "Convert to File1"
@@ -5548,7 +5697,7 @@
       "typeVersion": 3.2,
       "position": [
         -3232,
-        -168
+        -176
       ],
       "id": "0200bf52-51ba-423b-9802-9f427b8ce560",
       "name": "Merge5"
@@ -5566,7 +5715,7 @@
       "typeVersion": 1,
       "position": [
         -3008,
-        -168
+        -176
       ],
       "id": "7b384472-be06-42cd-8bf5-994056f6821f",
       "name": "Create Watermarked Image1"
@@ -5581,8 +5730,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -2040,
-        -1208
+        -2048,
+        -1216
       ],
       "id": "952bb523-e344-411c-91ef-b40f5c1aa78a",
       "name": "OpenRouter Chat Model",
@@ -5603,8 +5752,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -1464,
-        -1208
+        -1472,
+        -1216
       ],
       "id": "26ed2626-bce8-446c-9744-41b567107302",
       "name": "OpenRouter Chat Model1",
@@ -5624,7 +5773,7 @@
       "typeVersion": 2,
       "position": [
         -2784,
-        -1432
+        -1440
       ],
       "id": "97c19c46-7121-4a37-9880-cd5292ea2976",
       "name": "Create Duplicate Prompts"
@@ -5638,7 +5787,7 @@
       "typeVersion": 1,
       "position": [
         -2560,
-        -1432
+        -1440
       ],
       "id": "fd0e8ae8-6f07-4917-b3f2-8817d35f30a1",
       "name": "Split Out Duplicate Prompts"
@@ -5653,552 +5802,13 @@
       "typeVersion": 1,
       "position": [
         -2336,
-        -1432
+        -1440
       ],
       "id": "2cc677d1-e056-4ba0-b021-1f4623658c0b",
       "name": "Split Out Chat Modals"
     }
   ],
   "pinData": {
-    "Get Initial Article": [
-      {
-        "json": {
-          "headers": {
-            "host": "syntech-biofuels.granite-automations.app",
-            "user-agent": "NotionAutomation",
-            "content-length": "15679",
-            "accept-encoding": "gzip, br",
-            "cdn-loop": "cloudflare; loops=1",
-            "cf-connecting-ip": "44.241.75.17",
-            "cf-ipcountry": "US",
-            "cf-ray": "9cb2f0c99e6e1bed-PDX",
-            "cf-visitor": "{\"scheme\":\"https\"}",
-            "content-type": "application/json",
-            "traceparent": "00-a72267ed61cbf25fbbfdf8fabddd92cf-7a74cf8451a1c8a3-00",
-            "x-forwarded-for": "44.241.75.17, 104.23.160.98",
-            "x-forwarded-host": "syntech-biofuels.granite-automations.app",
-            "x-forwarded-proto": "https",
-            "x-railway-edge": "railway/us-west2",
-            "x-railway-request-id": "p97SkkUzSmW3YezALPU1MQ",
-            "x-real-ip": "104.23.160.98",
-            "x-request-start": "1770635639415"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "source": {
-              "type": "automation",
-              "automation_id": "2e7785c0-cfab-8082-8cef-004d8b2b8289",
-              "action_id": "2e7785c0-cfab-8034-b0e9-005a4adb23e0",
-              "event_id": "a2eaaa7f-5a65-4522-907c-3e63af732b61",
-              "attempt": 1
-            },
-            "data": {
-              "object": "page",
-              "id": "301785c0-cfab-81f5-bf01-c7c5dab69cbb",
-              "created_time": "2026-02-08T05:33:00.000Z",
-              "last_edited_time": "2026-02-09T11:13:00.000Z",
-              "created_by": {
-                "object": "user",
-                "id": "db438902-568d-4824-9139-86cb0e748004"
-              },
-              "last_edited_by": {
-                "object": "user",
-                "id": "b4ebd45f-4b8e-4852-8989-2078a21811d7"
-              },
-              "cover": null,
-              "icon": null,
-              "parent": {
-                "type": "data_source_id",
-                "data_source_id": "27c785c0-cfab-8112-81cc-000bf648b3f9",
-                "database_id": "27c785c0-cfab-8137-800f-dcf3e01a3e97"
-              },
-              "archived": false,
-              "in_trash": false,
-              "is_locked": false,
-              "properties": {
-                "Choose Image Format": {
-                  "id": "%3AFrQ",
-                  "type": "relation",
-                  "relation": [
-                    {
-                      "id": "2e7785c0-cfab-80ac-94d1-ddc5568bc98b"
-                    },
-                    {
-                      "id": "2e6785c0-cfab-8010-8513-e4af8c17e77f"
-                    },
-                    {
-                      "id": "2e7785c0-cfab-8011-b3de-e1e60aa875d7"
-                    },
-                    {
-                      "id": "2e7785c0-cfab-8060-bd47-ced887736f8a"
-                    }
-                  ],
-                  "has_more": false
-                },
-                "Status": {
-                  "id": "%3A_IQ",
-                  "type": "select",
-                  "select": {
-                    "id": "lF]]",
-                    "name": "In Progress",
-                    "color": "pink"
-                  }
-                },
-                "total_score": {
-                  "id": "%40ZA%5E",
-                  "type": "number",
-                  "number": 9
-                },
-                "Topic Action": {
-                  "id": "DAlv",
-                  "type": "multi_select",
-                  "multi_select": [
-                    {
-                      "id": "~FwV",
-                      "name": "deployment",
-                      "color": "red"
-                    }
-                  ]
-                },
-                "Search Query": {
-                  "id": "EysX",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "Biodiesel",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "Biodiesel",
-                      "href": null
-                    }
-                  ]
-                },
-                "Own Analysis": {
-                  "id": "FV%40B",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "",
-                      "href": null
-                    }
-                  ]
-                },
-                "strategic_summary": {
-                  "id": "HEsz",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "California data proves waste-derived renewable diesel delivers superior GHG reductions (43% of all transportation cuts, beating EVs 3:1) with municipal fleets achieving 75-80% emissions reductions using drop-in fuel in existing infrastructure - strong validation of Syntech's value proposition.",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "California data proves waste-derived renewable diesel delivers superior GHG reductions (43% of all transportation cuts, beating EVs 3:1) with municipal fleets achieving 75-80% emissions reductions using drop-in fuel in existing infrastructure - strong validation of Syntech's value proposition.",
-                      "href": null
-                    }
-                  ]
-                },
-                "Topic Geo": {
-                  "id": "HFGx",
-                  "type": "multi_select",
-                  "multi_select": [
-                    {
-                      "id": "eeb45258-aaf4-4e2d-8986-d706e1e8118a",
-                      "name": "california",
-                      "color": "red"
-                    }
-                  ]
-                },
-                "Fact Fingerprint": {
-                  "id": "HjE%3D",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "{\"entities\":[\"California Air Resources Board\",\"Diesel Technology Forum\",\"Neste\",\"Marathon\",\"Phillips66\",\"Renewable Energy Group\",\"Love's\",\"Cargill\",\"City of Oakland\",\"City of San Diego\",\"California\",\"British Columbia\"],\"actions\":[\"renewable diesel consumption growth\",\"biodiesel deployment in municipal fleets\",\"petroleum refinery retooling\",\"joint venture for renewable diesel production\",\"fleet conversion to renewable diesel\",\"greenhouse gas emissions reduction\"],\"numerical_values\":[\"43% of transportation GHG reductions\",\"32 million tons GHG eliminated\",\"13% from battery-electric vehicles\",\"10 million tons from EVs\",\"16 million gallons (2011)\",\"1 billion gallons (2020)\",\"3 billion gallons annual capacity\",\"230,000 gallons displaced (Oakland)\",\"75% GHG reduction (Oakland)\",\"1,125 vehicles (San Diego)\",\"80% GHG reduction (San Diego)\",\"1.5 billion gallons (Neste total)\",\"60% emissions from Class 8 trucks\",\"2011-2020 period\"],\"policy_terms\":[\"Low Carbon Fuel Standard Program\",\"greenhouse gas emissions regulation\",\"zero-emissions technologies\",\"low-carbon transportation policies\"],\"dates\":[\"May 18, 2021\",\"2011-2020\",\"2011\",\"2020\",\"2019\"],\"impacts\":[\"43% reduction in transportation sector emissions\",\"outperforms electric vehicles by 3:1\",\"cost-effective climate solution\",\"enables existing fleet infrastructure reuse\",\"significant carbon reductions in heavy-duty sector\",\"green corridor expansion West Coast\"]}",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "{\"entities\":[\"California Air Resources Board\",\"Diesel Technology Forum\",\"Neste\",\"Marathon\",\"Phillips66\",\"Renewable Energy Group\",\"Love's\",\"Cargill\",\"City of Oakland\",\"City of San Diego\",\"California\",\"British Columbia\"],\"actions\":[\"renewable diesel consumption growth\",\"biodiesel deployment in municipal fleets\",\"petroleum refinery retooling\",\"joint venture for renewable diesel production\",\"fleet conversion to renewable diesel\",\"greenhouse gas emissions reduction\"],\"numerical_values\":[\"43% of transportation GHG reductions\",\"32 million tons GHG eliminated\",\"13% from battery-electric vehicles\",\"10 million tons from EVs\",\"16 million gallons (2011)\",\"1 billion gallons (2020)\",\"3 billion gallons annual capacity\",\"230,000 gallons displaced (Oakland)\",\"75% GHG reduction (Oakland)\",\"1,125 vehicles (San Diego)\",\"80% GHG reduction (San Diego)\",\"1.5 billion gallons (Neste total)\",\"60% emissions from Class 8 trucks\",\"2011-2020 period\"],\"policy_terms\":[\"Low Carbon Fuel Standard Program\",\"greenhouse gas emissions regulation\",\"zero-emissions technologies\",\"low-carbon transportation policies\"],\"dates\":[\"May 18, 2021\",\"2011-2020\",\"2011\",\"2020\",\"2019\"],\"impacts\":[\"43% reduction in transportation sector emissions\",\"outperforms electric vehicles by 3:1\",\"cost-effective climate solution\",\"enables existing fleet infrastructure reuse\",\"significant carbon reductions in heavy-duty sector\",\"green corridor expansion West Coast\"]}",
-                      "href": null
-                    }
-                  ]
-                },
-                "Update Status": {
-                  "id": "Iwt%7B",
-                  "type": "select",
-                  "select": {
-                    "id": "39aa9e2b-9160-4b6d-a4a0-638268acd6b9",
-                    "name": "new",
-                    "color": "green"
-                  }
-                },
-                "Publication Date": {
-                  "id": "JvWk",
-                  "type": "date",
-                  "date": {
-                    "start": "2026-02-06T22:34:00.000+00:00",
-                    "end": null,
-                    "time_zone": null
-                  }
-                },
-                "Source URL": {
-                  "id": "KG~g",
-                  "type": "url",
-                  "url": "https://www.truckinginfo.com/news/renewable-diesel-biodiesel-california"
-                },
-                "Sent To Team?": {
-                  "id": "Lkas",
-                  "type": "checkbox",
-                  "checkbox": false
-                },
-                "recommended_action": {
-                  "id": "MN~%5C",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "Use California municipal fleet case studies (Oakland 75% reduction, San Diego 80% reduction with 1,125 vehicles) as proof points when engaging UK councils and infrastructure customers. Emphasize drop-in fuel advantage and quantified results versus electrification timelines.",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "Use California municipal fleet case studies (Oakland 75% reduction, San Diego 80% reduction with 1,125 vehicles) as proof points when engaging UK councils and infrastructure customers. Emphasize drop-in fuel advantage and quantified results versus electrification timelines.",
-                      "href": null
-                    }
-                  ]
-                },
-                "Source Name": {
-                  "id": "OMAN",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "Biodiesel",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "Biodiesel",
-                      "href": null
-                    }
-                  ]
-                },
-                "Error Message": {
-                  "id": "RCiD",
-                  "type": "rich_text",
-                  "rich_text": []
-                },
-                "Summary": {
-                  "id": "RZ%7CW",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "New data shows biodiesel and renewable diesel accounted for 43% of transportation GHG reductions in California from 2011-2020, outperforming electric vehicles. These low-carbon fuels, derived from waste feedstocks, allow fleets to cut emissions significantly using existing infrastructure.",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "New data shows biodiesel and renewable diesel accounted for 43% of transportation GHG reductions in California from 2011-2020, outperforming electric vehicles. These low-carbon fuels, derived from waste feedstocks, allow fleets to cut emissions significantly using existing infrastructure.",
-                      "href": null
-                    }
-                  ]
-                },
-                "Source": {
-                  "id": "Rj%7Bl",
-                  "type": "multi_select",
-                  "multi_select": [
-                    {
-                      "id": "@U]s",
-                      "name": "Website",
-                      "color": "brown"
-                    }
-                  ]
-                },
-                "Topic Signature": {
-                  "id": "X%3Dq%7C",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "renewable-diesel-biodiesel__deployment__california__california-air-resources-board-city-of-oakland-city-of-san-diego",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "renewable-diesel-biodiesel__deployment__california__california-air-resources-board-city-of-oakland-city-of-san-diego",
-                      "href": null
-                    }
-                  ]
-                },
-                "Topic Subject": {
-                  "id": "%5DaK%3A",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "renewable-diesel-biodiesel",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "renewable-diesel-biodiesel",
-                      "href": null
-                    }
-                  ]
-                },
-                "Article Research": {
-                  "id": "_%3DxM",
-                  "type": "relation",
-                  "relation": [],
-                  "has_more": false
-                },
-                "Created Date": {
-                  "id": "_IiO",
-                  "type": "created_time",
-                  "created_time": "2026-02-08T05:33:00.000Z"
-                },
-                "Is Update Of": {
-                  "id": "_TzA",
-                  "type": "relation",
-                  "relation": [],
-                  "has_more": false
-                },
-                "key_highlights": {
-                  "id": "akYi",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "Oakland and San Diego municipal fleets operationally deployed 100% renewable diesel with quantified results: 230,000 gallons displaced, 75-80%+ GHG reductions across 1,125+ heavy-duty vehicles. California renewable diesel/biodiesel consumption grew from 16M gallons (2011) to 1B gallons (2020), delivering 32M tons cumulative GHG reduction - 43% of all transportation sector cuts. Waste-derived biofuels (vegetable oils, animal fats) outperformed battery-electric transportation by 3:1 ratio in actual emissions reductions, proving cost-effectiveness of drop-in solutions using existing infrastructure",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "Oakland and San Diego municipal fleets operationally deployed 100% renewable diesel with quantified results: 230,000 gallons displaced, 75-80%+ GHG reductions across 1,125+ heavy-duty vehicles. California renewable diesel/biodiesel consumption grew from 16M gallons (2011) to 1B gallons (2020), delivering 32M tons cumulative GHG reduction - 43% of all transportation sector cuts. Waste-derived biofuels (vegetable oils, animal fats) outperformed battery-electric transportation by 3:1 ratio in actual emissions reductions, proving cost-effectiveness of drop-in solutions using existing infrastructure",
-                      "href": null
-                    }
-                  ]
-                },
-                "Author Name": {
-                  "id": "beQS",
-                  "type": "people",
-                  "people": []
-                },
-                "Additional Formats": {
-                  "id": "fO%5CB",
-                  "type": "relation",
-                  "relation": [
-                    {
-                      "id": "2b7785c0-cfab-8096-afb4-ed4f01eee75c"
-                    }
-                  ],
-                  "has_more": false
-                },
-                "Topic Entities": {
-                  "id": "nwR%40",
-                  "type": "multi_select",
-                  "multi_select": [
-                    {
-                      "id": "58992ce7-667c-423d-acb2-2b9114064e7e",
-                      "name": "california-air-resources-board",
-                      "color": "red"
-                    },
-                    {
-                      "id": "7e1d629f-cf07-4b14-bc71-488a044f0711",
-                      "name": "city-of-oakland",
-                      "color": "blue"
-                    },
-                    {
-                      "id": "5091ef89-22e5-459d-8430-eec74bc6b151",
-                      "name": "city-of-san-diego",
-                      "color": "gray"
-                    }
-                  ]
-                },
-                "pathway": {
-                  "id": "rkir",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "A",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "A",
-                      "href": null
-                    }
-                  ]
-                },
-                "priority_band": {
-                  "id": "%7DTgj",
-                  "type": "multi_select",
-                  "multi_select": [
-                    {
-                      "id": "12fc1f5b-f595-4813-8a3a-796a672546cb",
-                      "name": "STRONG",
-                      "color": "pink"
-                    }
-                  ]
-                },
-                "Transformed Content": {
-                  "id": "%7DsU%3F",
-                  "type": "relation",
-                  "relation": [],
-                  "has_more": false
-                },
-                "active_scoring_components": {
-                  "id": "~aU%60",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "Fuel Type: Article explicitly discusses renewable diesel and biodiesel derived from waste feedstocks including vegetable oils and animal fats - directly aligned with waste-derived fuel focus | Deployment: WHO: City of Oakland and City of San Diego municipal fleets. WHAT: 100% renewable diesel (Oakland) and renewable diesel for heavy-duty fleet (San Diego). HOW MUCH: Oakland displacing 230,000 gallons petroleum diesel across all city trucks/equipment/generators; San Diego fueling 1,125 heavy-duty vehicles. WHEN: Currently operational with proven results (75-80%+ GHG reductions achieved). | Validation: Quantified performance proof: Oakland achieved 75% GHG reduction, San Diego achieved 80%+ GHG reduction. California-wide data shows renewable diesel/biodiesel delivered 32 million tons GHG reduction (2011-2020), representing 43% of all transportation sector emissions cuts - beating battery-electric by 3:1 ratio. Proven commercial results at scale, not lab tests. | Strategic: Article emphasizes waste feedstock sourcing (vegetable oils, animal fats) and drop-in fuel benefits ('using existing assets like fueling infrastructure and diesel engines'). Focus on heavy-duty vehicles and municipal fleets aligns with Syntech's target sectors. Demonstrates cost-effective climate solution using existing infrastructure.",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "Fuel Type: Article explicitly discusses renewable diesel and biodiesel derived from waste feedstocks including vegetable oils and animal fats - directly aligned with waste-derived fuel focus | Deployment: WHO: City of Oakland and City of San Diego municipal fleets. WHAT: 100% renewable diesel (Oakland) and renewable diesel for heavy-duty fleet (San Diego). HOW MUCH: Oakland displacing 230,000 gallons petroleum diesel across all city trucks/equipment/generators; San Diego fueling 1,125 heavy-duty vehicles. WHEN: Currently operational with proven results (75-80%+ GHG reductions achieved). | Validation: Quantified performance proof: Oakland achieved 75% GHG reduction, San Diego achieved 80%+ GHG reduction. California-wide data shows renewable diesel/biodiesel delivered 32 million tons GHG reduction (2011-2020), representing 43% of all transportation sector emissions cuts - beating battery-electric by 3:1 ratio. Proven commercial results at scale, not lab tests. | Strategic: Article emphasizes waste feedstock sourcing (vegetable oils, animal fats) and drop-in fuel benefits ('using existing assets like fueling infrastructure and diesel engines'). Focus on heavy-duty vehicles and municipal fleets aligns with Syntech's target sectors. Demonstrates cost-effective climate solution using existing infrastructure.",
-                      "href": null
-                    }
-                  ]
-                },
-                "Article Name": {
-                  "id": "title",
-                  "type": "title",
-                  "title": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "Renewable Diesel, Biodiesel Cut GHG Emissions in California",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "Renewable Diesel, Biodiesel Cut GHG Emissions in California",
-                      "href": null
-                    }
-                  ]
-                }
-              },
-              "url": "https://www.notion.so/Renewable-Diesel-Biodiesel-Cut-GHG-Emissions-in-California-301785c0cfab81f5bf01c7c5dab69cbb",
-              "public_url": null,
-              "request_id": "945af657-3ec2-4d13-9ebf-5c1900e47d52"
-            }
-          },
-          "webhookUrl": "https://syntech-biofuels.granite-automations.app/webhook/write-syntech-content-production",
-          "executionMode": "production"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "Initial Input": [
       {
         "json": {
@@ -6303,6 +5913,291 @@
           "item": 0
         }
       }
+    ],
+    "Get Initial Article": [
+      {
+        "json": {
+          "headers": {
+            "host": "syntech-biofuels.granite-automations.app",
+            "user-agent": "NotionAutomation",
+            "content-length": "4454",
+            "accept-encoding": "gzip, br",
+            "baggage": "sentry-environment=production,sentry-release=20260211.1422-11dc800,sentry-public_key=529a6d1990e5471d874257842c4f4ad8,sentry-trace_id=aa0b463594ce4c68b113526a3fb4632b",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "44.237.227.106",
+            "cf-ipcountry": "US",
+            "cf-ray": "9cc627ef2ed4fef8-PDX",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "sentry-trace": "aa0b463594ce4c68b113526a3fb4632b-bd55d0cba0c9a21c",
+            "traceparent": "00-4fe9729c18bda1c5fc08b156ac418291-2e5ba795d8d69bc4-01",
+            "x-forwarded-for": "44.237.227.106, 172.68.175.40",
+            "x-forwarded-host": "syntech-biofuels.granite-automations.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-west2",
+            "x-railway-request-id": "M1uWvyb0QwmqdvGD9I3ezw",
+            "x-real-ip": "172.68.175.40",
+            "x-request-start": "1770837127688"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "source": {
+              "type": "automation",
+              "automation_id": "2a4785c0-cfab-81f9-ac51-004defecd128",
+              "action_id": "2a4785c0-cfab-8198-9f03-005a58e51a94",
+              "event_id": "9b4efa0d-cb41-4a69-989a-ca5392586113",
+              "user_id": "b4ebd45f-4b8e-4852-8989-2078a21811d7",
+              "attempt": 1
+            },
+            "data": {
+              "object": "page",
+              "id": "304785c0-cfab-8107-bb08-c43462b0b261",
+              "created_time": "2026-02-11T14:48:00.000Z",
+              "last_edited_time": "2026-02-11T19:12:00.000Z",
+              "created_by": {
+                "object": "user",
+                "id": "db438902-568d-4824-9139-86cb0e748004"
+              },
+              "last_edited_by": {
+                "object": "user",
+                "id": "b4ebd45f-4b8e-4852-8989-2078a21811d7"
+              },
+              "cover": null,
+              "icon": null,
+              "parent": {
+                "type": "data_source_id",
+                "data_source_id": "2a4785c0-cfab-817c-9963-000b246984fc",
+                "database_id": "2a4785c0-cfab-8160-b859-f1992a8d67d8"
+              },
+              "archived": false,
+              "in_trash": false,
+              "is_locked": false,
+              "properties": {
+                "Choose Image Format": {
+                  "id": "%3AFrQ",
+                  "type": "relation",
+                  "relation": [
+                    {
+                      "id": "2e7785c0-cfab-8060-bd47-ced887736f8a"
+                    },
+                    {
+                      "id": "2e7785c0-cfab-80ac-94d1-ddc5568bc98b"
+                    }
+                  ],
+                  "has_more": false
+                },
+                "Status": {
+                  "id": "%3A_IQ",
+                  "type": "select",
+                  "select": {
+                    "id": "lF]]",
+                    "name": "In Progress",
+                    "color": "pink"
+                  }
+                },
+                "Search Query": {
+                  "id": "EysX",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "Syntech Biofuel",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "Syntech Biofuel",
+                      "href": null
+                    }
+                  ]
+                },
+                "Rating": {
+                  "id": "E%7BMv",
+                  "type": "select",
+                  "select": {
+                    "id": "h:Ca",
+                    "name": "4 - Relatively Positive",
+                    "color": "blue"
+                  }
+                },
+                "Own Analysis": {
+                  "id": "FV%40B",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "",
+                      "href": null
+                    }
+                  ]
+                },
+                "Publication Date": {
+                  "id": "JvWk",
+                  "type": "date",
+                  "date": {
+                    "start": "2026-01-19T17:27:00.000+00:00",
+                    "end": null,
+                    "time_zone": null
+                  }
+                },
+                "Source URL": {
+                  "id": "KG~g",
+                  "type": "url",
+                  "url": "https://www.linkedin.com/posts/terjek-zoltan-joszef_a-small-throwback-while-tidying-up-some-old-activity-7419068082968588288-qmIN"
+                },
+                "Error Message": {
+                  "id": "RCiD",
+                  "type": "rich_text",
+                  "rich_text": []
+                },
+                "Summary": {
+                  "id": "RZ%7CW",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "A sample of Syntech Biofuel's synthetic biodiesel maintained its appearance and properties after nearly a year of unideal storage, including time in a car trunk. This highlights fuel stability outside laboratory conditions and the value of real-world testing alongside specifications.",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "A sample of Syntech Biofuel's synthetic biodiesel maintained its appearance and properties after nearly a year of unideal storage, including time in a car trunk. This highlights fuel stability outside laboratory conditions and the value of real-world testing alongside specifications.",
+                      "href": null
+                    }
+                  ]
+                },
+                "Source": {
+                  "id": "Rj%7Bl",
+                  "type": "multi_select",
+                  "multi_select": [
+                    {
+                      "id": "c27f1f5d-4adb-4419-a43a-67881c060d15",
+                      "name": "LinkedIn",
+                      "color": "gray"
+                    }
+                  ]
+                },
+                "Article Research": {
+                  "id": "_%3DxM",
+                  "type": "relation",
+                  "relation": [],
+                  "has_more": false
+                },
+                "Created Date": {
+                  "id": "_IiO",
+                  "type": "created_time",
+                  "created_time": "2026-02-11T14:48:00.000Z"
+                },
+                "Author Name": {
+                  "id": "beQS",
+                  "type": "people",
+                  "people": []
+                },
+                "Additional Formats": {
+                  "id": "fO%5CB",
+                  "type": "relation",
+                  "relation": [
+                    {
+                      "id": "2b7785c0-cfab-8096-afb4-ed4f01eee75c"
+                    },
+                    {
+                      "id": "2b7785c0-cfab-8084-a2b3-cf6618dbe186"
+                    }
+                  ],
+                  "has_more": false
+                },
+                "Transformed Content": {
+                  "id": "%7DsU%3F",
+                  "type": "relation",
+                  "relation": [],
+                  "has_more": false
+                },
+                "Article Name": {
+                  "id": "title",
+                  "type": "title",
+                  "title": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "Stable Synthetic Biodiesel Shows Resilience in Real-World Storage Conditions",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "Stable Synthetic Biodiesel Shows Resilience in Real-World Storage Conditions",
+                      "href": null
+                    }
+                  ]
+                },
+                "Source Name": {
+                  "id": "%3D%3EdE",
+                  "type": "rich_text",
+                  "rich_text": [
+                    {
+                      "type": "text",
+                      "text": {
+                        "content": "Syntech Biofuel",
+                        "link": null
+                      },
+                      "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                      },
+                      "plain_text": "Syntech Biofuel",
+                      "href": null
+                    }
+                  ]
+                }
+              },
+              "url": "https://www.notion.so/Stable-Synthetic-Biodiesel-Shows-Resilience-in-Real-World-Storage-Conditions-304785c0cfab8107bb08c43462b0b261",
+              "public_url": null,
+              "request_id": "b371d01d-b36e-4e89-9697-d5a896d57214"
+            }
+          },
+          "webhookUrl": "https://syntech-biofuels.granite-automations.app/webhook/write-syntech-content-production",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
     ]
   },
   "repo_name": "syntech-backup-railway",
@@ -6333,9 +6228,15 @@
       "createdAt": "2026-02-04T09:42:46.339Z",
       "id": "ftTaThoU1OADDb6u",
       "name": "NEWS+"
+    },
+    {
+      "updatedAt": "2026-02-11T12:33:51.749Z",
+      "createdAt": "2026-02-11T12:33:51.749Z",
+      "id": "dvW8QJKPXc5kTHaQ",
+      "name": "SYNTECH"
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-02-09T11:32:45.595Z",
-  "versionId": "968517f7-11b0-4c5e-a85b-789deca3b467"
+  "updatedAt": "2026-02-11T19:12:54.644Z",
+  "versionId": "5c1fd980-d55b-437f-8d58-9939b572ae39"
 }
