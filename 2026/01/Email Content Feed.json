@@ -2998,7 +2998,7 @@
       "typeVersion": 1,
       "position": [
         -16,
-        60
+        64
       ],
       "id": "76d96b9e-1b83-4ae7-a4a7-50ded31c5f96",
       "name": "When clicking ‘Execute workflow’"
@@ -3017,7 +3017,7 @@
       "typeVersion": 1.3,
       "position": [
         -16,
-        252
+        256
       ],
       "id": "7f9a6e03-f736-4350-9f48-095d5fa0104d",
       "name": "Schedule Trigger"
@@ -3059,7 +3059,7 @@
       "typeVersion": 2.2,
       "position": [
         208,
-        156
+        160
       ],
       "id": "86075975-33d3-4af2-ab9e-663949a90ff8",
       "name": "Get New Ideas",
@@ -3168,7 +3168,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        2072,
+        2080,
         256
       ],
       "id": "8f1fb150-656f-4f4c-a73c-43c63a38651d",
@@ -3246,7 +3246,7 @@
       "typeVersion": 2.1,
       "position": [
         3024,
-        156
+        160
       ],
       "id": "d0d7f1c0-aac0-4a2c-bddd-2993e3494ad0",
       "name": "Send Email Update",
@@ -3267,7 +3267,7 @@
       "typeVersion": 2.1,
       "position": [
         -16,
-        844
+        848
       ],
       "id": "0d2b903a-126f-4469-a59b-2eab68d16b7f",
       "name": "Confirm Article",
@@ -3296,7 +3296,7 @@
       "typeVersion": 2.2,
       "position": [
         432,
-        1252
+        1264
       ],
       "id": "5e50f276-b0d5-46bf-991f-66e2a3bc4237",
       "name": "Approved By Management",
@@ -3336,7 +3336,7 @@
       "typeVersion": 2.2,
       "position": [
         208,
-        844
+        848
       ],
       "id": "e580c5fc-fcda-47d0-b1de-9c1ce6214b27",
       "name": "If Approve",
@@ -3365,7 +3365,7 @@
       "typeVersion": 2.2,
       "position": [
         3936,
-        844
+        848
       ],
       "id": "955e27d6-016f-4dcf-bd55-5957ca37eef8",
       "name": "Rejected By Management",
@@ -3391,7 +3391,7 @@
       "typeVersion": 2.1,
       "position": [
         4160,
-        892
+        896
       ],
       "id": "068c250c-4c08-4d6b-a4e1-d6dd33a2d0f9",
       "name": "Send Email Confirmation",
@@ -3453,7 +3453,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        56,
+        64,
         2576
       ],
       "id": "a99757fb-88b4-4cb1-8317-85936bb60916",
@@ -3530,8 +3530,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        56,
-        2040
+        64,
+        2048
       ],
       "id": "cf8ac376-4519-4fac-aa63-f029ee88e0fe",
       "name": "OpenAI Chat Model2",
@@ -3562,7 +3562,7 @@
       "typeVersion": 1.7,
       "position": [
         -16,
-        1816
+        1824
       ],
       "id": "e2d3a10f-b9b3-449e-b2a3-5fa57722d83b",
       "name": "Create Digestable Summary - Social Media Selection (With Image)",
@@ -3588,7 +3588,7 @@
       "typeVersion": 3.2,
       "position": [
         3040,
-        700
+        704
       ],
       "id": "0ebb4512-3b97-4ab4-918e-d7f0b8cf81d5",
       "name": "Merge",
@@ -3618,7 +3618,7 @@
       "typeVersion": 3.4,
       "position": [
         2816,
-        700
+        704
       ],
       "id": "f1f87064-a0c8-4b97-a405-bed67ba6dcce",
       "name": "Set ID and Prompt Name",
@@ -3642,7 +3642,7 @@
       "typeVersion": 2.2,
       "position": [
         2592,
-        700
+        704
       ],
       "id": "779699f9-08cc-4e0c-868f-aa4ad4be8573",
       "name": "Get Content Prompts",
@@ -3684,7 +3684,7 @@
       "typeVersion": 1,
       "position": [
         3264,
-        700
+        704
       ],
       "id": "da8eaaae-f7bd-42e5-8f0c-4676232496d9",
       "name": "Limit1",
@@ -3714,7 +3714,7 @@
       "typeVersion": 4.3,
       "position": [
         3488,
-        700
+        704
       ],
       "id": "a0c4a283-6005-48e8-9f7e-bda1aa2607f6",
       "name": "Trigger Notion Workflow",
@@ -3776,7 +3776,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        1672,
+        1680,
         1376
       ],
       "disabled": true
@@ -3929,7 +3929,7 @@
       "typeVersion": 3.2,
       "position": [
         3488,
-        1400
+        1408
       ],
       "disabled": true
     },
@@ -3997,7 +3997,7 @@
       "typeVersion": 2.2,
       "position": [
         2368,
-        1208
+        1216
       ],
       "id": "e24e4dd3-54c3-47bc-9166-9d1156fdf114",
       "name": "Add Research",
@@ -4043,7 +4043,7 @@
       "typeVersion": 2.2,
       "position": [
         3264,
-        1400
+        1408
       ],
       "id": "2d73ac2f-7bfb-4703-959b-7ddde8fcd6aa",
       "name": "Create New Research Item",
@@ -4076,7 +4076,7 @@
       "typeVersion": 2.2,
       "position": [
         3936,
-        1592
+        1600
       ],
       "id": "2f441156-9f6a-48a3-a4fc-18f9cb693486",
       "name": "Update Research Item",
@@ -4103,7 +4103,7 @@
       "typeVersion": 2.2,
       "position": [
         3040,
-        1400
+        1408
       ],
       "id": "d9815446-2168-481c-98ef-98b22590ffc8",
       "name": "Get Source Article Details",
@@ -4151,7 +4151,7 @@
       "typeVersion": 2.2,
       "position": [
         656,
-        1252
+        1264
       ],
       "id": "bedb16c7-0a70-428d-9d79-05d856aeb530",
       "name": "Get Block Content",
@@ -4171,7 +4171,7 @@
       "typeVersion": 2,
       "position": [
         880,
-        1252
+        1264
       ],
       "id": "19bba075-c00d-4101-85c1-ec0d61289184",
       "name": "Format Block Content",
@@ -4206,7 +4206,7 @@
       "typeVersion": 2.2,
       "position": [
         1328,
-        1252
+        1264
       ],
       "id": "d655e097-73fa-4ac1-9749-bd3b6a40611c",
       "name": "If Research",
@@ -4226,7 +4226,7 @@
       "typeVersion": 2.2,
       "position": [
         1104,
-        1252
+        1264
       ],
       "id": "96207062-3b37-467d-b881-432668f537d8",
       "name": "Check If Research Exists",
@@ -4290,7 +4290,7 @@
       "typeVersion": 2.2,
       "position": [
         3040,
-        1208
+        1216
       ],
       "id": "09667e3b-c272-4fe1-80e7-65817cd83a32",
       "name": "Get Content Prompts1",
@@ -4326,7 +4326,7 @@
       "typeVersion": 4.3,
       "position": [
         3936,
-        1208
+        1216
       ],
       "id": "1ccf6b41-ca5e-49fc-96e4-e1819bbea6ee",
       "name": "Trigger Notion Workflow1",
@@ -4346,7 +4346,7 @@
       "typeVersion": 2,
       "position": [
         3264,
-        1208
+        1216
       ],
       "id": "59e7c213-47f9-4b75-8fd2-d7339971b57d",
       "name": "Extract Prompt Metadata",
@@ -4362,7 +4362,7 @@
       "typeVersion": 2,
       "position": [
         3488,
-        1208
+        1216
       ],
       "id": "22881edb-93b2-4e2a-8686-9c7326b20276",
       "name": "Remove Duplicates",
@@ -4383,7 +4383,7 @@
       "typeVersion": 1,
       "position": [
         3712,
-        1208
+        1216
       ],
       "id": "8d16511d-1830-42c0-9919-2d708c6a3878",
       "name": "Aggregate1",
@@ -4398,8 +4398,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        3000,
-        1080
+        3008,
+        1088
       ],
       "id": "aa6b4e57-7b34-416c-98f5-f914b75e8a5e",
       "name": "Sticky Note",
@@ -4413,7 +4413,7 @@
       "typeVersion": 3,
       "position": [
         1104,
-        156
+        160
       ],
       "id": "65866290-1ebe-4996-a97f-2968f3e29082",
       "name": "Loop Over Items"
@@ -4426,7 +4426,7 @@
       "typeVersion": 2,
       "position": [
         656,
-        156
+        160
       ],
       "id": "9a9b2b2e-f49c-4bb6-ad5e-603412c19620",
       "name": "Group Content By Query"
@@ -4449,7 +4449,7 @@
       "typeVersion": 3.4,
       "position": [
         -16,
-        476
+        480
       ],
       "id": "6d970383-e817-4586-bf4d-32a64589aef5",
       "name": "Add Approval/ Rejection Buttons1",
@@ -4506,7 +4506,7 @@
       "typeVersion": 2.3,
       "position": [
         432,
-        156
+        160
       ],
       "id": "6e69c65d-e488-4a7c-bed5-4e1b5853915f",
       "name": "Get From 24h Ago"
@@ -4532,7 +4532,7 @@
       "typeVersion": 1,
       "position": [
         880,
-        156
+        160
       ],
       "id": "6b62c5c5-123f-4e99-8a90-0aef8d00d8ae",
       "name": "Limit2"
@@ -4603,7 +4603,7 @@
       "typeVersion": 3.4,
       "position": [
         208,
-        476
+        480
       ],
       "id": "b2f8e265-22ec-45f4-bd4f-b0645f659c55",
       "name": "Set Data OLD"
@@ -4627,11 +4627,24 @@
       "typeVersion": 1.7,
       "position": [
         432,
-        476
+        480
       ],
       "id": "dbce7ea2-67b2-43d8-9b71-f924411121f3",
       "name": "Create Digestable Summary - Social Media Selection NONCLUSTER",
       "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Fix\nSort order not working"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2992,
+        -80
+      ],
+      "id": "e62c59bb-12b6-49ee-acec-503b063a677f",
+      "name": "Sticky Note1"
     }
   ],
   "pinData": {},
@@ -4671,6 +4684,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2026-02-06T17:09:37.085Z",
-  "versionId": "fe4fd3f2-8383-45a0-a7dc-272afaa6dc04"
+  "updatedAt": "2026-02-11T11:11:19.603Z",
+  "versionId": "77f415d2-8eb1-4833-8003-4742abe934cf"
 }
