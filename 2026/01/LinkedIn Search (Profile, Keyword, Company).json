@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-04T15:21:25.198Z",
-    "createdAt": "2026-02-04T15:21:21.119Z",
-    "versionId": "843b318a-e6ba-4d76-8838-397c43caf002",
+    "updatedAt": "2026-02-12T06:54:43.268Z",
+    "createdAt": "2026-02-12T06:54:32.325Z",
+    "versionId": "97490799-a4a9-4d81-a023-63726ae50de8",
     "workflowId": "p9T1CJ8sI5Q18MoG",
     "nodes": [
       {
@@ -101,7 +101,8 @@
             "cachedResultName": "LinkedIn Profile Posts Bulk Scraper (No Cookies)⚡$2 per 1k (harvestapi/linkedin-profile-posts)",
             "cachedResultUrl": "https://console.apify.com/actors/A3cAPGpwBEG8RJwse/input"
           },
-          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
+          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
+          "timeout": {}
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
@@ -325,7 +326,8 @@
             "cachedResultName": "LinkedIn Company Posts Scraper (No Cookies) ✅ $2 per 1k (harvestapi/linkedin-company-posts)",
             "cachedResultUrl": "https://console.apify.com/actors/WI0tj4Ieb5Kq458gB/input"
           },
-          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
+          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
+          "timeout": {}
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
@@ -443,7 +445,8 @@
             "cachedResultName": "Linkedin Post Search Scraper (No Cookies) (harvestapi/linkedin-post-search)",
             "cachedResultUrl": "https://console.apify.com/actors/buIWk2uOUzTmcLsuB/input"
           },
-          "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}"
+          "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}",
+          "timeout": {}
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
@@ -832,6 +835,15 @@
             "cachedResultName": "NEWS+ LinkedIn",
             "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/ZxmRSG3yvK2zI93g"
           },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "createdAt",
+                "condition": "gte",
+                "keyValue": "={{ $now.minus(60, 'days') }}"
+              }
+            ]
+          },
           "returnAll": true
         },
         "type": "n8n-nodes-base.dataTable",
@@ -915,6 +927,38 @@
         "id": "a66723db-2eb2-4456-b7cc-df8008a5d095",
         "name": "Create a row1",
         "executeOnce": false
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "ZxmRSG3yvK2zI93g",
+            "mode": "list",
+            "cachedResultName": "NEWS+ LinkedIn",
+            "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/ZxmRSG3yvK2zI93g"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "createdAt",
+                "condition": "gt",
+                "keyValue": "={{ $now.minus(60, 'days') }}"
+              }
+            ]
+          },
+          "returnAll": true,
+          "orderBy": true
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
+        "position": [
+          -13424,
+          -3360
+        ],
+        "id": "f2cc509c-09fd-4ce1-bd27-899acf05c39c",
+        "name": "Get many rows filtered by date",
+        "executeOnce": true
       }
     ],
     "connections": {
@@ -1118,7 +1162,13 @@
       },
       "Create a row": {
         "main": [
-          []
+          [
+            {
+              "node": "Get many rows filtered by date",
+              "type": "main",
+              "index": 0
+            }
+          ]
         ]
       },
       "Linkedin keword scraper": {
@@ -1206,11 +1256,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "change to upsert",
+    "name": "many rows iltered by date test",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "843b318a-e6ba-4d76-8838-397c43caf002",
+  "activeVersionId": "97490799-a4a9-4d81-a023-63726ae50de8",
   "connections": {
     "Start": {
       "main": [
@@ -1412,7 +1462,13 @@
     },
     "Create a row": {
       "main": [
-        []
+        [
+          {
+            "node": "Get many rows filtered by date",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Linkedin keword scraper": {
@@ -1600,7 +1656,8 @@
           "cachedResultName": "LinkedIn Profile Posts Bulk Scraper (No Cookies)⚡$2 per 1k (harvestapi/linkedin-profile-posts)",
           "cachedResultUrl": "https://console.apify.com/actors/A3cAPGpwBEG8RJwse/input"
         },
-        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
+        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
+        "timeout": {}
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
@@ -1824,7 +1881,8 @@
           "cachedResultName": "LinkedIn Company Posts Scraper (No Cookies) ✅ $2 per 1k (harvestapi/linkedin-company-posts)",
           "cachedResultUrl": "https://console.apify.com/actors/WI0tj4Ieb5Kq458gB/input"
         },
-        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
+        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
+        "timeout": {}
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
@@ -1942,7 +2000,8 @@
           "cachedResultName": "Linkedin Post Search Scraper (No Cookies) (harvestapi/linkedin-post-search)",
           "cachedResultUrl": "https://console.apify.com/actors/buIWk2uOUzTmcLsuB/input"
         },
-        "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}"
+        "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}",
+        "timeout": {}
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
@@ -2331,6 +2390,15 @@
           "cachedResultName": "NEWS+ LinkedIn",
           "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/ZxmRSG3yvK2zI93g"
         },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "createdAt",
+              "condition": "gte",
+              "keyValue": "={{ $now.minus(60, 'days') }}"
+            }
+          ]
+        },
         "returnAll": true
       },
       "type": "n8n-nodes-base.dataTable",
@@ -2414,6 +2482,38 @@
       "id": "a66723db-2eb2-4456-b7cc-df8008a5d095",
       "name": "Create a row1",
       "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "ZxmRSG3yvK2zI93g",
+          "mode": "list",
+          "cachedResultName": "NEWS+ LinkedIn",
+          "cachedResultUrl": "/projects/U9sMeJya1DaokkjK/datatables/ZxmRSG3yvK2zI93g"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "createdAt",
+              "condition": "gt",
+              "keyValue": "={{ $now.minus(60, 'days') }}"
+            }
+          ]
+        },
+        "returnAll": true,
+        "orderBy": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -13424,
+        -3360
+      ],
+      "id": "f2cc509c-09fd-4ce1-bd27-899acf05c39c",
+      "name": "Get many rows filtered by date",
+      "executeOnce": true
     }
   ],
   "pinData": {},
@@ -2449,6 +2549,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-04T15:21:21.119Z",
-  "versionId": "843b318a-e6ba-4d76-8838-397c43caf002"
+  "updatedAt": "2026-02-12T06:54:32.323Z",
+  "versionId": "97490799-a4a9-4d81-a023-63726ae50de8"
 }
