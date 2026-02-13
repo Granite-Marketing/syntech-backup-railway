@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-11T12:50:57.658Z",
-    "createdAt": "2026-02-11T12:41:03.074Z",
-    "versionId": "dc7a91a0-0032-4450-9539-a310942bb1e6",
+    "updatedAt": "2026-02-12T07:00:07.787Z",
+    "createdAt": "2026-02-12T07:00:05.077Z",
+    "versionId": "c13edcae-2f58-4deb-a8b8-3fc60a2d67fe",
     "workflowId": "LD5_Lrj2Q4hN9kpTCWyxC",
     "nodes": [
       {
@@ -328,7 +328,7 @@
               {
                 "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
                 "name": "content",
-                "value": "={{ (function () {\n  // ========== STEP 0: Check if Markdown Already Processed ==========\n  const mdNode = $('Markdown1').item.json;\n  if (mdNode.linebreak && mdNode.linebreak.length > 0) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  // ========== STEP 1: Get HTML Content ==========\n  const html = $('extract content').item.json.data || '';\n  if (!html) return \"No content found\";\n\n  // ========== STEP 2: Isolate Main Content ==========\n  let mainContent = html;\n  \n  // Try to find article container (priority order)\n  const articleMatch = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\n  const mainMatch = html.match(/<main[^>]*>([\\s\\S]*?)<\\/main>/i);\n  const contentMatch = html.match(/<div[^>]*class=\"[^\"]*(?:post-content|article-body|entry-content)[^\"]*\"[^>]*>([\\s\\S]*?)<\\/div>/i);\n  \n  if (articleMatch) mainContent = articleMatch[1];\n  else if (mainMatch) mainContent = mainMatch[1];\n  else if (contentMatch) mainContent = contentMatch[1];\n\n  // ========== STEP 3: Remove Noise Elements ==========\n  mainContent = mainContent\n    // Scripts, styles, forms\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<noscript[\\s\\S]*?<\\/noscript>/gi, '')\n    .replace(/<form[\\s\\S]*?<\\/form>/gi, '')\n    .replace(/<svg[\\s\\S]*?<\\/svg>/gi, '')\n    // Navigation and UI elements\n    .replace(/<nav[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<header[\\s\\S]*?<\\/header>/gi, '')\n    .replace(/<footer[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<aside[\\s\\S]*?<\\/aside>/gi, '')\n    // Common noise classes\n    .replace(/<div[^>]*class=\"[^\"]*(?:sidebar|widget|ad|advertisement|social|share|newsletter|comments|related)[^\"]*\"[^>]*>[\\s\\S]*?<\\/div>/gi, '')\n    // Metadata and timestamps\n    .replace(/<time[^>]*>[\\s\\S]*?<\\/time>/gi, '')\n    .replace(/<span[^>]*class=\"[^\"]*(?:date|author|category|tag)[^\"]*\"[^>]*>[\\s\\S]*?<\\/span>/gi, '');\n\n  // ========== STEP 4: Convert Block Elements to Paragraphs ==========\n  mainContent = mainContent\n    .replace(/<\\/p>/gi, '</p>\\n\\n')           // Paragraph breaks\n    .replace(/<br\\s*\\/?>/gi, '\\n')            // Line breaks\n    .replace(/<\\/div>/gi, '</div>\\n')         // Div breaks\n    .replace(/<\\/h[1-6]>/gi, '</h>\\n\\n')      // Heading breaks\n    .replace(/<li[^>]*>/gi, '\\n• ')           // List items\n    .replace(/<\\/li>/gi, '\\n');\n\n  // ========== STEP 5: Strip Remaining Tags ==========\n  let text = mainContent\n    .replace(/<[^>]+>/g, ' ')\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\");\n\n  // ========== STEP 6: Clean Lines ==========\n  let lines = text\n    .split('\\n')\n    .map(line => line.trim())\n    .filter(line => {\n      if (!line) return false;\n      \n      // Remove short noise\n      if (line.length < 20) {\n        // But keep if it's a real headline (Title Case or punctuation)\n        const isTitleCase = /^[A-Z][a-z]+(\\s+[A-Z][a-z]+)*$/.test(line);\n        const hasPunctuation = /[.!?]$/.test(line);\n        if (!isTitleCase && !hasPunctuation) return false;\n      }\n\n      // Remove navigation patterns\n      const navPatterns = [\n        /^(home|about|contact|login|sign up|subscribe|menu|search|follow)/i,\n        /^©.*\\d{4}/,                    // Copyright\n        /privacy|terms|cookie/i,         // Legal\n        /(facebook|twitter|linkedin|instagram|share)/i,  // Social\n        /^\\d+\\s*(views|comments|shares)/i,  // Metrics\n        /^(all rights reserved|powered by)/i\n      ];\n      if (navPatterns.some(pattern => pattern.test(line))) return false;\n\n      // Remove lines with mostly symbols\n      const alphaRatio = (line.match(/[a-zA-Z]/g) || []).length / line.length;\n      if (alphaRatio < 0.5) return false;\n\n      return true;\n    });\n\n  // ========== STEP 7: Reconstruct Paragraphs ==========\n  let paragraphs = [];\n  let currentPara = '';\n\n  lines.forEach(line => {\n    // If line looks like a headline (short, title case, or ends with :)\n    if (line.length < 100 && (/^[A-Z][^.!?]*$/.test(line) || line.endsWith(':'))) {\n      if (currentPara) paragraphs.push(currentPara);\n      paragraphs.push(line);  // Headline as separate paragraph\n      currentPara = '';\n    } else {\n      // Accumulate sentences\n      currentPara += (currentPara ? ' ' : '') + line;\n      \n      // End paragraph on sentence boundary\n      if (/[.!?]$/.test(line)) {\n        paragraphs.push(currentPara);\n        currentPara = '';\n      }\n    }\n  });\n  \n  if (currentPara) paragraphs.push(currentPara);\n\n  // ========== STEP 8: Final Filtering ==========\n  const result = paragraphs\n    .filter(p => {\n      const words = p.split(/\\s+/).length;\n      // Keep headlines (short) or substantial paragraphs\n      return p.length < 100 || words >= 15;\n    })\n    .join('\\n\\n')\n    .trim();\n\n  return result || \"No article content found\";\n})() }}",
+                "value": "={{ $json.text }}",
                 "type": "string"
               },
               {
@@ -392,7 +392,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4672,
+          5200,
           592
         ],
         "id": "308630f8-64eb-4a12-ad50-e4647ceaf761",
@@ -402,11 +402,11 @@
         "parameters": {
           "content": "## News Scrap through keyword",
           "height": 1200,
-          "width": 5392
+          "width": 5760
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          -128,
+          -144,
           -112
         ],
         "typeVersion": 1,
@@ -770,7 +770,7 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          5056,
+          5424,
           592
         ],
         "id": "fddc3745-2504-4172-998a-57c999eb5615",
@@ -873,7 +873,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4832,
+          5200,
           192
         ],
         "id": "9224d8fd-9f72-43db-9e8b-7a90965dca1f",
@@ -1495,6 +1495,255 @@
         ],
         "id": "fff283a9-279f-43d2-a470-5feb7fc9cf5d",
         "name": "Code in JavaScript"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "6209ffc2-a660-4109-9ebe-97a95b8d2c6e",
+                "name": "data",
+                "value": "={{ (function () {\n  // ========== STEP 0: Check if Markdown Already Processed ==========\n  const mdNode = $('Markdown1').item.json;\n  if (mdNode.linebreak && mdNode.linebreak.length > 0) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  // ========== STEP 1: Get HTML Content ==========\n  const html = $('extract content').item.json.data || '';\n  if (!html) return \"No content found\";\n\n  // ========== STEP 2: Isolate Main Content ==========\n  let mainContent = html;\n  \n  // Try to find article container (priority order)\n  const articleMatch = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\n  const mainMatch = html.match(/<main[^>]*>([\\s\\S]*?)<\\/main>/i);\n  const contentMatch = html.match(/<div[^>]*class=\"[^\"]*(?:post-content|article-body|entry-content)[^\"]*\"[^>]*>([\\s\\S]*?)<\\/div>/i);\n  \n  if (articleMatch) mainContent = articleMatch[1];\n  else if (mainMatch) mainContent = mainMatch[1];\n  else if (contentMatch) mainContent = contentMatch[1];\n\n  // ========== STEP 3: Remove Noise Elements ==========\n  mainContent = mainContent\n    // Scripts, styles, forms\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<noscript[\\s\\S]*?<\\/noscript>/gi, '')\n    .replace(/<form[\\s\\S]*?<\\/form>/gi, '')\n    .replace(/<svg[\\s\\S]*?<\\/svg>/gi, '')\n    // Navigation and UI elements\n    .replace(/<nav[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<header[\\s\\S]*?<\\/header>/gi, '')\n    .replace(/<footer[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<aside[\\s\\S]*?<\\/aside>/gi, '')\n    // Common noise classes\n    .replace(/<div[^>]*class=\"[^\"]*(?:sidebar|widget|ad|advertisement|social|share|newsletter|comments|related)[^\"]*\"[^>]*>[\\s\\S]*?<\\/div>/gi, '')\n    // Metadata and timestamps\n    .replace(/<time[^>]*>[\\s\\S]*?<\\/time>/gi, '')\n    .replace(/<span[^>]*class=\"[^\"]*(?:date|author|category|tag)[^\"]*\"[^>]*>[\\s\\S]*?<\\/span>/gi, '');\n\n  // ========== STEP 4: Convert Block Elements to Paragraphs ==========\n  mainContent = mainContent\n    .replace(/<\\/p>/gi, '</p>\\n\\n')           // Paragraph breaks\n    .replace(/<br\\s*\\/?>/gi, '\\n')            // Line breaks\n    .replace(/<\\/div>/gi, '</div>\\n')         // Div breaks\n    .replace(/<\\/h[1-6]>/gi, '</h>\\n\\n')      // Heading breaks\n    .replace(/<li[^>]*>/gi, '\\n• ')           // List items\n    .replace(/<\\/li>/gi, '\\n');\n\n  // ========== STEP 5: Strip Remaining Tags ==========\n  let text = mainContent\n    .replace(/<[^>]+>/g, ' ')\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\");\n\n  // ========== STEP 6: Clean Lines ==========\n  let lines = text\n    .split('\\n')\n    .map(line => line.trim())\n    .filter(line => {\n      if (!line) return false;\n      \n      // Remove short noise\n      if (line.length < 20) {\n        // But keep if it's a real headline (Title Case or punctuation)\n        const isTitleCase = /^[A-Z][a-z]+(\\s+[A-Z][a-z]+)*$/.test(line);\n        const hasPunctuation = /[.!?]$/.test(line);\n        if (!isTitleCase && !hasPunctuation) return false;\n      }\n\n      // Remove navigation patterns\n      const navPatterns = [\n        /^(home|about|contact|login|sign up|subscribe|menu|search|follow)/i,\n        /^©.*\\d{4}/,                    // Copyright\n        /privacy|terms|cookie/i,         // Legal\n        /(facebook|twitter|linkedin|instagram|share)/i,  // Social\n        /^\\d+\\s*(views|comments|shares)/i,  // Metrics\n        /^(all rights reserved|powered by)/i\n      ];\n      if (navPatterns.some(pattern => pattern.test(line))) return false;\n\n      // Remove lines with mostly symbols\n      const alphaRatio = (line.match(/[a-zA-Z]/g) || []).length / line.length;\n      if (alphaRatio < 0.5) return false;\n\n      return true;\n    });\n\n  // ========== STEP 7: Reconstruct Paragraphs ==========\n  let paragraphs = [];\n  let currentPara = '';\n\n  lines.forEach(line => {\n    // If line looks like a headline (short, title case, or ends with :)\n    if (line.length < 100 && (/^[A-Z][^.!?]*$/.test(line) || line.endsWith(':'))) {\n      if (currentPara) paragraphs.push(currentPara);\n      paragraphs.push(line);  // Headline as separate paragraph\n      currentPara = '';\n    } else {\n      // Accumulate sentences\n      currentPara += (currentPara ? ' ' : '') + line;\n      \n      // End paragraph on sentence boundary\n      if (/[.!?]$/.test(line)) {\n        paragraphs.push(currentPara);\n        currentPara = '';\n      }\n    }\n  });\n  \n  if (currentPara) paragraphs.push(currentPara);\n\n  // ========== STEP 8: Final Filtering ==========\n  const result = paragraphs\n    .filter(p => {\n      const words = p.split(/\\s+/).length;\n      // Keep headlines (short) or substantial paragraphs\n      return p.length < 100 || words >= 15;\n    })\n    .join('\\n\\n')\n    .trim();\n\n  return result || \"No article content found\";\n})() }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          4592,
+          592
+        ],
+        "id": "dd05c258-a233-4898-8fae-9900d3861622",
+        "name": "Edit Fields"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-nano",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-nano"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          4784,
+          800
+        ],
+        "id": "d1912543-80e1-48a4-b9c0-f5e5e6929714",
+        "name": "OpenAI Chat Model3",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "1d34aa6b-dce8-4761-9a9a-a663f61a86ac",
+                "name": "title",
+                "value": "={{ $('Merge').item.json.title || $('Create summary and title8').item.json.output.title }}",
+                "type": "string"
+              },
+              {
+                "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
+                "name": "content",
+                "value": "={{ $json.text }}",
+                "type": "string"
+              },
+              {
+                "id": "f0c15fc7-071d-406d-8200-abecbf458836",
+                "name": "url",
+                "value": "={{\n  decodeURIComponent(\n    ($('Merge').item.json.link || '')\n      .replace(/^https?:\\/\\/www\\.google\\.com\\/url\\?.*?url=/, '')\n      .split('&')[0]\n  )\n}}",
+                "type": "string"
+              },
+              {
+                "id": "81fb049e-bbc7-49f8-b932-9f2d3ae0305d",
+                "name": "summary",
+                "value": "={{ $('Create summary and title8').item.json.output.summary }}",
+                "type": "string"
+              },
+              {
+                "id": "39872c24-4acc-4513-b7fb-7689cd511afb",
+                "name": "search_query",
+                "value": "={{ $('Either Url or Keyword5').first().json.url_or_keyword }}",
+                "type": "string"
+              },
+              {
+                "id": "42852696-c7af-4ce4-a273-e61970ef2e8f",
+                "name": "publication_date",
+                "value": "={{ $('Merge').item.json.date.toDateTime() || $('extract date1').item.json.publishedDate }}",
+                "type": "string"
+              },
+              {
+                "id": "6bd73285-c360-4b10-8567-8ae66ecba2bd",
+                "name": "prompt",
+                "value": "={{ $('When Executed by Another Workflow').first().json.prompt }}",
+                "type": "string"
+              },
+              {
+                "id": "101c6d7f-6e56-4362-9238-0b3e4fd7f14d",
+                "name": "additional_formats",
+                "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
+                "type": "string"
+              },
+              {
+                "id": "a0b9d46b-67d2-4152-b1fa-2306fa5751e4",
+                "name": "source",
+                "value": "Website",
+                "type": "string"
+              },
+              {
+                "id": "9fa24bce-6aa0-4d13-a106-54727cd4ee0b",
+                "name": "source_name",
+                "value": "={{ $('Either Url or Keyword5').first().json.set_source_name }}",
+                "type": "string"
+              },
+              {
+                "id": "9aea88f6-a629-4f42-ba37-8608bb631772",
+                "name": "mode",
+                "value": "={{ $('When Executed by Another Workflow').first().json.process_mode }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          816,
+          2752
+        ],
+        "id": "d7ee9cd5-b691-4c30-8fcb-d553dd19fd55",
+        "name": "RAG Web - Keyword Search2",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "6209ffc2-a660-4109-9ebe-97a95b8d2c6e",
+                "name": "data",
+                "value": "=Cover FeatureNewsArticles\n\nSearch\n\nSubscribe ▾\n\nHDT Magazine\n\nSubscribe | Digital Edition\n\nSept 23-25, 2026 | Scottsdale, AZ\n\nAftermarket\n\nAftermarket\n\nDrivers\n\nDrivers\n\nElectronic Logging Devices (ELDs)\n\nElectronic Logging Devices (ELDs)\n\nEquipment\n\nEquipment\n\nFleet Management\n\nFleet Management\n\nFuel Smarts\n\nFuel Smarts\n\nMaintenance\n\nMaintenance\n\nProducts\n\nProducts\n\nSafety & Compliance\n\nSafety & Compliance\n\nPhotos NewsArticles VideosMagazine BlogsEventsWhitepapersWebinars PodcastDisaster ResponseBuyer's Guide\n\nSubscriptionMeet the EditorsNewsletterAdvertiseAbout UsContact UsPrivacy PolicyTerms and ConditionsCookie SettingsBobit Business MediaMarketing SolutionsContribute Content Press Release\n\nMENU\n\nSEARCH\n\nSubscribe▴\n\nHome\\Fuel Smarts\n\n  Scania and DHL Testing Fuel-Extended Electric Truck\n\nScania and DHL believe electric vehicles with fuel-powered range extender could be an interim solution while fully electric trucks are being scaled and charging infrastructure built, the companies said.\n\nMerchants Experts・Fleet Management Company\n\nRead Merchants's Posts\n\nFebruary 20, 2025\n\nScania and DHL are jointly developing a Class 8 electric truck with a range-extending fuel-powered generator on board. \n\nPhoto: Scania\n\n4 min to read\n\nShare\n\n---\n\n---\n\nScania and DHL Group have jointly developed an electric truck with a fuel-powered generator, the companies announced.\n\nThis technology makes it possible to shift to battery-electric road transport without having to wait for a complete charging network. \n\nAd Loading...\n\nTransitional Technology\n\nAccording to the companies, fully electric vehicles are the ultimate solution in a sustainable transport system, and the shift to electric needs to accelerate now. \n\nThere are, however, hurdles standing in the way of fully electric trucks. These include the lack of charging points, the high costs of ensuring enough charging capacity at the depots during seasonal peaks. Scania and DHL also point to strain on the grid and high spot prices for electricity on for instance calm winter days. \n\nThis is where Scania and DHL’s Extended Range Electric Vehicle (EREV) comes into the picture.\n\nTrucking's \"Messy Middle\" Explained\n\nThe vehicle helps to overcome these hurdles while enabling DHL to drive 80% – 90% of the time on renewable electricity. This is thanks to a fuel-powered generator, which replaces one of the battery packs.\n\nThe new e-truck will be deployed by the Post & Parcel Germany division in February for parcel transport between Berlin and Hamburg to test its performance in day-to-day operations. Eventually, additional vehicles are added to DHL’s fleet. \n\nAd Loading...\n\nThe fuel-powered generator replaces one of the battery packs in a fully electric truck not needed for the majority of the transport routes, thus reducing the range coming from the batteries, but providing back-up energy for the mentioned scenarios. The vehicle has a possible range of 650 to 800 kilometers (subject to the findings from the test) and can be refueled at any conventional petrol station, if needed. \n\nThis compares with the 550-kilometer range of Scania’s 100% electric trucks with an equivalent maximum weight, the OEM said.\n\n A Pragmatic Sustainable Logistics Solution\n\n“It is going to take some time before renewable electricity is available,” said DHL Group CEO Tobias Meyer. “The grid and charging infrastructure are available and robust enough to rely fully on battery-electric trucks, especially for a large-scale system like the German parcel network of DHL. Instead of waiting for this day to come, DHL and Scania are collaborating on a pragmatic solution for making logistics more sustainable and reduce CO2 emissions by more than 80%. This vehicle is a sensible, practical solution that can make an immediate contribution to reducing greenhouse gas emissions in freight transport short-term. Such reductions should be proportionally reflected in the road toll pricing and EU fleet emission scheme. We see this collaboration as a successful innovation project of two companies committed to battle climate change.”\n\nThe EREV has been developed by Scania Pilot Partner, which the OEM launched to explore new transportation technologies and solutions.\n\nScania Pilot Partner is working together with DHL as a strategic partner to develop the new truck.\n\nAd Loading...\n\nThe Swedish truck OEM has been working on other hybrid powertrain solutions for heavy trucks, as well.\n\nAccording to the companies, range-extended electric vehicles offer a promising interim solution for significant CO2 emission reductions. This is especially true, they said, where infrastructure and other conditions for fully electric transport are lacking. \n\nA Messy Middle Solution \n\n“The future is electric, but perfect must not be the enemy of good as we are getting there,” said Christian Levin, CEO, Scania. “The vehicle we have developed together with DHL is an example of interim solutions that can enhance the scaling of decarbonized heavy transport before the transport system eventually becomes 100 percent electrified. An effective climate transition requires that policymakers accept such solutions, while ramping up their investments in public infrastructure and other enabling conditions.”\n\nScania Pilot Partner explores new transportation technologies and solutions.\n\nPhoto: Scania\n\nThe EREV is a 10.5-meter-long truck with a maximum weight of 40 metric tons, powered by a 230kW electric engine (295 kW peak). \n\nEnergy is delivered by a 416-kWh battery and a 120-kW gasoline powered generator. With the aid of the onboard generator – initially powered by petrol and later by diesel fuel or renewable diesel fuel – the truck’s range extends up to 800 kilometers. \n\nAd Loading...\n\nEREVs can be equipped with software limiting the usage of the fuel-powered generator. This allows CO2 emissions to be reduced and limited to a specified level. \n\nThe truck’s maximum speed is 89 km/h. It features a cargo capacity of approximately 1,000 parcels (volume of a swap body). The truck can also pull a trailer with an additional swap body.\n\n The vehicle is to be deployed for “main carriage” transport between the cities of Berlin and Hamburg.\n\nRelated: Nikola Files for Bankruptcy\n\nTopics:ScaniaTratonDiesel-Electric HybridsBattery-Electric TrucksBattery-Electric VehiclesEuropeDiesel Fuelrenewable dieselFuel Smarts\n\n More Fuel Smarts\n\nFuel Smarts•by News/Media Release•February 3, 2026\n\nResearchers Demonstrate Wireless Charging of Electric Heavy-Duty Truck at Highway Speeds\n\nPurdue researchers demonstrated a high-power wireless charging system capable of delivering energy to electric heavy-duty trucks at highway speeds, advancing the concept of electrified roadways for freight transportation.\n\nRead More →\n\nEquipment•by Deborah Lockridge•February 3, 2026\n\n EPA Wants to Know: Are DEF De-Rates Really Needed for Diesel Emissions Compliance?\n\nThe Environmental Protection Agency is asking diesel engine makers to provide information about diesel exhaust fluid system failures as it considers changes to emissions regulations.\n\nRead More →\n\nSponsored•February 1, 2026\n\nStop Watching Footage, Start Driving Results\n\n6 intelligent dashcam tactics to improve safety and boost ROI\n\nRead More →\n\nAd Loading...\n\nFuel Smarts•by Deborah Lockridge•January 29, 2026\n\n California: Clean Truck Check Rules Still in Force for Out-of-State Trucks, Despite EPA Disapproval\n\nThe Environmental Protection Agency said California can’t enforce its Heavy-Duty Inspection and Maintenance Regulation, known as Clean Truck Check, on vehicles registered outside the state. But California said it will keep enforcing the rule.\n\nRead More →\n\nFuel Smarts•January 27, 2026\n\nJustice Department Pulls Back on Criminal Prosecution of Diesel Emissions Deletes\n\nThe Trump administration has announced it will no longer criminally prosecute “diesel delete” cases of truck owners altering emissions systems in violation of EPA regulations. What does that mean for heavy-duty fleets?\n\nRead More →\n\nFuel Smarts•by Jack Roberts•January 26, 2026\n\n Why the Cummins X15N Changed the Conversation About Natural Gas Trucking\n\nNatural gas is quietly building a reputation as a clean, affordable, and reliable alternative fuel for long-haul trucks. And Ian MacDonald with Hexagon Agility says the Cummins X15N is a big reason why. \n\nRead More →\n\nAd Loading...\n\nFuel Smarts•by News/Media Release•January 21, 2026\n\nFirst Tesla Semi for RoadOne IntermodaLogistics \n\nRoadOne IntermodaLogistics has bought a fully electric Tesla Semi heavy-duty truck, the first of up to 10 for its Oakland, California, operations.\n\nRead More →\n\nFuel Smarts•by News/Media Release•January 20, 2026\n\n Mercedes-Benz Initiates Megawatt Charging and Long-Haul EV Truck Trials\n\nMercedes-Benz has begun a new series of tests in Europe to validate vehicle compatibility with megawatt chargers and assess charging performance, thermal management, and usability on long-haul duty routes.\n\nRead More →\n\nFuel Smarts•by News/Media Release•January 20, 2026\n\nWindrose Bundles Free EV Truck Charging with Greenlane Infrastructure\n\nWindrose customers will receive unlimited charging for three months on Greenlane’s high-power charging network.\n\nRead More →\n\nAd Loading...\n\nSponsored•January 19, 2026\n\n 3 New Ways Fleet Software Pays: ROI opportunities for modern fleet managers\n\nSafety, uptime, and insurance costs directly impact profitability. This eBook looks at how fleet software is evolving to deliver real ROI through proactive maintenance, AI-powered video telematics, and real-time driver coaching. Learn how fleets are reducing crashes, defending claims, and using integrated data to make smarter operational decisions.\n\nRead More →\n\nView All →\n\nConnect with us\n\n Topic\n\nAftermarket\nDrivers\nElectronic Logging Devices (ELDs)\nEquipment\nFleet Management\nFuel Smarts\nMaintenance\nProducts\nSafety & Compliance\n\nQuick Links\n\nPhotos\n News\nArticles\n Videos\nMagazine\n Blogs\nEvents\nWhitepapers\nWebinars\n Podcast\nDisaster Response\nBuyer's Guide\n\n Services\n\nSubscription\nMeet the Editors\nNewsletter\nAdvertise\nAbout Us\nContact Us\nPrivacy Policy\nTerms and Conditions\nCookie Settings\nBobit Business Media\nMarketing Solutions\nContribute Content\n Press Release\n\n© 2026 Bobit Business Media Inc. All rights reserved.\n\nPrivacy PolicyTerms of UseTerms of SaleDo Not Sell or Share My Personal Information",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          176,
+          2752
+        ],
+        "id": "72962652-276c-442e-a793-23cd9aa06460",
+        "name": "Edit Fields2",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=input={{ $json.data }}",
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=Extract ONLY the main article content from this HTML. Return the exact original text with no additions or modifications.\n\nKEEP:\n- Article headlines, paragraphs, lists, quotes\n- Multi-sentence text blocks (3+ sentences = likely article content)\n\nREMOVE:\n- Navigation (Home, About, Contact, Menu, Login, etc.)\n- Headers, footers, sidebars, ads, widgets\n- Social buttons (Share, Tweet, Follow, Like, etc.)\n- Comments, \"Related articles\", \"You may also like\"\n- Newsletter signups, cookie notices, legal text\n- Copyright (©), \"All Rights Reserved\", \"Powered by\"\n- Breadcrumbs (Home > News > Article)\n- Metadata labels (Published:, Category:, Tags:, Author:, Read time:)\n- Action buttons (Print, Email, Save, Subscribe)\n- Embedded ads, sponsored content, product widgets\n- Pagination (Page 1, Next, Previous)\n- Anything that appears on every page of the site\n\nRULES:\n1. Return ONLY text that exists in the HTML - do NOT generate or summarize\n2. If a line has 1-3 words and looks like navigation, remove it\n3. If a paragraph has 3+ sentences with proper punctuation, keep it\n4. Separate paragraphs with double line breaks\n5. Strip all HTML tags but preserve text structure\n6. Remove URLs unless they're part of a sentence\n7. If no clear article found, return \"No article content found\"\n\nOUTPUT: Plain text only, no HTML, no markdown, no preamble, no explanations. Start directly with the article content.\n\nHTML:\n{{ $json.data }}"
+              }
+            ]
+          },
+          "batching": {
+            "batchSize": 20
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.7,
+        "position": [
+          400,
+          2752
+        ],
+        "id": "d48ad3bd-e8fa-4f51-80a1-dc23d1bb97dc",
+        "name": "Create summary and title10",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000,
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-nano",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-nano"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          400,
+          2960
+        ],
+        "id": "16d99d5a-1dd8-4773-b4ef-2287d3de7a63",
+        "name": "OpenAI Chat Model4",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        },
+        "disabled": true
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          -112,
+          2752
+        ],
+        "id": "8fa76412-3464-44cc-bb55-05430aa545a9",
+        "name": "When clicking ‘Execute workflow’",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Extract the clean article content from the HTML below.\n\nCRITICAL: \n- If the input is exactly \"No article content found\", return that phrase unchanged.\n- Otherwise, there IS article content - extract it precisely by removing navigation, ads, and boilerplate while keeping all article text.\n\nHTML TO PROCESS:\n{{ $json.data }}",
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=You are a precision HTML article content extractor. Your core function:\n\nEXTRACT the main article text EXACTLY as written in the source HTML.\n- Do NOT add, generate, summarize, or rephrase anything\n- Do NOT skip content because it seems unclear - extract it anyway\n- ALWAYS return article content unless the input is literally \"No article content found\"\n\nASSUMPTION: There is ALWAYS article content in the HTML. Your job is to find and clean it.\n\nWHAT TO KEEP:\n✓ Main article headlines and subheadlines\n✓ ALL body paragraphs (multi-line text blocks with 2+ sentences)\n✓ Numbered or bulleted lists that are part of the article\n✓ Block quotes, pull quotes, and citations\n✓ Image captions if they provide context\n✓ Article dates/timestamps ONLY if part of the byline\n✓ Tables or data presented in the article\n✓ Interview Q&A sections (keep both questions and answers)\n✓ Numbered steps or instructions\n✓ Code snippets in technical articles\n✓ Timeline or chronological information\n\nWHAT TO REMOVE (Noise & Boilerplate):\n✗ Navigation menus (Home, About, Contact, Login, Menu, Subscribe, etc.)\n✗ Site headers and footers\n✗ Sidebars, widgets, and page chrome\n✗ Advertisements and promotional boxes\n✗ Social sharing UI (Share, Tweet, Facebook, LinkedIn, Follow us, etc.)\n✗ Comment sections and user discussions\n✗ \"Related articles\", \"You may also like\", \"Trending now\", \"Most popular\"\n✗ Newsletter signup forms and email capture\n✗ Cookie notices, privacy banners, legal disclaimers\n✗ Copyright statements (©, All Rights Reserved, Powered by, etc.)\n✗ Author bios (unless inline within the article body)\n✗ Site branding, taglines, and slogans\n✗ Breadcrumb trails (Home > Category > Article)\n✗ Metadata labels (Published:, Category:, Tags:, Read time:, Views:, etc.)\n✗ Media player controls (\"Listen to this\", audio/video UI)\n✗ Action buttons (Print, Email, Save, Download, Subscribe Now, etc.)\n✗ Search bars and site utilities\n✗ \"Jump to section\" or table of contents links (unless core to article)\n✗ Pagination controls (Page 1 of 3, Next, Previous, Load more)\n✗ Sponsored content labels and native advertising\n✗ App download prompts and install banners\n✗ Paywall messages (\"Subscribe to continue reading\")\n✗ Poll widgets, surveys, and interactive elements\n✗ User profile snippets\n✗ Product recommendation carousels\n✗ Live chat popups\n✗ Exit intent overlays\n✗ Event calendars and upcoming dates sidebars\n✗ Stock tickers and live data feeds\n✗ Forum thread metadata (posted by, replies, views)\n\nFORMATTING RULES:\n- Separate paragraphs with exactly TWO newline characters (\\n\\n)\n- Preserve original sentence structure, punctuation, and capitalization\n- Keep list formatting with bullet points (•) or numbers (1., 2., 3.)\n- Maintain headline hierarchy visually (but no markdown # symbols)\n- Strip ALL HTML tags completely while preserving text layout\n- Remove excessive whitespace but keep intentional paragraph breaks\n- Remove standalone URLs unless they are part of a readable sentence\n- Convert data tables to readable plain text format if present\n\nCONTENT IDENTIFICATION HEURISTICS:\n- Paragraphs with 3+ sentences and proper punctuation = article content (KEEP)\n- Headlines are typically 3-15 words in title case (KEEP)\n- Navigation items are 1-3 words, often single nouns (REMOVE)\n- True article content has varied sentence lengths and punctuation\n- Boilerplate text (copyright, legal) often repeats across pages (REMOVE)\n- Single-line text matching navigation patterns (Home, Menu, etc.) = noise (REMOVE)\n\nEDGE CASES:\n- Multiple articles: Extract ONLY the main/primary article\n- Mixed content types: Keep all that's part of the core article narrative\n- Nested quotes: Preserve them with proper attribution\n- Interview format: Keep both Q and A\n- Technical articles with code: Keep explanatory text AND code blocks\n- Timelines: Preserve chronological structure\n- When in doubt: INCLUDE rather than exclude\n\nOUTPUT REQUIREMENTS:\n- Return ONLY the cleaned article text\n- NO preamble (\"Here is the article:\")\n- NO postamble or explanatory notes\n- NO markdown formatting (**, ##, etc.)\n- NO HTML tags\n- Start directly with the article headline or first paragraph\n- Use plain text with line breaks only"
+              }
+            ]
+          },
+          "batching": {
+            "batchSize": 20
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.7,
+        "position": [
+          4784,
+          592
+        ],
+        "id": "b11944af-85d8-4d47-8db4-ff4a1ccf72a6",
+        "name": "Extracting Clean Article",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
       }
     ],
     "connections": {
@@ -1954,7 +2203,7 @@
         "main": [
           [
             {
-              "node": "RAG Web - Keyword Search1",
+              "node": "Edit Fields",
               "type": "main",
               "index": 0
             }
@@ -1998,14 +2247,91 @@
         "main": [
           []
         ]
+      },
+      "Edit Fields": {
+        "main": [
+          [
+            {
+              "node": "Extracting Clean Article",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model3": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Extracting Clean Article",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields2": {
+        "main": [
+          [
+            {
+              "node": "Create summary and title10",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create summary and title10": {
+        "main": [
+          [
+            {
+              "node": "RAG Web - Keyword Search2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model4": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create summary and title10",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "When clicking ‘Execute workflow’": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Extracting Clean Article": {
+        "main": [
+          [
+            {
+              "node": "RAG Web - Keyword Search1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Version dc7a91a0",
+    "name": "Version c13edcae",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "dc7a91a0-0032-4450-9539-a310942bb1e6",
+  "activeVersionId": "c13edcae-2f58-4deb-a8b8-3fc60a2d67fe",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2463,7 +2789,7 @@
       "main": [
         [
           {
-            "node": "RAG Web - Keyword Search1",
+            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
@@ -2506,6 +2832,83 @@
     "Code in JavaScript": {
       "main": [
         []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Extracting Clean Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Extracting Clean Article",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Create summary and title10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create summary and title10": {
+      "main": [
+        [
+          {
+            "node": "RAG Web - Keyword Search2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title10",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extracting Clean Article": {
+      "main": [
+        [
+          {
+            "node": "RAG Web - Keyword Search1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -2839,7 +3242,7 @@
             {
               "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
               "name": "content",
-              "value": "={{ (function () {\n  // ========== STEP 0: Check if Markdown Already Processed ==========\n  const mdNode = $('Markdown1').item.json;\n  if (mdNode.linebreak && mdNode.linebreak.length > 0) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  // ========== STEP 1: Get HTML Content ==========\n  const html = $('extract content').item.json.data || '';\n  if (!html) return \"No content found\";\n\n  // ========== STEP 2: Isolate Main Content ==========\n  let mainContent = html;\n  \n  // Try to find article container (priority order)\n  const articleMatch = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\n  const mainMatch = html.match(/<main[^>]*>([\\s\\S]*?)<\\/main>/i);\n  const contentMatch = html.match(/<div[^>]*class=\"[^\"]*(?:post-content|article-body|entry-content)[^\"]*\"[^>]*>([\\s\\S]*?)<\\/div>/i);\n  \n  if (articleMatch) mainContent = articleMatch[1];\n  else if (mainMatch) mainContent = mainMatch[1];\n  else if (contentMatch) mainContent = contentMatch[1];\n\n  // ========== STEP 3: Remove Noise Elements ==========\n  mainContent = mainContent\n    // Scripts, styles, forms\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<noscript[\\s\\S]*?<\\/noscript>/gi, '')\n    .replace(/<form[\\s\\S]*?<\\/form>/gi, '')\n    .replace(/<svg[\\s\\S]*?<\\/svg>/gi, '')\n    // Navigation and UI elements\n    .replace(/<nav[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<header[\\s\\S]*?<\\/header>/gi, '')\n    .replace(/<footer[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<aside[\\s\\S]*?<\\/aside>/gi, '')\n    // Common noise classes\n    .replace(/<div[^>]*class=\"[^\"]*(?:sidebar|widget|ad|advertisement|social|share|newsletter|comments|related)[^\"]*\"[^>]*>[\\s\\S]*?<\\/div>/gi, '')\n    // Metadata and timestamps\n    .replace(/<time[^>]*>[\\s\\S]*?<\\/time>/gi, '')\n    .replace(/<span[^>]*class=\"[^\"]*(?:date|author|category|tag)[^\"]*\"[^>]*>[\\s\\S]*?<\\/span>/gi, '');\n\n  // ========== STEP 4: Convert Block Elements to Paragraphs ==========\n  mainContent = mainContent\n    .replace(/<\\/p>/gi, '</p>\\n\\n')           // Paragraph breaks\n    .replace(/<br\\s*\\/?>/gi, '\\n')            // Line breaks\n    .replace(/<\\/div>/gi, '</div>\\n')         // Div breaks\n    .replace(/<\\/h[1-6]>/gi, '</h>\\n\\n')      // Heading breaks\n    .replace(/<li[^>]*>/gi, '\\n• ')           // List items\n    .replace(/<\\/li>/gi, '\\n');\n\n  // ========== STEP 5: Strip Remaining Tags ==========\n  let text = mainContent\n    .replace(/<[^>]+>/g, ' ')\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\");\n\n  // ========== STEP 6: Clean Lines ==========\n  let lines = text\n    .split('\\n')\n    .map(line => line.trim())\n    .filter(line => {\n      if (!line) return false;\n      \n      // Remove short noise\n      if (line.length < 20) {\n        // But keep if it's a real headline (Title Case or punctuation)\n        const isTitleCase = /^[A-Z][a-z]+(\\s+[A-Z][a-z]+)*$/.test(line);\n        const hasPunctuation = /[.!?]$/.test(line);\n        if (!isTitleCase && !hasPunctuation) return false;\n      }\n\n      // Remove navigation patterns\n      const navPatterns = [\n        /^(home|about|contact|login|sign up|subscribe|menu|search|follow)/i,\n        /^©.*\\d{4}/,                    // Copyright\n        /privacy|terms|cookie/i,         // Legal\n        /(facebook|twitter|linkedin|instagram|share)/i,  // Social\n        /^\\d+\\s*(views|comments|shares)/i,  // Metrics\n        /^(all rights reserved|powered by)/i\n      ];\n      if (navPatterns.some(pattern => pattern.test(line))) return false;\n\n      // Remove lines with mostly symbols\n      const alphaRatio = (line.match(/[a-zA-Z]/g) || []).length / line.length;\n      if (alphaRatio < 0.5) return false;\n\n      return true;\n    });\n\n  // ========== STEP 7: Reconstruct Paragraphs ==========\n  let paragraphs = [];\n  let currentPara = '';\n\n  lines.forEach(line => {\n    // If line looks like a headline (short, title case, or ends with :)\n    if (line.length < 100 && (/^[A-Z][^.!?]*$/.test(line) || line.endsWith(':'))) {\n      if (currentPara) paragraphs.push(currentPara);\n      paragraphs.push(line);  // Headline as separate paragraph\n      currentPara = '';\n    } else {\n      // Accumulate sentences\n      currentPara += (currentPara ? ' ' : '') + line;\n      \n      // End paragraph on sentence boundary\n      if (/[.!?]$/.test(line)) {\n        paragraphs.push(currentPara);\n        currentPara = '';\n      }\n    }\n  });\n  \n  if (currentPara) paragraphs.push(currentPara);\n\n  // ========== STEP 8: Final Filtering ==========\n  const result = paragraphs\n    .filter(p => {\n      const words = p.split(/\\s+/).length;\n      // Keep headlines (short) or substantial paragraphs\n      return p.length < 100 || words >= 15;\n    })\n    .join('\\n\\n')\n    .trim();\n\n  return result || \"No article content found\";\n})() }}",
+              "value": "={{ $json.text }}",
               "type": "string"
             },
             {
@@ -2903,7 +3306,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4672,
+        5200,
         592
       ],
       "id": "308630f8-64eb-4a12-ad50-e4647ceaf761",
@@ -2913,11 +3316,11 @@
       "parameters": {
         "content": "## News Scrap through keyword",
         "height": 1200,
-        "width": 5392
+        "width": 5760
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -128,
+        -144,
         -112
       ],
       "typeVersion": 1,
@@ -3281,7 +3684,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        5056,
+        5424,
         592
       ],
       "id": "fddc3745-2504-4172-998a-57c999eb5615",
@@ -3384,7 +3787,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4832,
+        5200,
         192
       ],
       "id": "9224d8fd-9f72-43db-9e8b-7a90965dca1f",
@@ -4006,15 +4409,264 @@
       ],
       "id": "fff283a9-279f-43d2-a470-5feb7fc9cf5d",
       "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6209ffc2-a660-4109-9ebe-97a95b8d2c6e",
+              "name": "data",
+              "value": "={{ (function () {\n  // ========== STEP 0: Check if Markdown Already Processed ==========\n  const mdNode = $('Markdown1').item.json;\n  if (mdNode.linebreak && mdNode.linebreak.length > 0) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  // ========== STEP 1: Get HTML Content ==========\n  const html = $('extract content').item.json.data || '';\n  if (!html) return \"No content found\";\n\n  // ========== STEP 2: Isolate Main Content ==========\n  let mainContent = html;\n  \n  // Try to find article container (priority order)\n  const articleMatch = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\n  const mainMatch = html.match(/<main[^>]*>([\\s\\S]*?)<\\/main>/i);\n  const contentMatch = html.match(/<div[^>]*class=\"[^\"]*(?:post-content|article-body|entry-content)[^\"]*\"[^>]*>([\\s\\S]*?)<\\/div>/i);\n  \n  if (articleMatch) mainContent = articleMatch[1];\n  else if (mainMatch) mainContent = mainMatch[1];\n  else if (contentMatch) mainContent = contentMatch[1];\n\n  // ========== STEP 3: Remove Noise Elements ==========\n  mainContent = mainContent\n    // Scripts, styles, forms\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<noscript[\\s\\S]*?<\\/noscript>/gi, '')\n    .replace(/<form[\\s\\S]*?<\\/form>/gi, '')\n    .replace(/<svg[\\s\\S]*?<\\/svg>/gi, '')\n    // Navigation and UI elements\n    .replace(/<nav[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<header[\\s\\S]*?<\\/header>/gi, '')\n    .replace(/<footer[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<aside[\\s\\S]*?<\\/aside>/gi, '')\n    // Common noise classes\n    .replace(/<div[^>]*class=\"[^\"]*(?:sidebar|widget|ad|advertisement|social|share|newsletter|comments|related)[^\"]*\"[^>]*>[\\s\\S]*?<\\/div>/gi, '')\n    // Metadata and timestamps\n    .replace(/<time[^>]*>[\\s\\S]*?<\\/time>/gi, '')\n    .replace(/<span[^>]*class=\"[^\"]*(?:date|author|category|tag)[^\"]*\"[^>]*>[\\s\\S]*?<\\/span>/gi, '');\n\n  // ========== STEP 4: Convert Block Elements to Paragraphs ==========\n  mainContent = mainContent\n    .replace(/<\\/p>/gi, '</p>\\n\\n')           // Paragraph breaks\n    .replace(/<br\\s*\\/?>/gi, '\\n')            // Line breaks\n    .replace(/<\\/div>/gi, '</div>\\n')         // Div breaks\n    .replace(/<\\/h[1-6]>/gi, '</h>\\n\\n')      // Heading breaks\n    .replace(/<li[^>]*>/gi, '\\n• ')           // List items\n    .replace(/<\\/li>/gi, '\\n');\n\n  // ========== STEP 5: Strip Remaining Tags ==========\n  let text = mainContent\n    .replace(/<[^>]+>/g, ' ')\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\");\n\n  // ========== STEP 6: Clean Lines ==========\n  let lines = text\n    .split('\\n')\n    .map(line => line.trim())\n    .filter(line => {\n      if (!line) return false;\n      \n      // Remove short noise\n      if (line.length < 20) {\n        // But keep if it's a real headline (Title Case or punctuation)\n        const isTitleCase = /^[A-Z][a-z]+(\\s+[A-Z][a-z]+)*$/.test(line);\n        const hasPunctuation = /[.!?]$/.test(line);\n        if (!isTitleCase && !hasPunctuation) return false;\n      }\n\n      // Remove navigation patterns\n      const navPatterns = [\n        /^(home|about|contact|login|sign up|subscribe|menu|search|follow)/i,\n        /^©.*\\d{4}/,                    // Copyright\n        /privacy|terms|cookie/i,         // Legal\n        /(facebook|twitter|linkedin|instagram|share)/i,  // Social\n        /^\\d+\\s*(views|comments|shares)/i,  // Metrics\n        /^(all rights reserved|powered by)/i\n      ];\n      if (navPatterns.some(pattern => pattern.test(line))) return false;\n\n      // Remove lines with mostly symbols\n      const alphaRatio = (line.match(/[a-zA-Z]/g) || []).length / line.length;\n      if (alphaRatio < 0.5) return false;\n\n      return true;\n    });\n\n  // ========== STEP 7: Reconstruct Paragraphs ==========\n  let paragraphs = [];\n  let currentPara = '';\n\n  lines.forEach(line => {\n    // If line looks like a headline (short, title case, or ends with :)\n    if (line.length < 100 && (/^[A-Z][^.!?]*$/.test(line) || line.endsWith(':'))) {\n      if (currentPara) paragraphs.push(currentPara);\n      paragraphs.push(line);  // Headline as separate paragraph\n      currentPara = '';\n    } else {\n      // Accumulate sentences\n      currentPara += (currentPara ? ' ' : '') + line;\n      \n      // End paragraph on sentence boundary\n      if (/[.!?]$/.test(line)) {\n        paragraphs.push(currentPara);\n        currentPara = '';\n      }\n    }\n  });\n  \n  if (currentPara) paragraphs.push(currentPara);\n\n  // ========== STEP 8: Final Filtering ==========\n  const result = paragraphs\n    .filter(p => {\n      const words = p.split(/\\s+/).length;\n      // Keep headlines (short) or substantial paragraphs\n      return p.length < 100 || words >= 15;\n    })\n    .join('\\n\\n')\n    .trim();\n\n  return result || \"No article content found\";\n})() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4592,
+        592
+      ],
+      "id": "dd05c258-a233-4898-8fae-9900d3861622",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        4784,
+        800
+      ],
+      "id": "d1912543-80e1-48a4-b9c0-f5e5e6929714",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d34aa6b-dce8-4761-9a9a-a663f61a86ac",
+              "name": "title",
+              "value": "={{ $('Merge').item.json.title || $('Create summary and title8').item.json.output.title }}",
+              "type": "string"
+            },
+            {
+              "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
+              "name": "content",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "f0c15fc7-071d-406d-8200-abecbf458836",
+              "name": "url",
+              "value": "={{\n  decodeURIComponent(\n    ($('Merge').item.json.link || '')\n      .replace(/^https?:\\/\\/www\\.google\\.com\\/url\\?.*?url=/, '')\n      .split('&')[0]\n  )\n}}",
+              "type": "string"
+            },
+            {
+              "id": "81fb049e-bbc7-49f8-b932-9f2d3ae0305d",
+              "name": "summary",
+              "value": "={{ $('Create summary and title8').item.json.output.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "39872c24-4acc-4513-b7fb-7689cd511afb",
+              "name": "search_query",
+              "value": "={{ $('Either Url or Keyword5').first().json.url_or_keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "42852696-c7af-4ce4-a273-e61970ef2e8f",
+              "name": "publication_date",
+              "value": "={{ $('Merge').item.json.date.toDateTime() || $('extract date1').item.json.publishedDate }}",
+              "type": "string"
+            },
+            {
+              "id": "6bd73285-c360-4b10-8567-8ae66ecba2bd",
+              "name": "prompt",
+              "value": "={{ $('When Executed by Another Workflow').first().json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "101c6d7f-6e56-4362-9238-0b3e4fd7f14d",
+              "name": "additional_formats",
+              "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "a0b9d46b-67d2-4152-b1fa-2306fa5751e4",
+              "name": "source",
+              "value": "Website",
+              "type": "string"
+            },
+            {
+              "id": "9fa24bce-6aa0-4d13-a106-54727cd4ee0b",
+              "name": "source_name",
+              "value": "={{ $('Either Url or Keyword5').first().json.set_source_name }}",
+              "type": "string"
+            },
+            {
+              "id": "9aea88f6-a629-4f42-ba37-8608bb631772",
+              "name": "mode",
+              "value": "={{ $('When Executed by Another Workflow').first().json.process_mode }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        816,
+        2752
+      ],
+      "id": "d7ee9cd5-b691-4c30-8fcb-d553dd19fd55",
+      "name": "RAG Web - Keyword Search2",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6209ffc2-a660-4109-9ebe-97a95b8d2c6e",
+              "name": "data",
+              "value": "=Cover FeatureNewsArticles\n\nSearch\n\nSubscribe ▾\n\nHDT Magazine\n\nSubscribe | Digital Edition\n\nSept 23-25, 2026 | Scottsdale, AZ\n\nAftermarket\n\nAftermarket\n\nDrivers\n\nDrivers\n\nElectronic Logging Devices (ELDs)\n\nElectronic Logging Devices (ELDs)\n\nEquipment\n\nEquipment\n\nFleet Management\n\nFleet Management\n\nFuel Smarts\n\nFuel Smarts\n\nMaintenance\n\nMaintenance\n\nProducts\n\nProducts\n\nSafety & Compliance\n\nSafety & Compliance\n\nPhotos NewsArticles VideosMagazine BlogsEventsWhitepapersWebinars PodcastDisaster ResponseBuyer's Guide\n\nSubscriptionMeet the EditorsNewsletterAdvertiseAbout UsContact UsPrivacy PolicyTerms and ConditionsCookie SettingsBobit Business MediaMarketing SolutionsContribute Content Press Release\n\nMENU\n\nSEARCH\n\nSubscribe▴\n\nHome\\Fuel Smarts\n\n  Scania and DHL Testing Fuel-Extended Electric Truck\n\nScania and DHL believe electric vehicles with fuel-powered range extender could be an interim solution while fully electric trucks are being scaled and charging infrastructure built, the companies said.\n\nMerchants Experts・Fleet Management Company\n\nRead Merchants's Posts\n\nFebruary 20, 2025\n\nScania and DHL are jointly developing a Class 8 electric truck with a range-extending fuel-powered generator on board. \n\nPhoto: Scania\n\n4 min to read\n\nShare\n\n---\n\n---\n\nScania and DHL Group have jointly developed an electric truck with a fuel-powered generator, the companies announced.\n\nThis technology makes it possible to shift to battery-electric road transport without having to wait for a complete charging network. \n\nAd Loading...\n\nTransitional Technology\n\nAccording to the companies, fully electric vehicles are the ultimate solution in a sustainable transport system, and the shift to electric needs to accelerate now. \n\nThere are, however, hurdles standing in the way of fully electric trucks. These include the lack of charging points, the high costs of ensuring enough charging capacity at the depots during seasonal peaks. Scania and DHL also point to strain on the grid and high spot prices for electricity on for instance calm winter days. \n\nThis is where Scania and DHL’s Extended Range Electric Vehicle (EREV) comes into the picture.\n\nTrucking's \"Messy Middle\" Explained\n\nThe vehicle helps to overcome these hurdles while enabling DHL to drive 80% – 90% of the time on renewable electricity. This is thanks to a fuel-powered generator, which replaces one of the battery packs.\n\nThe new e-truck will be deployed by the Post & Parcel Germany division in February for parcel transport between Berlin and Hamburg to test its performance in day-to-day operations. Eventually, additional vehicles are added to DHL’s fleet. \n\nAd Loading...\n\nThe fuel-powered generator replaces one of the battery packs in a fully electric truck not needed for the majority of the transport routes, thus reducing the range coming from the batteries, but providing back-up energy for the mentioned scenarios. The vehicle has a possible range of 650 to 800 kilometers (subject to the findings from the test) and can be refueled at any conventional petrol station, if needed. \n\nThis compares with the 550-kilometer range of Scania’s 100% electric trucks with an equivalent maximum weight, the OEM said.\n\n A Pragmatic Sustainable Logistics Solution\n\n“It is going to take some time before renewable electricity is available,” said DHL Group CEO Tobias Meyer. “The grid and charging infrastructure are available and robust enough to rely fully on battery-electric trucks, especially for a large-scale system like the German parcel network of DHL. Instead of waiting for this day to come, DHL and Scania are collaborating on a pragmatic solution for making logistics more sustainable and reduce CO2 emissions by more than 80%. This vehicle is a sensible, practical solution that can make an immediate contribution to reducing greenhouse gas emissions in freight transport short-term. Such reductions should be proportionally reflected in the road toll pricing and EU fleet emission scheme. We see this collaboration as a successful innovation project of two companies committed to battle climate change.”\n\nThe EREV has been developed by Scania Pilot Partner, which the OEM launched to explore new transportation technologies and solutions.\n\nScania Pilot Partner is working together with DHL as a strategic partner to develop the new truck.\n\nAd Loading...\n\nThe Swedish truck OEM has been working on other hybrid powertrain solutions for heavy trucks, as well.\n\nAccording to the companies, range-extended electric vehicles offer a promising interim solution for significant CO2 emission reductions. This is especially true, they said, where infrastructure and other conditions for fully electric transport are lacking. \n\nA Messy Middle Solution \n\n“The future is electric, but perfect must not be the enemy of good as we are getting there,” said Christian Levin, CEO, Scania. “The vehicle we have developed together with DHL is an example of interim solutions that can enhance the scaling of decarbonized heavy transport before the transport system eventually becomes 100 percent electrified. An effective climate transition requires that policymakers accept such solutions, while ramping up their investments in public infrastructure and other enabling conditions.”\n\nScania Pilot Partner explores new transportation technologies and solutions.\n\nPhoto: Scania\n\nThe EREV is a 10.5-meter-long truck with a maximum weight of 40 metric tons, powered by a 230kW electric engine (295 kW peak). \n\nEnergy is delivered by a 416-kWh battery and a 120-kW gasoline powered generator. With the aid of the onboard generator – initially powered by petrol and later by diesel fuel or renewable diesel fuel – the truck’s range extends up to 800 kilometers. \n\nAd Loading...\n\nEREVs can be equipped with software limiting the usage of the fuel-powered generator. This allows CO2 emissions to be reduced and limited to a specified level. \n\nThe truck’s maximum speed is 89 km/h. It features a cargo capacity of approximately 1,000 parcels (volume of a swap body). The truck can also pull a trailer with an additional swap body.\n\n The vehicle is to be deployed for “main carriage” transport between the cities of Berlin and Hamburg.\n\nRelated: Nikola Files for Bankruptcy\n\nTopics:ScaniaTratonDiesel-Electric HybridsBattery-Electric TrucksBattery-Electric VehiclesEuropeDiesel Fuelrenewable dieselFuel Smarts\n\n More Fuel Smarts\n\nFuel Smarts•by News/Media Release•February 3, 2026\n\nResearchers Demonstrate Wireless Charging of Electric Heavy-Duty Truck at Highway Speeds\n\nPurdue researchers demonstrated a high-power wireless charging system capable of delivering energy to electric heavy-duty trucks at highway speeds, advancing the concept of electrified roadways for freight transportation.\n\nRead More →\n\nEquipment•by Deborah Lockridge•February 3, 2026\n\n EPA Wants to Know: Are DEF De-Rates Really Needed for Diesel Emissions Compliance?\n\nThe Environmental Protection Agency is asking diesel engine makers to provide information about diesel exhaust fluid system failures as it considers changes to emissions regulations.\n\nRead More →\n\nSponsored•February 1, 2026\n\nStop Watching Footage, Start Driving Results\n\n6 intelligent dashcam tactics to improve safety and boost ROI\n\nRead More →\n\nAd Loading...\n\nFuel Smarts•by Deborah Lockridge•January 29, 2026\n\n California: Clean Truck Check Rules Still in Force for Out-of-State Trucks, Despite EPA Disapproval\n\nThe Environmental Protection Agency said California can’t enforce its Heavy-Duty Inspection and Maintenance Regulation, known as Clean Truck Check, on vehicles registered outside the state. But California said it will keep enforcing the rule.\n\nRead More →\n\nFuel Smarts•January 27, 2026\n\nJustice Department Pulls Back on Criminal Prosecution of Diesel Emissions Deletes\n\nThe Trump administration has announced it will no longer criminally prosecute “diesel delete” cases of truck owners altering emissions systems in violation of EPA regulations. What does that mean for heavy-duty fleets?\n\nRead More →\n\nFuel Smarts•by Jack Roberts•January 26, 2026\n\n Why the Cummins X15N Changed the Conversation About Natural Gas Trucking\n\nNatural gas is quietly building a reputation as a clean, affordable, and reliable alternative fuel for long-haul trucks. And Ian MacDonald with Hexagon Agility says the Cummins X15N is a big reason why. \n\nRead More →\n\nAd Loading...\n\nFuel Smarts•by News/Media Release•January 21, 2026\n\nFirst Tesla Semi for RoadOne IntermodaLogistics \n\nRoadOne IntermodaLogistics has bought a fully electric Tesla Semi heavy-duty truck, the first of up to 10 for its Oakland, California, operations.\n\nRead More →\n\nFuel Smarts•by News/Media Release•January 20, 2026\n\n Mercedes-Benz Initiates Megawatt Charging and Long-Haul EV Truck Trials\n\nMercedes-Benz has begun a new series of tests in Europe to validate vehicle compatibility with megawatt chargers and assess charging performance, thermal management, and usability on long-haul duty routes.\n\nRead More →\n\nFuel Smarts•by News/Media Release•January 20, 2026\n\nWindrose Bundles Free EV Truck Charging with Greenlane Infrastructure\n\nWindrose customers will receive unlimited charging for three months on Greenlane’s high-power charging network.\n\nRead More →\n\nAd Loading...\n\nSponsored•January 19, 2026\n\n 3 New Ways Fleet Software Pays: ROI opportunities for modern fleet managers\n\nSafety, uptime, and insurance costs directly impact profitability. This eBook looks at how fleet software is evolving to deliver real ROI through proactive maintenance, AI-powered video telematics, and real-time driver coaching. Learn how fleets are reducing crashes, defending claims, and using integrated data to make smarter operational decisions.\n\nRead More →\n\nView All →\n\nConnect with us\n\n Topic\n\nAftermarket\nDrivers\nElectronic Logging Devices (ELDs)\nEquipment\nFleet Management\nFuel Smarts\nMaintenance\nProducts\nSafety & Compliance\n\nQuick Links\n\nPhotos\n News\nArticles\n Videos\nMagazine\n Blogs\nEvents\nWhitepapers\nWebinars\n Podcast\nDisaster Response\nBuyer's Guide\n\n Services\n\nSubscription\nMeet the Editors\nNewsletter\nAdvertise\nAbout Us\nContact Us\nPrivacy Policy\nTerms and Conditions\nCookie Settings\nBobit Business Media\nMarketing Solutions\nContribute Content\n Press Release\n\n© 2026 Bobit Business Media Inc. All rights reserved.\n\nPrivacy PolicyTerms of UseTerms of SaleDo Not Sell or Share My Personal Information",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        176,
+        2752
+      ],
+      "id": "72962652-276c-442e-a793-23cd9aa06460",
+      "name": "Edit Fields2",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=input={{ $json.data }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Extract ONLY the main article content from this HTML. Return the exact original text with no additions or modifications.\n\nKEEP:\n- Article headlines, paragraphs, lists, quotes\n- Multi-sentence text blocks (3+ sentences = likely article content)\n\nREMOVE:\n- Navigation (Home, About, Contact, Menu, Login, etc.)\n- Headers, footers, sidebars, ads, widgets\n- Social buttons (Share, Tweet, Follow, Like, etc.)\n- Comments, \"Related articles\", \"You may also like\"\n- Newsletter signups, cookie notices, legal text\n- Copyright (©), \"All Rights Reserved\", \"Powered by\"\n- Breadcrumbs (Home > News > Article)\n- Metadata labels (Published:, Category:, Tags:, Author:, Read time:)\n- Action buttons (Print, Email, Save, Subscribe)\n- Embedded ads, sponsored content, product widgets\n- Pagination (Page 1, Next, Previous)\n- Anything that appears on every page of the site\n\nRULES:\n1. Return ONLY text that exists in the HTML - do NOT generate or summarize\n2. If a line has 1-3 words and looks like navigation, remove it\n3. If a paragraph has 3+ sentences with proper punctuation, keep it\n4. Separate paragraphs with double line breaks\n5. Strip all HTML tags but preserve text structure\n6. Remove URLs unless they're part of a sentence\n7. If no clear article found, return \"No article content found\"\n\nOUTPUT: Plain text only, no HTML, no markdown, no preamble, no explanations. Start directly with the article content.\n\nHTML:\n{{ $json.data }}"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 20
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        400,
+        2752
+      ],
+      "id": "d48ad3bd-e8fa-4f51-80a1-dc23d1bb97dc",
+      "name": "Create summary and title10",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        2960
+      ],
+      "id": "16d99d5a-1dd8-4773-b4ef-2287d3de7a63",
+      "name": "OpenAI Chat Model4",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        2752
+      ],
+      "id": "8fa76412-3464-44cc-bb55-05430aa545a9",
+      "name": "When clicking ‘Execute workflow’",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Extract the clean article content from the HTML below.\n\nCRITICAL: \n- If the input is exactly \"No article content found\", return that phrase unchanged.\n- Otherwise, there IS article content - extract it precisely by removing navigation, ads, and boilerplate while keeping all article text.\n\nHTML TO PROCESS:\n{{ $json.data }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are a precision HTML article content extractor. Your core function:\n\nEXTRACT the main article text EXACTLY as written in the source HTML.\n- Do NOT add, generate, summarize, or rephrase anything\n- Do NOT skip content because it seems unclear - extract it anyway\n- ALWAYS return article content unless the input is literally \"No article content found\"\n\nASSUMPTION: There is ALWAYS article content in the HTML. Your job is to find and clean it.\n\nWHAT TO KEEP:\n✓ Main article headlines and subheadlines\n✓ ALL body paragraphs (multi-line text blocks with 2+ sentences)\n✓ Numbered or bulleted lists that are part of the article\n✓ Block quotes, pull quotes, and citations\n✓ Image captions if they provide context\n✓ Article dates/timestamps ONLY if part of the byline\n✓ Tables or data presented in the article\n✓ Interview Q&A sections (keep both questions and answers)\n✓ Numbered steps or instructions\n✓ Code snippets in technical articles\n✓ Timeline or chronological information\n\nWHAT TO REMOVE (Noise & Boilerplate):\n✗ Navigation menus (Home, About, Contact, Login, Menu, Subscribe, etc.)\n✗ Site headers and footers\n✗ Sidebars, widgets, and page chrome\n✗ Advertisements and promotional boxes\n✗ Social sharing UI (Share, Tweet, Facebook, LinkedIn, Follow us, etc.)\n✗ Comment sections and user discussions\n✗ \"Related articles\", \"You may also like\", \"Trending now\", \"Most popular\"\n✗ Newsletter signup forms and email capture\n✗ Cookie notices, privacy banners, legal disclaimers\n✗ Copyright statements (©, All Rights Reserved, Powered by, etc.)\n✗ Author bios (unless inline within the article body)\n✗ Site branding, taglines, and slogans\n✗ Breadcrumb trails (Home > Category > Article)\n✗ Metadata labels (Published:, Category:, Tags:, Read time:, Views:, etc.)\n✗ Media player controls (\"Listen to this\", audio/video UI)\n✗ Action buttons (Print, Email, Save, Download, Subscribe Now, etc.)\n✗ Search bars and site utilities\n✗ \"Jump to section\" or table of contents links (unless core to article)\n✗ Pagination controls (Page 1 of 3, Next, Previous, Load more)\n✗ Sponsored content labels and native advertising\n✗ App download prompts and install banners\n✗ Paywall messages (\"Subscribe to continue reading\")\n✗ Poll widgets, surveys, and interactive elements\n✗ User profile snippets\n✗ Product recommendation carousels\n✗ Live chat popups\n✗ Exit intent overlays\n✗ Event calendars and upcoming dates sidebars\n✗ Stock tickers and live data feeds\n✗ Forum thread metadata (posted by, replies, views)\n\nFORMATTING RULES:\n- Separate paragraphs with exactly TWO newline characters (\\n\\n)\n- Preserve original sentence structure, punctuation, and capitalization\n- Keep list formatting with bullet points (•) or numbers (1., 2., 3.)\n- Maintain headline hierarchy visually (but no markdown # symbols)\n- Strip ALL HTML tags completely while preserving text layout\n- Remove excessive whitespace but keep intentional paragraph breaks\n- Remove standalone URLs unless they are part of a readable sentence\n- Convert data tables to readable plain text format if present\n\nCONTENT IDENTIFICATION HEURISTICS:\n- Paragraphs with 3+ sentences and proper punctuation = article content (KEEP)\n- Headlines are typically 3-15 words in title case (KEEP)\n- Navigation items are 1-3 words, often single nouns (REMOVE)\n- True article content has varied sentence lengths and punctuation\n- Boilerplate text (copyright, legal) often repeats across pages (REMOVE)\n- Single-line text matching navigation patterns (Home, Menu, etc.) = noise (REMOVE)\n\nEDGE CASES:\n- Multiple articles: Extract ONLY the main/primary article\n- Mixed content types: Keep all that's part of the core article narrative\n- Nested quotes: Preserve them with proper attribution\n- Interview format: Keep both Q and A\n- Technical articles with code: Keep explanatory text AND code blocks\n- Timelines: Preserve chronological structure\n- When in doubt: INCLUDE rather than exclude\n\nOUTPUT REQUIREMENTS:\n- Return ONLY the cleaned article text\n- NO preamble (\"Here is the article:\")\n- NO postamble or explanatory notes\n- NO markdown formatting (**, ##, etc.)\n- NO HTML tags\n- Start directly with the article headline or first paragraph\n- Use plain text with line breaks only"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 20
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        4784,
+        592
+      ],
+      "id": "b11944af-85d8-4d47-8db4-ff4a1ccf72a6",
+      "name": "Extracting Clean Article",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     }
   ],
   "pinData": {
     "When Executed by Another Workflow": [
       {
         "json": {
-          "id": "2f7785c0-cfab-80e8-966e-c3776aa73deb",
-          "name": "UCO",
-          "url": "https://www.notion.so/UCO-2f7785c0cfab80e8966ec3776aa73deb",
+          "id": "29d785c0-cfab-80d1-9848-ca2d0c215afa",
+          "name": "ISCC",
+          "url": "https://www.notion.so/ISCC-29d785c0cfab80d19848ca2d0c215afa",
           "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -4022,7 +4674,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "UCO"
+          "property_name": "ISCC"
         }
       }
     ]
@@ -4058,6 +4710,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-11T13:41:19.105Z",
-  "versionId": "dc7a91a0-0032-4450-9539-a310942bb1e6"
+  "updatedAt": "2026-02-12T07:00:05.072Z",
+  "versionId": "c13edcae-2f58-4deb-a8b8-3fc60a2d67fe"
 }
