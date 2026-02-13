@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-10T10:42:10.848Z",
-    "createdAt": "2026-02-10T10:38:14.577Z",
-    "versionId": "7ea7c91d-6f64-47bb-a349-2cb44c79eb26",
+    "updatedAt": "2026-02-12T07:55:33.286Z",
+    "createdAt": "2026-02-12T07:51:57.747Z",
+    "versionId": "7ee31f82-7dc0-4eb4-8a4f-246d68c0b6f1",
     "workflowId": "iMG6XApQjSxVQxIe",
     "nodes": [
       {
@@ -248,8 +248,8 @@
         "type": "n8n-nodes-base.markdown",
         "typeVersion": 1,
         "position": [
-          1360,
-          544
+          1040,
+          496
         ],
         "id": "adeb3b6f-8629-4dcd-a20a-32aff0e9f2b1",
         "name": "Markdown1"
@@ -262,8 +262,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          1136,
-          544
+          864,
+          496
         ],
         "id": "85560df6-6cf3-4658-8ff2-09bdaa9deb75",
         "name": "extract date1"
@@ -323,7 +323,7 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          2384,
+          2752,
           544
         ],
         "id": "e144fa64-fb52-4564-9f7a-b3d19ccf7084",
@@ -346,8 +346,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          1584,
-          544
+          1232,
+          496
         ],
         "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
         "name": "Create summary and title9"
@@ -360,8 +360,8 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1728,
-          768
+          1328,
+          720
         ],
         "id": "3f4b0c43-2572-47b7-8b1f-c75ae8b433a8",
         "name": "Structured Output Parser6"
@@ -405,13 +405,13 @@
         "parameters": {
           "content": "## Try to scrape this RSS article using Firecrawl",
           "height": 1088,
-          "width": 4224,
+          "width": 4592,
           "color": 4
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          -1648,
-          -96
+          -1664,
+          -736
         ],
         "typeVersion": 1,
         "id": "95cfe887-55c3-4096-a8ed-c3d121033698",
@@ -430,7 +430,7 @@
               {
                 "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
                 "name": "content",
-                "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------\nArticle page:\n{{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}",
+                "value": "={{ $json.text }}",
                 "type": "string"
               },
               {
@@ -494,8 +494,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2160,
-          544
+          2352,
+          480
         ],
         "id": "201bcada-7855-44de-8f45-c8cb60f0c6f9",
         "name": "RSS search fields"
@@ -577,7 +577,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2160,
+          2528,
           144
         ],
         "id": "c437d7f9-0353-42d6-b8b0-2f55d3ce5601",
@@ -672,8 +672,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          1600,
-          768
+          1168,
+          720
         ],
         "id": "ad0d3589-5805-464f-b0b0-eadf1d580089",
         "name": "DeepSeek 3.1",
@@ -902,7 +902,7 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          1936,
+          2304,
           144
         ],
         "id": "2476f19c-67c4-4dcd-9d5c-3e84ea9a4ca7",
@@ -996,8 +996,8 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          1936,
-          544
+          1536,
+          496
         ],
         "id": "d23ff821-5850-4923-8e11-ac1a2cca85e2",
         "name": "Create a row1",
@@ -1237,6 +1237,77 @@
         ],
         "id": "85f44f68-4bec-441c-a976-d0571a0a7435",
         "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e26a2ad4-804b-4a4d-8075-861705f91bb1",
+                "name": "data",
+                "value": "=Article page:\n{{ (function () {\n  // ========== STEP 0: Check if Markdown Already Processed ==========\n  const mdNode = $('Markdown1').item.json;\n  if (mdNode.linebreak && mdNode.linebreak.length > 0) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  // ========== STEP 1: Get HTML Content ==========\n  const html = $('extract content').item.json.data || '';\n  if (!html) return \"No content found\";\n\n  // ========== STEP 2: Isolate Main Content ==========\n  let mainContent = html;\n  \n  // Try to find article container (priority order)\n  const articleMatch = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\n  const mainMatch = html.match(/<main[^>]*>([\\s\\S]*?)<\\/main>/i);\n  const contentMatch = html.match(/<div[^>]*class=\"[^\"]*(?:post-content|article-body|entry-content)[^\"]*\"[^>]*>([\\s\\S]*?)<\\/div>/i);\n  \n  if (articleMatch) mainContent = articleMatch[1];\n  else if (mainMatch) mainContent = mainMatch[1];\n  else if (contentMatch) mainContent = contentMatch[1];\n\n  // ========== STEP 3: Remove Noise Elements ==========\n  mainContent = mainContent\n    // Scripts, styles, forms\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<noscript[\\s\\S]*?<\\/noscript>/gi, '')\n    .replace(/<form[\\s\\S]*?<\\/form>/gi, '')\n    .replace(/<svg[\\s\\S]*?<\\/svg>/gi, '')\n    // Navigation and UI elements\n    .replace(/<nav[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<header[\\s\\S]*?<\\/header>/gi, '')\n    .replace(/<footer[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<aside[\\s\\S]*?<\\/aside>/gi, '')\n    // Common noise classes\n    .replace(/<div[^>]*class=\"[^\"]*(?:sidebar|widget|ad|advertisement|social|share|newsletter|comments|related)[^\"]*\"[^>]*>[\\s\\S]*?<\\/div>/gi, '')\n    // Metadata and timestamps\n    .replace(/<time[^>]*>[\\s\\S]*?<\\/time>/gi, '')\n    .replace(/<span[^>]*class=\"[^\"]*(?:date|author|category|tag)[^\"]*\"[^>]*>[\\s\\S]*?<\\/span>/gi, '');\n\n  // ========== STEP 4: Convert Block Elements to Paragraphs ==========\n  mainContent = mainContent\n    .replace(/<\\/p>/gi, '</p>\\n\\n')           // Paragraph breaks\n    .replace(/<br\\s*\\/?>/gi, '\\n')            // Line breaks\n    .replace(/<\\/div>/gi, '</div>\\n')         // Div breaks\n    .replace(/<\\/h[1-6]>/gi, '</h>\\n\\n')      // Heading breaks\n    .replace(/<li[^>]*>/gi, '\\n• ')           // List items\n    .replace(/<\\/li>/gi, '\\n');\n\n  // ========== STEP 5: Strip Remaining Tags ==========\n  let text = mainContent\n    .replace(/<[^>]+>/g, ' ')\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\");\n\n  // ========== STEP 6: Clean Lines ==========\n  let lines = text\n    .split('\\n')\n    .map(line => line.trim())\n    .filter(line => {\n      if (!line) return false;\n      \n      // Remove short noise\n      if (line.length < 20) {\n        // But keep if it's a real headline (Title Case or punctuation)\n        const isTitleCase = /^[A-Z][a-z]+(\\s+[A-Z][a-z]+)*$/.test(line);\n        const hasPunctuation = /[.!?]$/.test(line);\n        if (!isTitleCase && !hasPunctuation) return false;\n      }\n\n      // Remove navigation patterns\n      const navPatterns = [\n        /^(home|about|contact|login|sign up|subscribe|menu|search|follow)/i,\n        /^©.*\\d{4}/,                    // Copyright\n        /privacy|terms|cookie/i,         // Legal\n        /(facebook|twitter|linkedin|instagram|share)/i,  // Social\n        /^\\d+\\s*(views|comments|shares)/i,  // Metrics\n        /^(all rights reserved|powered by)/i\n      ];\n      if (navPatterns.some(pattern => pattern.test(line))) return false;\n\n      // Remove lines with mostly symbols\n      const alphaRatio = (line.match(/[a-zA-Z]/g) || []).length / line.length;\n      if (alphaRatio < 0.5) return false;\n\n      return true;\n    });\n\n  // ========== STEP 7: Reconstruct Paragraphs ==========\n  let paragraphs = [];\n  let currentPara = '';\n\n  lines.forEach(line => {\n    // If line looks like a headline (short, title case, or ends with :)\n    if (line.length < 100 && (/^[A-Z][^.!?]*$/.test(line) || line.endsWith(':'))) {\n      if (currentPara) paragraphs.push(currentPara);\n      paragraphs.push(line);  // Headline as separate paragraph\n      currentPara = '';\n    } else {\n      // Accumulate sentences\n      currentPara += (currentPara ? ' ' : '') + line;\n      \n      // End paragraph on sentence boundary\n      if (/[.!?]$/.test(line)) {\n        paragraphs.push(currentPara);\n        currentPara = '';\n      }\n    }\n  });\n  \n  if (currentPara) paragraphs.push(currentPara);\n\n  // ========== STEP 8: Final Filtering ==========\n  const result = paragraphs\n    .filter(p => {\n      const words = p.split(/\\s+/).length;\n      // Keep headlines (short) or substantial paragraphs\n      return p.length < 100 || words >= 15;\n    })\n    .join('\\n\\n')\n    .trim();\n\n  return result || \"No article content found\";\n})() }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1712,
+          496
+        ],
+        "id": "14634843-fed9-41bf-bd00-768be891f6c0",
+        "name": "Edit Fields2"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-nano",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-nano"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          1936,
+          672
+        ],
+        "id": "4d398560-e895-4784-a5f2-cbfac2d29ab1",
+        "name": "OpenAI Chat Model",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Extract the clean article content from the HTML below.\n\nCRITICAL: \n- If the input is exactly \"No article content found\", return that phrase unchanged.\n- Otherwise, there IS article content - extract it precisely by removing navigation, ads, and boilerplate while keeping all article text.\n\nHTML TO PROCESS:\n{{ $json.data }}",
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=You are a precision HTML article content extractor. Your core function:\n\nEXTRACT the main article text EXACTLY as written in the source HTML.\n- Do NOT add, generate, summarize, or rephrase anything\n- Do NOT skip content because it seems unclear - extract it anyway\n- ALWAYS return article content unless the input is literally \"No article content found\"\n\nASSUMPTION: There is ALWAYS article content in the HTML. Your job is to find and clean it.\n\nWHAT TO KEEP:\n✓ Main article headlines and subheadlines\n✓ ALL body paragraphs (multi-line text blocks with 2+ sentences)\n✓ Numbered or bulleted lists that are part of the article\n✓ Block quotes, pull quotes, and citations\n✓ Image captions if they provide context\n✓ Article dates/timestamps ONLY if part of the byline\n✓ Tables or data presented in the article\n✓ Interview Q&A sections (keep both questions and answers)\n✓ Numbered steps or instructions\n✓ Code snippets in technical articles\n✓ Timeline or chronological information\n\nWHAT TO REMOVE (Noise & Boilerplate):\n✗ Navigation menus (Home, About, Contact, Login, Menu, Subscribe, etc.)\n✗ Site headers and footers\n✗ Sidebars, widgets, and page chrome\n✗ Advertisements and promotional boxes\n✗ Social sharing UI (Share, Tweet, Facebook, LinkedIn, Follow us, etc.)\n✗ Comment sections and user discussions\n✗ \"Related articles\", \"You may also like\", \"Trending now\", \"Most popular\"\n✗ Newsletter signup forms and email capture\n✗ Cookie notices, privacy banners, legal disclaimers\n✗ Copyright statements (©, All Rights Reserved, Powered by, etc.)\n✗ Author bios (unless inline within the article body)\n✗ Site branding, taglines, and slogans\n✗ Breadcrumb trails (Home > Category > Article)\n✗ Metadata labels (Published:, Category:, Tags:, Read time:, Views:, etc.)\n✗ Media player controls (\"Listen to this\", audio/video UI)\n✗ Action buttons (Print, Email, Save, Download, Subscribe Now, etc.)\n✗ Search bars and site utilities\n✗ \"Jump to section\" or table of contents links (unless core to article)\n✗ Pagination controls (Page 1 of 3, Next, Previous, Load more)\n✗ Sponsored content labels and native advertising\n✗ App download prompts and install banners\n✗ Paywall messages (\"Subscribe to continue reading\")\n✗ Poll widgets, surveys, and interactive elements\n✗ User profile snippets\n✗ Product recommendation carousels\n✗ Live chat popups\n✗ Exit intent overlays\n✗ Event calendars and upcoming dates sidebars\n✗ Stock tickers and live data feeds\n✗ Forum thread metadata (posted by, replies, views)\n\nFORMATTING RULES:\n- Separate paragraphs with exactly TWO newline characters (\\n\\n)\n- Preserve original sentence structure, punctuation, and capitalization\n- Keep list formatting with bullet points (•) or numbers (1., 2., 3.)\n- Maintain headline hierarchy visually (but no markdown # symbols)\n- Strip ALL HTML tags completely while preserving text layout\n- Remove excessive whitespace but keep intentional paragraph breaks\n- Remove standalone URLs unless they are part of a readable sentence\n- Convert data tables to readable plain text format if present\n\nCONTENT IDENTIFICATION HEURISTICS:\n- Paragraphs with 3+ sentences and proper punctuation = article content (KEEP)\n- Headlines are typically 3-15 words in title case (KEEP)\n- Navigation items are 1-3 words, often single nouns (REMOVE)\n- True article content has varied sentence lengths and punctuation\n- Boilerplate text (copyright, legal) often repeats across pages (REMOVE)\n- Single-line text matching navigation patterns (Home, Menu, etc.) = noise (REMOVE)\n\nEDGE CASES:\n- Multiple articles: Extract ONLY the main/primary article\n- Mixed content types: Keep all that's part of the core article narrative\n- Nested quotes: Preserve them with proper attribution\n- Interview format: Keep both Q and A\n- Technical articles with code: Keep explanatory text AND code blocks\n- Timelines: Preserve chronological structure\n- When in doubt: INCLUDE rather than exclude\n\nOUTPUT REQUIREMENTS:\n- Return ONLY the cleaned article text\n- NO preamble (\"Here is the article:\")\n- NO postamble or explanatory notes\n- NO markdown formatting (**, ##, etc.)\n- NO HTML tags\n- Start directly with the article headline or first paragraph\n- Use plain text with line breaks only"
+              }
+            ]
+          },
+          "batching": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.9,
+        "position": [
+          1920,
+          496
+        ],
+        "id": "a2e185a1-2a8b-4a08-827e-bd02a54196ad",
+        "name": "Extract Clean Content"
       }
     ],
     "connections": {
@@ -1592,7 +1663,7 @@
         "main": [
           [
             {
-              "node": "RSS search fields",
+              "node": "Edit Fields2",
               "type": "main",
               "index": 0
             }
@@ -1642,14 +1713,47 @@
             }
           ]
         ]
+      },
+      "Edit Fields2": {
+        "main": [
+          [
+            {
+              "node": "Extract Clean Content",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Extract Clean Content",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Extract Clean Content": {
+        "main": [
+          [
+            {
+              "node": "RSS search fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Version 7ea7c91d",
+    "name": "Version 7ee31f82",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "7ea7c91d-6f64-47bb-a349-2cb44c79eb26",
+  "activeVersionId": "7ee31f82-7dc0-4eb4-8a4f-246d68c0b6f1",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2003,7 +2107,7 @@
       "main": [
         [
           {
-            "node": "RSS search fields",
+            "node": "Edit Fields2",
             "type": "main",
             "index": 0
           }
@@ -2053,12 +2157,47 @@
           }
         ]
       ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Extract Clean Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Extract Clean Content",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Clean Content": {
+      "main": [
+        [
+          {
+            "node": "RSS search fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:06:07.080Z",
   "id": "iMG6XApQjSxVQxIe",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "RSS Website Search (With RSS URL)",
   "nodes": [
     {
@@ -2303,8 +2442,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        1360,
-        544
+        1040,
+        496
       ],
       "id": "adeb3b6f-8629-4dcd-a20a-32aff0e9f2b1",
       "name": "Markdown1"
@@ -2317,8 +2456,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1136,
-        544
+        864,
+        496
       ],
       "id": "85560df6-6cf3-4658-8ff2-09bdaa9deb75",
       "name": "extract date1"
@@ -2378,7 +2517,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2384,
+        2752,
         544
       ],
       "id": "e144fa64-fb52-4564-9f7a-b3d19ccf7084",
@@ -2401,8 +2540,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        1584,
-        544
+        1232,
+        496
       ],
       "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
       "name": "Create summary and title9"
@@ -2415,8 +2554,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1728,
-        768
+        1328,
+        720
       ],
       "id": "3f4b0c43-2572-47b7-8b1f-c75ae8b433a8",
       "name": "Structured Output Parser6"
@@ -2460,13 +2599,13 @@
       "parameters": {
         "content": "## Try to scrape this RSS article using Firecrawl",
         "height": 1088,
-        "width": 4224,
+        "width": 4592,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1648,
-        -96
+        -1664,
+        -736
       ],
       "typeVersion": 1,
       "id": "95cfe887-55c3-4096-a8ed-c3d121033698",
@@ -2485,7 +2624,7 @@
             {
               "id": "ab5c9158-a33a-4f8f-b6d0-a6787df0f0d5",
               "name": "content",
-              "value": "=RSS Article Description: \n{{ $if($('Merge').isExecuted, $('Merge').item.json['content:encodedSnippet'], '') || '' }}\n{{ $if($('Merge').isExecuted, $('Merge').item.json.contentSnippet, '') }}\n------------------\nArticle page:\n{{ (function () {\n\n  const mdNode = $('Markdown1').item.json;\n  const hasLinebreak =\n    mdNode.linebreak && mdNode.linebreak.length > 0;\n\n  //  CASE 1: linebreak present → use directly\n  if (hasLinebreak) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  //  CASE 2: no linebreak → use extract content + step 2 & 3\n  let rawData = $('extract content').item.json.data || '';\n\n  // 2️ Extract Metadata Description\n  let metaMatch =\n    rawData.match(/<meta[^>]*property=[\"']og:description[\"'][^>]*content=[\"']([^\"']*)[\"']/i) ||\n    rawData.match(/<meta[^>]*name=[\"']description[\"'][^>]*content=[\"']([^\"']*)[\"']/i);\n\n  let metaDescription = metaMatch ? metaMatch[1] : '';\n\n  // 3️ Clean HTML body\n  let cleanedPage = rawData\n    .replace(/<script[\\s\\S]*?>[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?>[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<nav[\\s\\S]*?>[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<footer[\\s\\S]*?>[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<header[\\s\\S]*?>[\\s\\S]*?<\\/header>/gi, '')\n    .removeTags()\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/^(home|categories|guidelines|terms of service|privacy policy|powered by.*)$/gmi, '')\n    .replace(/^\\s+$/gm, '')\n    .replace(/[ \\t]+/g, ' ')\n    .replace(/\\n{3,}/g, '\\n\\n')\n    .trim();\n\n  return (metaDescription + \"\\n\\n\" + cleanedPage).trim() || \"No content found\";\n\n})() }}",
+              "value": "={{ $json.text }}",
               "type": "string"
             },
             {
@@ -2549,8 +2688,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2160,
-        544
+        2352,
+        480
       ],
       "id": "201bcada-7855-44de-8f45-c8cb60f0c6f9",
       "name": "RSS search fields"
@@ -2632,7 +2771,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2160,
+        2528,
         144
       ],
       "id": "c437d7f9-0353-42d6-b8b0-2f55d3ce5601",
@@ -2727,8 +2866,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1600,
-        768
+        1168,
+        720
       ],
       "id": "ad0d3589-5805-464f-b0b0-eadf1d580089",
       "name": "DeepSeek 3.1",
@@ -2957,7 +3096,7 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        1936,
+        2304,
         144
       ],
       "id": "2476f19c-67c4-4dcd-9d5c-3e84ea9a4ca7",
@@ -3051,8 +3190,8 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        1936,
-        544
+        1536,
+        496
       ],
       "id": "d23ff821-5850-4923-8e11-ac1a2cca85e2",
       "name": "Create a row1",
@@ -3292,6 +3431,77 @@
       ],
       "id": "85f44f68-4bec-441c-a976-d0571a0a7435",
       "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e26a2ad4-804b-4a4d-8075-861705f91bb1",
+              "name": "data",
+              "value": "=Article page:\n{{ (function () {\n  // ========== STEP 0: Check if Markdown Already Processed ==========\n  const mdNode = $('Markdown1').item.json;\n  if (mdNode.linebreak && mdNode.linebreak.length > 0) {\n    return mdNode.linebreak.removeMarkdown();\n  }\n\n  // ========== STEP 1: Get HTML Content ==========\n  const html = $('extract content').item.json.data || '';\n  if (!html) return \"No content found\";\n\n  // ========== STEP 2: Isolate Main Content ==========\n  let mainContent = html;\n  \n  // Try to find article container (priority order)\n  const articleMatch = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\n  const mainMatch = html.match(/<main[^>]*>([\\s\\S]*?)<\\/main>/i);\n  const contentMatch = html.match(/<div[^>]*class=\"[^\"]*(?:post-content|article-body|entry-content)[^\"]*\"[^>]*>([\\s\\S]*?)<\\/div>/i);\n  \n  if (articleMatch) mainContent = articleMatch[1];\n  else if (mainMatch) mainContent = mainMatch[1];\n  else if (contentMatch) mainContent = contentMatch[1];\n\n  // ========== STEP 3: Remove Noise Elements ==========\n  mainContent = mainContent\n    // Scripts, styles, forms\n    .replace(/<script[\\s\\S]*?<\\/script>/gi, '')\n    .replace(/<style[\\s\\S]*?<\\/style>/gi, '')\n    .replace(/<noscript[\\s\\S]*?<\\/noscript>/gi, '')\n    .replace(/<form[\\s\\S]*?<\\/form>/gi, '')\n    .replace(/<svg[\\s\\S]*?<\\/svg>/gi, '')\n    // Navigation and UI elements\n    .replace(/<nav[\\s\\S]*?<\\/nav>/gi, '')\n    .replace(/<header[\\s\\S]*?<\\/header>/gi, '')\n    .replace(/<footer[\\s\\S]*?<\\/footer>/gi, '')\n    .replace(/<aside[\\s\\S]*?<\\/aside>/gi, '')\n    // Common noise classes\n    .replace(/<div[^>]*class=\"[^\"]*(?:sidebar|widget|ad|advertisement|social|share|newsletter|comments|related)[^\"]*\"[^>]*>[\\s\\S]*?<\\/div>/gi, '')\n    // Metadata and timestamps\n    .replace(/<time[^>]*>[\\s\\S]*?<\\/time>/gi, '')\n    .replace(/<span[^>]*class=\"[^\"]*(?:date|author|category|tag)[^\"]*\"[^>]*>[\\s\\S]*?<\\/span>/gi, '');\n\n  // ========== STEP 4: Convert Block Elements to Paragraphs ==========\n  mainContent = mainContent\n    .replace(/<\\/p>/gi, '</p>\\n\\n')           // Paragraph breaks\n    .replace(/<br\\s*\\/?>/gi, '\\n')            // Line breaks\n    .replace(/<\\/div>/gi, '</div>\\n')         // Div breaks\n    .replace(/<\\/h[1-6]>/gi, '</h>\\n\\n')      // Heading breaks\n    .replace(/<li[^>]*>/gi, '\\n• ')           // List items\n    .replace(/<\\/li>/gi, '\\n');\n\n  // ========== STEP 5: Strip Remaining Tags ==========\n  let text = mainContent\n    .replace(/<[^>]+>/g, ' ')\n    .replace(/&nbsp;/gi, ' ')\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/&quot;/gi, '\"')\n    .replace(/&#39;/gi, \"'\");\n\n  // ========== STEP 6: Clean Lines ==========\n  let lines = text\n    .split('\\n')\n    .map(line => line.trim())\n    .filter(line => {\n      if (!line) return false;\n      \n      // Remove short noise\n      if (line.length < 20) {\n        // But keep if it's a real headline (Title Case or punctuation)\n        const isTitleCase = /^[A-Z][a-z]+(\\s+[A-Z][a-z]+)*$/.test(line);\n        const hasPunctuation = /[.!?]$/.test(line);\n        if (!isTitleCase && !hasPunctuation) return false;\n      }\n\n      // Remove navigation patterns\n      const navPatterns = [\n        /^(home|about|contact|login|sign up|subscribe|menu|search|follow)/i,\n        /^©.*\\d{4}/,                    // Copyright\n        /privacy|terms|cookie/i,         // Legal\n        /(facebook|twitter|linkedin|instagram|share)/i,  // Social\n        /^\\d+\\s*(views|comments|shares)/i,  // Metrics\n        /^(all rights reserved|powered by)/i\n      ];\n      if (navPatterns.some(pattern => pattern.test(line))) return false;\n\n      // Remove lines with mostly symbols\n      const alphaRatio = (line.match(/[a-zA-Z]/g) || []).length / line.length;\n      if (alphaRatio < 0.5) return false;\n\n      return true;\n    });\n\n  // ========== STEP 7: Reconstruct Paragraphs ==========\n  let paragraphs = [];\n  let currentPara = '';\n\n  lines.forEach(line => {\n    // If line looks like a headline (short, title case, or ends with :)\n    if (line.length < 100 && (/^[A-Z][^.!?]*$/.test(line) || line.endsWith(':'))) {\n      if (currentPara) paragraphs.push(currentPara);\n      paragraphs.push(line);  // Headline as separate paragraph\n      currentPara = '';\n    } else {\n      // Accumulate sentences\n      currentPara += (currentPara ? ' ' : '') + line;\n      \n      // End paragraph on sentence boundary\n      if (/[.!?]$/.test(line)) {\n        paragraphs.push(currentPara);\n        currentPara = '';\n      }\n    }\n  });\n  \n  if (currentPara) paragraphs.push(currentPara);\n\n  // ========== STEP 8: Final Filtering ==========\n  const result = paragraphs\n    .filter(p => {\n      const words = p.split(/\\s+/).length;\n      // Keep headlines (short) or substantial paragraphs\n      return p.length < 100 || words >= 15;\n    })\n    .join('\\n\\n')\n    .trim();\n\n  return result || \"No article content found\";\n})() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1712,
+        496
+      ],
+      "id": "14634843-fed9-41bf-bd00-768be891f6c0",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1936,
+        672
+      ],
+      "id": "4d398560-e895-4784-a5f2-cbfac2d29ab1",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Extract the clean article content from the HTML below.\n\nCRITICAL: \n- If the input is exactly \"No article content found\", return that phrase unchanged.\n- Otherwise, there IS article content - extract it precisely by removing navigation, ads, and boilerplate while keeping all article text.\n\nHTML TO PROCESS:\n{{ $json.data }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are a precision HTML article content extractor. Your core function:\n\nEXTRACT the main article text EXACTLY as written in the source HTML.\n- Do NOT add, generate, summarize, or rephrase anything\n- Do NOT skip content because it seems unclear - extract it anyway\n- ALWAYS return article content unless the input is literally \"No article content found\"\n\nASSUMPTION: There is ALWAYS article content in the HTML. Your job is to find and clean it.\n\nWHAT TO KEEP:\n✓ Main article headlines and subheadlines\n✓ ALL body paragraphs (multi-line text blocks with 2+ sentences)\n✓ Numbered or bulleted lists that are part of the article\n✓ Block quotes, pull quotes, and citations\n✓ Image captions if they provide context\n✓ Article dates/timestamps ONLY if part of the byline\n✓ Tables or data presented in the article\n✓ Interview Q&A sections (keep both questions and answers)\n✓ Numbered steps or instructions\n✓ Code snippets in technical articles\n✓ Timeline or chronological information\n\nWHAT TO REMOVE (Noise & Boilerplate):\n✗ Navigation menus (Home, About, Contact, Login, Menu, Subscribe, etc.)\n✗ Site headers and footers\n✗ Sidebars, widgets, and page chrome\n✗ Advertisements and promotional boxes\n✗ Social sharing UI (Share, Tweet, Facebook, LinkedIn, Follow us, etc.)\n✗ Comment sections and user discussions\n✗ \"Related articles\", \"You may also like\", \"Trending now\", \"Most popular\"\n✗ Newsletter signup forms and email capture\n✗ Cookie notices, privacy banners, legal disclaimers\n✗ Copyright statements (©, All Rights Reserved, Powered by, etc.)\n✗ Author bios (unless inline within the article body)\n✗ Site branding, taglines, and slogans\n✗ Breadcrumb trails (Home > Category > Article)\n✗ Metadata labels (Published:, Category:, Tags:, Read time:, Views:, etc.)\n✗ Media player controls (\"Listen to this\", audio/video UI)\n✗ Action buttons (Print, Email, Save, Download, Subscribe Now, etc.)\n✗ Search bars and site utilities\n✗ \"Jump to section\" or table of contents links (unless core to article)\n✗ Pagination controls (Page 1 of 3, Next, Previous, Load more)\n✗ Sponsored content labels and native advertising\n✗ App download prompts and install banners\n✗ Paywall messages (\"Subscribe to continue reading\")\n✗ Poll widgets, surveys, and interactive elements\n✗ User profile snippets\n✗ Product recommendation carousels\n✗ Live chat popups\n✗ Exit intent overlays\n✗ Event calendars and upcoming dates sidebars\n✗ Stock tickers and live data feeds\n✗ Forum thread metadata (posted by, replies, views)\n\nFORMATTING RULES:\n- Separate paragraphs with exactly TWO newline characters (\\n\\n)\n- Preserve original sentence structure, punctuation, and capitalization\n- Keep list formatting with bullet points (•) or numbers (1., 2., 3.)\n- Maintain headline hierarchy visually (but no markdown # symbols)\n- Strip ALL HTML tags completely while preserving text layout\n- Remove excessive whitespace but keep intentional paragraph breaks\n- Remove standalone URLs unless they are part of a readable sentence\n- Convert data tables to readable plain text format if present\n\nCONTENT IDENTIFICATION HEURISTICS:\n- Paragraphs with 3+ sentences and proper punctuation = article content (KEEP)\n- Headlines are typically 3-15 words in title case (KEEP)\n- Navigation items are 1-3 words, often single nouns (REMOVE)\n- True article content has varied sentence lengths and punctuation\n- Boilerplate text (copyright, legal) often repeats across pages (REMOVE)\n- Single-line text matching navigation patterns (Home, Menu, etc.) = noise (REMOVE)\n\nEDGE CASES:\n- Multiple articles: Extract ONLY the main/primary article\n- Mixed content types: Keep all that's part of the core article narrative\n- Nested quotes: Preserve them with proper attribution\n- Interview format: Keep both Q and A\n- Technical articles with code: Keep explanatory text AND code blocks\n- Timelines: Preserve chronological structure\n- When in doubt: INCLUDE rather than exclude\n\nOUTPUT REQUIREMENTS:\n- Return ONLY the cleaned article text\n- NO preamble (\"Here is the article:\")\n- NO postamble or explanatory notes\n- NO markdown formatting (**, ##, etc.)\n- NO HTML tags\n- Start directly with the article headline or first paragraph\n- Use plain text with line breaks only"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        1920,
+        496
+      ],
+      "id": "a2e185a1-2a8b-4a08-827e-bd02a54196ad",
+      "name": "Extract Clean Content"
     }
   ],
   "pinData": {
@@ -3519,6 +3729,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-10T10:38:14.573Z",
-  "versionId": "7ea7c91d-6f64-47bb-a349-2cb44c79eb26"
+  "updatedAt": "2026-02-12T07:51:57.743Z",
+  "versionId": "7ee31f82-7dc0-4eb4-8a4f-246d68c0b6f1"
 }
