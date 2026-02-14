@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-12T17:02:53.103Z",
-    "createdAt": "2026-02-12T17:02:50.804Z",
-    "versionId": "c2136d36-5c96-4f3f-86c5-33c4d518dbb3",
+    "updatedAt": "2026-02-13T10:01:43.169Z",
+    "createdAt": "2026-02-13T10:01:36.127Z",
+    "versionId": "883a894b-bd08-4def-bf6e-40f04feca77a",
     "workflowId": "T48pPipj3RWxykLt",
     "nodes": [
       {
@@ -24,7 +24,7 @@
         "typeVersion": 4.7,
         "position": [
           144,
-          -152
+          -392
         ],
         "id": "403616b0-78f6-41b9-8d5b-d719cb0cf1df",
         "name": "Get Image Copy's",
@@ -73,7 +73,7 @@
         "typeVersion": 2.2,
         "position": [
           368,
-          -152
+          -392
         ],
         "id": "4da7ef8e-5d46-494d-99cf-f4c354f08054",
         "name": "Filter Out Incorrect Cells"
@@ -86,7 +86,7 @@
         "typeVersion": 1,
         "position": [
           592,
-          -152
+          -392
         ],
         "id": "d0416b49-c15a-4219-bb1a-a8c3624b7e08",
         "name": "Limit"
@@ -108,7 +108,7 @@
         "typeVersion": 1.3,
         "position": [
           2808,
-          72
+          -160
         ],
         "id": "48e857e7-fcaf-4780-acec-0a3b52a42c0f",
         "name": "OpenAI Chat Model",
@@ -147,7 +147,7 @@
         "typeVersion": 2.2,
         "position": [
           1488,
-          -224
+          -464
         ],
         "id": "262a26ed-b4bf-4a9f-a18c-8ee250a0cf18",
         "name": "Get many database pages",
@@ -169,7 +169,7 @@
         "typeVersion": 3.2,
         "position": [
           2160,
-          -152
+          -384
         ],
         "id": "7766fa91-25d7-4cee-8c48-5f53f3f91805",
         "name": "Merge"
@@ -183,7 +183,7 @@
         "typeVersion": 1,
         "position": [
           1712,
-          -224
+          -464
         ],
         "id": "8f362c65-01ec-4313-ad9a-23e0333ddc97",
         "name": "Aggregate"
@@ -196,7 +196,7 @@
         "typeVersion": 2,
         "position": [
           1936,
-          -224
+          -464
         ],
         "id": "1a398a0f-1921-4071-b907-784662d2b7cd",
         "name": "Code in JavaScript"
@@ -210,7 +210,7 @@
         "typeVersion": 1.3,
         "position": [
           2520,
-          72
+          -160
         ],
         "id": "c58531c0-2850-4466-bf71-f9c067091b4f",
         "name": "Structured Output Parser"
@@ -235,7 +235,7 @@
         "typeVersion": 1.7,
         "position": [
           2384,
-          -152
+          -384
         ],
         "id": "cbc4ea3c-7e46-4538-bd8f-79268630a390",
         "name": "Find Matching Image Prompt ID",
@@ -256,7 +256,7 @@
         "typeVersion": 1.3,
         "position": [
           2392,
-          72
+          -160
         ],
         "id": "f9965496-21db-4cb9-b27d-40e5453acdf1",
         "name": "Anthropic Chat Model",
@@ -286,7 +286,7 @@
         "typeVersion": 1.7,
         "position": [
           2736,
-          -152
+          -384
         ],
         "id": "e0602825-c9a0-4938-97cd-2c5658924a48",
         "name": "Create Copy Title"
@@ -327,7 +327,7 @@
         "typeVersion": 3.4,
         "position": [
           3152,
-          -152
+          -384
         ],
         "id": "a676f6fc-2dff-4369-9762-3b9cbf942b2e",
         "name": "Set Input Fields"
@@ -340,7 +340,7 @@
         "typeVersion": 1,
         "position": [
           3440,
-          -152
+          -384
         ],
         "id": "6f2be682-394f-4e3d-b5f7-42bf3d74aed4",
         "name": "Limit1"
@@ -369,7 +369,7 @@
         "typeVersion": 4.3,
         "position": [
           3664,
-          -152
+          -384
         ],
         "id": "cf3c532b-a1ae-4fcc-9014-a9009675d6d8",
         "name": "Add Notion Copy & Trigger Workflow",
@@ -388,7 +388,7 @@
         "typeVersion": 3,
         "position": [
           1264,
-          -152
+          -392
         ],
         "id": "a83fdf73-15fc-4f9a-9ae2-6decee2d7819",
         "name": "Loop Over Items"
@@ -402,7 +402,7 @@
         "typeVersion": 1.1,
         "position": [
           3888,
-          -28
+          -260
         ],
         "id": "ca7eb955-2769-4d64-a26a-3bb0f2892c0e",
         "name": "Wait",
@@ -414,7 +414,7 @@
         "typeVersion": 1,
         "position": [
           1488,
-          -416
+          -656
         ],
         "id": "84e67fcb-4fd7-456b-a074-ec52758b972f",
         "name": "No Operation, do nothing"
@@ -437,7 +437,7 @@
         "typeVersion": 2.2,
         "position": [
           816,
-          -248
+          -648
         ],
         "id": "158778b2-62c7-4303-81d6-c7e8400e1a70",
         "name": "Get many database pages1",
@@ -469,7 +469,7 @@
         "typeVersion": 3.2,
         "position": [
           1040,
-          -152
+          -392
         ],
         "id": "98253aa8-1b09-4dbc-ac15-44c7af291fcc",
         "name": "Merge1"
@@ -492,7 +492,7 @@
         "typeVersion": 3.4,
         "position": [
           816,
-          100
+          -132
         ],
         "id": "fb760bb5-63bb-472c-8d28-05c91421d813",
         "name": "Set Content Hash"
@@ -500,14 +500,14 @@
       {
         "parameters": {
           "content": "## Check for duplicates",
-          "height": 640,
-          "width": 432
+          "height": 736,
+          "width": 400
         },
         "type": "n8n-nodes-base.stickyNote",
         "typeVersion": 1,
         "position": [
-          720,
-          -384
+          752,
+          -704
         ],
         "id": "7465d835-6255-4da6-883a-4ad293b39e6b",
         "name": "Sticky Note"
@@ -550,7 +550,7 @@
         "typeVersion": 2.4,
         "position": [
           -528,
-          140
+          -392
         ],
         "id": "1f0248c5-4343-4c8e-83c7-4f9f0c4e9da4",
         "name": "Dynamic Form Input",
@@ -642,7 +642,7 @@
         "typeVersion": 3.4,
         "position": [
           -304,
-          124
+          -408
         ],
         "id": "86d430f5-182c-4558-aea7-b07a774889cc",
         "name": "Route Input"
@@ -666,7 +666,7 @@
         "typeVersion": 2.5,
         "position": [
           -80,
-          -152
+          -392
         ],
         "id": "dc41f81e-ea94-42c4-ba00-477c43db4d48",
         "name": "Handle Google Sheet",
@@ -680,7 +680,7 @@
         "typeVersion": 2,
         "position": [
           368,
-          388
+          156
         ],
         "id": "af718e84-1fe3-475e-8120-94a01de2a11d",
         "name": "Format Prompt Packs"
@@ -704,7 +704,7 @@
         "typeVersion": 2.2,
         "position": [
           -80,
-          388
+          156
         ],
         "id": "8977648d-557b-4e17-8126-0f11e06434f4",
         "name": "Get All Prompt Packs",
@@ -725,7 +725,7 @@
         "typeVersion": 1,
         "position": [
           144,
-          388
+          156
         ],
         "id": "93137c23-7f43-4e6c-940c-40f9249f98b8",
         "name": "Aggregate Prompt Packs"
@@ -733,7 +733,7 @@
       {
         "parameters": {
           "defineForm": "json",
-          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Checkboxes\",\n    \"fieldType\": \"checkbox\",\n    \"fieldOptions\": {\n      \"values\": [\n        {{ $('Format Prompt Packs').item.json.items.map(item => `{\"option\": \"${item.name}\"}`).join(\",\") }}\n      ]\n    }\n  },\n  {\n    \"fieldLabel\": \"Copy\",\n    \"fieldType\": \"textarea\",\n    \"placeholder\": \"describe your desired creative\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Variants\",\n    \"placeholder\": \"number of variants (defaults to 2 for pack)\",\n    \"fieldType\": \"number\"\n  }\n]",
+          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Checkboxes\",\n    \"fieldType\": \"checkbox\",\n    \"requiredField\": true\n    \"fieldOptions\": {\n      \"values\": [\n        {{ $('Format Prompt Packs').item.json.items.map(item => `{\"option\": \"${item.name}\"}`).join(\",\") }}\n      ]\n    }\n  },\n  {\n    \"fieldLabel\": \"Copy\",\n    \"fieldType\": \"textarea\",\n    \"placeholder\": \"describe your desired creative\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Variants\",\n    \"placeholder\": \"number of variants (defaults to 2 for pack)\",\n    \"fieldType\": \"number\"\n  }\n]",
           "options": {
             "formTitle": "Select Prompt Pack",
             "buttonLabel": "Select Repos",
@@ -744,7 +744,7 @@
         "typeVersion": 2.4,
         "position": [
           1040,
-          292
+          60
         ],
         "id": "820f62d0-d62c-416f-89fa-603802e7ba86",
         "name": "Select Prompt Pack",
@@ -778,7 +778,7 @@
         "typeVersion": 2.5,
         "position": [
           1264,
-          288
+          60
         ],
         "id": "209e4e67-8f4a-4198-b666-8c763a7ec400",
         "name": "Form",
@@ -812,7 +812,7 @@
         "typeVersion": 2.3,
         "position": [
           1712,
-          388
+          156
         ],
         "id": "b14ac919-c49a-4567-a2b3-77c088f213a2",
         "name": "If Finished?"
@@ -825,7 +825,7 @@
         "typeVersion": 2,
         "position": [
           1488,
-          292
+          60
         ],
         "id": "41ab340d-f9c3-4f01-9ac1-80343a9dc7f7",
         "name": "Process Results"
@@ -838,7 +838,7 @@
         "typeVersion": 2,
         "position": [
           816,
-          388
+          156
         ],
         "id": "e682e98b-79de-4315-bfb8-7dde271d6fa4",
         "name": "Set Current Selections"
@@ -851,7 +851,7 @@
         "typeVersion": 2,
         "position": [
           592,
-          388
+          156
         ],
         "id": "04daf7ed-60b1-4584-bec0-cb5c8f31b3be",
         "name": "Initialise Loop State"
@@ -865,7 +865,7 @@
         "typeVersion": 1,
         "position": [
           1936,
-          292
+          52
         ],
         "id": "cbdf7e3e-2171-46c8-9d13-bad3ebcdb319",
         "name": "Split Out Copy Ideas"
@@ -889,7 +889,7 @@
         "typeVersion": 2.2,
         "position": [
           2160,
-          484
+          244
         ],
         "id": "8730e099-e7d7-421c-b1a2-3a04d00817aa",
         "name": "Get many database pages2",
@@ -911,7 +911,7 @@
         "typeVersion": 1,
         "position": [
           2160,
-          292
+          52
         ],
         "id": "30a45d59-8b7f-4b50-8c1b-3165ed5dc5cd",
         "name": "Split Out Image Packs"
@@ -952,7 +952,7 @@
         "typeVersion": 3.4,
         "position": [
           3440,
-          388
+          156
         ],
         "id": "bc4c2cf7-0b90-46b9-9956-713e7431f62c",
         "name": "Set Input Fields2"
@@ -965,7 +965,7 @@
         "typeVersion": 1,
         "position": [
           3664,
-          388
+          156
         ],
         "id": "77bddf3d-a589-486d-b089-64570c5c59a6",
         "name": "Limit3"
@@ -994,7 +994,7 @@
         "typeVersion": 4.3,
         "position": [
           3888,
-          388
+          156
         ],
         "id": "4b95b543-186b-49dc-bc0b-59c90817eedd",
         "name": "Add Notion Copy & Trigger Workflow2",
@@ -1022,7 +1022,7 @@
         "typeVersion": 1.3,
         "position": [
           3160,
-          612
+          380
         ],
         "id": "2fe6bc2e-c689-4f2b-a5eb-577be543d96e",
         "name": "OpenAI Chat Model1",
@@ -1052,7 +1052,7 @@
         "typeVersion": 1.7,
         "position": [
           3088,
-          388
+          156
         ],
         "id": "2a849e27-e6f0-4897-acad-f22e7e6a2dd4",
         "name": "Create Copy Title1"
@@ -1065,7 +1065,7 @@
         "typeVersion": 2,
         "position": [
           2800,
-          388
+          156
         ],
         "id": "4a78bb7c-f841-4a9f-a154-ff242d7f9ef0",
         "name": "Merge By Ad Copy"
@@ -1088,10 +1088,310 @@
         "typeVersion": 3.2,
         "position": [
           2448,
-          388
+          156
         ],
         "id": "edd89bdb-fb8a-4760-a826-a131c0b21bb3",
         "name": "Merge Image Prompt Ids To Copy"
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $binary.toJsonString() }}",
+                      "rightValue": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                      "operator": {
+                        "type": "string",
+                        "operation": "contains"
+                      },
+                      "id": "f1fc9e96-7c9f-4057-9f3d-2cc60920df0e"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "word_doc"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "ba7c4070-e3db-49cf-9c02-17730de3d75d",
+                      "leftValue": "={{ $binary.toJsonString() }}",
+                      "rightValue": "",
+                      "operator": {
+                        "type": "string",
+                        "operation": "contains"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "pdf"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "b4d1c3f3-fb4d-4eed-8043-9ed81fd77b69",
+                      "leftValue": "={{ $binary.toJsonString() }}",
+                      "rightValue": "",
+                      "operator": {
+                        "type": "string",
+                        "operation": "contains"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "excel"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.4,
+        "position": [
+          368,
+          -864
+        ],
+        "id": "3b553bbe-bead-420d-af1a-22e3c2b52e07",
+        "name": "Switch"
+      },
+      {
+        "parameters": {
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "Upload Document",
+                "fieldType": "file",
+                "requiredField": true
+              }
+            ]
+          },
+          "options": {
+            "buttonLabel": "Upload",
+            "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #1c242b;              /* dark charcoal background */\n\t--color-test-notice-text: #94c11f;        /* Syntech green for notice text */\n\t--color-test-notice-bg: #2a3428;          /* dark green-tinted background */\n\t--color-test-notice-border: #3d4a2f;      /* subtle green border */\n\t--color-card-bg: #20242b;                 /* slightly lighter dark grey for cards */\n\t--color-card-border: #2b3038;             /* dark grey border */\n\t--color-card-shadow: rgba(0, 0, 0, 0.3);  /* dark shadow */\n\t--color-link: #94c11f;                    /* Syntech green for links */\n\t--color-header: #f2f2f2;                  /* light text for headers */\n\t--color-label: #a0aec0;                   /* light grey for labels */\n\t--color-input-border: #3d4551;            /* visible dark grey border for inputs */\n\t--color-input-text: #1c242b;              /* dark text for inputs (WCAG AA compliant on white bg) */\n\t--color-focus-border: #94c11f;            /* Syntech green focus ring */\n\t--color-submit-btn-bg: #94c11f;           /* Syntech green button */\n\t--color-submit-btn-text: #1c242b;         /* dark text on green button */\n\t--color-error: #ef4444;                   /* red for errors */\n\t--color-required: #94c11f;                /* Syntech green for required indicator */\n\t--color-clear-button-bg: #2b3038;         /* dark grey clear button */\n\t--color-html-text: #f2f2f2;               /* light text for HTML content */\n\t--color-html-link: #94c11f;               /* Syntech green for HTML links */\n\t--color-header-subtext: #a0aec0;          /* light grey subtext */\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}\n/* Make select text white */\n.select-input select {\n  color: #fff !important;\n}"
+          }
+        },
+        "type": "n8n-nodes-base.form",
+        "typeVersion": 2.5,
+        "position": [
+          -80,
+          -848
+        ],
+        "id": "74af80b9-ca60-44d7-8189-e153232139d3",
+        "name": "Upload Document",
+        "webhookId": "1bd6b621-05a3-4140-9dc4-db1d4db51455"
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "$binary",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          144,
+          -848
+        ],
+        "id": "2a79c9ef-8458-447d-abc8-f83be832e89a",
+        "name": "Split Out Documents"
+      },
+      {
+        "parameters": {
+          "mode": "markdownToHtml",
+          "markdown": "={{ $json.pages[0].markdown }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.markdown",
+        "typeVersion": 1,
+        "position": [
+          1488,
+          -848
+        ],
+        "id": "6e8acf5f-033c-44aa-82be-fba46083556f",
+        "name": "Markdown"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "f0d81f36-a5e4-445d-96bd-eacf6e60e57c",
+                "name": "cells",
+                "value": "={{\n  [...$json.pages[0].markdown.matchAll(/^\\|([\\s\\S]*?)\\|\\s*$/gm)]\n    .map(m => m[1].trim())\n}}",
+                "type": "array"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1712,
+          -848
+        ],
+        "id": "5b647728-0772-4092-a066-9abf63fe429a",
+        "name": "Set Doc Table Cells"
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "cells",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          1936,
+          -848
+        ],
+        "id": "a2337f33-6d49-4f0a-8aa9-db2aa637b0a6",
+        "name": "Split Out Cells"
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "const item = $input.item;\n\n// Get all binary keys (Upload_Document_0, Upload_Document_1, etc.)\nconst binaryKeys = Object.keys(item.binary || {});\n\nif (!binaryKeys.length) {\n  return item;\n}\n\n// Pick the first binary file (or loop if you want all)\nconst firstKey = binaryKeys[0];\n\n// Rename it to a fixed key, e.g. \"file\"\nitem.binary = {\n  data: item.binary[firstKey]\n};\n\nreturn item;"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          592,
+          -848
+        ],
+        "id": "04b46d18-1842-4a54-81c9-78c89a98d125",
+        "name": "Rename Binary Files"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.mistral.ai/v1/files",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "mistralCloudApi",
+          "sendBody": true,
+          "contentType": "multipart-form-data",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "purpose",
+                "value": "ocr"
+              },
+              {
+                "parameterType": "formBinaryData",
+                "name": "file",
+                "inputDataFieldName": "data"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "938552bc-17cc-4911-991d-4552d6dec3dc",
+        "name": "Mistral Upload",
+        "type": "n8n-nodes-base.httpRequest",
+        "position": [
+          816,
+          -848
+        ],
+        "typeVersion": 4.2,
+        "credentials": {
+          "mistralCloudApi": {
+            "id": "SGVycfJoKSsVTUod",
+            "name": "Stephen Mistral Cloud account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "url": "=https://api.mistral.ai/v1/files/{{ $json.id }}/url",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "mistralCloudApi",
+          "sendQuery": true,
+          "queryParameters": {
+            "parameters": [
+              {
+                "name": "expiry",
+                "value": "24"
+              }
+            ]
+          },
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "163cd02c-0ad1-4a09-8d6d-b083253b7904",
+        "name": "Mistral Signed URL",
+        "type": "n8n-nodes-base.httpRequest",
+        "position": [
+          1040,
+          -848
+        ],
+        "typeVersion": 4.2,
+        "credentials": {
+          "mistralCloudApi": {
+            "id": "SGVycfJoKSsVTUod",
+            "name": "Stephen Mistral Cloud account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.mistral.ai/v1/ocr",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "mistralCloudApi",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"model\": \"mistral-ocr-latest\",\n  \"document\": {\n    \"type\": \"document_url\",\n    \"document_url\": \"{{ $json.url }}\"\n  },\n  \"include_image_base64\": true\n}",
+          "options": {}
+        },
+        "id": "6ef6ef5b-2118-44a1-b499-1282d2eadf52",
+        "name": "Mistral DOC OCR",
+        "type": "n8n-nodes-base.httpRequest",
+        "position": [
+          1264,
+          -848
+        ],
+        "typeVersion": 4.2,
+        "credentials": {
+          "mistralCloudApi": {
+            "id": "SGVycfJoKSsVTUod",
+            "name": "Stephen Mistral Cloud account"
+          }
+        },
+        "onError": "continueErrorOutput"
       }
     ],
     "connections": {
@@ -1345,7 +1645,13 @@
       },
       "Route Input": {
         "main": [
-          [],
+          [
+            {
+              "node": "Upload Document",
+              "type": "main",
+              "index": 0
+            }
+          ],
           [
             {
               "node": "Handle Google Sheet",
@@ -1582,14 +1888,114 @@
             }
           ]
         ]
+      },
+      "Switch": {
+        "main": [
+          [
+            {
+              "node": "Rename Binary Files",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          []
+        ]
+      },
+      "Upload Document": {
+        "main": [
+          [
+            {
+              "node": "Split Out Documents",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out Documents": {
+        "main": [
+          [
+            {
+              "node": "Switch",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Markdown": {
+        "main": [
+          [
+            {
+              "node": "Set Doc Table Cells",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Doc Table Cells": {
+        "main": [
+          [
+            {
+              "node": "Split Out Cells",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Rename Binary Files": {
+        "main": [
+          [
+            {
+              "node": "Mistral Upload",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Mistral Upload": {
+        "main": [
+          [
+            {
+              "node": "Mistral Signed URL",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Mistral Signed URL": {
+        "main": [
+          [
+            {
+              "node": "Mistral DOC OCR",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Mistral DOC OCR": {
+        "main": [
+          [
+            {
+              "node": "Markdown",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "stable backup",
+    "name": "setup word doc OCR",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "c2136d36-5c96-4f3f-86c5-33c4d518dbb3",
+  "activeVersionId": "883a894b-bd08-4def-bf6e-40f04feca77a",
   "connections": {
     "Get Image Copy's": {
       "main": [
@@ -1841,7 +2247,13 @@
     },
     "Route Input": {
       "main": [
-        [],
+        [
+          {
+            "node": "Upload Document",
+            "type": "main",
+            "index": 0
+          }
+        ],
         [
           {
             "node": "Handle Google Sheet",
@@ -2078,6 +2490,106 @@
           }
         ]
       ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Rename Binary Files",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Upload Document": {
+      "main": [
+        [
+          {
+            "node": "Split Out Documents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Documents": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Set Doc Table Cells",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Doc Table Cells": {
+      "main": [
+        [
+          {
+            "node": "Split Out Cells",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rename Binary Files": {
+      "main": [
+        [
+          {
+            "node": "Mistral Upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Upload": {
+      "main": [
+        [
+          {
+            "node": "Mistral Signed URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Signed URL": {
+      "main": [
+        [
+          {
+            "node": "Mistral DOC OCR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral DOC OCR": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:06:07.237Z",
@@ -2106,7 +2618,7 @@
       "typeVersion": 4.7,
       "position": [
         144,
-        -152
+        -392
       ],
       "id": "403616b0-78f6-41b9-8d5b-d719cb0cf1df",
       "name": "Get Image Copy's",
@@ -2155,7 +2667,7 @@
       "typeVersion": 2.2,
       "position": [
         368,
-        -152
+        -392
       ],
       "id": "4da7ef8e-5d46-494d-99cf-f4c354f08054",
       "name": "Filter Out Incorrect Cells"
@@ -2168,7 +2680,7 @@
       "typeVersion": 1,
       "position": [
         592,
-        -152
+        -392
       ],
       "id": "d0416b49-c15a-4219-bb1a-a8c3624b7e08",
       "name": "Limit"
@@ -2190,7 +2702,7 @@
       "typeVersion": 1.3,
       "position": [
         2808,
-        72
+        -160
       ],
       "id": "48e857e7-fcaf-4780-acec-0a3b52a42c0f",
       "name": "OpenAI Chat Model",
@@ -2229,7 +2741,7 @@
       "typeVersion": 2.2,
       "position": [
         1488,
-        -224
+        -464
       ],
       "id": "262a26ed-b4bf-4a9f-a18c-8ee250a0cf18",
       "name": "Get many database pages",
@@ -2251,7 +2763,7 @@
       "typeVersion": 3.2,
       "position": [
         2160,
-        -152
+        -384
       ],
       "id": "7766fa91-25d7-4cee-8c48-5f53f3f91805",
       "name": "Merge"
@@ -2265,7 +2777,7 @@
       "typeVersion": 1,
       "position": [
         1712,
-        -224
+        -464
       ],
       "id": "8f362c65-01ec-4313-ad9a-23e0333ddc97",
       "name": "Aggregate"
@@ -2278,7 +2790,7 @@
       "typeVersion": 2,
       "position": [
         1936,
-        -224
+        -464
       ],
       "id": "1a398a0f-1921-4071-b907-784662d2b7cd",
       "name": "Code in JavaScript"
@@ -2292,7 +2804,7 @@
       "typeVersion": 1.3,
       "position": [
         2520,
-        72
+        -160
       ],
       "id": "c58531c0-2850-4466-bf71-f9c067091b4f",
       "name": "Structured Output Parser"
@@ -2317,7 +2829,7 @@
       "typeVersion": 1.7,
       "position": [
         2384,
-        -152
+        -384
       ],
       "id": "cbc4ea3c-7e46-4538-bd8f-79268630a390",
       "name": "Find Matching Image Prompt ID",
@@ -2338,7 +2850,7 @@
       "typeVersion": 1.3,
       "position": [
         2392,
-        72
+        -160
       ],
       "id": "f9965496-21db-4cb9-b27d-40e5453acdf1",
       "name": "Anthropic Chat Model",
@@ -2368,7 +2880,7 @@
       "typeVersion": 1.7,
       "position": [
         2736,
-        -152
+        -384
       ],
       "id": "e0602825-c9a0-4938-97cd-2c5658924a48",
       "name": "Create Copy Title"
@@ -2409,7 +2921,7 @@
       "typeVersion": 3.4,
       "position": [
         3152,
-        -152
+        -384
       ],
       "id": "a676f6fc-2dff-4369-9762-3b9cbf942b2e",
       "name": "Set Input Fields"
@@ -2422,7 +2934,7 @@
       "typeVersion": 1,
       "position": [
         3440,
-        -152
+        -384
       ],
       "id": "6f2be682-394f-4e3d-b5f7-42bf3d74aed4",
       "name": "Limit1"
@@ -2451,7 +2963,7 @@
       "typeVersion": 4.3,
       "position": [
         3664,
-        -152
+        -384
       ],
       "id": "cf3c532b-a1ae-4fcc-9014-a9009675d6d8",
       "name": "Add Notion Copy & Trigger Workflow",
@@ -2470,7 +2982,7 @@
       "typeVersion": 3,
       "position": [
         1264,
-        -152
+        -392
       ],
       "id": "a83fdf73-15fc-4f9a-9ae2-6decee2d7819",
       "name": "Loop Over Items"
@@ -2484,7 +2996,7 @@
       "typeVersion": 1.1,
       "position": [
         3888,
-        -28
+        -260
       ],
       "id": "ca7eb955-2769-4d64-a26a-3bb0f2892c0e",
       "name": "Wait",
@@ -2496,7 +3008,7 @@
       "typeVersion": 1,
       "position": [
         1488,
-        -416
+        -656
       ],
       "id": "84e67fcb-4fd7-456b-a074-ec52758b972f",
       "name": "No Operation, do nothing"
@@ -2519,7 +3031,7 @@
       "typeVersion": 2.2,
       "position": [
         816,
-        -248
+        -648
       ],
       "id": "158778b2-62c7-4303-81d6-c7e8400e1a70",
       "name": "Get many database pages1",
@@ -2551,7 +3063,7 @@
       "typeVersion": 3.2,
       "position": [
         1040,
-        -152
+        -392
       ],
       "id": "98253aa8-1b09-4dbc-ac15-44c7af291fcc",
       "name": "Merge1"
@@ -2574,7 +3086,7 @@
       "typeVersion": 3.4,
       "position": [
         816,
-        100
+        -132
       ],
       "id": "fb760bb5-63bb-472c-8d28-05c91421d813",
       "name": "Set Content Hash"
@@ -2582,14 +3094,14 @@
     {
       "parameters": {
         "content": "## Check for duplicates",
-        "height": 640,
-        "width": 432
+        "height": 736,
+        "width": 400
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        720,
-        -384
+        752,
+        -704
       ],
       "id": "7465d835-6255-4da6-883a-4ad293b39e6b",
       "name": "Sticky Note"
@@ -2632,7 +3144,7 @@
       "typeVersion": 2.4,
       "position": [
         -528,
-        140
+        -392
       ],
       "id": "1f0248c5-4343-4c8e-83c7-4f9f0c4e9da4",
       "name": "Dynamic Form Input",
@@ -2724,7 +3236,7 @@
       "typeVersion": 3.4,
       "position": [
         -304,
-        124
+        -408
       ],
       "id": "86d430f5-182c-4558-aea7-b07a774889cc",
       "name": "Route Input"
@@ -2748,7 +3260,7 @@
       "typeVersion": 2.5,
       "position": [
         -80,
-        -152
+        -392
       ],
       "id": "dc41f81e-ea94-42c4-ba00-477c43db4d48",
       "name": "Handle Google Sheet",
@@ -2762,7 +3274,7 @@
       "typeVersion": 2,
       "position": [
         368,
-        388
+        156
       ],
       "id": "af718e84-1fe3-475e-8120-94a01de2a11d",
       "name": "Format Prompt Packs"
@@ -2786,7 +3298,7 @@
       "typeVersion": 2.2,
       "position": [
         -80,
-        388
+        156
       ],
       "id": "8977648d-557b-4e17-8126-0f11e06434f4",
       "name": "Get All Prompt Packs",
@@ -2807,7 +3319,7 @@
       "typeVersion": 1,
       "position": [
         144,
-        388
+        156
       ],
       "id": "93137c23-7f43-4e6c-940c-40f9249f98b8",
       "name": "Aggregate Prompt Packs"
@@ -2815,7 +3327,7 @@
     {
       "parameters": {
         "defineForm": "json",
-        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Checkboxes\",\n    \"fieldType\": \"checkbox\",\n    \"fieldOptions\": {\n      \"values\": [\n        {{ $('Format Prompt Packs').item.json.items.map(item => `{\"option\": \"${item.name}\"}`).join(\",\") }}\n      ]\n    }\n  },\n  {\n    \"fieldLabel\": \"Copy\",\n    \"fieldType\": \"textarea\",\n    \"placeholder\": \"describe your desired creative\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Variants\",\n    \"placeholder\": \"number of variants (defaults to 2 for pack)\",\n    \"fieldType\": \"number\"\n  }\n]",
+        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Checkboxes\",\n    \"fieldType\": \"checkbox\",\n    \"requiredField\": true\n    \"fieldOptions\": {\n      \"values\": [\n        {{ $('Format Prompt Packs').item.json.items.map(item => `{\"option\": \"${item.name}\"}`).join(\",\") }}\n      ]\n    }\n  },\n  {\n    \"fieldLabel\": \"Copy\",\n    \"fieldType\": \"textarea\",\n    \"placeholder\": \"describe your desired creative\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Variants\",\n    \"placeholder\": \"number of variants (defaults to 2 for pack)\",\n    \"fieldType\": \"number\"\n  }\n]",
         "options": {
           "formTitle": "Select Prompt Pack",
           "buttonLabel": "Select Repos",
@@ -2826,7 +3338,7 @@
       "typeVersion": 2.4,
       "position": [
         1040,
-        292
+        60
       ],
       "id": "820f62d0-d62c-416f-89fa-603802e7ba86",
       "name": "Select Prompt Pack",
@@ -2860,7 +3372,7 @@
       "typeVersion": 2.5,
       "position": [
         1264,
-        288
+        60
       ],
       "id": "209e4e67-8f4a-4198-b666-8c763a7ec400",
       "name": "Form",
@@ -2894,7 +3406,7 @@
       "typeVersion": 2.3,
       "position": [
         1712,
-        388
+        156
       ],
       "id": "b14ac919-c49a-4567-a2b3-77c088f213a2",
       "name": "If Finished?"
@@ -2907,7 +3419,7 @@
       "typeVersion": 2,
       "position": [
         1488,
-        292
+        60
       ],
       "id": "41ab340d-f9c3-4f01-9ac1-80343a9dc7f7",
       "name": "Process Results"
@@ -2920,7 +3432,7 @@
       "typeVersion": 2,
       "position": [
         816,
-        388
+        156
       ],
       "id": "e682e98b-79de-4315-bfb8-7dde271d6fa4",
       "name": "Set Current Selections"
@@ -2933,7 +3445,7 @@
       "typeVersion": 2,
       "position": [
         592,
-        388
+        156
       ],
       "id": "04daf7ed-60b1-4584-bec0-cb5c8f31b3be",
       "name": "Initialise Loop State"
@@ -2947,7 +3459,7 @@
       "typeVersion": 1,
       "position": [
         1936,
-        292
+        52
       ],
       "id": "cbdf7e3e-2171-46c8-9d13-bad3ebcdb319",
       "name": "Split Out Copy Ideas"
@@ -2971,7 +3483,7 @@
       "typeVersion": 2.2,
       "position": [
         2160,
-        484
+        244
       ],
       "id": "8730e099-e7d7-421c-b1a2-3a04d00817aa",
       "name": "Get many database pages2",
@@ -2993,7 +3505,7 @@
       "typeVersion": 1,
       "position": [
         2160,
-        292
+        52
       ],
       "id": "30a45d59-8b7f-4b50-8c1b-3165ed5dc5cd",
       "name": "Split Out Image Packs"
@@ -3034,7 +3546,7 @@
       "typeVersion": 3.4,
       "position": [
         3440,
-        388
+        156
       ],
       "id": "bc4c2cf7-0b90-46b9-9956-713e7431f62c",
       "name": "Set Input Fields2"
@@ -3047,7 +3559,7 @@
       "typeVersion": 1,
       "position": [
         3664,
-        388
+        156
       ],
       "id": "77bddf3d-a589-486d-b089-64570c5c59a6",
       "name": "Limit3"
@@ -3076,7 +3588,7 @@
       "typeVersion": 4.3,
       "position": [
         3888,
-        388
+        156
       ],
       "id": "4b95b543-186b-49dc-bc0b-59c90817eedd",
       "name": "Add Notion Copy & Trigger Workflow2",
@@ -3104,7 +3616,7 @@
       "typeVersion": 1.3,
       "position": [
         3160,
-        612
+        380
       ],
       "id": "2fe6bc2e-c689-4f2b-a5eb-577be543d96e",
       "name": "OpenAI Chat Model1",
@@ -3134,7 +3646,7 @@
       "typeVersion": 1.7,
       "position": [
         3088,
-        388
+        156
       ],
       "id": "2a849e27-e6f0-4897-acad-f22e7e6a2dd4",
       "name": "Create Copy Title1"
@@ -3147,7 +3659,7 @@
       "typeVersion": 2,
       "position": [
         2800,
-        388
+        156
       ],
       "id": "4a78bb7c-f841-4a9f-a154-ff242d7f9ef0",
       "name": "Merge By Ad Copy"
@@ -3170,13 +3682,369 @@
       "typeVersion": 3.2,
       "position": [
         2448,
-        388
+        156
       ],
       "id": "edd89bdb-fb8a-4760-a826-a131c0b21bb3",
       "name": "Merge Image Prompt Ids To Copy"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $binary.toJsonString() }}",
+                    "rightValue": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    },
+                    "id": "f1fc9e96-7c9f-4057-9f3d-2cc60920df0e"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "word_doc"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ba7c4070-e3db-49cf-9c02-17730de3d75d",
+                    "leftValue": "={{ $binary.toJsonString() }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "pdf"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "b4d1c3f3-fb4d-4eed-8043-9ed81fd77b69",
+                    "leftValue": "={{ $binary.toJsonString() }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "excel"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        368,
+        -864
+      ],
+      "id": "3b553bbe-bead-420d-af1a-22e3c2b52e07",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Upload Document",
+              "fieldType": "file",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "buttonLabel": "Upload",
+          "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #1c242b;              /* dark charcoal background */\n\t--color-test-notice-text: #94c11f;        /* Syntech green for notice text */\n\t--color-test-notice-bg: #2a3428;          /* dark green-tinted background */\n\t--color-test-notice-border: #3d4a2f;      /* subtle green border */\n\t--color-card-bg: #20242b;                 /* slightly lighter dark grey for cards */\n\t--color-card-border: #2b3038;             /* dark grey border */\n\t--color-card-shadow: rgba(0, 0, 0, 0.3);  /* dark shadow */\n\t--color-link: #94c11f;                    /* Syntech green for links */\n\t--color-header: #f2f2f2;                  /* light text for headers */\n\t--color-label: #a0aec0;                   /* light grey for labels */\n\t--color-input-border: #3d4551;            /* visible dark grey border for inputs */\n\t--color-input-text: #1c242b;              /* dark text for inputs (WCAG AA compliant on white bg) */\n\t--color-focus-border: #94c11f;            /* Syntech green focus ring */\n\t--color-submit-btn-bg: #94c11f;           /* Syntech green button */\n\t--color-submit-btn-text: #1c242b;         /* dark text on green button */\n\t--color-error: #ef4444;                   /* red for errors */\n\t--color-required: #94c11f;                /* Syntech green for required indicator */\n\t--color-clear-button-bg: #2b3038;         /* dark grey clear button */\n\t--color-html-text: #f2f2f2;               /* light text for HTML content */\n\t--color-html-link: #94c11f;               /* Syntech green for HTML links */\n\t--color-header-subtext: #a0aec0;          /* light grey subtext */\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}\n/* Make select text white */\n.select-input select {\n  color: #fff !important;\n}"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        -80,
+        -848
+      ],
+      "id": "74af80b9-ca60-44d7-8189-e153232139d3",
+      "name": "Upload Document",
+      "webhookId": "1bd6b621-05a3-4140-9dc4-db1d4db51455"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "$binary",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        144,
+        -848
+      ],
+      "id": "2a79c9ef-8458-447d-abc8-f83be832e89a",
+      "name": "Split Out Documents"
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.pages[0].markdown }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1488,
+        -848
+      ],
+      "id": "6e8acf5f-033c-44aa-82be-fba46083556f",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f0d81f36-a5e4-445d-96bd-eacf6e60e57c",
+              "name": "cells",
+              "value": "={{\n  [...$json.pages[0].markdown.matchAll(/^\\|([\\s\\S]*?)\\|\\s*$/gm)]\n    .map(m => m[1].trim())\n}}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1712,
+        -848
+      ],
+      "id": "5b647728-0772-4092-a066-9abf63fe429a",
+      "name": "Set Doc Table Cells"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "cells",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1936,
+        -848
+      ],
+      "id": "a2337f33-6d49-4f0a-8aa9-db2aa637b0a6",
+      "name": "Split Out Cells"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const item = $input.item;\n\n// Get all binary keys (Upload_Document_0, Upload_Document_1, etc.)\nconst binaryKeys = Object.keys(item.binary || {});\n\nif (!binaryKeys.length) {\n  return item;\n}\n\n// Pick the first binary file (or loop if you want all)\nconst firstKey = binaryKeys[0];\n\n// Rename it to a fixed key, e.g. \"file\"\nitem.binary = {\n  data: item.binary[firstKey]\n};\n\nreturn item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        592,
+        -848
+      ],
+      "id": "04b46d18-1842-4a54-81c9-78c89a98d125",
+      "name": "Rename Binary Files"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/files",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "purpose",
+              "value": "ocr"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "938552bc-17cc-4911-991d-4552d6dec3dc",
+      "name": "Mistral Upload",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        816,
+        -848
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "SGVycfJoKSsVTUod",
+          "name": "Stephen Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.mistral.ai/v1/files/{{ $json.id }}/url",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "expiry",
+              "value": "24"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "163cd02c-0ad1-4a09-8d6d-b083253b7904",
+      "name": "Mistral Signed URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1040,
+        -848
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "SGVycfJoKSsVTUod",
+          "name": "Stephen Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/ocr",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"mistral-ocr-latest\",\n  \"document\": {\n    \"type\": \"document_url\",\n    \"document_url\": \"{{ $json.url }}\"\n  },\n  \"include_image_base64\": true\n}",
+        "options": {}
+      },
+      "id": "6ef6ef5b-2118-44a1-b499-1282d2eadf52",
+      "name": "Mistral DOC OCR",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1264,
+        -848
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "SGVycfJoKSsVTUod",
+          "name": "Stephen Mistral Cloud account"
+        }
+      },
+      "onError": "continueErrorOutput"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Dynamic Form Input": [
+      {
+        "json": {
+          "Content Type": "Document",
+          "submittedAt": "2026-02-13T04:16:16.363-05:00",
+          "formMode": "test"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Upload Document": [
+      {
+        "json": {
+          "Upload Document": [
+            {
+              "filename": "1. Social Media Messaging Master - Ongoing working doc v27 copy.docx",
+              "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "size": 96192
+            },
+            {
+              "filename": "2. Social Media Messaging Master - Ongoing working doc v27.docx",
+              "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "size": 96192
+            }
+          ],
+          "submittedAt": "2026-02-13T04:51:54.927-05:00",
+          "formMode": "test"
+        },
+        "binary": {
+          "Upload_Document_0": {
+            "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "fileExtension": "docx",
+            "data": "database",
+            "fileName": "1. Social Media Messaging Master - Ongoing working doc v27 copy.docx",
+            "id": "database:e8e2ebe7-4cea-4cca-ae21-5fd3e0132bc2",
+            "fileSize": "96.2 kB",
+            "bytes": 96192
+          },
+          "Upload_Document_1": {
+            "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "fileExtension": "docx",
+            "data": "database",
+            "fileName": "2. Social Media Messaging Master - Ongoing working doc v27.docx",
+            "id": "database:c64f9eae-7a7f-4433-9d20-63af141ccdb5",
+            "fileSize": "96.2 kB",
+            "bytes": 96192
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -3195,8 +4063,15 @@
     }
   ],
   "staticData": null,
-  "tags": [],
+  "tags": [
+    {
+      "updatedAt": "2026-02-09T11:10:21.854Z",
+      "createdAt": "2026-02-09T11:10:21.854Z",
+      "id": "O5AMNmW6XxLF9Eni",
+      "name": "SOCIAL"
+    }
+  ],
   "triggerCount": 1,
-  "updatedAt": "2026-02-12T17:02:50.762Z",
-  "versionId": "c2136d36-5c96-4f3f-86c5-33c4d518dbb3"
+  "updatedAt": "2026-02-13T10:01:36.126Z",
+  "versionId": "883a894b-bd08-4def-bf6e-40f04feca77a"
 }
