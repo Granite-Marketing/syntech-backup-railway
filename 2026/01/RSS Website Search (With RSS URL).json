@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-12T07:55:33.286Z",
-    "createdAt": "2026-02-12T07:51:57.747Z",
-    "versionId": "7ee31f82-7dc0-4eb4-8a4f-246d68c0b6f1",
+    "updatedAt": "2026-02-14T07:01:19.937Z",
+    "createdAt": "2026-02-14T07:01:07.664Z",
+    "versionId": "cd47bfb7-5473-4874-bf19-1bd5a15e3918",
     "workflowId": "iMG6XApQjSxVQxIe",
     "nodes": [
       {
@@ -350,12 +350,15 @@
           496
         ],
         "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
-        "name": "Create summary and title9"
+        "name": "Create summary and title9",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
       },
       {
         "parameters": {
           "schemaType": "manual",
-          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
@@ -1307,7 +1310,36 @@
           496
         ],
         "id": "a2e185a1-2a8b-4a08-827e-bd02a54196ad",
-        "name": "Extract Clean Content"
+        "name": "Extract Clean Content",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "claude-haiku-4-5-20251001",
+            "mode": "list",
+            "cachedResultName": "Claude Haiku 4.5"
+          },
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          1264,
+          928
+        ],
+        "id": "8f367ca8-31ce-46b2-ac2b-24226eb3ce2b",
+        "name": "Anthropic Chat Model",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
       }
     ],
     "connections": {
@@ -1746,14 +1778,25 @@
             }
           ]
         ]
+      },
+      "Anthropic Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser6",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Version 7ee31f82",
+    "name": "add output parser fix and retry on fail",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "7ee31f82-7dc0-4eb4-8a4f-246d68c0b6f1",
+  "activeVersionId": "cd47bfb7-5473-4874-bf19-1bd5a15e3918",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2190,6 +2233,17 @@
           }
         ]
       ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser6",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:06:07.080Z",
@@ -2544,12 +2598,15 @@
         496
       ],
       "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
-      "name": "Create summary and title9"
+      "name": "Create summary and title9",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
         "schemaType": "manual",
-        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
@@ -3501,7 +3558,36 @@
         496
       ],
       "id": "a2e185a1-2a8b-4a08-827e-bd02a54196ad",
-      "name": "Extract Clean Content"
+      "name": "Extract Clean Content",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        1264,
+        928
+      ],
+      "id": "8f367ca8-31ce-46b2-ac2b-24226eb3ce2b",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -3622,78 +3708,21 @@
       },
       {
         "json": {
-          "id": "28b785c0-cfab-808a-a772-fa0cbbf46e6a",
-          "name": "Energy News Live",
-          "url": "https://www.notion.so/Energy-News-Live-28b785c0cfab808aa772fa0cbbf46e6a",
+          "id": "27a785c0-cfab-80cf-b427-c56f62fdf077",
+          "name": "Growth Energy Blog",
+          "url": "https://www.notion.so/Growth-Energy-Blog-27a785c0cfab80cfb427c56f62fdf077",
           "property_keyword_category": null,
           "property_priority": "Low",
-          "property_rss_feed": "https://www.energylivenews.com/feed/",
+          "property_rss_feed": "https://growthenergy.org/category/blog/feed",
           "property_source": "RSS",
           "property_category": null,
-          "property_url": "www.energylivenews.com/",
+          "property_url": "growthenergy.org/category/blog",
           "property_status": "Active",
-          "property_name": "Energy News Live",
+          "property_name": "Growth Energy Blog",
           "prompt": " "
         },
         "pairedItem": {
           "item": 6
-        }
-      },
-      {
-        "json": {
-          "id": "288785c0-cfab-80d3-bca5-dcc9207de8b8",
-          "name": "Biofuels International Magazine - News",
-          "url": "https://www.notion.so/Biofuels-International-Magazine-News-288785c0cfab80d3bca5dcc9207de8b8",
-          "property_keyword_category": null,
-          "property_priority": "Low",
-          "property_rss_feed": "https://biofuels-news.com/feed",
-          "property_source": "RSS",
-          "property_category": null,
-          "property_url": "biofuels-news.com",
-          "property_status": "Active",
-          "property_name": "Biofuels International Magazine - News",
-          "prompt": " "
-        },
-        "pairedItem": {
-          "item": 7
-        }
-      },
-      {
-        "json": {
-          "id": "28b785c0-cfab-800f-9d3e-f202e6d17664",
-          "name": "Fuel Oil News",
-          "url": "https://www.notion.so/Fuel-Oil-News-28b785c0cfab800f9d3ef202e6d17664",
-          "property_keyword_category": null,
-          "property_priority": "Low",
-          "property_rss_feed": "https://fueloilnews.co.uk/feed/",
-          "property_source": "RSS",
-          "property_category": null,
-          "property_url": "fueloilnews.co.uk/",
-          "property_status": "Active",
-          "property_name": "Fuel Oil News",
-          "prompt": " "
-        },
-        "pairedItem": {
-          "item": 8
-        }
-      },
-      {
-        "json": {
-          "id": "28b785c0-cfab-80dc-9908-f3ba0ec81280",
-          "name": "Biofuel Digest",
-          "url": "https://www.notion.so/Biofuel-Digest-28b785c0cfab80dc9908f3ba0ec81280",
-          "property_keyword_category": null,
-          "property_priority": "Low",
-          "property_rss_feed": "https://www.biofuelsdigest.com/bdigest/feed/",
-          "property_source": "RSS",
-          "property_category": null,
-          "property_url": "https://www.biofuelsdigest.com",
-          "property_status": "Active",
-          "property_name": "Biofuel Digest",
-          "prompt": " "
-        },
-        "pairedItem": {
-          "item": 9
         }
       }
     ]
@@ -3729,6 +3758,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-12T07:51:57.743Z",
-  "versionId": "7ee31f82-7dc0-4eb4-8a4f-246d68c0b6f1"
+  "updatedAt": "2026-02-14T07:01:07.662Z",
+  "versionId": "cd47bfb7-5473-4874-bf19-1bd5a15e3918"
 }
