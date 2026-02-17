@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-13T10:01:43.169Z",
-    "createdAt": "2026-02-13T10:01:36.127Z",
-    "versionId": "883a894b-bd08-4def-bf6e-40f04feca77a",
+    "updatedAt": "2026-02-16T10:39:17.428Z",
+    "createdAt": "2026-02-16T10:39:02.405Z",
+    "versionId": "3381e1a0-53c9-40a9-8dec-cd7050bb099e",
     "workflowId": "T48pPipj3RWxykLt",
     "nodes": [
       {
@@ -18,13 +18,21 @@
             "value": "={{ $json['Google Sheet URL'].split('/')[6].split('=')[2] }}",
             "mode": "id"
           },
-          "options": {}
+          "options": {
+            "dataLocationOnSheet": {
+              "values": {
+                "rangeDefinition": "specifyRange",
+                "headerRow": 3,
+                "firstDataRow": 4
+              }
+            }
+          }
         },
         "type": "n8n-nodes-base.googleSheets",
         "typeVersion": 4.7,
         "position": [
           144,
-          -392
+          424
         ],
         "id": "403616b0-78f6-41b9-8d5b-d719cb0cf1df",
         "name": "Get Image Copy's",
@@ -37,56 +45,13 @@
       },
       {
         "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 2
-            },
-            "conditions": [
-              {
-                "id": "03e38478-d811-40c7-9f82-f6e2ddd325ba",
-                "leftValue": "={{ $json.col_2 }}",
-                "rightValue": "Theme",
-                "operator": {
-                  "type": "string",
-                  "operation": "notEquals"
-                }
-              },
-              {
-                "id": "0764ac44-88cf-41c4-a46d-cbb1ee707506",
-                "leftValue": "={{ $json.col_2 }}",
-                "rightValue": "",
-                "operator": {
-                  "type": "string",
-                  "operation": "empty",
-                  "singleValue": true
-                }
-              }
-            ],
-            "combinator": "or"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.filter",
-        "typeVersion": 2.2,
-        "position": [
-          368,
-          -392
-        ],
-        "id": "4da7ef8e-5d46-494d-99cf-f4c354f08054",
-        "name": "Filter Out Incorrect Cells"
-      },
-      {
-        "parameters": {
           "keep": "lastItems"
         },
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          592,
-          -392
+          368,
+          424
         ],
         "id": "d0416b49-c15a-4219-bb1a-a8c3624b7e08",
         "name": "Limit"
@@ -107,8 +72,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          2808,
-          -160
+          2456,
+          572
         ],
         "id": "48e857e7-fcaf-4780-acec-0a3b52a42c0f",
         "name": "OpenAI Chat Model",
@@ -121,156 +86,8 @@
       },
       {
         "parameters": {
-          "resource": "databasePage",
-          "operation": "getAll",
-          "databaseId": {
-            "__rl": true,
-            "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
-            "mode": "list",
-            "cachedResultName": "Syntech Image Prompts",
-            "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
-          },
-          "returnAll": true,
-          "filterType": "manual",
-          "filters": {
-            "conditions": [
-              {
-                "key": "Title|title",
-                "condition": "contains",
-                "titleValue": "S+J"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.notion",
-        "typeVersion": 2.2,
-        "position": [
-          1488,
-          -464
-        ],
-        "id": "262a26ed-b4bf-4a9f-a18c-8ee250a0cf18",
-        "name": "Get many database pages",
-        "executeOnce": true,
-        "credentials": {
-          "notionApi": {
-            "id": "k0ZwGrqySi9Wayf7",
-            "name": "Stephen Notion account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "mode": "combine",
-          "combineBy": "combineAll",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.merge",
-        "typeVersion": 3.2,
-        "position": [
-          2160,
-          -384
-        ],
-        "id": "7766fa91-25d7-4cee-8c48-5f53f3f91805",
-        "name": "Merge"
-      },
-      {
-        "parameters": {
-          "aggregate": "aggregateAllItemData",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.aggregate",
-        "typeVersion": 1,
-        "position": [
-          1712,
-          -464
-        ],
-        "id": "8f362c65-01ec-4313-ad9a-23e0333ddc97",
-        "name": "Aggregate"
-      },
-      {
-        "parameters": {
-          "jsCode": "// Assuming your input JSON array is passed as the first item, e.g. via a previous Set or HTTP node.\n// For example: [ { id: \"...\", name: \"...\", ... }, { ... } ]\n\n// Get the full array from the first input item\nconst data = $input.first().json.data;\n\n// Map to an array of { id, name } objects\nconst slim = data.map(item => {\n  return {\n    id: item.id,\n    name: item.name,\n  };\n});\n\n// Return as a single item whose json key “items” contains the array.\n// (You could also just return one of them, or restructure differently.)\nreturn [\n  {\n    json: {\n      items: slim,\n    },\n  }\n];"
-        },
-        "type": "n8n-nodes-base.code",
-        "typeVersion": 2,
-        "position": [
-          1936,
-          -464
-        ],
-        "id": "1a398a0f-1921-4071-b907-784662d2b7cd",
-        "name": "Code in JavaScript"
-      },
-      {
-        "parameters": {
-          "schemaType": "manual",
-          "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"id\": {\n\t\t\t\"type\": \"string\",\n            \"description\":\"The id of the matching data eg. '2b8785c0-cfab-805b-b15e-d174bc3a9dfd'\"\n\t\t},\n\t\t\"name\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"description\":\"The name of the matching data eg. 'Sustainability & Nature S+J'\"\n\t\t}\n\t}\n}"
-        },
-        "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
-        "typeVersion": 1.3,
-        "position": [
-          2520,
-          -160
-        ],
-        "id": "c58531c0-2850-4466-bf71-f9c067091b4f",
-        "name": "Structured Output Parser"
-      },
-      {
-        "parameters": {
           "promptType": "define",
-          "text": "=DATA:\nItems: {{ $json.items.toJsonString() }}\nInput: \"{{ $('Filter Out Incorrect Cells').item.json.col_3 }}\"",
-          "hasOutputParser": true,
-          "messages": {
-            "messageValues": [
-              {
-                "message": "=You are a strict fuzzy-match resolver.\n\nTASK:\nGiven:\n1. An array of items (each with \"id\" and \"name\")\n2. An input text string\n\nReturn ONLY the single best-matching item by comparing the input text to item.name using fuzzy, semantic, and approximate reasoning.\n\nRULES:\n- Match does NOT need to be exact.\n- Choose ONLY from items in the array.\n- Do NOT create or guess IDs or names.\n- If multiple items are similar, choose the closest one.\n- Do NOT output explanations.\n- Output MUST be valid JSON matching this exact schema:\n\n{\n  \"id\": \"<id>\",\n  \"name\": \"<name>\"\n}"
-              }
-            ]
-          },
-          "batching": {
-            "batchSize": 15
-          }
-        },
-        "type": "@n8n/n8n-nodes-langchain.chainLlm",
-        "typeVersion": 1.7,
-        "position": [
-          2384,
-          -384
-        ],
-        "id": "cbc4ea3c-7e46-4538-bd8f-79268630a390",
-        "name": "Find Matching Image Prompt ID",
-        "retryOnFail": true,
-        "waitBetweenTries": 5000
-      },
-      {
-        "parameters": {
-          "model": {
-            "__rl": true,
-            "value": "claude-3-5-haiku-20241022",
-            "mode": "list",
-            "cachedResultName": "Claude Haiku 3.5"
-          },
-          "options": {}
-        },
-        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
-        "typeVersion": 1.3,
-        "position": [
-          2392,
-          -160
-        ],
-        "id": "f9965496-21db-4cb9-b27d-40e5453acdf1",
-        "name": "Anthropic Chat Model",
-        "credentials": {
-          "anthropicApi": {
-            "id": "0c1nNLaJWpeD3Cqz",
-            "name": "Syntech GM Anthropic account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "promptType": "define",
-          "text": "={{ $('Filter Out Incorrect Cells').item.json['v27 Socials for AI Automation Testing'] }}",
+          "text": "={{ $('Merge Image Pack and Copy').item.json.Copy }}",
           "messages": {
             "messageValues": [
               {
@@ -285,8 +102,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          2736,
-          -384
+          2384,
+          348
         ],
         "id": "e0602825-c9a0-4938-97cd-2c5658924a48",
         "name": "Create Copy Title"
@@ -298,13 +115,13 @@
               {
                 "id": "7b28d51f-827b-4de1-8456-64266f0d8227",
                 "name": "image_prompt_database_id",
-                "value": "={{ $('Find Matching Image Prompt ID').item.json.output.id }}",
+                "value": "={{ $('Merge Image Pack and Copy').item.json.id }}",
                 "type": "string"
               },
               {
                 "id": "999d1895-e63a-4b71-bd32-5e3c3b297207",
                 "name": "image_prompt_name",
-                "value": "={{ $('Find Matching Image Prompt ID').item.json.output.name }}",
+                "value": "={{ $('Merge Image Pack and Copy').item.json[\"Image Pack\"] }}",
                 "type": "string"
               },
               {
@@ -316,7 +133,7 @@
               {
                 "id": "24040dd0-1350-4d2c-bbfe-6071e1075271",
                 "name": "copy_body",
-                "value": "={{ $('Filter Out Incorrect Cells').item.json['v27 Socials for AI Automation Testing'] }}",
+                "value": "={{ $('Merge Image Pack and Copy').item.json.Copy }}",
                 "type": "string"
               }
             ]
@@ -326,8 +143,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3152,
-          -384
+          2736,
+          348
         ],
         "id": "a676f6fc-2dff-4369-9762-3b9cbf942b2e",
         "name": "Set Input Fields"
@@ -339,8 +156,8 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          3440,
-          -384
+          3024,
+          348
         ],
         "id": "6f2be682-394f-4e3d-b5f7-42bf3d74aed4",
         "name": "Limit1"
@@ -368,8 +185,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          3664,
-          -384
+          3312,
+          348
         ],
         "id": "cf3c532b-a1ae-4fcc-9014-a9009675d6d8",
         "name": "Add Notion Copy & Trigger Workflow",
@@ -378,7 +195,8 @@
             "id": "k0ZwGrqySi9Wayf7",
             "name": "Stephen Notion account"
           }
-        }
+        },
+        "disabled": true
       },
       {
         "parameters": {
@@ -388,25 +206,10 @@
         "typeVersion": 3,
         "position": [
           1264,
-          -392
+          424
         ],
         "id": "a83fdf73-15fc-4f9a-9ae2-6decee2d7819",
         "name": "Loop Over Items"
-      },
-      {
-        "parameters": {
-          "amount": 3,
-          "unit": "minutes"
-        },
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "position": [
-          3888,
-          -260
-        ],
-        "id": "ca7eb955-2769-4d64-a26a-3bb0f2892c0e",
-        "name": "Wait",
-        "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8"
       },
       {
         "parameters": {},
@@ -414,7 +217,7 @@
         "typeVersion": 1,
         "position": [
           1488,
-          -656
+          60
         ],
         "id": "84e67fcb-4fd7-456b-a074-ec52758b972f",
         "name": "No Operation, do nothing"
@@ -437,7 +240,7 @@
         "typeVersion": 2.2,
         "position": [
           816,
-          -648
+          84
         ],
         "id": "158778b2-62c7-4303-81d6-c7e8400e1a70",
         "name": "Get many database pages1",
@@ -451,66 +254,27 @@
       },
       {
         "parameters": {
-          "mode": "combine",
-          "advanced": true,
-          "mergeByFields": {
-            "values": [
-              {
-                "field1": "property_content_hash",
-                "field2": "content_hash"
-              }
-            ]
-          },
-          "joinMode": "keepNonMatches",
-          "outputDataFrom": "input2",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.merge",
-        "typeVersion": 3.2,
-        "position": [
-          1040,
-          -392
-        ],
-        "id": "98253aa8-1b09-4dbc-ac15-44c7af291fcc",
-        "name": "Merge1"
-      },
-      {
-        "parameters": {
           "assignments": {
             "assignments": [
               {
                 "id": "93ee8ef6-00ba-4946-800b-6c41fe568053",
                 "name": "content_hash",
-                "value": "={{ $json[\"v27 Socials for AI Automation Testing\"].hash() }}",
+                "value": "={{ $json.Copy.hash() }}",
                 "type": "string"
               }
             ]
           },
+          "includeOtherFields": true,
           "options": {}
         },
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
           816,
-          -132
+          572
         ],
         "id": "fb760bb5-63bb-472c-8d28-05c91421d813",
         "name": "Set Content Hash"
-      },
-      {
-        "parameters": {
-          "content": "## Check for duplicates",
-          "height": 736,
-          "width": 400
-        },
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1,
-        "position": [
-          752,
-          -704
-        ],
-        "id": "7465d835-6255-4da6-883a-4ad293b39e6b",
-        "name": "Sticky Note"
       },
       {
         "parameters": {
@@ -550,7 +314,7 @@
         "typeVersion": 2.4,
         "position": [
           -528,
-          -392
+          424
         ],
         "id": "1f0248c5-4343-4c8e-83c7-4f9f0c4e9da4",
         "name": "Dynamic Form Input",
@@ -642,7 +406,7 @@
         "typeVersion": 3.4,
         "position": [
           -304,
-          -408
+          408
         ],
         "id": "86d430f5-182c-4558-aea7-b07a774889cc",
         "name": "Route Input"
@@ -666,7 +430,7 @@
         "typeVersion": 2.5,
         "position": [
           -80,
-          -392
+          424
         ],
         "id": "dc41f81e-ea94-42c4-ba00-477c43db4d48",
         "name": "Handle Google Sheet",
@@ -680,7 +444,7 @@
         "typeVersion": 2,
         "position": [
           368,
-          156
+          932
         ],
         "id": "af718e84-1fe3-475e-8120-94a01de2a11d",
         "name": "Format Prompt Packs"
@@ -704,7 +468,7 @@
         "typeVersion": 2.2,
         "position": [
           -80,
-          156
+          932
         ],
         "id": "8977648d-557b-4e17-8126-0f11e06434f4",
         "name": "Get All Prompt Packs",
@@ -725,7 +489,7 @@
         "typeVersion": 1,
         "position": [
           144,
-          156
+          932
         ],
         "id": "93137c23-7f43-4e6c-940c-40f9249f98b8",
         "name": "Aggregate Prompt Packs"
@@ -733,7 +497,7 @@
       {
         "parameters": {
           "defineForm": "json",
-          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Checkboxes\",\n    \"fieldType\": \"checkbox\",\n    \"requiredField\": true\n    \"fieldOptions\": {\n      \"values\": [\n        {{ $('Format Prompt Packs').item.json.items.map(item => `{\"option\": \"${item.name}\"}`).join(\",\") }}\n      ]\n    }\n  },\n  {\n    \"fieldLabel\": \"Copy\",\n    \"fieldType\": \"textarea\",\n    \"placeholder\": \"describe your desired creative\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Variants\",\n    \"placeholder\": \"number of variants (defaults to 2 for pack)\",\n    \"fieldType\": \"number\"\n  }\n]",
+          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Checkboxes\",\n    \"fieldType\": \"checkbox\",\n    \"requiredField\": true,\n    \"fieldOptions\": {\n      \"values\": [\n        {{ $('Format Prompt Packs').item.json.items.map(item => `{\"option\": \"${item.name}\"}`).join(\",\") }}\n      ]\n    }\n  },\n  {\n    \"fieldLabel\": \"Copy\",\n    \"fieldType\": \"textarea\",\n    \"placeholder\": \"describe your desired creative\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Variants\",\n    \"placeholder\": \"number of variants (defaults to 2 for pack)\",\n    \"fieldType\": \"number\"\n  }\n]",
           "options": {
             "formTitle": "Select Prompt Pack",
             "buttonLabel": "Select Repos",
@@ -744,7 +508,7 @@
         "typeVersion": 2.4,
         "position": [
           1040,
-          60
+          764
         ],
         "id": "820f62d0-d62c-416f-89fa-603802e7ba86",
         "name": "Select Prompt Pack",
@@ -778,7 +542,7 @@
         "typeVersion": 2.5,
         "position": [
           1264,
-          60
+          764
         ],
         "id": "209e4e67-8f4a-4198-b666-8c763a7ec400",
         "name": "Form",
@@ -812,7 +576,7 @@
         "typeVersion": 2.3,
         "position": [
           1712,
-          156
+          932
         ],
         "id": "b14ac919-c49a-4567-a2b3-77c088f213a2",
         "name": "If Finished?"
@@ -825,7 +589,7 @@
         "typeVersion": 2,
         "position": [
           1488,
-          60
+          764
         ],
         "id": "41ab340d-f9c3-4f01-9ac1-80343a9dc7f7",
         "name": "Process Results"
@@ -838,7 +602,7 @@
         "typeVersion": 2,
         "position": [
           816,
-          156
+          932
         ],
         "id": "e682e98b-79de-4315-bfb8-7dde271d6fa4",
         "name": "Set Current Selections"
@@ -851,7 +615,7 @@
         "typeVersion": 2,
         "position": [
           592,
-          156
+          932
         ],
         "id": "04daf7ed-60b1-4584-bec0-cb5c8f31b3be",
         "name": "Initialise Loop State"
@@ -865,7 +629,7 @@
         "typeVersion": 1,
         "position": [
           1936,
-          52
+          740
         ],
         "id": "cbdf7e3e-2171-46c8-9d13-bad3ebcdb319",
         "name": "Split Out Copy Ideas"
@@ -888,8 +652,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          2160,
-          244
+          1936,
+          932
         ],
         "id": "8730e099-e7d7-421c-b1a2-3a04d00817aa",
         "name": "Get many database pages2",
@@ -911,7 +675,7 @@
         "typeVersion": 1,
         "position": [
           2160,
-          52
+          740
         ],
         "id": "30a45d59-8b7f-4b50-8c1b-3165ed5dc5cd",
         "name": "Split Out Image Packs"
@@ -951,8 +715,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3440,
-          156
+          3312,
+          932
         ],
         "id": "bc4c2cf7-0b90-46b9-9956-713e7431f62c",
         "name": "Set Input Fields2"
@@ -964,8 +728,8 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          3664,
-          156
+          3600,
+          932
         ],
         "id": "77bddf3d-a589-486d-b089-64570c5c59a6",
         "name": "Limit3"
@@ -988,13 +752,20 @@
           "sendBody": true,
           "specifyBody": "json",
           "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"2a2785c0-cfab-805f-ae13-ceed4cac4710\"\n  },\n  \"properties\": {\n    \"Concept\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $json.copy_title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"status\": {\n        \"name\": \"In progress\"\n      }\n    },\n    \"Update Prompt\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"Create a social media post for this content.\"\n          }\n        }\n      ]\n    },\n    \"content_hash\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json?.copy_body?.hash() || '' }}\"\n          }\n        }\n      ]\n    },\n    \"Variants\": {\n      \"number\": {{ $('Set Input Fields2').item.json.variants.toNumber() }}\n    },\n    \"Image Prompt Template\": {\n      \"relation\": [\n        {{ $json.image_prompt_database_id.map(item => `{ \"id\": \"${item}\" }`) }}\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.copy_body.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
-          "options": {}
+          "options": {
+            "batching": {
+              "batch": {
+                "batchSize": 1,
+                "batchInterval": 180000
+              }
+            }
+          }
         },
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          3888,
-          156
+          3952,
+          932
         ],
         "id": "4b95b543-186b-49dc-bc0b-59c90817eedd",
         "name": "Add Notion Copy & Trigger Workflow2",
@@ -1003,7 +774,8 @@
             "id": "k0ZwGrqySi9Wayf7",
             "name": "Stephen Notion account"
           }
-        }
+        },
+        "disabled": true
       },
       {
         "parameters": {
@@ -1021,8 +793,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          3160,
-          380
+          3032,
+          1156
         ],
         "id": "2fe6bc2e-c689-4f2b-a5eb-577be543d96e",
         "name": "OpenAI Chat Model1",
@@ -1051,8 +823,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          3088,
-          156
+          2960,
+          932
         ],
         "id": "2a849e27-e6f0-4897-acad-f22e7e6a2dd4",
         "name": "Create Copy Title1"
@@ -1064,8 +836,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          2800,
-          156
+          2736,
+          932
         ],
         "id": "4a78bb7c-f841-4a9f-a154-ff242d7f9ef0",
         "name": "Merge By Ad Copy"
@@ -1088,7 +860,7 @@
         "typeVersion": 3.2,
         "position": [
           2448,
-          156
+          932
         ],
         "id": "edd89bdb-fb8a-4760-a826-a131c0b21bb3",
         "name": "Merge Image Prompt Ids To Copy"
@@ -1133,7 +905,7 @@
                     {
                       "id": "ba7c4070-e3db-49cf-9c02-17730de3d75d",
                       "leftValue": "={{ $binary.toJsonString() }}",
-                      "rightValue": "",
+                      "rightValue": "application/pdf",
                       "operator": {
                         "type": "string",
                         "operation": "contains"
@@ -1157,7 +929,7 @@
                     {
                       "id": "b4d1c3f3-fb4d-4eed-8043-9ed81fd77b69",
                       "leftValue": "={{ $binary.toJsonString() }}",
-                      "rightValue": "",
+                      "rightValue": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                       "operator": {
                         "type": "string",
                         "operation": "contains"
@@ -1177,7 +949,7 @@
         "typeVersion": 3.4,
         "position": [
           368,
-          -864
+          -600
         ],
         "id": "3b553bbe-bead-420d-af1a-22e3c2b52e07",
         "name": "Switch"
@@ -1202,7 +974,7 @@
         "typeVersion": 2.5,
         "position": [
           -80,
-          -848
+          -584
         ],
         "id": "74af80b9-ca60-44d7-8189-e153232139d3",
         "name": "Upload Document",
@@ -1217,7 +989,7 @@
         "typeVersion": 1,
         "position": [
           144,
-          -848
+          -584
         ],
         "id": "2a79c9ef-8458-447d-abc8-f83be832e89a",
         "name": "Split Out Documents"
@@ -1232,7 +1004,7 @@
         "typeVersion": 1,
         "position": [
           1488,
-          -848
+          -1368
         ],
         "id": "6e8acf5f-033c-44aa-82be-fba46083556f",
         "name": "Markdown"
@@ -1255,7 +1027,7 @@
         "typeVersion": 3.4,
         "position": [
           1712,
-          -848
+          -1368
         ],
         "id": "5b647728-0772-4092-a066-9abf63fe429a",
         "name": "Set Doc Table Cells"
@@ -1269,7 +1041,7 @@
         "typeVersion": 1,
         "position": [
           1936,
-          -848
+          -1368
         ],
         "id": "a2337f33-6d49-4f0a-8aa9-db2aa637b0a6",
         "name": "Split Out Cells"
@@ -1283,7 +1055,7 @@
         "typeVersion": 2,
         "position": [
           592,
-          -848
+          -1368
         ],
         "id": "04b46d18-1842-4a54-81c9-78c89a98d125",
         "name": "Rename Binary Files"
@@ -1316,7 +1088,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "position": [
           816,
-          -848
+          -1368
         ],
         "typeVersion": 4.2,
         "credentials": {
@@ -1356,7 +1128,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "position": [
           1040,
-          -848
+          -1368
         ],
         "typeVersion": 4.2,
         "credentials": {
@@ -1382,7 +1154,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "position": [
           1264,
-          -848
+          -1368
         ],
         "typeVersion": 4.2,
         "credentials": {
@@ -1392,21 +1164,1279 @@
           }
         },
         "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "mode": "markdownToHtml",
+          "markdown": "={{ $json.pages.map(page => page.markdown).join() }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.markdown",
+        "typeVersion": 1,
+        "position": [
+          1488,
+          -680
+        ],
+        "id": "3f8025b0-4d66-46f4-bac9-9d45381aaa3d",
+        "name": "Markdown1"
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "const item = $input.item;\n\n// Get all binary keys (Upload_Document_0, Upload_Document_1, etc.)\nconst binaryKeys = Object.keys(item.binary || {});\n\nif (!binaryKeys.length) {\n  return item;\n}\n\n// Pick the first binary file (or loop if you want all)\nconst firstKey = binaryKeys[0];\n\n// Rename it to a fixed key, e.g. \"file\"\nitem.binary = {\n  data: item.binary[firstKey]\n};\n\nreturn item;"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          592,
+          -680
+        ],
+        "id": "0742c1c8-391e-498b-8c8a-d870e7151e0d",
+        "name": "Rename Binary Files1"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.mistral.ai/v1/files",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "mistralCloudApi",
+          "sendBody": true,
+          "contentType": "multipart-form-data",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "purpose",
+                "value": "ocr"
+              },
+              {
+                "parameterType": "formBinaryData",
+                "name": "file",
+                "inputDataFieldName": "data"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "7480f66f-c8d1-4f9b-846a-53e13fd128e0",
+        "name": "Mistral Upload1",
+        "type": "n8n-nodes-base.httpRequest",
+        "position": [
+          816,
+          -680
+        ],
+        "typeVersion": 4.2,
+        "credentials": {
+          "mistralCloudApi": {
+            "id": "SGVycfJoKSsVTUod",
+            "name": "Stephen Mistral Cloud account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "url": "=https://api.mistral.ai/v1/files/{{ $json.id }}/url",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "mistralCloudApi",
+          "sendQuery": true,
+          "queryParameters": {
+            "parameters": [
+              {
+                "name": "expiry",
+                "value": "24"
+              }
+            ]
+          },
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Accept",
+                "value": "application/json"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "618af374-c3ea-4df6-9811-a98637c5d46e",
+        "name": "Mistral Signed URL1",
+        "type": "n8n-nodes-base.httpRequest",
+        "position": [
+          1040,
+          -680
+        ],
+        "typeVersion": 4.2,
+        "credentials": {
+          "mistralCloudApi": {
+            "id": "SGVycfJoKSsVTUod",
+            "name": "Stephen Mistral Cloud account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.mistral.ai/v1/ocr",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "mistralCloudApi",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"model\": \"mistral-ocr-latest\",\n  \"document\": {\n    \"type\": \"document_url\",\n    \"document_url\": \"{{ $json.url }}\"\n  },\n  \"include_image_base64\": true\n}",
+          "options": {}
+        },
+        "id": "4f803f73-fea7-4659-88b5-cbda99c84277",
+        "name": "Mistral DOC OCR1",
+        "type": "n8n-nodes-base.httpRequest",
+        "position": [
+          1264,
+          -680
+        ],
+        "typeVersion": 4.2,
+        "credentials": {
+          "mistralCloudApi": {
+            "id": "SGVycfJoKSsVTUod",
+            "name": "Stephen Mistral Cloud account"
+          }
+        },
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "f0d81f36-a5e4-445d-96bd-eacf6e60e57c",
+                "name": "cells",
+                "value": "={{\n  $json.pages.flatMap(page =>\n    [...page.markdown.matchAll(/^\\|([\\s\\S]*?)\\|\\s*$/gm)]\n      .map(m => m[1].trim())\n  )\n}}",
+                "type": "array"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1712,
+          -680
+        ],
+        "id": "55bdcb3c-3982-4d29-ad41-5d74ed8c32cb",
+        "name": "Set Doc Table Cells1"
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "cells",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          1936,
+          -680
+        ],
+        "id": "e3ae8950-305e-4460-94ba-d39ca189fc1b",
+        "name": "Split Out Cells1"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "e33603be-e574-4d88-96b0-913cf17894fe",
+                "leftValue": "={{ $json.cells }}",
+                "rightValue": "---",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEquals"
+                }
+              },
+              {
+                "id": "902c5186-6418-4053-84c0-3fd337adecda",
+                "leftValue": "={{ $json.cells }}",
+                "rightValue": "--",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              },
+              {
+                "id": "bad9be00-8bf7-4216-9d01-16e8646a33c1",
+                "leftValue": "={{ $json.cells }}",
+                "rightValue": "-",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.3,
+        "position": [
+          2160,
+          -680
+        ],
+        "id": "9bbccdee-4d63-46fb-aed1-c55b48f3b852",
+        "name": "Filter Out Hyphens"
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "const item = $input.item;\n\n// Get all binary keys (Upload_Document_0, Upload_Document_1, etc.)\nconst binaryKeys = Object.keys(item.binary || {});\n\nif (!binaryKeys.length) {\n  return item;\n}\n\n// Pick the first binary file (or loop if you want all)\nconst firstKey = binaryKeys[0];\n\n// Rename it to a fixed key, e.g. \"file\"\nitem.binary = {\n  data: item.binary[firstKey]\n};\n\nreturn item;"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          592,
+          -116
+        ],
+        "id": "cfbfe015-b313-4b0e-b0d5-128f3a2f27dd",
+        "name": "Rename Binary Files2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "6f5fca1a-ef89-4f5d-bf91-80e21c481526",
+                "name": "copy",
+                "value": "={{ $json[\"Copy\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "32373e6f-2762-450a-9cce-53203e71325d",
+                "name": "theme",
+                "value": "={{ $json.Theme }}",
+                "type": "string"
+              },
+              {
+                "id": "43fd6cce-d835-4fc0-92c2-8dcb3d469b38",
+                "name": "iamge_pack",
+                "value": "={{ $json['Image Pack'] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1040,
+          -116
+        ],
+        "id": "9bd3e706-84eb-4fc9-9170-37944931b983",
+        "name": "Set Copy and Image Pack"
+      },
+      {
+        "parameters": {
+          "operation": "xlsx",
+          "options": {
+            "headerRow": true,
+            "range": "2"
+          }
+        },
+        "type": "n8n-nodes-base.extractFromFile",
+        "typeVersion": 1.1,
+        "position": [
+          816,
+          -116
+        ],
+        "id": "1858010b-1481-478a-8c35-7feb61cf5075",
+        "name": "Extract from XLSX File"
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "operation": "getAll",
+          "databaseId": {
+            "__rl": true,
+            "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+            "mode": "list",
+            "cachedResultName": "Syntech Image Prompts",
+            "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+          },
+          "returnAll": true,
+          "filterType": "manual",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          1264,
+          -488
+        ],
+        "id": "1ef5be67-8678-48f5-b3ec-764ea5adb2b3",
+        "name": "Get many database pages3",
+        "executeOnce": true,
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "advanced": true,
+          "mergeByFields": {
+            "values": [
+              {
+                "field1": "name",
+                "field2": "iamge_pack"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          1712,
+          -116
+        ],
+        "id": "8c46a02d-4aba-4243-95da-d2a91fb09dd6",
+        "name": "Merge Image Prompt Ids To Copy1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "c6d6ba82-babc-4ac2-bf4e-6d26e3a64428",
+                "name": "name",
+                "value": "={{ $json.name }}",
+                "type": "string"
+              },
+              {
+                "id": "50817dc4-026f-4a85-8312-a2a3411e576c",
+                "name": "id",
+                "value": "={{ $json.id }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1488,
+          -488
+        ],
+        "id": "87c2d8de-a40c-4864-85ea-9d32708ba43e",
+        "name": "Set Prompt Name and ID"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-3.5-turbo",
+            "mode": "list",
+            "cachedResultName": "gpt-3.5-turbo"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0.2
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          2456,
+          4
+        ],
+        "id": "60013c89-d5be-4b55-8347-292fba4e8f0a",
+        "name": "OpenAI Chat Model2",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $('Merge Image Prompt Ids To Copy1').item.json.copy }}",
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=Given the following image copy, write a short reflective title in no more than 3-5 words. Don't add any quotations or custom punctuation.\n\nExample output:\n\nDriving Change With Innivation"
+              }
+            ]
+          },
+          "batching": {
+            "batchSize": 15
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.7,
+        "position": [
+          2384,
+          -220
+        ],
+        "id": "41d79290-9e93-48a4-aa10-808dde736832",
+        "name": "Create Copy Title2"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.limit",
+        "typeVersion": 1,
+        "position": [
+          1936,
+          -116
+        ],
+        "id": "afbee7f7-352a-45a5-8522-99d05a81e77d",
+        "name": "Limit2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "7b28d51f-827b-4de1-8456-64266f0d8227",
+                "name": "image_prompt_database_id",
+                "value": "=[\"{{ $('Merge Image Prompt Ids To Copy1').item.json.id }}\"]",
+                "type": "array"
+              },
+              {
+                "id": "27835713-35f2-40ed-bd86-69a6a3b435d3",
+                "name": "copy_title",
+                "value": "={{ $('Create Copy Title2').item.json.text }}",
+                "type": "string"
+              },
+              {
+                "id": "24040dd0-1350-4d2c-bbfe-6071e1075271",
+                "name": "copy_body",
+                "value": "={{ $('Merge Image Prompt Ids To Copy1').item.json.copy }}",
+                "type": "string"
+              },
+              {
+                "id": "73b16129-96f3-443f-a886-b318a75bb5c6",
+                "name": "variants",
+                "value": "=2",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2736,
+          -220
+        ],
+        "id": "ab9fbf18-6983-4bbc-a43d-b560924e1a7f",
+        "name": "Set Input Fields3"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.notion.com/v1/pages",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "notionApi",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Notion-Version",
+                "value": "2025-09-03"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"2a2785c0-cfab-805f-ae13-ceed4cac4710\"\n  },\n  \"properties\": {\n    \"Concept\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $json.copy_title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"status\": {\n        \"name\": \"In progress\"\n      }\n    },\n    \"Update Prompt\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"Create a social media post for this content.\"\n          }\n        }\n      ]\n    },\n    \"content_hash\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json?.copy_body?.hash() || '' }}\"\n          }\n        }\n      ]\n    },\n    \"Variants\": {\n      \"number\": {{ $('Set Input Fields3').item.json.variants.toNumber() }}\n    },\n    \"Image Prompt Template\": {\n      \"relation\": [\n        {{ $json.image_prompt_database_id.map(item => `{ \"id\": \"${item}\" }`) }}\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.copy_body.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          3024,
+          -220
+        ],
+        "id": "484eaa19-5d37-4acd-8a9d-0872add79887",
+        "name": "Add Notion Copy & Trigger Workflow3",
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        },
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3,
+        "position": [
+          2160,
+          -116
+        ],
+        "id": "76a5c844-b15d-489d-8db7-2f79da440fbc",
+        "name": "Loop Over Items1"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          2448,
+          -516
+        ],
+        "id": "3a8eb3a8-7690-4380-bf2a-467949cf4379",
+        "name": "No Operation, do nothing1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "c6d6ba82-babc-4ac2-bf4e-6d26e3a64428",
+                "name": "name",
+                "value": "={{ $json.name }}",
+                "type": "string"
+              },
+              {
+                "id": "50817dc4-026f-4a85-8312-a2a3411e576c",
+                "name": "id",
+                "value": "={{ $json.id }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2160,
+          932
+        ],
+        "id": "ae30dec2-94e0-46ac-9742-0a0a8d9d7910",
+        "name": "Set Prompt Name and ID1"
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "operation": "getAll",
+          "databaseId": {
+            "__rl": true,
+            "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+            "mode": "list",
+            "cachedResultName": "Syntech Image Prompts",
+            "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+          },
+          "returnAll": true,
+          "filterType": "manual",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          2448,
+          -980
+        ],
+        "id": "99302fe3-9784-4d51-99b4-1984ef3a9a4c",
+        "name": "Get many database pages4",
+        "executeOnce": true,
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "advanced": true,
+          "mergeByFields": {
+            "values": [
+              {
+                "field1": "name",
+                "field2": "iamge_pack"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          3024,
+          -680
+        ],
+        "id": "1d3311d9-e509-4e0d-ace1-7e91d126ab21",
+        "name": "Merge Image Prompt Ids To Copy2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "c6d6ba82-babc-4ac2-bf4e-6d26e3a64428",
+                "name": "name",
+                "value": "={{ $json.name }}",
+                "type": "string"
+              },
+              {
+                "id": "50817dc4-026f-4a85-8312-a2a3411e576c",
+                "name": "id",
+                "value": "={{ $json.id }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2736,
+          -980
+        ],
+        "id": "4700c5b3-dbaa-43d3-8d49-a4599d009082",
+        "name": "Set Prompt Name and ID2"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-3.5-turbo",
+            "mode": "list",
+            "cachedResultName": "gpt-3.5-turbo"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0.2
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          3960,
+          -360
+        ],
+        "id": "c62882d0-7189-4935-adc1-7362f8def950",
+        "name": "OpenAI Chat Model3",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $('Merge Image Prompt Ids To Copy2').item.json.copy }}",
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=Given the following image copy, write a short reflective title in no more than 3-5 words. Don't add any quotations or custom punctuation.\n\nExample output:\n\nDriving Change With Innivation"
+              }
+            ]
+          },
+          "batching": {
+            "batchSize": 15
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.7,
+        "position": [
+          3888,
+          -584
+        ],
+        "id": "77ee753c-6e68-4d5c-82af-cbef0e0c68ad",
+        "name": "Create Copy Title3"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.limit",
+        "typeVersion": 1,
+        "position": [
+          3312,
+          -680
+        ],
+        "id": "7386684d-72c1-41d2-8ca3-a4f2176c3a94",
+        "name": "Limit4"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "7b28d51f-827b-4de1-8456-64266f0d8227",
+                "name": "image_prompt_database_id",
+                "value": "=[\"{{ $('Merge Image Prompt Ids To Copy2').item.json.id }}\"]",
+                "type": "array"
+              },
+              {
+                "id": "27835713-35f2-40ed-bd86-69a6a3b435d3",
+                "name": "copy_title",
+                "value": "={{ $('Create Copy Title3').item.json.text }}",
+                "type": "string"
+              },
+              {
+                "id": "24040dd0-1350-4d2c-bbfe-6071e1075271",
+                "name": "copy_body",
+                "value": "={{ $('Merge Image Prompt Ids To Copy2').item.json.copy }}",
+                "type": "string"
+              },
+              {
+                "id": "73b16129-96f3-443f-a886-b318a75bb5c6",
+                "name": "variants",
+                "value": "=2",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          4240,
+          -584
+        ],
+        "id": "d79d0323-9dc3-40b0-adc8-6d4e6778f842",
+        "name": "Set Input Fields4"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.notion.com/v1/pages",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "notionApi",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Notion-Version",
+                "value": "2025-09-03"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"2a2785c0-cfab-805f-ae13-ceed4cac4710\"\n  },\n  \"properties\": {\n    \"Concept\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $json.copy_title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"status\": {\n        \"name\": \"In progress\"\n      }\n    },\n    \"Update Prompt\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"Create a social media post for this content.\"\n          }\n        }\n      ]\n    },\n    \"content_hash\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json?.copy_body?.hash() || '' }}\"\n          }\n        }\n      ]\n    },\n    \"Variants\": {\n      \"number\": {{ $('Set Input Fields4').item.json.variants.toNumber() }}\n    },\n    \"Image Prompt Template\": {\n      \"relation\": [\n        {{ $json.image_prompt_database_id.map(item => `{ \"id\": \"${item}\" }`) }}\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.copy_body.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          4464,
+          -584
+        ],
+        "id": "6a863b82-aa2b-401c-a489-dec927a16cc1",
+        "name": "Add Notion Copy & Trigger Workflow4",
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        },
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3,
+        "position": [
+          3600,
+          -680
+        ],
+        "id": "737b66dc-f84c-428c-bce9-e10618b1254c",
+        "name": "Loop Over Items2"
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "operation": "getAll",
+          "databaseId": {
+            "__rl": true,
+            "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+            "mode": "list",
+            "cachedResultName": "Syntech Image Prompts",
+            "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+          },
+          "returnAll": true,
+          "filterType": "manual",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          2160,
+          -1492
+        ],
+        "id": "89373261-568f-4c8d-a1d4-11c62996563d",
+        "name": "Get many database pages5",
+        "executeOnce": true,
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "advanced": true,
+          "mergeByFields": {
+            "values": [
+              {
+                "field1": "name",
+                "field2": "iamge_pack"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          2736,
+          -1368
+        ],
+        "id": "8b9ed8d1-2b9b-4ec2-a897-3e235f226cc0",
+        "name": "Merge Image Prompt Ids To Copy3"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "c6d6ba82-babc-4ac2-bf4e-6d26e3a64428",
+                "name": "name",
+                "value": "={{ $json.name }}",
+                "type": "string"
+              },
+              {
+                "id": "50817dc4-026f-4a85-8312-a2a3411e576c",
+                "name": "id",
+                "value": "={{ $json.id }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2448,
+          -1492
+        ],
+        "id": "0820254c-5883-4dab-a7f7-5ac6fbd22d4b",
+        "name": "Set Prompt Name and ID3"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-3.5-turbo",
+            "mode": "list",
+            "cachedResultName": "gpt-3.5-turbo"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0.2
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          3608,
+          -1048
+        ],
+        "id": "a1524eec-8019-4611-922d-84c155c5d3de",
+        "name": "OpenAI Chat Model4",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $('Merge Image Prompt Ids To Copy3').item.json.copy }}",
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=Given the following image copy, write a short reflective title in no more than 3-5 words. Don't add any quotations or custom punctuation.\n\nExample output:\n\nDriving Change With Innivation"
+              }
+            ]
+          },
+          "batching": {
+            "batchSize": 15
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.7,
+        "position": [
+          3536,
+          -1272
+        ],
+        "id": "e882e763-5b9e-41f4-880c-28902cb7bb9f",
+        "name": "Create Copy Title4"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.limit",
+        "typeVersion": 1,
+        "position": [
+          3024,
+          -1368
+        ],
+        "id": "9380226e-dcd9-40ec-a48e-d4751401333c",
+        "name": "Limit5"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "7b28d51f-827b-4de1-8456-64266f0d8227",
+                "name": "image_prompt_database_id",
+                "value": "=[\"{{ $('Merge Image Prompt Ids To Copy3').item.json.id }}\"]",
+                "type": "array"
+              },
+              {
+                "id": "27835713-35f2-40ed-bd86-69a6a3b435d3",
+                "name": "copy_title",
+                "value": "={{ $('Create Copy Title4').item.json.text }}",
+                "type": "string"
+              },
+              {
+                "id": "24040dd0-1350-4d2c-bbfe-6071e1075271",
+                "name": "copy_body",
+                "value": "={{ $('Merge Image Prompt Ids To Copy3').item.json.copy }}",
+                "type": "string"
+              },
+              {
+                "id": "73b16129-96f3-443f-a886-b318a75bb5c6",
+                "name": "variants",
+                "value": "=2",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          3952,
+          -1272
+        ],
+        "id": "901a4331-b093-44c0-9ff6-933ec58d0878",
+        "name": "Set Input Fields5"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.notion.com/v1/pages",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "notionApi",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Notion-Version",
+                "value": "2025-09-03"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"2a2785c0-cfab-805f-ae13-ceed4cac4710\"\n  },\n  \"properties\": {\n    \"Concept\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $json.copy_title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"status\": {\n        \"name\": \"In progress\"\n      }\n    },\n    \"Update Prompt\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"Create a social media post for this content.\"\n          }\n        }\n      ]\n    },\n    \"content_hash\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json?.copy_body?.hash() || '' }}\"\n          }\n        }\n      ]\n    },\n    \"Variants\": {\n      \"number\": {{ $('Set Input Fields5').item.json.variants.toNumber() }}\n    },\n    \"Image Prompt Template\": {\n      \"relation\": [\n        {{ $json.image_prompt_database_id.map(item => `{ \"id\": \"${item}\" }`) }}\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.copy_body.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          4240,
+          -1272
+        ],
+        "id": "1c6d0459-6596-48e5-8b15-f5663522e211",
+        "name": "Add Notion Copy & Trigger Workflow5",
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        },
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3,
+        "position": [
+          3312,
+          -1368
+        ],
+        "id": "ae83717b-ae30-40e5-83b2-c0e6a19cf3a7",
+        "name": "Loop Over Items3"
+      },
+      {
+        "parameters": {
+          "amount": 3,
+          "unit": "minutes"
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          3312,
+          -40
+        ],
+        "id": "ccfef1ca-d0c7-47cb-9043-0addedb321e7",
+        "name": "Wait 3 mins",
+        "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "amount": 3,
+          "unit": "minutes"
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          3600,
+          548
+        ],
+        "id": "ca7eb955-2769-4d64-a26a-3bb0f2892c0e",
+        "name": "Wait 3 mins1",
+        "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "amount": 3,
+          "unit": "minutes"
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          4688,
+          -460
+        ],
+        "id": "dad057f4-2a2c-45bd-8d2f-e7a93a9a723b",
+        "name": "Wait 3 mins2",
+        "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "amount": 3,
+          "unit": "minutes"
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          4464,
+          -1268
+        ],
+        "id": "1583b334-6ff5-4efc-a7c7-953de606d753",
+        "name": "Wait 3 mins3",
+        "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8",
+        "disabled": true
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          3952,
+          -880
+        ],
+        "id": "b279a185-766c-4b4b-9226-a4d0f400edae",
+        "name": "No Operation, do nothing2"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          3600,
+          -1568
+        ],
+        "id": "6e7def0d-ff70-418e-9dc9-943bfdc5f98b",
+        "name": "No Operation, do nothing3"
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "advanced": true,
+          "mergeByFields": {
+            "values": [
+              {
+                "field1": "property_content_hash",
+                "field2": "content_hash"
+              }
+            ]
+          },
+          "joinMode": "keepNonMatches",
+          "outputDataFrom": "input2",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          1040,
+          424
+        ],
+        "id": "98253aa8-1b09-4dbc-ac15-44c7af291fcc",
+        "name": "Remove Duplicates"
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "operation": "getAll",
+          "databaseId": {
+            "__rl": true,
+            "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+            "mode": "list",
+            "cachedResultName": "Syntech Image Prompts",
+            "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+          },
+          "returnAll": true,
+          "filterType": "manual",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          592,
+          84
+        ],
+        "id": "d32f543c-af4d-4feb-8af4-069b7b94c0fe",
+        "name": "Get All Image Prompts",
+        "executeOnce": true,
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "4223dd61-bbe1-442c-91ee-a92a917f9f6a",
+                "name": "image_prompts",
+                "value": "={{ $('Get All Image Prompts').all().map(prompt => prompt.json) }}",
+                "type": "array"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1488,
+          348
+        ],
+        "id": "932a86d2-c08b-45bb-ad37-453fdf1a146d",
+        "name": "Set Image Prompts"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "fe3dda85-5b20-4c5e-aaa8-f6b7abc676e9",
+                "name": "name",
+                "value": "={{ $json.name }}",
+                "type": "string"
+              },
+              {
+                "id": "dd947b5b-4527-421f-956f-3db8fbcd9f94",
+                "name": "id",
+                "value": "={{ $json.id }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1936,
+          348
+        ],
+        "id": "78b52def-f41d-4015-a804-5ca0c9e022f0",
+        "name": "Set Prompt Name and ID4"
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "image_prompts",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          1712,
+          348
+        ],
+        "id": "263a041d-1058-4c08-8035-0bcb028a094f",
+        "name": "Split Out Image Prompts"
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "advanced": true,
+          "mergeByFields": {
+            "values": [
+              {
+                "field1": "Image Pack",
+                "field2": "name"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          2160,
+          348
+        ],
+        "id": "7766fa91-25d7-4cee-8c48-5f53f3f91805",
+        "name": "Merge Image Pack and Copy"
       }
     ],
     "connections": {
       "Get Image Copy's": {
-        "main": [
-          [
-            {
-              "node": "Filter Out Incorrect Cells",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Filter Out Incorrect Cells": {
         "main": [
           [
             {
@@ -1421,12 +2451,12 @@
         "main": [
           [
             {
-              "node": "Get many database pages1",
+              "node": "Set Content Hash",
               "type": "main",
               "index": 0
             },
             {
-              "node": "Set Content Hash",
+              "node": "Get All Image Prompts",
               "type": "main",
               "index": 0
             }
@@ -1438,83 +2468,6 @@
           [
             {
               "node": "Create Copy Title",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Get many database pages": {
-        "main": [
-          [
-            {
-              "node": "Aggregate",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Aggregate": {
-        "main": [
-          [
-            {
-              "node": "Code in JavaScript",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Merge": {
-        "main": [
-          [
-            {
-              "node": "Find Matching Image Prompt ID",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Code in JavaScript": {
-        "main": [
-          [
-            {
-              "node": "Merge",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Structured Output Parser": {
-        "ai_outputParser": [
-          [
-            {
-              "node": "Find Matching Image Prompt ID",
-              "type": "ai_outputParser",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Find Matching Image Prompt ID": {
-        "main": [
-          [
-            {
-              "node": "Create Copy Title",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Anthropic Chat Model": {
-        "ai_languageModel": [
-          [
-            {
-              "node": "Find Matching Image Prompt ID",
               "type": "ai_languageModel",
               "index": 0
             }
@@ -1558,7 +2511,7 @@
         "main": [
           [
             {
-              "node": "Wait",
+              "node": "Wait 3 mins1",
               "type": "main",
               "index": 0
             }
@@ -1576,34 +2529,12 @@
           ],
           [
             {
-              "node": "Get many database pages",
+              "node": "Set Image Prompts",
               "type": "main",
               "index": 0
             },
             {
-              "node": "Merge",
-              "type": "main",
-              "index": 1
-            }
-          ]
-        ]
-      },
-      "Wait": {
-        "main": [
-          [
-            {
-              "node": "Loop Over Items",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Merge1": {
-        "main": [
-          [
-            {
-              "node": "Loop Over Items",
+              "node": "Merge Image Pack and Copy",
               "type": "main",
               "index": 0
             }
@@ -1614,7 +2545,7 @@
         "main": [
           [
             {
-              "node": "Merge1",
+              "node": "Remove Duplicates",
               "type": "main",
               "index": 0
             }
@@ -1625,7 +2556,7 @@
         "main": [
           [
             {
-              "node": "Merge1",
+              "node": "Remove Duplicates",
               "type": "main",
               "index": 1
             }
@@ -1805,9 +2736,9 @@
         "main": [
           [
             {
-              "node": "Merge Image Prompt Ids To Copy",
+              "node": "Set Prompt Name and ID1",
               "type": "main",
-              "index": 1
+              "index": 0
             }
           ]
         ]
@@ -1898,7 +2829,20 @@
               "index": 0
             }
           ],
-          []
+          [
+            {
+              "node": "Rename Binary Files1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Rename Binary Files2",
+              "type": "main",
+              "index": 0
+            }
+          ]
         ]
       },
       "Upload Document": {
@@ -1988,27 +2932,602 @@
             }
           ]
         ]
+      },
+      "Rename Binary Files1": {
+        "main": [
+          [
+            {
+              "node": "Mistral Upload1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Mistral Upload1": {
+        "main": [
+          [
+            {
+              "node": "Mistral Signed URL1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Mistral Signed URL1": {
+        "main": [
+          [
+            {
+              "node": "Mistral DOC OCR1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Mistral DOC OCR1": {
+        "main": [
+          [
+            {
+              "node": "Markdown1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Doc Table Cells1": {
+        "main": [
+          [
+            {
+              "node": "Split Out Cells1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Markdown1": {
+        "main": [
+          [
+            {
+              "node": "Set Doc Table Cells1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out Cells1": {
+        "main": [
+          [
+            {
+              "node": "Filter Out Hyphens",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Rename Binary Files2": {
+        "main": [
+          [
+            {
+              "node": "Extract from XLSX File",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Extract from XLSX File": {
+        "main": [
+          [
+            {
+              "node": "Set Copy and Image Pack",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Copy and Image Pack": {
+        "main": [
+          [
+            {
+              "node": "Get many database pages3",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Merge Image Prompt Ids To Copy1",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Get many database pages3": {
+        "main": [
+          [
+            {
+              "node": "Set Prompt Name and ID",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Prompt Name and ID": {
+        "main": [
+          [
+            {
+              "node": "Merge Image Prompt Ids To Copy1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model2": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create Copy Title2",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Merge Image Prompt Ids To Copy1": {
+        "main": [
+          [
+            {
+              "node": "Limit2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Limit2": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Copy Title2": {
+        "main": [
+          [
+            {
+              "node": "Set Input Fields3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Input Fields3": {
+        "main": [
+          [
+            {
+              "node": "Add Notion Copy & Trigger Workflow3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Loop Over Items1": {
+        "main": [
+          [
+            {
+              "node": "No Operation, do nothing1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create Copy Title2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Add Notion Copy & Trigger Workflow3": {
+        "main": [
+          [
+            {
+              "node": "Wait 3 mins",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Prompt Name and ID1": {
+        "main": [
+          [
+            {
+              "node": "Merge Image Prompt Ids To Copy",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Get many database pages4": {
+        "main": [
+          [
+            {
+              "node": "Set Prompt Name and ID2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Merge Image Prompt Ids To Copy2": {
+        "main": [
+          [
+            {
+              "node": "Limit4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Prompt Name and ID2": {
+        "main": [
+          [
+            {
+              "node": "Merge Image Prompt Ids To Copy2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model3": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create Copy Title3",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Copy Title3": {
+        "main": [
+          [
+            {
+              "node": "Set Input Fields4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Limit4": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Input Fields4": {
+        "main": [
+          [
+            {
+              "node": "Add Notion Copy & Trigger Workflow4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Add Notion Copy & Trigger Workflow4": {
+        "main": [
+          [
+            {
+              "node": "Wait 3 mins2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Loop Over Items2": {
+        "main": [
+          [
+            {
+              "node": "No Operation, do nothing2",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create Copy Title3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many database pages5": {
+        "main": [
+          [
+            {
+              "node": "Set Prompt Name and ID3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Merge Image Prompt Ids To Copy3": {
+        "main": [
+          [
+            {
+              "node": "Limit5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Prompt Name and ID3": {
+        "main": [
+          [
+            {
+              "node": "Merge Image Prompt Ids To Copy3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model4": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create Copy Title4",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Copy Title4": {
+        "main": [
+          [
+            {
+              "node": "Set Input Fields5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Limit5": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Input Fields5": {
+        "main": [
+          [
+            {
+              "node": "Add Notion Copy & Trigger Workflow5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Add Notion Copy & Trigger Workflow5": {
+        "main": [
+          [
+            {
+              "node": "Wait 3 mins3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Loop Over Items3": {
+        "main": [
+          [
+            {
+              "node": "No Operation, do nothing3",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create Copy Title4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out Cells": {
+        "main": [
+          [
+            {
+              "node": "Get many database pages5",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Merge Image Prompt Ids To Copy3",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Filter Out Hyphens": {
+        "main": [
+          [
+            {
+              "node": "Get many database pages4",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Merge Image Prompt Ids To Copy2",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Wait 3 mins": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait 3 mins1": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait 3 mins2": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait 3 mins3": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Remove Duplicates": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get All Image Prompts": {
+        "main": [
+          [
+            {
+              "node": "Get many database pages1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Image Prompts": {
+        "main": [
+          [
+            {
+              "node": "Split Out Image Prompts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Prompt Name and ID4": {
+        "main": [
+          [
+            {
+              "node": "Merge Image Pack and Copy",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Split Out Image Prompts": {
+        "main": [
+          [
+            {
+              "node": "Set Prompt Name and ID4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Merge Image Pack and Copy": {
+        "main": [
+          [
+            {
+              "node": "Create Copy Title",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "setup word doc OCR",
+    "name": "fix validation issues",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "883a894b-bd08-4def-bf6e-40f04feca77a",
+  "activeVersionId": "3381e1a0-53c9-40a9-8dec-cd7050bb099e",
   "connections": {
     "Get Image Copy's": {
-      "main": [
-        [
-          {
-            "node": "Filter Out Incorrect Cells",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Filter Out Incorrect Cells": {
       "main": [
         [
           {
@@ -2023,12 +3542,12 @@
       "main": [
         [
           {
-            "node": "Get many database pages1",
+            "node": "Set Content Hash",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Set Content Hash",
+            "node": "Get All Image Prompts",
             "type": "main",
             "index": 0
           }
@@ -2040,83 +3559,6 @@
         [
           {
             "node": "Create Copy Title",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get many database pages": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Aggregate": {
-      "main": [
-        [
-          {
-            "node": "Code in JavaScript",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge": {
-      "main": [
-        [
-          {
-            "node": "Find Matching Image Prompt ID",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Code in JavaScript": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Structured Output Parser": {
-      "ai_outputParser": [
-        [
-          {
-            "node": "Find Matching Image Prompt ID",
-            "type": "ai_outputParser",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Find Matching Image Prompt ID": {
-      "main": [
-        [
-          {
-            "node": "Create Copy Title",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Anthropic Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Find Matching Image Prompt ID",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -2160,7 +3602,7 @@
       "main": [
         [
           {
-            "node": "Wait",
+            "node": "Wait 3 mins1",
             "type": "main",
             "index": 0
           }
@@ -2178,34 +3620,12 @@
         ],
         [
           {
-            "node": "Get many database pages",
+            "node": "Set Image Prompts",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Merge",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
-    "Wait": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge1": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
+            "node": "Merge Image Pack and Copy",
             "type": "main",
             "index": 0
           }
@@ -2216,7 +3636,7 @@
       "main": [
         [
           {
-            "node": "Merge1",
+            "node": "Remove Duplicates",
             "type": "main",
             "index": 0
           }
@@ -2227,7 +3647,7 @@
       "main": [
         [
           {
-            "node": "Merge1",
+            "node": "Remove Duplicates",
             "type": "main",
             "index": 1
           }
@@ -2407,9 +3827,9 @@
       "main": [
         [
           {
-            "node": "Merge Image Prompt Ids To Copy",
+            "node": "Set Prompt Name and ID1",
             "type": "main",
-            "index": 1
+            "index": 0
           }
         ]
       ]
@@ -2500,7 +3920,20 @@
             "index": 0
           }
         ],
-        []
+        [
+          {
+            "node": "Rename Binary Files1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Rename Binary Files2",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Upload Document": {
@@ -2590,6 +4023,592 @@
           }
         ]
       ]
+    },
+    "Rename Binary Files1": {
+      "main": [
+        [
+          {
+            "node": "Mistral Upload1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Upload1": {
+      "main": [
+        [
+          {
+            "node": "Mistral Signed URL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Signed URL1": {
+      "main": [
+        [
+          {
+            "node": "Mistral DOC OCR1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral DOC OCR1": {
+      "main": [
+        [
+          {
+            "node": "Markdown1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Doc Table Cells1": {
+      "main": [
+        [
+          {
+            "node": "Split Out Cells1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown1": {
+      "main": [
+        [
+          {
+            "node": "Set Doc Table Cells1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Cells1": {
+      "main": [
+        [
+          {
+            "node": "Filter Out Hyphens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rename Binary Files2": {
+      "main": [
+        [
+          {
+            "node": "Extract from XLSX File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from XLSX File": {
+      "main": [
+        [
+          {
+            "node": "Set Copy and Image Pack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Copy and Image Pack": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Image Prompt Ids To Copy1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get many database pages3": {
+      "main": [
+        [
+          {
+            "node": "Set Prompt Name and ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt Name and ID": {
+      "main": [
+        [
+          {
+            "node": "Merge Image Prompt Ids To Copy1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Copy Title2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Image Prompt Ids To Copy1": {
+      "main": [
+        [
+          {
+            "node": "Limit2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Copy Title2": {
+      "main": [
+        [
+          {
+            "node": "Set Input Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Input Fields3": {
+      "main": [
+        [
+          {
+            "node": "Add Notion Copy & Trigger Workflow3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Copy Title2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Notion Copy & Trigger Workflow3": {
+      "main": [
+        [
+          {
+            "node": "Wait 3 mins",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt Name and ID1": {
+      "main": [
+        [
+          {
+            "node": "Merge Image Prompt Ids To Copy",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get many database pages4": {
+      "main": [
+        [
+          {
+            "node": "Set Prompt Name and ID2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Image Prompt Ids To Copy2": {
+      "main": [
+        [
+          {
+            "node": "Limit4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt Name and ID2": {
+      "main": [
+        [
+          {
+            "node": "Merge Image Prompt Ids To Copy2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Copy Title3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Copy Title3": {
+      "main": [
+        [
+          {
+            "node": "Set Input Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit4": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Input Fields4": {
+      "main": [
+        [
+          {
+            "node": "Add Notion Copy & Trigger Workflow4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Notion Copy & Trigger Workflow4": {
+      "main": [
+        [
+          {
+            "node": "Wait 3 mins2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Copy Title3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages5": {
+      "main": [
+        [
+          {
+            "node": "Set Prompt Name and ID3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Image Prompt Ids To Copy3": {
+      "main": [
+        [
+          {
+            "node": "Limit5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt Name and ID3": {
+      "main": [
+        [
+          {
+            "node": "Merge Image Prompt Ids To Copy3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Copy Title4",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Copy Title4": {
+      "main": [
+        [
+          {
+            "node": "Set Input Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit5": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Input Fields5": {
+      "main": [
+        [
+          {
+            "node": "Add Notion Copy & Trigger Workflow5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Notion Copy & Trigger Workflow5": {
+      "main": [
+        [
+          {
+            "node": "Wait 3 mins3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items3": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Copy Title4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Cells": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Image Prompt Ids To Copy3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Filter Out Hyphens": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Image Prompt Ids To Copy2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Wait 3 mins": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 3 mins1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 3 mins2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 3 mins3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Split Out Image Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt Name and ID4": {
+      "main": [
+        [
+          {
+            "node": "Merge Image Pack and Copy",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Split Out Image Prompts": {
+      "main": [
+        [
+          {
+            "node": "Set Prompt Name and ID4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Image Pack and Copy": {
+      "main": [
+        [
+          {
+            "node": "Create Copy Title",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:06:07.237Z",
@@ -2612,13 +4631,21 @@
           "value": "={{ $json['Google Sheet URL'].split('/')[6].split('=')[2] }}",
           "mode": "id"
         },
-        "options": {}
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRange",
+              "headerRow": 3,
+              "firstDataRow": 4
+            }
+          }
+        }
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
         144,
-        -392
+        424
       ],
       "id": "403616b0-78f6-41b9-8d5b-d719cb0cf1df",
       "name": "Get Image Copy's",
@@ -2631,56 +4658,13 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "03e38478-d811-40c7-9f82-f6e2ddd325ba",
-              "leftValue": "={{ $json.col_2 }}",
-              "rightValue": "Theme",
-              "operator": {
-                "type": "string",
-                "operation": "notEquals"
-              }
-            },
-            {
-              "id": "0764ac44-88cf-41c4-a46d-cbb1ee707506",
-              "leftValue": "={{ $json.col_2 }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "empty",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "or"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.filter",
-      "typeVersion": 2.2,
-      "position": [
-        368,
-        -392
-      ],
-      "id": "4da7ef8e-5d46-494d-99cf-f4c354f08054",
-      "name": "Filter Out Incorrect Cells"
-    },
-    {
-      "parameters": {
         "keep": "lastItems"
       },
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        592,
-        -392
+        368,
+        424
       ],
       "id": "d0416b49-c15a-4219-bb1a-a8c3624b7e08",
       "name": "Limit"
@@ -2701,8 +4685,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        2808,
-        -160
+        2456,
+        572
       ],
       "id": "48e857e7-fcaf-4780-acec-0a3b52a42c0f",
       "name": "OpenAI Chat Model",
@@ -2715,156 +4699,8 @@
     },
     {
       "parameters": {
-        "resource": "databasePage",
-        "operation": "getAll",
-        "databaseId": {
-          "__rl": true,
-          "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
-          "mode": "list",
-          "cachedResultName": "Syntech Image Prompts",
-          "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
-        },
-        "returnAll": true,
-        "filterType": "manual",
-        "filters": {
-          "conditions": [
-            {
-              "key": "Title|title",
-              "condition": "contains",
-              "titleValue": "S+J"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.notion",
-      "typeVersion": 2.2,
-      "position": [
-        1488,
-        -464
-      ],
-      "id": "262a26ed-b4bf-4a9f-a18c-8ee250a0cf18",
-      "name": "Get many database pages",
-      "executeOnce": true,
-      "credentials": {
-        "notionApi": {
-          "id": "k0ZwGrqySi9Wayf7",
-          "name": "Stephen Notion account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "mode": "combine",
-        "combineBy": "combineAll",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.2,
-      "position": [
-        2160,
-        -384
-      ],
-      "id": "7766fa91-25d7-4cee-8c48-5f53f3f91805",
-      "name": "Merge"
-    },
-    {
-      "parameters": {
-        "aggregate": "aggregateAllItemData",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.aggregate",
-      "typeVersion": 1,
-      "position": [
-        1712,
-        -464
-      ],
-      "id": "8f362c65-01ec-4313-ad9a-23e0333ddc97",
-      "name": "Aggregate"
-    },
-    {
-      "parameters": {
-        "jsCode": "// Assuming your input JSON array is passed as the first item, e.g. via a previous Set or HTTP node.\n// For example: [ { id: \"...\", name: \"...\", ... }, { ... } ]\n\n// Get the full array from the first input item\nconst data = $input.first().json.data;\n\n// Map to an array of { id, name } objects\nconst slim = data.map(item => {\n  return {\n    id: item.id,\n    name: item.name,\n  };\n});\n\n// Return as a single item whose json key “items” contains the array.\n// (You could also just return one of them, or restructure differently.)\nreturn [\n  {\n    json: {\n      items: slim,\n    },\n  }\n];"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        1936,
-        -464
-      ],
-      "id": "1a398a0f-1921-4071-b907-784662d2b7cd",
-      "name": "Code in JavaScript"
-    },
-    {
-      "parameters": {
-        "schemaType": "manual",
-        "inputSchema": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"id\": {\n\t\t\t\"type\": \"string\",\n            \"description\":\"The id of the matching data eg. '2b8785c0-cfab-805b-b15e-d174bc3a9dfd'\"\n\t\t},\n\t\t\"name\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"description\":\"The name of the matching data eg. 'Sustainability & Nature S+J'\"\n\t\t}\n\t}\n}"
-      },
-      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
-      "typeVersion": 1.3,
-      "position": [
-        2520,
-        -160
-      ],
-      "id": "c58531c0-2850-4466-bf71-f9c067091b4f",
-      "name": "Structured Output Parser"
-    },
-    {
-      "parameters": {
         "promptType": "define",
-        "text": "=DATA:\nItems: {{ $json.items.toJsonString() }}\nInput: \"{{ $('Filter Out Incorrect Cells').item.json.col_3 }}\"",
-        "hasOutputParser": true,
-        "messages": {
-          "messageValues": [
-            {
-              "message": "=You are a strict fuzzy-match resolver.\n\nTASK:\nGiven:\n1. An array of items (each with \"id\" and \"name\")\n2. An input text string\n\nReturn ONLY the single best-matching item by comparing the input text to item.name using fuzzy, semantic, and approximate reasoning.\n\nRULES:\n- Match does NOT need to be exact.\n- Choose ONLY from items in the array.\n- Do NOT create or guess IDs or names.\n- If multiple items are similar, choose the closest one.\n- Do NOT output explanations.\n- Output MUST be valid JSON matching this exact schema:\n\n{\n  \"id\": \"<id>\",\n  \"name\": \"<name>\"\n}"
-            }
-          ]
-        },
-        "batching": {
-          "batchSize": 15
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.7,
-      "position": [
-        2384,
-        -384
-      ],
-      "id": "cbc4ea3c-7e46-4538-bd8f-79268630a390",
-      "name": "Find Matching Image Prompt ID",
-      "retryOnFail": true,
-      "waitBetweenTries": 5000
-    },
-    {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "value": "claude-3-5-haiku-20241022",
-          "mode": "list",
-          "cachedResultName": "Claude Haiku 3.5"
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
-      "typeVersion": 1.3,
-      "position": [
-        2392,
-        -160
-      ],
-      "id": "f9965496-21db-4cb9-b27d-40e5453acdf1",
-      "name": "Anthropic Chat Model",
-      "credentials": {
-        "anthropicApi": {
-          "id": "0c1nNLaJWpeD3Cqz",
-          "name": "Syntech GM Anthropic account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Filter Out Incorrect Cells').item.json['v27 Socials for AI Automation Testing'] }}",
+        "text": "={{ $('Merge Image Pack and Copy').item.json.Copy }}",
         "messages": {
           "messageValues": [
             {
@@ -2879,8 +4715,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        2736,
-        -384
+        2384,
+        348
       ],
       "id": "e0602825-c9a0-4938-97cd-2c5658924a48",
       "name": "Create Copy Title"
@@ -2892,13 +4728,13 @@
             {
               "id": "7b28d51f-827b-4de1-8456-64266f0d8227",
               "name": "image_prompt_database_id",
-              "value": "={{ $('Find Matching Image Prompt ID').item.json.output.id }}",
+              "value": "={{ $('Merge Image Pack and Copy').item.json.id }}",
               "type": "string"
             },
             {
               "id": "999d1895-e63a-4b71-bd32-5e3c3b297207",
               "name": "image_prompt_name",
-              "value": "={{ $('Find Matching Image Prompt ID').item.json.output.name }}",
+              "value": "={{ $('Merge Image Pack and Copy').item.json[\"Image Pack\"] }}",
               "type": "string"
             },
             {
@@ -2910,7 +4746,7 @@
             {
               "id": "24040dd0-1350-4d2c-bbfe-6071e1075271",
               "name": "copy_body",
-              "value": "={{ $('Filter Out Incorrect Cells').item.json['v27 Socials for AI Automation Testing'] }}",
+              "value": "={{ $('Merge Image Pack and Copy').item.json.Copy }}",
               "type": "string"
             }
           ]
@@ -2920,8 +4756,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3152,
-        -384
+        2736,
+        348
       ],
       "id": "a676f6fc-2dff-4369-9762-3b9cbf942b2e",
       "name": "Set Input Fields"
@@ -2933,8 +4769,8 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        3440,
-        -384
+        3024,
+        348
       ],
       "id": "6f2be682-394f-4e3d-b5f7-42bf3d74aed4",
       "name": "Limit1"
@@ -2962,8 +4798,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        3664,
-        -384
+        3312,
+        348
       ],
       "id": "cf3c532b-a1ae-4fcc-9014-a9009675d6d8",
       "name": "Add Notion Copy & Trigger Workflow",
@@ -2972,7 +4808,8 @@
           "id": "k0ZwGrqySi9Wayf7",
           "name": "Stephen Notion account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -2982,25 +4819,10 @@
       "typeVersion": 3,
       "position": [
         1264,
-        -392
+        424
       ],
       "id": "a83fdf73-15fc-4f9a-9ae2-6decee2d7819",
       "name": "Loop Over Items"
-    },
-    {
-      "parameters": {
-        "amount": 3,
-        "unit": "minutes"
-      },
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        3888,
-        -260
-      ],
-      "id": "ca7eb955-2769-4d64-a26a-3bb0f2892c0e",
-      "name": "Wait",
-      "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8"
     },
     {
       "parameters": {},
@@ -3008,7 +4830,7 @@
       "typeVersion": 1,
       "position": [
         1488,
-        -656
+        60
       ],
       "id": "84e67fcb-4fd7-456b-a074-ec52758b972f",
       "name": "No Operation, do nothing"
@@ -3031,7 +4853,7 @@
       "typeVersion": 2.2,
       "position": [
         816,
-        -648
+        84
       ],
       "id": "158778b2-62c7-4303-81d6-c7e8400e1a70",
       "name": "Get many database pages1",
@@ -3045,66 +4867,27 @@
     },
     {
       "parameters": {
-        "mode": "combine",
-        "advanced": true,
-        "mergeByFields": {
-          "values": [
-            {
-              "field1": "property_content_hash",
-              "field2": "content_hash"
-            }
-          ]
-        },
-        "joinMode": "keepNonMatches",
-        "outputDataFrom": "input2",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.2,
-      "position": [
-        1040,
-        -392
-      ],
-      "id": "98253aa8-1b09-4dbc-ac15-44c7af291fcc",
-      "name": "Merge1"
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
             {
               "id": "93ee8ef6-00ba-4946-800b-6c41fe568053",
               "name": "content_hash",
-              "value": "={{ $json[\"v27 Socials for AI Automation Testing\"].hash() }}",
+              "value": "={{ $json.Copy.hash() }}",
               "type": "string"
             }
           ]
         },
+        "includeOtherFields": true,
         "options": {}
       },
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
         816,
-        -132
+        572
       ],
       "id": "fb760bb5-63bb-472c-8d28-05c91421d813",
       "name": "Set Content Hash"
-    },
-    {
-      "parameters": {
-        "content": "## Check for duplicates",
-        "height": 736,
-        "width": 400
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        752,
-        -704
-      ],
-      "id": "7465d835-6255-4da6-883a-4ad293b39e6b",
-      "name": "Sticky Note"
     },
     {
       "parameters": {
@@ -3144,7 +4927,7 @@
       "typeVersion": 2.4,
       "position": [
         -528,
-        -392
+        424
       ],
       "id": "1f0248c5-4343-4c8e-83c7-4f9f0c4e9da4",
       "name": "Dynamic Form Input",
@@ -3236,7 +5019,7 @@
       "typeVersion": 3.4,
       "position": [
         -304,
-        -408
+        408
       ],
       "id": "86d430f5-182c-4558-aea7-b07a774889cc",
       "name": "Route Input"
@@ -3260,7 +5043,7 @@
       "typeVersion": 2.5,
       "position": [
         -80,
-        -392
+        424
       ],
       "id": "dc41f81e-ea94-42c4-ba00-477c43db4d48",
       "name": "Handle Google Sheet",
@@ -3274,7 +5057,7 @@
       "typeVersion": 2,
       "position": [
         368,
-        156
+        932
       ],
       "id": "af718e84-1fe3-475e-8120-94a01de2a11d",
       "name": "Format Prompt Packs"
@@ -3298,7 +5081,7 @@
       "typeVersion": 2.2,
       "position": [
         -80,
-        156
+        932
       ],
       "id": "8977648d-557b-4e17-8126-0f11e06434f4",
       "name": "Get All Prompt Packs",
@@ -3319,7 +5102,7 @@
       "typeVersion": 1,
       "position": [
         144,
-        156
+        932
       ],
       "id": "93137c23-7f43-4e6c-940c-40f9249f98b8",
       "name": "Aggregate Prompt Packs"
@@ -3327,7 +5110,7 @@
     {
       "parameters": {
         "defineForm": "json",
-        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Checkboxes\",\n    \"fieldType\": \"checkbox\",\n    \"requiredField\": true\n    \"fieldOptions\": {\n      \"values\": [\n        {{ $('Format Prompt Packs').item.json.items.map(item => `{\"option\": \"${item.name}\"}`).join(\",\") }}\n      ]\n    }\n  },\n  {\n    \"fieldLabel\": \"Copy\",\n    \"fieldType\": \"textarea\",\n    \"placeholder\": \"describe your desired creative\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Variants\",\n    \"placeholder\": \"number of variants (defaults to 2 for pack)\",\n    \"fieldType\": \"number\"\n  }\n]",
+        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Checkboxes\",\n    \"fieldType\": \"checkbox\",\n    \"requiredField\": true,\n    \"fieldOptions\": {\n      \"values\": [\n        {{ $('Format Prompt Packs').item.json.items.map(item => `{\"option\": \"${item.name}\"}`).join(\",\") }}\n      ]\n    }\n  },\n  {\n    \"fieldLabel\": \"Copy\",\n    \"fieldType\": \"textarea\",\n    \"placeholder\": \"describe your desired creative\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Variants\",\n    \"placeholder\": \"number of variants (defaults to 2 for pack)\",\n    \"fieldType\": \"number\"\n  }\n]",
         "options": {
           "formTitle": "Select Prompt Pack",
           "buttonLabel": "Select Repos",
@@ -3338,7 +5121,7 @@
       "typeVersion": 2.4,
       "position": [
         1040,
-        60
+        764
       ],
       "id": "820f62d0-d62c-416f-89fa-603802e7ba86",
       "name": "Select Prompt Pack",
@@ -3372,7 +5155,7 @@
       "typeVersion": 2.5,
       "position": [
         1264,
-        60
+        764
       ],
       "id": "209e4e67-8f4a-4198-b666-8c763a7ec400",
       "name": "Form",
@@ -3406,7 +5189,7 @@
       "typeVersion": 2.3,
       "position": [
         1712,
-        156
+        932
       ],
       "id": "b14ac919-c49a-4567-a2b3-77c088f213a2",
       "name": "If Finished?"
@@ -3419,7 +5202,7 @@
       "typeVersion": 2,
       "position": [
         1488,
-        60
+        764
       ],
       "id": "41ab340d-f9c3-4f01-9ac1-80343a9dc7f7",
       "name": "Process Results"
@@ -3432,7 +5215,7 @@
       "typeVersion": 2,
       "position": [
         816,
-        156
+        932
       ],
       "id": "e682e98b-79de-4315-bfb8-7dde271d6fa4",
       "name": "Set Current Selections"
@@ -3445,7 +5228,7 @@
       "typeVersion": 2,
       "position": [
         592,
-        156
+        932
       ],
       "id": "04daf7ed-60b1-4584-bec0-cb5c8f31b3be",
       "name": "Initialise Loop State"
@@ -3459,7 +5242,7 @@
       "typeVersion": 1,
       "position": [
         1936,
-        52
+        740
       ],
       "id": "cbdf7e3e-2171-46c8-9d13-bad3ebcdb319",
       "name": "Split Out Copy Ideas"
@@ -3482,8 +5265,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        2160,
-        244
+        1936,
+        932
       ],
       "id": "8730e099-e7d7-421c-b1a2-3a04d00817aa",
       "name": "Get many database pages2",
@@ -3505,7 +5288,7 @@
       "typeVersion": 1,
       "position": [
         2160,
-        52
+        740
       ],
       "id": "30a45d59-8b7f-4b50-8c1b-3165ed5dc5cd",
       "name": "Split Out Image Packs"
@@ -3545,8 +5328,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3440,
-        156
+        3312,
+        932
       ],
       "id": "bc4c2cf7-0b90-46b9-9956-713e7431f62c",
       "name": "Set Input Fields2"
@@ -3558,8 +5341,8 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        3664,
-        156
+        3600,
+        932
       ],
       "id": "77bddf3d-a589-486d-b089-64570c5c59a6",
       "name": "Limit3"
@@ -3582,13 +5365,20 @@
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"2a2785c0-cfab-805f-ae13-ceed4cac4710\"\n  },\n  \"properties\": {\n    \"Concept\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $json.copy_title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"status\": {\n        \"name\": \"In progress\"\n      }\n    },\n    \"Update Prompt\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"Create a social media post for this content.\"\n          }\n        }\n      ]\n    },\n    \"content_hash\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json?.copy_body?.hash() || '' }}\"\n          }\n        }\n      ]\n    },\n    \"Variants\": {\n      \"number\": {{ $('Set Input Fields2').item.json.variants.toNumber() }}\n    },\n    \"Image Prompt Template\": {\n      \"relation\": [\n        {{ $json.image_prompt_database_id.map(item => `{ \"id\": \"${item}\" }`) }}\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.copy_body.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
-        "options": {}
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 180000
+            }
+          }
+        }
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        3888,
-        156
+        3952,
+        932
       ],
       "id": "4b95b543-186b-49dc-bc0b-59c90817eedd",
       "name": "Add Notion Copy & Trigger Workflow2",
@@ -3597,7 +5387,8 @@
           "id": "k0ZwGrqySi9Wayf7",
           "name": "Stephen Notion account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -3615,8 +5406,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        3160,
-        380
+        3032,
+        1156
       ],
       "id": "2fe6bc2e-c689-4f2b-a5eb-577be543d96e",
       "name": "OpenAI Chat Model1",
@@ -3645,8 +5436,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        3088,
-        156
+        2960,
+        932
       ],
       "id": "2a849e27-e6f0-4897-acad-f22e7e6a2dd4",
       "name": "Create Copy Title1"
@@ -3658,8 +5449,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2800,
-        156
+        2736,
+        932
       ],
       "id": "4a78bb7c-f841-4a9f-a154-ff242d7f9ef0",
       "name": "Merge By Ad Copy"
@@ -3682,7 +5473,7 @@
       "typeVersion": 3.2,
       "position": [
         2448,
-        156
+        932
       ],
       "id": "edd89bdb-fb8a-4760-a826-a131c0b21bb3",
       "name": "Merge Image Prompt Ids To Copy"
@@ -3727,7 +5518,7 @@
                   {
                     "id": "ba7c4070-e3db-49cf-9c02-17730de3d75d",
                     "leftValue": "={{ $binary.toJsonString() }}",
-                    "rightValue": "",
+                    "rightValue": "application/pdf",
                     "operator": {
                       "type": "string",
                       "operation": "contains"
@@ -3751,7 +5542,7 @@
                   {
                     "id": "b4d1c3f3-fb4d-4eed-8043-9ed81fd77b69",
                     "leftValue": "={{ $binary.toJsonString() }}",
-                    "rightValue": "",
+                    "rightValue": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                     "operator": {
                       "type": "string",
                       "operation": "contains"
@@ -3771,7 +5562,7 @@
       "typeVersion": 3.4,
       "position": [
         368,
-        -864
+        -600
       ],
       "id": "3b553bbe-bead-420d-af1a-22e3c2b52e07",
       "name": "Switch"
@@ -3796,7 +5587,7 @@
       "typeVersion": 2.5,
       "position": [
         -80,
-        -848
+        -584
       ],
       "id": "74af80b9-ca60-44d7-8189-e153232139d3",
       "name": "Upload Document",
@@ -3811,7 +5602,7 @@
       "typeVersion": 1,
       "position": [
         144,
-        -848
+        -584
       ],
       "id": "2a79c9ef-8458-447d-abc8-f83be832e89a",
       "name": "Split Out Documents"
@@ -3826,7 +5617,7 @@
       "typeVersion": 1,
       "position": [
         1488,
-        -848
+        -1368
       ],
       "id": "6e8acf5f-033c-44aa-82be-fba46083556f",
       "name": "Markdown"
@@ -3849,7 +5640,7 @@
       "typeVersion": 3.4,
       "position": [
         1712,
-        -848
+        -1368
       ],
       "id": "5b647728-0772-4092-a066-9abf63fe429a",
       "name": "Set Doc Table Cells"
@@ -3863,7 +5654,7 @@
       "typeVersion": 1,
       "position": [
         1936,
-        -848
+        -1368
       ],
       "id": "a2337f33-6d49-4f0a-8aa9-db2aa637b0a6",
       "name": "Split Out Cells"
@@ -3877,7 +5668,7 @@
       "typeVersion": 2,
       "position": [
         592,
-        -848
+        -1368
       ],
       "id": "04b46d18-1842-4a54-81c9-78c89a98d125",
       "name": "Rename Binary Files"
@@ -3910,7 +5701,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "position": [
         816,
-        -848
+        -1368
       ],
       "typeVersion": 4.2,
       "credentials": {
@@ -3950,7 +5741,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "position": [
         1040,
-        -848
+        -1368
       ],
       "typeVersion": 4.2,
       "credentials": {
@@ -3976,7 +5767,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "position": [
         1264,
-        -848
+        -1368
       ],
       "typeVersion": 4.2,
       "credentials": {
@@ -3986,65 +5777,1278 @@
         }
       },
       "onError": "continueErrorOutput"
-    }
-  ],
-  "pinData": {
-    "Dynamic Form Input": [
-      {
-        "json": {
-          "Content Type": "Document",
-          "submittedAt": "2026-02-13T04:16:16.363-05:00",
-          "formMode": "test"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "Upload Document": [
-      {
-        "json": {
-          "Upload Document": [
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.pages.map(page => page.markdown).join() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1488,
+        -680
+      ],
+      "id": "3f8025b0-4d66-46f4-bac9-9d45381aaa3d",
+      "name": "Markdown1"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const item = $input.item;\n\n// Get all binary keys (Upload_Document_0, Upload_Document_1, etc.)\nconst binaryKeys = Object.keys(item.binary || {});\n\nif (!binaryKeys.length) {\n  return item;\n}\n\n// Pick the first binary file (or loop if you want all)\nconst firstKey = binaryKeys[0];\n\n// Rename it to a fixed key, e.g. \"file\"\nitem.binary = {\n  data: item.binary[firstKey]\n};\n\nreturn item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        592,
+        -680
+      ],
+      "id": "0742c1c8-391e-498b-8c8a-d870e7151e0d",
+      "name": "Rename Binary Files1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/files",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
             {
-              "filename": "1. Social Media Messaging Master - Ongoing working doc v27 copy.docx",
-              "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-              "size": 96192
+              "name": "purpose",
+              "value": "ocr"
             },
             {
-              "filename": "2. Social Media Messaging Master - Ongoing working doc v27.docx",
-              "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-              "size": 96192
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
             }
-          ],
-          "submittedAt": "2026-02-13T04:51:54.927-05:00",
-          "formMode": "test"
+          ]
         },
-        "binary": {
-          "Upload_Document_0": {
-            "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-            "fileExtension": "docx",
-            "data": "database",
-            "fileName": "1. Social Media Messaging Master - Ongoing working doc v27 copy.docx",
-            "id": "database:e8e2ebe7-4cea-4cca-ae21-5fd3e0132bc2",
-            "fileSize": "96.2 kB",
-            "bytes": 96192
-          },
-          "Upload_Document_1": {
-            "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-            "fileExtension": "docx",
-            "data": "database",
-            "fileName": "2. Social Media Messaging Master - Ongoing working doc v27.docx",
-            "id": "database:c64f9eae-7a7f-4433-9d20-63af141ccdb5",
-            "fileSize": "96.2 kB",
-            "bytes": 96192
-          }
-        },
-        "pairedItem": {
-          "item": 0
+        "options": {}
+      },
+      "id": "7480f66f-c8d1-4f9b-846a-53e13fd128e0",
+      "name": "Mistral Upload1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        816,
+        -680
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "SGVycfJoKSsVTUod",
+          "name": "Stephen Mistral Cloud account"
         }
       }
-    ]
-  },
+    },
+    {
+      "parameters": {
+        "url": "=https://api.mistral.ai/v1/files/{{ $json.id }}/url",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "expiry",
+              "value": "24"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "618af374-c3ea-4df6-9811-a98637c5d46e",
+      "name": "Mistral Signed URL1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1040,
+        -680
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "SGVycfJoKSsVTUod",
+          "name": "Stephen Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mistral.ai/v1/ocr",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mistralCloudApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"mistral-ocr-latest\",\n  \"document\": {\n    \"type\": \"document_url\",\n    \"document_url\": \"{{ $json.url }}\"\n  },\n  \"include_image_base64\": true\n}",
+        "options": {}
+      },
+      "id": "4f803f73-fea7-4659-88b5-cbda99c84277",
+      "name": "Mistral DOC OCR1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1264,
+        -680
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "SGVycfJoKSsVTUod",
+          "name": "Stephen Mistral Cloud account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f0d81f36-a5e4-445d-96bd-eacf6e60e57c",
+              "name": "cells",
+              "value": "={{\n  $json.pages.flatMap(page =>\n    [...page.markdown.matchAll(/^\\|([\\s\\S]*?)\\|\\s*$/gm)]\n      .map(m => m[1].trim())\n  )\n}}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1712,
+        -680
+      ],
+      "id": "55bdcb3c-3982-4d29-ad41-5d74ed8c32cb",
+      "name": "Set Doc Table Cells1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "cells",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1936,
+        -680
+      ],
+      "id": "e3ae8950-305e-4460-94ba-d39ca189fc1b",
+      "name": "Split Out Cells1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e33603be-e574-4d88-96b0-913cf17894fe",
+              "leftValue": "={{ $json.cells }}",
+              "rightValue": "---",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "902c5186-6418-4053-84c0-3fd337adecda",
+              "leftValue": "={{ $json.cells }}",
+              "rightValue": "--",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "bad9be00-8bf7-4216-9d01-16e8646a33c1",
+              "leftValue": "={{ $json.cells }}",
+              "rightValue": "-",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        2160,
+        -680
+      ],
+      "id": "9bbccdee-4d63-46fb-aed1-c55b48f3b852",
+      "name": "Filter Out Hyphens"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const item = $input.item;\n\n// Get all binary keys (Upload_Document_0, Upload_Document_1, etc.)\nconst binaryKeys = Object.keys(item.binary || {});\n\nif (!binaryKeys.length) {\n  return item;\n}\n\n// Pick the first binary file (or loop if you want all)\nconst firstKey = binaryKeys[0];\n\n// Rename it to a fixed key, e.g. \"file\"\nitem.binary = {\n  data: item.binary[firstKey]\n};\n\nreturn item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        592,
+        -116
+      ],
+      "id": "cfbfe015-b313-4b0e-b0d5-128f3a2f27dd",
+      "name": "Rename Binary Files2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f5fca1a-ef89-4f5d-bf91-80e21c481526",
+              "name": "copy",
+              "value": "={{ $json[\"Copy\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "32373e6f-2762-450a-9cce-53203e71325d",
+              "name": "theme",
+              "value": "={{ $json.Theme }}",
+              "type": "string"
+            },
+            {
+              "id": "43fd6cce-d835-4fc0-92c2-8dcb3d469b38",
+              "name": "iamge_pack",
+              "value": "={{ $json['Image Pack'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1040,
+        -116
+      ],
+      "id": "9bd3e706-84eb-4fc9-9170-37944931b983",
+      "name": "Set Copy and Image Pack"
+    },
+    {
+      "parameters": {
+        "operation": "xlsx",
+        "options": {
+          "headerRow": true,
+          "range": "2"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        816,
+        -116
+      ],
+      "id": "1858010b-1481-478a-8c35-7feb61cf5075",
+      "name": "Extract from XLSX File"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+          "mode": "list",
+          "cachedResultName": "Syntech Image Prompts",
+          "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1264,
+        -488
+      ],
+      "id": "1ef5be67-8678-48f5-b3ec-764ea5adb2b3",
+      "name": "Get many database pages3",
+      "executeOnce": true,
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "name",
+              "field2": "iamge_pack"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1712,
+        -116
+      ],
+      "id": "8c46a02d-4aba-4243-95da-d2a91fb09dd6",
+      "name": "Merge Image Prompt Ids To Copy1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c6d6ba82-babc-4ac2-bf4e-6d26e3a64428",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "50817dc4-026f-4a85-8312-a2a3411e576c",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1488,
+        -488
+      ],
+      "id": "87c2d8de-a40c-4864-85ea-9d32708ba43e",
+      "name": "Set Prompt Name and ID"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "gpt-3.5-turbo"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        2456,
+        4
+      ],
+      "id": "60013c89-d5be-4b55-8347-292fba4e8f0a",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Merge Image Prompt Ids To Copy1').item.json.copy }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Given the following image copy, write a short reflective title in no more than 3-5 words. Don't add any quotations or custom punctuation.\n\nExample output:\n\nDriving Change With Innivation"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        2384,
+        -220
+      ],
+      "id": "41d79290-9e93-48a4-aa10-808dde736832",
+      "name": "Create Copy Title2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1936,
+        -116
+      ],
+      "id": "afbee7f7-352a-45a5-8522-99d05a81e77d",
+      "name": "Limit2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7b28d51f-827b-4de1-8456-64266f0d8227",
+              "name": "image_prompt_database_id",
+              "value": "=[\"{{ $('Merge Image Prompt Ids To Copy1').item.json.id }}\"]",
+              "type": "array"
+            },
+            {
+              "id": "27835713-35f2-40ed-bd86-69a6a3b435d3",
+              "name": "copy_title",
+              "value": "={{ $('Create Copy Title2').item.json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "24040dd0-1350-4d2c-bbfe-6071e1075271",
+              "name": "copy_body",
+              "value": "={{ $('Merge Image Prompt Ids To Copy1').item.json.copy }}",
+              "type": "string"
+            },
+            {
+              "id": "73b16129-96f3-443f-a886-b318a75bb5c6",
+              "name": "variants",
+              "value": "=2",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2736,
+        -220
+      ],
+      "id": "ab9fbf18-6983-4bbc-a43d-b560924e1a7f",
+      "name": "Set Input Fields3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2025-09-03"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"2a2785c0-cfab-805f-ae13-ceed4cac4710\"\n  },\n  \"properties\": {\n    \"Concept\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $json.copy_title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"status\": {\n        \"name\": \"In progress\"\n      }\n    },\n    \"Update Prompt\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"Create a social media post for this content.\"\n          }\n        }\n      ]\n    },\n    \"content_hash\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json?.copy_body?.hash() || '' }}\"\n          }\n        }\n      ]\n    },\n    \"Variants\": {\n      \"number\": {{ $('Set Input Fields3').item.json.variants.toNumber() }}\n    },\n    \"Image Prompt Template\": {\n      \"relation\": [\n        {{ $json.image_prompt_database_id.map(item => `{ \"id\": \"${item}\" }`) }}\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.copy_body.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        3024,
+        -220
+      ],
+      "id": "484eaa19-5d37-4acd-8a9d-0872add79887",
+      "name": "Add Notion Copy & Trigger Workflow3",
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2160,
+        -116
+      ],
+      "id": "76a5c844-b15d-489d-8db7-2f79da440fbc",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2448,
+        -516
+      ],
+      "id": "3a8eb3a8-7690-4380-bf2a-467949cf4379",
+      "name": "No Operation, do nothing1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c6d6ba82-babc-4ac2-bf4e-6d26e3a64428",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "50817dc4-026f-4a85-8312-a2a3411e576c",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2160,
+        932
+      ],
+      "id": "ae30dec2-94e0-46ac-9742-0a0a8d9d7910",
+      "name": "Set Prompt Name and ID1"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+          "mode": "list",
+          "cachedResultName": "Syntech Image Prompts",
+          "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2448,
+        -980
+      ],
+      "id": "99302fe3-9784-4d51-99b4-1984ef3a9a4c",
+      "name": "Get many database pages4",
+      "executeOnce": true,
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "name",
+              "field2": "iamge_pack"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        3024,
+        -680
+      ],
+      "id": "1d3311d9-e509-4e0d-ace1-7e91d126ab21",
+      "name": "Merge Image Prompt Ids To Copy2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c6d6ba82-babc-4ac2-bf4e-6d26e3a64428",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "50817dc4-026f-4a85-8312-a2a3411e576c",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2736,
+        -980
+      ],
+      "id": "4700c5b3-dbaa-43d3-8d49-a4599d009082",
+      "name": "Set Prompt Name and ID2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "gpt-3.5-turbo"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        3960,
+        -360
+      ],
+      "id": "c62882d0-7189-4935-adc1-7362f8def950",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Merge Image Prompt Ids To Copy2').item.json.copy }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Given the following image copy, write a short reflective title in no more than 3-5 words. Don't add any quotations or custom punctuation.\n\nExample output:\n\nDriving Change With Innivation"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        3888,
+        -584
+      ],
+      "id": "77ee753c-6e68-4d5c-82af-cbef0e0c68ad",
+      "name": "Create Copy Title3"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        3312,
+        -680
+      ],
+      "id": "7386684d-72c1-41d2-8ca3-a4f2176c3a94",
+      "name": "Limit4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7b28d51f-827b-4de1-8456-64266f0d8227",
+              "name": "image_prompt_database_id",
+              "value": "=[\"{{ $('Merge Image Prompt Ids To Copy2').item.json.id }}\"]",
+              "type": "array"
+            },
+            {
+              "id": "27835713-35f2-40ed-bd86-69a6a3b435d3",
+              "name": "copy_title",
+              "value": "={{ $('Create Copy Title3').item.json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "24040dd0-1350-4d2c-bbfe-6071e1075271",
+              "name": "copy_body",
+              "value": "={{ $('Merge Image Prompt Ids To Copy2').item.json.copy }}",
+              "type": "string"
+            },
+            {
+              "id": "73b16129-96f3-443f-a886-b318a75bb5c6",
+              "name": "variants",
+              "value": "=2",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4240,
+        -584
+      ],
+      "id": "d79d0323-9dc3-40b0-adc8-6d4e6778f842",
+      "name": "Set Input Fields4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2025-09-03"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"2a2785c0-cfab-805f-ae13-ceed4cac4710\"\n  },\n  \"properties\": {\n    \"Concept\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $json.copy_title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"status\": {\n        \"name\": \"In progress\"\n      }\n    },\n    \"Update Prompt\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"Create a social media post for this content.\"\n          }\n        }\n      ]\n    },\n    \"content_hash\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json?.copy_body?.hash() || '' }}\"\n          }\n        }\n      ]\n    },\n    \"Variants\": {\n      \"number\": {{ $('Set Input Fields4').item.json.variants.toNumber() }}\n    },\n    \"Image Prompt Template\": {\n      \"relation\": [\n        {{ $json.image_prompt_database_id.map(item => `{ \"id\": \"${item}\" }`) }}\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.copy_body.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        4464,
+        -584
+      ],
+      "id": "6a863b82-aa2b-401c-a489-dec927a16cc1",
+      "name": "Add Notion Copy & Trigger Workflow4",
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        3600,
+        -680
+      ],
+      "id": "737b66dc-f84c-428c-bce9-e10618b1254c",
+      "name": "Loop Over Items2"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+          "mode": "list",
+          "cachedResultName": "Syntech Image Prompts",
+          "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2160,
+        -1492
+      ],
+      "id": "89373261-568f-4c8d-a1d4-11c62996563d",
+      "name": "Get many database pages5",
+      "executeOnce": true,
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "name",
+              "field2": "iamge_pack"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2736,
+        -1368
+      ],
+      "id": "8b9ed8d1-2b9b-4ec2-a897-3e235f226cc0",
+      "name": "Merge Image Prompt Ids To Copy3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c6d6ba82-babc-4ac2-bf4e-6d26e3a64428",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "50817dc4-026f-4a85-8312-a2a3411e576c",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2448,
+        -1492
+      ],
+      "id": "0820254c-5883-4dab-a7f7-5ac6fbd22d4b",
+      "name": "Set Prompt Name and ID3"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-3.5-turbo",
+          "mode": "list",
+          "cachedResultName": "gpt-3.5-turbo"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        3608,
+        -1048
+      ],
+      "id": "a1524eec-8019-4611-922d-84c155c5d3de",
+      "name": "OpenAI Chat Model4",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Merge Image Prompt Ids To Copy3').item.json.copy }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Given the following image copy, write a short reflective title in no more than 3-5 words. Don't add any quotations or custom punctuation.\n\nExample output:\n\nDriving Change With Innivation"
+            }
+          ]
+        },
+        "batching": {
+          "batchSize": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        3536,
+        -1272
+      ],
+      "id": "e882e763-5b9e-41f4-880c-28902cb7bb9f",
+      "name": "Create Copy Title4"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        3024,
+        -1368
+      ],
+      "id": "9380226e-dcd9-40ec-a48e-d4751401333c",
+      "name": "Limit5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7b28d51f-827b-4de1-8456-64266f0d8227",
+              "name": "image_prompt_database_id",
+              "value": "=[\"{{ $('Merge Image Prompt Ids To Copy3').item.json.id }}\"]",
+              "type": "array"
+            },
+            {
+              "id": "27835713-35f2-40ed-bd86-69a6a3b435d3",
+              "name": "copy_title",
+              "value": "={{ $('Create Copy Title4').item.json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "24040dd0-1350-4d2c-bbfe-6071e1075271",
+              "name": "copy_body",
+              "value": "={{ $('Merge Image Prompt Ids To Copy3').item.json.copy }}",
+              "type": "string"
+            },
+            {
+              "id": "73b16129-96f3-443f-a886-b318a75bb5c6",
+              "name": "variants",
+              "value": "=2",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3952,
+        -1272
+      ],
+      "id": "901a4331-b093-44c0-9ff6-933ec58d0878",
+      "name": "Set Input Fields5"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2025-09-03"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"parent\": {\n    \"database_id\": \"2a2785c0-cfab-805f-ae13-ceed4cac4710\"\n  },\n  \"properties\": {\n    \"Concept\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $json.copy_title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Status\": {\n      \"status\": {\n        \"name\": \"In progress\"\n      }\n    },\n    \"Update Prompt\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"Create a social media post for this content.\"\n          }\n        }\n      ]\n    },\n    \"content_hash\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json?.copy_body?.hash() || '' }}\"\n          }\n        }\n      ]\n    },\n    \"Variants\": {\n      \"number\": {{ $('Set Input Fields5').item.json.variants.toNumber() }}\n    },\n    \"Image Prompt Template\": {\n      \"relation\": [\n        {{ $json.image_prompt_database_id.map(item => `{ \"id\": \"${item}\" }`) }}\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.copy_body.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        4240,
+        -1272
+      ],
+      "id": "1c6d0459-6596-48e5-8b15-f5663522e211",
+      "name": "Add Notion Copy & Trigger Workflow5",
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        3312,
+        -1368
+      ],
+      "id": "ae83717b-ae30-40e5-83b2-c0e6a19cf3a7",
+      "name": "Loop Over Items3"
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3312,
+        -40
+      ],
+      "id": "ccfef1ca-d0c7-47cb-9043-0addedb321e7",
+      "name": "Wait 3 mins",
+      "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3600,
+        548
+      ],
+      "id": "ca7eb955-2769-4d64-a26a-3bb0f2892c0e",
+      "name": "Wait 3 mins1",
+      "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4688,
+        -460
+      ],
+      "id": "dad057f4-2a2c-45bd-8d2f-e7a93a9a723b",
+      "name": "Wait 3 mins2",
+      "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4464,
+        -1268
+      ],
+      "id": "1583b334-6ff5-4efc-a7c7-953de606d753",
+      "name": "Wait 3 mins3",
+      "webhookId": "a716047f-a2cb-4aaf-8cdb-1fbee34b83f8",
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3952,
+        -880
+      ],
+      "id": "b279a185-766c-4b4b-9226-a4d0f400edae",
+      "name": "No Operation, do nothing2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3600,
+        -1568
+      ],
+      "id": "6e7def0d-ff70-418e-9dc9-943bfdc5f98b",
+      "name": "No Operation, do nothing3"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "property_content_hash",
+              "field2": "content_hash"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1040,
+        424
+      ],
+      "id": "98253aa8-1b09-4dbc-ac15-44c7af291fcc",
+      "name": "Remove Duplicates"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "28e785c0-cfab-81e1-af77-eeb6e59c00ee",
+          "mode": "list",
+          "cachedResultName": "Syntech Image Prompts",
+          "cachedResultUrl": "https://www.notion.so/28e785c0cfab81e1af77eeb6e59c00ee"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        592,
+        84
+      ],
+      "id": "d32f543c-af4d-4feb-8af4-069b7b94c0fe",
+      "name": "Get All Image Prompts",
+      "executeOnce": true,
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4223dd61-bbe1-442c-91ee-a92a917f9f6a",
+              "name": "image_prompts",
+              "value": "={{ $('Get All Image Prompts').all().map(prompt => prompt.json) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1488,
+        348
+      ],
+      "id": "932a86d2-c08b-45bb-ad37-453fdf1a146d",
+      "name": "Set Image Prompts"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe3dda85-5b20-4c5e-aaa8-f6b7abc676e9",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "dd947b5b-4527-421f-956f-3db8fbcd9f94",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1936,
+        348
+      ],
+      "id": "78b52def-f41d-4015-a804-5ca0c9e022f0",
+      "name": "Set Prompt Name and ID4"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "image_prompts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1712,
+        348
+      ],
+      "id": "263a041d-1058-4c08-8035-0bcb028a094f",
+      "name": "Split Out Image Prompts"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "Image Pack",
+              "field2": "name"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2160,
+        348
+      ],
+      "id": "7766fa91-25d7-4cee-8c48-5f53f3f91805",
+      "name": "Merge Image Pack and Copy"
+    }
+  ],
+  "pinData": {},
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -4072,6 +7076,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-02-13T10:01:36.126Z",
-  "versionId": "883a894b-bd08-4def-bf6e-40f04feca77a"
+  "updatedAt": "2026-02-16T10:39:02.403Z",
+  "versionId": "3381e1a0-53c9-40a9-8dec-cd7050bb099e"
 }
