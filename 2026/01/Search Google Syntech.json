@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-13T07:09:19.305Z",
-    "createdAt": "2026-02-13T07:05:21.365Z",
-    "versionId": "9e7e6948-2792-4abd-92d8-6c1dfafb3d0d",
+    "updatedAt": "2026-02-17T09:05:43.559Z",
+    "createdAt": "2026-02-17T09:05:39.806Z",
+    "versionId": "2dc15a3a-0f35-4f4a-941a-b87c65188641",
     "workflowId": "LD5_Lrj2Q4hN9kpTCWyxC",
     "nodes": [
       {
@@ -86,8 +86,8 @@
         "name": "When Executed by Another Workflow",
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "position": [
-          -16,
-          928
+          -112,
+          1344
         ]
       },
       {
@@ -125,8 +125,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          656,
-          384
+          560,
+          592
         ],
         "id": "994b004d-0e96-4705-8628-b6d7ce81c593",
         "name": "Either Url or Keyword5"
@@ -138,8 +138,8 @@
         "type": "n8n-nodes-base.splitInBatches",
         "typeVersion": 3,
         "position": [
-          432,
-          928
+          336,
+          1344
         ],
         "id": "2745dfc5-066f-4224-82ee-b1113928e5a3",
         "name": "Loop Over Items6",
@@ -158,8 +158,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.2,
         "position": [
-          -16,
-          2048
+          -112,
+          2688
         ],
         "id": "1c29e3f3-7248-4484-92b2-3b0a3e5fa86e",
         "name": "OpenAI Chat Model2",
@@ -178,8 +178,8 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          128,
-          2048
+          32,
+          2688
         ],
         "id": "ea9780d2-10af-47d5-b33f-5c3a6e4305fa",
         "name": "Structured Output Parser3"
@@ -204,8 +204,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          4096,
-          592
+          4384,
+          896
         ],
         "id": "00eb2811-f423-4d7f-913f-5bfaf8dcfd19",
         "name": "Create summary and title8",
@@ -227,7 +227,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.2,
         "position": [
-          -16,
+          -112,
           -128
         ],
         "id": "d7e4c9bc-b8fc-4fdf-a0bb-6eedf2a18cad",
@@ -251,8 +251,8 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          4288,
-          816
+          4576,
+          1120
         ],
         "id": "0f6e93cd-fd0b-4cf1-8283-c80cdc84a52b",
         "name": "Structured Output Parser15"
@@ -285,8 +285,8 @@
         "type": "n8n-nodes-base.filter",
         "typeVersion": 2.2,
         "position": [
-          880,
-          384
+          784,
+          592
         ],
         "id": "c1d0e57d-378e-4221-8f31-952876a18f29",
         "name": "Filter5"
@@ -308,8 +308,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          -16,
-          1824
+          -112,
+          2464
         ],
         "id": "cb0de23d-9c32-40f9-9c19-1b2e2402d55b",
         "name": "create longtail keyword5",
@@ -393,8 +393,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5200,
-          592
+          5744,
+          896
         ],
         "id": "308630f8-64eb-4a12-ad50-e4647ceaf761",
         "name": "RAG Web - Keyword Search1"
@@ -402,13 +402,13 @@
       {
         "parameters": {
           "content": "## News Scrap through keyword",
-          "height": 1200,
-          "width": 5760
+          "height": 1488,
+          "width": 6624
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          -144,
-          -112
+          -192,
+          16
         ],
         "typeVersion": 1,
         "id": "765fdb89-6486-4a92-aa31-dbf8ea97503f",
@@ -433,8 +433,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          2576,
-          384
+          2752,
+          592
         ],
         "id": "7632a17b-4b2a-4d1c-b620-8d4a2474f135",
         "name": "Merge",
@@ -509,8 +509,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.2,
         "position": [
-          3472,
-          384
+          3648,
+          592
         ],
         "id": "8400c198-0db0-4b0b-86d1-543fa385912f",
         "name": "extract content",
@@ -525,8 +525,8 @@
         "type": "n8n-nodes-base.markdown",
         "typeVersion": 1,
         "position": [
-          3920,
-          592
+          4096,
+          896
         ],
         "id": "27e31fbf-cb0e-45ec-8e5a-93b50807656d",
         "name": "Markdown1"
@@ -539,8 +539,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          3696,
-          592
+          3872,
+          896
         ],
         "id": "e902ccc6-6218-4913-ae6d-f3935cf6498f",
         "name": "extract date1"
@@ -548,13 +548,14 @@
       {
         "parameters": {
           "schemaType": "manual",
-          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"raw\": {\n      \"type\": \"string\",\n      \"description\": \"Keyword unchanged\"\n    },\n    \"uk_strategic\": {\n      \"type\": \"string\",\n      \"description\": \"UK/EU-focused strategic query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"regulatory\": {\n      \"type\": \"string\",\n      \"description\": \"Policy/compliance/mandate query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"market\": {\n      \"type\": \"string\",\n      \"description\": \"Supply/price/capacity query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    }\n  },\n  \"required\": [\"raw\", \"uk_strategic\", \"regulatory\", \"market\"],\n  \"additionalProperties\": false\n}"
+          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"raw\": {\n      \"type\": \"string\",\n      \"description\": \"Keyword unchanged\"\n    },\n    \"uk_strategic\": {\n      \"type\": \"string\",\n      \"description\": \"UK/EU-focused strategic query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"regulatory\": {\n      \"type\": \"string\",\n      \"description\": \"Policy/compliance/mandate query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"market\": {\n      \"type\": \"string\",\n      \"description\": \"Supply/price/capacity query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    }\n  },\n  \"required\": [\"raw\", \"uk_strategic\", \"regulatory\", \"market\"],\n  \"additionalProperties\": false\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1248,
-          608
+          1264,
+          816
         ],
         "id": "337f85ff-5c4e-45f0-b77c-f77b20c1f9b9",
         "name": "Structured Output Parser5"
@@ -567,8 +568,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          1120,
-          608
+          1008,
+          816
         ],
         "id": "64c41938-f4b5-4d17-ae00-e36bab7b2a17",
         "name": "DeepSeek 3.2",
@@ -587,8 +588,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          1456,
-          384
+          1632,
+          592
         ],
         "id": "f5ea2675-3750-4e31-815c-9fd9585bae87",
         "name": "Split Out"
@@ -601,8 +602,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          3984,
-          816
+          4320,
+          1120
         ],
         "id": "46bd8f3e-c729-4fcc-bfc8-f818816085ae",
         "name": "DeepSeek 3.",
@@ -630,8 +631,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          -16,
-          2256
+          -112,
+          2896
         ],
         "id": "4cd282c9-1042-4561-83f0-b98bd0b8052d",
         "name": "create longtail keyword",
@@ -644,6 +645,7 @@
           "promptType": "define",
           "text": "=<content>\n{{ $json.url_or_keyword }}\n</content>",
           "hasOutputParser": true,
+          "needsFallback": true,
           "messages": {
             "messageValues": [
               {
@@ -656,8 +658,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          1104,
-          384
+          1072,
+          592
         ],
         "id": "9e6f34b6-9b12-42e2-a373-abec5c24f58f",
         "name": "create longtail keyword6 claude optimised",
@@ -681,8 +683,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          -16,
-          2480
+          -112,
+          3120
         ],
         "id": "95bb4d6c-0bc2-465f-b504-5301534c4b8e",
         "name": "create longtail keyword6 claude optimised1",
@@ -718,8 +720,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          3920,
-          192
+          4096,
+          288
         ],
         "id": "c13bc929-e293-4f91-85ad-9228c43ef139",
         "name": "If Not Error"
@@ -744,7 +746,7 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          4208,
+          4384,
           80
         ],
         "id": "d048df84-93bf-40aa-ab31-182f6577a79f",
@@ -761,7 +763,7 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          4448,
+          4576,
           304
         ],
         "id": "ecd8da24-4f0a-4dff-b966-12095d4c3ed0",
@@ -772,7 +774,7 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          5424,
+          5968,
           592
         ],
         "id": "fddc3745-2504-4172-998a-57c999eb5615",
@@ -786,7 +788,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          4096,
+          4320,
           304
         ],
         "id": "2e89ec00-05ed-4a82-8cce-e44cc1482aeb",
@@ -875,8 +877,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5200,
-          192
+          5168,
+          288
         ],
         "id": "9224d8fd-9f72-43db-9e8b-7a90965dca1f",
         "name": "RAG Web - Keyword Search"
@@ -910,8 +912,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3024,
-          384
+          3200,
+          592
         ],
         "id": "bc11dc35-21e7-4522-bf0b-c7000232e7ab",
         "name": "If"
@@ -923,8 +925,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          -16,
-          1152
+          -112,
+          1568
         ],
         "id": "79bbb1ed-79dc-4045-9ca0-a589653ebdc2",
         "name": "Has Data API Example"
@@ -936,8 +938,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          -16,
-          1600
+          -112,
+          2240
         ],
         "id": "fd554637-06ad-40a0-88b8-d925223889cd",
         "name": "SerpAPI API Example"
@@ -974,8 +976,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          1904,
-          384
+          2080,
+          592
         ],
         "id": "44252d0e-6f2c-438d-8550-4d567a7d4522",
         "name": "SerAPI Google News",
@@ -988,8 +990,8 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          1680,
-          384
+          1856,
+          592
         ],
         "id": "99267e92-ebea-484c-8e4f-286d6c45ca63",
         "name": "Limit"
@@ -1002,8 +1004,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          2128,
-          384
+          2304,
+          592
         ],
         "id": "aba07ef2-b077-47f6-8a45-79500ad85318",
         "name": "Split Out News Articles"
@@ -1017,8 +1019,8 @@
         "type": "n8n-nodes-base.removeDuplicates",
         "typeVersion": 2,
         "position": [
-          3248,
-          384
+          3424,
+          592
         ],
         "id": "cced6341-eb09-48f7-a7bb-5afdf9c58780",
         "name": "Remove Duplicates",
@@ -1062,8 +1064,8 @@
         "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
         "typeVersion": 1,
         "position": [
-          3696,
-          192
+          3872,
+          288
         ],
         "id": "bc00a1d9-506d-4467-b609-e71b607fab99",
         "name": "Scrape a url and get its content2",
@@ -1083,8 +1085,8 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          208,
-          928
+          112,
+          1344
         ],
         "id": "d080e075-592f-40f6-bebf-9d5a731dffb7",
         "name": "Limit 15 items"
@@ -1103,8 +1105,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          4128,
-          816
+          4448,
+          1120
         ],
         "id": "f8917362-20e0-46f2-8eee-f44ccff1199c",
         "name": "OpenAI Chat Model",
@@ -1129,7 +1131,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          4272,
+          4448,
           304
         ],
         "id": "6ca8dd22-41e5-42b4-b02b-6078d70b9b61",
@@ -1170,8 +1172,8 @@
         "type": "n8n-nodes-base.filter",
         "typeVersion": 2.3,
         "position": [
-          2800,
-          384
+          2976,
+          592
         ],
         "id": "113967fc-e9cd-4ce3-98c8-f02c3a4cc7f8",
         "name": "Is Less Than 3 Weeks Old",
@@ -1187,8 +1189,8 @@
         "type": "n8n-nodes-base.supabase",
         "typeVersion": 1,
         "position": [
-          -16,
-          1376
+          -112,
+          2016
         ],
         "id": "0989ded2-6b5f-472d-8c82-696ff3eddfd1",
         "name": "Get many rows1",
@@ -1211,8 +1213,8 @@
         "type": "n8n-nodes-base.supabase",
         "typeVersion": 1,
         "position": [
-          208,
-          1152
+          112,
+          1568
         ],
         "id": "a19c6c4e-7972-4ffb-8b10-e243cd4796f4",
         "name": "Get many rows sb",
@@ -1240,8 +1242,8 @@
         "type": "n8n-nodes-base.supabase",
         "typeVersion": 1,
         "position": [
-          432,
-          1152
+          336,
+          1568
         ],
         "id": "82e7f5d8-5357-49ae-a409-3011ebd25aa2",
         "name": "Create a row sb",
@@ -1267,8 +1269,8 @@
         "type": "n8n-nodes-base.supabase",
         "typeVersion": 1,
         "position": [
-          656,
-          1152
+          560,
+          1568
         ],
         "id": "f83cf61d-c1d2-43cd-a1ad-cf6b82800fce",
         "name": "Create a row sb1",
@@ -1294,8 +1296,8 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          2352,
-          640
+          2528,
+          1008
         ],
         "id": "44d58c74-d13f-4b2d-a299-762c32f8f7f0",
         "name": "Create a row",
@@ -1366,8 +1368,8 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          4400,
-          592
+          4944,
+          896
         ],
         "id": "5956e36c-c76a-4048-9a3d-3435c55e31c5",
         "name": "Create a row1",
@@ -1438,8 +1440,8 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          4608,
-          192
+          4944,
+          288
         ],
         "id": "3e06f62b-a212-40b9-a8f5-cc8926181334",
         "name": "Create a row2",
@@ -1456,8 +1458,8 @@
         "type": "n8n-nodes-base.markdown",
         "typeVersion": 1,
         "position": [
-          880,
-          1152
+          784,
+          1568
         ],
         "id": "1da547c9-3656-4596-bd86-1826787299b5",
         "name": "Markdown"
@@ -1479,8 +1481,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1104,
-          1152
+          1008,
+          1568
         ],
         "id": "dd289ce3-43eb-408e-8c44-a05b8e397949",
         "name": "Edit Fields1"
@@ -1492,8 +1494,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          4608,
-          1216
+          -112,
+          1792
         ],
         "id": "fff283a9-279f-43d2-a470-5feb7fc9cf5d",
         "name": "Code in JavaScript"
@@ -1512,8 +1514,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          4784,
-          800
+          5472,
+          1120
         ],
         "id": "d1912543-80e1-48a4-b9c0-f5e5e6929714",
         "name": "OpenAI Chat Model3",
@@ -1601,8 +1603,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          816,
-          2752
+          688,
+          3456
         ],
         "id": "d7ee9cd5-b691-4c30-8fcb-d553dd19fd55",
         "name": "RAG Web - Keyword Search2",
@@ -1625,8 +1627,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          176,
-          2752
+          112,
+          3456
         ],
         "id": "72962652-276c-442e-a793-23cd9aa06460",
         "name": "Edit Fields2",
@@ -1650,8 +1652,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          400,
-          2752
+          336,
+          3456
         ],
         "id": "d48ad3bd-e8fa-4f51-80a1-dc23d1bb97dc",
         "name": "Create summary and title10",
@@ -1673,8 +1675,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          400,
-          2960
+          416,
+          3680
         ],
         "id": "16d99d5a-1dd8-4773-b4ef-2287d3de7a63",
         "name": "OpenAI Chat Model4",
@@ -1692,7 +1694,7 @@
         "typeVersion": 1,
         "position": [
           -112,
-          2752
+          3456
         ],
         "id": "8fa76412-3464-44cc-bb55-05430aa545a9",
         "name": "When clicking ‘Execute workflow’",
@@ -1716,8 +1718,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          4784,
-          592
+          5392,
+          896
         ],
         "id": "b11944af-85d8-4d47-8db4-ff4a1ccf72a6",
         "name": "Extracting Clean Article",
@@ -1737,8 +1739,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          4224,
-          1024
+          4656,
+          1328
         ],
         "id": "b77a0b5f-9bb0-43e1-aae6-b273a2b5962f",
         "name": "Anthropic Chat Model",
@@ -1762,8 +1764,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          4400,
-          448
+          4656,
+          512
         ],
         "id": "ae6dd732-8c31-4f1c-bc7a-bec7a7714e08",
         "name": "Anthropic Chat Model1",
@@ -1791,11 +1793,75 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4592,
-          592
+          5168,
+          896
         ],
         "id": "dd05c258-a233-4898-8fae-9900d3861622",
         "name": "Set Article Content"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-5-mini"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          1136,
+          816
+        ],
+        "id": "4a40dcd9-961e-4790-810b-bcbc6290d913",
+        "name": "OpenAI Chat Model5",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-5-mini"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          1344,
+          1024
+        ],
+        "id": "6877bd93-b952-4967-8752-227674098577",
+        "name": "OpenAI Chat Model6",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "amount": 10
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          6192,
+          768
+        ],
+        "id": "d1b49eb9-3cc0-481e-b2c9-9057c29cf7d0",
+        "name": "Wait",
+        "webhookId": "06ba8aa1-765e-4fe7-b689-6fe37afca9c0"
       }
     ],
     "connections": {
@@ -2071,7 +2137,7 @@
         "main": [
           [
             {
-              "node": "Loop Over Items6",
+              "node": "Wait",
               "type": "main",
               "index": 0
             }
@@ -2398,14 +2464,47 @@
             }
           ]
         ]
+      },
+      "OpenAI Chat Model5": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "create longtail keyword6 claude optimised",
+              "type": "ai_languageModel",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model6": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser5",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items6",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "rename fields",
+    "name": "testing rss",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "9e7e6948-2792-4abd-92d8-6c1dfafb3d0d",
+  "activeVersionId": "2dc15a3a-0f35-4f4a-941a-b87c65188641",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2679,7 +2778,7 @@
       "main": [
         [
           {
-            "node": "Loop Over Items6",
+            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -3006,6 +3105,39 @@
           }
         ]
       ]
+    },
+    "OpenAI Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "create longtail keyword6 claude optimised",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser5",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:00:54.228Z",
@@ -3096,8 +3228,8 @@
       "name": "When Executed by Another Workflow",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "position": [
-        -16,
-        928
+        -112,
+        1344
       ]
     },
     {
@@ -3135,8 +3267,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        656,
-        384
+        560,
+        592
       ],
       "id": "994b004d-0e96-4705-8628-b6d7ce81c593",
       "name": "Either Url or Keyword5"
@@ -3148,8 +3280,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        432,
-        928
+        336,
+        1344
       ],
       "id": "2745dfc5-066f-4224-82ee-b1113928e5a3",
       "name": "Loop Over Items6",
@@ -3168,8 +3300,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -16,
-        2048
+        -112,
+        2688
       ],
       "id": "1c29e3f3-7248-4484-92b2-3b0a3e5fa86e",
       "name": "OpenAI Chat Model2",
@@ -3188,8 +3320,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        128,
-        2048
+        32,
+        2688
       ],
       "id": "ea9780d2-10af-47d5-b33f-5c3a6e4305fa",
       "name": "Structured Output Parser3"
@@ -3214,8 +3346,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        4096,
-        592
+        4384,
+        896
       ],
       "id": "00eb2811-f423-4d7f-913f-5bfaf8dcfd19",
       "name": "Create summary and title8",
@@ -3237,7 +3369,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -16,
+        -112,
         -128
       ],
       "id": "d7e4c9bc-b8fc-4fdf-a0bb-6eedf2a18cad",
@@ -3261,8 +3393,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        4288,
-        816
+        4576,
+        1120
       ],
       "id": "0f6e93cd-fd0b-4cf1-8283-c80cdc84a52b",
       "name": "Structured Output Parser15"
@@ -3295,8 +3427,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        880,
-        384
+        784,
+        592
       ],
       "id": "c1d0e57d-378e-4221-8f31-952876a18f29",
       "name": "Filter5"
@@ -3318,8 +3450,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -16,
-        1824
+        -112,
+        2464
       ],
       "id": "cb0de23d-9c32-40f9-9c19-1b2e2402d55b",
       "name": "create longtail keyword5",
@@ -3403,8 +3535,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5200,
-        592
+        5744,
+        896
       ],
       "id": "308630f8-64eb-4a12-ad50-e4647ceaf761",
       "name": "RAG Web - Keyword Search1"
@@ -3412,13 +3544,13 @@
     {
       "parameters": {
         "content": "## News Scrap through keyword",
-        "height": 1200,
-        "width": 5760
+        "height": 1488,
+        "width": 6624
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -144,
-        -112
+        -192,
+        16
       ],
       "typeVersion": 1,
       "id": "765fdb89-6486-4a92-aa31-dbf8ea97503f",
@@ -3443,8 +3575,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2576,
-        384
+        2752,
+        592
       ],
       "id": "7632a17b-4b2a-4d1c-b620-8d4a2474f135",
       "name": "Merge",
@@ -3519,8 +3651,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3472,
-        384
+        3648,
+        592
       ],
       "id": "8400c198-0db0-4b0b-86d1-543fa385912f",
       "name": "extract content",
@@ -3535,8 +3667,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        3920,
-        592
+        4096,
+        896
       ],
       "id": "27e31fbf-cb0e-45ec-8e5a-93b50807656d",
       "name": "Markdown1"
@@ -3549,8 +3681,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3696,
-        592
+        3872,
+        896
       ],
       "id": "e902ccc6-6218-4913-ae6d-f3935cf6498f",
       "name": "extract date1"
@@ -3558,13 +3690,14 @@
     {
       "parameters": {
         "schemaType": "manual",
-        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"raw\": {\n      \"type\": \"string\",\n      \"description\": \"Keyword unchanged\"\n    },\n    \"uk_strategic\": {\n      \"type\": \"string\",\n      \"description\": \"UK/EU-focused strategic query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"regulatory\": {\n      \"type\": \"string\",\n      \"description\": \"Policy/compliance/mandate query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"market\": {\n      \"type\": \"string\",\n      \"description\": \"Supply/price/capacity query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    }\n  },\n  \"required\": [\"raw\", \"uk_strategic\", \"regulatory\", \"market\"],\n  \"additionalProperties\": false\n}"
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"raw\": {\n      \"type\": \"string\",\n      \"description\": \"Keyword unchanged\"\n    },\n    \"uk_strategic\": {\n      \"type\": \"string\",\n      \"description\": \"UK/EU-focused strategic query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"regulatory\": {\n      \"type\": \"string\",\n      \"description\": \"Policy/compliance/mandate query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    },\n    \"market\": {\n      \"type\": \"string\",\n      \"description\": \"Supply/price/capacity query (3-6 words)\",\n      \"minLength\": 3,\n      \"maxLength\": 50\n    }\n  },\n  \"required\": [\"raw\", \"uk_strategic\", \"regulatory\", \"market\"],\n  \"additionalProperties\": false\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1248,
-        608
+        1264,
+        816
       ],
       "id": "337f85ff-5c4e-45f0-b77c-f77b20c1f9b9",
       "name": "Structured Output Parser5"
@@ -3577,8 +3710,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1120,
-        608
+        1008,
+        816
       ],
       "id": "64c41938-f4b5-4d17-ae00-e36bab7b2a17",
       "name": "DeepSeek 3.2",
@@ -3597,8 +3730,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1456,
-        384
+        1632,
+        592
       ],
       "id": "f5ea2675-3750-4e31-815c-9fd9585bae87",
       "name": "Split Out"
@@ -3611,8 +3744,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        3984,
-        816
+        4320,
+        1120
       ],
       "id": "46bd8f3e-c729-4fcc-bfc8-f818816085ae",
       "name": "DeepSeek 3.",
@@ -3640,8 +3773,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -16,
-        2256
+        -112,
+        2896
       ],
       "id": "4cd282c9-1042-4561-83f0-b98bd0b8052d",
       "name": "create longtail keyword",
@@ -3654,6 +3787,7 @@
         "promptType": "define",
         "text": "=<content>\n{{ $json.url_or_keyword }}\n</content>",
         "hasOutputParser": true,
+        "needsFallback": true,
         "messages": {
           "messageValues": [
             {
@@ -3666,8 +3800,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        1104,
-        384
+        1072,
+        592
       ],
       "id": "9e6f34b6-9b12-42e2-a373-abec5c24f58f",
       "name": "create longtail keyword6 claude optimised",
@@ -3691,8 +3825,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -16,
-        2480
+        -112,
+        3120
       ],
       "id": "95bb4d6c-0bc2-465f-b504-5301534c4b8e",
       "name": "create longtail keyword6 claude optimised1",
@@ -3728,8 +3862,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3920,
-        192
+        4096,
+        288
       ],
       "id": "c13bc929-e293-4f91-85ad-9228c43ef139",
       "name": "If Not Error"
@@ -3754,7 +3888,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        4208,
+        4384,
         80
       ],
       "id": "d048df84-93bf-40aa-ab31-182f6577a79f",
@@ -3771,7 +3905,7 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        4448,
+        4576,
         304
       ],
       "id": "ecd8da24-4f0a-4dff-b966-12095d4c3ed0",
@@ -3782,7 +3916,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        5424,
+        5968,
         592
       ],
       "id": "fddc3745-2504-4172-998a-57c999eb5615",
@@ -3796,7 +3930,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        4096,
+        4320,
         304
       ],
       "id": "2e89ec00-05ed-4a82-8cce-e44cc1482aeb",
@@ -3885,8 +4019,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5200,
-        192
+        5168,
+        288
       ],
       "id": "9224d8fd-9f72-43db-9e8b-7a90965dca1f",
       "name": "RAG Web - Keyword Search"
@@ -3920,8 +4054,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3024,
-        384
+        3200,
+        592
       ],
       "id": "bc11dc35-21e7-4522-bf0b-c7000232e7ab",
       "name": "If"
@@ -3933,8 +4067,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -16,
-        1152
+        -112,
+        1568
       ],
       "id": "79bbb1ed-79dc-4045-9ca0-a589653ebdc2",
       "name": "Has Data API Example"
@@ -3946,8 +4080,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -16,
-        1600
+        -112,
+        2240
       ],
       "id": "fd554637-06ad-40a0-88b8-d925223889cd",
       "name": "SerpAPI API Example"
@@ -3984,8 +4118,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        1904,
-        384
+        2080,
+        592
       ],
       "id": "44252d0e-6f2c-438d-8550-4d567a7d4522",
       "name": "SerAPI Google News",
@@ -3998,8 +4132,8 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        1680,
-        384
+        1856,
+        592
       ],
       "id": "99267e92-ebea-484c-8e4f-286d6c45ca63",
       "name": "Limit"
@@ -4012,8 +4146,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2128,
-        384
+        2304,
+        592
       ],
       "id": "aba07ef2-b077-47f6-8a45-79500ad85318",
       "name": "Split Out News Articles"
@@ -4027,8 +4161,8 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 2,
       "position": [
-        3248,
-        384
+        3424,
+        592
       ],
       "id": "cced6341-eb09-48f7-a7bb-5afdf9c58780",
       "name": "Remove Duplicates",
@@ -4072,8 +4206,8 @@
       "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
       "typeVersion": 1,
       "position": [
-        3696,
-        192
+        3872,
+        288
       ],
       "id": "bc00a1d9-506d-4467-b609-e71b607fab99",
       "name": "Scrape a url and get its content2",
@@ -4093,8 +4227,8 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        208,
-        928
+        112,
+        1344
       ],
       "id": "d080e075-592f-40f6-bebf-9d5a731dffb7",
       "name": "Limit 15 items"
@@ -4113,8 +4247,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        4128,
-        816
+        4448,
+        1120
       ],
       "id": "f8917362-20e0-46f2-8eee-f44ccff1199c",
       "name": "OpenAI Chat Model",
@@ -4139,7 +4273,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        4272,
+        4448,
         304
       ],
       "id": "6ca8dd22-41e5-42b4-b02b-6078d70b9b61",
@@ -4180,8 +4314,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        2800,
-        384
+        2976,
+        592
       ],
       "id": "113967fc-e9cd-4ce3-98c8-f02c3a4cc7f8",
       "name": "Is Less Than 3 Weeks Old",
@@ -4197,8 +4331,8 @@
       "type": "n8n-nodes-base.supabase",
       "typeVersion": 1,
       "position": [
-        -16,
-        1376
+        -112,
+        2016
       ],
       "id": "0989ded2-6b5f-472d-8c82-696ff3eddfd1",
       "name": "Get many rows1",
@@ -4221,8 +4355,8 @@
       "type": "n8n-nodes-base.supabase",
       "typeVersion": 1,
       "position": [
-        208,
-        1152
+        112,
+        1568
       ],
       "id": "a19c6c4e-7972-4ffb-8b10-e243cd4796f4",
       "name": "Get many rows sb",
@@ -4250,8 +4384,8 @@
       "type": "n8n-nodes-base.supabase",
       "typeVersion": 1,
       "position": [
-        432,
-        1152
+        336,
+        1568
       ],
       "id": "82e7f5d8-5357-49ae-a409-3011ebd25aa2",
       "name": "Create a row sb",
@@ -4277,8 +4411,8 @@
       "type": "n8n-nodes-base.supabase",
       "typeVersion": 1,
       "position": [
-        656,
-        1152
+        560,
+        1568
       ],
       "id": "f83cf61d-c1d2-43cd-a1ad-cf6b82800fce",
       "name": "Create a row sb1",
@@ -4304,8 +4438,8 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        2352,
-        640
+        2528,
+        1008
       ],
       "id": "44d58c74-d13f-4b2d-a299-762c32f8f7f0",
       "name": "Create a row",
@@ -4376,8 +4510,8 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        4400,
-        592
+        4944,
+        896
       ],
       "id": "5956e36c-c76a-4048-9a3d-3435c55e31c5",
       "name": "Create a row1",
@@ -4448,8 +4582,8 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        4608,
-        192
+        4944,
+        288
       ],
       "id": "3e06f62b-a212-40b9-a8f5-cc8926181334",
       "name": "Create a row2",
@@ -4466,8 +4600,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        880,
-        1152
+        784,
+        1568
       ],
       "id": "1da547c9-3656-4596-bd86-1826787299b5",
       "name": "Markdown"
@@ -4489,8 +4623,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1104,
-        1152
+        1008,
+        1568
       ],
       "id": "dd289ce3-43eb-408e-8c44-a05b8e397949",
       "name": "Edit Fields1"
@@ -4502,8 +4636,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4608,
-        1216
+        -112,
+        1792
       ],
       "id": "fff283a9-279f-43d2-a470-5feb7fc9cf5d",
       "name": "Code in JavaScript"
@@ -4522,8 +4656,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        4784,
-        800
+        5472,
+        1120
       ],
       "id": "d1912543-80e1-48a4-b9c0-f5e5e6929714",
       "name": "OpenAI Chat Model3",
@@ -4611,8 +4745,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        816,
-        2752
+        688,
+        3456
       ],
       "id": "d7ee9cd5-b691-4c30-8fcb-d553dd19fd55",
       "name": "RAG Web - Keyword Search2",
@@ -4635,8 +4769,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        176,
-        2752
+        112,
+        3456
       ],
       "id": "72962652-276c-442e-a793-23cd9aa06460",
       "name": "Edit Fields2",
@@ -4660,8 +4794,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        400,
-        2752
+        336,
+        3456
       ],
       "id": "d48ad3bd-e8fa-4f51-80a1-dc23d1bb97dc",
       "name": "Create summary and title10",
@@ -4683,8 +4817,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        400,
-        2960
+        416,
+        3680
       ],
       "id": "16d99d5a-1dd8-4773-b4ef-2287d3de7a63",
       "name": "OpenAI Chat Model4",
@@ -4702,7 +4836,7 @@
       "typeVersion": 1,
       "position": [
         -112,
-        2752
+        3456
       ],
       "id": "8fa76412-3464-44cc-bb55-05430aa545a9",
       "name": "When clicking ‘Execute workflow’",
@@ -4726,8 +4860,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        4784,
-        592
+        5392,
+        896
       ],
       "id": "b11944af-85d8-4d47-8db4-ff4a1ccf72a6",
       "name": "Extracting Clean Article",
@@ -4747,8 +4881,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        4224,
-        1024
+        4656,
+        1328
       ],
       "id": "b77a0b5f-9bb0-43e1-aae6-b273a2b5962f",
       "name": "Anthropic Chat Model",
@@ -4772,8 +4906,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        4400,
-        448
+        4656,
+        512
       ],
       "id": "ae6dd732-8c31-4f1c-bc7a-bec7a7714e08",
       "name": "Anthropic Chat Model1",
@@ -4801,11 +4935,75 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4592,
-        592
+        5168,
+        896
       ],
       "id": "dd05c258-a233-4898-8fae-9900d3861622",
       "name": "Set Article Content"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1136,
+        816
+      ],
+      "id": "4a40dcd9-961e-4790-810b-bcbc6290d913",
+      "name": "OpenAI Chat Model5",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1344,
+        1024
+      ],
+      "id": "6877bd93-b952-4967-8752-227674098577",
+      "name": "OpenAI Chat Model6",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        6192,
+        768
+      ],
+      "id": "d1b49eb9-3cc0-481e-b2c9-9057c29cf7d0",
+      "name": "Wait",
+      "webhookId": "06ba8aa1-765e-4fe7-b689-6fe37afca9c0"
     }
   ],
   "pinData": {
@@ -4858,6 +5056,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-13T07:05:21.362Z",
-  "versionId": "9e7e6948-2792-4abd-92d8-6c1dfafb3d0d"
+  "updatedAt": "2026-02-17T09:57:27.074Z",
+  "versionId": "0f8d2b40-97a8-4d95-b22a-a396568e7355"
 }
