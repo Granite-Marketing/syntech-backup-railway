@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-24T10:13:50.256Z",
-    "createdAt": "2026-02-24T10:13:44.754Z",
-    "versionId": "7eb6c2da-1aa0-493c-91ce-545827a82dcc",
+    "updatedAt": "2026-03-04T12:44:02.070Z",
+    "createdAt": "2026-03-04T12:42:28.989Z",
+    "versionId": "5a1445cc-2321-4ba7-912b-2790cd552a8b",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -23,8 +23,7 @@
           4928
         ],
         "id": "4b1fadb2-7bc0-4311-a4cb-5ad37c2b14db",
-        "name": "Schedule Trigger",
-        "disabled": true
+        "name": "Schedule Trigger"
       },
       {
         "parameters": {
@@ -1608,8 +1607,8 @@
       },
       {
         "parameters": {
-          "operation": "scrape",
-          "requestOptions": {}
+          "resource": "Scraping",
+          "operation": "scrape"
         },
         "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
         "typeVersion": 1,
@@ -7816,11 +7815,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "put live",
+    "name": "set daily live",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "7eb6c2da-1aa0-493c-91ce-545827a82dcc",
+  "activeVersionId": "5a1445cc-2321-4ba7-912b-2790cd552a8b",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -9427,8 +9426,7 @@
         4928
       ],
       "id": "4b1fadb2-7bc0-4311-a4cb-5ad37c2b14db",
-      "name": "Schedule Trigger",
-      "disabled": true
+      "name": "Schedule Trigger"
     },
     {
       "parameters": {
@@ -11012,8 +11010,8 @@
     },
     {
       "parameters": {
-        "operation": "scrape",
-        "requestOptions": {}
+        "resource": "Scraping",
+        "operation": "scrape"
       },
       "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
       "typeVersion": 1,
@@ -27708,7 +27706,7 @@
       "name": "NEWS+"
     }
   ],
-  "triggerCount": 2,
-  "updatedAt": "2026-02-24T10:13:44.751Z",
-  "versionId": "7eb6c2da-1aa0-493c-91ce-545827a82dcc"
+  "triggerCount": 3,
+  "updatedAt": "2026-03-04T12:42:28.982Z",
+  "versionId": "5a1445cc-2321-4ba7-912b-2790cd552a8b"
 }
