@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-14T07:01:19.937Z",
-    "createdAt": "2026-02-14T07:01:07.664Z",
-    "versionId": "cd47bfb7-5473-4874-bf19-1bd5a15e3918",
+    "updatedAt": "2026-03-05T07:38:47.343Z",
+    "createdAt": "2026-03-05T07:38:37.200Z",
+    "versionId": "1d6edac1-092a-4d32-8ee2-8bc5e64f9640",
     "workflowId": "iMG6XApQjSxVQxIe",
     "nodes": [
       {
@@ -85,7 +85,7 @@
         "typeVersion": 1.1,
         "position": [
           -1552,
-          832
+          1144
         ],
         "id": "03f7228f-392c-47b4-a823-ad82b246c9b7",
         "name": "When Executed by Another Workflow"
@@ -99,7 +99,7 @@
         "typeVersion": 1.2,
         "position": [
           -656,
-          336
+          544
         ],
         "id": "aca2d549-17fe-4072-ad0d-4434c345d250",
         "name": "RSS Read",
@@ -115,7 +115,7 @@
         "typeVersion": 1,
         "position": [
           1136,
-          144
+          344
         ],
         "id": "b0648335-5066-4db2-80a9-f5ea1a0cad4d",
         "name": "Scrape a url and get its content2",
@@ -155,8 +155,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          1360,
-          144
+          1496,
+          344
         ],
         "id": "fc52058c-9161-4829-b894-cad31468d8a5",
         "name": "If Not Error"
@@ -231,7 +231,7 @@
         "typeVersion": 4.2,
         "position": [
           688,
-          336
+          544
         ],
         "id": "f9d14987-f5aa-458b-b475-5cda4395da75",
         "name": "extract content",
@@ -248,8 +248,8 @@
         "type": "n8n-nodes-base.markdown",
         "typeVersion": 1,
         "position": [
-          1040,
-          496
+          1136,
+          744
         ],
         "id": "adeb3b6f-8629-4dcd-a20a-32aff0e9f2b1",
         "name": "Markdown1"
@@ -262,8 +262,8 @@
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
         "position": [
-          864,
-          496
+          912,
+          744
         ],
         "id": "85560df6-6cf3-4658-8ff2-09bdaa9deb75",
         "name": "extract date1"
@@ -276,7 +276,7 @@
         "typeVersion": 3,
         "position": [
           -1104,
-          832
+          1144
         ],
         "id": "81458de0-125e-4c3c-9b48-40b23cc5ac7f",
         "name": "Loop Over Items4"
@@ -298,8 +298,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          1584,
-          32
+          1856,
+          240
         ],
         "id": "fa30100b-0198-4256-ad12-79c9ad0f195f",
         "name": "Create summary and title"
@@ -312,8 +312,8 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1728,
-          256
+          1992,
+          464
         ],
         "id": "242d85eb-b0ea-48e0-a3be-ee40f4862c20",
         "name": "Structured Output Parser2"
@@ -323,8 +323,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          2752,
-          544
+          3008,
+          744
         ],
         "id": "e144fa64-fb52-4564-9f7a-b3d19ccf7084",
         "name": "Merge9"
@@ -346,8 +346,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          1232,
-          496
+          1392,
+          744
         ],
         "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
         "name": "Create summary and title9",
@@ -363,8 +363,8 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1328,
-          720
+          1488,
+          968
         ],
         "id": "3f4b0c43-2572-47b7-8b1f-c75ae8b433a8",
         "name": "Structured Output Parser6"
@@ -399,7 +399,7 @@
         "typeVersion": 3.4,
         "position": [
           -880,
-          336
+          544
         ],
         "id": "723b2d6b-0d30-42e4-9a09-eb52c8d84ff0",
         "name": "Either Url or Keyword4"
@@ -408,13 +408,13 @@
         "parameters": {
           "content": "## Try to scrape this RSS article using Firecrawl",
           "height": 1088,
-          "width": 4592,
+          "width": 4800,
           "color": 4
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          -1664,
-          -736
+          -1624,
+          232
         ],
         "typeVersion": 1,
         "id": "95cfe887-55c3-4096-a8ed-c3d121033698",
@@ -497,8 +497,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2352,
-          480
+          2784,
+          744
         ],
         "id": "201bcada-7855-44de-8f45-c8cb60f0c6f9",
         "name": "RSS search fields"
@@ -580,8 +580,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2528,
-          144
+          2496,
+          344
         ],
         "id": "c437d7f9-0353-42d6-b8b0-2f55d3ce5601",
         "name": "RSS search fields1"
@@ -606,7 +606,7 @@
         "typeVersion": 3.2,
         "position": [
           -208,
-          336
+          544
         ],
         "id": "8b891382-6cbe-4198-b03e-f79a72e969bd",
         "name": "Merge",
@@ -642,7 +642,7 @@
         "typeVersion": 2.3,
         "position": [
           16,
-          336
+          544
         ],
         "id": "028ce2e1-155a-4cae-978f-85e7dc45d481",
         "name": "If1"
@@ -655,8 +655,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          1600,
-          256
+          -1552,
+          32
         ],
         "id": "6e0f7e35-8d2c-495f-9dcf-d3f661ea877c",
         "name": "DeepSeek 3.",
@@ -675,8 +675,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          1168,
-          720
+          -1552,
+          1368
         ],
         "id": "ad0d3589-5805-464f-b0b0-eadf1d580089",
         "name": "DeepSeek 3.1",
@@ -705,7 +705,7 @@
         "typeVersion": 3.4,
         "position": [
           464,
-          336
+          544
         ],
         "id": "591fdf39-69e2-4931-852e-60eeeb88a44c",
         "name": "set urls",
@@ -732,7 +732,7 @@
         "typeVersion": 3.4,
         "position": [
           -432,
-          240
+          448
         ],
         "id": "6c4816d0-9d94-43ea-902c-6a1cdd89d3eb",
         "name": "Edit Fields"
@@ -743,7 +743,7 @@
         "typeVersion": 1.1,
         "position": [
           912,
-          144
+          344
         ],
         "id": "8496fadc-7760-4a30-9bc1-25fea0a64ca8",
         "name": "Wait",
@@ -757,7 +757,7 @@
         "typeVersion": 1,
         "position": [
           -1328,
-          832
+          1144
         ],
         "id": "09af34d1-cf92-4e4f-b19c-001aed7c6757",
         "name": "Limit"
@@ -773,7 +773,7 @@
         "typeVersion": 1,
         "position": [
           -1552,
-          1056
+          1576
         ],
         "id": "92e0b114-1160-4125-9c27-3b10e63e2c93",
         "name": "Get many rows sb",
@@ -802,7 +802,7 @@
         "typeVersion": 1,
         "position": [
           -1104,
-          1056
+          1576
         ],
         "id": "cb4f070d-6f4b-46b4-9c7b-1be7856ec8ee",
         "name": "Create a row sb",
@@ -829,7 +829,7 @@
         "typeVersion": 1,
         "position": [
           -1328,
-          1056
+          1576
         ],
         "id": "1ce2fc44-69d7-4a08-aeca-dbb84ee8be85",
         "name": "Create a row sb1",
@@ -905,8 +905,8 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          2304,
-          144
+          2208,
+          344
         ],
         "id": "2476f19c-67c4-4dcd-9d5c-3e84ea9a4ca7",
         "name": "Create a row",
@@ -928,7 +928,7 @@
         "typeVersion": 1.1,
         "position": [
           -432,
-          592
+          848
         ],
         "id": "ffe86446-6588-4295-b117-aa90ec99d879",
         "name": "Get many rows1",
@@ -999,8 +999,8 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          1536,
-          496
+          1920,
+          744
         ],
         "id": "d23ff821-5850-4923-8e11-ac1a2cca85e2",
         "name": "Create a row1",
@@ -1018,7 +1018,7 @@
         "typeVersion": 1,
         "position": [
           -432,
-          1056
+          1576
         ],
         "id": "6eb86d33-8ba4-4240-a174-cc780b35945b",
         "name": "Markdown"
@@ -1041,7 +1041,7 @@
         "typeVersion": 3.4,
         "position": [
           -208,
-          1056
+          1576
         ],
         "id": "36c21f85-8ac7-4482-9cd2-3d6f72c4cf51",
         "name": "Edit Fields1"
@@ -1124,7 +1124,7 @@
         "typeVersion": 3.4,
         "position": [
           -656,
-          1056
+          1576
         ],
         "id": "61eb3f13-505b-4447-8b60-e51bbc75684f",
         "name": "RSS search fields2"
@@ -1207,7 +1207,7 @@
         "typeVersion": 3.4,
         "position": [
           -880,
-          1056
+          1576
         ],
         "id": "73a850d1-b464-41d5-919a-5719db6e866e",
         "name": "RSS search fields3"
@@ -1220,7 +1220,7 @@
         "typeVersion": 1,
         "position": [
           240,
-          336
+          544
         ],
         "id": "5bd001e4-24b7-4ea9-92a4-de288d4a1c0b",
         "name": "Get 20 Ideas"
@@ -1258,8 +1258,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1712,
-          496
+          2208,
+          744
         ],
         "id": "14634843-fed9-41bf-bd00-768be891f6c0",
         "name": "Edit Fields2"
@@ -1278,8 +1278,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          1936,
-          672
+          2512,
+          976
         ],
         "id": "4d398560-e895-4784-a5f2-cbfac2d29ab1",
         "name": "OpenAI Chat Model",
@@ -1306,8 +1306,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.9,
         "position": [
-          1920,
-          496
+          2432,
+          744
         ],
         "id": "a2e185a1-2a8b-4a08-827e-bd02a54196ad",
         "name": "Extract Clean Content",
@@ -1329,8 +1329,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          1264,
-          928
+          1568,
+          1176
         ],
         "id": "8f367ca8-31ce-46b2-ac2b-24226eb3ce2b",
         "name": "Anthropic Chat Model",
@@ -1338,6 +1338,62 @@
           "anthropicApi": {
             "id": "0c1nNLaJWpeD3Cqz",
             "name": "Syntech GM Anthropic account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-nano",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-nano"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0.2
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          1360,
+          968
+        ],
+        "id": "a622c7c3-9412-4c0c-ad82-f6458f031dad",
+        "name": "OpenAI Chat Model5",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-nano",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-nano"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0.2
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          1864,
+          464
+        ],
+        "id": "7d9cadf6-d476-4e80-98c8-38f6dc8825ef",
+        "name": "OpenAI Chat Model6",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
           }
         }
       }
@@ -1572,24 +1628,12 @@
       },
       "DeepSeek 3.": {
         "ai_languageModel": [
-          [
-            {
-              "node": "Create summary and title",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "DeepSeek 3.1": {
         "ai_languageModel": [
-          [
-            {
-              "node": "Create summary and title9",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "set urls": {
@@ -1789,14 +1833,36 @@
             }
           ]
         ]
+      },
+      "OpenAI Chat Model5": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create summary and title9",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model6": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create summary and title",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "add output parser fix and retry on fail",
+    "name": "remove deepseek for 4.1 nano",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "cd47bfb7-5473-4874-bf19-1bd5a15e3918",
+  "activeVersionId": "1d6edac1-092a-4d32-8ee2-8bc5e64f9640",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2027,24 +2093,12 @@
     },
     "DeepSeek 3.": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Create summary and title",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "DeepSeek 3.1": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Create summary and title9",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "set urls": {
@@ -2244,6 +2298,28 @@
           }
         ]
       ]
+    },
+    "OpenAI Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title9",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:06:07.080Z",
@@ -2333,7 +2409,7 @@
       "typeVersion": 1.1,
       "position": [
         -1552,
-        832
+        1144
       ],
       "id": "03f7228f-392c-47b4-a823-ad82b246c9b7",
       "name": "When Executed by Another Workflow"
@@ -2347,7 +2423,7 @@
       "typeVersion": 1.2,
       "position": [
         -656,
-        336
+        544
       ],
       "id": "aca2d549-17fe-4072-ad0d-4434c345d250",
       "name": "RSS Read",
@@ -2363,7 +2439,7 @@
       "typeVersion": 1,
       "position": [
         1136,
-        144
+        344
       ],
       "id": "b0648335-5066-4db2-80a9-f5ea1a0cad4d",
       "name": "Scrape a url and get its content2",
@@ -2403,8 +2479,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1360,
-        144
+        1496,
+        344
       ],
       "id": "fc52058c-9161-4829-b894-cad31468d8a5",
       "name": "If Not Error"
@@ -2479,7 +2555,7 @@
       "typeVersion": 4.2,
       "position": [
         688,
-        336
+        544
       ],
       "id": "f9d14987-f5aa-458b-b475-5cda4395da75",
       "name": "extract content",
@@ -2496,8 +2572,8 @@
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        1040,
-        496
+        1136,
+        744
       ],
       "id": "adeb3b6f-8629-4dcd-a20a-32aff0e9f2b1",
       "name": "Markdown1"
@@ -2510,8 +2586,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        864,
-        496
+        912,
+        744
       ],
       "id": "85560df6-6cf3-4658-8ff2-09bdaa9deb75",
       "name": "extract date1"
@@ -2524,7 +2600,7 @@
       "typeVersion": 3,
       "position": [
         -1104,
-        832
+        1144
       ],
       "id": "81458de0-125e-4c3c-9b48-40b23cc5ac7f",
       "name": "Loop Over Items4"
@@ -2546,8 +2622,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        1584,
-        32
+        1856,
+        240
       ],
       "id": "fa30100b-0198-4256-ad12-79c9ad0f195f",
       "name": "Create summary and title"
@@ -2560,8 +2636,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1728,
-        256
+        1992,
+        464
       ],
       "id": "242d85eb-b0ea-48e0-a3be-ee40f4862c20",
       "name": "Structured Output Parser2"
@@ -2571,8 +2647,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2752,
-        544
+        3008,
+        744
       ],
       "id": "e144fa64-fb52-4564-9f7a-b3d19ccf7084",
       "name": "Merge9"
@@ -2594,8 +2670,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        1232,
-        496
+        1392,
+        744
       ],
       "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
       "name": "Create summary and title9",
@@ -2611,8 +2687,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1328,
-        720
+        1488,
+        968
       ],
       "id": "3f4b0c43-2572-47b7-8b1f-c75ae8b433a8",
       "name": "Structured Output Parser6"
@@ -2647,7 +2723,7 @@
       "typeVersion": 3.4,
       "position": [
         -880,
-        336
+        544
       ],
       "id": "723b2d6b-0d30-42e4-9a09-eb52c8d84ff0",
       "name": "Either Url or Keyword4"
@@ -2656,13 +2732,13 @@
       "parameters": {
         "content": "## Try to scrape this RSS article using Firecrawl",
         "height": 1088,
-        "width": 4592,
+        "width": 4800,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1664,
-        -736
+        -1624,
+        232
       ],
       "typeVersion": 1,
       "id": "95cfe887-55c3-4096-a8ed-c3d121033698",
@@ -2745,8 +2821,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2352,
-        480
+        2784,
+        744
       ],
       "id": "201bcada-7855-44de-8f45-c8cb60f0c6f9",
       "name": "RSS search fields"
@@ -2828,8 +2904,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2528,
-        144
+        2496,
+        344
       ],
       "id": "c437d7f9-0353-42d6-b8b0-2f55d3ce5601",
       "name": "RSS search fields1"
@@ -2854,7 +2930,7 @@
       "typeVersion": 3.2,
       "position": [
         -208,
-        336
+        544
       ],
       "id": "8b891382-6cbe-4198-b03e-f79a72e969bd",
       "name": "Merge",
@@ -2890,7 +2966,7 @@
       "typeVersion": 2.3,
       "position": [
         16,
-        336
+        544
       ],
       "id": "028ce2e1-155a-4cae-978f-85e7dc45d481",
       "name": "If1"
@@ -2903,8 +2979,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1600,
-        256
+        -1552,
+        32
       ],
       "id": "6e0f7e35-8d2c-495f-9dcf-d3f661ea877c",
       "name": "DeepSeek 3.",
@@ -2923,8 +2999,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1168,
-        720
+        -1552,
+        1368
       ],
       "id": "ad0d3589-5805-464f-b0b0-eadf1d580089",
       "name": "DeepSeek 3.1",
@@ -2953,7 +3029,7 @@
       "typeVersion": 3.4,
       "position": [
         464,
-        336
+        544
       ],
       "id": "591fdf39-69e2-4931-852e-60eeeb88a44c",
       "name": "set urls",
@@ -2980,7 +3056,7 @@
       "typeVersion": 3.4,
       "position": [
         -432,
-        240
+        448
       ],
       "id": "6c4816d0-9d94-43ea-902c-6a1cdd89d3eb",
       "name": "Edit Fields"
@@ -2991,7 +3067,7 @@
       "typeVersion": 1.1,
       "position": [
         912,
-        144
+        344
       ],
       "id": "8496fadc-7760-4a30-9bc1-25fea0a64ca8",
       "name": "Wait",
@@ -3005,7 +3081,7 @@
       "typeVersion": 1,
       "position": [
         -1328,
-        832
+        1144
       ],
       "id": "09af34d1-cf92-4e4f-b19c-001aed7c6757",
       "name": "Limit"
@@ -3021,7 +3097,7 @@
       "typeVersion": 1,
       "position": [
         -1552,
-        1056
+        1576
       ],
       "id": "92e0b114-1160-4125-9c27-3b10e63e2c93",
       "name": "Get many rows sb",
@@ -3050,7 +3126,7 @@
       "typeVersion": 1,
       "position": [
         -1104,
-        1056
+        1576
       ],
       "id": "cb4f070d-6f4b-46b4-9c7b-1be7856ec8ee",
       "name": "Create a row sb",
@@ -3077,7 +3153,7 @@
       "typeVersion": 1,
       "position": [
         -1328,
-        1056
+        1576
       ],
       "id": "1ce2fc44-69d7-4a08-aeca-dbb84ee8be85",
       "name": "Create a row sb1",
@@ -3153,8 +3229,8 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        2304,
-        144
+        2208,
+        344
       ],
       "id": "2476f19c-67c4-4dcd-9d5c-3e84ea9a4ca7",
       "name": "Create a row",
@@ -3176,7 +3252,7 @@
       "typeVersion": 1.1,
       "position": [
         -432,
-        592
+        848
       ],
       "id": "ffe86446-6588-4295-b117-aa90ec99d879",
       "name": "Get many rows1",
@@ -3247,8 +3323,8 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        1536,
-        496
+        1920,
+        744
       ],
       "id": "d23ff821-5850-4923-8e11-ac1a2cca85e2",
       "name": "Create a row1",
@@ -3266,7 +3342,7 @@
       "typeVersion": 1,
       "position": [
         -432,
-        1056
+        1576
       ],
       "id": "6eb86d33-8ba4-4240-a174-cc780b35945b",
       "name": "Markdown"
@@ -3289,7 +3365,7 @@
       "typeVersion": 3.4,
       "position": [
         -208,
-        1056
+        1576
       ],
       "id": "36c21f85-8ac7-4482-9cd2-3d6f72c4cf51",
       "name": "Edit Fields1"
@@ -3372,7 +3448,7 @@
       "typeVersion": 3.4,
       "position": [
         -656,
-        1056
+        1576
       ],
       "id": "61eb3f13-505b-4447-8b60-e51bbc75684f",
       "name": "RSS search fields2"
@@ -3455,7 +3531,7 @@
       "typeVersion": 3.4,
       "position": [
         -880,
-        1056
+        1576
       ],
       "id": "73a850d1-b464-41d5-919a-5719db6e866e",
       "name": "RSS search fields3"
@@ -3468,7 +3544,7 @@
       "typeVersion": 1,
       "position": [
         240,
-        336
+        544
       ],
       "id": "5bd001e4-24b7-4ea9-92a4-de288d4a1c0b",
       "name": "Get 20 Ideas"
@@ -3506,8 +3582,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1712,
-        496
+        2208,
+        744
       ],
       "id": "14634843-fed9-41bf-bd00-768be891f6c0",
       "name": "Edit Fields2"
@@ -3526,8 +3602,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        1936,
-        672
+        2512,
+        976
       ],
       "id": "4d398560-e895-4784-a5f2-cbfac2d29ab1",
       "name": "OpenAI Chat Model",
@@ -3554,8 +3630,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        1920,
-        496
+        2432,
+        744
       ],
       "id": "a2e185a1-2a8b-4a08-827e-bd02a54196ad",
       "name": "Extract Clean Content",
@@ -3577,8 +3653,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        1264,
-        928
+        1568,
+        1176
       ],
       "id": "8f367ca8-31ce-46b2-ac2b-24226eb3ce2b",
       "name": "Anthropic Chat Model",
@@ -3586,6 +3662,62 @@
         "anthropicApi": {
           "id": "0c1nNLaJWpeD3Cqz",
           "name": "Syntech GM Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1360,
+        968
+      ],
+      "id": "a622c7c3-9412-4c0c-ad82-f6458f031dad",
+      "name": "OpenAI Chat Model5",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1864,
+        464
+      ],
+      "id": "7d9cadf6-d476-4e80-98c8-38f6dc8825ef",
+      "name": "OpenAI Chat Model6",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
         }
       }
     }
@@ -3758,6 +3890,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-14T07:01:07.662Z",
-  "versionId": "cd47bfb7-5473-4874-bf19-1bd5a15e3918"
+  "updatedAt": "2026-03-05T07:38:37.195Z",
+  "versionId": "1d6edac1-092a-4d32-8ee2-8bc5e64f9640"
 }
