@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-04T14:15:48.327Z",
-    "createdAt": "2026-03-04T14:15:45.987Z",
-    "versionId": "5466abc6-1bc6-4146-b282-4e3c882b9c9c",
+    "updatedAt": "2026-03-05T08:34:08.164Z",
+    "createdAt": "2026-03-05T08:33:50.491Z",
+    "versionId": "e20bcf49-8fb8-4d81-bc7c-c5aa0d035739",
     "workflowId": "N0iykcUkUjgXDL0k",
     "nodes": [
       {
@@ -379,7 +379,8 @@
       {
         "parameters": {
           "schemaType": "manual",
-          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
@@ -1128,6 +1129,81 @@
             "name": "Syntech GM OpenAi account"
           }
         }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "claude-haiku-4-5-20251001",
+            "mode": "list",
+            "cachedResultName": "Claude Haiku 4.5"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          -2272,
+          448
+        ],
+        "id": "c3fe489c-bbee-4b70-8842-20d0f2d07a29",
+        "name": "Anthropic Chat Model",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "claude-haiku-4-5-20251001",
+            "mode": "list",
+            "cachedResultName": "Claude Haiku 4.5"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          352,
+          592
+        ],
+        "id": "ed84aff7-4609-43e9-a4b8-238939edbd19",
+        "name": "Anthropic Chat Model1",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "claude-sonnet-4-5-20250929",
+            "cachedResultName": "Claude Sonnet 4.5"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          848,
+          816
+        ],
+        "id": "727739e8-1e42-4408-856c-06ef182b9238",
+        "name": "Anthropic Chat Model2",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
       }
     ],
     "connections": {
@@ -1374,24 +1450,12 @@
       },
       "DeepSeek 3.2": {
         "ai_languageModel": [
-          [
-            {
-              "node": "create longtail keyword claude optimised",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "DeepSeek 3.": {
         "ai_languageModel": [
-          [
-            {
-              "node": "Create summary and title2",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "create longtail keyword claude optimised": {
@@ -1517,7 +1581,7 @@
             {
               "node": "create longtail keyword claude optimised",
               "type": "ai_languageModel",
-              "index": 1
+              "index": 0
             }
           ]
         ]
@@ -1528,18 +1592,51 @@
             {
               "node": "Create summary and title2",
               "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Anthropic Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "create longtail keyword claude optimised",
+              "type": "ai_languageModel",
               "index": 1
+            }
+          ]
+        ]
+      },
+      "Anthropic Chat Model1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create summary and title2",
+              "type": "ai_languageModel",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Anthropic Chat Model2": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser7",
+              "type": "ai_languageModel",
+              "index": 0
             }
           ]
         ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "set gpt 5",
+    "name": "fallback model",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "5466abc6-1bc6-4146-b282-4e3c882b9c9c",
+  "activeVersionId": "e20bcf49-8fb8-4d81-bc7c-c5aa0d035739",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -1784,24 +1881,12 @@
     },
     "DeepSeek 3.2": {
       "ai_languageModel": [
-        [
-          {
-            "node": "create longtail keyword claude optimised",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "DeepSeek 3.": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Create summary and title2",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "create longtail keyword claude optimised": {
@@ -1927,7 +2012,7 @@
           {
             "node": "create longtail keyword claude optimised",
             "type": "ai_languageModel",
-            "index": 1
+            "index": 0
           }
         ]
       ]
@@ -1938,7 +2023,40 @@
           {
             "node": "Create summary and title2",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "create longtail keyword claude optimised",
+            "type": "ai_languageModel",
             "index": 1
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title2",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser7",
+            "type": "ai_languageModel",
+            "index": 0
           }
         ]
       ]
@@ -2325,7 +2443,8 @@
     {
       "parameters": {
         "schemaType": "manual",
-        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
@@ -3074,6 +3193,81 @@
           "name": "Syntech GM OpenAi account"
         }
       }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        -2272,
+        448
+      ],
+      "id": "c3fe489c-bbee-4b70-8842-20d0f2d07a29",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        352,
+        592
+      ],
+      "id": "ed84aff7-4609-43e9-a4b8-238939edbd19",
+      "name": "Anthropic Chat Model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-5-20250929",
+          "cachedResultName": "Claude Sonnet 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        848,
+        816
+      ],
+      "id": "727739e8-1e42-4408-856c-06ef182b9238",
+      "name": "Anthropic Chat Model2",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -3777,6 +3971,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-03-04T14:15:45.988Z",
-  "versionId": "5466abc6-1bc6-4146-b282-4e3c882b9c9c"
+  "updatedAt": "2026-03-05T08:33:50.488Z",
+  "versionId": "e20bcf49-8fb8-4d81-bc7c-c5aa0d035739"
 }
