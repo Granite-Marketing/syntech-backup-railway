@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-14T10:01:41.349Z",
-    "createdAt": "2026-02-14T10:01:38.739Z",
-    "versionId": "1103512d-2800-4de2-8cd2-b86dede0c314",
+    "updatedAt": "2026-03-05T07:41:14.716Z",
+    "createdAt": "2026-03-05T07:41:08.388Z",
+    "versionId": "33c4f347-5772-4dc6-a4db-1fd9c2bf703e",
     "workflowId": "o41mt2JfV10VTV65",
     "nodes": [
       {
@@ -12,7 +12,7 @@
         "typeVersion": 1,
         "position": [
           -144,
-          8
+          120
         ],
         "id": "03ce63c4-b5fb-4bfd-95f3-3ab7c71ead74",
         "name": "Error Trigger"
@@ -31,7 +31,7 @@
         "typeVersion": 1,
         "position": [
           80,
-          8
+          120
         ],
         "id": "e25f763b-288d-424e-8f36-3b6723d3a698",
         "name": "Get an execution",
@@ -104,7 +104,7 @@
         "typeVersion": 3.3,
         "position": [
           304,
-          8
+          120
         ],
         "id": "ed91d801-b9e1-4555-9efa-838b77aa70c2",
         "name": "Switch"
@@ -117,7 +117,7 @@
         "typeVersion": 2,
         "position": [
           752,
-          104
+          224
         ],
         "id": "63209c70-ed4a-4a29-9e5a-e87794b468e3",
         "name": "Find All Errors"
@@ -140,8 +140,8 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          1496,
-          0
+          1656,
+          16
         ],
         "id": "fa2a18cb-6d12-4e99-b20a-60339b289b49",
         "name": "Create Simple Error Message"
@@ -201,8 +201,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          2576,
-          104
+          2896,
+          224
         ],
         "id": "98da5f60-1bb8-43ce-b490-63e836fe9ed4",
         "name": "Add Error Ticket",
@@ -239,8 +239,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          1904,
-          104
+          2224,
+          224
         ],
         "id": "f130664b-9f70-41ee-bb00-964f89e99378",
         "name": "Send Error Message To Content Engine",
@@ -253,13 +253,14 @@
       },
       {
         "parameters": {
-          "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}"
+          "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1696,
-          224
+          1856,
+          240
         ],
         "id": "c76e258d-4eda-4f0f-bbe5-a1e7b0a83a04",
         "name": "Structured Output Parser"
@@ -279,8 +280,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          1440,
-          224
+          1600,
+          240
         ],
         "id": "eb75dd92-9056-4e72-b412-d622c2b57756",
         "name": "Anthropic Chat Model",
@@ -308,8 +309,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          2128,
-          8
+          2448,
+          120
         ],
         "id": "90868b2a-af04-494b-ac6d-6674b2df6de6",
         "name": "Get many database pages",
@@ -340,8 +341,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          2352,
-          104
+          2672,
+          224
         ],
         "id": "87f148c3-8609-47aa-b4ce-eddb0fa7f5d8",
         "name": "Merge"
@@ -363,8 +364,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2128,
-          208
+          2448,
+          432
         ],
         "id": "b4fa280d-913a-41c4-ac1c-ca48383b1a62",
         "name": "Set Execution URL"
@@ -419,8 +420,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          1904,
-          504
+          2224,
+          832
         ],
         "id": "1fe1fbb0-ebb5-4310-8626-f5a757ca965a",
         "name": "Add Error Ticket1",
@@ -450,7 +451,7 @@
         "typeVersion": 2.2,
         "position": [
           752,
-          400
+          624
         ],
         "id": "29fe6f8a-3f04-4dba-81d8-10529c51d325",
         "name": "Get many database pages1",
@@ -481,8 +482,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          1096,
-          504
+          1176,
+          832
         ],
         "id": "43828f8b-2bfa-4c56-8db7-5934e048c0f4",
         "name": "Merge1"
@@ -505,7 +506,7 @@
         "typeVersion": 3.4,
         "position": [
           752,
-          600
+          928
         ],
         "id": "cc6a5cfc-aba0-4636-9b59-90a81b9ab121",
         "name": "Set Execution URL1"
@@ -528,21 +529,22 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          1496,
-          504
+          1656,
+          832
         ],
         "id": "0b616dd8-cf35-4d86-ae65-9e6b141b64c4",
         "name": "Create Simple Error Message1"
       },
       {
         "parameters": {
-          "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}"
+          "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1696,
-          728
+          1856,
+          1056
         ],
         "id": "07b736e1-68d8-4eb8-be6f-dc70b06c1a86",
         "name": "Structured Output Parser1"
@@ -562,8 +564,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
         "typeVersion": 1.3,
         "position": [
-          1440,
-          728
+          1600,
+          1056
         ],
         "id": "c92f0b3e-5578-4432-966c-6fd7e2bf6831",
         "name": "Anthropic Chat Model1",
@@ -582,8 +584,8 @@
         "type": "n8n-nodes-base.aggregate",
         "typeVersion": 1,
         "position": [
-          1096,
-          104
+          1176,
+          224
         ],
         "id": "a499a43f-4281-44ea-8860-d8166110a895",
         "name": "Aggregate"
@@ -616,7 +618,7 @@
         "typeVersion": 2.2,
         "position": [
           528,
-          400
+          624
         ],
         "id": "ab3424f6-08d7-4f16-84e9-2ac79687b284",
         "name": "If"
@@ -629,7 +631,7 @@
         "typeVersion": 2,
         "position": [
           528,
-          -280
+          -176
         ],
         "id": "cdf288fa-93ef-4122-8fff-12bb4711b993",
         "name": "Find All Errors1"
@@ -713,8 +715,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          2352,
-          -280
+          2672,
+          -176
         ],
         "id": "222681c9-835f-415a-880a-f4f809ca2c84",
         "name": "Add Error Ticket2",
@@ -752,8 +754,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          1560,
-          -280
+          1800,
+          -176
         ],
         "id": "1bf4a854-c35d-4fda-920d-c9b58fe17e81",
         "name": "Send Error Message To Content Engine1",
@@ -766,7 +768,8 @@
       },
       {
         "parameters": {
-          "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}"
+          "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
@@ -821,8 +824,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          1904,
-          -376
+          2224,
+          -272
         ],
         "id": "0626370b-b4c2-4dcc-b463-3b73fdcdf0c4",
         "name": "Get many database pages2",
@@ -853,8 +856,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          2128,
-          -280
+          2448,
+          -176
         ],
         "id": "e5189ede-8dde-4713-bd54-be96f830dc6c",
         "name": "Merge2"
@@ -876,8 +879,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1904,
-          -184
+          2224,
+          -72
         ],
         "id": "f751950f-44a7-45e7-b676-626963090638",
         "name": "Set Execution URL2"
@@ -891,7 +894,7 @@
         "typeVersion": 1,
         "position": [
           752,
-          -280
+          -176
         ],
         "id": "181d8780-cd8e-43d5-bf39-9b1de21040ed",
         "name": "Aggregate1"
@@ -913,8 +916,8 @@
         "type": "n8n-nodes-base.slack",
         "typeVersion": 2.3,
         "position": [
-          2128,
-          504
+          2448,
+          832
         ],
         "id": "00d3f59d-183d-4873-b287-1476da4b24cb",
         "name": "Send a simple message",
@@ -945,8 +948,8 @@
         "type": "n8n-nodes-base.slack",
         "typeVersion": 2.3,
         "position": [
-          2352,
-          504
+          2672,
+          832
         ],
         "id": "6d139771-d655-471c-929b-f9683ddece1d",
         "name": "Send a block message",
@@ -977,8 +980,8 @@
         "type": "n8n-nodes-base.slack",
         "typeVersion": 2.3,
         "position": [
-          2800,
-          104
+          3120,
+          224
         ],
         "id": "b4ea11b9-2c7f-4d02-bc20-7d3ef2d57e94",
         "name": "Send a message slack",
@@ -1009,8 +1012,8 @@
         "type": "n8n-nodes-base.slack",
         "typeVersion": 2.3,
         "position": [
-          2576,
-          -280
+          2896,
+          -176
         ],
         "id": "1410f1a4-b7c4-439e-aaf7-553b9acdeec8",
         "name": "Send a message",
@@ -1038,8 +1041,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          1568,
-          728
+          1728,
+          1056
         ],
         "id": "64dcc7dd-c811-48c4-b6f1-8af3c21c9c42",
         "name": "OpenAI Chat Model",
@@ -1066,8 +1069,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          1568,
-          224
+          1728,
+          240
         ],
         "id": "6832bf33-affc-4f40-9853-dc61239cd932",
         "name": "OpenAI Chat Model1",
@@ -1103,6 +1106,81 @@
           "openAiApi": {
             "id": "NoEKitspBJb0zQrp",
             "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "claude-haiku-4-5-20251001",
+            "mode": "list",
+            "cachedResultName": "Claude Haiku 4.5"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          1936,
+          1264
+        ],
+        "id": "5b9d1a7d-34aa-4948-8250-d754232e99fc",
+        "name": "Anthropic Chat Model3",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "claude-haiku-4-5-20251001",
+            "mode": "list",
+            "cachedResultName": "Claude Haiku 4.5"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          1936,
+          448
+        ],
+        "id": "bbfc92de-847f-4ac6-9b15-9cbc737f7a12",
+        "name": "Anthropic Chat Model4",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "claude-haiku-4-5-20251001",
+            "mode": "list",
+            "cachedResultName": "Claude Haiku 4.5"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          1312,
+          48
+        ],
+        "id": "7f4bcb3d-8d5c-4377-a388-fb2700306c3d",
+        "name": "Anthropic Chat Model5",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
           }
         }
       }
@@ -1521,14 +1599,47 @@
             }
           ]
         ]
+      },
+      "Anthropic Chat Model3": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser1",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Anthropic Chat Model4": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Anthropic Chat Model5": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser2",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "add fallback model",
+    "name": "auto fix format errors",
     "description": "",
-    "autosaved": true
+    "autosaved": false
   },
-  "activeVersionId": "1103512d-2800-4de2-8cd2-b86dede0c314",
+  "activeVersionId": "33c4f347-5772-4dc6-a4db-1fd9c2bf703e",
   "connections": {
     "Error Trigger": {
       "main": [
@@ -1943,6 +2054,39 @@
           }
         ]
       ]
+    },
+    "Anthropic Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:06:07.142Z",
@@ -1959,7 +2103,7 @@
       "typeVersion": 1,
       "position": [
         -144,
-        8
+        120
       ],
       "id": "03ce63c4-b5fb-4bfd-95f3-3ab7c71ead74",
       "name": "Error Trigger"
@@ -1978,7 +2122,7 @@
       "typeVersion": 1,
       "position": [
         80,
-        8
+        120
       ],
       "id": "e25f763b-288d-424e-8f36-3b6723d3a698",
       "name": "Get an execution",
@@ -2051,7 +2195,7 @@
       "typeVersion": 3.3,
       "position": [
         304,
-        8
+        120
       ],
       "id": "ed91d801-b9e1-4555-9efa-838b77aa70c2",
       "name": "Switch"
@@ -2064,7 +2208,7 @@
       "typeVersion": 2,
       "position": [
         752,
-        104
+        224
       ],
       "id": "63209c70-ed4a-4a29-9e5a-e87794b468e3",
       "name": "Find All Errors"
@@ -2087,8 +2231,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        1496,
-        0
+        1656,
+        16
       ],
       "id": "fa2a18cb-6d12-4e99-b20a-60339b289b49",
       "name": "Create Simple Error Message"
@@ -2148,8 +2292,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        2576,
-        104
+        2896,
+        224
       ],
       "id": "98da5f60-1bb8-43ce-b490-63e836fe9ed4",
       "name": "Add Error Ticket",
@@ -2186,8 +2330,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        1904,
-        104
+        2224,
+        224
       ],
       "id": "f130664b-9f70-41ee-bb00-964f89e99378",
       "name": "Send Error Message To Content Engine",
@@ -2200,13 +2344,14 @@
     },
     {
       "parameters": {
-        "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}"
+        "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1696,
-        224
+        1856,
+        240
       ],
       "id": "c76e258d-4eda-4f0f-bbe5-a1e7b0a83a04",
       "name": "Structured Output Parser"
@@ -2226,8 +2371,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        1440,
-        224
+        1600,
+        240
       ],
       "id": "eb75dd92-9056-4e72-b412-d622c2b57756",
       "name": "Anthropic Chat Model",
@@ -2255,8 +2400,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        2128,
-        8
+        2448,
+        120
       ],
       "id": "90868b2a-af04-494b-ac6d-6674b2df6de6",
       "name": "Get many database pages",
@@ -2287,8 +2432,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2352,
-        104
+        2672,
+        224
       ],
       "id": "87f148c3-8609-47aa-b4ce-eddb0fa7f5d8",
       "name": "Merge"
@@ -2310,8 +2455,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2128,
-        208
+        2448,
+        432
       ],
       "id": "b4fa280d-913a-41c4-ac1c-ca48383b1a62",
       "name": "Set Execution URL"
@@ -2366,8 +2511,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        1904,
-        504
+        2224,
+        832
       ],
       "id": "1fe1fbb0-ebb5-4310-8626-f5a757ca965a",
       "name": "Add Error Ticket1",
@@ -2397,7 +2542,7 @@
       "typeVersion": 2.2,
       "position": [
         752,
-        400
+        624
       ],
       "id": "29fe6f8a-3f04-4dba-81d8-10529c51d325",
       "name": "Get many database pages1",
@@ -2428,8 +2573,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        1096,
-        504
+        1176,
+        832
       ],
       "id": "43828f8b-2bfa-4c56-8db7-5934e048c0f4",
       "name": "Merge1"
@@ -2452,7 +2597,7 @@
       "typeVersion": 3.4,
       "position": [
         752,
-        600
+        928
       ],
       "id": "cc6a5cfc-aba0-4636-9b59-90a81b9ab121",
       "name": "Set Execution URL1"
@@ -2475,21 +2620,22 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        1496,
-        504
+        1656,
+        832
       ],
       "id": "0b616dd8-cf35-4d86-ae65-9e6b141b64c4",
       "name": "Create Simple Error Message1"
     },
     {
       "parameters": {
-        "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}"
+        "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1696,
-        728
+        1856,
+        1056
       ],
       "id": "07b736e1-68d8-4eb8-be6f-dc70b06c1a86",
       "name": "Structured Output Parser1"
@@ -2509,8 +2655,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        1440,
-        728
+        1600,
+        1056
       ],
       "id": "c92f0b3e-5578-4432-966c-6fd7e2bf6831",
       "name": "Anthropic Chat Model1",
@@ -2529,8 +2675,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1096,
-        104
+        1176,
+        224
       ],
       "id": "a499a43f-4281-44ea-8860-d8166110a895",
       "name": "Aggregate"
@@ -2563,7 +2709,7 @@
       "typeVersion": 2.2,
       "position": [
         528,
-        400
+        624
       ],
       "id": "ab3424f6-08d7-4f16-84e9-2ac79687b284",
       "name": "If"
@@ -2576,7 +2722,7 @@
       "typeVersion": 2,
       "position": [
         528,
-        -280
+        -176
       ],
       "id": "cdf288fa-93ef-4122-8fff-12bb4711b993",
       "name": "Find All Errors1"
@@ -2660,8 +2806,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        2352,
-        -280
+        2672,
+        -176
       ],
       "id": "222681c9-835f-415a-880a-f4f809ca2c84",
       "name": "Add Error Ticket2",
@@ -2699,8 +2845,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        1560,
-        -280
+        1800,
+        -176
       ],
       "id": "1bf4a854-c35d-4fda-920d-c9b58fe17e81",
       "name": "Send Error Message To Content Engine1",
@@ -2713,7 +2859,8 @@
     },
     {
       "parameters": {
-        "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}"
+        "jsonSchemaExample": "{\n  \"summary\": \"\",\n  \"severity\": \"\"\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
@@ -2768,8 +2915,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        1904,
-        -376
+        2224,
+        -272
       ],
       "id": "0626370b-b4c2-4dcc-b463-3b73fdcdf0c4",
       "name": "Get many database pages2",
@@ -2800,8 +2947,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2128,
-        -280
+        2448,
+        -176
       ],
       "id": "e5189ede-8dde-4713-bd54-be96f830dc6c",
       "name": "Merge2"
@@ -2823,8 +2970,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1904,
-        -184
+        2224,
+        -72
       ],
       "id": "f751950f-44a7-45e7-b676-626963090638",
       "name": "Set Execution URL2"
@@ -2838,7 +2985,7 @@
       "typeVersion": 1,
       "position": [
         752,
-        -280
+        -176
       ],
       "id": "181d8780-cd8e-43d5-bf39-9b1de21040ed",
       "name": "Aggregate1"
@@ -2860,8 +3007,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        2128,
-        504
+        2448,
+        832
       ],
       "id": "00d3f59d-183d-4873-b287-1476da4b24cb",
       "name": "Send a simple message",
@@ -2892,8 +3039,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        2352,
-        504
+        2672,
+        832
       ],
       "id": "6d139771-d655-471c-929b-f9683ddece1d",
       "name": "Send a block message",
@@ -2924,8 +3071,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        2800,
-        104
+        3120,
+        224
       ],
       "id": "b4ea11b9-2c7f-4d02-bc20-7d3ef2d57e94",
       "name": "Send a message slack",
@@ -2956,8 +3103,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        2576,
-        -280
+        2896,
+        -176
       ],
       "id": "1410f1a4-b7c4-439e-aaf7-553b9acdeec8",
       "name": "Send a message",
@@ -2985,8 +3132,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        1568,
-        728
+        1728,
+        1056
       ],
       "id": "64dcc7dd-c811-48c4-b6f1-8af3c21c9c42",
       "name": "OpenAI Chat Model",
@@ -3013,8 +3160,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        1568,
-        224
+        1728,
+        240
       ],
       "id": "6832bf33-affc-4f40-9853-dc61239cd932",
       "name": "OpenAI Chat Model1",
@@ -3052,6 +3199,81 @@
           "name": "Syntech GM OpenAi account"
         }
       }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        1936,
+        1264
+      ],
+      "id": "5b9d1a7d-34aa-4948-8250-d754232e99fc",
+      "name": "Anthropic Chat Model3",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        1936,
+        448
+      ],
+      "id": "bbfc92de-847f-4ac6-9b15-9cbc737f7a12",
+      "name": "Anthropic Chat Model4",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        1312,
+        48
+      ],
+      "id": "7f4bcb3d-8d5c-4377-a388-fb2700306c3d",
+      "name": "Anthropic Chat Model5",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -3075,6 +3297,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-14T10:01:38.738Z",
-  "versionId": "1103512d-2800-4de2-8cd2-b86dede0c314"
+  "updatedAt": "2026-03-05T07:41:08.386Z",
+  "versionId": "33c4f347-5772-4dc6-a4db-1fd9c2bf703e"
 }
