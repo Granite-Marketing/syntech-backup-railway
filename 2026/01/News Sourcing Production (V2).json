@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-05T07:36:36.022Z",
-    "createdAt": "2026-03-05T07:36:26.105Z",
-    "versionId": "cac6b35c-b0a5-4a74-acf5-945272eaa18c",
+    "updatedAt": "2026-03-06T18:25:21.664Z",
+    "createdAt": "2026-03-06T18:25:16.248Z",
+    "versionId": "13663db5-bd96-4fda-9381-677a2380c197",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -23,7 +23,8 @@
           4928
         ],
         "id": "4b1fadb2-7bc0-4311-a4cb-5ad37c2b14db",
-        "name": "Schedule Trigger"
+        "name": "Schedule Trigger",
+        "disabled": true
       },
       {
         "parameters": {
@@ -1603,7 +1604,8 @@
         ],
         "id": "fbd58fff-1149-427d-8fa6-1e9003bd130e",
         "name": "Manually Trigger Content Engine",
-        "webhookId": "eda87c01-fe8a-42f6-a116-fa1b7eb6d165"
+        "webhookId": "eda87c01-fe8a-42f6-a116-fa1b7eb6d165",
+        "disabled": true
       },
       {
         "parameters": {
@@ -7816,11 +7818,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "change google to continue on error",
+    "name": "disable auto run",
     "description": "",
-    "autosaved": true
+    "autosaved": false
   },
-  "activeVersionId": "cac6b35c-b0a5-4a74-acf5-945272eaa18c",
+  "activeVersionId": "13663db5-bd96-4fda-9381-677a2380c197",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -9427,7 +9429,8 @@
         4928
       ],
       "id": "4b1fadb2-7bc0-4311-a4cb-5ad37c2b14db",
-      "name": "Schedule Trigger"
+      "name": "Schedule Trigger",
+      "disabled": true
     },
     {
       "parameters": {
@@ -11007,7 +11010,8 @@
       ],
       "id": "fbd58fff-1149-427d-8fa6-1e9003bd130e",
       "name": "Manually Trigger Content Engine",
-      "webhookId": "eda87c01-fe8a-42f6-a116-fa1b7eb6d165"
+      "webhookId": "eda87c01-fe8a-42f6-a116-fa1b7eb6d165",
+      "disabled": true
     },
     {
       "parameters": {
@@ -16235,7 +16239,7 @@
       "name": "NEWS+"
     }
   ],
-  "triggerCount": 3,
-  "updatedAt": "2026-03-05T08:29:34.978Z",
-  "versionId": "cac6b35c-b0a5-4a74-acf5-945272eaa18c"
+  "triggerCount": 1,
+  "updatedAt": "2026-03-06T18:25:16.244Z",
+  "versionId": "13663db5-bd96-4fda-9381-677a2380c197"
 }
