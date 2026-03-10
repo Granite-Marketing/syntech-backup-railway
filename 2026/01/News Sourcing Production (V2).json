@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-06T18:25:21.664Z",
-    "createdAt": "2026-03-06T18:25:16.248Z",
-    "versionId": "13663db5-bd96-4fda-9381-677a2380c197",
+    "updatedAt": "2026-03-09T08:39:38.819Z",
+    "createdAt": "2026-03-09T08:39:20.085Z",
+    "versionId": "20b77d97-bb96-414b-8a2a-167ad25d61e2",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -702,6 +702,8 @@
         ],
         "id": "47f698a2-322f-4f97-afa3-3bbb24b99c03",
         "name": "Add Content To Post",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000,
         "credentials": {
           "notionApi": {
             "id": "k0ZwGrqySi9Wayf7",
@@ -1604,8 +1606,7 @@
         ],
         "id": "fbd58fff-1149-427d-8fa6-1e9003bd130e",
         "name": "Manually Trigger Content Engine",
-        "webhookId": "eda87c01-fe8a-42f6-a116-fa1b7eb6d165",
-        "disabled": true
+        "webhookId": "eda87c01-fe8a-42f6-a116-fa1b7eb6d165"
       },
       {
         "parameters": {
@@ -7818,11 +7819,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "disable auto run",
+    "name": "rety on fail notion",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "13663db5-bd96-4fda-9381-677a2380c197",
+  "activeVersionId": "20b77d97-bb96-414b-8a2a-167ad25d61e2",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -10108,6 +10109,8 @@
       ],
       "id": "47f698a2-322f-4f97-afa3-3bbb24b99c03",
       "name": "Add Content To Post",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
       "credentials": {
         "notionApi": {
           "id": "k0ZwGrqySi9Wayf7",
@@ -11010,8 +11013,7 @@
       ],
       "id": "fbd58fff-1149-427d-8fa6-1e9003bd130e",
       "name": "Manually Trigger Content Engine",
-      "webhookId": "eda87c01-fe8a-42f6-a116-fa1b7eb6d165",
-      "disabled": true
+      "webhookId": "eda87c01-fe8a-42f6-a116-fa1b7eb6d165"
     },
     {
       "parameters": {
@@ -16239,7 +16241,7 @@
       "name": "NEWS+"
     }
   ],
-  "triggerCount": 1,
-  "updatedAt": "2026-03-06T18:25:16.244Z",
-  "versionId": "13663db5-bd96-4fda-9381-677a2380c197"
+  "triggerCount": 2,
+  "updatedAt": "2026-03-09T08:39:20.079Z",
+  "versionId": "20b77d97-bb96-414b-8a2a-167ad25d61e2"
 }
