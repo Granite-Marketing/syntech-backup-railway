@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-12T06:54:43.268Z",
-    "createdAt": "2026-02-12T06:54:32.325Z",
-    "versionId": "97490799-a4a9-4d81-a023-63726ae50de8",
+    "updatedAt": "2026-03-09T03:25:05.057Z",
+    "createdAt": "2026-03-09T03:25:01.751Z",
+    "versionId": "1ea5d9d8-25a8-43d3-8cf6-e7291fb09eb1",
     "workflowId": "p9T1CJ8sI5Q18MoG",
     "nodes": [
       {
@@ -86,8 +86,8 @@
         "name": "Start",
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "position": [
-          -13792,
-          -3760
+          -13808,
+          -3752
         ]
       },
       {
@@ -107,7 +107,7 @@
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
         "position": [
-          -12672,
+          -12688,
           -4144
         ],
         "id": "9c012d8b-8c74-423c-8e9e-864f589ac80d",
@@ -127,8 +127,8 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          -13568,
-          -3760
+          -13584,
+          -3752
         ],
         "id": "6bb364ec-9f65-4cd5-a71e-03914fe8971d",
         "name": "Limit4"
@@ -162,8 +162,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -13120,
-          -4192
+          -13136,
+          -4188
         ],
         "id": "5dd9cd63-b40f-4281-b6e4-b749253b7b7a",
         "name": "Either Url or Keyword2"
@@ -175,7 +175,7 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          -12224,
+          -12240,
           -4160
         ],
         "id": "e81ebcac-7c35-4a4c-9505-5cabe71be38f",
@@ -216,7 +216,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -12448,
+          -12464,
           -4144
         ],
         "id": "1e62cb7e-3cd3-47d1-aad0-933af76a3aa5",
@@ -257,7 +257,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -12448,
+          -12464,
           -3952
         ],
         "id": "f893a992-f5dc-4426-a28d-546ce0ed5508",
@@ -270,8 +270,8 @@
         "type": "n8n-nodes-base.splitInBatches",
         "typeVersion": 3,
         "position": [
-          -13344,
-          -3760
+          -13360,
+          -3752
         ],
         "id": "4779a52e-eec3-455d-8929-0f5e51e7f392",
         "name": "Loop Over Items2"
@@ -281,6 +281,7 @@
           "promptType": "define",
           "text": "=<content>\n{{ $('If1').item.json.content }}\n</content>",
           "hasOutputParser": true,
+          "needsFallback": true,
           "messages": {
             "messageValues": [
               {
@@ -293,7 +294,7 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          -11104,
+          -11064,
           -4144
         ],
         "id": "4e404d22-d31c-47d4-9f48-bb547a057a2b",
@@ -309,7 +310,7 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          -10976,
+          -10864,
           -3920
         ],
         "id": "1ff8f019-ed54-464f-b6ec-2cdfded1882f",
@@ -332,7 +333,7 @@
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
         "position": [
-          -12672,
+          -12688,
           -3952
         ],
         "id": "d970d390-4ab3-4abf-8b38-8d70b7b8e274",
@@ -428,8 +429,8 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.3,
         "position": [
-          -12896,
-          -4208
+          -12912,
+          -4204
         ],
         "id": "9c6d228c-026a-41ff-9479-271961df3214",
         "name": "Switch1"
@@ -451,7 +452,7 @@
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
         "position": [
-          -12672,
+          -12688,
           -4336
         ],
         "id": "6a5c11a2-c447-47f5-8885-a7065fca8802",
@@ -541,7 +542,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -10528,
+          -10432,
           -3968
         ],
         "id": "0d25986b-cad1-44fc-bca0-03104edf2970",
@@ -557,7 +558,7 @@
         "type": "n8n-nodes-base.stickyNote",
         "position": [
           -13872,
-          -4448
+          -4568
         ],
         "typeVersion": 1,
         "id": "b865c9e3-8bb3-4c43-9a1c-fce32593dd77",
@@ -574,7 +575,7 @@
         "typeVersion": 1,
         "position": [
           -13808,
-          -3360
+          -3528
         ],
         "id": "e3ed024e-fe05-4235-b96b-b2654416cfa1",
         "name": "Get many rows",
@@ -606,7 +607,7 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          -11552,
+          -11568,
           -4144
         ],
         "id": "e154ca37-7cc4-4f6d-ad4e-140e9972ff3a",
@@ -642,7 +643,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          -11328,
+          -11344,
           -4144
         ],
         "id": "04435cec-46d1-4b38-97bd-6ba36f4a439d",
@@ -663,8 +664,8 @@
         "type": "n8n-nodes-base.supabase",
         "typeVersion": 1,
         "position": [
-          -13616,
-          -3360
+          -13584,
+          -3528
         ],
         "id": "9a2e359f-1410-480b-9fb2-527dd19f15d6",
         "name": "Create a row",
@@ -710,7 +711,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -12448,
+          -12464,
           -4336
         ],
         "id": "2d57f5c6-b31d-42e4-b63e-9ee1161e462f",
@@ -724,7 +725,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          -11104,
+          -11120,
           -3920
         ],
         "id": "e9be87fc-06bd-4498-9068-29111ca49c38",
@@ -792,7 +793,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          -12000,
+          -12016,
           -4144
         ],
         "id": "6b90dccb-1023-40fb-98e2-4e1ca8000d3a",
@@ -813,7 +814,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.2,
         "position": [
-          -13792,
+          -13808,
           -4544
         ],
         "id": "2561ac0a-3d28-41e7-9e84-4e6dc55797f2",
@@ -849,8 +850,8 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          -11760,
-          -4032
+          -11792,
+          -3996
         ],
         "id": "e8c3a733-9a88-4ec8-9fa8-abec3078e639",
         "name": "Get many rows1",
@@ -921,8 +922,8 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          -10736,
-          -4112
+          -10656,
+          -4144
         ],
         "id": "a66723db-2eb2-4456-b7cc-df8008a5d095",
         "name": "Create a row1",
@@ -953,12 +954,38 @@
         "type": "n8n-nodes-base.dataTable",
         "typeVersion": 1.1,
         "position": [
-          -13424,
-          -3360
+          -13360,
+          -3528
         ],
         "id": "f2cc509c-09fd-4ce1-bd27-899acf05c39c",
         "name": "Get many rows filtered by date",
         "executeOnce": true
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-nano",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-nano"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          -10992,
+          -3920
+        ],
+        "id": "d7ec9893-78af-4e0d-b9d6-63c1e9068d95",
+        "name": "OpenAI Chat Model1",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
       }
     ],
     "connections": {
@@ -1253,14 +1280,25 @@
             }
           ]
         ]
+      },
+      "OpenAI Chat Model1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Create summary and title3",
+              "type": "ai_languageModel",
+              "index": 1
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "many rows iltered by date test",
+    "name": "add fallback",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "97490799-a4a9-4d81-a023-63726ae50de8",
+  "activeVersionId": "1ea5d9d8-25a8-43d3-8cf6-e7291fb09eb1",
   "connections": {
     "Start": {
       "main": [
@@ -1553,12 +1591,25 @@
           }
         ]
       ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create summary and title3",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:06:07.257Z",
   "id": "p9T1CJ8sI5Q18MoG",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "LinkedIn Search (Profile, Keyword, Company)",
   "nodes": [
     {
@@ -1641,8 +1692,8 @@
       "name": "Start",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "position": [
-        -13792,
-        -3760
+        -13808,
+        -3752
       ]
     },
     {
@@ -1662,7 +1713,7 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        -12672,
+        -12688,
         -4144
       ],
       "id": "9c012d8b-8c74-423c-8e9e-864f589ac80d",
@@ -1682,8 +1733,8 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        -13568,
-        -3760
+        -13584,
+        -3752
       ],
       "id": "6bb364ec-9f65-4cd5-a71e-03914fe8971d",
       "name": "Limit4"
@@ -1717,8 +1768,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -13120,
-        -4192
+        -13136,
+        -4188
       ],
       "id": "5dd9cd63-b40f-4281-b6e4-b749253b7b7a",
       "name": "Either Url or Keyword2"
@@ -1730,7 +1781,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        -12224,
+        -12240,
         -4160
       ],
       "id": "e81ebcac-7c35-4a4c-9505-5cabe71be38f",
@@ -1771,7 +1822,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -12448,
+        -12464,
         -4144
       ],
       "id": "1e62cb7e-3cd3-47d1-aad0-933af76a3aa5",
@@ -1812,7 +1863,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -12448,
+        -12464,
         -3952
       ],
       "id": "f893a992-f5dc-4426-a28d-546ce0ed5508",
@@ -1825,8 +1876,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -13344,
-        -3760
+        -13360,
+        -3752
       ],
       "id": "4779a52e-eec3-455d-8929-0f5e51e7f392",
       "name": "Loop Over Items2"
@@ -1836,6 +1887,7 @@
         "promptType": "define",
         "text": "=<content>\n{{ $('If1').item.json.content }}\n</content>",
         "hasOutputParser": true,
+        "needsFallback": true,
         "messages": {
           "messageValues": [
             {
@@ -1848,7 +1900,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -11104,
+        -11064,
         -4144
       ],
       "id": "4e404d22-d31c-47d4-9f48-bb547a057a2b",
@@ -1864,7 +1916,7 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        -10976,
+        -10864,
         -3920
       ],
       "id": "1ff8f019-ed54-464f-b6ec-2cdfded1882f",
@@ -1887,7 +1939,7 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        -12672,
+        -12688,
         -3952
       ],
       "id": "d970d390-4ab3-4abf-8b38-8d70b7b8e274",
@@ -1983,8 +2035,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.3,
       "position": [
-        -12896,
-        -4208
+        -12912,
+        -4204
       ],
       "id": "9c6d228c-026a-41ff-9479-271961df3214",
       "name": "Switch1"
@@ -2006,7 +2058,7 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        -12672,
+        -12688,
         -4336
       ],
       "id": "6a5c11a2-c447-47f5-8885-a7065fca8802",
@@ -2096,7 +2148,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -10528,
+        -10432,
         -3968
       ],
       "id": "0d25986b-cad1-44fc-bca0-03104edf2970",
@@ -2112,7 +2164,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -13872,
-        -4448
+        -4568
       ],
       "typeVersion": 1,
       "id": "b865c9e3-8bb3-4c43-9a1c-fce32593dd77",
@@ -2129,7 +2181,7 @@
       "typeVersion": 1,
       "position": [
         -13808,
-        -3360
+        -3528
       ],
       "id": "e3ed024e-fe05-4235-b96b-b2654416cfa1",
       "name": "Get many rows",
@@ -2161,7 +2213,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        -11552,
+        -11568,
         -4144
       ],
       "id": "e154ca37-7cc4-4f6d-ad4e-140e9972ff3a",
@@ -2197,7 +2249,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -11328,
+        -11344,
         -4144
       ],
       "id": "04435cec-46d1-4b38-97bd-6ba36f4a439d",
@@ -2218,8 +2270,8 @@
       "type": "n8n-nodes-base.supabase",
       "typeVersion": 1,
       "position": [
-        -13616,
-        -3360
+        -13584,
+        -3528
       ],
       "id": "9a2e359f-1410-480b-9fb2-527dd19f15d6",
       "name": "Create a row",
@@ -2265,7 +2317,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -12448,
+        -12464,
         -4336
       ],
       "id": "2d57f5c6-b31d-42e4-b63e-9ee1161e462f",
@@ -2279,7 +2331,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -11104,
+        -11120,
         -3920
       ],
       "id": "e9be87fc-06bd-4498-9068-29111ca49c38",
@@ -2347,7 +2399,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -12000,
+        -12016,
         -4144
       ],
       "id": "6b90dccb-1023-40fb-98e2-4e1ca8000d3a",
@@ -2368,7 +2420,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -13792,
+        -13808,
         -4544
       ],
       "id": "2561ac0a-3d28-41e7-9e84-4e6dc55797f2",
@@ -2404,8 +2456,8 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        -11760,
-        -4032
+        -11792,
+        -3996
       ],
       "id": "e8c3a733-9a88-4ec8-9fa8-abec3078e639",
       "name": "Get many rows1",
@@ -2476,8 +2528,8 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        -10736,
-        -4112
+        -10656,
+        -4144
       ],
       "id": "a66723db-2eb2-4456-b7cc-df8008a5d095",
       "name": "Create a row1",
@@ -2508,12 +2560,38 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        -13424,
-        -3360
+        -13360,
+        -3528
       ],
       "id": "f2cc509c-09fd-4ce1-bd27-899acf05c39c",
       "name": "Get many rows filtered by date",
       "executeOnce": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-nano"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -10992,
+        -3920
+      ],
+      "id": "d7ec9893-78af-4e0d-b9d6-63c1e9068d95",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2549,6 +2627,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-12T06:54:32.323Z",
-  "versionId": "97490799-a4a9-4d81-a023-63726ae50de8"
+  "updatedAt": "2026-03-09T03:25:01.746Z",
+  "versionId": "1ea5d9d8-25a8-43d3-8cf6-e7291fb09eb1"
 }
