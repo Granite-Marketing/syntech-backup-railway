@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-04T12:51:16.114Z",
-    "createdAt": "2026-02-04T12:51:07.928Z",
-    "versionId": "95e837a0-a6e9-44ad-9644-76cbd42fd888",
+    "updatedAt": "2026-03-09T06:26:38.013Z",
+    "createdAt": "2026-03-09T06:25:46.900Z",
+    "versionId": "b0537713-d7a8-4d96-97d5-900122abfe19",
     "workflowId": "on2mcn27iXC84Ijo",
     "nodes": [
       {
@@ -77,7 +77,8 @@
             "id": "k0ZwGrqySi9Wayf7",
             "name": "Stephen Notion account"
           }
-        }
+        },
+        "disabled": true
       },
       {
         "parameters": {
@@ -111,7 +112,8 @@
             "id": "hndVCHiq0HgMBAh3",
             "name": "Stephen Slack account"
           }
-        }
+        },
+        "disabled": true
       },
       {
         "parameters": {
@@ -1580,11 +1582,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "init",
-    "description": "",
+    "name": "disable Notion + Slack forwarding",
+    "description": "Unable to get complete response which includes message body",
     "autosaved": true
   },
-  "activeVersionId": "95e837a0-a6e9-44ad-9644-76cbd42fd888",
+  "activeVersionId": "b0537713-d7a8-4d96-97d5-900122abfe19",
   "connections": {
     "Webhook": {
       "main": [
@@ -2055,7 +2057,9 @@
   "createdAt": "2026-01-28T09:06:07.381Z",
   "id": "on2mcn27iXC84Ijo",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Handle Ticket Submissions",
   "nodes": [
     {
@@ -2119,8 +2123,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        240,
-        112
+        320,
+        176
       ],
       "id": "ec92bf15-7bf0-421f-9110-efb780bc04bc",
       "name": "Update a database page",
@@ -2152,8 +2156,8 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        448,
-        112
+        688,
+        176
       ],
       "id": "736ad2fc-a35c-41d0-97af-f2aa75820339",
       "name": "Remove Actions On Submit",
@@ -2279,7 +2283,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        4192,
+        4400,
         496
       ],
       "id": "84a69635-da6b-4972-baa8-157c1d95b79b",
@@ -2311,7 +2315,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        3072,
+        3280,
         304
       ],
       "id": "b0b36010-23cb-4ef6-8d61-fa88cc5c49f4",
@@ -2340,7 +2344,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2848,
+        3056,
         304
       ],
       "id": "fcf5431f-2402-4017-aca4-f991abccc1b6",
@@ -2363,7 +2367,7 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        2624,
+        2832,
         304
       ],
       "id": "be501776-7c78-4c86-ba23-2f0aed35057d",
@@ -2403,7 +2407,7 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        3296,
+        3504,
         304
       ],
       "id": "6c39338d-e65f-4416-8e2f-a25a7554801d",
@@ -2432,7 +2436,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        3520,
+        3728,
         304
       ],
       "id": "767085c2-43d6-40e5-a958-398782cd79f8",
@@ -3164,7 +3168,46 @@
       "name": "Route Channel"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "syntech-biofuels.granite-automations.app",
+            "user-agent": "Slackbot 1.0 (+https://api.slack.com/robots)",
+            "content-length": "3053",
+            "accept": "application/json,*/*",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "3.235.50.31",
+            "cf-ipcountry": "US",
+            "cf-ray": "9d97faa94969874a-EWR",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-forwarded-for": "3.235.50.31, 162.158.63.171",
+            "x-forwarded-host": "syntech-biofuels.granite-automations.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "ekOMOz_OT7mktpWX8u2xcg",
+            "x-real-ip": "162.158.63.171",
+            "x-request-start": "1773037282820",
+            "x-slack-request-timestamp": "1773037282",
+            "x-slack-signature": "v0=2e7b145d3348fa1f5917ddec52a866be7342786b46b63fc2b1c4718dd7d7c39c"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "payload": "{\"type\":\"block_actions\",\"user\":{\"id\":\"U06UWS3ERL5\",\"username\":\"stephen\",\"name\":\"stephen\",\"team_id\":\"T06V27WEKM2\"},\"api_app_id\":\"A08QS5LU0B0\",\"token\":\"8P2jJqV4CCsP6RyyGDiZfHKA\",\"container\":{\"type\":\"message\",\"message_ts\":\"1773032030.298849\",\"channel_id\":\"C09V1831FN2\",\"is_ephemeral\":false},\"trigger_id\":\"10655502839398.6988268495716.36c0a066602d92278dec3e0232e5ce87\",\"team\":{\"id\":\"T06V27WEKM2\",\"domain\":\"granitemarketinghq\"},\"enterprise\":null,\"is_enterprise_install\":false,\"channel\":{\"id\":\"C09V1831FN2\",\"name\":\"syntech-n8n-error-tracker\"},\"message\":{\"user\":\"U08QJNWGN5D\",\"type\":\"message\",\"ts\":\"1773032030.298849\",\"bot_id\":\"B08QJNWG50X\",\"app_id\":\"A08QS5LU0B0\",\"text\":\"View Execution button, with interactive elements\",\"team\":\"T06V27WEKM2\",\"blocks\":[{\"type\":\"actions\",\"block_id\":\"K0Z0d\",\"elements\":[{\"type\":\"checkboxes\",\"action_id\":\"actionId-0\",\"options\":[{\"text\":{\"type\":\"plain_text\",\"text\":\"Mark As Complete\",\"emoji\":true},\"value\":\"value-0\",\"description\":{\"type\":\"plain_text\",\"text\":\"Has this task been completed\",\"emoji\":true}}]}]},{\"type\":\"actions\",\"block_id\":\"qwaxX\",\"elements\":[{\"type\":\"button\",\"action_id\":\"actionId-0\",\"text\":{\"type\":\"plain_text\",\"text\":\"View Execution\",\"emoji\":true},\"value\":\"click_me_123\",\"url\":\"https:\\/\\/syntech.granite-automations.app\\/workflow\\/UzEv74M2D2q4z0Zx\\/executions\\/6734\"}]}]},\"state\":{\"values\":{\"K0Z0d\":{\"actionId-0\":{\"type\":\"checkboxes\",\"selected_options\":[{\"text\":{\"type\":\"plain_text\",\"text\":\"Mark As Complete\",\"emoji\":true},\"value\":\"value-0\",\"description\":{\"type\":\"plain_text\",\"text\":\"Has this task been completed\",\"emoji\":true}}]}}}},\"response_url\":\"https:\\/\\/hooks.slack.com\\/actions\\/T06V27WEKM2\\/10657562368098\\/tIryXzB56rH6jxOstlQL5N7m\",\"actions\":[{\"selected_options\":[{\"text\":{\"type\":\"plain_text\",\"text\":\"Mark As Complete\",\"emoji\":true},\"value\":\"value-0\",\"description\":{\"type\":\"plain_text\",\"text\":\"Has this task been completed\",\"emoji\":true}}],\"action_id\":\"actionId-0\",\"block_id\":\"K0Z0d\",\"type\":\"checkboxes\",\"action_ts\":\"1773037282.735872\"}]}"
+          },
+          "webhookUrl": "https://syntech-biofuels.granite-automations.app/webhook/syntech-slack-monitor",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -3185,6 +3228,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-04T12:51:07.922Z",
-  "versionId": "95e837a0-a6e9-44ad-9644-76cbd42fd888"
+  "updatedAt": "2026-03-09T06:33:42.512Z",
+  "versionId": "ab30ed65-50fd-42cd-a2e8-d3898b6bf886"
 }
