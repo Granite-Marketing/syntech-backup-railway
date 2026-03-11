@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-09T08:39:38.819Z",
-    "createdAt": "2026-03-09T08:39:20.085Z",
-    "versionId": "20b77d97-bb96-414b-8a2a-167ad25d61e2",
+    "updatedAt": "2026-03-10T09:11:26.128Z",
+    "createdAt": "2026-03-10T09:11:17.757Z",
+    "versionId": "46ff6b30-77b0-4df1-a8e2-2e366ed2b8e5",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -23,8 +23,7 @@
           4928
         ],
         "id": "4b1fadb2-7bc0-4311-a4cb-5ad37c2b14db",
-        "name": "Schedule Trigger",
-        "disabled": true
+        "name": "Schedule Trigger"
       },
       {
         "parameters": {
@@ -7819,11 +7818,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "rety on fail notion",
+    "name": "add scheduled runs",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "20b77d97-bb96-414b-8a2a-167ad25d61e2",
+  "activeVersionId": "46ff6b30-77b0-4df1-a8e2-2e366ed2b8e5",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -9430,8 +9429,7 @@
         4928
       ],
       "id": "4b1fadb2-7bc0-4311-a4cb-5ad37c2b14db",
-      "name": "Schedule Trigger",
-      "disabled": true
+      "name": "Schedule Trigger"
     },
     {
       "parameters": {
@@ -16241,7 +16239,7 @@
       "name": "NEWS+"
     }
   ],
-  "triggerCount": 2,
-  "updatedAt": "2026-03-09T08:39:20.079Z",
-  "versionId": "20b77d97-bb96-414b-8a2a-167ad25d61e2"
+  "triggerCount": 3,
+  "updatedAt": "2026-03-10T09:11:17.752Z",
+  "versionId": "46ff6b30-77b0-4df1-a8e2-2e366ed2b8e5"
 }
