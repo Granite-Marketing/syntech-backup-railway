@@ -373,8 +373,15 @@
     }
   ],
   "staticData": null,
-  "tags": [],
+  "tags": [
+    {
+      "updatedAt": "2026-02-09T11:10:21.854Z",
+      "createdAt": "2026-02-09T11:10:21.854Z",
+      "id": "O5AMNmW6XxLF9Eni",
+      "name": "SOCIAL"
+    }
+  ],
   "triggerCount": 0,
-  "updatedAt": "2026-01-30T09:28:25.251Z",
+  "updatedAt": "2026-03-11T07:50:44.046Z",
   "versionId": "2d7e0718-ff08-486e-86e3-f073f0fe11c9"
 }
