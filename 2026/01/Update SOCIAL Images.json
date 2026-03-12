@@ -3300,8 +3300,15 @@
     }
   ],
   "staticData": null,
-  "tags": [],
+  "tags": [
+    {
+      "updatedAt": "2026-02-09T11:10:21.854Z",
+      "createdAt": "2026-02-09T11:10:21.854Z",
+      "id": "O5AMNmW6XxLF9Eni",
+      "name": "SOCIAL"
+    }
+  ],
   "triggerCount": 2,
-  "updatedAt": "2026-01-30T09:27:58.161Z",
+  "updatedAt": "2026-03-11T07:50:38.676Z",
   "versionId": "47d39203-5eec-48a1-a754-8c20886106fa"
 }
