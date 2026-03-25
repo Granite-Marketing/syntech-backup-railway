@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-10T09:11:26.128Z",
-    "createdAt": "2026-03-10T09:11:17.757Z",
-    "versionId": "46ff6b30-77b0-4df1-a8e2-2e366ed2b8e5",
+    "updatedAt": "2026-03-24T14:53:31.767Z",
+    "createdAt": "2026-03-24T14:53:26.514Z",
+    "versionId": "7132e6b7-c5d5-4e4c-ad3c-eafba804e6f5",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -5879,7 +5879,9 @@
           5328
         ],
         "id": "12489703-55c6-4ef1-b147-c726ce91e97b",
-        "name": "Semantic Keyword Deduplication"
+        "name": "Semantic Keyword Deduplication",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
       },
       {
         "parameters": {
@@ -7818,11 +7820,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "add scheduled runs",
+    "name": "updatem max retries",
     "description": "",
-    "autosaved": true
+    "autosaved": false
   },
-  "activeVersionId": "46ff6b30-77b0-4df1-a8e2-2e366ed2b8e5",
+  "activeVersionId": "7132e6b7-c5d5-4e4c-ad3c-eafba804e6f5",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -15285,7 +15287,9 @@
         5328
       ],
       "id": "12489703-55c6-4ef1-b147-c726ce91e97b",
-      "name": "Semantic Keyword Deduplication"
+      "name": "Semantic Keyword Deduplication",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -16240,6 +16244,6 @@
     }
   ],
   "triggerCount": 3,
-  "updatedAt": "2026-03-10T09:11:17.752Z",
-  "versionId": "46ff6b30-77b0-4df1-a8e2-2e366ed2b8e5"
+  "updatedAt": "2026-03-24T14:53:26.510Z",
+  "versionId": "7132e6b7-c5d5-4e4c-ad3c-eafba804e6f5"
 }
