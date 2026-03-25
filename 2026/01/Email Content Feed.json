@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-13T09:12:58.088Z",
-    "createdAt": "2026-02-13T09:12:50.410Z",
-    "versionId": "68b6b507-09b4-40fc-9eed-80bb87675d34",
+    "updatedAt": "2026-03-24T16:21:45.620Z",
+    "createdAt": "2026-03-24T16:21:40.180Z",
+    "versionId": "9b77edb9-afe9-4c68-a4a4-09ad961a7d45",
     "workflowId": "uit9Y3dCeI1hjITN",
     "nodes": [
       {
@@ -285,7 +285,8 @@
         ],
         "id": "0d2b903a-126f-4469-a59b-2eab68d16b7f",
         "name": "Confirm Article",
-        "webhookId": "48abe208-905e-47c1-86ec-3b03a1fd3e00"
+        "webhookId": "48abe208-905e-47c1-86ec-3b03a1fd3e00",
+        "disabled": true
       },
       {
         "parameters": {
@@ -2328,11 +2329,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "update fix notes",
+    "name": "disable webhook",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "68b6b507-09b4-40fc-9eed-80bb87675d34",
+  "activeVersionId": "9b77edb9-afe9-4c68-a4a4-09ad961a7d45",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -3284,7 +3285,8 @@
       ],
       "id": "0d2b903a-126f-4469-a59b-2eab68d16b7f",
       "name": "Confirm Article",
-      "webhookId": "48abe208-905e-47c1-86ec-3b03a1fd3e00"
+      "webhookId": "48abe208-905e-47c1-86ec-3b03a1fd3e00",
+      "disabled": true
     },
     {
       "parameters": {
@@ -4717,7 +4719,7 @@
       "name": "NEWS+"
     }
   ],
-  "triggerCount": 2,
-  "updatedAt": "2026-03-19T11:24:45.579Z",
-  "versionId": "1466fc77-efb8-443a-9526-5db237bc3dee"
+  "triggerCount": 1,
+  "updatedAt": "2026-03-24T16:21:40.178Z",
+  "versionId": "9b77edb9-afe9-4c68-a4a4-09ad961a7d45"
 }
