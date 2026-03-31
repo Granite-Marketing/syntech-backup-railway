@@ -4506,7 +4506,7 @@
             {
               "id": "6a768bda-8b2f-4080-9e87-0df5964d4212",
               "leftValue": "={{ $json.property_created_date }}",
-              "rightValue": "={{ $now.minus(1, 'days') }}",
+              "rightValue": "={{ $now.minus(5, 'days') }}",
               "operator": {
                 "type": "dateTime",
                 "operation": "after"
@@ -4662,28 +4662,7 @@
       "name": "Sticky Note1"
     }
   ],
-  "pinData": {
-    "Schedule Trigger": [
-      {
-        "json": {
-          "timestamp": "2026-02-25T07:00:42.007+00:00",
-          "Readable date": "February 25th 2026, 7:00:42 am",
-          "Readable time": "7:00:42 am",
-          "Day of week": "Wednesday",
-          "Year": "2026",
-          "Month": "February",
-          "Day of month": "25",
-          "Hour": "07",
-          "Minute": "00",
-          "Second": "42",
-          "Timezone": "Europe/London (UTC+00:00)"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -4720,6 +4699,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-03-24T16:21:40.178Z",
-  "versionId": "9b77edb9-afe9-4c68-a4a4-09ad961a7d45"
+  "updatedAt": "2026-03-30T12:34:56.730Z",
+  "versionId": "6ee61166-1d80-47ce-b3f0-a9bf6f7112f6"
 }
