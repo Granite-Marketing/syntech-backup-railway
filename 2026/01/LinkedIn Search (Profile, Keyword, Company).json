@@ -1693,7 +1693,7 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "position": [
         -13808,
-        -3752
+        -3760
       ]
     },
     {
@@ -1734,7 +1734,7 @@
       "typeVersion": 1,
       "position": [
         -13584,
-        -3752
+        -3760
       ],
       "id": "6bb364ec-9f65-4cd5-a71e-03914fe8971d",
       "name": "Limit4"
@@ -1769,7 +1769,7 @@
       "typeVersion": 3.4,
       "position": [
         -13136,
-        -4188
+        -4192
       ],
       "id": "5dd9cd63-b40f-4281-b6e4-b749253b7b7a",
       "name": "Either Url or Keyword2"
@@ -1877,7 +1877,7 @@
       "typeVersion": 3,
       "position": [
         -13360,
-        -3752
+        -3760
       ],
       "id": "4779a52e-eec3-455d-8929-0f5e51e7f392",
       "name": "Loop Over Items2"
@@ -1900,7 +1900,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -11064,
+        -11072,
         -4144
       ],
       "id": "4e404d22-d31c-47d4-9f48-bb547a057a2b",
@@ -2036,7 +2036,7 @@
       "typeVersion": 3.3,
       "position": [
         -12912,
-        -4204
+        -4208
       ],
       "id": "9c6d228c-026a-41ff-9479-271961df3214",
       "name": "Switch1"
@@ -2052,8 +2052,7 @@
           "cachedResultName": "Linkedin Post Search Scraper (No Cookies) (harvestapi/linkedin-post-search)",
           "cachedResultUrl": "https://console.apify.com/actors/buIWk2uOUzTmcLsuB/input"
         },
-        "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}",
-        "timeout": {}
+        "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}"
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
@@ -2164,7 +2163,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -13872,
-        -4568
+        -4576
       ],
       "typeVersion": 1,
       "id": "b865c9e3-8bb3-4c43-9a1c-fce32593dd77",
@@ -2181,7 +2180,7 @@
       "typeVersion": 1,
       "position": [
         -13808,
-        -3528
+        -3536
       ],
       "id": "e3ed024e-fe05-4235-b96b-b2654416cfa1",
       "name": "Get many rows",
@@ -2271,7 +2270,7 @@
       "typeVersion": 1,
       "position": [
         -13584,
-        -3528
+        -3536
       ],
       "id": "9a2e359f-1410-480b-9fb2-527dd19f15d6",
       "name": "Create a row",
@@ -2457,7 +2456,7 @@
       "typeVersion": 1.1,
       "position": [
         -11792,
-        -3996
+        -4000
       ],
       "id": "e8c3a733-9a88-4ec8-9fa8-abec3078e639",
       "name": "Get many rows1",
@@ -2561,7 +2560,7 @@
       "typeVersion": 1.1,
       "position": [
         -13360,
-        -3528
+        -3536
       ],
       "id": "f2cc509c-09fd-4ce1-bd27-899acf05c39c",
       "name": "Get many rows filtered by date",
@@ -2627,6 +2626,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-03-09T03:25:01.746Z",
-  "versionId": "1ea5d9d8-25a8-43d3-8cf6-e7291fb09eb1"
+  "updatedAt": "2026-03-30T10:22:58.240Z",
+  "versionId": "197d395c-ade9-443b-bc40-dea2b7572290"
 }
