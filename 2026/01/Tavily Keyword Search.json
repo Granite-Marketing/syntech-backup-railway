@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-10T11:43:49.430Z",
-    "createdAt": "2026-03-10T11:43:32.748Z",
-    "versionId": "95ab336f-2fcb-4aa1-9090-882c2e1fa9bd",
+    "updatedAt": "2026-04-01T08:25:52.192Z",
+    "createdAt": "2026-04-01T08:25:40.178Z",
+    "versionId": "53455ea6-e28e-413f-842f-b63e08e420b3",
     "workflowId": "N0iykcUkUjgXDL0k",
     "nodes": [
       {
@@ -348,7 +348,9 @@
           464
         ],
         "id": "ef38d5fb-637e-4d65-85e9-72011e9d49fc",
-        "name": "Create summary and title2"
+        "name": "Create summary and title2",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
       },
       {
         "parameters": {
@@ -1777,11 +1779,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "update node",
+    "name": "add retry on fail",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "95ab336f-2fcb-4aa1-9090-882c2e1fa9bd",
+  "activeVersionId": "53455ea6-e28e-413f-842f-b63e08e420b3",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2601,7 +2603,9 @@
         464
       ],
       "id": "ef38d5fb-637e-4d65-85e9-72011e9d49fc",
-      "name": "Create summary and title2"
+      "name": "Create summary and title2",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -4351,6 +4355,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-03-10T11:43:32.744Z",
-  "versionId": "95ab336f-2fcb-4aa1-9090-882c2e1fa9bd"
+  "updatedAt": "2026-04-01T08:25:40.167Z",
+  "versionId": "53455ea6-e28e-413f-842f-b63e08e420b3"
 }
