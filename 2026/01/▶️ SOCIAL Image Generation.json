@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-02T08:53:19.488Z",
-    "createdAt": "2026-04-02T08:49:02.688Z",
-    "versionId": "b3c03f48-eecd-404d-b395-e85ed8034530",
+    "updatedAt": "2026-04-03T19:09:40.769Z",
+    "createdAt": "2026-04-03T19:09:24.009Z",
+    "versionId": "3c6b93f1-1328-4d5d-b628-e2568964d4ff",
     "workflowId": "94cQgMMaleQORL211aZxS",
     "nodes": [
       {
@@ -1816,7 +1816,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
         "typeVersion": 1,
         "position": [
-          3200,
+          3152,
           1328
         ],
         "id": "c63722f5-056d-4dba-9d85-a06c396da229",
@@ -2048,6 +2048,28 @@
           }
         },
         "disabled": true
+      },
+      {
+        "parameters": {
+          "model": "={{ $('Split Out Chat Modals').item.json.property_model || 'google/gemini-2.5-pro' }}",
+          "options": {
+            "temperature": 0.4
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          3232,
+          1312
+        ],
+        "id": "08f9baa7-f25d-4b83-b627-64b2063c5133",
+        "name": "OpenRouter Chat Model4",
+        "credentials": {
+          "openRouterApi": {
+            "id": "kUkOiAL6PjmdfexG",
+            "name": "Syntech GM OpenRouter account"
+          }
+        }
       }
     ],
     "connections": {
@@ -2778,13 +2800,7 @@
       },
       "Google Gemini Chat Model2": {
         "ai_languageModel": [
-          [
-            {
-              "node": "AI Agent1",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "Structured Output Parser3": {
@@ -2852,14 +2868,25 @@
             }
           ]
         ]
+      },
+      "OpenRouter Chat Model4": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "diverse peoepl",
+    "name": "swap gemini for open router",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "b3c03f48-eecd-404d-b395-e85ed8034530",
+  "activeVersionId": "3c6b93f1-1328-4d5d-b628-e2568964d4ff",
   "connections": {
     "Get Content With Block ID": {
       "main": [
@@ -3588,13 +3615,7 @@
     },
     "Google Gemini Chat Model2": {
       "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent1",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Structured Output Parser3": {
@@ -3657,6 +3678,17 @@
         [
           {
             "node": "Refine Prompt to NanoBanana Style 13th Jan 2027",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -5482,7 +5514,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        3200,
+        3152,
         1328
       ],
       "id": "c63722f5-056d-4dba-9d85-a06c396da229",
@@ -5714,6 +5746,28 @@
         }
       },
       "disabled": true
+    },
+    {
+      "parameters": {
+        "model": "={{ $('Split Out Chat Modals').item.json.property_model || 'google/gemini-2.5-pro' }}",
+        "options": {
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        3232,
+        1312
+      ],
+      "id": "08f9baa7-f25d-4b83-b627-64b2063c5133",
+      "name": "OpenRouter Chat Model4",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kUkOiAL6PjmdfexG",
+          "name": "Syntech GM OpenRouter account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -6080,6 +6134,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-04-02T08:49:13.597Z",
-  "versionId": "b3c03f48-eecd-404d-b395-e85ed8034530"
+  "updatedAt": "2026-04-03T19:09:23.997Z",
+  "versionId": "3c6b93f1-1328-4d5d-b628-e2568964d4ff"
 }
