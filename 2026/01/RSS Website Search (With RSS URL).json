@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-05T07:38:47.343Z",
-    "createdAt": "2026-03-05T07:38:37.200Z",
-    "versionId": "1d6edac1-092a-4d32-8ee2-8bc5e64f9640",
+    "updatedAt": "2026-04-12T13:58:23.976Z",
+    "createdAt": "2026-04-12T13:58:12.677Z",
+    "versionId": "4757561c-27d3-4719-a74d-ff5bb96f573a",
     "workflowId": "iMG6XApQjSxVQxIe",
     "nodes": [
       {
@@ -85,7 +85,7 @@
         "typeVersion": 1.1,
         "position": [
           -1552,
-          1144
+          1152
         ],
         "id": "03f7228f-392c-47b4-a823-ad82b246c9b7",
         "name": "When Executed by Another Workflow"
@@ -115,7 +115,7 @@
         "typeVersion": 1,
         "position": [
           1136,
-          344
+          352
         ],
         "id": "b0648335-5066-4db2-80a9-f5ea1a0cad4d",
         "name": "Scrape a url and get its content2",
@@ -155,8 +155,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          1496,
-          344
+          1504,
+          352
         ],
         "id": "fc52058c-9161-4829-b894-cad31468d8a5",
         "name": "If Not Error"
@@ -249,7 +249,7 @@
         "typeVersion": 1,
         "position": [
           1136,
-          744
+          752
         ],
         "id": "adeb3b6f-8629-4dcd-a20a-32aff0e9f2b1",
         "name": "Markdown1"
@@ -263,7 +263,7 @@
         "typeVersion": 2,
         "position": [
           912,
-          744
+          752
         ],
         "id": "85560df6-6cf3-4658-8ff2-09bdaa9deb75",
         "name": "extract date1"
@@ -276,7 +276,7 @@
         "typeVersion": 3,
         "position": [
           -1104,
-          1144
+          1152
         ],
         "id": "81458de0-125e-4c3c-9b48-40b23cc5ac7f",
         "name": "Loop Over Items4"
@@ -312,7 +312,7 @@
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          1992,
+          2000,
           464
         ],
         "id": "242d85eb-b0ea-48e0-a3be-ee40f4862c20",
@@ -324,7 +324,7 @@
         "typeVersion": 3.2,
         "position": [
           3008,
-          744
+          752
         ],
         "id": "e144fa64-fb52-4564-9f7a-b3d19ccf7084",
         "name": "Merge9"
@@ -347,7 +347,7 @@
         "typeVersion": 1.7,
         "position": [
           1392,
-          744
+          752
         ],
         "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
         "name": "Create summary and title9",
@@ -364,7 +364,7 @@
         "typeVersion": 1.3,
         "position": [
           1488,
-          968
+          976
         ],
         "id": "3f4b0c43-2572-47b7-8b1f-c75ae8b433a8",
         "name": "Structured Output Parser6"
@@ -413,8 +413,8 @@
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          -1624,
-          232
+          -1632,
+          240
         ],
         "typeVersion": 1,
         "id": "95cfe887-55c3-4096-a8ed-c3d121033698",
@@ -479,6 +479,12 @@
                 "type": "string"
               },
               {
+                "id": "8f8e993b-8d0f-4adc-a788-5aa6359ec0c5",
+                "name": "source_category",
+                "value": "={{ $('When Executed by Another Workflow').item.json.property_category }}",
+                "type": "string"
+              },
+              {
                 "id": "8a7e7ea6-40c1-490d-8d37-ec928232766c",
                 "name": "source_name",
                 "value": "={{ $('When Executed by Another Workflow').item.json.property_name }}",
@@ -498,7 +504,7 @@
         "typeVersion": 3.4,
         "position": [
           2784,
-          744
+          752
         ],
         "id": "201bcada-7855-44de-8f45-c8cb60f0c6f9",
         "name": "RSS search fields"
@@ -562,6 +568,12 @@
                 "type": "string"
               },
               {
+                "id": "f8842b25-c59b-4765-b48b-d27334dbbd6c",
+                "name": "source_category",
+                "value": "={{ $('When Executed by Another Workflow').item.json.property_category }}",
+                "type": "string"
+              },
+              {
                 "id": "df785b48-f361-48bf-9766-2d16bdd1a5e2",
                 "name": "source_name",
                 "value": "={{ $('When Executed by Another Workflow').item.json.property_name }}",
@@ -581,7 +593,7 @@
         "typeVersion": 3.4,
         "position": [
           2496,
-          344
+          352
         ],
         "id": "c437d7f9-0353-42d6-b8b0-2f55d3ce5601",
         "name": "RSS search fields1"
@@ -676,7 +688,7 @@
         "typeVersion": 1,
         "position": [
           -1552,
-          1368
+          1376
         ],
         "id": "ad0d3589-5805-464f-b0b0-eadf1d580089",
         "name": "DeepSeek 3.1",
@@ -743,7 +755,7 @@
         "typeVersion": 1.1,
         "position": [
           912,
-          344
+          352
         ],
         "id": "8496fadc-7760-4a30-9bc1-25fea0a64ca8",
         "name": "Wait",
@@ -757,7 +769,7 @@
         "typeVersion": 1,
         "position": [
           -1328,
-          1144
+          1152
         ],
         "id": "09af34d1-cf92-4e4f-b19c-001aed7c6757",
         "name": "Limit"
@@ -773,7 +785,7 @@
         "typeVersion": 1,
         "position": [
           -1552,
-          1576
+          1584
         ],
         "id": "92e0b114-1160-4125-9c27-3b10e63e2c93",
         "name": "Get many rows sb",
@@ -802,7 +814,7 @@
         "typeVersion": 1,
         "position": [
           -1104,
-          1576
+          1584
         ],
         "id": "cb4f070d-6f4b-46b4-9c7b-1be7856ec8ee",
         "name": "Create a row sb",
@@ -829,7 +841,7 @@
         "typeVersion": 1,
         "position": [
           -1328,
-          1576
+          1584
         ],
         "id": "1ce2fc44-69d7-4a08-aeca-dbb84ee8be85",
         "name": "Create a row sb1",
@@ -906,7 +918,7 @@
         "typeVersion": 1.1,
         "position": [
           2208,
-          344
+          352
         ],
         "id": "2476f19c-67c4-4dcd-9d5c-3e84ea9a4ca7",
         "name": "Create a row",
@@ -1000,7 +1012,7 @@
         "typeVersion": 1.1,
         "position": [
           1920,
-          744
+          752
         ],
         "id": "d23ff821-5850-4923-8e11-ac1a2cca85e2",
         "name": "Create a row1",
@@ -1018,7 +1030,7 @@
         "typeVersion": 1,
         "position": [
           -432,
-          1576
+          1584
         ],
         "id": "6eb86d33-8ba4-4240-a174-cc780b35945b",
         "name": "Markdown"
@@ -1041,7 +1053,7 @@
         "typeVersion": 3.4,
         "position": [
           -208,
-          1576
+          1584
         ],
         "id": "36c21f85-8ac7-4482-9cd2-3d6f72c4cf51",
         "name": "Edit Fields1"
@@ -1124,7 +1136,7 @@
         "typeVersion": 3.4,
         "position": [
           -656,
-          1576
+          1584
         ],
         "id": "61eb3f13-505b-4447-8b60-e51bbc75684f",
         "name": "RSS search fields2"
@@ -1207,7 +1219,7 @@
         "typeVersion": 3.4,
         "position": [
           -880,
-          1576
+          1584
         ],
         "id": "73a850d1-b464-41d5-919a-5719db6e866e",
         "name": "RSS search fields3"
@@ -1259,7 +1271,7 @@
         "typeVersion": 3.4,
         "position": [
           2208,
-          744
+          752
         ],
         "id": "14634843-fed9-41bf-bd00-768be891f6c0",
         "name": "Edit Fields2"
@@ -1307,7 +1319,7 @@
         "typeVersion": 1.9,
         "position": [
           2432,
-          744
+          752
         ],
         "id": "a2e185a1-2a8b-4a08-827e-bd02a54196ad",
         "name": "Extract Clean Content",
@@ -1330,7 +1342,7 @@
         "typeVersion": 1.3,
         "position": [
           1568,
-          1176
+          1184
         ],
         "id": "8f367ca8-31ce-46b2-ac2b-24226eb3ce2b",
         "name": "Anthropic Chat Model",
@@ -1358,7 +1370,7 @@
         "typeVersion": 1.3,
         "position": [
           1360,
-          968
+          976
         ],
         "id": "a622c7c3-9412-4c0c-ad82-f6458f031dad",
         "name": "OpenAI Chat Model5",
@@ -1385,7 +1397,7 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "typeVersion": 1.3,
         "position": [
-          1864,
+          1872,
           464
         ],
         "id": "7d9cadf6-d476-4e80-98c8-38f6dc8825ef",
@@ -1858,11 +1870,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "remove deepseek for 4.1 nano",
+    "name": "add source category",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "1d6edac1-092a-4d32-8ee2-8bc5e64f9640",
+  "activeVersionId": "4757561c-27d3-4719-a74d-ff5bb96f573a",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2409,7 +2421,7 @@
       "typeVersion": 1.1,
       "position": [
         -1552,
-        1144
+        1152
       ],
       "id": "03f7228f-392c-47b4-a823-ad82b246c9b7",
       "name": "When Executed by Another Workflow"
@@ -2439,7 +2451,7 @@
       "typeVersion": 1,
       "position": [
         1136,
-        344
+        352
       ],
       "id": "b0648335-5066-4db2-80a9-f5ea1a0cad4d",
       "name": "Scrape a url and get its content2",
@@ -2479,8 +2491,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1496,
-        344
+        1504,
+        352
       ],
       "id": "fc52058c-9161-4829-b894-cad31468d8a5",
       "name": "If Not Error"
@@ -2573,7 +2585,7 @@
       "typeVersion": 1,
       "position": [
         1136,
-        744
+        752
       ],
       "id": "adeb3b6f-8629-4dcd-a20a-32aff0e9f2b1",
       "name": "Markdown1"
@@ -2587,7 +2599,7 @@
       "typeVersion": 2,
       "position": [
         912,
-        744
+        752
       ],
       "id": "85560df6-6cf3-4658-8ff2-09bdaa9deb75",
       "name": "extract date1"
@@ -2600,7 +2612,7 @@
       "typeVersion": 3,
       "position": [
         -1104,
-        1144
+        1152
       ],
       "id": "81458de0-125e-4c3c-9b48-40b23cc5ac7f",
       "name": "Loop Over Items4"
@@ -2636,7 +2648,7 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1992,
+        2000,
         464
       ],
       "id": "242d85eb-b0ea-48e0-a3be-ee40f4862c20",
@@ -2648,7 +2660,7 @@
       "typeVersion": 3.2,
       "position": [
         3008,
-        744
+        752
       ],
       "id": "e144fa64-fb52-4564-9f7a-b3d19ccf7084",
       "name": "Merge9"
@@ -2671,7 +2683,7 @@
       "typeVersion": 1.7,
       "position": [
         1392,
-        744
+        752
       ],
       "id": "6e646c48-93f8-46b3-81ce-e3caf592ae36",
       "name": "Create summary and title9",
@@ -2688,7 +2700,7 @@
       "typeVersion": 1.3,
       "position": [
         1488,
-        968
+        976
       ],
       "id": "3f4b0c43-2572-47b7-8b1f-c75ae8b433a8",
       "name": "Structured Output Parser6"
@@ -2737,8 +2749,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1624,
-        232
+        -1632,
+        240
       ],
       "typeVersion": 1,
       "id": "95cfe887-55c3-4096-a8ed-c3d121033698",
@@ -2803,6 +2815,12 @@
               "type": "string"
             },
             {
+              "id": "8f8e993b-8d0f-4adc-a788-5aa6359ec0c5",
+              "name": "source_category",
+              "value": "={{ $('When Executed by Another Workflow').item.json.property_category }}",
+              "type": "string"
+            },
+            {
               "id": "8a7e7ea6-40c1-490d-8d37-ec928232766c",
               "name": "source_name",
               "value": "={{ $('When Executed by Another Workflow').item.json.property_name }}",
@@ -2822,7 +2840,7 @@
       "typeVersion": 3.4,
       "position": [
         2784,
-        744
+        752
       ],
       "id": "201bcada-7855-44de-8f45-c8cb60f0c6f9",
       "name": "RSS search fields"
@@ -2886,6 +2904,12 @@
               "type": "string"
             },
             {
+              "id": "f8842b25-c59b-4765-b48b-d27334dbbd6c",
+              "name": "source_category",
+              "value": "={{ $('When Executed by Another Workflow').item.json.property_category }}",
+              "type": "string"
+            },
+            {
               "id": "df785b48-f361-48bf-9766-2d16bdd1a5e2",
               "name": "source_name",
               "value": "={{ $('When Executed by Another Workflow').item.json.property_name }}",
@@ -2905,7 +2929,7 @@
       "typeVersion": 3.4,
       "position": [
         2496,
-        344
+        352
       ],
       "id": "c437d7f9-0353-42d6-b8b0-2f55d3ce5601",
       "name": "RSS search fields1"
@@ -3000,7 +3024,7 @@
       "typeVersion": 1,
       "position": [
         -1552,
-        1368
+        1376
       ],
       "id": "ad0d3589-5805-464f-b0b0-eadf1d580089",
       "name": "DeepSeek 3.1",
@@ -3067,7 +3091,7 @@
       "typeVersion": 1.1,
       "position": [
         912,
-        344
+        352
       ],
       "id": "8496fadc-7760-4a30-9bc1-25fea0a64ca8",
       "name": "Wait",
@@ -3081,7 +3105,7 @@
       "typeVersion": 1,
       "position": [
         -1328,
-        1144
+        1152
       ],
       "id": "09af34d1-cf92-4e4f-b19c-001aed7c6757",
       "name": "Limit"
@@ -3097,7 +3121,7 @@
       "typeVersion": 1,
       "position": [
         -1552,
-        1576
+        1584
       ],
       "id": "92e0b114-1160-4125-9c27-3b10e63e2c93",
       "name": "Get many rows sb",
@@ -3126,7 +3150,7 @@
       "typeVersion": 1,
       "position": [
         -1104,
-        1576
+        1584
       ],
       "id": "cb4f070d-6f4b-46b4-9c7b-1be7856ec8ee",
       "name": "Create a row sb",
@@ -3153,7 +3177,7 @@
       "typeVersion": 1,
       "position": [
         -1328,
-        1576
+        1584
       ],
       "id": "1ce2fc44-69d7-4a08-aeca-dbb84ee8be85",
       "name": "Create a row sb1",
@@ -3230,7 +3254,7 @@
       "typeVersion": 1.1,
       "position": [
         2208,
-        344
+        352
       ],
       "id": "2476f19c-67c4-4dcd-9d5c-3e84ea9a4ca7",
       "name": "Create a row",
@@ -3324,7 +3348,7 @@
       "typeVersion": 1.1,
       "position": [
         1920,
-        744
+        752
       ],
       "id": "d23ff821-5850-4923-8e11-ac1a2cca85e2",
       "name": "Create a row1",
@@ -3342,7 +3366,7 @@
       "typeVersion": 1,
       "position": [
         -432,
-        1576
+        1584
       ],
       "id": "6eb86d33-8ba4-4240-a174-cc780b35945b",
       "name": "Markdown"
@@ -3365,7 +3389,7 @@
       "typeVersion": 3.4,
       "position": [
         -208,
-        1576
+        1584
       ],
       "id": "36c21f85-8ac7-4482-9cd2-3d6f72c4cf51",
       "name": "Edit Fields1"
@@ -3448,7 +3472,7 @@
       "typeVersion": 3.4,
       "position": [
         -656,
-        1576
+        1584
       ],
       "id": "61eb3f13-505b-4447-8b60-e51bbc75684f",
       "name": "RSS search fields2"
@@ -3531,7 +3555,7 @@
       "typeVersion": 3.4,
       "position": [
         -880,
-        1576
+        1584
       ],
       "id": "73a850d1-b464-41d5-919a-5719db6e866e",
       "name": "RSS search fields3"
@@ -3583,7 +3607,7 @@
       "typeVersion": 3.4,
       "position": [
         2208,
-        744
+        752
       ],
       "id": "14634843-fed9-41bf-bd00-768be891f6c0",
       "name": "Edit Fields2"
@@ -3631,7 +3655,7 @@
       "typeVersion": 1.9,
       "position": [
         2432,
-        744
+        752
       ],
       "id": "a2e185a1-2a8b-4a08-827e-bd02a54196ad",
       "name": "Extract Clean Content",
@@ -3654,7 +3678,7 @@
       "typeVersion": 1.3,
       "position": [
         1568,
-        1176
+        1184
       ],
       "id": "8f367ca8-31ce-46b2-ac2b-24226eb3ce2b",
       "name": "Anthropic Chat Model",
@@ -3682,7 +3706,7 @@
       "typeVersion": 1.3,
       "position": [
         1360,
-        968
+        976
       ],
       "id": "a622c7c3-9412-4c0c-ad82-f6458f031dad",
       "name": "OpenAI Chat Model5",
@@ -3709,7 +3733,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        1864,
+        1872,
         464
       ],
       "id": "7d9cadf6-d476-4e80-98c8-38f6dc8825ef",
@@ -3890,6 +3914,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-03-05T07:38:37.195Z",
-  "versionId": "1d6edac1-092a-4d32-8ee2-8bc5e64f9640"
+  "updatedAt": "2026-04-12T13:58:12.539Z",
+  "versionId": "4757561c-27d3-4719-a74d-ff5bb96f573a"
 }
