@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-09T03:25:05.057Z",
-    "createdAt": "2026-03-09T03:25:01.751Z",
-    "versionId": "1ea5d9d8-25a8-43d3-8cf6-e7291fb09eb1",
+    "updatedAt": "2026-04-13T11:26:40.818Z",
+    "createdAt": "2026-04-13T11:26:14.636Z",
+    "versionId": "aff68dfb-dda0-49b4-884e-394de0762d06",
     "workflowId": "p9T1CJ8sI5Q18MoG",
     "nodes": [
       {
@@ -87,7 +87,7 @@
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "position": [
           -13808,
-          -3752
+          -3760
         ]
       },
       {
@@ -101,8 +101,7 @@
             "cachedResultName": "LinkedIn Profile Posts Bulk Scraper (No Cookies)⚡$2 per 1k (harvestapi/linkedin-profile-posts)",
             "cachedResultUrl": "https://console.apify.com/actors/A3cAPGpwBEG8RJwse/input"
           },
-          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
-          "timeout": {}
+          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
@@ -128,7 +127,7 @@
         "typeVersion": 1,
         "position": [
           -13584,
-          -3752
+          -3760
         ],
         "id": "6bb364ec-9f65-4cd5-a71e-03914fe8971d",
         "name": "Limit4"
@@ -163,7 +162,7 @@
         "typeVersion": 3.4,
         "position": [
           -13136,
-          -4188
+          -4192
         ],
         "id": "5dd9cd63-b40f-4281-b6e4-b749253b7b7a",
         "name": "Either Url or Keyword2"
@@ -271,7 +270,7 @@
         "typeVersion": 3,
         "position": [
           -13360,
-          -3752
+          -3760
         ],
         "id": "4779a52e-eec3-455d-8929-0f5e51e7f392",
         "name": "Loop Over Items2"
@@ -294,7 +293,7 @@
         "type": "@n8n/n8n-nodes-langchain.chainLlm",
         "typeVersion": 1.7,
         "position": [
-          -11064,
+          -11072,
           -4144
         ],
         "id": "4e404d22-d31c-47d4-9f48-bb547a057a2b",
@@ -327,8 +326,7 @@
             "cachedResultName": "LinkedIn Company Posts Scraper (No Cookies) ✅ $2 per 1k (harvestapi/linkedin-company-posts)",
             "cachedResultUrl": "https://console.apify.com/actors/WI0tj4Ieb5Kq458gB/input"
           },
-          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
-          "timeout": {}
+          "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
@@ -430,7 +428,7 @@
         "typeVersion": 3.3,
         "position": [
           -12912,
-          -4204
+          -4208
         ],
         "id": "9c6d228c-026a-41ff-9479-271961df3214",
         "name": "Switch1"
@@ -446,8 +444,7 @@
             "cachedResultName": "Linkedin Post Search Scraper (No Cookies) (harvestapi/linkedin-post-search)",
             "cachedResultUrl": "https://console.apify.com/actors/buIWk2uOUzTmcLsuB/input"
           },
-          "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}",
-          "timeout": {}
+          "customBody": "={\n    \"maxPosts\": 5,\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"searchQueries\": [\n        \"{{ $('Either Url or Keyword2').item.json.url_or_keyword }}\"\n    ]\n}"
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
@@ -524,6 +521,12 @@
                 "type": "string"
               },
               {
+                "id": "428c69e0-b325-4cf8-ae56-85faec6ca685",
+                "name": "source_category",
+                "value": "={{ $('Start').item.json.property_category }}",
+                "type": "string"
+              },
+              {
                 "id": "8546cd27-cefc-4d61-a3e7-86f0c66b12c9",
                 "name": "source_name",
                 "value": "={{ $('Start').item.json.property_name }}",
@@ -558,7 +561,7 @@
         "type": "n8n-nodes-base.stickyNote",
         "position": [
           -13872,
-          -4568
+          -4576
         ],
         "typeVersion": 1,
         "id": "b865c9e3-8bb3-4c43-9a1c-fce32593dd77",
@@ -575,7 +578,7 @@
         "typeVersion": 1,
         "position": [
           -13808,
-          -3528
+          -3536
         ],
         "id": "e3ed024e-fe05-4235-b96b-b2654416cfa1",
         "name": "Get many rows",
@@ -665,7 +668,7 @@
         "typeVersion": 1,
         "position": [
           -13584,
-          -3528
+          -3536
         ],
         "id": "9a2e359f-1410-480b-9fb2-527dd19f15d6",
         "name": "Create a row",
@@ -851,7 +854,7 @@
         "typeVersion": 1.1,
         "position": [
           -11792,
-          -3996
+          -4000
         ],
         "id": "e8c3a733-9a88-4ec8-9fa8-abec3078e639",
         "name": "Get many rows1",
@@ -955,7 +958,7 @@
         "typeVersion": 1.1,
         "position": [
           -13360,
-          -3528
+          -3536
         ],
         "id": "f2cc509c-09fd-4ce1-bd27-899acf05c39c",
         "name": "Get many rows filtered by date",
@@ -1294,11 +1297,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "add fallback",
+    "name": "restore article input limits",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "1ea5d9d8-25a8-43d3-8cf6-e7291fb09eb1",
+  "activeVersionId": "aff68dfb-dda0-49b4-884e-394de0762d06",
   "connections": {
     "Start": {
       "main": [
@@ -1707,8 +1710,7 @@
           "cachedResultName": "LinkedIn Profile Posts Bulk Scraper (No Cookies)⚡$2 per 1k (harvestapi/linkedin-profile-posts)",
           "cachedResultUrl": "https://console.apify.com/actors/A3cAPGpwBEG8RJwse/input"
         },
-        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
-        "timeout": {}
+        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxComments\": 0,\n    \"maxPosts\": 5,\n    \"maxReactions\": 0,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
@@ -1933,8 +1935,7 @@
           "cachedResultName": "LinkedIn Company Posts Scraper (No Cookies) ✅ $2 per 1k (harvestapi/linkedin-company-posts)",
           "cachedResultUrl": "https://console.apify.com/actors/WI0tj4Ieb5Kq458gB/input"
         },
-        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
-        "timeout": {}
+        "customBody": "={\n    \"includeQuotePosts\": false,\n    \"includeReposts\": false,\n    \"maxPosts\": 5,\n    \"postedLimit\": \"month\",\n    \"scrapeComments\": false,\n    \"scrapeReactions\": false,\n    \"targetUrls\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
@@ -2126,6 +2127,12 @@
               "id": "cdb58557-3653-4500-943e-71ea35ec0f27",
               "name": "source",
               "value": "LinkedIn",
+              "type": "string"
+            },
+            {
+              "id": "428c69e0-b325-4cf8-ae56-85faec6ca685",
+              "name": "source_category",
+              "value": "={{ $('Start').item.json.property_category }}",
               "type": "string"
             },
             {
@@ -2593,7 +2600,820 @@
       }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Start": [
+      {
+        "json": {
+          "id": "33c785c0-cfab-80cb-9f94-f074d688e6e9",
+          "name": "EDD European Biodiesel Board",
+          "url": "https://www.notion.so/EDD-European-Biodiesel-Board-33c785c0cfab80cb9f94f074d688e6e9",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Tade Body",
+          "property_url": "https://www.linkedin.com/company/european-biodiesel-board/posts/",
+          "property_status": "Active",
+          "property_name": "EDD European Biodiesel Board"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "328785c0-cfab-8048-a52a-d94aa1ce6617",
+          "name": "IEA - International Energy Agency - Bioenergy",
+          "url": "https://www.notion.so/IEA-International-Energy-Agency-Bioenergy-328785c0cfab8048a52ad94aa1ce6617",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Organisation",
+          "property_url": "https://www.linkedin.com/company/iea-bioenergy-technology-collaboration-programme/",
+          "property_status": "Active",
+          "property_name": "IEA - International Energy Agency - Bioenergy"
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-809c-b146-e4a1f9ecb5e4",
+          "name": "CICERO - Center for International Climate and Environmental Research",
+          "url": "https://www.notion.so/CICERO-Center-for-International-Climate-and-Environmental-Research-325785c0cfab809cb146e4a1f9ecb5e4",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Organisation",
+          "property_url": "https://www.linkedin.com/company/cicero---center-for-international-climate-and-environmental-research-oslo/",
+          "property_status": "Active",
+          "property_name": "CICERO - Center for International Climate and Environmental Research"
+        },
+        "pairedItem": {
+          "item": 2
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-803d-a856-fcced5601d57",
+          "name": "Transport for London",
+          "url": "https://www.notion.so/Transport-for-London-325785c0cfab803da856fcced5601d57",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/transport-for-london/posts/",
+          "property_status": "Active",
+          "property_name": "Transport for London"
+        },
+        "pairedItem": {
+          "item": 3
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-807b-af98-c8ec896fe3e5",
+          "name": "Climate Crisis Advisory Group",
+          "url": "https://www.notion.so/Climate-Crisis-Advisory-Group-325785c0cfab807baf98c8ec896fe3e5",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Organisation",
+          "property_url": "https://www.linkedin.com/company/climate-crisis-advisory-group/",
+          "property_status": "Active",
+          "property_name": "Climate Crisis Advisory Group"
+        },
+        "pairedItem": {
+          "item": 4
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-8093-82f2-f2a8861cc791",
+          "name": "Grantham Research Institute on Climate Change & the Environment",
+          "url": "https://www.notion.so/Grantham-Research-Institute-on-Climate-Change-the-Environment-325785c0cfab809382f2f2a8861cc791",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Organisation",
+          "property_url": "https://www.linkedin.com/company/grantham-research-institute-lse/",
+          "property_status": "Active",
+          "property_name": "Grantham Research Institute on Climate Change & the Environment"
+        },
+        "pairedItem": {
+          "item": 5
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80a2-9bfa-eaee077b4e19",
+          "name": "Tyndall Centre for CLimate Change Research",
+          "url": "https://www.notion.so/Tyndall-Centre-for-CLimate-Change-Research-325785c0cfab80a29bfaeaee077b4e19",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Organisation",
+          "property_url": "https://www.linkedin.com/company/tyndall-centre-for-climate-change-research/",
+          "property_status": "Active",
+          "property_name": "Tyndall Centre for CLimate Change Research"
+        },
+        "pairedItem": {
+          "item": 6
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80cb-9561-ded5d06b83e7",
+          "name": "The Climate Change Committee",
+          "url": "https://www.notion.so/The-Climate-Change-Committee-325785c0cfab80cb9561ded5d06b83e7",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Organisation",
+          "property_url": "https://www.linkedin.com/company/climate-change-committee",
+          "property_status": "Active",
+          "property_name": "The Climate Change Committee"
+        },
+        "pairedItem": {
+          "item": 7
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80ff-8b2c-d56a37ef278c",
+          "name": "Prof. ",
+          "url": "https://www.notion.so/Prof-Chukwumerije-Okereke-325785c0cfab80ff8b2cd56a37ef278c",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/chukwumerije-okereke-43b1a417",
+          "property_status": "Active",
+          "property_name": "Prof. Chukwumerije Okereke"
+        },
+        "pairedItem": {
+          "item": 8
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-8000-9c52-fa73eb251d7a",
+          "name": "Dr. Susannah Fisher",
+          "url": "https://www.notion.so/Dr-Susannah-Fisher-325785c0cfab80009c52fa73eb251d7a",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/susannah-fisher-19b68712",
+          "property_status": "Active",
+          "property_name": "Dr. Susannah Fisher"
+        },
+        "pairedItem": {
+          "item": 9
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-8036-b947-f815e789e098",
+          "name": "Prof. ",
+          "url": "https://www.notion.so/Prof-Rebecca-Willis-325785c0cfab8036b947f815e789e098",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/rebecca-willis-9b94716",
+          "property_status": "Active",
+          "property_name": "Prof. Rebecca Willis"
+        },
+        "pairedItem": {
+          "item": 10
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-8054-ad0f-d57073ad417e",
+          "name": "Dr. Matt Winning",
+          "url": "https://www.notion.so/Dr-Matt-Winning-325785c0cfab8054ad0fd57073ad417e",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/matt-winning-climate",
+          "property_status": "Active",
+          "property_name": "Dr. Matt Winning"
+        },
+        "pairedItem": {
+          "item": 11
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80c9-9a14-e1fb5bf65031",
+          "name": "Prof. Lisa Vanhala",
+          "url": "https://www.notion.so/Prof-Lisa-Vanhala-325785c0cfab80c99a14e1fb5bf65031",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/lisa-vanhala-448988183",
+          "property_status": "Active",
+          "property_name": "Prof. Lisa Vanhala"
+        },
+        "pairedItem": {
+          "item": 12
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80c1-ba32-c99d179e374b",
+          "name": "\n              \n    \n      \n    \n\n    \n  \n    \n  \n          \n\n        \n    ",
+          "url": "https://www.notion.so/Marina-Bel-n-Romanello-PhD-HonMFPH-325785c0cfab80c1ba32c99d179e374b",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/marinaromanello",
+          "property_status": "Active",
+          "property_name": "\n              \n    \n      \n    \n\n    \n  \n    \n  \n          \n\n        \n    Marina Belén Romanello, PhD HonMFPH"
+        },
+        "pairedItem": {
+          "item": 13
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-8065-85b7-c405fc7467e0",
+          "name": "Prof. Hayley Fowler",
+          "url": "https://www.notion.so/Prof-Hayley-Fowler-325785c0cfab806585b7c405fc7467e0",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/hayley-fowler-0767805/",
+          "property_status": "Active",
+          "property_name": "Prof. Hayley Fowler"
+        },
+        "pairedItem": {
+          "item": 14
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-808a-8e36-f0bba3a1e74b",
+          "name": "Prof. Mark Maslin",
+          "url": "https://www.notion.so/Prof-Mark-Maslin-325785c0cfab808a8e36f0bba3a1e74b",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/markmaslin",
+          "property_status": "Active",
+          "property_name": "Prof. Mark Maslin"
+        },
+        "pairedItem": {
+          "item": 15
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80e4-9851-c1089320b75b",
+          "name": "United Nations Climate Change",
+          "url": "https://www.notion.so/United-Nations-Climate-Change-325785c0cfab80e49851c1089320b75b",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/company/unclimatechange/",
+          "property_status": "Active",
+          "property_name": "United Nations Climate Change"
+        },
+        "pairedItem": {
+          "item": 16
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-803e-927e-eb2a6fa79ebe",
+          "name": "Dawn Wight, PhD",
+          "url": "https://www.notion.so/Dawn-Wight-PhD-325785c0cfab803e927eeb2a6fa79ebe",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/deepseadawn/",
+          "property_status": "Active",
+          "property_name": "Dawn Wight, PhD"
+        },
+        "pairedItem": {
+          "item": 17
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80e9-9ffe-c61c5ebd9cdf",
+          "name": "Vanessa Nakate",
+          "url": "https://www.notion.so/Vanessa-Nakate-325785c0cfab80e99ffec61c5ebd9cdf",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/vanessa-nakate-465988260",
+          "property_status": "Active",
+          "property_name": "Vanessa Nakate"
+        },
+        "pairedItem": {
+          "item": 18
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80b5-87e3-ffb2095e97f1",
+          "name": "Jigar Shah",
+          "url": "https://www.notion.so/Jigar-Shah-325785c0cfab80b587e3ffb2095e97f1",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/jigarshahdc/",
+          "property_status": "Active",
+          "property_name": "Jigar Shah"
+        },
+        "pairedItem": {
+          "item": 19
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80ee-a83d-d3de8d96ff45",
+          "name": "Jean-Marc Jancovici",
+          "url": "https://www.notion.so/Jean-Marc-Jancovici-325785c0cfab80eea83dd3de8d96ff45",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/jean-marc-jancovici",
+          "property_status": "Active",
+          "property_name": "Jean-Marc Jancovici"
+        },
+        "pairedItem": {
+          "item": 20
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-803b-bc8c-ed38c078b096",
+          "name": "Dr Katherine Hayhoe",
+          "url": "https://www.notion.so/Dr-Katherine-Hayhoe-325785c0cfab803bbc8ced38c078b096",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/katharine-hayhoe/",
+          "property_status": "Active",
+          "property_name": "Dr Katherine Hayhoe"
+        },
+        "pairedItem": {
+          "item": 21
+        }
+      },
+      {
+        "json": {
+          "id": "325785c0-cfab-80b1-b38e-fbca41fdc25b",
+          "name": "Kate Brandt",
+          "url": "https://www.notion.so/Kate-Brandt-325785c0cfab80b1b38efbca41fdc25b",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/katebrandt/",
+          "property_status": "Active",
+          "property_name": "Kate Brandt"
+        },
+        "pairedItem": {
+          "item": 22
+        }
+      },
+      {
+        "json": {
+          "id": "31a785c0-cfab-809e-bae7-c71184c36011",
+          "name": "National Highways",
+          "url": "https://www.notion.so/National-Highways-31a785c0cfab809ebae7c71184c36011",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/national-highways/posts/",
+          "property_status": "Active",
+          "property_name": "National Highways"
+        },
+        "pairedItem": {
+          "item": 23
+        }
+      },
+      {
+        "json": {
+          "id": "314785c0-cfab-8009-b9dd-ff1219acec26",
+          "name": "Sunbelt Rentals Inc",
+          "url": "https://www.notion.so/Sunbelt-Rentals-Inc-314785c0cfab8009b9ddff1219acec26",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/sunbelt-rentals/posts/",
+          "property_status": "Active",
+          "property_name": "Sunbelt Rentals Inc"
+        },
+        "pairedItem": {
+          "item": 24
+        }
+      },
+      {
+        "json": {
+          "id": "2df785c0-cfab-800c-92ea-fbc49f08669b",
+          "name": "Lower Thames Crossing",
+          "url": "https://www.notion.so/Lower-Thames-Crossing-2df785c0cfab800c92eafbc49f08669b",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/lowerthamescrossing/posts/",
+          "property_status": "Active",
+          "property_name": "Lower Thames Crossing"
+        },
+        "pairedItem": {
+          "item": 25
+        }
+      },
+      {
+        "json": {
+          "id": "2df785c0-cfab-80c0-8182-f8aa7af723ba",
+          "name": "Sizewell C",
+          "url": "https://www.notion.so/Sizewell-C-2df785c0cfab80c08182f8aa7af723ba",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/sizewellc/posts/",
+          "property_status": "Active",
+          "property_name": "Sizewell C"
+        },
+        "pairedItem": {
+          "item": 26
+        }
+      },
+      {
+        "json": {
+          "id": "2df785c0-cfab-8009-b053-f52f0c604cb0",
+          "name": "Sizewell C Consortium",
+          "url": "https://www.notion.so/Sizewell-C-Consortium-2df785c0cfab8009b053f52f0c604cb0",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/sizewell-c-consortium/posts/",
+          "property_status": "Active",
+          "property_name": "Sizewell C Consortium"
+        },
+        "pairedItem": {
+          "item": 27
+        }
+      },
+      {
+        "json": {
+          "id": "2c7785c0-cfab-80d1-8fb0-f1fe6eb779c5",
+          "name": "Sunbelt Rentals UK & Ireland",
+          "url": "https://www.notion.so/Sunbelt-Rentals-UK-Ireland-2c7785c0cfab80d18fb0f1fe6eb779c5",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/sunbelt-rentals-uk-i/posts/",
+          "property_status": "Active",
+          "property_name": "Sunbelt Rentals UK & Ireland"
+        },
+        "pairedItem": {
+          "item": 28
+        }
+      },
+      {
+        "json": {
+          "id": "2c7785c0-cfab-80d1-add5-ee0a228d8cd0",
+          "name": "Transport for London",
+          "url": "https://www.notion.so/Transport-for-London-2c7785c0cfab80d1add5ee0a228d8cd0",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/transport-for-london/posts/",
+          "property_status": "Active",
+          "property_name": "Transport for London"
+        },
+        "pairedItem": {
+          "item": 29
+        }
+      },
+      {
+        "json": {
+          "id": "2c7785c0-cfab-8005-998e-e61590e63f80",
+          "name": "Netzero Teeside",
+          "url": "https://www.notion.so/Netzero-Teeside-2c7785c0cfab8005998ee61590e63f80",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/net-zero-teesside/posts/",
+          "property_status": "Active",
+          "property_name": "Netzero Teeside"
+        },
+        "pairedItem": {
+          "item": 30
+        }
+      },
+      {
+        "json": {
+          "id": "2c7785c0-cfab-803e-a91e-d20ed3d32294",
+          "name": "SSE",
+          "url": "https://www.notion.so/SSE-2c7785c0cfab803ea91ed20ed3d32294",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/sse-renewables/posts/",
+          "property_status": "Active",
+          "property_name": "SSE"
+        },
+        "pairedItem": {
+          "item": 31
+        }
+      },
+      {
+        "json": {
+          "id": "2c7785c0-cfab-8051-86c6-daa6a08bff99",
+          "name": "Balfour Beatty",
+          "url": "https://www.notion.so/Balfour-Beatty-2c7785c0cfab805186c6daa6a08bff99",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Customer",
+          "property_url": "https://www.linkedin.com/company/balfour-beatty-plc/posts/",
+          "property_status": "Active",
+          "property_name": "Balfour Beatty"
+        },
+        "pairedItem": {
+          "item": 32
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-808c-be25-c72f1c898a7c",
+          "name": "House of Lords",
+          "url": "https://www.notion.so/House-of-Lords-2b1785c0cfab808cbe25c72f1c898a7c",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/the-house-of-lords/posts/",
+          "property_status": "Active",
+          "property_name": "House of Lords"
+        },
+        "pairedItem": {
+          "item": 33
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-806c-acba-e00a632679d1",
+          "name": "House of Commons",
+          "url": "https://www.notion.so/House-of-Commons-2b1785c0cfab806cacbae00a632679d1",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/house-of-commons/posts/",
+          "property_status": "Active",
+          "property_name": "House of Commons"
+        },
+        "pairedItem": {
+          "item": 34
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-801c-a2d9-ef9c6e4ca8a3",
+          "name": "Planning Inspectorate",
+          "url": "https://www.notion.so/Planning-Inspectorate-2b1785c0cfab801ca2d9ef9c6e4ca8a3",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/planning-inspectorate/posts/",
+          "property_status": "Active",
+          "property_name": "Planning Inspectorate"
+        },
+        "pairedItem": {
+          "item": 35
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-8070-bc80-c9682d2b8417",
+          "name": "National Infrastructure and Service Transformation Authority (NISTA)",
+          "url": "https://www.notion.so/National-Infrastructure-and-Service-Transformation-Authority-NISTA-2b1785c0cfab8070bc80c9682d2b8417",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/nistagov/posts/",
+          "property_status": "Active",
+          "property_name": "National Infrastructure and Service Transformation Authority (NISTA)"
+        },
+        "pairedItem": {
+          "item": 36
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-8093-a3d4-d18163fd12fe",
+          "name": "Environment Agency",
+          "url": "https://www.notion.so/Environment-Agency-2b1785c0cfab8093a3d4d18163fd12fe",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/environment-agency/posts/",
+          "property_status": "Active",
+          "property_name": "Environment Agency"
+        },
+        "pairedItem": {
+          "item": 37
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-80d5-9a1e-ef0d953519c9",
+          "name": "Office for Environmental Protection",
+          "url": "https://www.notion.so/Office-for-Environmental-Protection-2b1785c0cfab80d59a1eef0d953519c9",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/the-office-for-environmental-protection/posts/",
+          "property_status": "Active",
+          "property_name": "Office for Environmental Protection"
+        },
+        "pairedItem": {
+          "item": 38
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-8042-b0b7-c0bf311c86b3",
+          "name": "Gov Dep for Environment, Food and Rural Affairs\n        ",
+          "url": "https://www.notion.so/Gov-Dep-for-Environment-Food-and-Rural-Affairs-2b1785c0cfab8042b0b7c0bf311c86b3",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/defra/posts/",
+          "property_status": "Active",
+          "property_name": "Gov Dep for Environment, Food and Rural Affairs\n        "
+        },
+        "pairedItem": {
+          "item": 39
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-8055-bf80-e69ad51ed9e0",
+          "name": "Gov Dep ",
+          "url": "https://www.notion.so/Gov-Dep-for-Business-and-Trade-2b1785c0cfab8055bf80e69ad51ed9e0",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/department-for-business-and-trade/posts/",
+          "property_status": "Active",
+          "property_name": "Gov Dep for Business and Trade"
+        },
+        "pairedItem": {
+          "item": 40
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-8000-95b1-d83574cdcf95",
+          "name": "Great British Energy",
+          "url": "https://www.notion.so/Great-British-Energy-2b1785c0cfab800095b1d83574cdcf95",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/gbegovuk/posts",
+          "property_status": "Active",
+          "property_name": "Great British Energy"
+        },
+        "pairedItem": {
+          "item": 41
+        }
+      },
+      {
+        "json": {
+          "id": "2b1785c0-cfab-8012-bac2-ff7a7f8fc7d3",
+          "name": "Gov Dep for Energy Security and Net Zero",
+          "url": "https://www.notion.so/Gov-Dep-for-Energy-Security-and-Net-Zero-2b1785c0cfab8012bac2ff7a7f8fc7d3",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Government",
+          "property_url": "https://www.linkedin.com/company/energygovuk/posts/",
+          "property_status": "Active",
+          "property_name": "Gov Dep for Energy Security and Net Zero"
+        },
+        "pairedItem": {
+          "item": 42
+        }
+      },
+      {
+        "json": {
+          "id": "27a785c0-cfab-80ae-954b-e76d7f1f0a2f",
+          "name": "Carlo Raucci",
+          "url": "https://www.notion.so/Carlo-Raucci-27a785c0cfab80ae954be76d7f1f0a2f",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/carlo-raucci/",
+          "property_status": "Active",
+          "property_name": "Carlo Raucci"
+        },
+        "pairedItem": {
+          "item": 43
+        }
+      },
+      {
+        "json": {
+          "id": "27a785c0-cfab-801b-8e88-d9f445ca8384",
+          "name": "Lubomila Jordanova",
+          "url": "https://www.notion.so/Lubomila-Jordanova-27a785c0cfab801b8e88d9f445ca8384",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "LinkedIn",
+          "property_category": "Expert",
+          "property_url": "https://www.linkedin.com/in/ljordanova",
+          "property_status": "Active",
+          "property_name": "Lubomila Jordanova"
+        },
+        "pairedItem": {
+          "item": 44
+        }
+      }
+    ]
+  },
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -2626,6 +3446,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-03-30T10:22:58.240Z",
-  "versionId": "197d395c-ade9-443b-bc40-dea2b7572290"
+  "updatedAt": "2026-04-13T11:26:14.496Z",
+  "versionId": "aff68dfb-dda0-49b4-884e-394de0762d06"
 }
