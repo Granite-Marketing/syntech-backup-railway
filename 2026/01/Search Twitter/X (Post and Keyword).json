@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-04T15:25:25.868Z",
-    "createdAt": "2026-02-04T15:25:23.159Z",
-    "versionId": "e4e63fb1-8501-4825-b2cb-413dfedcf397",
+    "updatedAt": "2026-04-13T11:26:48.046Z",
+    "createdAt": "2026-04-13T11:25:52.118Z",
+    "versionId": "d4d5a5da-686f-4af7-96d9-038f25820389",
     "workflowId": "zykTHDZ-r8op3Zitq25Y2",
     "nodes": [
       {
@@ -92,7 +92,7 @@
       },
       {
         "parameters": {
-          "maxItems": 100
+          "maxItems": 1000
         },
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
@@ -267,8 +267,7 @@
             "cachedResultName": "Twitter (X.com) Scraper Unlimited: No Limits (apidojo/twitter-scraper-lite)",
             "cachedResultUrl": "https://console.apify.com/actors/nfp1fpt5gUlBwPcor/input"
           },
-          "customBody": "={\n    \"customMapFunction\": \"(object) => { return {...object} }\",\n    \"includeSearchTerms\": false,\n    \"maxItems\": 5,\n    \"onlyImage\": false,\n    \"onlyQuote\": false,\n    \"onlyTwitterBlue\": false,\n    \"onlyVerifiedUsers\": false,\n    \"onlyVideo\": false,\n    \"searchTerms\": [\n        \"{{ $json.url_or_keyword }}\"\n    ],\n    \"sort\": \"Top\",\n    \"tweetLanguage\": \"en\"\n}",
-          "timeout": {}
+          "customBody": "={\n    \"customMapFunction\": \"(object) => { return {...object} }\",\n    \"includeSearchTerms\": false,\n    \"maxItems\": 5,\n    \"onlyImage\": false,\n    \"onlyQuote\": false,\n    \"onlyTwitterBlue\": false,\n    \"onlyVerifiedUsers\": false,\n    \"onlyVideo\": false,\n    \"searchTerms\": [\n        \"{{ $json.url_or_keyword }}\"\n    ],\n    \"sort\": \"Top\",\n    \"tweetLanguage\": \"en\"\n}"
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
@@ -591,6 +590,12 @@
                 "id": "8c19cd4c-cca7-4311-89c4-0efa9890e41e",
                 "name": "source_name",
                 "value": "={{ $('Initial Input').item.json.property_name }}",
+                "type": "string"
+              },
+              {
+                "id": "de00eba2-7f0e-45a2-bf24-0c0b49c13404",
+                "name": "source_category",
+                "value": "={{ $('Initial Input').item.json.property_category }}",
                 "type": "string"
               },
               {
@@ -1145,11 +1150,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "upsert",
+    "name": "restore article input limits",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "e4e63fb1-8501-4825-b2cb-413dfedcf397",
+  "activeVersionId": "d4d5a5da-686f-4af7-96d9-038f25820389",
   "connections": {
     "Initial Input": {
       "main": [
@@ -1520,7 +1525,7 @@
     },
     {
       "parameters": {
-        "maxItems": 100
+        "maxItems": 1000
       },
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
@@ -1695,8 +1700,7 @@
           "cachedResultName": "Twitter (X.com) Scraper Unlimited: No Limits (apidojo/twitter-scraper-lite)",
           "cachedResultUrl": "https://console.apify.com/actors/nfp1fpt5gUlBwPcor/input"
         },
-        "customBody": "={\n    \"customMapFunction\": \"(object) => { return {...object} }\",\n    \"includeSearchTerms\": false,\n    \"maxItems\": 5,\n    \"onlyImage\": false,\n    \"onlyQuote\": false,\n    \"onlyTwitterBlue\": false,\n    \"onlyVerifiedUsers\": false,\n    \"onlyVideo\": false,\n    \"searchTerms\": [\n        \"{{ $json.url_or_keyword }}\"\n    ],\n    \"sort\": \"Top\",\n    \"tweetLanguage\": \"en\"\n}",
-        "timeout": {}
+        "customBody": "={\n    \"customMapFunction\": \"(object) => { return {...object} }\",\n    \"includeSearchTerms\": false,\n    \"maxItems\": 5,\n    \"onlyImage\": false,\n    \"onlyQuote\": false,\n    \"onlyTwitterBlue\": false,\n    \"onlyVerifiedUsers\": false,\n    \"onlyVideo\": false,\n    \"searchTerms\": [\n        \"{{ $json.url_or_keyword }}\"\n    ],\n    \"sort\": \"Top\",\n    \"tweetLanguage\": \"en\"\n}"
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
@@ -2022,6 +2026,12 @@
               "type": "string"
             },
             {
+              "id": "de00eba2-7f0e-45a2-bf24-0c0b49c13404",
+              "name": "source_category",
+              "value": "={{ $('Initial Input').item.json.property_category }}",
+              "type": "string"
+            },
+            {
               "id": "28519406-e423-4222-a586-4562a4dca6b9",
               "name": "prompt",
               "value": "={{ $('Initial Input').first().json.prompt }}",
@@ -2300,17 +2310,20 @@
     "Initial Input": [
       {
         "json": {
-          "id": "2ac785c0-cfab-8093-8ab3-cd6a58a7ff63",
-          "name": "BiofuelResJ",
-          "url": "https://www.notion.so/BiofuelResJ-2ac785c0cfab80938ab3cd6a58a7ff63",
+          "id": "286785c0-cfab-80d7-895e-cd5895fa14f4",
+          "name": "Oceana in Europe",
+          "url": "https://www.notion.so/Oceana-in-Europe-286785c0cfab80d7895ecd5895fa14f4",
           "property_keyword_category": null,
-          "property_priority": "Low",
+          "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "X",
-          "property_category": null,
-          "property_url": "https://x.com/BiofuelResJ",
+          "property_category": "Organisation",
+          "property_url": "https://x.com/OceanaEurope",
           "property_status": "Active",
-          "property_name": "BiofuelResJ"
+          "property_name": "Oceana in Europe"
+        },
+        "pairedItem": {
+          "item": 0
         }
       },
       {
@@ -2322,40 +2335,13 @@
           "property_priority": "Low",
           "property_rss_feed": null,
           "property_source": "X",
-          "property_category": null,
+          "property_category": "Organisation",
           "property_url": "https://x.com/advancebiofuel",
           "property_status": "Active",
           "property_name": "advancebiofuel"
-        }
-      },
-      {
-        "json": {
-          "id": "28c785c0-cfab-8062-ac70-d64b040409dc",
-          "name": "Gevo, Inc.",
-          "url": "https://www.notion.so/Gevo-Inc-28c785c0cfab8062ac70d64b040409dc",
-          "property_keyword_category": null,
-          "property_priority": "Low",
-          "property_rss_feed": null,
-          "property_source": "X",
-          "property_category": null,
-          "property_url": "https://x.com/Gevo_Inc",
-          "property_status": "Active",
-          "property_name": "Gevo, Inc."
-        }
-      },
-      {
-        "json": {
-          "id": "286785c0-cfab-80d7-895e-cd5895fa14f4",
-          "name": "Oceana in Europe",
-          "url": "https://www.notion.so/Oceana-in-Europe-286785c0cfab80d7895ecd5895fa14f4",
-          "property_keyword_category": null,
-          "property_priority": "Low",
-          "property_rss_feed": null,
-          "property_source": "X",
-          "property_category": null,
-          "property_url": "https://x.com/OceanaEurope",
-          "property_status": "Active",
-          "property_name": "Oceana in Europe"
+        },
+        "pairedItem": {
+          "item": 1
         }
       }
     ]
@@ -2391,6 +2377,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-04T15:25:23.158Z",
-  "versionId": "e4e63fb1-8501-4825-b2cb-413dfedcf397"
+  "updatedAt": "2026-04-13T11:25:51.981Z",
+  "versionId": "d4d5a5da-686f-4af7-96d9-038f25820389"
 }
