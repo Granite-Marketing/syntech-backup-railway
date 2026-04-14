@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-01T08:25:52.192Z",
-    "createdAt": "2026-04-01T08:25:40.178Z",
-    "versionId": "53455ea6-e28e-413f-842f-b63e08e420b3",
+    "updatedAt": "2026-04-13T11:26:44.532Z",
+    "createdAt": "2026-04-13T11:26:09.700Z",
+    "versionId": "e99263c2-fb93-4ba9-b5c6-30acc0600ecd",
     "workflowId": "N0iykcUkUjgXDL0k",
     "nodes": [
       {
@@ -118,7 +118,7 @@
       },
       {
         "parameters": {
-          "maxItems": 1000
+          "maxItems": 100
         },
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
@@ -447,6 +447,12 @@
                 "type": "string"
               },
               {
+                "id": "0a45e855-b96a-4d20-bfc7-e77f6bae2f1e",
+                "name": "source_category",
+                "value": "={{ $('When Executed by Another Workflow').item.json.property_keyword_category }}",
+                "type": "string"
+              },
+              {
                 "id": "b6707082-f321-40a8-8174-678e004169df",
                 "name": "=additional_formats",
                 "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
@@ -527,6 +533,12 @@
                 "id": "a9551812-83e1-4e44-a212-a8d4e81952a6",
                 "name": "source_name",
                 "value": "={{ $('Either Url or Keyword3').first().json.set_source_name }}",
+                "type": "string"
+              },
+              {
+                "id": "bbc14417-5037-4894-b03a-d2f20456105b",
+                "name": "source_category",
+                "value": "={{ $('When Executed by Another Workflow').item.json.property_keyword_category }}",
                 "type": "string"
               },
               {
@@ -1779,11 +1791,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "add retry on fail",
+    "name": "restore article input limits",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "53455ea6-e28e-413f-842f-b63e08e420b3",
+  "activeVersionId": "e99263c2-fb93-4ba9-b5c6-30acc0600ecd",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2373,7 +2385,7 @@
     },
     {
       "parameters": {
-        "maxItems": 1000
+        "maxItems": 100
       },
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
@@ -2702,6 +2714,12 @@
               "type": "string"
             },
             {
+              "id": "0a45e855-b96a-4d20-bfc7-e77f6bae2f1e",
+              "name": "source_category",
+              "value": "={{ $('When Executed by Another Workflow').item.json.property_keyword_category }}",
+              "type": "string"
+            },
+            {
               "id": "b6707082-f321-40a8-8174-678e004169df",
               "name": "=additional_formats",
               "value": "={{ $('When Executed by Another Workflow').first().json.additional_formats }}",
@@ -2782,6 +2800,12 @@
               "id": "a9551812-83e1-4e44-a212-a8d4e81952a6",
               "name": "source_name",
               "value": "={{ $('Either Url or Keyword3').first().json.set_source_name }}",
+              "type": "string"
+            },
+            {
+              "id": "bbc14417-5037-4894-b03a-d2f20456105b",
+              "name": "source_category",
+              "value": "={{ $('When Executed by Another Workflow').item.json.property_keyword_category }}",
               "type": "string"
             },
             {
@@ -3568,17 +3592,17 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "id": "293785c0-cfab-8006-934a-f9d1ec21cf71",
-          "name": "FAME Biofuel",
-          "url": "https://www.notion.so/FAME-Biofuel-293785c0cfab8006934af9d1ec21cf71",
-          "property_keyword_category": "Industry",
+          "id": "325785c0-cfab-80ae-ab1a-ce057099aef3",
+          "name": "TFL",
+          "url": "https://www.notion.so/TFL-325785c0cfab80aeab1ace057099aef3",
+          "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "FAME Biofuel"
+          "property_name": "TFL"
         },
         "pairedItem": {
           "item": 0
@@ -3586,17 +3610,17 @@
       },
       {
         "json": {
-          "id": "293785c0-cfab-8065-85cf-c2d65ec610c5",
-          "name": "B100 Biofuel",
-          "url": "https://www.notion.so/B100-Biofuel-293785c0cfab806585cfc2d65ec610c5",
-          "property_keyword_category": "Industry",
+          "id": "325785c0-cfab-80fa-a2f1-dd9a2364aeff",
+          "name": "Transport For London",
+          "url": "https://www.notion.so/Transport-For-London-325785c0cfab80faa2f1dd9a2364aeff",
+          "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "B100 Biofuel"
+          "property_name": "Transport For London"
         },
         "pairedItem": {
           "item": 1
@@ -3604,17 +3628,17 @@
       },
       {
         "json": {
-          "id": "293785c0-cfab-807c-96bb-f668e2e4de33",
-          "name": "FAME Biodiesel",
-          "url": "https://www.notion.so/FAME-Biodiesel-293785c0cfab807c96bbf668e2e4de33",
-          "property_keyword_category": "Industry",
+          "id": "31a785c0-cfab-80e0-b892-c1f049b2726b",
+          "name": "National Highways",
+          "url": "https://www.notion.so/National-Highways-31a785c0cfab80e0b892c1f049b2726b",
+          "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "FAME Biodiesel"
+          "property_name": "National Highways"
         },
         "pairedItem": {
           "item": 2
@@ -3622,9 +3646,9 @@
       },
       {
         "json": {
-          "id": "293785c0-cfab-80d3-a1fe-f9ac88cf1c5a",
-          "name": "“used cooking oil” Biofuel",
-          "url": "https://www.notion.so/used-cooking-oil-Biofuel-293785c0cfab80d3a1fef9ac88cf1c5a",
+          "id": "303785c0-cfab-8027-9bc8-cd0b48174e2e",
+          "name": "EN 14214",
+          "url": "https://www.notion.so/EN-14214-303785c0cfab80279bc8cd0b48174e2e",
           "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3632,7 +3656,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "“used cooking oil” Biofuel"
+          "property_name": "EN 14214"
         },
         "pairedItem": {
           "item": 3
@@ -3640,9 +3664,9 @@
       },
       {
         "json": {
-          "id": "293785c0-cfab-80e6-a9ab-f89502a74429",
-          "name": "B100 Biodiesel",
-          "url": "https://www.notion.so/B100-Biodiesel-293785c0cfab80e6a9abf89502a74429",
+          "id": "2f7785c0-cfab-80e8-966e-c3776aa73deb",
+          "name": "UCO",
+          "url": "https://www.notion.so/UCO-2f7785c0cfab80e8966ec3776aa73deb",
           "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3650,7 +3674,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "B100 Biodiesel"
+          "property_name": "UCO"
         },
         "pairedItem": {
           "item": 4
@@ -3658,9 +3682,9 @@
       },
       {
         "json": {
-          "id": "29b785c0-cfab-8061-99a3-cf4a3f89931d",
-          "name": "B100 FAME",
-          "url": "https://www.notion.so/B100-FAME-29b785c0cfab806199a3cf4a3f89931d",
+          "id": "2f7785c0-cfab-8040-9221-e5a8e8414351",
+          "name": "Biodiesel",
+          "url": "https://www.notion.so/Biodiesel-2f7785c0cfab80409221e5a8e8414351",
           "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3668,7 +3692,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "B100 FAME"
+          "property_name": "Biodiesel"
         },
         "pairedItem": {
           "item": 5
@@ -3676,9 +3700,9 @@
       },
       {
         "json": {
-          "id": "29d785c0-cfab-802d-bb85-cb6b04b2d235",
-          "name": "“Used Cooking Oil”",
-          "url": "https://www.notion.so/Used-Cooking-Oil-29d785c0cfab802dbb85cb6b04b2d235",
+          "id": "2f7785c0-cfab-80ba-ab27-d2b16390fce2",
+          "name": "Biofuel",
+          "url": "https://www.notion.so/Biofuel-2f7785c0cfab80baab27d2b16390fce2",
           "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3686,7 +3710,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "“Used Cooking Oil”"
+          "property_name": "Biofuel"
         },
         "pairedItem": {
           "item": 6
@@ -3694,9 +3718,9 @@
       },
       {
         "json": {
-          "id": "29d785c0-cfab-8045-a1e8-edf8aa745ba4",
-          "name": "14214 Biodiesel",
-          "url": "https://www.notion.so/14214-Biodiesel-29d785c0cfab8045a1e8edf8aa745ba4",
+          "id": "2f7785c0-cfab-8046-810e-e97bfe8bdc76",
+          "name": "Hydrogen",
+          "url": "https://www.notion.so/Hydrogen-2f7785c0cfab8046810ee97bfe8bdc76",
           "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3704,7 +3728,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "14214 Biodiesel"
+          "property_name": "Hydrogen"
         },
         "pairedItem": {
           "item": 7
@@ -3712,9 +3736,9 @@
       },
       {
         "json": {
-          "id": "29d785c0-cfab-8089-ac75-d8b7e02418f6",
-          "name": "14214 Biofuel",
-          "url": "https://www.notion.so/14214-Biofuel-29d785c0cfab8089ac75d8b7e02418f6",
+          "id": "2f7785c0-cfab-80b5-8c53-d30ac59d29dc",
+          "name": "FAME",
+          "url": "https://www.notion.so/FAME-2f7785c0cfab80b58c53d30ac59d29dc",
           "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3722,7 +3746,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "14214 Biofuel"
+          "property_name": "FAME"
         },
         "pairedItem": {
           "item": 8
@@ -3730,9 +3754,9 @@
       },
       {
         "json": {
-          "id": "29d785c0-cfab-80d1-9848-ca2d0c215afa",
-          "name": "ISCC",
-          "url": "https://www.notion.so/ISCC-29d785c0cfab80d19848ca2d0c215afa",
+          "id": "2f7785c0-cfab-8023-a15d-d0ba68cf299f",
+          "name": "HVO",
+          "url": "https://www.notion.so/HVO-2f7785c0cfab8023a15dd0ba68cf299f",
           "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3740,7 +3764,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "ISCC"
+          "property_name": "HVO"
         },
         "pairedItem": {
           "item": 9
@@ -3748,17 +3772,17 @@
       },
       {
         "json": {
-          "id": "2c7785c0-cfab-8029-81e5-e657acaa454a",
-          "name": "Lower Thames Crossing",
-          "url": "https://www.notion.so/Lower-Thames-Crossing-2c7785c0cfab802981e5e657acaa454a",
-          "property_keyword_category": "Customer",
+          "id": "2f7785c0-cfab-8031-98cc-dacd6d551e5c",
+          "name": "B100",
+          "url": "https://www.notion.so/B100-2f7785c0cfab803198ccdacd6d551e5c",
+          "property_keyword_category": "Industry",
           "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Lower Thames Crossing"
+          "property_name": "B100"
         },
         "pairedItem": {
           "item": 10
@@ -3766,9 +3790,9 @@
       },
       {
         "json": {
-          "id": "2c7785c0-cfab-8062-a6dd-d34b12f8a675",
-          "name": "Balfour Beatty",
-          "url": "https://www.notion.so/Balfour-Beatty-2c7785c0cfab8062a6ddd34b12f8a675",
+          "id": "2f5785c0-cfab-8007-9461-ceee55e7d340",
+          "name": "Highland Council",
+          "url": "https://www.notion.so/Highland-Council-2f5785c0cfab80079461ceee55e7d340",
           "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3776,7 +3800,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Balfour Beatty"
+          "property_name": "Highland Council"
         },
         "pairedItem": {
           "item": 11
@@ -3784,9 +3808,9 @@
       },
       {
         "json": {
-          "id": "2c7785c0-cfab-80b4-b37f-d1c959c5d769",
-          "name": "NetZero Teesside",
-          "url": "https://www.notion.so/NetZero-Teesside-2c7785c0cfab80b4b37fd1c959c5d769",
+          "id": "2f5785c0-cfab-8048-bdd0-c90c31b455b4",
+          "name": "A9 Duelling",
+          "url": "https://www.notion.so/A9-Duelling-2f5785c0cfab8048bdd0c90c31b455b4",
           "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3794,7 +3818,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "NetZero Teesside"
+          "property_name": "A9 Duelling"
         },
         "pairedItem": {
           "item": 12
@@ -3802,9 +3826,9 @@
       },
       {
         "json": {
-          "id": "2c7785c0-cfab-80c4-8ec4-e8406e8dd855",
-          "name": "SSE",
-          "url": "https://www.notion.so/SSE-2c7785c0cfab80c48ec4e8406e8dd855",
+          "id": "2f5785c0-cfab-808c-a52f-fc2023d6ae15",
+          "name": "Falkirk Council",
+          "url": "https://www.notion.so/Falkirk-Council-2f5785c0cfab808ca52ffc2023d6ae15",
           "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3812,7 +3836,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "SSE"
+          "property_name": "Falkirk Council"
         },
         "pairedItem": {
           "item": 13
@@ -3820,17 +3844,17 @@
       },
       {
         "json": {
-          "id": "2f1785c0-cfab-801c-98bc-d769d4bb5935",
-          "name": "JCB",
-          "url": "https://www.notion.so/JCB-2f1785c0cfab801c98bcd769d4bb5935",
-          "property_keyword_category": "OEM",
+          "id": "2f5785c0-cfab-80d5-bcd1-f177f1cbab1f",
+          "name": "Highland Fuels",
+          "url": "https://www.notion.so/Highland-Fuels-2f5785c0cfab80d5bcd1f177f1cbab1f",
+          "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "JCB"
+          "property_name": "Highland Fuels"
         },
         "pairedItem": {
           "item": 14
@@ -3856,17 +3880,17 @@
       },
       {
         "json": {
-          "id": "2f5785c0-cfab-8007-9461-ceee55e7d340",
-          "name": "Highland Council",
-          "url": "https://www.notion.so/Highland-Council-2f5785c0cfab80079461ceee55e7d340",
-          "property_keyword_category": "Customer",
+          "id": "2f1785c0-cfab-801c-98bc-d769d4bb5935",
+          "name": "JCB",
+          "url": "https://www.notion.so/JCB-2f1785c0cfab801c98bcd769d4bb5935",
+          "property_keyword_category": "OEM Construction",
           "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Highland Council"
+          "property_name": "JCB"
         },
         "pairedItem": {
           "item": 16
@@ -3874,9 +3898,9 @@
       },
       {
         "json": {
-          "id": "2f5785c0-cfab-8048-bdd0-c90c31b455b4",
-          "name": "A9 Duelling",
-          "url": "https://www.notion.so/A9-Duelling-2f5785c0cfab8048bdd0c90c31b455b4",
+          "id": "2c7785c0-cfab-80b4-b37f-d1c959c5d769",
+          "name": "NetZero Teesside",
+          "url": "https://www.notion.so/NetZero-Teesside-2c7785c0cfab80b4b37fd1c959c5d769",
           "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3884,7 +3908,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "A9 Duelling"
+          "property_name": "NetZero Teesside"
         },
         "pairedItem": {
           "item": 17
@@ -3892,9 +3916,9 @@
       },
       {
         "json": {
-          "id": "2f5785c0-cfab-808c-a52f-fc2023d6ae15",
-          "name": "Falkirk Council",
-          "url": "https://www.notion.so/Falkirk-Council-2f5785c0cfab808ca52ffc2023d6ae15",
+          "id": "2c7785c0-cfab-8029-81e5-e657acaa454a",
+          "name": "Lower Thames Crossing",
+          "url": "https://www.notion.so/Lower-Thames-Crossing-2c7785c0cfab802981e5e657acaa454a",
           "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3902,7 +3926,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Falkirk Council"
+          "property_name": "Lower Thames Crossing"
         },
         "pairedItem": {
           "item": 18
@@ -3910,9 +3934,9 @@
       },
       {
         "json": {
-          "id": "2f5785c0-cfab-80d5-bcd1-f177f1cbab1f",
-          "name": "Highland Fuels",
-          "url": "https://www.notion.so/Highland-Fuels-2f5785c0cfab80d5bcd1f177f1cbab1f",
+          "id": "2c7785c0-cfab-80c4-8ec4-e8406e8dd855",
+          "name": "SSE",
+          "url": "https://www.notion.so/SSE-2c7785c0cfab80c48ec4e8406e8dd855",
           "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -3920,7 +3944,7 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Highland Fuels"
+          "property_name": "SSE"
         },
         "pairedItem": {
           "item": 19
@@ -3928,153 +3952,9 @@
       },
       {
         "json": {
-          "id": "2f7785c0-cfab-8023-a15d-d0ba68cf299f",
-          "name": "HVO",
-          "url": "https://www.notion.so/HVO-2f7785c0cfab8023a15dd0ba68cf299f",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "HVO"
-        },
-        "pairedItem": {
-          "item": 20
-        }
-      },
-      {
-        "json": {
-          "id": "2f7785c0-cfab-8031-98cc-dacd6d551e5c",
-          "name": "B100",
-          "url": "https://www.notion.so/B100-2f7785c0cfab803198ccdacd6d551e5c",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "B100"
-        },
-        "pairedItem": {
-          "item": 21
-        }
-      },
-      {
-        "json": {
-          "id": "2f7785c0-cfab-8040-9221-e5a8e8414351",
-          "name": "Biodiesel",
-          "url": "https://www.notion.so/Biodiesel-2f7785c0cfab80409221e5a8e8414351",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Biodiesel"
-        },
-        "pairedItem": {
-          "item": 22
-        }
-      },
-      {
-        "json": {
-          "id": "2f7785c0-cfab-8046-810e-e97bfe8bdc76",
-          "name": "Hydrogen",
-          "url": "https://www.notion.so/Hydrogen-2f7785c0cfab8046810ee97bfe8bdc76",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Hydrogen"
-        },
-        "pairedItem": {
-          "item": 23
-        }
-      },
-      {
-        "json": {
-          "id": "2f7785c0-cfab-80b5-8c53-d30ac59d29dc",
-          "name": "FAME",
-          "url": "https://www.notion.so/FAME-2f7785c0cfab80b58c53d30ac59d29dc",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "FAME"
-        },
-        "pairedItem": {
-          "item": 24
-        }
-      },
-      {
-        "json": {
-          "id": "2f7785c0-cfab-80ba-ab27-d2b16390fce2",
-          "name": "Biofuel",
-          "url": "https://www.notion.so/Biofuel-2f7785c0cfab80baab27d2b16390fce2",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Biofuel"
-        },
-        "pairedItem": {
-          "item": 25
-        }
-      },
-      {
-        "json": {
-          "id": "2f7785c0-cfab-80e8-966e-c3776aa73deb",
-          "name": "UCO",
-          "url": "https://www.notion.so/UCO-2f7785c0cfab80e8966ec3776aa73deb",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "UCO"
-        },
-        "pairedItem": {
-          "item": 26
-        }
-      },
-      {
-        "json": {
-          "id": "303785c0-cfab-8027-9bc8-cd0b48174e2e",
-          "name": "EN 14214",
-          "url": "https://www.notion.so/EN-14214-303785c0cfab80279bc8cd0b48174e2e",
-          "property_keyword_category": "Industry",
-          "property_priority": "High",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "EN 14214"
-        },
-        "pairedItem": {
-          "item": 27
-        }
-      },
-      {
-        "json": {
-          "id": "31a785c0-cfab-80e0-b892-c1f049b2726b",
-          "name": "National Highways",
-          "url": "https://www.notion.so/National-Highways-31a785c0cfab80e0b892c1f049b2726b",
+          "id": "2c7785c0-cfab-8062-a6dd-d34b12f8a675",
+          "name": "Balfour Beatty",
+          "url": "https://www.notion.so/Balfour-Beatty-2c7785c0cfab8062a6ddd34b12f8a675",
           "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
@@ -4082,7 +3962,151 @@
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "National Highways"
+          "property_name": "Balfour Beatty"
+        },
+        "pairedItem": {
+          "item": 20
+        }
+      },
+      {
+        "json": {
+          "id": "29d785c0-cfab-80d1-9848-ca2d0c215afa",
+          "name": "ISCC",
+          "url": "https://www.notion.so/ISCC-29d785c0cfab80d19848ca2d0c215afa",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "ISCC"
+        },
+        "pairedItem": {
+          "item": 21
+        }
+      },
+      {
+        "json": {
+          "id": "29d785c0-cfab-802d-bb85-cb6b04b2d235",
+          "name": "“Used Cooking Oil”",
+          "url": "https://www.notion.so/Used-Cooking-Oil-29d785c0cfab802dbb85cb6b04b2d235",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "“Used Cooking Oil”"
+        },
+        "pairedItem": {
+          "item": 22
+        }
+      },
+      {
+        "json": {
+          "id": "29d785c0-cfab-8089-ac75-d8b7e02418f6",
+          "name": "14214 Biofuel",
+          "url": "https://www.notion.so/14214-Biofuel-29d785c0cfab8089ac75d8b7e02418f6",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "14214 Biofuel"
+        },
+        "pairedItem": {
+          "item": 23
+        }
+      },
+      {
+        "json": {
+          "id": "29d785c0-cfab-8045-a1e8-edf8aa745ba4",
+          "name": "14214 Biodiesel",
+          "url": "https://www.notion.so/14214-Biodiesel-29d785c0cfab8045a1e8edf8aa745ba4",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "14214 Biodiesel"
+        },
+        "pairedItem": {
+          "item": 24
+        }
+      },
+      {
+        "json": {
+          "id": "29b785c0-cfab-8061-99a3-cf4a3f89931d",
+          "name": "B100 FAME",
+          "url": "https://www.notion.so/B100-FAME-29b785c0cfab806199a3cf4a3f89931d",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "B100 FAME"
+        },
+        "pairedItem": {
+          "item": 25
+        }
+      },
+      {
+        "json": {
+          "id": "293785c0-cfab-80d3-a1fe-f9ac88cf1c5a",
+          "name": "“used cooking oil” Biofuel",
+          "url": "https://www.notion.so/used-cooking-oil-Biofuel-293785c0cfab80d3a1fef9ac88cf1c5a",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "“used cooking oil” Biofuel"
+        },
+        "pairedItem": {
+          "item": 26
+        }
+      },
+      {
+        "json": {
+          "id": "293785c0-cfab-8006-934a-f9d1ec21cf71",
+          "name": "FAME Biofuel",
+          "url": "https://www.notion.so/FAME-Biofuel-293785c0cfab8006934af9d1ec21cf71",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "FAME Biofuel"
+        },
+        "pairedItem": {
+          "item": 27
+        }
+      },
+      {
+        "json": {
+          "id": "293785c0-cfab-807c-96bb-f668e2e4de33",
+          "name": "FAME Biodiesel",
+          "url": "https://www.notion.so/FAME-Biodiesel-293785c0cfab807c96bbf668e2e4de33",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "FAME Biodiesel"
         },
         "pairedItem": {
           "item": 28
@@ -4090,17 +4114,17 @@
       },
       {
         "json": {
-          "id": "303785c0-cfab-80b6-ae66-f468edeaec3a",
-          "name": "Silvey Fleet",
-          "url": "https://www.notion.so/Silvey-Fleet-303785c0cfab80b6ae66f468edeaec3a",
-          "property_keyword_category": "Competitor",
-          "property_priority": "Low",
+          "id": "293785c0-cfab-80e6-a9ab-f89502a74429",
+          "name": "B100 Biodiesel",
+          "url": "https://www.notion.so/B100-Biodiesel-293785c0cfab80e6a9abf89502a74429",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Silvey Fleet"
+          "property_name": "B100 Biodiesel"
         },
         "pairedItem": {
           "item": 29
@@ -4108,17 +4132,17 @@
       },
       {
         "json": {
-          "id": "31a785c0-cfab-8051-aa62-db08cf399a81",
-          "name": "CO2",
-          "url": "https://www.notion.so/CO2-31a785c0cfab8051aa62db08cf399a81",
-          "property_keyword_category": "Decarbonisation",
-          "property_priority": "Low",
+          "id": "293785c0-cfab-8065-85cf-c2d65ec610c5",
+          "name": "B100 Biofuel",
+          "url": "https://www.notion.so/B100-Biofuel-293785c0cfab806585cfc2d65ec610c5",
+          "property_keyword_category": "Industry",
+          "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "CO2"
+          "property_name": "B100 Biofuel"
         },
         "pairedItem": {
           "item": 30
@@ -4126,17 +4150,17 @@
       },
       {
         "json": {
-          "id": "2f1785c0-cfab-8041-b9b1-f068ff31c960",
-          "name": "Scania",
-          "url": "https://www.notion.so/Scania-2f1785c0cfab8041b9b1f068ff31c960",
-          "property_keyword_category": "OEM",
+          "id": "2f4785c0-cfab-804e-a640-d0ecd2b7afd3",
+          "name": "Greenergy",
+          "url": "https://www.notion.so/Greenergy-2f4785c0cfab804ea640d0ecd2b7afd3",
+          "property_keyword_category": "Competitor",
           "property_priority": "Low",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Scania"
+          "property_name": "Greenergy"
         },
         "pairedItem": {
           "item": 31
@@ -4144,17 +4168,17 @@
       },
       {
         "json": {
-          "id": "2f1785c0-cfab-8056-91e6-e5a3e936c516",
-          "name": "Xuzhou",
-          "url": "https://www.notion.so/Xuzhou-2f1785c0cfab805691e6e5a3e936c516",
-          "property_keyword_category": "OEM",
+          "id": "31a785c0-cfab-8035-899e-dd3316f912cc",
+          "name": "Scope 3",
+          "url": "https://www.notion.so/Scope-3-31a785c0cfab8035899edd3316f912cc",
+          "property_keyword_category": "Decarbonisation",
           "property_priority": "Low",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Xuzhou"
+          "property_name": "Scope 3"
         },
         "pairedItem": {
           "item": 32
@@ -4180,17 +4204,17 @@
       },
       {
         "json": {
-          "id": "2f1785c0-cfab-806b-9f8a-e5d2ed2a3510",
-          "name": "Komatsu",
-          "url": "https://www.notion.so/Komatsu-2f1785c0cfab806b9f8ae5d2ed2a3510",
-          "property_keyword_category": "OEM",
+          "id": "2f4785c0-cfab-806a-87a4-f67349155345",
+          "name": "Bio UK",
+          "url": "https://www.notion.so/Bio-UK-2f4785c0cfab806a87a4f67349155345",
+          "property_keyword_category": "Competitor",
           "property_priority": "Low",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Komatsu"
+          "property_name": "Bio UK"
         },
         "pairedItem": {
           "item": 34
@@ -4198,20 +4222,74 @@
       },
       {
         "json": {
-          "id": "31a785c0-cfab-80b4-9a2a-d79fa89681a8",
-          "name": "Climate Change",
-          "url": "https://www.notion.so/Climate-Change-31a785c0cfab80b49a2ad79fa89681a8",
-          "property_keyword_category": "Decarbonisation",
+          "id": "303785c0-cfab-80fe-9138-fc26b8409e4f",
+          "name": "Crown Oil",
+          "url": "https://www.notion.so/Crown-Oil-303785c0cfab80fe9138fc26b8409e4f",
+          "property_keyword_category": "Competitor",
           "property_priority": "Low",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "Climate Change"
+          "property_name": "Crown Oil"
         },
         "pairedItem": {
           "item": 35
+        }
+      },
+      {
+        "json": {
+          "id": "2f1785c0-cfab-80b7-b87f-d082745936a9",
+          "name": "Deutz-Fahr",
+          "url": "https://www.notion.so/Deutz-Fahr-2f1785c0cfab80b7b87fd082745936a9",
+          "property_keyword_category": "OEM Tractor",
+          "property_priority": "Low",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "Deutz-Fahr"
+        },
+        "pairedItem": {
+          "item": 36
+        }
+      },
+      {
+        "json": {
+          "id": "2f1785c0-cfab-8031-bed3-ced2c08af251",
+          "name": "Claas",
+          "url": "https://www.notion.so/Claas-2f1785c0cfab8031bed3ced2c08af251",
+          "property_keyword_category": "OEM Tractor",
+          "property_priority": "Low",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "Claas"
+        },
+        "pairedItem": {
+          "item": 37
+        }
+      },
+      {
+        "json": {
+          "id": "2f1785c0-cfab-8024-babe-c111bfd0187e",
+          "name": "John Deere",
+          "url": "https://www.notion.so/John-Deere-2f1785c0cfab8024babec111bfd0187e",
+          "property_keyword_category": "OEM Tractor",
+          "property_priority": "Low",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_category": null,
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "John Deere"
+        },
+        "pairedItem": {
+          "item": 38
         }
       },
       {
@@ -4229,60 +4307,6 @@
           "property_name": "Decarbonisation"
         },
         "pairedItem": {
-          "item": 36
-        }
-      },
-      {
-        "json": {
-          "id": "2f4785c0-cfab-804e-a640-d0ecd2b7afd3",
-          "name": "Greenergy",
-          "url": "https://www.notion.so/Greenergy-2f4785c0cfab804ea640d0ecd2b7afd3",
-          "property_keyword_category": "Competitor",
-          "property_priority": "Low",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Greenergy"
-        },
-        "pairedItem": {
-          "item": 37
-        }
-      },
-      {
-        "json": {
-          "id": "2f4785c0-cfab-8029-a024-fabc887a2476",
-          "name": "Arrow Oils",
-          "url": "https://www.notion.so/Arrow-Oils-2f4785c0cfab8029a024fabc887a2476",
-          "property_keyword_category": "Competitor",
-          "property_priority": "Low",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Arrow Oils"
-        },
-        "pairedItem": {
-          "item": 38
-        }
-      },
-      {
-        "json": {
-          "id": "2f1785c0-cfab-80b1-9c27-c1b64919188c",
-          "name": "Volvo CE",
-          "url": "https://www.notion.so/Volvo-CE-2f1785c0cfab80b19c27c1b64919188c",
-          "property_keyword_category": "OEM",
-          "property_priority": "Low",
-          "property_rss_feed": null,
-          "property_source": "Keyword",
-          "property_category": null,
-          "property_url": null,
-          "property_status": "Active",
-          "property_name": "Volvo CE"
-        },
-        "pairedItem": {
           "item": 39
         }
       },
@@ -4291,7 +4315,7 @@
           "id": "2f1785c0-cfab-80af-b00e-d32e63daa355",
           "name": "MAN",
           "url": "https://www.notion.so/MAN-2f1785c0cfab80afb00ed32e63daa355",
-          "property_keyword_category": "OEM",
+          "property_keyword_category": "OEM Commercial",
           "property_priority": "Low",
           "property_rss_feed": null,
           "property_source": "Keyword",
@@ -4306,17 +4330,17 @@
       },
       {
         "json": {
-          "id": "293785c0-cfab-806f-9a9c-f72a1fdd96fd",
-          "name": "“used cooking oil” Biodiesel",
-          "url": "https://www.notion.so/used-cooking-oil-Biodiesel-293785c0cfab806f9a9cf72a1fdd96fd",
-          "property_keyword_category": "Industry",
+          "id": "2f4785c0-cfab-80ff-9aa0-c0d7136bb21d",
+          "name": "Harvest Energy",
+          "url": "https://www.notion.so/Harvest-Energy-2f4785c0cfab80ff9aa0c0d7136bb21d",
+          "property_keyword_category": "Competitor",
           "property_priority": "Low",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "“used cooking oil” Biodiesel"
+          "property_name": "Harvest Energy"
         },
         "pairedItem": {
           "item": 41
@@ -4355,6 +4379,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-04-01T08:25:40.167Z",
-  "versionId": "53455ea6-e28e-413f-842f-b63e08e420b3"
+  "updatedAt": "2026-04-13T11:26:09.563Z",
+  "versionId": "e99263c2-fb93-4ba9-b5c6-30acc0600ecd"
 }
