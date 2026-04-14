@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-04T15:25:04.706Z",
-    "createdAt": "2026-02-04T15:25:02.427Z",
-    "versionId": "cad5cc63-2ba3-40c4-ae92-7e5660de8150",
+    "updatedAt": "2026-04-13T11:26:46.225Z",
+    "createdAt": "2026-04-13T11:26:01.833Z",
+    "versionId": "f42c131a-ce44-434f-b518-8adb9924eed1",
     "workflowId": "3TArIAzUNlMPDPqK",
     "nodes": [
       {
@@ -99,8 +99,7 @@
             "value": "nH2AHrwxeTRJoN5hX",
             "mode": "id"
           },
-          "customBody": "={\n    \"onlyPostsNewerThan\": \"1 month\",\n    \"resultsLimit\": 5,\n    \"skipPinnedPosts\": false,\n    \"username\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
-          "timeout": {}
+          "customBody": "={\n    \"onlyPostsNewerThan\": \"1 month\",\n    \"resultsLimit\": 5,\n    \"skipPinnedPosts\": false,\n    \"username\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
         },
         "type": "@apify/n8n-nodes-apify.apify",
         "typeVersion": 1,
@@ -668,6 +667,12 @@
                 "id": "1e2ead8a-561a-4693-997c-7b6d8c169eeb",
                 "name": "source_name",
                 "value": "={{ $('Start').item.json.property_name }}",
+                "type": "string"
+              },
+              {
+                "id": "f53a4876-9a86-4ed3-bc5a-e1bde726dbb5",
+                "name": "source_category",
+                "value": "={{ $('Start').item.json.property_category }}",
                 "type": "string"
               },
               {
@@ -1283,11 +1288,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "upsert",
+    "name": "restore article input limits",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "cad5cc63-2ba3-40c4-ae92-7e5660de8150",
+  "activeVersionId": "f42c131a-ce44-434f-b518-8adb9924eed1",
   "connections": {
     "Start": {
       "main": [
@@ -1714,8 +1719,7 @@
           "value": "nH2AHrwxeTRJoN5hX",
           "mode": "id"
         },
-        "customBody": "={\n    \"onlyPostsNewerThan\": \"1 month\",\n    \"resultsLimit\": 5,\n    \"skipPinnedPosts\": false,\n    \"username\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}",
-        "timeout": {}
+        "customBody": "={\n    \"onlyPostsNewerThan\": \"1 month\",\n    \"resultsLimit\": 5,\n    \"skipPinnedPosts\": false,\n    \"username\": [\n        \"{{ $json.url_or_keyword }}\"\n    ]\n}"
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
@@ -2286,6 +2290,12 @@
               "type": "string"
             },
             {
+              "id": "f53a4876-9a86-4ed3-bc5a-e1bde726dbb5",
+              "name": "source_category",
+              "value": "={{ $('Start').item.json.property_category }}",
+              "type": "string"
+            },
+            {
               "id": "5df51f8f-9a46-457d-b8b8-15ea63b70751",
               "name": "prompt",
               "value": "={{ $('Start').first().json.prompt }}",
@@ -2570,7 +2580,28 @@
       "executeOnce": false
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Start": [
+      {
+        "json": {
+          "id": "27e785c0-cfab-801c-90d2-ce48267ae568",
+          "name": "Renewable Energy Club",
+          "url": "https://www.notion.so/Renewable-Energy-Club-27e785c0cfab801c90d2ce48267ae568",
+          "property_keyword_category": null,
+          "property_priority": "High",
+          "property_rss_feed": null,
+          "property_source": "Instagram",
+          "property_category": "Organisation",
+          "property_url": "https://www.instagram.com/renewable_energy_club/",
+          "property_status": "Active",
+          "property_name": "Renewable Energy Club"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -2602,6 +2633,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-02-04T15:25:02.426Z",
-  "versionId": "cad5cc63-2ba3-40c4-ae92-7e5660de8150"
+  "updatedAt": "2026-04-13T11:26:01.695Z",
+  "versionId": "f42c131a-ce44-434f-b518-8adb9924eed1"
 }
