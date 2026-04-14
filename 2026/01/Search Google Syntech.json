@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-05T07:34:30.329Z",
-    "createdAt": "2026-03-05T07:34:24.085Z",
-    "versionId": "664115bf-1f60-4d71-b98e-b2376c938eb5",
+    "updatedAt": "2026-04-13T11:26:37.220Z",
+    "createdAt": "2026-04-13T11:26:22.852Z",
+    "versionId": "0407336f-f561-4d55-bba2-2857a9cd2216",
     "workflowId": "LD5_Lrj2Q4hN9kpTCWyxC",
     "nodes": [
       {
@@ -378,6 +378,12 @@
                 "id": "9fa24bce-6aa0-4d13-a106-54727cd4ee0b",
                 "name": "source_name",
                 "value": "={{ $('Either Url or Keyword5').first().json.set_source_name }}",
+                "type": "string"
+              },
+              {
+                "id": "16c4619b-e07a-4e2a-9c5f-b3fd59da9956",
+                "name": "source_category",
+                "value": "={{ $('When Executed by Another Workflow').item.json.property_keyword_category }}",
                 "type": "string"
               },
               {
@@ -836,6 +842,12 @@
                 "id": "47689509-95e8-486e-85e5-d4423b40370e",
                 "name": "source_name",
                 "value": "={{ $('Either Url or Keyword5').first().json.set_source_name }}",
+                "type": "string"
+              },
+              {
+                "id": "07b65d02-7dc4-458c-adb7-954d30c26bfd",
+                "name": "source_category",
+                "value": "={{ $('When Executed by Another Workflow').item.json.property_keyword_category }}",
                 "type": "string"
               },
               {
@@ -2607,11 +2619,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "remove deepseek",
+    "name": "restore article input limits",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "664115bf-1f60-4d71-b98e-b2376c938eb5",
+  "activeVersionId": "0407336f-f561-4d55-bba2-2857a9cd2216",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -3645,6 +3657,12 @@
               "type": "string"
             },
             {
+              "id": "16c4619b-e07a-4e2a-9c5f-b3fd59da9956",
+              "name": "source_category",
+              "value": "={{ $('When Executed by Another Workflow').item.json.property_keyword_category }}",
+              "type": "string"
+            },
+            {
               "id": "9aea88f6-a629-4f42-ba37-8608bb631772",
               "name": "mode",
               "value": "={{ $('When Executed by Another Workflow').first().json.process_mode }}",
@@ -4100,6 +4118,12 @@
               "id": "47689509-95e8-486e-85e5-d4423b40370e",
               "name": "source_name",
               "value": "={{ $('Either Url or Keyword5').first().json.set_source_name }}",
+              "type": "string"
+            },
+            {
+              "id": "07b65d02-7dc4-458c-adb7-954d30c26bfd",
+              "name": "source_category",
+              "value": "={{ $('When Executed by Another Workflow').item.json.property_keyword_category }}",
               "type": "string"
             },
             {
@@ -5224,17 +5248,17 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "id": "2f7785c0-cfab-80b5-8c53-d30ac59d29dc",
-          "name": "FAME",
-          "url": "https://www.notion.so/FAME-2f7785c0cfab80b58c53d30ac59d29dc",
-          "property_keyword_category": "Industry",
+          "id": "325785c0-cfab-80ae-ab1a-ce057099aef3",
+          "name": "TFL",
+          "url": "https://www.notion.so/TFL-325785c0cfab80aeab1ace057099aef3",
+          "property_keyword_category": "Customer",
           "property_priority": "High",
           "property_rss_feed": null,
           "property_source": "Keyword",
           "property_category": null,
           "property_url": null,
           "property_status": "Active",
-          "property_name": "FAME"
+          "property_name": "TFL"
         },
         "pairedItem": {
           "item": 0
@@ -5273,6 +5297,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-03-05T07:34:24.079Z",
-  "versionId": "664115bf-1f60-4d71-b98e-b2376c938eb5"
+  "updatedAt": "2026-04-13T11:26:22.711Z",
+  "versionId": "0407336f-f561-4d55-bba2-2857a9cd2216"
 }
