@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-12T13:58:23.976Z",
-    "createdAt": "2026-04-12T13:58:12.677Z",
-    "versionId": "4757561c-27d3-4719-a74d-ff5bb96f573a",
+    "updatedAt": "2026-04-13T11:38:55.836Z",
+    "createdAt": "2026-04-13T11:38:45.084Z",
+    "versionId": "355b341e-9eae-4513-a1c4-7df58b36d7ec",
     "workflowId": "iMG6XApQjSxVQxIe",
     "nodes": [
       {
@@ -302,17 +302,21 @@
           240
         ],
         "id": "fa30100b-0198-4256-ad12-79c9ad0f195f",
-        "name": "Create summary and title"
+        "name": "Create summary and title",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000,
+        "onError": "continueRegularOutput"
       },
       {
         "parameters": {
           "schemaType": "manual",
-          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+          "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}",
+          "autoFix": true
         },
         "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
         "typeVersion": 1.3,
         "position": [
-          2000,
+          2048,
           464
         ],
         "id": "242d85eb-b0ea-48e0-a3be-ee40f4862c20",
@@ -763,7 +767,7 @@
       },
       {
         "parameters": {
-          "maxItems": 100
+          "maxItems": 1000
         },
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
@@ -1408,6 +1412,33 @@
             "name": "Syntech GM OpenAi account"
           }
         }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "claude-haiku-4-5-20251001",
+            "mode": "list",
+            "cachedResultName": "Claude Haiku 4.5"
+          },
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "typeVersion": 1.3,
+        "position": [
+          2096,
+          672
+        ],
+        "id": "30333a13-4f13-4519-9a43-7a853b2a8435",
+        "name": "Anthropic Chat Model1",
+        "credentials": {
+          "anthropicApi": {
+            "id": "0c1nNLaJWpeD3Cqz",
+            "name": "Syntech GM Anthropic account"
+          }
+        }
       }
     ],
     "connections": {
@@ -1867,14 +1898,25 @@
             }
           ]
         ]
+      },
+      "Anthropic Chat Model1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Structured Output Parser2",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "add source category",
+    "name": "Add retry on fail",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "4757561c-27d3-4719-a74d-ff5bb96f573a",
+  "activeVersionId": "355b341e-9eae-4513-a1c4-7df58b36d7ec",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2332,6 +2374,17 @@
           }
         ]
       ]
+    },
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:06:07.080Z",
@@ -2638,17 +2691,21 @@
         240
       ],
       "id": "fa30100b-0198-4256-ad12-79c9ad0f195f",
-      "name": "Create summary and title"
+      "name": "Create summary and title",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
         "schemaType": "manual",
-        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}"
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"description\": \"A compelling, benefit-driven title\"\n    },\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"A concise summary (max 50 words)\"\n    }\n  },\n  \"required\": [\"title\", \"summary\"]\n}",
+        "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        2000,
+        2048,
         464
       ],
       "id": "242d85eb-b0ea-48e0-a3be-ee40f4862c20",
@@ -3099,7 +3156,7 @@
     },
     {
       "parameters": {
-        "maxItems": 100
+        "maxItems": 1000
       },
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
@@ -3744,6 +3801,33 @@
           "name": "Syntech GM OpenAi account"
         }
       }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        2096,
+        672
+      ],
+      "id": "30333a13-4f13-4519-9a43-7a853b2a8435",
+      "name": "Anthropic Chat Model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "0c1nNLaJWpeD3Cqz",
+          "name": "Syntech GM Anthropic account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -3914,6 +3998,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-04-12T13:58:12.539Z",
-  "versionId": "4757561c-27d3-4719-a74d-ff5bb96f573a"
+  "updatedAt": "2026-04-13T11:38:44.946Z",
+  "versionId": "355b341e-9eae-4513-a1c4-7df58b36d7ec"
 }
