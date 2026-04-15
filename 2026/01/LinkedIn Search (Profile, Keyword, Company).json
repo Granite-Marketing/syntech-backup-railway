@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-13T11:26:40.818Z",
-    "createdAt": "2026-04-13T11:26:14.636Z",
-    "versionId": "aff68dfb-dda0-49b4-884e-394de0762d06",
+    "updatedAt": "2026-04-14T16:10:40.630Z",
+    "createdAt": "2026-04-14T16:10:19.959Z",
+    "versionId": "9cfe312f-999e-4b35-8b55-2d9b9b21c8e2",
     "workflowId": "p9T1CJ8sI5Q18MoG",
     "nodes": [
       {
@@ -111,6 +111,7 @@
         ],
         "id": "9c012d8b-8c74-423c-8e9e-864f589ac80d",
         "name": "Linkedin profile scraper",
+        "alwaysOutputData": true,
         "credentials": {
           "apifyApi": {
             "id": "JsuEKmvPtVt6JvXD",
@@ -178,7 +179,8 @@
           -4160
         ],
         "id": "e81ebcac-7c35-4a4c-9505-5cabe71be38f",
-        "name": "Merge5"
+        "name": "Merge5",
+        "alwaysOutputData": true
       },
       {
         "parameters": {
@@ -219,7 +221,8 @@
           -4144
         ],
         "id": "1e62cb7e-3cd3-47d1-aad0-933af76a3aa5",
-        "name": "linkedin fields"
+        "name": "linkedin fields",
+        "alwaysOutputData": true
       },
       {
         "parameters": {
@@ -260,7 +263,8 @@
           -3952
         ],
         "id": "f893a992-f5dc-4426-a28d-546ce0ed5508",
-        "name": "linkedin fields1"
+        "name": "linkedin fields1",
+        "alwaysOutputData": true
       },
       {
         "parameters": {
@@ -454,6 +458,7 @@
         ],
         "id": "6a5c11a2-c447-47f5-8885-a7065fca8802",
         "name": "Linkedin keword scraper",
+        "alwaysOutputData": true,
         "credentials": {
           "apifyApi": {
             "id": "JsuEKmvPtVt6JvXD",
@@ -718,7 +723,8 @@
           -4336
         ],
         "id": "2d57f5c6-b31d-42e4-b63e-9ee1161e462f",
-        "name": "linkedin fields2"
+        "name": "linkedin fields2",
+        "alwaysOutputData": true
       },
       {
         "parameters": {
@@ -1297,11 +1303,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "restore article input limits",
+    "name": "add always output data to LinkedIn",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "aff68dfb-dda0-49b4-884e-394de0762d06",
+  "activeVersionId": "9cfe312f-999e-4b35-8b55-2d9b9b21c8e2",
   "connections": {
     "Start": {
       "main": [
@@ -1720,6 +1726,7 @@
       ],
       "id": "9c012d8b-8c74-423c-8e9e-864f589ac80d",
       "name": "Linkedin profile scraper",
+      "alwaysOutputData": true,
       "credentials": {
         "apifyApi": {
           "id": "JsuEKmvPtVt6JvXD",
@@ -1787,7 +1794,8 @@
         -4160
       ],
       "id": "e81ebcac-7c35-4a4c-9505-5cabe71be38f",
-      "name": "Merge5"
+      "name": "Merge5",
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -1828,7 +1836,8 @@
         -4144
       ],
       "id": "1e62cb7e-3cd3-47d1-aad0-933af76a3aa5",
-      "name": "linkedin fields"
+      "name": "linkedin fields",
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -1869,7 +1878,8 @@
         -3952
       ],
       "id": "f893a992-f5dc-4426-a28d-546ce0ed5508",
-      "name": "linkedin fields1"
+      "name": "linkedin fields1",
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -2063,6 +2073,7 @@
       ],
       "id": "6a5c11a2-c447-47f5-8885-a7065fca8802",
       "name": "Linkedin keword scraper",
+      "alwaysOutputData": true,
       "credentials": {
         "apifyApi": {
           "id": "JsuEKmvPtVt6JvXD",
@@ -2327,7 +2338,8 @@
         -4336
       ],
       "id": "2d57f5c6-b31d-42e4-b63e-9ee1161e462f",
-      "name": "linkedin fields2"
+      "name": "linkedin fields2",
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -3446,6 +3458,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-04-13T11:26:14.496Z",
-  "versionId": "aff68dfb-dda0-49b4-884e-394de0762d06"
+  "updatedAt": "2026-04-14T16:10:19.812Z",
+  "versionId": "9cfe312f-999e-4b35-8b55-2d9b9b21c8e2"
 }
