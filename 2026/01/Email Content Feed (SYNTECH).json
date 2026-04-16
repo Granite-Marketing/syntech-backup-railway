@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-14T06:25:54.316Z",
-    "createdAt": "2026-04-14T06:25:45.815Z",
-    "versionId": "635ebda1-fe1b-47c4-8008-a0f2c728d861",
+    "updatedAt": "2026-04-15T08:54:45.256Z",
+    "createdAt": "2026-04-15T08:54:34.195Z",
+    "versionId": "4c9ccd58-e628-42ff-ac41-c8194fdb7d00",
     "workflowId": "uit9Y3dCeI1hjITN",
     "nodes": [
       {
@@ -255,7 +255,7 @@
       {
         "parameters": {
           "sendTo": "stephen@granitemarketing.co.uk, tim@syntechbiofuel.com, justin@syntechbiofuel.com, sue@syntechbiofuel.com",
-          "subject": "=🔎 SYMNTECH | {{ $('Loop Over Items').first() ? $('Loop Over Items').first().json.display_query : 'Source Unknown' }} | {{ $now.format('DD') }}",
+          "subject": "=🔎 SYNTECH | {{ $('Loop Over Items').first() ? $('Loop Over Items').first().json.display_query : 'Source Unknown' }} | {{ $now.format('DD') }}",
           "message": "=Good Morning! \n\nHere are the mentions of Syntech from today:\n{{\n  $json.data\n    .sort((a, b) => {\n      const order = { new: 0, update: 1, duplicate: 2 };\n      return order[a.status] - order[b.status];\n    })\n    .map(item => item)\n    .join('<br><hr>')\n}}\n<br>\nSYNTECH Bot 🤖",
           "options": {
             "appendAttribution": false,
@@ -637,11 +637,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "remove note",
+    "name": "fix mention typo",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "635ebda1-fe1b-47c4-8008-a0f2c728d861",
+  "activeVersionId": "4c9ccd58-e628-42ff-ac41-c8194fdb7d00",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -1086,7 +1086,7 @@
     {
       "parameters": {
         "sendTo": "stephen@granitemarketing.co.uk, tim@syntechbiofuel.com, justin@syntechbiofuel.com, sue@syntechbiofuel.com",
-        "subject": "=🔎 SYMNTECH | {{ $('Loop Over Items').first() ? $('Loop Over Items').first().json.display_query : 'Source Unknown' }} | {{ $now.format('DD') }}",
+        "subject": "=🔎 SYNTECH | {{ $('Loop Over Items').first() ? $('Loop Over Items').first().json.display_query : 'Source Unknown' }} | {{ $now.format('DD') }}",
         "message": "=Good Morning! \n\nHere are the mentions of Syntech from today:\n{{\n  $json.data\n    .sort((a, b) => {\n      const order = { new: 0, update: 1, duplicate: 2 };\n      return order[a.status] - order[b.status];\n    })\n    .map(item => item)\n    .join('<br><hr>')\n}}\n<br>\nSYNTECH Bot 🤖",
         "options": {
           "appendAttribution": false,
@@ -1334,6 +1334,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-04-14T06:25:45.679Z",
-  "versionId": "635ebda1-fe1b-47c4-8008-a0f2c728d861"
+  "updatedAt": "2026-04-15T08:54:34.062Z",
+  "versionId": "4c9ccd58-e628-42ff-ac41-c8194fdb7d00"
 }
