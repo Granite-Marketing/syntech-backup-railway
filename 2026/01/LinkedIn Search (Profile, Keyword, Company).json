@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-14T16:10:40.630Z",
-    "createdAt": "2026-04-14T16:10:19.959Z",
-    "versionId": "9cfe312f-999e-4b35-8b55-2d9b9b21c8e2",
+    "updatedAt": "2026-04-16T19:56:05.203Z",
+    "createdAt": "2026-04-16T19:55:52.718Z",
+    "versionId": "0d51baac-84ae-4d24-b32a-1ec7cde622cf",
     "workflowId": "p9T1CJ8sI5Q18MoG",
     "nodes": [
       {
@@ -340,6 +340,7 @@
         ],
         "id": "d970d390-4ab3-4abf-8b38-8d70b7b8e274",
         "name": "Linkedin company post search scraper",
+        "alwaysOutputData": true,
         "credentials": {
           "apifyApi": {
             "id": "JsuEKmvPtVt6JvXD",
@@ -1303,11 +1304,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "add always output data to LinkedIn",
+    "name": "add always output data linkedin",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "9cfe312f-999e-4b35-8b55-2d9b9b21c8e2",
+  "activeVersionId": "0d51baac-84ae-4d24-b32a-1ec7cde622cf",
   "connections": {
     "Start": {
       "main": [
@@ -1955,6 +1956,7 @@
       ],
       "id": "d970d390-4ab3-4abf-8b38-8d70b7b8e274",
       "name": "Linkedin company post search scraper",
+      "alwaysOutputData": true,
       "credentials": {
         "apifyApi": {
           "id": "JsuEKmvPtVt6JvXD",
@@ -3458,6 +3460,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2026-04-14T16:10:19.812Z",
-  "versionId": "9cfe312f-999e-4b35-8b55-2d9b9b21c8e2"
+  "updatedAt": "2026-04-16T19:55:52.585Z",
+  "versionId": "0d51baac-84ae-4d24-b32a-1ec7cde622cf"
 }
