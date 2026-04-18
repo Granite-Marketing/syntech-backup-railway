@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-15T08:54:45.256Z",
-    "createdAt": "2026-04-15T08:54:34.195Z",
-    "versionId": "4c9ccd58-e628-42ff-ac41-c8194fdb7d00",
+    "updatedAt": "2026-04-17T06:51:58.473Z",
+    "createdAt": "2026-04-17T06:51:43.155Z",
+    "versionId": "86d787e7-ee08-4941-bb73-43321f5179f0",
     "workflowId": "uit9Y3dCeI1hjITN",
     "nodes": [
       {
@@ -370,7 +370,7 @@
               {
                 "id": "f4dbc790-fb04-4b34-b9ed-c82a91830347",
                 "name": "data",
-                "value": "=<h3>\n📝 Title: {{ $('Set Data').item.json.article_name }} ({{ $('Set Data').item.json.status === 'update' && 'UPDATE 🟠' || $('Set Data').item.json.status === 'duplicate' && 'DUPLICATE 🔴' || $('Set Data').item.json.status === 'new' && 'NEW 🟢' }})  \n</h3>\n\n<p>📅 Published Date: <strong>{{ $('Set Data').item.json.article_published_date ? $('Set Data').item.json.article_published_date.toDateTime().format('DD') : 'N/A' }}</strong></p>\n\n<ul>\n  <li>Primary source: <a href=\"{{ $('Set Data').item.json.article_url }}\">External</a></li>\n  <li>View in Notion: <a href=\"{{ $('Set Data').item.json.notion_url }}\">Notion</a></li>\n</ul>\n\n{{ $json.data }}\n\n\n🔗 Sources Websites:\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const primary = $('Set Data').item.json.article_url;\n    const urls = $('Set Data').item.json.source_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    const also = unique.filter(u => u !== primary);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" on website</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View on website</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n\n🔗 Sources (Notion):\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const urls = $('Set Data').item.json.article_notion_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    if (!unique.length) return '';\n\n    const primary = unique[0];\n    const also = unique.slice(1);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" in Notion</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View in Notion</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n<br>",
+                "value": "=<h3>\n📝 Title: {{ $('Set Data').item.json.article_name }} ({{ $('Set Data').item.json.status === 'update' && 'UPDATE 🟠' || $('Set Data').item.json.status === 'duplicate' && 'DUPLICATE 🔴' || $('Set Data').item.json.status === 'new' && 'NEW 🟢' }})  \n</h3>\n\n<p>📅 Published Date: <strong>{{ $('Set Data').item.json.article_published_date ? $('Set Data').item.json.article_published_date.toDateTime().format('DD') : 'N/A' }}</strong></p>\n\n<ul>\n  <li>Primary source: <a href=\"{{ $('Set Data').item.json.article_url }}\">External</a></li>\n  <li>View in Notion: <a href=\"{{ $('Set Data').item.json.notion_url }}\">Notion</a></li>\n</ul>\n\n{{ $json.data }}\n\n\n<p>🔗 Sources Websites:</p>\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const primary = $('Set Data').item.json.article_url;\n    const urls = $('Set Data').item.json.source_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    const also = unique.filter(u => u !== primary);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" on website</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View on website</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n\n<p>🔗 Sources (Notion):</p>\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const urls = $('Set Data').item.json.article_notion_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    if (!unique.length) return '';\n\n    const primary = unique[0];\n    const also = unique.slice(1);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" in Notion</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View in Notion</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n<br>",
                 "type": "string"
               }
             ]
@@ -637,11 +637,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "fix mention typo",
+    "name": "wrap sources in <p> tag",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "4c9ccd58-e628-42ff-ac41-c8194fdb7d00",
+  "activeVersionId": "86d787e7-ee08-4941-bb73-43321f5179f0",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -1201,7 +1201,7 @@
             {
               "id": "f4dbc790-fb04-4b34-b9ed-c82a91830347",
               "name": "data",
-              "value": "=<h3>\n📝 Title: {{ $('Set Data').item.json.article_name }} ({{ $('Set Data').item.json.status === 'update' && 'UPDATE 🟠' || $('Set Data').item.json.status === 'duplicate' && 'DUPLICATE 🔴' || $('Set Data').item.json.status === 'new' && 'NEW 🟢' }})  \n</h3>\n\n<p>📅 Published Date: <strong>{{ $('Set Data').item.json.article_published_date ? $('Set Data').item.json.article_published_date.toDateTime().format('DD') : 'N/A' }}</strong></p>\n\n<ul>\n  <li>Primary source: <a href=\"{{ $('Set Data').item.json.article_url }}\">External</a></li>\n  <li>View in Notion: <a href=\"{{ $('Set Data').item.json.notion_url }}\">Notion</a></li>\n</ul>\n\n{{ $json.data }}\n\n\n🔗 Sources Websites:\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const primary = $('Set Data').item.json.article_url;\n    const urls = $('Set Data').item.json.source_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    const also = unique.filter(u => u !== primary);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" on website</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View on website</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n\n🔗 Sources (Notion):\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const urls = $('Set Data').item.json.article_notion_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    if (!unique.length) return '';\n\n    const primary = unique[0];\n    const also = unique.slice(1);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" in Notion</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View in Notion</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n<br>",
+              "value": "=<h3>\n📝 Title: {{ $('Set Data').item.json.article_name }} ({{ $('Set Data').item.json.status === 'update' && 'UPDATE 🟠' || $('Set Data').item.json.status === 'duplicate' && 'DUPLICATE 🔴' || $('Set Data').item.json.status === 'new' && 'NEW 🟢' }})  \n</h3>\n\n<p>📅 Published Date: <strong>{{ $('Set Data').item.json.article_published_date ? $('Set Data').item.json.article_published_date.toDateTime().format('DD') : 'N/A' }}</strong></p>\n\n<ul>\n  <li>Primary source: <a href=\"{{ $('Set Data').item.json.article_url }}\">External</a></li>\n  <li>View in Notion: <a href=\"{{ $('Set Data').item.json.notion_url }}\">Notion</a></li>\n</ul>\n\n{{ $json.data }}\n\n\n<p>🔗 Sources Websites:</p>\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const primary = $('Set Data').item.json.article_url;\n    const urls = $('Set Data').item.json.source_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    const also = unique.filter(u => u !== primary);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" on website</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View on website</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n\n<p>🔗 Sources (Notion):</p>\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const urls = $('Set Data').item.json.article_notion_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    if (!unique.length) return '';\n\n    const primary = unique[0];\n    const also = unique.slice(1);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" in Notion</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View in Notion</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n<br>",
               "type": "string"
             }
           ]
@@ -1334,6 +1334,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-04-15T08:54:34.062Z",
-  "versionId": "4c9ccd58-e628-42ff-ac41-c8194fdb7d00"
+  "updatedAt": "2026-04-17T06:51:43.024Z",
+  "versionId": "86d787e7-ee08-4941-bb73-43321f5179f0"
 }
