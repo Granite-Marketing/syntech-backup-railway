@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-16T20:33:22.682Z",
-    "createdAt": "2026-04-16T20:32:34.485Z",
-    "versionId": "92e4f5b4-e019-4f33-915f-f3aa35ed9571",
+    "updatedAt": "2026-04-19T08:12:54.576Z",
+    "createdAt": "2026-04-19T08:12:38.661Z",
+    "versionId": "779e3f8c-4e50-4717-b0f5-61af21a8dd0d",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -3734,7 +3734,8 @@
         "position": [
           2064,
           4848
-        ]
+        ],
+        "disabled": true
       },
       {
         "parameters": {
@@ -3968,7 +3969,8 @@
         "position": [
           1840,
           4848
-        ]
+        ],
+        "disabled": true
       },
       {
         "parameters": {
@@ -7159,11 +7161,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "fallback for topic geo empty",
+    "name": "remove RSS with link",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "92e4f5b4-e019-4f33-915f-f3aa35ed9571",
+  "activeVersionId": "779e3f8c-4e50-4717-b0f5-61af21a8dd0d",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -12315,7 +12317,8 @@
       "position": [
         2064,
         4848
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -12549,7 +12552,8 @@
       "position": [
         1840,
         4848
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -14325,26 +14329,6 @@
     }
   ],
   "pinData": {
-    "Schedule Trigger": [
-      {
-        "json": {
-          "timestamp": "2026-03-27T05:00:25.006+00:00",
-          "Readable date": "March 27th 2026, 5:00:25 am",
-          "Readable time": "5:00:25 am",
-          "Day of week": "Friday",
-          "Year": "2026",
-          "Month": "March",
-          "Day of month": "27",
-          "Hour": "05",
-          "Minute": "00",
-          "Second": "25",
-          "Timezone": "Europe/London (UTC+00:00)"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "Manually Trigger Content Engine": [
       {
         "json": {
@@ -14809,6 +14793,26 @@
           "item": 0
         }
       }
+    ],
+    "Schedule Trigger": [
+      {
+        "json": {
+          "timestamp": "2026-04-19T05:00:42.006+01:00",
+          "Readable date": "April 19th 2026, 5:00:42 am",
+          "Readable time": "5:00:42 am",
+          "Day of week": "Sunday",
+          "Year": "2026",
+          "Month": "April",
+          "Day of month": "19",
+          "Hour": "05",
+          "Minute": "00",
+          "Second": "42",
+          "Timezone": "Europe/London (UTC+01:00)"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
     ]
   },
   "repo_name": "syntech-backup-railway",
@@ -14850,6 +14854,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2026-04-16T20:32:34.352Z",
-  "versionId": "92e4f5b4-e019-4f33-915f-f3aa35ed9571"
+  "updatedAt": "2026-04-19T08:12:38.523Z",
+  "versionId": "779e3f8c-4e50-4717-b0f5-61af21a8dd0d"
 }
