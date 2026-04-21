@@ -5415,7 +5415,7 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -272,
+        -256,
         784
       ],
       "id": "6fcf529f-aa71-421b-b9f3-64b5141e1fd8",
@@ -6134,6 +6134,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-04-03T19:09:23.997Z",
-  "versionId": "3c6b93f1-1328-4d5d-b628-e2568964d4ff"
+  "updatedAt": "2026-04-20T12:24:38.782Z",
+  "versionId": "fc5fb117-5abf-4289-aaee-5b31b9e06c64"
 }
