@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-17T06:51:01.575Z",
-    "createdAt": "2026-04-17T06:49:56.226Z",
-    "versionId": "55c3f2d7-89ef-4f5a-b4ba-1e38bf85ea05",
+    "updatedAt": "2026-04-21T06:20:40.557Z",
+    "createdAt": "2026-04-21T06:20:25.866Z",
+    "versionId": "134b011c-199b-469e-8b64-b20b93ddfc3a",
     "workflowId": "QJa8YNLn4vHITmwY",
     "nodes": [
       {
@@ -23,6 +23,12 @@
             "interval": [
               {
                 "triggerAtHour": 7
+              },
+              {
+                "triggerAtHour": 8
+              },
+              {
+                "triggerAtHour": 9
               }
             ]
           }
@@ -642,11 +648,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "wrap sources in p tag to fix iphone bug",
+    "name": "add extra fallback times every hour",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "55c3f2d7-89ef-4f5a-b4ba-1e38bf85ea05",
+  "activeVersionId": "134b011c-199b-469e-8b64-b20b93ddfc3a",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -861,6 +867,12 @@
           "interval": [
             {
               "triggerAtHour": 7
+            },
+            {
+              "triggerAtHour": 8
+            },
+            {
+              "triggerAtHour": 9
             }
           ]
         }
@@ -1327,6 +1339,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-04-17T06:49:56.095Z",
-  "versionId": "55c3f2d7-89ef-4f5a-b4ba-1e38bf85ea05"
+  "updatedAt": "2026-04-21T06:20:25.732Z",
+  "versionId": "134b011c-199b-469e-8b64-b20b93ddfc3a"
 }
