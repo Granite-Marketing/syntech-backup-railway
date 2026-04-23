@@ -2971,7 +2971,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n            \"title\":            {{ JSON.stringify($('Deduplicated Articles').item.json.title) }},\n            \"content\":          {{ JSON.stringify($('Deduplicated Articles').item.json.content) }},\n            \"url\":               {{ JSON.stringify($('Deduplicated Articles').item.json.url) }},\n            \"source\":           {{ JSON.stringify($('Deduplicated Articles').item.json.source) }},\n            \"source_category\":  {{ JSON.stringify($('Deduplicated Articles').item.json.source_category || \"\") }},\n            \"summary\":          {{ JSON.stringify($('Deduplicated Articles').item.json.summary || \"\") }}\n        }",
+        "jsonBody": "={\n  \"title\":{{ JSON.stringify($('Deduplicated Articles').item.json.title) }},\n  \"content\":{{ JSON.stringify($('Deduplicated Articles').item.json.content) }},\n  \"url\":{{ JSON.stringify($('Deduplicated Articles').item.json.url) }},\n  \"source\":{{ JSON.stringify($('Deduplicated Articles').item.json.source) }},\n  \"source_category\":{{ JSON.stringify($('Deduplicated Articles').item.json.source_category || \"\") }},\n  \"summary\":{{ JSON.stringify($('Deduplicated Articles').item.json.summary || \"\") }},\n  \"author\":{{ JSON.stringify($('Deduplicated Articles').item.json.author ?? null) }}\n}",
         "options": {
           "response": {
             "response": {
@@ -3586,7 +3586,7 @@
         "genericAuthType": "httpBearerAuth",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"sources\": {{ JSON.stringify($input.all().map(item => ({\n    source_type: item.json.source_type,\n    url_or_keyword: item.json.url_or_keyword,\n    source_name: item.json.source_name,\n    source_category: item.json.source_category,\n    prompt: item.json.prompt,\n    additional_formats: item.json.additional_formats,\n    test_mode: item.json.test_mode\n  }))) }},\n  \"max_concurrent_apify\": 3\n}",
+        "jsonBody": "={\n  \"sources\": {{ JSON.stringify($input.all().map(item => ({\n  source_type: item.json.source_type,\n  url_or_keyword: item.json.url_or_keyword,\n  source_name: item.json.source_name,\n  source_category: item.json.source_category,\n  prompt: item.json.prompt,\n  additional_formats: item.json.additional_formats,\n  test_mode: item.json.test_mode \n  }))) }},\n  \"max_concurrent_apify\": 3\n}",
         "options": {
           "timeout": 300000
         }
@@ -3775,6 +3775,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2026-04-21T14:36:06.018Z",
-  "versionId": "5c83130a-4d0b-4fcf-9cf3-1d0557cc35df"
+  "updatedAt": "2026-04-22T11:02:02.517Z",
+  "versionId": "3b719228-9fd7-4ec2-baad-563813581e48"
 }
