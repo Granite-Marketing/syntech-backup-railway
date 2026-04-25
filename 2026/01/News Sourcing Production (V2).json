@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-23T17:47:51.135Z",
-    "createdAt": "2026-04-23T17:47:38.535Z",
-    "versionId": "6f816726-83a7-49e7-bb63-e553e254bc9e",
+    "updatedAt": "2026-04-24T12:10:14.268Z",
+    "createdAt": "2026-04-24T12:10:00.942Z",
+    "versionId": "69c7cf42-e9cc-4635-a6f0-2a6e3bcc67fc",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -2063,12 +2063,18 @@
           "specifyBody": "json",
           "jsonBody": "={\n  \"title\":{{ JSON.stringify($('Deduplicated Articles').item.json.title) }},\n  \"content\":{{ JSON.stringify($('Deduplicated Articles').item.json.content) }},\n  \"url\":{{ JSON.stringify($('Deduplicated Articles').item.json.url) }},\n  \"source\":{{ JSON.stringify($('Deduplicated Articles').item.json.source) }},\n  \"source_category\":{{ JSON.stringify($('Deduplicated Articles').item.json.source_category || \"\") }},\n  \"summary\":{{ JSON.stringify($('Deduplicated Articles').item.json.summary || \"\") }},\n  \"author\":{{ JSON.stringify($('Deduplicated Articles').item.json.author ?? null) }}\n}",
           "options": {
+            "batching": {
+              "batch": {
+                "batchSize": 10,
+                "batchInterval": 3000
+              }
+            },
             "response": {
               "response": {
                 "responseFormat": "json"
               }
             },
-            "timeout": 15000
+            "timeout": 180000
           }
         },
         "id": "8d7e2b14-5a9c-4f61-9b28-7c3e5d6a4b9f",
@@ -3741,11 +3747,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Add batch and timeouot",
+    "name": "add batch to classify relevance",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "6f816726-83a7-49e7-bb63-e553e254bc9e",
+  "activeVersionId": "69c7cf42-e9cc-4635-a6f0-2a6e3bcc67fc",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -6752,12 +6758,18 @@
         "specifyBody": "json",
         "jsonBody": "={\n  \"title\":{{ JSON.stringify($('Deduplicated Articles').item.json.title) }},\n  \"content\":{{ JSON.stringify($('Deduplicated Articles').item.json.content) }},\n  \"url\":{{ JSON.stringify($('Deduplicated Articles').item.json.url) }},\n  \"source\":{{ JSON.stringify($('Deduplicated Articles').item.json.source) }},\n  \"source_category\":{{ JSON.stringify($('Deduplicated Articles').item.json.source_category || \"\") }},\n  \"summary\":{{ JSON.stringify($('Deduplicated Articles').item.json.summary || \"\") }},\n  \"author\":{{ JSON.stringify($('Deduplicated Articles').item.json.author ?? null) }}\n}",
         "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 10,
+              "batchInterval": 3000
+            }
+          },
           "response": {
             "response": {
               "responseFormat": "json"
             }
           },
-          "timeout": 15000
+          "timeout": 180000
         }
       },
       "id": "8d7e2b14-5a9c-4f61-9b28-7c3e5d6a4b9f",
@@ -8610,6 +8622,6 @@
     }
   ],
   "triggerCount": 3,
-  "updatedAt": "2026-04-23T17:47:38.392Z",
-  "versionId": "6f816726-83a7-49e7-bb63-e553e254bc9e"
+  "updatedAt": "2026-04-24T12:10:00.809Z",
+  "versionId": "69c7cf42-e9cc-4635-a6f0-2a6e3bcc67fc"
 }
