@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-13T11:36:13.867Z",
-    "createdAt": "2026-04-13T11:35:53.769Z",
-    "versionId": "14fa4d40-67f2-4aeb-aa85-76a5d477a486",
+    "updatedAt": "2026-04-24T14:31:52.477Z",
+    "createdAt": "2026-04-24T14:30:52.507Z",
+    "versionId": "43670dc2-da51-4b95-b48c-039cff715b86",
     "workflowId": "XO9Or6DUoTqXgAA5",
     "nodes": [
       {
@@ -1088,7 +1088,7 @@
           },
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "={\n  \"parent\": {\n    \"type\": \"database_id\",\n    \"database_id\": \"2a4785c0cfab8160b859f1992a8d67d8\"\n  },\n  \"properties\": {\n    \"Article Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Publication Date\": {\n      \"date\": {\n        \"start\": \"{{ $('Map Data for Notion3').item.json.publication_date }}\"\n      }\n    },\n    \"Source URL\": {\n      \"url\": \"{{ $('Map Data for Notion3').item.json.url }}\"\n    },\n    \"Source\": {\n      \"multi_select\": [\n        {\n          \"name\": {{ $('Map Data for Notion3').item.json.source.toJsonString() }}\n        }\n      ]\n    },\n    \"Source Name\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.source_name.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Rating\": {\n      \"select\": {\n        \"name\": \"{{ $('Map Data for Notion3').item.json.rating }}\"\n      }\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"Not Reviewed\"\n      }\n    },\n    \"Search Query\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.search_query.toJsonString() }}\n          }\n        }\n      ]\n    },    \n    \"Summary\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.summary.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Own Analysis\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json.prompt }}\"\n          }\n        }\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.content_remove_duplicate_node.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+          "jsonBody": "={\n  \"parent\": {\n    \"type\": \"database_id\",\n    \"database_id\": \"2a4785c0cfab8160b859f1992a8d67d8\"\n  },\n  \"properties\": {\n    \"Article Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Publication Date\": {\n      \"date\": {\n        \"start\": \"{{ $('Map Data for Notion3').item.json.publication_date }}\"\n      }\n    },\n    \"Source URL\": {\n      \"url\": \"{{ $('Map Data for Notion3').item.json.url }}\"\n    },\n    \"Source\": {\n      \"multi_select\": [\n        {\n          \"name\": {{ $('Map Data for Notion3').item.json.source.toJsonString() }}\n        }\n      ]\n    },\n    \"Source Name\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.source_name.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Rating\": {\n      \"select\": {\n        \"name\": \"{{ $('Map Data for Notion3').item.json.rating }}\"\n      }\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"Not Reviewed\"\n      }\n    },\n    \"Search Query\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.search_query.toJsonString() }}\n          }\n        }\n      ]\n    },    \n    \"Summary\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.summary.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Own Analysis\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion3').item.json.prompt || 'N/a' }}\"\n          }\n        }\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.textSubString.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}\n",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
@@ -1124,7 +1124,7 @@
           },
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "={\n  \"parent\": {\n    \"type\": \"database_id\",\n    \"database_id\": \"2a4785c0cfab8160b859f1992a8d67d8\"\n  },\n  \"properties\": {\n    \"Article Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Source URL\": {\n      \"url\": \"{{ $('Map Data for Notion3').item.json.url }}\"\n    },\n    \"Source\": {\n      \"multi_select\": [\n        {\n          \"name\": {{ $('Map Data for Notion3').item.json.source.toJsonString() }}\n        }\n      ]\n    },\n    \"Source Name\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.source_name.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Rating\": {\n      \"select\": {\n        \"name\": \"{{ $('Map Data for Notion3').item.json.rating }}\"\n      }\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"Not Reviewed\"\n      }\n    },\n    \"Search Query\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.search_query.toJsonString() }}\n          }\n        }\n      ]\n    },    \n    \"Summary\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.summary.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Own Analysis\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json.prompt }}\"\n          }\n        }\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.content_remove_duplicate_node.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+          "jsonBody": "={\n  \"parent\": {\n    \"type\": \"database_id\",\n    \"database_id\": \"2a4785c0cfab8160b859f1992a8d67d8\"\n  },\n  \"properties\": {\n    \"Article Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Source URL\": {\n      \"url\": \"{{ $('Map Data for Notion3').item.json.url }}\"\n    },\n    \"Source\": {\n      \"multi_select\": [\n        {\n          \"name\": {{ $('Map Data for Notion3').item.json.source.toJsonString() }}\n        }\n      ]\n    },\n    \"Source Name\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.source_name.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Rating\": {\n      \"select\": {\n        \"name\": \"{{ $('Map Data for Notion3').item.json.rating }}\"\n      }\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"Not Reviewed\"\n      }\n    },\n    \"Search Query\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.search_query.toJsonString() }}\n          }\n        }\n      ]\n    },    \n    \"Summary\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.summary.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Own Analysis\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion3').item.json.prompt || 'N/a' }}\"\n          }\n        }\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.textSubString.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}\n",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
@@ -1241,103 +1241,61 @@
               {
                 "id": "cda65c46-ca98-4d3b-94a5-8efa8468a5c5",
                 "name": "url",
-                "value": "={{ $('Final Input').item.json.url ? $('Final Input').item.json.url?.trim() : \"NA\" }}",
+                "value": "={{ $('select fields').item.json.url ? $('select fields').item.json.url?.trim() : \"NA\" }}",
                 "type": "string"
               },
               {
                 "id": "2eaf0819-96c5-43f9-8bfe-60020f39a7da",
                 "name": "source",
-                "value": "={{ $('Final Input').item.json.source ? $('Final Input').item.json.source : \"NA\" }}",
+                "value": "={{ $('select fields').item.json.source ? $('select fields').item.json.source : \"NA\" }}",
                 "type": "string"
               },
               {
                 "id": "9fb33c0f-f4c0-4697-8454-f7366cb1469f",
                 "name": "source_name",
-                "value": "={{ $('Final Input').item.json.source_name }}",
+                "value": "={{ $('select fields').item.json.source_name }}",
                 "type": "string"
               },
               {
                 "id": "48f2ac2b-de0b-47f6-9b56-f5d231119533",
                 "name": "search_query",
-                "value": "={{ $('Final Input').item.json.search_query ? $('Final Input').item.json.search_query?.trim() : \"NA\"}}",
+                "value": "={{ $('select fields').item.json.search_query ? $('select fields').item.json.search_query?.trim() : \"NA\"}}",
                 "type": "string"
               },
               {
                 "id": "a6d31903-9b90-4a94-bd31-865b362b41ec",
                 "name": "summary",
-                "value": "={{ $('Final Input').item.json.summary ? $('Final Input').item.json.summary : \"NA\"}}",
-                "type": "string"
-              },
-              {
-                "id": "af126fa8-eb15-4598-baaf-d6ac11c76a21",
-                "name": "prompt",
-                "value": "={{ $if($(Deduplicated Articles').isExecuted, $('Final Input').item.json.prompt || '' , '') }}",
+                "value": "={{ $('select fields').item.json.summary ? $('select fields').item.json.summary : \"NA\"}}",
                 "type": "string"
               },
               {
                 "id": "c6c89504-6855-44af-a0d8-fdc3c12c79dc",
                 "name": "content_remove_duplicate_node",
-                "value": "={{ $('Deduplicated Articles').item.json.content ? $('Final Input').item.json.content : \"NA\"}}",
+                "value": "={{ $('Deduplicated Articles').item.json.content ? $('select fields').item.json.content : \"NA\"}}",
                 "type": "string"
               },
               {
                 "id": "7ad26930-4b4b-4d58-97be-db52f57212e3",
                 "name": "content_if_sources_executed",
-                "value": "={{ $('Deduplicated Articles').item.json.content ? $('Final Input').item.json.content : \"NA\"}}",
-                "type": "string"
-              },
-              {
-                "id": "ccaadeed-1214-432f-867f-11197522ac00",
-                "name": "fact_extraction",
-                "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.fact_extraction.toJsonString().replace(/\"/g, '\\\\\"') : \"NA\"}}",
-                "type": "string"
-              },
-              {
-                "id": "07ca4374-1d1c-4965-843e-6b2e16f357ea",
-                "name": "topical_signature.topic_action",
-                "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_action : \"NA\"}}",
-                "type": "string"
-              },
-              {
-                "id": "d4700429-50a0-4f4e-bdcd-8c2255382d9c",
-                "name": "topical_signature.topic_entities",
-                "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_entities.map(item =>\n      `{\n          \"name\": \"${item}\"\n        }`) : \"NA\" }}",
-                "type": "array"
-              },
-              {
-                "id": "75e1fcc1-f990-453d-b731-1462a9ccb8fa",
-                "name": "topical_signature.topic_geo",
-                "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_geo : \"NA\"}}",
-                "type": "string"
-              },
-              {
-                "id": "57af503e-3fca-47ce-97cc-37e0c93f222a",
-                "name": "topical_signature.topic_signature",
-                "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_signature : \"NA\"}}",
-                "type": "string"
-              },
-              {
-                "id": "8ce6c2e7-9a05-41b8-940b-916a612571cc",
-                "name": "topical_signature.topic_subject",
-                "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_subject : \"NA\"}}",
-                "type": "string"
-              },
-              {
-                "id": "19bc8e04-245a-4bd3-a836-0a112330ee7d",
-                "name": "classification",
-                "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.classification : \"new\"}}",
-                "type": "string"
-              },
-              {
-                "id": "c479fe81-c0d8-48a3-8fb3-2d9f9faf6cb7",
-                "name": "content_if_sources_executed",
-                "value": "={{ $('Check Sources Executed3').item.json.content ? $('Check Sources Executed3').item.json.content : \"NA\"}}",
+                "value": "={{ $('Deduplicated Articles').item.json.content ? $('select fields').item.json.content : \"NA\"}}",
                 "type": "string"
               },
               {
                 "id": "e75ac639-3d0f-49fb-9257-ade65d4f55b9",
                 "name": "content_remove_duplicate_node",
                 "value": "={{ $('Deduplicated Articles').item.json.content ? $('Deduplicated Articles').item.json.content : \"NA\"}}",
+                "type": "string"
+              },
+              {
+                "id": "8b375e8c-64c7-440a-92d4-f960dd747b35",
+                "name": "rating",
+                "value": "={{ $json.output }}",
+                "type": "string"
+              },
+              {
+                "id": "ec1f0346-e899-485a-82db-b976c2338920",
+                "name": "prompt",
+                "value": "={{ $if($('select fields').isExecuted, $('select fields').item.json.prompt || '' , '') }}",
                 "type": "string"
               }
             ]
@@ -4301,11 +4259,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "set live",
+    "name": "fix json errors",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "14fa4d40-67f2-4aeb-aa85-76a5d477a486",
+  "activeVersionId": "43670dc2-da51-4b95-b48c-039cff715b86",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -6203,7 +6161,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"parent\": {\n    \"type\": \"database_id\",\n    \"database_id\": \"2a4785c0cfab8160b859f1992a8d67d8\"\n  },\n  \"properties\": {\n    \"Article Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Publication Date\": {\n      \"date\": {\n        \"start\": \"{{ $('Map Data for Notion3').item.json.publication_date }}\"\n      }\n    },\n    \"Source URL\": {\n      \"url\": \"{{ $('Map Data for Notion3').item.json.url }}\"\n    },\n    \"Source\": {\n      \"multi_select\": [\n        {\n          \"name\": {{ $('Map Data for Notion3').item.json.source.toJsonString() }}\n        }\n      ]\n    },\n    \"Source Name\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.source_name.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Rating\": {\n      \"select\": {\n        \"name\": \"{{ $('Map Data for Notion3').item.json.rating }}\"\n      }\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"Not Reviewed\"\n      }\n    },\n    \"Search Query\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.search_query.toJsonString() }}\n          }\n        }\n      ]\n    },    \n    \"Summary\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.summary.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Own Analysis\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json.prompt }}\"\n          }\n        }\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.content_remove_duplicate_node.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+        "jsonBody": "={\n  \"parent\": {\n    \"type\": \"database_id\",\n    \"database_id\": \"2a4785c0cfab8160b859f1992a8d67d8\"\n  },\n  \"properties\": {\n    \"Article Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Publication Date\": {\n      \"date\": {\n        \"start\": \"{{ $('Map Data for Notion3').item.json.publication_date }}\"\n      }\n    },\n    \"Source URL\": {\n      \"url\": \"{{ $('Map Data for Notion3').item.json.url }}\"\n    },\n    \"Source\": {\n      \"multi_select\": [\n        {\n          \"name\": {{ $('Map Data for Notion3').item.json.source.toJsonString() }}\n        }\n      ]\n    },\n    \"Source Name\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.source_name.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Rating\": {\n      \"select\": {\n        \"name\": \"{{ $('Map Data for Notion3').item.json.rating }}\"\n      }\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"Not Reviewed\"\n      }\n    },\n    \"Search Query\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.search_query.toJsonString() }}\n          }\n        }\n      ]\n    },    \n    \"Summary\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.summary.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Own Analysis\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion3').item.json.prompt || 'N/a' }}\"\n          }\n        }\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.textSubString.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}\n",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -6239,7 +6197,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"parent\": {\n    \"type\": \"database_id\",\n    \"database_id\": \"2a4785c0cfab8160b859f1992a8d67d8\"\n  },\n  \"properties\": {\n    \"Article Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Source URL\": {\n      \"url\": \"{{ $('Map Data for Notion3').item.json.url }}\"\n    },\n    \"Source\": {\n      \"multi_select\": [\n        {\n          \"name\": {{ $('Map Data for Notion3').item.json.source.toJsonString() }}\n        }\n      ]\n    },\n    \"Source Name\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.source_name.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Rating\": {\n      \"select\": {\n        \"name\": \"{{ $('Map Data for Notion3').item.json.rating }}\"\n      }\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"Not Reviewed\"\n      }\n    },\n    \"Search Query\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.search_query.toJsonString() }}\n          }\n        }\n      ]\n    },    \n    \"Summary\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.summary.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Own Analysis\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $json.prompt }}\"\n          }\n        }\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.content_remove_duplicate_node.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+        "jsonBody": "={\n  \"parent\": {\n    \"type\": \"database_id\",\n    \"database_id\": \"2a4785c0cfab8160b859f1992a8d67d8\"\n  },\n  \"properties\": {\n    \"Article Name\": {\n      \"title\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.title.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Source URL\": {\n      \"url\": \"{{ $('Map Data for Notion3').item.json.url }}\"\n    },\n    \"Source\": {\n      \"multi_select\": [\n        {\n          \"name\": {{ $('Map Data for Notion3').item.json.source.toJsonString() }}\n        }\n      ]\n    },\n    \"Source Name\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.source_name.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Rating\": {\n      \"select\": {\n        \"name\": \"{{ $('Map Data for Notion3').item.json.rating }}\"\n      }\n    },\n    \"Status\": {\n      \"select\": {\n        \"name\": \"Not Reviewed\"\n      }\n    },\n    \"Search Query\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.search_query.toJsonString() }}\n          }\n        }\n      ]\n    },    \n    \"Summary\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": {{ $('Map Data for Notion3').item.json.summary.toJsonString() }}\n          }\n        }\n      ]\n    },\n    \"Own Analysis\": {\n      \"rich_text\": [\n        {\n          \"text\": {\n            \"content\": \"{{ $('Map Data for Notion3').item.json.prompt || 'N/a' }}\"\n          }\n        }\n      ]\n    }\n  },\n  \"children\": [\n    {\n      \"object\": \"block\",\n      \"type\": \"paragraph\",\n      \"paragraph\": {\n        \"rich_text\": [\n          {\n            \"text\": {\n              \"content\": {{ $json.textSubString.toJsonString() }}\n            }\n          }\n        ]\n      }\n    }\n  ]\n}\n",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -6356,103 +6314,61 @@
             {
               "id": "cda65c46-ca98-4d3b-94a5-8efa8468a5c5",
               "name": "url",
-              "value": "={{ $('Final Input').item.json.url ? $('Final Input').item.json.url?.trim() : \"NA\" }}",
+              "value": "={{ $('select fields').item.json.url ? $('select fields').item.json.url?.trim() : \"NA\" }}",
               "type": "string"
             },
             {
               "id": "2eaf0819-96c5-43f9-8bfe-60020f39a7da",
               "name": "source",
-              "value": "={{ $('Final Input').item.json.source ? $('Final Input').item.json.source : \"NA\" }}",
+              "value": "={{ $('select fields').item.json.source ? $('select fields').item.json.source : \"NA\" }}",
               "type": "string"
             },
             {
               "id": "9fb33c0f-f4c0-4697-8454-f7366cb1469f",
               "name": "source_name",
-              "value": "={{ $('Final Input').item.json.source_name }}",
+              "value": "={{ $('select fields').item.json.source_name }}",
               "type": "string"
             },
             {
               "id": "48f2ac2b-de0b-47f6-9b56-f5d231119533",
               "name": "search_query",
-              "value": "={{ $('Final Input').item.json.search_query ? $('Final Input').item.json.search_query?.trim() : \"NA\"}}",
+              "value": "={{ $('select fields').item.json.search_query ? $('select fields').item.json.search_query?.trim() : \"NA\"}}",
               "type": "string"
             },
             {
               "id": "a6d31903-9b90-4a94-bd31-865b362b41ec",
               "name": "summary",
-              "value": "={{ $('Final Input').item.json.summary ? $('Final Input').item.json.summary : \"NA\"}}",
-              "type": "string"
-            },
-            {
-              "id": "af126fa8-eb15-4598-baaf-d6ac11c76a21",
-              "name": "prompt",
-              "value": "={{ $if($(Deduplicated Articles').isExecuted, $('Final Input').item.json.prompt || '' , '') }}",
+              "value": "={{ $('select fields').item.json.summary ? $('select fields').item.json.summary : \"NA\"}}",
               "type": "string"
             },
             {
               "id": "c6c89504-6855-44af-a0d8-fdc3c12c79dc",
               "name": "content_remove_duplicate_node",
-              "value": "={{ $('Deduplicated Articles').item.json.content ? $('Final Input').item.json.content : \"NA\"}}",
+              "value": "={{ $('Deduplicated Articles').item.json.content ? $('select fields').item.json.content : \"NA\"}}",
               "type": "string"
             },
             {
               "id": "7ad26930-4b4b-4d58-97be-db52f57212e3",
               "name": "content_if_sources_executed",
-              "value": "={{ $('Deduplicated Articles').item.json.content ? $('Final Input').item.json.content : \"NA\"}}",
-              "type": "string"
-            },
-            {
-              "id": "ccaadeed-1214-432f-867f-11197522ac00",
-              "name": "fact_extraction",
-              "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.fact_extraction.toJsonString().replace(/\"/g, '\\\\\"') : \"NA\"}}",
-              "type": "string"
-            },
-            {
-              "id": "07ca4374-1d1c-4965-843e-6b2e16f357ea",
-              "name": "topical_signature.topic_action",
-              "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_action : \"NA\"}}",
-              "type": "string"
-            },
-            {
-              "id": "d4700429-50a0-4f4e-bdcd-8c2255382d9c",
-              "name": "topical_signature.topic_entities",
-              "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_entities.map(item =>\n      `{\n          \"name\": \"${item}\"\n        }`) : \"NA\" }}",
-              "type": "array"
-            },
-            {
-              "id": "75e1fcc1-f990-453d-b731-1462a9ccb8fa",
-              "name": "topical_signature.topic_geo",
-              "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_geo : \"NA\"}}",
-              "type": "string"
-            },
-            {
-              "id": "57af503e-3fca-47ce-97cc-37e0c93f222a",
-              "name": "topical_signature.topic_signature",
-              "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_signature : \"NA\"}}",
-              "type": "string"
-            },
-            {
-              "id": "8ce6c2e7-9a05-41b8-940b-916a612571cc",
-              "name": "topical_signature.topic_subject",
-              "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.topical_signature.topic_subject : \"NA\"}}",
-              "type": "string"
-            },
-            {
-              "id": "19bc8e04-245a-4bd3-a836-0a112330ee7d",
-              "name": "classification",
-              "value": "={{ $('Filter Articles By Topic1').isExecuted ? $('Filter Articles By Topic1').item.json.classification : \"new\"}}",
-              "type": "string"
-            },
-            {
-              "id": "c479fe81-c0d8-48a3-8fb3-2d9f9faf6cb7",
-              "name": "content_if_sources_executed",
-              "value": "={{ $('Check Sources Executed3').item.json.content ? $('Check Sources Executed3').item.json.content : \"NA\"}}",
+              "value": "={{ $('Deduplicated Articles').item.json.content ? $('select fields').item.json.content : \"NA\"}}",
               "type": "string"
             },
             {
               "id": "e75ac639-3d0f-49fb-9257-ade65d4f55b9",
               "name": "content_remove_duplicate_node",
               "value": "={{ $('Deduplicated Articles').item.json.content ? $('Deduplicated Articles').item.json.content : \"NA\"}}",
+              "type": "string"
+            },
+            {
+              "id": "8b375e8c-64c7-440a-92d4-f960dd747b35",
+              "name": "rating",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "ec1f0346-e899-485a-82db-b976c2338920",
+              "name": "prompt",
+              "value": "={{ $if($('select fields').isExecuted, $('select fields').item.json.prompt || '' , '') }}",
               "type": "string"
             }
           ]
@@ -8617,35 +8533,2269 @@
         }
       }
     ],
-    "Call 'Search Google Syntech'": [
+    "Schedule Trigger": [
       {
-        "json": {},
+        "json": {
+          "timestamp": "2026-04-23T08:00:48.007-04:00",
+          "Readable date": "April 23rd 2026, 8:00:48 am",
+          "Readable time": "8:00:48 am",
+          "Day of week": "Thursday",
+          "Year": "2026",
+          "Month": "April",
+          "Day of month": "23",
+          "Hour": "08",
+          "Minute": "00",
+          "Second": "48",
+          "Timezone": "America/New_York (UTC-04:00)"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Call 'LinkedIn Search (Profile, Keyword, Company)'": [
+      {
+        "json": {
+          "title": "BIO Launches 'Fight of Our Lives' Campaign to Spotlight Patients, Scientists Driving Biotech Innovation",
+          "content": "If you have ever needed medicine, biotechnology is what makes it possible.\n \nMore than 100 million Americans live with a condition that can be treated, however millions more are still waiting for the next breakthrough. This progress depends not only on great science, but on smart policies that help ensure innovation can reach patients.\n \nBiotechnology Innovation Organization (BIO) recently launched the Fight of Our Lives campaign, a national effort to highlight the people behind biotechnology, from patients and families still waiting for answers to the scientists and teams working to deliver them.\n \nIn both my work at Sanofi and on the Executive Committee of the Board of BIO, I’m reminded every day that innovation doesn’t happen in a vacuum. Efforts like #FightofOurLives help to elevate biotech's impact on matters that affect us all; public health, the economy and global scientific progress. \n \nLearn more: https://lnkd.in/eHMFfG6M",
+          "url": "https://www.linkedin.com/posts/activity-7452731451609010176-bLuo",
+          "summary": "The Biotechnology Innovation Organization (BIO) has launched a national campaign highlighting the people behind biotech innovation. The effort focuses on patients awaiting treatments and the teams developing them, aiming to elevate the sector's broader impact on public health and the economy.",
+          "search_query": "Syntech Biofuel",
+          "publication_date": "2026-04-22T14:54:03.118Z",
+          "prompt": null,
+          "additional_formats": null,
+          "source": "LinkedIn",
+          "source_category": null,
+          "source_name": "Syntech Biofuel",
+          "mode": null
+        },
         "pairedItem": {
           "item": 0
         }
       },
       {
-        "json": {},
+        "json": {
+          "url": "https://www.linkedin.com/posts/syntechbiofuel_biotechnician-kentjobs-jobsinkent-activity-7447161285995020288-9MkK",
+          "content": "We're hiring Trainee Bio-Technicians.\n\nThis is an exciting time to join Syntech Biofuel. We are a new pioneering company in the renewable energy sector and we need Trainee Bio-Technicians to join us as key members of the team.\n\nApply today - https://lnkd.in/enYC_G_6\n\n---\n\n#biotechnician #kentjobs #jobsinkent #kenthiring #kentbusiness #workinginkent #southeastjobs #rochester #chatham #strood #medway #dartford #gravesend #gillingham #rainham #isleofgrain #kent #syntechasb #sustainability #sustainableenergy #energytransition",
+          "publication_date": "2026-04-07T06:00:12.147Z",
+          "search_query": "Syntech Biofuel"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "If Valid Content?",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 0
+          },
+          "item": 0
+        }
+      }
+    ],
+    "Call 'Tavily Keyword Search'": [
+      {
+        "json": {
+          "output": "Syntech Biofuel",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "output": "UK Syntech Biofuel strategy",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
         "pairedItem": {
           "item": 1
         }
       },
       {
-        "json": {},
+        "json": {
+          "output": "Syntech Biofuel compliance mandate",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
         "pairedItem": {
           "item": 2
         }
       },
       {
-        "json": {},
+        "json": {
+          "output": "Syntech Biofuel supply capacity",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
         "pairedItem": {
           "item": 3
         }
       },
       {
-        "json": {},
+        "json": {
+          "output": "Grangemouth Syntech",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
         "pairedItem": {
           "item": 4
+        }
+      },
+      {
+        "json": {
+          "output": "Grangemouth Syntech UK",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 1
+          },
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "output": "Grangemouth Syntech policy",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 1
+          },
+          "item": 2
+        }
+      },
+      {
+        "json": {
+          "output": "Grangemouth Syntech market",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 1
+          },
+          "item": 3
+        }
+      },
+      {
+        "json": {
+          "output": "Syntech Biofuel's",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 2
+          },
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "output": "Syntech Biofuel UK strategy",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 2
+          },
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "output": "Syntech Biofuel regulatory compliance",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 2
+          },
+          "item": 2
+        }
+      },
+      {
+        "json": {
+          "output": "Syntech Biofuel market capacity",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 2
+          },
+          "item": 3
+        }
+      },
+      {
+        "json": {
+          "output": "Kingsnorth Syntech",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 3
+          },
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "output": "Kingsnorth Syntech UK operations",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 3
+          },
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "output": "Kingsnorth Syntech compliance",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 3
+          },
+          "item": 2
+        }
+      },
+      {
+        "json": {
+          "output": "Kingsnorth Syntech supply chain",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 3
+          },
+          "item": 3
+        }
+      },
+      {
+        "json": {
+          "output": "Syntech ASB",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 4
+          },
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "output": "Syntech ASB UK strategy",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 4
+          },
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "output": "Syntech ASB compliance",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 4
+          },
+          "item": 2
+        }
+      },
+      {
+        "json": {
+          "output": "Syntech ASB market supply",
+          "error": "Your request is invalid or could not be processed by the service"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "Search",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 4
+          },
+          "item": 3
+        }
+      }
+    ],
+    "Call 'Search Instagram Page'": [
+      {
+        "json": {
+          "error": "no_items",
+          "errorDescription": "Empty or private data for provided input"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Call 'Search Twitter/X (Post and Keyword)'": [
+      {
+        "json": {},
+        "pairedItem": {
+          "item": 0,
+          "input": 1
+        }
+      },
+      {
+        "json": {
+          "content": "Great seeing everyone at this week's Kent and Medway Manufacturing Focus Group! Enjoyed it? \n\nJoin us next at Syntech Biofuel for an exclusive look at their innovative, sustainable energy operations.\n\nFind out more here: https://t.co/Tfeo0de4nK\n\n#KMFG https://t.co/jedHCCxIgX",
+          "url": "https://x.com/KcfgGroup/status/1928725385346212202",
+          "publication_date": "Sat May 31 08:09:00 +0000 2025",
+          "search_query": "Syntech Biofuel"
+        },
+        "pairedItem": {
+          "item": 1,
+          "input": 1
+        }
+      },
+      {
+        "json": {
+          "content": "Powering our country sustainably, with Syntech ASB.⁠\n⁠\nUsed as a drop-in fuel in diesel engines.⁠\n⁠\nhttps://t.co/wNdMHw0ZGI⁠\n\n#scope3 #fuellingthefuture #decarbonisation https://t.co/umbgluxAER",
+          "url": "https://x.com/syntechbiofuel/status/2033460668297253194",
+          "publication_date": "Mon Mar 16 08:29:37 +0000 2026",
+          "search_query": "Syntech Biofuel"
+        },
+        "pairedItem": {
+          "item": 2,
+          "input": 1
+        }
+      },
+      {
+        "json": {
+          "content": "We're looking for partners to distribute Syntech ASB across the UK.\n\nPlease contact Mike O'Lone - mike@syntechbiofuel.com - for details.\n\n#renewableenergy #logistics #fueldistribution #biofuel https://t.co/luaVo7dMMv",
+          "url": "https://x.com/syntechbiofuel/status/2042205359234859466",
+          "publication_date": "Thu Apr 09 11:37:54 +0000 2026",
+          "search_query": "Syntech Biofuel"
+        },
+        "pairedItem": {
+          "item": 3,
+          "input": 1
+        }
+      },
+      {
+        "json": {
+          "content": "2 weeks left to nominate!\n\n@PrideinMedway 2026 nominations close Fri 30th Jan.\n\nCelebrate the people, schools &amp; projects making Medway shine - it takes under 5 minutes. 👇 \nhttps://t.co/1t3p1699sP\nProud sponsor: Syntech Biofuel\n\n#medwaycommunity https://t.co/DgIVIf6F0h",
+          "url": "https://x.com/syntechbiofuel/status/2012198247977132390",
+          "publication_date": "Fri Jan 16 16:20:21 +0000 2026",
+          "search_query": "Syntech Biofuel"
+        },
+        "pairedItem": {
+          "item": 4,
+          "input": 1
+        }
+      },
+      {
+        "json": {
+          "content": "Syntech ASB delivers lower emissions, strengthens energy security and provides a solution you can depend on.⁠\n⁠\nPutting Renewables First - https://t.co/wNdMHw0ZGI⁠\n\n#circulareconomy #madeinbritain https://t.co/rQ3FZpdnyI",
+          "url": "https://x.com/syntechbiofuel/status/2014610394925380020",
+          "publication_date": "Fri Jan 23 08:05:22 +0000 2026",
+          "search_query": "Syntech Biofuel"
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "If Valid Content?",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 0
+          },
+          "item": 4
+        }
+      }
+    ],
+    "Call 'RSS Website Search (With RSS URL)'": [
+      {
+        "json": {
+          "title": "Advanced <b>biofuel</b> manufacturer gains new sustainability credentials to stand out “in a ...",
+          "content": "A leading renewable energy and biofuel company has been awarded the Environmental and Social Value (ESV) Certification by Made in Britain, a non-profit organisation that champions British-made products and manufacturing through the use of the internationally recognised trademark.\n\nSyntech Biofuel, a nationwide fuel supplier for the construction, infrastructure and energy sectors, received the certification in recognition of its commitment to environmental responsibility, sustainable supply chains and positive local impacts. Its advanced smart biofuel delivers up to a 93% reduction in greenhouse gas emissions compared to traditional diesel fuels, while acting as a direct replacement for existing diesel engines.\n\nWith demand for biofuels far outstripping domestic supply, the scale of the challenge is clear. Around 30 billion litres of diesel are used annually in the UK, compared to just 1.4 billion litres of available used cooking oil feedstock. Against this backdrop, Syntech Biofuel is using its new credentials to highlight its authenticity and community impact, producing its fuel entirely from UK feedstocks.\n\n“At Syntech, environmental and social value isn’t a bolt-on for us. It’s fundamental to how we operate. We power our site with electricity generated from our own biofuel, so there’s a huge carbon reduction. The operations on site are incredibly sustainable – we built a sustainable plant and production facility.”\n\n– Mike O’Lone, Director of Environment, Sustainability & Social Impact at Syntech Biofuel.\n\nHe continued: “Made in Britain’s ESV Certification independently validates what we’re doing, producing low-carbon fuels from UK feed stocks with transparent supply chains. We can trace our feedstocks back to their original source, providing full provenance across the supply chain. It also validates the tangible social impact we create, providing a credible framework that aligns closely with our values.”\n\nMade in Britain’s certification enables manufacturers to demonstrate their efforts to protect the environment and people, giving them a commercial edge.”\n\nHe added: “The biggest commercial benefit is credibility. We’re a UK company making fuel in the UK. We employ and source our supply chain locally. It’s strengthened conversations with our contractors and helped discussions about whether to work with us and how we deploy fuel at scale.\n\n“We also employ locally and invest heavily in training, from mental health support to working with universities. The ESV helps demonstrate the real social value we create.\n\n“It’s also about trust. In a landscape of greenwashing, a credible certification like the ESV is becoming essential for any sustainability department.”\n\nJohn Pearce, CEO of Made in Britain, said: “Syntech Biofuel is a strong example of how UK manufacturers are driving progress and delivering both environmental and social value. Their commitment to local causes and measurable carbon reduction is exactly what ESV is about.\n\n“The ESV certification enables businesses like Syntech to clearly showcase their efforts to protect the environment, as well as supporting communities and strengthening UK industry. It provides a trusted way to challenge the greenwashing narrative – demonstrating a genuine commitment to sustainability.”\n\nThe ESV Certification is now available to all Made in Britain members, which currently exceeds 2,200 British manufacturers. To find out more about the certification and its benefits, click here.\n\nFor more articles like this, visit our Sustainability channel.",
+          "url": "https://www.themanufacturer.com/articles/advanced-biofuel-manufacturer-gains-new-sustainability-credentials-to-stand-out-in-a-landscape-of-greenwashing/",
+          "summary": "Syntech Biofuel earned Environmental and Social Value Certification, demonstrating commitment to low-carbon fuels, local supply chains, and community impact with credible sustainability credentials.",
+          "search_query": "https://www.google.com/alerts/feeds/15599495413219043951/7881280020299848207",
+          "publication_date": "2026-04-22T17:10:26.000Z",
+          "prompt": " ",
+          "additional_formats": null,
+          "source": "RSS",
+          "source_category": null,
+          "source_name": "Syntech Biofuel",
+          "mode": null
+        },
+        "pairedItem": {
+          "item": 0,
+          "input": 1
+        }
+      },
+      {
+        "json": {
+          "link": ""
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "If1",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 1
+          },
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "link": ""
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "If1",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 2
+          },
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "link": ""
+        },
+        "pairedItem": {
+          "sourceOverwrite": {
+            "previousNode": "If1",
+            "previousNodeOutput": 1,
+            "previousNodeRun": 3
+          },
+          "item": 0
+        }
+      }
+    ],
+    "Call 'Search Google Syntech'": [
+      {
+        "json": {
+          "id": "2a8785c0-cfab-802d-a4fd-cdbc02bf8f02",
+          "name": "Syntech Biofuel",
+          "url": "https://www.notion.so/Syntech-Biofuel-2a8785c0cfab802da4fdcdbc02bf8f02",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "Syntech Biofuel"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2e1785c0-cfab-805e-8ce4-e0403078df35",
+          "name": "Grangemouth Syntech",
+          "url": "https://www.notion.so/Grangemouth-Syntech-2e1785c0cfab805e8ce4e0403078df35",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "Grangemouth Syntech"
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      },
+      {
+        "json": {
+          "id": "2e1785c0-cfab-8071-8be2-c979d4f7540b",
+          "name": "Syntech Biofuel’s",
+          "url": "https://www.notion.so/Syntech-Biofuel-s-2e1785c0cfab80718be2c979d4f7540b",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "Syntech Biofuel’s"
+        },
+        "pairedItem": {
+          "item": 2
+        }
+      },
+      {
+        "json": {
+          "id": "2e1785c0-cfab-80d4-831d-dcf49e9d49ce",
+          "name": "Kingsnorth Syntech",
+          "url": "https://www.notion.so/Kingsnorth-Syntech-2e1785c0cfab80d4831ddcf49e9d49ce",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "Kingsnorth Syntech"
+        },
+        "pairedItem": {
+          "item": 3
+        }
+      },
+      {
+        "json": {
+          "id": "2e1785c0-cfab-80f2-b084-d79c37678ab3",
+          "name": "Syntech ASB",
+          "url": "https://www.notion.so/Syntech-ASB-2e1785c0cfab80f2b084d79c37678ab3",
+          "property_rss_feed": null,
+          "property_source": "Keyword",
+          "property_url": null,
+          "property_status": "Active",
+          "property_name": "Syntech ASB"
+        },
+        "pairedItem": {
+          "item": 4
+        }
+      }
+    ],
+    "Get All Results2": [
+      {
+        "json": {
+          "id": "2a8785c0-cfab-8105-9b45-c6600a005f19",
+          "name": "Instagram",
+          "url": "https://www.notion.so/Instagram-2a8785c0cfab81059b45c6600a005f19",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.instagram.com/p/DQwSZLyD8lN/",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.instagram.com/p/DQwSZLyD8lN/",
+          "property_error_message": "",
+          "property_summary": "13 likes, 1 comments - syntechbiofuel on November 7, 2025: \"Here's Mike's blog!⁠\n⁠\n10 in a Row.⁠\n⁠\nRyan Smith, Syntech Biofuel, and a Season That Tested Everything.⁠\n⁠\nhttps://syntechbiofuel.com/10-in-a-row/⁠ (link in bio)\n\nMike Olone presenting the racing helmet to Ryan specially commissioned by Syntech Biofuel to celebrate his 10 consecutive BTRC wins.\n\nImage 1 of 3 holbonphotography\n⁠\n💚⁠\n⁠\n---⁠\". \n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T18:03:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Instagram"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-8112-a048-f79ea216bb05",
+          "name": "",
+          "url": "https://www.notion.so/2a8785c0cfab8112a048f79ea216bb05",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://biofuels-news.com/newiframenews/",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://biofuels-news.com/newiframenews/",
+          "property_error_message": "",
+          "property_summary": "8 hours ago — ... Syntech Biofuel facility at Kingsnorth Industrial Estate on the Hoo Peninsula. The project will include a new 1,600 sq m production building and associated ...\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T17:55:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": ""
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-8117-9365-d54aa5ac488d",
+          "name": "New biofuel plant to be built in Kent in the UK",
+          "url": "https://www.notion.so/New-biofuel-plant-to-be-built-in-Kent-in-the-UK-2a8785c0cfab81179365d54aa5ac488d",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.gleaf.in/news/new-biofuel-plant-to-be-built-in-kent-in-the-uk",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.gleaf.in/news/new-biofuel-plant-to-be-built-in-kent-in-the-uk",
+          "property_error_message": "",
+          "property_summary": "5 days ago — Syntech Biofuel, based in the South East, produces the highest volume of biofuel in the UK for commercial use within the transport and logistics sectors.\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T17:50:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "New biofuel plant to be built in Kent in the UK"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-813b-91b8-fd5f31ff613d",
+          "name": "Simplify Fleet Efficiency with Instant Drop-In Biofuel",
+          "url": "https://www.notion.so/Simplify-Fleet-Efficiency-with-Instant-Drop-In-Biofuel-2a8785c0cfab813b91b8fd5f31ff613d",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.google.com/alerts/feeds/15599495413219043951/7881280020299848207",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-11-10T00:00:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.google.com/url?rct=j&sa=t&url=https://www.theplanner.co.uk/2025/11/10/mixed-use-neighbourhood-approved-salford&ct=ga&cd=CAIyGjMwOTY4ZTU5NjE5YjQwY2Q6Y29tOmVuOlVT&usg=AOvVaw2de8Oq_1CT3r_uvYKTsAta",
+          "property_error_message": "",
+          "property_summary": "Unlock immediate emissions reduction and cost savings with our easy, drop-in biofuel. No engine changes needed, making fleet upgrades straightforward and sustainable, helping your business meet environmental goals seamlessly.",
+          "property_source": [
+            "RSS"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T18:56:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Simplify Fleet Efficiency with Instant Drop-In Biofuel"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-8152-937d-c38b213f11fa",
+          "name": "",
+          "url": "https://www.notion.so/2a8785c0cfab8152937dc38b213f11fa",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://x.com/blackfordian1/status/1987930441765052541",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://x.com/blackfordian1/status/1987930441765052541",
+          "property_error_message": "",
+          "property_summary": "Good news for Grangemouth and Scotland that @syntechbiofuel are planning a £50 million investment in a biofuels facility that will create 200 jobs as ...\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T18:03:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": ""
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-815e-8d54-f6e1b23d1db1",
+          "name": "Effortless Fuel Optimization for Fleets and Construction Equipment\n",
+          "url": "https://www.notion.so/Effortless-Fuel-Optimization-for-Fleets-and-Construction-Equipment-2a8785c0cfab815e8d54f6e1b23d1db1",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.instagram.com/syntechbiofuel/",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.instagram.com/syntechbiofuel/",
+          "property_error_message": "",
+          "property_summary": "A simple drop-in solution that requires no engine modifications, enabling businesses to instantly improve fuel efficiency and reduce emissions, supporting sustainability goals without costly downtime or complex upgrades.",
+          "property_source": [
+            "Tavily"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T18:03:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Effortless Fuel Optimization for Fleets and Construction Equipment\n"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-81ab-aa2e-c37c03d89e1d",
+          "name": "Simplify Fleet Upgrades with Easy Drop-In Fuel Solution",
+          "url": "https://www.notion.so/Simplify-Fleet-Upgrades-with-Easy-Drop-In-Fuel-Solution-2a8785c0cfab81abaa2ec37c03d89e1d",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.instagram.com/p/DQv0CbMkp04/",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.instagram.com/p/DQv0CbMkp04/",
+          "property_error_message": "",
+          "property_summary": "This innovative fuel seamlessly integrates into existing engines without modification, helping vehicle and construction fleet owners reduce carbon footprint and meet sustainability goals effortlessly and cost-effectively.",
+          "property_source": [
+            "Tavily"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T18:03:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Simplify Fleet Upgrades with Easy Drop-In Fuel Solution"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-81b8-97eb-dc062d651243",
+          "name": "New biofuel plant to boost local economy | LocalGov",
+          "url": "https://www.notion.so/New-biofuel-plant-to-boost-local-economy-LocalGov-2a8785c0cfab81b897ebdc062d651243",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.localgov.co.uk/New-biofuel-plant-to-boost-local-economy/63403",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.localgov.co.uk/New-biofuel-plant-to-boost-local-economy/63403",
+          "property_error_message": "",
+          "property_summary": "5 days ago — Tom Bingham, CEO of Syntech Biofuel, reportedly said the project could generate an estimated 200 jobs for the region. Andy Somerville, director at Nexus ...\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T17:52:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "New biofuel plant to boost local economy | LocalGov"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-81c5-9c0a-cb529c02bba1",
+          "name": "Plans for new £50m biofuel plant approved",
+          "url": "https://www.notion.so/Plans-for-new-50m-biofuel-plant-approved-2a8785c0cfab81c59c0acb529c02bba1",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.aol.com/articles/plans-50m-biofuel-plant-approved-102230102.html",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.aol.com/articles/plans-50m-biofuel-plant-approved-102230102.html",
+          "property_error_message": "",
+          "property_summary": "Medway Council has approved the expansion to the Syntech Biofuel facility near Hoo.\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T17:32:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Plans for new £50m biofuel plant approved"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-81e9-b9a4-dee713eac021",
+          "name": "<b>Syntech</b> creates 200 green fuel jobs at Grangemouth - Daily Business",
+          "url": "https://www.notion.so/b-Syntech-b-creates-200-green-fuel-jobs-at-Grangemouth-Daily-Business-2a8785c0cfab81e9b9a4dee713eac021",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.google.com/alerts/feeds/15599495413219043951/7881280020299848207",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-11-11T10:25:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.google.com/url?rct=j&sa=t&url=https://dailybusinessgroup.co.uk/2025/11/syntech-creates-200-green-fuel-jobs-at-grangemouth/&ct=ga&cd=CAIyGjMwOTY4ZTU5NjE5YjQwY2Q6Y29tOmVuOlVT&usg=AOvVaw3HvpWShYEqu7Ds94g2n4g7",
+          "property_error_message": "",
+          "property_summary": "Syntech Biofuel, one of the UK's leading producers of low-carbon fuels ... Tom Bingham, CEO of Syntech Biofuel, said the investment represented a major ...",
+          "property_source": [
+            "RSS"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T18:54:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "<b>Syntech</b> creates 200 green fuel jobs at Grangemouth - Daily Business"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-81ee-af00-ce2c309f8643",
+          "name": "10 in a row for Syntech",
+          "url": "https://www.notion.so/10-in-a-row-for-Syntech-2a8785c0cfab81eeaf00ce2c309f8643",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.phoenix-sustainable.co.uk/post/10-in-a-row-for-syntech",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.phoenix-sustainable.co.uk/post/10-in-a-row-for-syntech",
+          "property_error_message": "",
+          "property_summary": "Ryan Smith makes history with his tenth consecutive British Truck Racing Championship win. Syntech Biofuel celebrates a decade of dominance, grit, and sustainable performance in motorsport.",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T17:48:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "10 in a row for Syntech"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-81f8-808a-d6702adb3a5d",
+          "name": "Simplify Your Fleet Management with Zero-Modification Fuel Solutions",
+          "url": "https://www.notion.so/Simplify-Your-Fleet-Management-with-Zero-Modification-Fuel-Solutions-2a8785c0cfab81f8808ad6702adb3a5d",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://x.com/PropertyWire",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://x.com/PropertyWire",
+          "property_error_message": "",
+          "property_summary": "Discover a drop-in fuel that requires no engine changes, offering businesses an effortless way to improve performance, reduce emissions, and meet sustainability goals quickly and easily.",
+          "property_source": [
+            "Tavily"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T18:03:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Simplify Your Fleet Management with Zero-Modification Fuel Solutions"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a8785c0-cfab-81f8-931b-d2617c8ab020",
+          "name": "Syntech creates 200 green fuel jobs at Grangemouth – Daily Business",
+          "url": "https://www.notion.so/Syntech-creates-200-green-fuel-jobs-at-Grangemouth-Daily-Business-2a8785c0cfab81f8931bd2617c8ab020",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://dailybusinessgroup.co.uk/2025/11/syntech-creates-200-green-fuel-jobs-at-grangemouth/",
+          "property_rating": null,
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://dailybusinessgroup.co.uk/2025/11/syntech-creates-200-green-fuel-jobs-at-grangemouth/",
+          "property_error_message": "",
+          "property_summary": "A sustainable fuel plant will be built at Grangemouth, creating 200 jobs in an area hit by the closure of the oil refinery earlier this year.\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-11T17:56:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Syntech creates 200 green fuel jobs at Grangemouth – Daily Business"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a9785c0-cfab-811a-90be-e1cfdc640e2a",
+          "name": "Instagram",
+          "url": "https://www.notion.so/Instagram-2a9785c0cfab811a90bee1cfdc640e2a",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.instagram.com/p/DQwSXoXDycb/",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.instagram.com/p/DQwSXoXDycb/",
+          "property_error_message": "",
+          "property_summary": "13 likes, 1 comments - syntechbiofuel on November 7, 2025: \"Here's Mike's blog!⁠\n⁠\n10 in a Row.⁠\n⁠\nRyan Smith, Syntech Biofuel, and a Season That Tested Everything.⁠\n⁠\nhttps://syntechbiofuel.com/10-in-a-row/⁠ (link in bio)\n\nMike Olone presenting the racing helmet to Ryan specially commissioned by Syntech Biofuel to celebrate his 10 consecutive BTRC wins.\n\nImage 1 of 3 holbonphotography\n⁠\n💚⁠\n⁠\n---⁠\". \n\n",
+          "property_source": [],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-12T06:40:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Instagram"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a9785c0-cfab-8125-8f01-e00221592372",
+          "name": "Advanced BioFuels USA – Truly Sustainable Renewable Future",
+          "url": "https://www.notion.so/Advanced-BioFuels-USA-Truly-Sustainable-Renewable-Future-2a9785c0cfab81258f01e00221592372",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://advancedbiofuelsusa.info/",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://advancedbiofuelsusa.info/",
+          "property_error_message": "",
+          "property_summary": "1 day ago — Permission Granted for Syntech Biofuel's £50 Million Plant in Kingsnorth ... Medway Council has given the green light for an expansion to the Syntech Biofuel ...\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-12T06:04:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Advanced BioFuels USA – Truly Sustainable Renewable Future"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a9785c0-cfab-8133-80d4-c14dc72b1f8e",
+          "name": "Unlock Sustainable Benefits with Ease and Simplicity",
+          "url": "https://www.notion.so/Unlock-Sustainable-Benefits-with-Ease-and-Simplicity-2a9785c0cfab813380d4c14dc72b1f8e",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-09-22T21:07:00.000+02:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://x.com/tavelingsociety/status/1970203404015411348",
+          "property_error_message": "",
+          "property_summary": "Join industry leaders embracing innovative solutions that deliver immediate, tangible advantages. Our seamless, drop-in options enable you to improve efficiency and sustainability without costly modifications, making progress straightforward and accessible for your business.",
+          "property_source": [
+            "X"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-12T06:40:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Unlock Sustainable Benefits with Ease and Simplicity"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a9785c0-cfab-8141-bbda-d07dbed5a107",
+          "name": "#grehacks #artificialintelligence | Michael James Day",
+          "url": "https://www.notion.so/grehacks-artificialintelligence-Michael-James-Day-2a9785c0cfab8141bbdad07dbed5a107",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.linkedin.com/posts/drmjday_grehacks-artificialintelligence-activity-7392940124873072640-4A76",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.linkedin.com/posts/drmjday_grehacks-artificialintelligence-activity-7392940124873072640-4A76",
+          "property_error_message": "",
+          "property_summary": "Amazing to see so many students on a Saturday at University of Greenwich's #GREHACKS Circular Economy Hack event with our partner Syntech Biofuel organised by Generator, University of Greenwich and Lynette Lisk - talking about the role of #artificialintelligence in reshaping sustainability.\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-12T06:03:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "#grehacks #artificialintelligence | Michael James Day"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a9785c0-cfab-81a8-8135-f0bdef76f152",
+          "name": "Troubleshooting Made Easy: Quick Steps to Resolve Privacy Extension Issues",
+          "url": "https://www.notion.so/Troubleshooting-Made-Easy-Quick-Steps-to-Resolve-Privacy-Extension-Issues-2a9785c0cfab81a88135f0bdef76f152",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://x.com/ecossian?lang=en",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://x.com/ecossian?lang=en",
+          "property_error_message": "",
+          "property_summary": "Encountering issues? Disable privacy-related extensions and try again. This simple step ensures smoother access to x.com services and minimizes disruptions, helping you get back online quickly and securely.",
+          "property_source": [],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-12T06:40:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Troubleshooting Made Easy: Quick Steps to Resolve Privacy Extension Issues"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a9785c0-cfab-81b4-b6a9-ea88ab8ea411",
+          "name": "Instagram",
+          "url": "https://www.notion.so/Instagram-2a9785c0cfab81b4b6a9ea88ab8ea411",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.instagram.com/p/DQwbHK9kxHQ/",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.instagram.com/p/DQwbHK9kxHQ/",
+          "property_error_message": "",
+          "property_summary": "6 likes, 1 comments - syntech_racing on November 7, 2025: \"Here's a special racing blog from Mike!⁠\n⁠\n10 in a Row⁠\n⁠\nRyan Smith, Syntech Biofuel, and a Season That Tested Everything⁠\n⁠\nhttps://syntechbiofuel.com/10-in-a-row/⁠\n\nMike Olone presenting the racing helmet to Ryan specially commissioned by Syntech Biofuel to celebrate his 10 consecutive BTRC wins.\n\nImage 1 of 3 holbonphotography\n⁠\n💚⁠\n⁠\n---⁠\". \n\n",
+          "property_source": [],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-12T06:40:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Instagram"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2a9785c0-cfab-81ce-8031-e4c05ca3b687",
+          "name": "Unlock the Power of Zero-Emission Fuel Solutions",
+          "url": "https://www.notion.so/Unlock-the-Power-of-Zero-Emission-Fuel-Solutions-2a9785c0cfab81ce8031e4c05ca3b687",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-09-22T21:18:00.000+02:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://x.com/tavelingsociety/status/1970206026524926043",
+          "property_error_message": "",
+          "property_summary": "Discover how seamless, drop-in biofuel options from Syntech Biofuel enable businesses and organizations to reduce carbon footprints easily without engine modifications, supporting sustainability and cost savings across diverse industries.",
+          "property_source": [
+            "X"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-12T06:40:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Unlock the Power of Zero-Emission Fuel Solutions"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-811a-b4e5-c4fde3b356df",
+          "name": "Effortless Fleet Optimization with Zero-Modification Technology",
+          "url": "https://www.notion.so/Effortless-Fleet-Optimization-with-Zero-Modification-Technology-2aa785c0cfab811ab4e5c4fde3b356df",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.google.com/alerts/feeds/15599495413219043951/7881280020299848207",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-11-12T00:00:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.google.com/url?rct=j&sa=t&url=https://www.theplanner.co.uk/2025/11/12/horsham-lodges-formal-complaint-planning-inspectorate&ct=ga&cd=CAIyGjMwOTY4ZTU5NjE5YjQwY2Q6Y29tOmVuOlVT&usg=AOvVaw2SCUcWEJMTlIBj4IIeKYMX",
+          "property_error_message": "",
+          "property_summary": "Our plug-and-play solution boosts vehicle and machinery efficiency, reduces emissions, and is simple to install without engine changes. Perfect for fleet managers seeking fast, cost-effective performance improvements and sustainability benefits.",
+          "property_source": [
+            "RSS"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:51:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Effortless Fleet Optimization with Zero-Modification Technology"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-8136-a690-ccccbd5f190d",
+          "name": "  News Feed | Biofuels International Magazine",
+          "url": "https://www.notion.so/News-Feed-Biofuels-International-Magazine-2aa785c0cfab8136a690ccccbd5f190d",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://biofuels-news.com/news_feed/",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://biofuels-news.com/news_feed/",
+          "property_error_message": "",
+          "property_summary": "20 hours ago — New biofuel plant to be built in Kent in the UK. A new £50 million (€56 ... Syntech Biofuel facility at Kingsnorth ...\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:05:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "  News Feed | Biofuels International Magazine"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-8137-b302-dfea56fafe93",
+          "name": "Enhance Fleet Efficiency with Simple, Drop-In Biofuel Solutions",
+          "url": "https://www.notion.so/Enhance-Fleet-Efficiency-with-Simple-Drop-In-Biofuel-Solutions-2aa785c0cfab8137b302dfea56fafe93",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.instagram.com/p/DQwLbZ0gRkO/",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.instagram.com/p/DQwLbZ0gRkO/",
+          "property_error_message": "",
+          "property_summary": "Seamlessly convert existing engines with drop-in biofuels that cut emissions up to 90%. No modifications needed—ideal for businesses looking to boost sustainability and meet Net Zero targets effortlessly.",
+          "property_source": [],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:51:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Enhance Fleet Efficiency with Simple, Drop-In Biofuel Solutions"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-8138-a9bb-fa4cb19601e8",
+          "name": "Grasp the Thistle",
+          "url": "https://www.notion.so/Grasp-the-Thistle-2aa785c0cfab8138a9bbfa4cb19601e8",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.facebook.com/groups/980424358775273/posts/3376428459174839/",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.facebook.com/groups/980424358775273/posts/3376428459174839/",
+          "property_error_message": "",
+          "property_summary": "Good news for Grangemouth and Scotland that Syntech biofuel are planning a £50 million investment in a biofuels facility that will create 200 jobs as reported ...\n\n",
+          "property_source": [],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:51:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Grasp the Thistle"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-817b-80eb-d62d182cb256",
+          "name": "Instagram",
+          "url": "https://www.notion.so/Instagram-2aa785c0cfab817b80ebd62d182cb256",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.instagram.com/p/DQ8uqF6ke5s/",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.instagram.com/p/DQ8uqF6ke5s/",
+          "property_error_message": "",
+          "property_summary": "10 likes, 1 comments - syntechbiofuel on November 11, 2025: \"What an inspiring weekend! ⁠\n⁠\nWe were proud to partner once again with Generator, University of Greenwich to deliver a really enjoyable two-day Circular Economy Hackathon, bringing together 41 talented students from Business, CMS, and Engineering disciplines.⁠\n⁠\nThe creativity, teamwork, and drive to create meaningful, real-world sustainability solutions were really exciting. From tackling food waste and plastics to innovative ideas around used cooking oil, algae, and tap-water contaminants, every team demonstrated commercial awareness, ingenuity, and commitment to positive change.⁠\n⁠\nWe set them the challenge to:⁠\n⁠\n• Reimagine waste streams⁠\n⁠\n• Build closed-loop, community-based systems⁠\n⁠\n• Design scalable, commercially viable solutions⁠\n⁠\n• Use technology and behavioural incentives to drive sustainability⁠\n⁠\n⁠\nWe’re especially looking forward to welcoming the winning team for a follow-up lunch with Tom Bingham Robert Hart and Michael O'lone  to explore their concept further.⁠\n⁠\nThis was our second hackathon collaboration in a year with the University of Greenwich and once again, we were blown away by the students’ hard work professionalism, creativity, and enthusiasm for sustainability. Their ideas give us real confidence in the next generation of innovators driving the circular economy forward.⁠\n⁠\nA huge thank you to everyone to Lynette Lisk for organising and Yvette Fofah Christy Llewellyn  Chryssi Tzanetou  Lea Rozencwajg Henry for helping to make this event such a success. And of course all the students for their commitment and energy throughout the weekend.⁠\n⁠\nTogether, we’re building a future where sustainable innovation isn’t just a goal, it’s a mindset!!⁠\n⁠\". \n\n",
+          "property_source": [],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:51:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Instagram"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-817b-b7eb-c82402a47566",
+          "name": "Empower Communities Through Planning Awareness and Engagement",
+          "url": "https://www.notion.so/Empower-Communities-Through-Planning-Awareness-and-Engagement-2aa785c0cfab817bb7ebc82402a47566",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-11-07T10:32:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.theplanner.co.uk/2025/11/07/rtpi-launches-public-awareness-campaign-survey-finds-third-britons-say-their-area",
+          "property_error_message": "",
+          "property_summary": "RTPI's 'It Takes Planners & You' campaign highlights planning's positive role in shaping sustainable, vibrant towns. It encourages public involvement in local decision-making to build better, fairer places, addressing community decline and boosting support for development initiatives.",
+          "property_source": [
+            "Tavily"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:40:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Empower Communities Through Planning Awareness and Engagement"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-817e-94b1-f9fdcc5f3599",
+          "name": "Unlock Efficient Logistics Growth with Zero-Modification Solutions",
+          "url": "https://www.notion.so/Unlock-Efficient-Logistics-Growth-with-Zero-Modification-Solutions-2aa785c0cfab817e94b1f9fdcc5f3599",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.propertyweek.com/markets/industrial-logistics",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.propertyweek.com/markets/industrial-logistics",
+          "property_error_message": "",
+          "property_summary": "Leverage the latest ultra-sustainable logistics developments with simple, ‘drop-in’ technology that requires no engine modifications, enabling businesses to expand capacity, meet demand, and enhance sustainability effortlessly in a fast-growing UK sector.",
+          "property_source": [
+            "Tavily"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:42:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Unlock Efficient Logistics Growth with Zero-Modification Solutions"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-8184-93bf-f86a5990e0be",
+          "name": "10 in a Row - Syntech Biofuel",
+          "url": "https://www.notion.so/10-in-a-Row-Syntech-Biofuel-2aa785c0cfab818493bff86a5990e0be",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://syntechbiofuel.com/10-in-a-row/",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://syntechbiofuel.com/10-in-a-row/",
+          "property_error_message": "",
+          "property_summary": "10 in a Row. Ryan Smith, 10 times consecutive BTRC Champion, Syntech Biofuel, and a season that tested everything.\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:03:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "10 in a Row - Syntech Biofuel"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-81a6-9bf3-d5430b142fbb",
+          "name": "Advanced BioFuels USA – Truly Sustainable Renewable Future",
+          "url": "https://www.notion.so/Advanced-BioFuels-USA-Truly-Sustainable-Renewable-Future-2aa785c0cfab81a69bf3d5430b142fbb",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://advancedbiofuelsusa.info/tag/biorefineries-renewable-fuel-production",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://advancedbiofuelsusa.info/tag/biorefineries-renewable-fuel-production",
+          "property_error_message": "",
+          "property_summary": "8 hours ago — Permission Granted for Syntech Biofuel's £50 Million Plant in Kingsnorth Industrial Estate on the Hoo Peninsula supporting the Lower Thames Crossing. by ...\n\n",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:10:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Advanced BioFuels USA – Truly Sustainable Renewable Future"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2aa785c0-cfab-81b7-9053-eb2f218eecbd",
+          "name": "Streamline Fleets with Easy Plug-and-Play Driver Monitoring",
+          "url": "https://www.notion.so/Streamline-Fleets-with-Easy-Plug-and-Play-Driver-Monitoring-2aa785c0cfab81b79053eb2f218eecbd",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.linkedin.com/in/donnie-rountree-595b0444",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.linkedin.com/in/donnie-rountree-595b0444",
+          "property_error_message": "",
+          "property_summary": "Simplify fleet management with our plug-in driver monitoring solution that requires no vehicle modifications. Enhance safety, reduce downtime, and optimize operations effortlessly, ensuring your business stays ahead with minimal effort and maximum impact.",
+          "property_source": [
+            "Tavily"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2025-11-13T06:44:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Streamline Fleets with Easy Plug-and-Play Driver Monitoring"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2e1785c0-cfab-812e-8833-feaeff27ff77",
+          "name": "Harness Biomass Gasification for Clean, Cost-Effective Energy",
+          "url": "https://www.notion.so/Harness-Biomass-Gasification-for-Clean-Cost-Effective-Energy-2e1785c0cfab812e8833feaeff27ff77",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "latest news on Syntech Biofuel's market trends 2025 UK EU after:2025-12-08",
+          "property_rating": "3 - Neutral",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-12-17T01:00:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.fortunebusinessinsights.com/biomass-gasification-market-112336",
+          "property_error_message": "",
+          "property_summary": "Unlock sustainable power with easy, drop-in biomass gasification technology. Convert waste into valuable energy, reduce emissions, and capitalize on government incentives—driving growth in renewable energy without complex modifications or high costs.",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-01-07T10:30:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Harness Biomass Gasification for Clean, Cost-Effective Energy"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2e2785c0-cfab-8143-bd92-e3f7875be4a9",
+          "name": "Drive Sustainable Property Growth with Simple, Impactful Solutions",
+          "url": "https://www.notion.so/Drive-Sustainable-Property-Growth-with-Simple-Impactful-Solutions-2e2785c0cfab8143bd92e3f7875be4a9",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "Kingsnorth Syntech biofuel innovation UK 2025 after:2025-12-09",
+          "property_rating": "4 - Relatively Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-12-17T01:00:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.propertyweek.com/esg/sustainability",
+          "property_error_message": "",
+          "property_summary": "Discover how innovative, drop-in sustainability measures can upgrade properties, reduce emissions, and meet climate goals without complex modifications. Empower your property portfolio with straightforward, effective strategies for a greener, more resilient future.",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-01-08T06:19:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Drive Sustainable Property Growth with Simple, Impactful Solutions"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2e2785c0-cfab-8185-85c4-ee39ba8d0c2b",
+          "name": "Proposed 75-Home Development in Hoo: Balancing Growth and Community Concerns",
+          "url": "https://www.notion.so/Proposed-75-Home-Development-in-Hoo-Balancing-Growth-and-Community-Concerns-2e2785c0cfab818585c4ee39ba8d0c2b",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "latest UK news on Syntech Biofuel 2025 after:2025-12-09",
+          "property_rating": "3 - Neutral",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-12-21T01:00:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.bbc.com/news/articles/ce3zpj31neeo",
+          "property_error_message": "",
+          "property_summary": "Medway Council recommends approval for 75 homes on green space north of Stoke Road, with 25% affordable. While infrastructure improvements are planned, local objections cite environmental impact, overdevelopment, and strain on services, highlighting the need for balanced growth.",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-01-08T06:06:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Proposed 75-Home Development in Hoo: Balancing Growth and Community Concerns"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2e2785c0-cfab-81c5-9f86-c709c8e1df37",
+          "name": "Empower Scottish Businesses with Practical Insights and Innovation",
+          "url": "https://www.notion.so/Empower-Scottish-Businesses-with-Practical-Insights-and-Innovation-2e2785c0cfab81c59f86c709c8e1df37",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "latest news on Grangemouth Syntech UK 2025 after:2025-12-09",
+          "property_rating": "3 - Neutral",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-12-14T01:00:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://thegoradiobusinessshow.podbean.com/",
+          "property_error_message": "",
+          "property_summary": "Weekly Scottish business podcast featuring top entrepreneurs and experts. Offers clear, actionable advice on economic shifts, energy, housing, and tech, all delivered through a no-nonsense Scottish lens—helping businesses adapt, grow, and seize new opportunities effortlessly.",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-01-08T06:09:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Empower Scottish Businesses with Practical Insights and Innovation"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2e3785c0-cfab-8138-a037-fe14e437e778",
+          "name": "Scottish Business Podcast Highlights Economic Shifts and Innovation",
+          "url": "https://www.notion.so/Scottish-Business-Podcast-Highlights-Economic-Shifts-and-Innovation-2e3785c0cfab8138a037fe14e437e778",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "latest news on Grangemouth Syntech biofuel project UK 2025 after:2025-12-10",
+          "property_rating": "3 - Neutral",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2025-12-14T01:00:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://podcasts.apple.com/gb/podcast/the-go-radio-business-show-with-hunter-haughey/id1549012107",
+          "property_error_message": "",
+          "property_summary": "The Go Radio Business Show, hosted by Sir Tom Hunter and Lord Willie Haughey, offers weekly insights into Scotland’s economic landscape, featuring discussions on innovation, policy impacts, energy, and entrepreneurship, with interviews from top business leaders and analysis of current global and local trends.",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-01-09T06:02:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Scottish Business Podcast Highlights Economic Shifts and Innovation"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2e4785c0-cfab-81bc-9403-f0de0388f658",
+          "name": "Syntech Biofuel Emphasizes Sustainability and Innovation in Clean Fuel Solutions",
+          "url": "https://www.notion.so/Syntech-Biofuel-Emphasizes-Sustainability-and-Innovation-in-Clean-Fuel-Solutions-2e4785c0cfab81bc9403f0de0388f658",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.instagram.com/p/DTRpaC1ElmZ/",
+          "property_rating": "4 - Relatively Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.instagram.com/p/DTRpaC1ElmZ/",
+          "property_error_message": "",
+          "property_summary": "Syntech Biofuel highlights its commitment to environmental, social, and economic sustainability through innovative, British-made biofuels, promoting circular economy principles and reducing carbon emissions in construction and transportation sectors.",
+          "property_source": [],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-01-10T06:12:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Syntech Biofuel Emphasizes Sustainability and Innovation in Clean Fuel Solutions"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2e6785c0-cfab-8161-b18c-d2c6f34baaf3",
+          "name": "Syntech Biofuel Promotes Practical Solutions for Carbon Reduction",
+          "url": "https://www.notion.so/Syntech-Biofuel-Promotes-Practical-Solutions-for-Carbon-Reduction-2e6785c0cfab8161b18cd2c6f34baaf3",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "https://www.instagram.com/p/DTH_btPjH-d/",
+          "property_rating": "4 - Relatively Positive",
+          "property_own_analysis": "",
+          "property_publication_date": null,
+          "property_source_url": "https://www.instagram.com/p/DTH_btPjH-d/",
+          "property_error_message": "",
+          "property_summary": "Syntech Biofuel emphasizes real-world sustainable solutions to cut carbon emissions, offering biofuel options and innovative processes to help businesses decarbonize and promote circular economy practices.",
+          "property_source": [],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-01-12T06:02:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Syntech Biofuel Promotes Practical Solutions for Carbon Reduction"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "2e9785c0-cfab-8194-9bc3-ed5d2b0967b4",
+          "name": "Medway Seeks Nominations for Pride in Medway 2026 Community Awards",
+          "url": "https://www.notion.so/Medway-Seeks-Nominations-for-Pride-in-Medway-2026-Community-Awards-2e9785c0cfab81949bc3ed5d2b0967b4",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "",
+          "property_search_query": "latest Syntech Biofuel news UK EU 2025 after:2025-12-16",
+          "property_rating": "3 - Neutral",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-01-13T01:00:00.000+01:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.kentonline.co.uk/medway/news/time-running-out-to-nominate-your-community-champions-335019/",
+          "property_error_message": "",
+          "property_summary": "The Pride in Medway 2026 awards invites nominations for individuals, groups, schools, and businesses across nine categories, celebrating acts of kindness, courage, and community impact. Finalists will be honored at a gala event in April, with nominations closing at the end of January.",
+          "property_source": [
+            "Website"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-01-15T06:01:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Medway Seeks Nominations for Pride in Medway 2026 Community Awards"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "304785c0-cfab-8107-bb08-c43462b0b261",
+          "name": "Stable Synthetic Biodiesel Shows Resilience in Real-World Storage Conditions",
+          "url": "https://www.notion.so/Stable-Synthetic-Biodiesel-Shows-Resilience-in-Real-World-Storage-Conditions-304785c0cfab8107bb08c43462b0b261",
+          "property_choose_image_format": [
+            "2e7785c0-cfab-8060-bd47-ced887736f8a",
+            "2e7785c0-cfab-80ac-94d1-ddc5568bc98b"
+          ],
+          "property_status": "Content Generated",
+          "property_source_name": "Syntech Biofuel",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "4 - Relatively Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-01-19T17:27:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.linkedin.com/posts/terjek-zoltan-joszef_a-small-throwback-while-tidying-up-some-old-activity-7419068082968588288-qmIN",
+          "property_error_message": "",
+          "property_summary": "A sample of Syntech Biofuel's synthetic biodiesel maintained its appearance and properties after nearly a year of unideal storage, including time in a car trunk. This highlights fuel stability outside laboratory conditions and the value of real-world testing alongside specifications.",
+          "property_source": [
+            "LinkedIn"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-02-11T14:48:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [
+            "2b7785c0-cfab-8096-afb4-ed4f01eee75c",
+            "2b7785c0-cfab-8084-a2b3-cf6618dbe186"
+          ],
+          "property_transformed_content": [
+            "304785c0-cfab-814d-bb05-fec9fc368766",
+            "304785c0-cfab-811b-9b46-c0db3c3fee05"
+          ],
+          "property_article_name": "Stable Synthetic Biodiesel Shows Resilience in Real-World Storage Conditions"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "304785c0-cfab-81d3-b395-df35339759b6",
+          "name": "Industry Leaders Celebrate Women and Girls on UN International Science Day",
+          "url": "https://www.notion.so/Industry-Leaders-Celebrate-Women-and-Girls-on-UN-International-Science-Day-304785c0cfab81d3b395df35339759b6",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "Syntech Biofuel",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "4 - Relatively Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-02-11T13:15:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.linkedin.com/posts/phoenix-sustainable-investments_unitednations-womeninstem-womeninscience-activity-7427339419684343809-q55f",
+          "property_error_message": "",
+          "property_summary": "Syntech Biofuel joins partners in recognizing women's contributions to research, innovation and technological advancement across all industries on the United Nations International Day of Women and Girls in Science. The celebration highlights STEM achievements worldwide.",
+          "property_source": [
+            "LinkedIn"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-02-11T14:48:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Industry Leaders Celebrate Women and Girls on UN International Science Day"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "305785c0-cfab-811f-9f8f-db1514829d3e",
+          "name": "Syntech Biofuel Invests in Delivery Team Training for Enhanced Safety and Operational Excellence",
+          "url": "https://www.notion.so/Syntech-Biofuel-Invests-in-Delivery-Team-Training-for-Enhanced-Safety-and-Operational-Excellence-305785c0cfab811f9f8fdb1514829d3e",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "Syntech Biofuel",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-02-05T16:05:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.linkedin.com/posts/joe-bosomworth-0935ba33a_delivery-training-day-at-syntech-biofuel-activity-7425207930045693952-tYwp",
+          "property_error_message": "",
+          "property_summary": "Syntech Biofuel's delivery team completed comprehensive training focused on best practices, site safety, and specialist equipment handling to ensure reliable, safe, and efficient operations while supporting their sustainability mission.",
+          "property_source": [
+            "LinkedIn"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-02-12T13:02:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Syntech Biofuel Invests in Delivery Team Training for Enhanced Safety and Operational Excellence"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "309785c0-cfab-81fd-9c4c-f2072d5986b7",
+          "name": "Syntech Biofuel's Low-Carbon Initiatives Featured in KKB Group's ESG Report",
+          "url": "https://www.notion.so/Syntech-Biofuel-s-Low-Carbon-Initiatives-Featured-in-KKB-Group-s-ESG-Report-309785c0cfab81fd9c4cf2072d5986b7",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "Syntech Biofuel",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-01-21T11:03:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.linkedin.com/posts/phoenix-sustainable-investments_phoenixsustainableinvestments-esg-lowcarbon-activity-7419696124673835008-Drqu",
+          "property_error_message": "",
+          "property_summary": "KKB Group's 2025 ESG Report highlights its partnership with portfolio company Syntech Biofuel. The report showcases their collaboration on innovative, low-carbon solutions as part of a broader commitment to responsible business and long-term sustainability.",
+          "property_source": [
+            "LinkedIn"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-02-16T13:01:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Syntech Biofuel's Low-Carbon Initiatives Featured in KKB Group's ESG Report"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "341785c0-cfab-8149-ab39-ed417ecef5cc",
+          "name": "Syntech Biofuel Facility Expansion Approved on Hoo Peninsula",
+          "url": "https://www.notion.so/Syntech-Biofuel-Facility-Expansion-Approved-on-Hoo-Peninsula-341785c0cfab8149ab39ed417ecef5cc",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "Syntech Biofuel",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-03-18T15:54:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.linkedin.com/posts/charles-&-associates-consulting-engineers-ltd_syntech-biofuel-expansion-c-a-consulting-activity-7440063083273863168-scjS",
+          "property_error_message": "",
+          "property_summary": "Planning permission has been granted for a 1,600 sq m expansion of Syntech's Kent facility. The new plant will convert waste cooking oil into advanced smart biofuel, a low-carbon diesel alternative for transport and logistics.",
+          "property_source": [
+            "LinkedIn"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-04-13T12:11:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Syntech Biofuel Facility Expansion Approved on Hoo Peninsula"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "341785c0-cfab-81d3-aa5f-e17ede249773",
+          "name": "Recycled Cooking Oil Powers Lower Thames Crossing, Creates Green Jobs in Kent",
+          "url": "https://www.notion.so/Recycled-Cooking-Oil-Powers-Lower-Thames-Crossing-Creates-Green-Jobs-in-Kent-341785c0cfab81d3aa5fe17ede249773",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "Syntech Biofuel",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-03-25T12:39:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.linkedin.com/posts/lowerthamescrossing_recycled-cooking-oil-used-to-power-the-lower-activity-7442550809432805376-9ClV",
+          "property_error_message": "",
+          "property_summary": "Syntech Biofuel converts collected UK cooking oil into a green biofuel, reducing emissions by up to 93% compared to diesel. This initiative supports cleaner air, new skills, and high-quality green jobs for major construction projects like the Lower Thames Crossing.",
+          "property_source": [
+            "LinkedIn"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-04-13T12:11:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Recycled Cooking Oil Powers Lower Thames Crossing, Creates Green Jobs in Kent"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "345785c0-cfab-81d7-a89b-d740ea5adcb0",
+          "name": "Syntech Biofuel Plans Production of Scotland's Most Sustainable Fuel",
+          "url": "https://www.notion.so/Syntech-Biofuel-Plans-Production-of-Scotland-s-Most-Sustainable-Fuel-345785c0cfab81d7a89bd740ea5adcb0",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "Syntech Biofuel",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "4 - Relatively Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-03-23T15:42:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://x.com/blackfordian1/status/2036106387130916905",
+          "property_error_message": "",
+          "property_summary": "Syntech Biofuel is developing plans to produce what it claims will be Scotland's most sustainable fuel. The company is beginning to supply initial Scottish partners from its operations in Grangemouth.",
+          "property_source": [
+            "X"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-04-17T12:01:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Syntech Biofuel Plans Production of Scotland's Most Sustainable Fuel"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "348785c0-cfab-8134-96b4-e2b0466ee0bc",
+          "name": "Syntech Biofuel Facility Praised for High Tank Maintenance Standards",
+          "url": "https://www.notion.so/Syntech-Biofuel-Facility-Praised-for-High-Tank-Maintenance-Standards-348785c0cfab813496b4e2b0466ee0bc",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "Syntech Biofuel",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-04-20T07:45:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.linkedin.com/posts/1st-industrial-commercial-services-ltd_facilitiesmanagement-schoolestates-estatesmanagement-activity-7451898708247605248-e9dY",
+          "property_error_message": "",
+          "property_summary": "A recent visit to Syntech Biofuel highlighted its well-run facility, where high tank maintenance standards prevent issues proactively, serving as a best-practice example for site management, compliance, and health and safety.",
+          "property_source": [
+            "LinkedIn"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-04-20T12:01:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Syntech Biofuel Facility Praised for High Tank Maintenance Standards"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "id": "349785c0-cfab-81c3-9fb3-ff1dfccd4b2c",
+          "name": "Syntech Biofuel CEO Visits Grangemouth to Launch Production of Scottish-Made Sustainable Fuel",
+          "url": "https://www.notion.so/Syntech-Biofuel-CEO-Visits-Grangemouth-to-Launch-Production-of-Scottish-Made-Sustainable-Fuel-349785c0cfab81c39fb3ff1dfccd4b2c",
+          "property_choose_image_format": [],
+          "property_status": "Not Reviewed",
+          "property_source_name": "Syntech Biofuel",
+          "property_search_query": "Syntech Biofuel",
+          "property_rating": "5 - Very Positive",
+          "property_own_analysis": "",
+          "property_publication_date": {
+            "start": "2026-03-23T15:44:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          },
+          "property_source_url": "https://www.linkedin.com/posts/rt-hon-ian-blackford-4b68a98_good-to-be-in-grangemouth-with-tom-bingham-activity-7441872523232755712-TEeD",
+          "property_error_message": "",
+          "property_summary": "Syntech Biofuel is developing plans to produce Scotland's most sustainable fuel at its Grangemouth facility, with initial supply for Scottish partners beginning soon.",
+          "property_source": [
+            "LinkedIn"
+          ],
+          "property_sent_to_team": true,
+          "property_article_research": [],
+          "property_created_date": "2026-04-21T12:01:00.000Z",
+          "property_author_name": [],
+          "property_additional_formats": [],
+          "property_transformed_content": [],
+          "property_article_name": "Syntech Biofuel CEO Visits Grangemouth to Launch Production of Scottish-Made Sustainable Fuel"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Merge6": [
+      {
+        "json": {
+          "title": "Advanced <b>biofuel</b> manufacturer gains new sustainability credentials to stand out “in a ...",
+          "content": "A leading renewable energy and biofuel company has been awarded the Environmental and Social Value (ESV) Certification by Made in Britain, a non-profit organisation that champions British-made products and manufacturing through the use of the internationally recognised trademark.\n\nSyntech Biofuel, a nationwide fuel supplier for the construction, infrastructure and energy sectors, received the certification in recognition of its commitment to environmental responsibility, sustainable supply chains and positive local impacts. Its advanced smart biofuel delivers up to a 93% reduction in greenhouse gas emissions compared to traditional diesel fuels, while acting as a direct replacement for existing diesel engines.\n\nWith demand for biofuels far outstripping domestic supply, the scale of the challenge is clear. Around 30 billion litres of diesel are used annually in the UK, compared to just 1.4 billion litres of available used cooking oil feedstock. Against this backdrop, Syntech Biofuel is using its new credentials to highlight its authenticity and community impact, producing its fuel entirely from UK feedstocks.\n\n“At Syntech, environmental and social value isn’t a bolt-on for us. It’s fundamental to how we operate. We power our site with electricity generated from our own biofuel, so there’s a huge carbon reduction. The operations on site are incredibly sustainable – we built a sustainable plant and production facility.”\n\n– Mike O’Lone, Director of Environment, Sustainability & Social Impact at Syntech Biofuel.\n\nHe continued: “Made in Britain’s ESV Certification independently validates what we’re doing, producing low-carbon fuels from UK feed stocks with transparent supply chains. We can trace our feedstocks back to their original source, providing full provenance across the supply chain. It also validates the tangible social impact we create, providing a credible framework that aligns closely with our values.”\n\nMade in Britain’s certification enables manufacturers to demonstrate their efforts to protect the environment and people, giving them a commercial edge.”\n\nHe added: “The biggest commercial benefit is credibility. We’re a UK company making fuel in the UK. We employ and source our supply chain locally. It’s strengthened conversations with our contractors and helped discussions about whether to work with us and how we deploy fuel at scale.\n\n“We also employ locally and invest heavily in training, from mental health support to working with universities. The ESV helps demonstrate the real social value we create.\n\n“It’s also about trust. In a landscape of greenwashing, a credible certification like the ESV is becoming essential for any sustainability department.”\n\nJohn Pearce, CEO of Made in Britain, said: “Syntech Biofuel is a strong example of how UK manufacturers are driving progress and delivering both environmental and social value. Their commitment to local causes and measurable carbon reduction is exactly what ESV is about.\n\n“The ESV certification enables businesses like Syntech to clearly showcase their efforts to protect the environment, as well as supporting communities and strengthening UK industry. It provides a trusted way to challenge the greenwashing narrative – demonstrating a genuine commitment to sustainability.”\n\nThe ESV Certification is now available to all Made in Britain members, which currently exceeds 2,200 British manufacturers. To find out more about the certification and its benefits, click here.\n\nFor more articles like this, visit our Sustainability channel.",
+          "url": "https://www.themanufacturer.com/articles/advanced-biofuel-manufacturer-gains-new-sustainability-credentials-to-stand-out-in-a-landscape-of-greenwashing/",
+          "summary": "Syntech Biofuel earned Environmental and Social Value Certification, demonstrating commitment to low-carbon fuels, local supply chains, and community impact with credible sustainability credentials.",
+          "search_query": "https://www.google.com/alerts/feeds/15599495413219043951/7881280020299848207",
+          "publication_date": "2026-04-22T17:10:26.000Z",
+          "prompt": " ",
+          "additional_formats": null,
+          "source": "RSS",
+          "source_category": null,
+          "source_name": "Syntech Biofuel",
+          "mode": null
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "title": "BIO Launches 'Fight of Our Lives' Campaign to Spotlight Patients, Scientists Driving Biotech Innovation",
+          "content": "If you have ever needed medicine, biotechnology is what makes it possible.\n \nMore than 100 million Americans live with a condition that can be treated, however millions more are still waiting for the next breakthrough. This progress depends not only on great science, but on smart policies that help ensure innovation can reach patients.\n \nBiotechnology Innovation Organization (BIO) recently launched the Fight of Our Lives campaign, a national effort to highlight the people behind biotechnology, from patients and families still waiting for answers to the scientists and teams working to deliver them.\n \nIn both my work at Sanofi and on the Executive Committee of the Board of BIO, I’m reminded every day that innovation doesn’t happen in a vacuum. Efforts like #FightofOurLives help to elevate biotech's impact on matters that affect us all; public health, the economy and global scientific progress. \n \nLearn more: https://lnkd.in/eHMFfG6M",
+          "url": "https://www.linkedin.com/posts/activity-7452731451609010176-bLuo",
+          "summary": "The Biotechnology Innovation Organization (BIO) has launched a national campaign highlighting the people behind biotech innovation. The effort focuses on patients awaiting treatments and the teams developing them, aiming to elevate the sector's broader impact on public health and the economy.",
+          "search_query": "Syntech Biofuel",
+          "publication_date": "2026-04-22T14:54:03.118Z",
+          "prompt": null,
+          "additional_formats": null,
+          "source": "LinkedIn",
+          "source_category": null,
+          "source_name": "Syntech Biofuel",
+          "mode": null
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      }
+    ],
+    "Remove Duplicates": [
+      {
+        "json": {
+          "title": "Advanced <b>biofuel</b> manufacturer gains new sustainability credentials to stand out “in a ...",
+          "content": "A leading renewable energy and biofuel company has been awarded the Environmental and Social Value (ESV) Certification by Made in Britain, a non-profit organisation that champions British-made products and manufacturing through the use of the internationally recognised trademark.\n\nSyntech Biofuel, a nationwide fuel supplier for the construction, infrastructure and energy sectors, received the certification in recognition of its commitment to environmental responsibility, sustainable supply chains and positive local impacts. Its advanced smart biofuel delivers up to a 93% reduction in greenhouse gas emissions compared to traditional diesel fuels, while acting as a direct replacement for existing diesel engines.\n\nWith demand for biofuels far outstripping domestic supply, the scale of the challenge is clear. Around 30 billion litres of diesel are used annually in the UK, compared to just 1.4 billion litres of available used cooking oil feedstock. Against this backdrop, Syntech Biofuel is using its new credentials to highlight its authenticity and community impact, producing its fuel entirely from UK feedstocks.\n\n“At Syntech, environmental and social value isn’t a bolt-on for us. It’s fundamental to how we operate. We power our site with electricity generated from our own biofuel, so there’s a huge carbon reduction. The operations on site are incredibly sustainable – we built a sustainable plant and production facility.”\n\n– Mike O’Lone, Director of Environment, Sustainability & Social Impact at Syntech Biofuel.\n\nHe continued: “Made in Britain’s ESV Certification independently validates what we’re doing, producing low-carbon fuels from UK feed stocks with transparent supply chains. We can trace our feedstocks back to their original source, providing full provenance across the supply chain. It also validates the tangible social impact we create, providing a credible framework that aligns closely with our values.”\n\nMade in Britain’s certification enables manufacturers to demonstrate their efforts to protect the environment and people, giving them a commercial edge.”\n\nHe added: “The biggest commercial benefit is credibility. We’re a UK company making fuel in the UK. We employ and source our supply chain locally. It’s strengthened conversations with our contractors and helped discussions about whether to work with us and how we deploy fuel at scale.\n\n“We also employ locally and invest heavily in training, from mental health support to working with universities. The ESV helps demonstrate the real social value we create.\n\n“It’s also about trust. In a landscape of greenwashing, a credible certification like the ESV is becoming essential for any sustainability department.”\n\nJohn Pearce, CEO of Made in Britain, said: “Syntech Biofuel is a strong example of how UK manufacturers are driving progress and delivering both environmental and social value. Their commitment to local causes and measurable carbon reduction is exactly what ESV is about.\n\n“The ESV certification enables businesses like Syntech to clearly showcase their efforts to protect the environment, as well as supporting communities and strengthening UK industry. It provides a trusted way to challenge the greenwashing narrative – demonstrating a genuine commitment to sustainability.”\n\nThe ESV Certification is now available to all Made in Britain members, which currently exceeds 2,200 British manufacturers. To find out more about the certification and its benefits, click here.\n\nFor more articles like this, visit our Sustainability channel.",
+          "url": "https://www.themanufacturer.com/articles/advanced-biofuel-manufacturer-gains-new-sustainability-credentials-to-stand-out-in-a-landscape-of-greenwashing/",
+          "summary": "Syntech Biofuel earned Environmental and Social Value Certification, demonstrating commitment to low-carbon fuels, local supply chains, and community impact with credible sustainability credentials.",
+          "search_query": "https://www.google.com/alerts/feeds/15599495413219043951/7881280020299848207",
+          "publication_date": "2026-04-22T17:10:26.000Z",
+          "prompt": " ",
+          "additional_formats": null,
+          "source": "RSS",
+          "source_category": null,
+          "source_name": "Syntech Biofuel",
+          "mode": null
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "title": "BIO Launches 'Fight of Our Lives' Campaign to Spotlight Patients, Scientists Driving Biotech Innovation",
+          "content": "If you have ever needed medicine, biotechnology is what makes it possible.\n \nMore than 100 million Americans live with a condition that can be treated, however millions more are still waiting for the next breakthrough. This progress depends not only on great science, but on smart policies that help ensure innovation can reach patients.\n \nBiotechnology Innovation Organization (BIO) recently launched the Fight of Our Lives campaign, a national effort to highlight the people behind biotechnology, from patients and families still waiting for answers to the scientists and teams working to deliver them.\n \nIn both my work at Sanofi and on the Executive Committee of the Board of BIO, I’m reminded every day that innovation doesn’t happen in a vacuum. Efforts like #FightofOurLives help to elevate biotech's impact on matters that affect us all; public health, the economy and global scientific progress. \n \nLearn more: https://lnkd.in/eHMFfG6M",
+          "url": "https://www.linkedin.com/posts/activity-7452731451609010176-bLuo",
+          "summary": "The Biotechnology Innovation Organization (BIO) has launched a national campaign highlighting the people behind biotech innovation. The effort focuses on patients awaiting treatments and the teams developing them, aiming to elevate the sector's broader impact on public health and the economy.",
+          "search_query": "Syntech Biofuel",
+          "publication_date": "2026-04-22T14:54:03.118Z",
+          "prompt": null,
+          "additional_formats": null,
+          "source": "LinkedIn",
+          "source_category": null,
+          "source_name": "Syntech Biofuel",
+          "mode": null
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      }
+    ],
+    "Semantic Keyword Deduplication1": [
+      {
+        "json": {
+          "clusters": [
+            {
+              "article_count": 1,
+              "average_similarity": 1,
+              "cluster_id": 0,
+              "representative": {
+                "id": "https://www.themanufacturer.com/articles/advanced-biofuel-manufacturer-gains-new-sustainability-credentials-to-stand-out-in-a-landscape-of-greenwashing/",
+                "quality_score": 42,
+                "title": "Advanced <b>biofuel</b> manufacturer gains new sustainability credentials to stand out “in a ..."
+              },
+              "topic_summary": "advanced <b>biofuel</b> manufacturer gains"
+            },
+            {
+              "article_count": 1,
+              "average_similarity": 1,
+              "cluster_id": 1,
+              "representative": {
+                "id": "https://www.linkedin.com/posts/activity-7452731451609010176-bLuo",
+                "quality_score": 5,
+                "title": "BIO Launches 'Fight of Our Lives' Campaign to Spotlight Patients, Scientists Driving Biotech Innovation"
+              },
+              "topic_summary": "bio launches 'fight lives'"
+            }
+          ],
+          "request_id": "f78293d2",
+          "selected_articles": [
+            {
+              "additional_formats": null,
+              "content": "A leading renewable energy and biofuel company has been awarded the Environmental and Social Value (ESV) Certification by Made in Britain, a non-profit organisation that champions British-made products and manufacturing through the use of the internationally recognised trademark.\n\nSyntech Biofuel, a nationwide fuel supplier for the construction, infrastructure and energy sectors, received the certification in recognition of its commitment to environmental responsibility, sustainable supply chains and positive local impacts. Its advanced smart biofuel delivers up to a 93% reduction in greenhouse gas emissions compared to traditional diesel fuels, while acting as a direct replacement for existing diesel engines.\n\nWith demand for biofuels far outstripping domestic supply, the scale of the challenge is clear. Around 30 billion litres of diesel are used annually in the UK, compared to just 1.4 billion litres of available used cooking oil feedstock. Against this backdrop, Syntech Biofuel is using its new credentials to highlight its authenticity and community impact, producing its fuel entirely from UK feedstocks.\n\n“At Syntech, environmental and social value isn’t a bolt-on for us. It’s fundamental to how we operate. We power our site with electricity generated from our own biofuel, so there’s a huge carbon reduction. The operations on site are incredibly sustainable – we built a sustainable plant and production facility.”\n\n– Mike O’Lone, Director of Environment, Sustainability & Social Impact at Syntech Biofuel.\n\nHe continued: “Made in Britain’s ESV Certification independently validates what we’re doing, producing low-carbon fuels from UK feed stocks with transparent supply chains. We can trace our feedstocks back to their original source, providing full provenance across the supply chain. It also validates the tangible social impact we create, providing a credible framework that aligns closely with our values.”\n\nMade in Britain’s certification enables manufacturers to demonstrate their efforts to protect the environment and people, giving them a commercial edge.”\n\nHe added: “The biggest commercial benefit is credibility. We’re a UK company making fuel in the UK. We employ and source our supply chain locally. It’s strengthened conversations with our contractors and helped discussions about whether to work with us and how we deploy fuel at scale.\n\n“We also employ locally and invest heavily in training, from mental health support to working with universities. The ESV helps demonstrate the real social value we create.\n\n“It’s also about trust. In a landscape of greenwashing, a credible certification like the ESV is becoming essential for any sustainability department.”\n\nJohn Pearce, CEO of Made in Britain, said: “Syntech Biofuel is a strong example of how UK manufacturers are driving progress and delivering both environmental and social value. Their commitment to local causes and measurable carbon reduction is exactly what ESV is about.\n\n“The ESV certification enables businesses like Syntech to clearly showcase their efforts to protect the environment, as well as supporting communities and strengthening UK industry. It provides a trusted way to challenge the greenwashing narrative – demonstrating a genuine commitment to sustainability.”\n\nThe ESV Certification is now available to all Made in Britain members, which currently exceeds 2,200 British manufacturers. To find out more about the certification and its benefits, click here.\n\nFor more articles like this, visit our Sustainability channel.",
+              "duplicates": [],
+              "id": "https://www.themanufacturer.com/articles/advanced-biofuel-manufacturer-gains-new-sustainability-credentials-to-stand-out-in-a-landscape-of-greenwashing/",
+              "mode": null,
+              "prompt": " ",
+              "publication_date": "2026-04-22T17:10:26.000Z",
+              "quality_score": 42,
+              "search_query": "https://www.google.com/alerts/feeds/15599495413219043951/7881280020299848207",
+              "source": "RSS",
+              "source_category": null,
+              "source_name": "Syntech Biofuel",
+              "summary": "Syntech Biofuel earned Environmental and Social Value Certification, demonstrating commitment to low-carbon fuels, local supply chains, and community impact with credible sustainability credentials.",
+              "title": "Advanced <b>biofuel</b> manufacturer gains new sustainability credentials to stand out “in a ...",
+              "url": "https://www.themanufacturer.com/articles/advanced-biofuel-manufacturer-gains-new-sustainability-credentials-to-stand-out-in-a-landscape-of-greenwashing/"
+            },
+            {
+              "additional_formats": null,
+              "content": "If you have ever needed medicine, biotechnology is what makes it possible.\n \nMore than 100 million Americans live with a condition that can be treated, however millions more are still waiting for the next breakthrough. This progress depends not only on great science, but on smart policies that help ensure innovation can reach patients.\n \nBiotechnology Innovation Organization (BIO) recently launched the Fight of Our Lives campaign, a national effort to highlight the people behind biotechnology, from patients and families still waiting for answers to the scientists and teams working to deliver them.\n \nIn both my work at Sanofi and on the Executive Committee of the Board of BIO, I’m reminded every day that innovation doesn’t happen in a vacuum. Efforts like #FightofOurLives help to elevate biotech's impact on matters that affect us all; public health, the economy and global scientific progress. \n \nLearn more: https://lnkd.in/eHMFfG6M",
+              "duplicates": [],
+              "id": "https://www.linkedin.com/posts/activity-7452731451609010176-bLuo",
+              "mode": null,
+              "prompt": null,
+              "publication_date": "2026-04-22T14:54:03.118Z",
+              "quality_score": 5,
+              "search_query": "Syntech Biofuel",
+              "source": "LinkedIn",
+              "source_category": null,
+              "source_name": "Syntech Biofuel",
+              "summary": "The Biotechnology Innovation Organization (BIO) has launched a national campaign highlighting the people behind biotech innovation. The effort focuses on patients awaiting treatments and the teams developing them, aiming to elevate the sector's broader impact on public health and the economy.",
+              "title": "BIO Launches 'Fight of Our Lives' Campaign to Spotlight Patients, Scientists Driving Biotech Innovation",
+              "url": "https://www.linkedin.com/posts/activity-7452731451609010176-bLuo"
+            }
+          ],
+          "stats": {
+            "duplicates_removed": 0,
+            "processing_time_ms": 364.67,
+            "similarity_threshold": 0.7,
+            "total_articles": 2,
+            "unique_articles": 2
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Classification agent with Batch": [
+      {
+        "json": {
+          "output": {
+            "sentiment_score": 5,
+            "reason": "The article is strongly positive about Syntech Biofuel, highlighting its new ESV certification, major greenhouse gas reductions, local sourcing, social impact, and praise from an external organisation as a strong example of sustainability leadership."
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Classification Pre-Screener": [
+      {
+        "json": {
+          "output": {
+            "relevant": true,
+            "reason": "The article provides detailed information about Syntech Biofuel’s Environmental and Social Value Certification, including quotes from company leadership and discussion of their sustainability efforts and market impact."
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "relevant": false,
+            "reason": "The content does not mention Syntech Biofuel or provide any information related to the company."
+          }
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      }
+    ],
+    "Syntech Mentioned?": [
+      {
+        "json": {
+          "output": {
+            "relevant": true,
+            "reason": "The article provides detailed information about Syntech Biofuel’s Environmental and Social Value Certification, including quotes from company leadership and discussion of their sustainability efforts and market impact."
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "select fields": [
+      {
+        "json": {
+          "title": "Advanced <b>biofuel</b> manufacturer gains new sustainability credentials to stand out “in a ...",
+          "content": "A leading renewable energy and biofuel company has been awarded the Environmental and Social Value (ESV) Certification by Made in Britain, a non-profit organisation that champions British-made products and manufacturing through the use of the internationally recognised trademark.\n\nSyntech Biofuel, a nationwide fuel supplier for the construction, infrastructure and energy sectors, received the certification in recognition of its commitment to environmental responsibility, sustainable supply chains and positive local impacts. Its advanced smart biofuel delivers up to a 93% reduction in greenhouse gas emissions compared to traditional diesel fuels, while acting as a direct replacement for existing diesel engines.\n\nWith demand for biofuels far outstripping domestic supply, the scale of the challenge is clear. Around 30 billion litres of diesel are used annually in the UK, compared to just 1.4 billion litres of available used cooking oil feedstock. Against this backdrop, Syntech Biofuel is using its new credentials to highlight its authenticity and community impact, producing its fuel entirely from UK feedstocks.\n\n“At Syntech, environmental and social value isn’t a bolt-on for us. It’s fundamental to how we operate. We power our site with electricity generated from our own biofuel, so there’s a huge carbon reduction. The operations on site are incredibly sustainable – we built a sustainable plant and production facility.”\n\n– Mike O’Lone, Director of Environment, Sustainability & Social Impact at Syntech Biofuel.\n\nHe continued: “Made in Britain’s ESV Certification independently validates what we’re doing, producing low-carbon fuels from UK feed stocks with transparent supply chains. We can trace our feedstocks back to their original source, providing full provenance across the supply chain. It also validates the tangible social impact we create, providing a credible framework that aligns closely with our values.”\n\nMade in Britain’s certification enables manufacturers to demonstrate their efforts to protect the environment and people, giving them a commercial edge.”\n\nHe added: “The biggest commercial benefit is credibility. We’re a UK company making fuel in the UK. We employ and source our supply chain locally. It’s strengthened conversations with our contractors and helped discussions about whether to work with us and how we deploy fuel at scale.\n\n“We also employ locally and invest heavily in training, from mental health support to working with universities. The ESV helps demonstrate the real social value we create.\n\n“It’s also about trust. In a landscape of greenwashing, a credible certification like the ESV is becoming essential for any sustainability department.”\n\nJohn Pearce, CEO of Made in Britain, said: “Syntech Biofuel is a strong example of how UK manufacturers are driving progress and delivering both environmental and social value. Their commitment to local causes and measurable carbon reduction is exactly what ESV is about.\n\n“The ESV certification enables businesses like Syntech to clearly showcase their efforts to protect the environment, as well as supporting communities and strengthening UK industry. It provides a trusted way to challenge the greenwashing narrative – demonstrating a genuine commitment to sustainability.”\n\nThe ESV Certification is now available to all Made in Britain members, which currently exceeds 2,200 British manufacturers. To find out more about the certification and its benefits, click here.\n\nFor more articles like this, visit our Sustainability channel.",
+          "url": "https://www.themanufacturer.com/articles/advanced-biofuel-manufacturer-gains-new-sustainability-credentials-to-stand-out-in-a-landscape-of-greenwashing/",
+          "summary": "Syntech Biofuel earned Environmental and Social Value Certification, demonstrating commitment to low-carbon fuels, local supply chains, and community impact with credible sustainability credentials.",
+          "search_query": "https://www.google.com/alerts/feeds/15599495413219043951/7881280020299848207",
+          "publication_date": "2026-04-22T17:10:26.000Z",
+          "prompt": " ",
+          "additional_formats": null,
+          "source": "RSS",
+          "sentiment_score": 5,
+          "reason": "The article is strongly positive about Syntech Biofuel, highlighting its new ESV certification, major greenhouse gas reductions, local sourcing, social impact, and praise from an external organisation as a strong example of sustainability leadership.",
+          "source_name": "Syntech Biofuel"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Set Google Sheet Fields1": [
+      {
+        "json": {
+          "url": "https://www.themanufacturer.com/articles/advanced-biofuel-manufacturer-gains-new-sustainability-credentials-to-stand-out-in-a-landscape-of-greenwashing/",
+          "title": "Advanced <b>biofuel</b> manufacturer gains new sustainability credentials to stand out “in a ...",
+          "content": "A leading renewable energy and biofuel company has been awarded the Environmental and Social Value (ESV) Certification by Made in Britain, a non-profit organisation that champions British-made products and manufacturing through the use of the internationally recognised trademark.\n\nSyntech Biofuel, a nationwide fuel supplier for the construction, infrastructure and energy sectors, received the certification in recognition of its commitment to environmental responsibility, sustainable supply chains and positive local impacts. Its advanced smart biofuel delivers up to a 93% reduction in greenhouse gas emissions compared to traditional diesel fuels, while acting as a direct replacement for existing diesel engines.\n\nWith demand for biofuels far outstripping domestic supply, the scale of the challenge is clear. Around 30 billion litres of diesel are used annually in the UK, compared to just 1.4 billion litres of available used cooking oil feedstock. Against this backdrop, Syntech Biofuel is using its new credentials to highlight its authenticity and community impact, producing its fuel entirely from UK feedstocks.\n\n“At Syntech, environmental and social value isn’t a bolt-on for us. It’s fundamental to how we operate. We power our site with electricity generated from our own biofuel, so there’s a huge carbon reduction. The operations on site are incredibly sustainable – we built a sustainable plant and production facility.”\n\n– Mike O’Lone, Director of Environment, Sustainability & Social Impact at Syntech Biofuel.\n\nHe continued: “Made in Britain’s ESV Certification independently validates what we’re doing, producing low-carbon fuels from UK feed stocks with transparent supply chains. We can trace our feedstocks back to their original source, providing full provenance across the supply chain. It also validates the tangible social impact we create, providing a credible framework that aligns closely with our values.”\n\nMade in Britain’s certification enables manufacturers to demonstrate their efforts to protect the environment and people, giving them a commercial edge.”\n\nHe added: “The biggest commercial benefit is credibility. We’re a UK company making fuel in the UK. We employ and source our supply chain locally. It’s strengthened conversations with our contractors and helped discussions about whether to work with us and how we deploy fuel at scale.\n\n“We also employ locally and invest heavily in training, from mental health support to working with universities. The ESV helps demonstrate the real social value we create.\n\n“It’s also about trust. In a landscape of greenwashing, a credible certification like the ESV is becoming essential for any sustainability department.”\n\nJohn Pearce, CEO of Made in Britain, said: “Syntech Biofuel is a strong example of how UK manufacturers are driving progress and delivering both environmental and social value. Their commitment to local causes and measurable carbon reduction is exactly what ESV is about.\n\n“The ESV certification enables businesses like Syntech to clearly showcase their efforts to protect the environment, as well as supporting communities and strengthening UK industry. It provides a trusted way to challenge the greenwashing narrative – demonstrating a genuine commitment to sustainability.”\n\nThe ESV Certification is now available to all Made in Britain members, which currently exceeds 2,200 British manufacturers. To find out more about the certification and its benefits, click here.\n\nFor more articles like this, visit our Sustainability channel.",
+          "publication_date": "2026-04-22T17:10:26.000Z"
+        },
+        "pairedItem": {
+          "item": 0
         }
       }
     ]
@@ -8689,6 +10839,6 @@
     }
   ],
   "triggerCount": 3,
-  "updatedAt": "2026-04-13T11:36:01.343Z",
-  "versionId": "14fa4d40-67f2-4aeb-aa85-76a5d477a486"
+  "updatedAt": "2026-04-24T14:30:57.397Z",
+  "versionId": "43670dc2-da51-4b95-b48c-039cff715b86"
 }
