@@ -1278,26 +1278,7 @@
       "name": "Limit2"
     }
   ],
-  "pinData": {
-    "Create Digestable Summary - Social Media Selection": [
-      {
-        "json": {
-          "text": "### 🏷️ Mention Prominence\n- Primary subject  \n- Syntech Biofuel is the main focus, highlighted as the provider of recycled cooking oil biofuel for a major infrastructure project.  \n\n### 📣 What Is Being Said\n- Syntech Biofuel converts UK cooking oil into biofuel that reduces emissions by up to 93% and supports green jobs for the Lower Thames Crossing project.  \n\n### 📊 Sentiment\n- Positive  \n- The coverage emphasizes environmental benefits and job creation linked to Syntech Biofuel’s biofuel.  \n\n### ⭐ Key Details\n- The biofuel reduces emissions by up to 93% compared to diesel.  \n- The initiative supports cleaner air and new skills development in Kent.  \n- The biofuel powers the Lower Thames Crossing construction project.  \n\n### 👥 Associated Entities\n- Lower Thames Crossing  \n\n### ⚡ Awareness Level\n- Amplify  \n- Positive environmental and employment impact makes this story valuable for sharing and brand building."
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      },
-      {
-        "json": {
-          "text": "### 🏷️ Mention Prominence\n- Primary subject  \n- Syntech Biofuel is the main focus, with the article centered on its facility expansion.  \n\n### 📣 What Is Being Said\n- Planning permission has been granted for a 1,600 sq m expansion of Syntech Biofuel’s Kent facility to produce advanced smart biofuel from waste cooking oil.  \n\n### 📊 Sentiment\n- Positive  \n- The coverage highlights growth and innovation in low-carbon fuel production.  \n\n### ⭐ Key Details\n- The expansion is located on the Hoo Peninsula in Kent.  \n- The new plant will convert waste cooking oil into a low-carbon diesel alternative.  \n- The biofuel targets transport and logistics sectors.  \n\n### 👥 Associated Entities\n- Charles & Associates Consulting Engineers Ltd  \n\n### ⚡ Awareness Level\n- Amplify  \n- Positive development in sustainable fuel production suitable for sharing internally and externally."
-        },
-        "pairedItem": {
-          "item": 1
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -1334,6 +1315,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-04-17T06:51:43.024Z",
+  "updatedAt": "2026-04-24T14:32:39.110Z",
   "versionId": "86d787e7-ee08-4941-bb73-43321f5179f0"
 }
