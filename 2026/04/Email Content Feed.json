@@ -452,8 +452,9 @@
         "operation": "update",
         "pageId": {
           "__rl": true,
-          "value": "={{ $('Set Data').item.json.notion_url }}",
-          "mode": "url"
+          "mode": "id",
+          "value": "={{ $('Set Data').item.json.notion_url.split('-').last() }}",
+          "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})"
         },
         "propertiesUi": {
           "propertyValues": [
@@ -685,6 +686,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-04-28T09:27:05.198Z",
-  "versionId": "74864bbe-7074-4af6-a824-409222b53060"
+  "updatedAt": "2026-04-29T07:33:59.175Z",
+  "versionId": "59beb77d-7ad2-4d55-958a-e2092691b38b"
 }
