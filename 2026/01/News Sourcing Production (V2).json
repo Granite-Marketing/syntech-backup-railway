@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-28T10:30:22.009Z",
-    "createdAt": "2026-04-28T10:27:33.489Z",
-    "versionId": "0e3e0d10-9a08-49bf-9564-b1114f947225",
+    "updatedAt": "2026-04-29T06:21:28.111Z",
+    "createdAt": "2026-04-29T06:20:59.411Z",
+    "versionId": "6a90632e-6aeb-4851-94eb-bd628d81ee9d",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -457,8 +457,8 @@
           "fields": {
             "values": [
               {
-                "name": "url",
-                "stringValue": "={{ $json.url }}"
+                "name": "id",
+                "stringValue": "={{ $json.id }}"
               }
             ]
           },
@@ -479,8 +479,8 @@
           "resource": "block",
           "blockId": {
             "__rl": true,
-            "value": "={{ $json.url }}",
-            "mode": "url"
+            "value": "={{ $json.id }}",
+            "mode": "id"
           },
           "blockUi": {
             "blockValues": [
@@ -771,7 +771,8 @@
         "position": [
           6768,
           5104
-        ]
+        ],
+        "disabled": true
       },
       {
         "parameters": {
@@ -812,7 +813,8 @@
         "position": [
           6544,
           4944
-        ]
+        ],
+        "disabled": true
       },
       {
         "parameters": {
@@ -852,7 +854,8 @@
             "id": "OSB0yUnhxYm2AAN5",
             "name": "Stephen Google Sheets account"
           }
-        }
+        },
+        "disabled": true
       },
       {
         "parameters": {
@@ -3792,11 +3795,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "update slack process",
+    "name": "Change notion to use ID",
     "description": "",
-    "autosaved": true
+    "autosaved": false
   },
-  "activeVersionId": "0e3e0d10-9a08-49bf-9564-b1114f947225",
+  "activeVersionId": "6a90632e-6aeb-4851-94eb-bd628d81ee9d",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -5204,8 +5207,8 @@
         "fields": {
           "values": [
             {
-              "name": "url",
-              "stringValue": "={{ $json.url }}"
+              "name": "id",
+              "stringValue": "={{ $json.id }}"
             }
           ]
         },
@@ -5226,8 +5229,8 @@
         "resource": "block",
         "blockId": {
           "__rl": true,
-          "value": "={{ $json.url }}",
-          "mode": "url"
+          "value": "={{ $json.id }}",
+          "mode": "id"
         },
         "blockUi": {
           "blockValues": [
@@ -5518,7 +5521,8 @@
       "position": [
         6768,
         5104
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -5559,7 +5563,8 @@
       "position": [
         6544,
         4944
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -5599,7 +5604,8 @@
           "id": "OSB0yUnhxYm2AAN5",
           "name": "Stephen Google Sheets account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -27672,6 +27678,6 @@
     }
   ],
   "triggerCount": 3,
-  "updatedAt": "2026-04-28T10:27:33.355Z",
-  "versionId": "0e3e0d10-9a08-49bf-9564-b1114f947225"
+  "updatedAt": "2026-04-29T06:20:59.275Z",
+  "versionId": "6a90632e-6aeb-4851-94eb-bd628d81ee9d"
 }
