@@ -1,0 +1,4442 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-05-06T11:34:31.141Z",
+    "createdAt": "2026-05-06T11:34:20.342Z",
+    "versionId": "d66c4fcf-ca23-4ceb-9f6c-ef954f0c221f",
+    "workflowId": "xMber2oB93RuRWim",
+    "nodes": [
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "a4678c4d-3605-43b3-930d-54f3db0cf209",
+                "name": "content",
+                "value": "={{ $('Run Evaluation').item.json.Content }}",
+                "type": "string"
+              },
+              {
+                "id": "960e3dc3-5af8-4535-bca0-6db869b1bed0",
+                "name": "url",
+                "value": "={{ $('Run Evaluation').item.json.URL }}",
+                "type": "string"
+              },
+              {
+                "id": "084b87c7-e199-4284-89d5-a2a5bb7a69e7",
+                "name": "title",
+                "value": "={{ $('Run Evaluation').item.json.Title }}",
+                "type": "string"
+              },
+              {
+                "id": "4957e170-7f99-4439-8b8a-29e930aa8823",
+                "name": "publication_date",
+                "value": "={{ $('Run Evaluation').item.json[\"Publication Date\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "7bf20e2e-95b3-4acc-9a9b-7fcf895f1ad2",
+                "name": "expected_relevance",
+                "value": "={{ $('Run Evaluation').item.json[\"Expected_Score\"] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "dcbf947b-3ff8-4cfe-ac2f-bf8c1f51eb03",
+        "name": "Match Input Format",
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -1344,
+          224
+        ],
+        "executeOnce": true
+      },
+      {
+        "parameters": {
+          "operation": "checkIfEvaluating"
+        },
+        "id": "45a20361-e842-49c1-b22a-247ecc5fa9eb",
+        "name": "Evaluation",
+        "type": "n8n-nodes-base.evaluation",
+        "typeVersion": 4.7,
+        "position": [
+          0,
+          -64
+        ]
+      },
+      {
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+            "mode": "list",
+            "cachedResultName": "Syntech Evaluation Test",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Evaluations",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+          }
+        },
+        "id": "aa2816da-216f-4566-9ee7-ab14465ce236",
+        "name": "Run Evaluation",
+        "type": "n8n-nodes-base.evaluationTrigger",
+        "typeVersion": 4.6,
+        "position": [
+          -1792,
+          224
+        ],
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "OSB0yUnhxYm2AAN5",
+            "name": "Stephen Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+            "mode": "list",
+            "cachedResultName": "Syntech Evaluation Test",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Evaluations",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+          },
+          "outputs": {
+            "values": [
+              {
+                "outputName": "Actual_Score",
+                "outputValue": "={{ $json.output.relevance_score }}"
+              },
+              {
+                "outputName": "AI_Reasoning",
+                "outputValue": "={{ $('Classification Agent (Claude Optimisation) - OLD').item.json.output.reason }}"
+              }
+            ]
+          }
+        },
+        "id": "1a136719-de3e-4fe2-80f6-480cc969c868",
+        "name": "Set Output In Evaluation Google Sheet",
+        "type": "n8n-nodes-base.evaluation",
+        "typeVersion": 4.7,
+        "position": [
+          224,
+          -400
+        ],
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "OSB0yUnhxYm2AAN5",
+            "name": "Stephen Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "9a8264bf-82d2-434f-b146-3b8deb76e519",
+                "name": "title",
+                "value": "={{ $('Deduplicated Articles').item.json.title || $('Remove Duplicates').item.json.title }}",
+                "type": "string"
+              },
+              {
+                "id": "dfdf1695-e69f-4cff-a8f0-21d9da07745b",
+                "name": "content",
+                "value": "={{ ($('Deduplicated Articles').item.json.content || $('Remove Duplicates').item.json.content || '').substring(0, 49000) }}\n\n{{ $('Deduplicated Articles').item.json.duplicates.length > 0 ? \n$('Deduplicated Articles').item.json.duplicates.map((article, index) => `## Duplicate Articles:\n\nTitle ${index + 1}: ${article.title}\nSummary ${index + 1}: ${article.summary}\nUrl ${index + 1}: ${article.url}`).join('\\n') : 'No Duplicate Articles'}}",
+                "type": "string"
+              },
+              {
+                "id": "4899f665-2f29-41df-afea-d8a744a6fec9",
+                "name": "url",
+                "value": "={{ $('Deduplicated Articles').item.json.url || $('Remove Duplicates').item.json.url }}",
+                "type": "string"
+              },
+              {
+                "id": "ec8500c3-9d57-45d3-b1a9-2de1706dee8d",
+                "name": "summary",
+                "value": "={{ $('Deduplicated Articles').item.json.summary || $('Remove Duplicates').item.json.summary }}",
+                "type": "string"
+              },
+              {
+                "id": "0c470796-e8e2-4605-a6af-9e8236d9635c",
+                "name": "search_query",
+                "value": "={{ $('Deduplicated Articles').item.json.search_query }}",
+                "type": "string"
+              },
+              {
+                "id": "4d34103a-b327-42cc-8e50-dec38a8fc1f5",
+                "name": "publication_date",
+                "value": "={{ $('Deduplicated Articles').item.json.publication_date }}",
+                "type": "string"
+              },
+              {
+                "id": "02065b1c-286c-4cf9-8709-27d8a766d2d1",
+                "name": "prompt",
+                "value": "={{ $('Deduplicated Articles').item.json.prompt }}",
+                "type": "string"
+              },
+              {
+                "id": "ef20184c-2ce1-4660-9658-fe12f9776f2d",
+                "name": "additional_formats",
+                "value": "={{ $('Deduplicated Articles').item.json.additional_formats }}",
+                "type": "string"
+              },
+              {
+                "id": "5a5e80cb-0ad3-4e06-86f8-63e9e59765fd",
+                "name": "source",
+                "value": "={{ $('Deduplicated Articles').item.json.source || $('Remove Duplicates').item.json.source }}",
+                "type": "string"
+              },
+              {
+                "id": "f3e017bd-5f4f-4265-ba02-9280077f42a6",
+                "name": "source_name",
+                "value": "={{ $('Deduplicated Articles').item.json.source_name || $('Remove Duplicates').item.json.source_name }}",
+                "type": "string"
+              },
+              {
+                "id": "f4ed6cb7-a5a4-401e-8a52-d81a8e11bea5",
+                "name": "author",
+                "value": "={{ $('Deduplicated Articles').item.json.author }}",
+                "type": "string"
+              },
+              {
+                "id": "b7009aa6-4950-49c3-99b4-9dac161d2124",
+                "name": "source_category",
+                "value": "={{ $('Deduplicated Articles').item.json.source_category }}",
+                "type": "string"
+              },
+              {
+                "id": "61574df1-c16c-42df-9b9b-ebe428bd7eae",
+                "name": "mode",
+                "value": "={{ $('Deduplicated Articles').item.json.mode }}",
+                "type": "string"
+              },
+              {
+                "id": "b9505f97-3c09-4d20-aaa3-cbccd96a8ced",
+                "name": "relevance_score",
+                "value": "={{ $('Evaluation').isExecuted ? $('Evaluation').item.json.output.final_score : '' }}",
+                "type": "string"
+              },
+              {
+                "id": "c9b91b3f-d479-49e2-a597-3e0c233379ed",
+                "name": "reason",
+                "value": "={{ $('Evaluation').isExecuted ? $('Evaluation').item.json.output.reason : '' }}",
+                "type": "string"
+              },
+              {
+                "id": "d8061e59-9f62-4596-9a93-0346f90b0ea7",
+                "name": "analysis",
+                "value": "={{ $json }}",
+                "type": "object"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "8c0fd86a-a2c8-42b1-9b30-3ae3ed80101c",
+        "name": "select fields",
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          224,
+          80
+        ]
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "advanced": true,
+          "mergeByFields": {
+            "values": [
+              {
+                "field1": "url",
+                "field2": "URL"
+              }
+            ]
+          },
+          "joinMode": "keepNonMatches",
+          "outputDataFrom": "input1",
+          "options": {}
+        },
+        "id": "075e0416-aa8f-4f76-86d7-607915cf5c2c",
+        "name": "Remove Duplicates1",
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          1024,
+          -112
+        ],
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "4061f412-99c2-4549-9d2e-be355aa6a5bb",
+                "name": "url",
+                "value": "={{ $('select fields').item.json.url }}",
+                "type": "string"
+              },
+              {
+                "id": "60a2488f-d96c-4c21-94f1-6f627e9c99ae",
+                "name": "title",
+                "value": "={{ $('select fields').item.json.title }}",
+                "type": "string"
+              },
+              {
+                "id": "30183727-5e80-401c-a728-37da12a2054b",
+                "name": "content",
+                "value": "={{ $('select fields').item.json.content }}",
+                "type": "string"
+              },
+              {
+                "id": "ac7fb376-710f-43b5-9ff8-c3de8dc4f0ff",
+                "name": "publication_date",
+                "value": "={{ $('select fields').item.json.publication_date }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "057472e5-afb6-4b52-a387-af538aa7879d",
+        "name": "Set Google Sheet Fields",
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          800,
+          -208
+        ],
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+            "mode": "list",
+            "cachedResultName": "Syntech Evaluation Test",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Evaluations",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+          },
+          "options": {
+            "dataLocationOnSheet": {
+              "values": {
+                "rangeDefinition": "detectAutomatically"
+              }
+            }
+          }
+        },
+        "id": "57b39eff-ba38-4eaf-b53c-15f8a58c796c",
+        "name": "Get All Ideas From Evaluation Table2",
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7,
+        "position": [
+          800,
+          -16
+        ],
+        "executeOnce": true,
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "OSB0yUnhxYm2AAN5",
+            "name": "Stephen Google Sheets account"
+          }
+        },
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "sortFieldsUi": {
+            "sortField": [
+              {
+                "fieldName": "total_score",
+                "order": "descending"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "96a51128-bdfc-4587-868f-ba5f872d66bc",
+        "name": "Sort",
+        "type": "n8n-nodes-base.sort",
+        "typeVersion": 1,
+        "position": [
+          -448,
+          -64
+        ]
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "8987c495-abc2-4e29-86db-4466755af908",
+                "leftValue": "={{ $json.analysis.threshold_met }}",
+                "rightValue": 3,
+                "operator": {
+                  "type": "boolean",
+                  "operation": "true",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "looseTypeValidation": true,
+          "options": {}
+        },
+        "id": "0ad50e0a-5bbb-4087-a308-b15965b12562",
+        "name": "Valid content only (score above 2)",
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.2,
+        "position": [
+          512,
+          272
+        ]
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "operation": "getAll",
+          "databaseId": {
+            "__rl": true,
+            "value": "27a785c0-cfab-807b-b5eb-e1214e18960d",
+            "mode": "list",
+            "cachedResultName": "Syntech Biofuels Static Sources",
+            "cachedResultUrl": "https://www.notion.so/27a785c0cfab807bb5ebe1214e18960d"
+          },
+          "returnAll": true,
+          "options": {}
+        },
+        "id": "bbd4479f-7e7b-4157-ae89-bf4ab2f0e15f",
+        "name": "Get All Sources1",
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          -1568,
+          224
+        ],
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "8181b8db-969e-49ec-9489-805d0054391e",
+                "leftValue": "={{ $if($('sources').isExecuted, $('sources').first().json.bypass_filter, false) }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "boolean",
+                  "operation": "false",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "looseTypeValidation": true,
+          "options": {}
+        },
+        "id": "c81b8b37-e234-4c7c-a4fa-4d9a1673834e",
+        "name": "filter",
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.2,
+        "position": [
+          512,
+          -112
+        ]
+      },
+      {
+        "parameters": {
+          "operation": "append",
+          "documentId": {
+            "__rl": true,
+            "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+            "mode": "list",
+            "cachedResultName": "Syntech Evaluation Test",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Evaluations",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Publication Date": "={{ $json.publication_date }}",
+              "URL": "={{ $json.url }}",
+              "Title": "={{ $json.title }}",
+              "Content": "={{ $json.content }}",
+              "Actual Score": "={{ $('Classification agent with Batch (Tariq)').item.json.message.content.relevance_score }}",
+              "AI Reasoning": "={{ $('Classification agent with Batch (Tariq)').item.json.message.content.reasoning }}"
+            },
+            "matchingColumns": [
+              "URL"
+            ],
+            "schema": [
+              {
+                "id": "Title",
+                "displayName": "Title",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "URL",
+                "displayName": "URL",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Content",
+                "displayName": "Content",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Publication Date",
+                "displayName": "Publication Date",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "Actual Score",
+                "displayName": "Actual Score",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Expected Score",
+                "displayName": "Expected Score",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Human Reasoning",
+                "displayName": "Human Reasoning",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "AI Reasoning",
+                "displayName": "AI Reasoning",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {
+            "useAppend": true
+          }
+        },
+        "id": "3ee4e41b-4273-4d76-9c49-11fd089cfe09",
+        "name": "Add Content Idea to Evaluation Table1",
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7,
+        "position": [
+          1248,
+          -112
+        ],
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "OSB0yUnhxYm2AAN5",
+            "name": "Stephen Google Sheets account"
+          }
+        },
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "id": "c97120f6-b765-4328-b157-131abc2331d4",
+        "name": "OpenAI Chat Model8",
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          528,
+          -288
+        ],
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "setMetrics",
+          "expectedAnswer": "={{ $('Run Evaluation').item.json.Expected_Score }}",
+          "actualAnswer": "={{ $('Perform Final Calculation').item.json.total_score }}",
+          "prompt": "=You are an expert evaluator assessing how closely an actual score matches the expected score.\n\nCompare the expected and actual scores numerically, then assign a final similarity rating from 0 to 5 according to the following scale:\n\n# Scoring Criteria\n- 5: Perfect match – actual and expected scores are identical.\n- 4: Very close – difference of 1 point.\n- 3: Somewhat close – difference of 2 points.\n- 2: Noticeably different – difference of 3 points.\n- 1: Highly different – difference of 4 points.\n- 0: Completely misaligned or invalid comparison – difference greater than 4 or one score missing.\n\n# Output Format\nOnly output the final score in strict JSON format as follows:\n{\n  \"score\": <integer from 0 to 5>\n}\n\nDo not include any reasoning, explanation, or additional text.\n",
+          "options": {}
+        },
+        "id": "0fd09749-a94d-4639-8366-7897bcd0d93d",
+        "name": "Evaluation1",
+        "type": "n8n-nodes-base.evaluation",
+        "typeVersion": 4.8,
+        "position": [
+          448,
+          -512
+        ]
+      },
+      {
+        "parameters": {
+          "select": "channel",
+          "channelId": {
+            "__rl": true,
+            "value": "C09V1831FN2",
+            "mode": "list",
+            "cachedResultName": "syntech-n8n-error-tracker"
+          },
+          "text": "= *Workflow Execution Error* ⚠️\n\n- *Workflow Name:* News Sourcing Production (V2)\n- *Error Node:* Filter Articles By Topic\n- *Error Message:* {{ $json.error }}\n- *Timestamp:* {{ $now.toFormat('dd-MM-yyyy HH:mm:ss') }}\n- *Article:*\nTitle: {{ $json.title }}\nUrl:{{ $json.url }}\nSummary: {{ $json.summary }}\n\n*Next Steps:* Please review the workflow and retry the execution.\nWorkflow Execution: <https://syntech.granite-automations.app/workflow/{{ $workflow.id }}/executions/{{ $execution.id }}|View Execution>",
+          "otherOptions": {
+            "includeLinkToWorkflow": false,
+            "unfurl_links": true
+          }
+        },
+        "id": "fd34ca94-b27d-4e98-a541-85f00ef5351d",
+        "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
+        "name": "Send a message5",
+        "type": "n8n-nodes-base.slack",
+        "typeVersion": 2.3,
+        "position": [
+          1024,
+          368
+        ],
+        "credentials": {
+          "slackApi": {
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://syntech-biofuel-relevance-classifier-production.up.railway.app/classify",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "httpBearerAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "X-Request-Id",
+                "value": "={{ $execution.id }}-{{ $itemIndex }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"title\":{{ JSON.stringify($('Deduplicated Articles').item.json.title) }},\n  \"content\":{{ JSON.stringify($('Deduplicated Articles').item.json.content) }},\n  \"url\":{{ JSON.stringify($('Deduplicated Articles').item.json.url) }},\n  \"source\":{{ JSON.stringify($('Deduplicated Articles').item.json.source) }},\n  \"source_category\":{{ JSON.stringify($('Deduplicated Articles').item.json.source_category || \"\") }},\n  \"summary\":{{ JSON.stringify($('Deduplicated Articles').item.json.summary || \"\") }},\n  \"author\":{{ JSON.stringify($('Deduplicated Articles').item.json.author ?? null) }}\n}",
+          "options": {
+            "batching": {
+              "batch": {
+                "batchSize": 10,
+                "batchInterval": 3000
+              }
+            },
+            "response": {
+              "response": {
+                "responseFormat": "json"
+              }
+            },
+            "timeout": 180000
+          }
+        },
+        "id": "95162ed1-43d2-4503-8ce6-e69e24afe428",
+        "name": "Classify via Relevance Service",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          -1120,
+          128
+        ],
+        "retryOnFail": true,
+        "maxTries": 3,
+        "waitBetweenTries": 5000,
+        "credentials": {
+          "httpBearerAuth": {
+            "id": "rTkgjtU8QIYs0nXm",
+            "name": "Syntech Relevance Classifier Bearer"
+          }
+        },
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "// Flatten the microservice envelope so downstream references\n// (e.g. $('Perform Final Calculation').item.json.threshold_met) keep working\n// without edits. The service returns { \"analysis\": {...} }; every field the\n// legacy code node emitted at root now lives under .analysis.\n// (TODO: remove this flatten when Notion mappers migrate to reading .analysis.*\n// directly — tracked in docs/solutions/2026-n8n-to-microservice-cutover.md.)\nreturn $json.analysis"
+        },
+        "id": "d4638f17-2e00-4175-9890-8837c8449b14",
+        "name": "Perform Final Calculation",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -896,
+          32
+        ]
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "a2276983-29bb-4082-853d-554d417df7fd",
+                "leftValue": "={{ $('Perform Final Calculation').item.json.threshold_met }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "boolean",
+                  "operation": "true",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "id": "bf513ba4-6a10-475e-8cd1-038e23045fb6",
+        "name": "Threshold Met?",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          -672,
+          32
+        ]
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "9a8264bf-82d2-434f-b146-3b8deb76e519",
+                "name": "title",
+                "value": "={{ $('Deduplicated Articles').item.json.title }}",
+                "type": "string"
+              },
+              {
+                "id": "dfdf1695-e69f-4cff-a8f0-21d9da07745b",
+                "name": "content",
+                "value": "={{ ($('Deduplicated Articles').item.json.content || '').substring(0, 49000) }}",
+                "type": "string"
+              },
+              {
+                "id": "4899f665-2f29-41df-afea-d8a744a6fec9",
+                "name": "url",
+                "value": "={{ $('Deduplicated Articles').item.json.url }}",
+                "type": "string"
+              },
+              {
+                "id": "ec8500c3-9d57-45d3-b1a9-2de1706dee8d",
+                "name": "summary",
+                "value": "={{ $('Deduplicated Articles').item.json.summary }}",
+                "type": "string"
+              },
+              {
+                "id": "0c470796-e8e2-4605-a6af-9e8236d9635c",
+                "name": "search_query",
+                "value": "={{ $('Deduplicated Articles').item.json.search_query }}",
+                "type": "string"
+              },
+              {
+                "id": "4d34103a-b327-42cc-8e50-dec38a8fc1f5",
+                "name": "publication_date",
+                "value": "={{ $('Deduplicated Articles').item.json.publication_date }}",
+                "type": "string"
+              },
+              {
+                "id": "02065b1c-286c-4cf9-8709-27d8a766d2d1",
+                "name": "prompt",
+                "value": "={{ $('Deduplicated Articles').item.json.prompt }}",
+                "type": "string"
+              },
+              {
+                "id": "ef20184c-2ce1-4660-9658-fe12f9776f2d",
+                "name": "additional_formats",
+                "value": "={{ $('Deduplicated Articles').item.json.additional_formats }}",
+                "type": "string"
+              },
+              {
+                "id": "5a5e80cb-0ad3-4e06-86f8-63e9e59765fd",
+                "name": "source",
+                "value": "={{ $('Deduplicated Articles').item.json.source }}",
+                "type": "string"
+              },
+              {
+                "id": "f3e017bd-5f4f-4265-ba02-9280077f42a6",
+                "name": "source_name",
+                "value": "={{ $('Deduplicated Articles').item.json.source_name }}",
+                "type": "string"
+              },
+              {
+                "id": "61574df1-c16c-42df-9b9b-ebe428bd7eae",
+                "name": "mode",
+                "value": "={{ $('Deduplicated Articles').item.json.mode }}",
+                "type": "string"
+              },
+              {
+                "id": "d8061e59-9f62-4596-9a93-0346f90b0ea7",
+                "name": "analysis",
+                "value": "={{ $json }}",
+                "type": "object"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "73568c1a-d7fb-4ce4-bbfa-b7ecf11db671",
+        "name": "select fields1",
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -448,
+          128
+        ]
+      },
+      {
+        "parameters": {
+          "aggregate": "aggregateAllItemData",
+          "destinationFieldName": "articles",
+          "options": {}
+        },
+        "id": "9557b71d-4a6b-460d-875b-0bf2c133bf55",
+        "name": "Aggregate",
+        "type": "n8n-nodes-base.aggregate",
+        "typeVersion": 1,
+        "position": [
+          -1792,
+          32
+        ]
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://syntech-semantic-article-deduplication-production.up.railway.app/deduplicate",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "articles",
+                "value": "={{ $json.articles.map(a => ({ ...a, id: a.url })) }}"
+              },
+              {
+                "name": "similarity_threshold",
+                "value": "0.70"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "6099ed3f-ca0d-4bf6-8367-776cd399dc9a",
+        "name": "Semantic Keyword Deduplication",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          -1568,
+          32
+        ],
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
+      },
+      {
+        "parameters": {
+          "content": "## Semantic Deduplication\nThis performs semantic deduplication, which uses keywords to create content clusters, selecting the best quality content and reducing the overall number of articles. ",
+          "height": 304,
+          "width": 608
+        },
+        "id": "9d782b97-bbf7-4ad8-b89d-962a6301746b",
+        "name": "Sticky Note1",
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1,
+        "position": [
+          -1808,
+          -96
+        ]
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "selected_articles",
+          "options": {}
+        },
+        "id": "53f4bf9e-d3d7-4e93-b7b6-3f9ea6ce4e60",
+        "name": "Deduplicated Articles",
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          -1344,
+          32
+        ]
+      },
+      {
+        "parameters": {
+          "maxItems": 1000
+        },
+        "id": "0dc8a8d8-3b6e-43ba-a5c8-0ecce4138d95",
+        "name": "Get 1000 best articles",
+        "type": "n8n-nodes-base.limit",
+        "typeVersion": 1,
+        "position": [
+          -224,
+          -64
+        ]
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "body.articles",
+          "options": {}
+        },
+        "id": "2e35c34c-5d21-4818-a6c5-234c79c91941",
+        "name": "Split Out Articles",
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          -2400,
+          512
+        ]
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "flush-syntech-queue",
+          "authentication": "headerAuth",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -2608,
+          512
+        ],
+        "id": "64c7c44e-35a0-420c-88f7-7c7b6871873c",
+        "name": "Resume Content Queue",
+        "webhookId": "bbfd5027-a96f-4ec1-bc49-1b612b0f18ad",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "voWjuyaflZP6RgSr",
+            "name": "Syntech Content Webhook Bearer"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "select": "channel",
+          "channelId": {
+            "__rl": true,
+            "value": "C09V1831FN2",
+            "mode": "list",
+            "cachedResultName": "syntech-n8n-error-tracker"
+          },
+          "text": "= *Classification Workflow Execution Error* ⚠️\n\n- *Workflow Name:* News Sourcing Production (V2)\n- *Error Node:* Classify via Relevance Service\n- *Error Message:* {{ $json.error }}\n- *Timestamp:* {{ $now.toFormat('dd-MM-yyyy HH:mm:ss') }}\n- *Article:*\nTitle: {{ $('Deduplicated Articles').item.json.title }}\nUrl:{{ $('Deduplicated Articles').item.json.url }}\n\nWorkflow Execution: <https://syntech.granite-automations.app/workflow/{{ $workflow.id }}/executions/{{ $execution.id }}|View Execution>",
+          "otherOptions": {
+            "includeLinkToWorkflow": false,
+            "unfurl_links": true
+          }
+        },
+        "id": "8901b4d4-18a1-4b96-958c-de4212eb27cc",
+        "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
+        "name": "Send a message7",
+        "type": "n8n-nodes-base.slack",
+        "typeVersion": 2.3,
+        "position": [
+          -896,
+          224
+        ],
+        "credentials": {
+          "slackApi": {
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
+          }
+        }
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          1024,
+          176
+        ],
+        "id": "9c8ae5e6-cb0b-43be-938d-7868bc9bbece",
+        "name": "No Operation, do nothing2"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "e4c49199-9495-4470-aa2d-0a7d695f9062",
+                "leftValue": "={{ $json.source_category }}",
+                "rightValue": "Mention",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEquals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          -2176,
+          512
+        ],
+        "id": "8bd9745d-f8e6-4416-bdc5-be43e4add32d",
+        "name": "If Not Mention"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "a4678c4d-3605-43b3-930d-54f3db0cf209",
+                "name": "content",
+                "value": "={{ $('Run Evaluation1').item.json.Content }}",
+                "type": "string"
+              },
+              {
+                "id": "960e3dc3-5af8-4535-bca0-6db869b1bed0",
+                "name": "url",
+                "value": "={{ $('Run Evaluation1').item.json.URL }}",
+                "type": "string"
+              },
+              {
+                "id": "084b87c7-e199-4284-89d5-a2a5bb7a69e7",
+                "name": "title",
+                "value": "={{ $('Run Evaluation1').item.json.Title }}",
+                "type": "string"
+              },
+              {
+                "id": "4957e170-7f99-4439-8b8a-29e930aa8823",
+                "name": "publication_date",
+                "value": "={{ $('Run Evaluation1').item.json[\"Publication Date\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "7bf20e2e-95b3-4acc-9a9b-7fcf895f1ad2",
+                "name": "expected_relevance",
+                "value": "={{ $('Run Evaluation1').item.json[\"Expected Score\"] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "8a77b9c3-c4bc-4f06-b523-9349472b12a5",
+        "name": "Match Input Format1",
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          112,
+          1248
+        ],
+        "executeOnce": true
+      },
+      {
+        "parameters": {
+          "operation": "checkIfEvaluating"
+        },
+        "id": "d93c93cd-b912-4191-b2cd-cad6a98376fd",
+        "name": "Evaluation2",
+        "type": "n8n-nodes-base.evaluation",
+        "typeVersion": 4.7,
+        "position": [
+          528,
+          1008
+        ]
+      },
+      {
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+            "mode": "list",
+            "cachedResultName": "Syntech Evaluation Test",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Evaluations",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+          }
+        },
+        "id": "78beaced-90f0-4a7a-87fb-702e2d4d9e9b",
+        "name": "Run Evaluation1",
+        "type": "n8n-nodes-base.evaluationTrigger",
+        "typeVersion": 4.6,
+        "position": [
+          -336,
+          1248
+        ],
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "HbsRTv9aneCsIKOQ",
+            "name": "Stephen Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+            "mode": "list",
+            "cachedResultName": "Syntech Evaluation Test",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Evaluations",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+          },
+          "outputs": {
+            "values": [
+              {
+                "outputName": "Actual_Score",
+                "outputValue": "={{ $json.output.relevance_score }}"
+              },
+              {
+                "outputName": "AI_Reasoning",
+                "outputValue": "={{ $('Classification agent with Batch').item.json.output.reason }}"
+              }
+            ]
+          }
+        },
+        "id": "c5f08ac2-5089-4a04-a710-4dfeebf0d0de",
+        "name": "Set Output In Evaluation Google Sheet1",
+        "type": "n8n-nodes-base.evaluation",
+        "typeVersion": 4.7,
+        "position": [
+          752,
+          768
+        ],
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "HbsRTv9aneCsIKOQ",
+            "name": "Stephen Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "databasePage",
+          "operation": "getAll",
+          "databaseId": {
+            "__rl": true,
+            "value": "27a785c0-cfab-807b-b5eb-e1214e18960d",
+            "mode": "list",
+            "cachedResultName": "Syntech Biofuels Static Sources",
+            "cachedResultUrl": "https://www.notion.so/27a785c0cfab807bb5ebe1214e18960d"
+          },
+          "returnAll": true,
+          "options": {}
+        },
+        "id": "8a71cf52-ae40-46b0-bc51-9ab205e52ace",
+        "name": "Get All Sources3",
+        "type": "n8n-nodes-base.notion",
+        "typeVersion": 2.2,
+        "position": [
+          -112,
+          1248
+        ],
+        "credentials": {
+          "notionApi": {
+            "id": "k0ZwGrqySi9Wayf7",
+            "name": "Stephen Notion account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "setMetrics",
+          "expectedAnswer": "={{ $('Run Evaluation1').item.json.Expected_Score }}",
+          "actualAnswer": "={{ $('Classification agent with Batch').item.json.output.relevance_score }}",
+          "prompt": "=You are an expert evaluator assessing how closely an actual score matches the expected score.\n\nCompare the expected and actual scores numerically, then assign a final similarity rating from 0 to 5 according to the following scale:\n\n# Scoring Criteria\n- 5: Perfect match – actual and expected scores are identical.\n- 4: Very close – difference of 1 point.\n- 3: Somewhat close – difference of 2 points.\n- 2: Noticeably different – difference of 3 points.\n- 1: Highly different – difference of 4 points.\n- 0: Completely misaligned or invalid comparison – difference greater than 4 or one score missing.\n\n# Output Format\nOnly output the final score in strict JSON format as follows:\n{\n  \"score\": <integer from 0 to 5>\n}\n\nDo not include any reasoning, explanation, or additional text.\n",
+          "options": {}
+        },
+        "id": "21483590-360c-4d8d-863a-3845256fe95c",
+        "name": "Evaluation3",
+        "type": "n8n-nodes-base.evaluation",
+        "typeVersion": 4.8,
+        "position": [
+          976,
+          656
+        ]
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "id": "70f59394-d8f0-44d2-a233-8ddaffb9b23d",
+        "name": "OpenAI Chat Model9",
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          1056,
+          880
+        ],
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "aggregate": "aggregateAllItemData",
+          "destinationFieldName": "articles",
+          "options": {}
+        },
+        "id": "5b8962ea-13f8-415e-a153-5ea02aa85d20",
+        "name": "Aggregate1",
+        "type": "n8n-nodes-base.aggregate",
+        "typeVersion": 1,
+        "position": [
+          -1824,
+          912
+        ]
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://syntech-semantic-article-deduplication-production.up.railway.app/deduplicate",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "articles",
+                "value": "={{ $json.articles.map(a => ({ ...a, id: a.url })) }}"
+              },
+              {
+                "name": "similarity_threshold",
+                "value": "0.70"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "47be708c-bd69-4c2e-a55a-8ed3acc457d3",
+        "name": "Semantic Keyword Deduplication1",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          -1600,
+          912
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "/**\n * Source Exclusion Filter\n * Filters out content authored by Syntech's own accounts before pre-filter runs.\n * Blocklist is configurable via ENV vars (comma-separated per platform).\n */\n\n// Get blocklist from ENV or use defaults\nconst blocklist = [\n  // Default Syntech account URLs\n  'syntechbiofuel.com',\n  'facebook.com/syntechbiofuel',\n  'x.com/syntechbiofuel',\n  'twitter.com/syntechbiofuel',\n  'instagram.com/syntechbiofuel',\n  'linkedin.com/company/syntechbiofuel',\n  'syntechbiofuel.medium.com',\n];\n\nconst filtered = [];\nconst excluded = [];\n\nfor (const item of $input.all()) {\n  const url = (item.json.url || '').toLowerCase();\n  const author = (item.json.author || '').toLowerCase();\n\n  // Check if URL or author matches any blocklist pattern\n  const isBlocked = blocklist.some(pattern => {\n    const p = pattern.toLowerCase();\n    return url.includes(p) || author.includes(p);\n  });\n\n  if (isBlocked) {\n    excluded.push(item.json.url);\n  } else {\n    filtered.push(item);\n  }\n}\n\nif (excluded.length > 0) {\n  console.log(`Source Exclusion: filtered out ${excluded.length} Syntech-authored items`);\n}\n\nreturn filtered;"
+        },
+        "id": "0c7b0625-da5e-40d4-98f6-a44c45c29832",
+        "name": "Source Exclusion",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -1152,
+          912
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "/**\n * Pre-filter: 3-tier relevance check to reduce LLM costs\n *\n * Tier 1: \"Syntech\" present (case-insensitive) → instant pass\n * Tier 3: Surname + biofuel context, OR Syntech-specific term → needs LLM verification\n *\n * Items failing all tiers are filtered out.\n */\n\nconst surnames = [\"bingham\", \"hart\", \"olone\"];\n\nconst biofuelTerms = [\n    \"biofuel\",\n    \"biofuels\",\n    \"biodiesel\",\n    \"bioethanol\",\n    \"renewable fuel\",\n    \"sustainable fuel\",\n    \"green fuel\",\n    \"hvo\",\n    \"saf\",\n    \"sustainable aviation\",\n    \"used cooking oil\",\n    \"uco\",\n    \"waste oil\",\n    \"feedstock\",\n    \"decarbonization\",\n    \"decarbonisation\",\n    \"net zero\",\n    \"net-zero\",\n    \"carbon neutral\",\n];\n\nconst syntechSpecificTerms = [\n    \"grangemouth\",\n    \"kingsnorth\",\n    \"kent\",\n    \"asb\",\n    \"advanced sustainable biofuel\",\n    \"circular biofuel\",\n];\n\nconst results = [];\n\nfor (const item of $input.all()) {\n    const content = (item.json.content || \"\").toLowerCase();\n    const title = (item.json.title || \"\").toLowerCase();\n    const text = content + \" \" + title;\n\n    const hasSyntech = /syntech/i.test(text);\n    const hasSurname = surnames.some((name) => text.includes(name));\n    const hasBiofuelContext = biofuelTerms.some((term) => text.includes(term));\n    const hasSyntechSpecific = syntechSpecificTerms.some((term) =>\n        text.includes(term),\n    );\n\n    let tier = null;\n    let pass = false;\n\n    // Tier 1: Syntech explicitly mentioned\n    if (hasSyntech) {\n        tier = 1;\n        pass = true;\n    }\n    // Tier 3: Surname + biofuel context, OR Syntech-specific term\n    else if ((hasSurname && hasBiofuelContext) || hasSyntechSpecific) {\n        tier = 3;\n        pass = true;\n        item.json._needsLlmVerification = true;\n    }\n\n    if (pass) {\n        item.json._preFilterTier = tier;\n        results.push(item);\n    }\n}\n\nconsole.log(\n    `Pre-filter: ${results.length} items passed (Tier 1: instant, Tier 3: pending LLM)`,\n);\n\nreturn results;"
+        },
+        "id": "2fe793b1-8e6d-4d33-9ac0-be8f8ba43020",
+        "name": "Pre-filter",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -928,
+          912
+        ]
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "selected_articles",
+          "options": {}
+        },
+        "id": "b9c7cbf0-68d2-4d3b-9382-549dfdf41ebb",
+        "name": "Deduplicated Articles1",
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          -1376,
+          912
+        ]
+      },
+      {
+        "parameters": {
+          "select": "channel",
+          "channelId": {
+            "__rl": true,
+            "value": "C09V1831FN2",
+            "mode": "list",
+            "cachedResultName": "syntech-n8n-error-tracker"
+          },
+          "text": "= *Workflow Execution Error* ⚠️\n\n- *Workflow Name:* News Sourcing Production (V2)\n- *Error Node:* Filter Articles By Topic\n- *Error Message:* {{ $json.error }}\n- *Timestamp:* {{ $now.toFormat('dd-MM-yyyy HH:mm:ss') }}\n- *Article:*\nTitle: {{ $('Deduplicated Articles1').item.json.title }}\nUrl:{{ $('Deduplicated Articles1').item.json.url }}\nSummary: {{ $('Deduplicated Articles1').item.json.summary }}\n\n*Next Steps:* Please review the workflow and retry the execution.\nWorkflow Execution: <https://syntech.granite-automations.app/workflow/{{ $workflow.id }}/executions/{{ $execution.id }}|View Execution>",
+          "otherOptions": {
+            "includeLinkToWorkflow": false,
+            "unfurl_links": true
+          }
+        },
+        "id": "9baa326c-32db-42a6-87aa-f23f277380c6",
+        "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
+        "name": "Send a message",
+        "type": "n8n-nodes-base.slack",
+        "typeVersion": 2.3,
+        "position": [
+          528,
+          1216
+        ],
+        "credentials": {
+          "slackApi": {
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://syntech-article-processor-production.up.railway.app/mentions/analyze",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{JSON.stringify({\n  url: $('Deduplicated Articles1').item.json.url,\n  title: $('Deduplicated Articles1').item.json.title,\n  content: $('Deduplicated Articles1').item.json.content,\n  summary: $('Deduplicated Articles1').item.json.summary || null,\n  source: $('Deduplicated Articles1').item.json.source || null,\n  publication_date: $('Deduplicated Articles1').item.json.publication_date || null\n})}}",
+          "options": {
+            "batching": {
+              "batch": {
+                "batchSize": 5
+              }
+            },
+            "timeout": 60000
+          }
+        },
+        "id": "7da66f21-c160-4514-854f-1f34f2ca1337",
+        "name": "Process Mention Article",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          304,
+          1120
+        ],
+        "retryOnFail": true,
+        "maxTries": 3,
+        "waitBetweenTries": 5000,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "kzydmFSpHI8T1Y9W",
+            "name": "Syntech Classifier Bearer"
+          },
+          "httpBearerAuth": {
+            "id": "JmQByIdKZ85XtGwZ",
+            "name": "Syntech Article Classifier Bearer"
+          }
+        },
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://syntech-article-processor-production.up.railway.app/classify",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ { \"article\": $json.toJsonString() } }}",
+          "options": {}
+        },
+        "id": "303f17b4-761d-4805-8476-bc5780a7bb8d",
+        "name": "Process News Article",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          800,
+          272
+        ],
+        "retryOnFail": true,
+        "maxTries": 3,
+        "waitBetweenTries": 5000,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "kzydmFSpHI8T1Y9W",
+            "name": "Syntech Classifier Bearer"
+          },
+          "httpBearerAuth": {
+            "id": "JmQByIdKZ85XtGwZ",
+            "name": "Syntech Article Classifier Bearer"
+          }
+        },
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          736,
+          1104
+        ],
+        "id": "ba06cc84-08cb-45b0-8657-eaa1c9283645",
+        "name": "No Operation, do nothing"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4o-mini",
+            "mode": "list",
+            "cachedResultName": "gpt-4o-mini"
+          },
+          "builtInTools": {},
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          -384,
+          848
+        ],
+        "id": "b316d9e2-38c0-4c39-97a4-8f5075e6796c",
+        "name": "OpenAI Chat Model",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "schemaType": "manual",
+          "inputSchema": "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"relevant\": {\n            \"type\": \"boolean\",\n            \"description\": \"True if the article is about Syntech Biofuel\"\n        },\n        \"reason\": {\n            \"type\": \"string\",\n            \"description\": \"Brief explanation for the decision\"\n        }\n    },\n    \"required\": [\"relevant\", \"reason\"]\n}"
+        },
+        "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "typeVersion": 1.3,
+        "position": [
+          -208,
+          848
+        ],
+        "id": "754b67f2-f142-46db-b5c2-ca13258d8a22",
+        "name": "Structured Output Parser"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "5d8dfd78-98b1-4e35-bd76-ca6c9018a422",
+                "leftValue": "={{ $json._needsLlmVerification }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "boolean",
+                  "operation": "true",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          -720,
+          912
+        ],
+        "id": "9fe21345-d366-480e-a12d-91cf7cd7b0dd",
+        "name": "If"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          112,
+          1008
+        ],
+        "id": "be5c9fa6-dae3-45f9-864c-60a30b14c8bc",
+        "name": "Merge"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $('Deduplicated Articles1').item.json.content }}",
+          "hasOutputParser": true,
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=You are verifying whether an article is about Syntech Biofuel (a UK-based circular biofuel company).\n\nDetermine if the content specifically mentions or discusses:\n- Syntech Biofuel (the company) \n- Syntech's executives (Bingham, Hart, Olone) in a biofuel context\n- Syntech's facilities (Grangemouth, Kingsnorth, Kent)\n- Syntech's products (ASB / Advanced Sustainable Biofuel) \n\nIf the article is about generic biofuel news with no connection to Syntech, return false. \n\nOutput JSON only: \n{\"relevant\": true/false, \"reason\": \"one sentence explanation\"}\n\nOutput schema:\n\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"relevant\": {\n            \"type\": \"boolean\",\n            \"description\": \"True if the article is about Syntech Biofuel\"\n        },\n        \"reason\": {\n            \"type\": \"string\",\n            \"description\": \"Brief explanation for the decision\"\n        }\n    },\n    \"required\": [\"relevant\", \"reason\"]\n}"
+              }
+            ]
+          },
+          "batching": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.9,
+        "position": [
+          -368,
+          624
+        ],
+        "id": "3d98c3c7-d91b-405e-a833-4ec12d7177a4",
+        "name": "Verify Article Relevancy",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "28a1b7b1-c521-451f-8bbb-c76bd92d373f",
+                "leftValue": "={{ $json.output.relevant }}",
+                "rightValue": true,
+                "operator": {
+                  "type": "boolean",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.3,
+        "position": [
+          -48,
+          832
+        ],
+        "id": "0e5d0a4f-2592-46b4-bcbd-4b8d9735413c",
+        "name": "Is Relevant?"
+      }
+    ],
+    "connections": {
+      "Match Input Format": {
+        "main": [
+          [
+            {
+              "node": "Classify via Relevance Service",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Evaluation": {
+        "main": [
+          [
+            {
+              "node": "Set Output In Evaluation Google Sheet",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "select fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Run Evaluation": {
+        "main": [
+          [
+            {
+              "node": "Get All Sources1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Output In Evaluation Google Sheet": {
+        "main": [
+          [
+            {
+              "node": "Evaluation1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "select fields": {
+        "main": [
+          [
+            {
+              "node": "filter",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Valid content only (score above 2)",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Remove Duplicates1": {
+        "main": [
+          [
+            {
+              "node": "Add Content Idea to Evaluation Table1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Google Sheet Fields": {
+        "main": [
+          [
+            {
+              "node": "Remove Duplicates1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get All Ideas From Evaluation Table2": {
+        "main": [
+          [
+            {
+              "node": "Remove Duplicates1",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Sort": {
+        "main": [
+          [
+            {
+              "node": "Get 1000 best articles",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Valid content only (score above 2)": {
+        "main": [
+          [
+            {
+              "node": "Process News Article",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get All Sources1": {
+        "main": [
+          [
+            {
+              "node": "Match Input Format",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "filter": {
+        "main": [
+          [
+            {
+              "node": "Set Google Sheet Fields",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Get All Ideas From Evaluation Table2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model8": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Evaluation1",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Classify via Relevance Service": {
+        "main": [
+          [
+            {
+              "node": "Perform Final Calculation",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Send a message7",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Perform Final Calculation": {
+        "main": [
+          [
+            {
+              "node": "Threshold Met?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Threshold Met?": {
+        "main": [
+          [
+            {
+              "node": "Sort",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "select fields1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Aggregate": {
+        "main": [
+          [
+            {
+              "node": "Semantic Keyword Deduplication",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Semantic Keyword Deduplication": {
+        "main": [
+          [
+            {
+              "node": "Deduplicated Articles",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Deduplicated Articles": {
+        "main": [
+          [
+            {
+              "node": "Classify via Relevance Service",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get 1000 best articles": {
+        "main": [
+          [
+            {
+              "node": "Evaluation",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out Articles": {
+        "main": [
+          [
+            {
+              "node": "If Not Mention",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Resume Content Queue": {
+        "main": [
+          [
+            {
+              "node": "Split Out Articles",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If Not Mention": {
+        "main": [
+          [
+            {
+              "node": "Aggregate",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Aggregate1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Match Input Format1": {
+        "main": [
+          [
+            {
+              "node": "Process Mention Article",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Evaluation2": {
+        "main": [
+          [
+            {
+              "node": "Set Output In Evaluation Google Sheet1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "No Operation, do nothing",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Run Evaluation1": {
+        "main": [
+          [
+            {
+              "node": "Get All Sources3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Output In Evaluation Google Sheet1": {
+        "main": [
+          [
+            {
+              "node": "Evaluation3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get All Sources3": {
+        "main": [
+          [
+            {
+              "node": "Match Input Format1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model9": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Evaluation3",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Aggregate1": {
+        "main": [
+          [
+            {
+              "node": "Semantic Keyword Deduplication1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Semantic Keyword Deduplication1": {
+        "main": [
+          [
+            {
+              "node": "Deduplicated Articles1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Source Exclusion": {
+        "main": [
+          [
+            {
+              "node": "Pre-filter",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Pre-filter": {
+        "main": [
+          [
+            {
+              "node": "If",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Deduplicated Articles1": {
+        "main": [
+          [
+            {
+              "node": "Source Exclusion",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Process Mention Article": {
+        "main": [
+          [
+            {
+              "node": "Evaluation2",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Send a message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Process News Article": {
+        "main": [
+          [
+            {
+              "node": "No Operation, do nothing2",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Send a message5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Verify Article Relevancy",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Structured Output Parser": {
+        "ai_outputParser": [
+          [
+            {
+              "node": "Verify Article Relevancy",
+              "type": "ai_outputParser",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If": {
+        "main": [
+          [
+            {
+              "node": "Verify Article Relevancy",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Merge": {
+        "main": [
+          [
+            {
+              "node": "Process Mention Article",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Verify Article Relevancy": {
+        "main": [
+          [
+            {
+              "node": "Is Relevant?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Is Relevant?": {
+        "main": [
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Stephen Anindo",
+    "name": "remove test node",
+    "description": "",
+    "autosaved": true
+  },
+  "activeVersionId": "d66c4fcf-ca23-4ceb-9f6c-ef954f0c221f",
+  "connections": {
+    "Match Input Format": {
+      "main": [
+        [
+          {
+            "node": "Classify via Relevance Service",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluation": {
+      "main": [
+        [
+          {
+            "node": "Set Output In Evaluation Google Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "select fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Evaluation": {
+      "main": [
+        [
+          {
+            "node": "Get All Sources1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Output In Evaluation Google Sheet": {
+      "main": [
+        [
+          {
+            "node": "Evaluation1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "select fields": {
+      "main": [
+        [
+          {
+            "node": "filter",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Valid content only (score above 2)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates1": {
+      "main": [
+        [
+          {
+            "node": "Add Content Idea to Evaluation Table1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Google Sheet Fields": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Ideas From Evaluation Table2": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "Get 1000 best articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valid content only (score above 2)": {
+      "main": [
+        [
+          {
+            "node": "Process News Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Sources1": {
+      "main": [
+        [
+          {
+            "node": "Match Input Format",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "filter": {
+      "main": [
+        [
+          {
+            "node": "Set Google Sheet Fields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get All Ideas From Evaluation Table2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Evaluation1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify via Relevance Service": {
+      "main": [
+        [
+          {
+            "node": "Perform Final Calculation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a message7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Perform Final Calculation": {
+      "main": [
+        [
+          {
+            "node": "Threshold Met?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Threshold Met?": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "select fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Semantic Keyword Deduplication",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Semantic Keyword Deduplication": {
+      "main": [
+        [
+          {
+            "node": "Deduplicated Articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deduplicated Articles": {
+      "main": [
+        [
+          {
+            "node": "Classify via Relevance Service",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get 1000 best articles": {
+      "main": [
+        [
+          {
+            "node": "Evaluation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Articles": {
+      "main": [
+        [
+          {
+            "node": "If Not Mention",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resume Content Queue": {
+      "main": [
+        [
+          {
+            "node": "Split Out Articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Not Mention": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Match Input Format1": {
+      "main": [
+        [
+          {
+            "node": "Process Mention Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluation2": {
+      "main": [
+        [
+          {
+            "node": "Set Output In Evaluation Google Sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Evaluation1": {
+      "main": [
+        [
+          {
+            "node": "Get All Sources3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Output In Evaluation Google Sheet1": {
+      "main": [
+        [
+          {
+            "node": "Evaluation3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Sources3": {
+      "main": [
+        [
+          {
+            "node": "Match Input Format1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model9": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Evaluation3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Semantic Keyword Deduplication1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Semantic Keyword Deduplication1": {
+      "main": [
+        [
+          {
+            "node": "Deduplicated Articles1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Source Exclusion": {
+      "main": [
+        [
+          {
+            "node": "Pre-filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pre-filter": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deduplicated Articles1": {
+      "main": [
+        [
+          {
+            "node": "Source Exclusion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Mention Article": {
+      "main": [
+        [
+          {
+            "node": "Evaluation2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process News Article": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a message5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Verify Article Relevancy",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Verify Article Relevancy",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Verify Article Relevancy",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Process Mention Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify Article Relevancy": {
+      "main": [
+        [
+          {
+            "node": "Is Relevant?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Relevant?": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-05-06T09:17:13.423Z",
+  "id": "xMber2oB93RuRWim",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Process Articles",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a4678c4d-3605-43b3-930d-54f3db0cf209",
+              "name": "content",
+              "value": "={{ $('Run Evaluation').item.json.Content }}",
+              "type": "string"
+            },
+            {
+              "id": "960e3dc3-5af8-4535-bca0-6db869b1bed0",
+              "name": "url",
+              "value": "={{ $('Run Evaluation').item.json.URL }}",
+              "type": "string"
+            },
+            {
+              "id": "084b87c7-e199-4284-89d5-a2a5bb7a69e7",
+              "name": "title",
+              "value": "={{ $('Run Evaluation').item.json.Title }}",
+              "type": "string"
+            },
+            {
+              "id": "4957e170-7f99-4439-8b8a-29e930aa8823",
+              "name": "publication_date",
+              "value": "={{ $('Run Evaluation').item.json[\"Publication Date\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "7bf20e2e-95b3-4acc-9a9b-7fcf895f1ad2",
+              "name": "expected_relevance",
+              "value": "={{ $('Run Evaluation').item.json[\"Expected_Score\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dcbf947b-3ff8-4cfe-ac2f-bf8c1f51eb03",
+      "name": "Match Input Format",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1344,
+        224
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "checkIfEvaluating"
+      },
+      "id": "45a20361-e842-49c1-b22a-247ecc5fa9eb",
+      "name": "Evaluation",
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.7,
+      "position": [
+        0,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        }
+      },
+      "id": "aa2816da-216f-4566-9ee7-ab14465ce236",
+      "name": "Run Evaluation",
+      "type": "n8n-nodes-base.evaluationTrigger",
+      "typeVersion": 4.6,
+      "position": [
+        -1792,
+        224
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSB0yUnhxYm2AAN5",
+          "name": "Stephen Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        },
+        "outputs": {
+          "values": [
+            {
+              "outputName": "Actual_Score",
+              "outputValue": "={{ $json.output.relevance_score }}"
+            },
+            {
+              "outputName": "AI_Reasoning",
+              "outputValue": "={{ $('Classification Agent (Claude Optimisation) - OLD').item.json.output.reason }}"
+            }
+          ]
+        }
+      },
+      "id": "1a136719-de3e-4fe2-80f6-480cc969c868",
+      "name": "Set Output In Evaluation Google Sheet",
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        -400
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSB0yUnhxYm2AAN5",
+          "name": "Stephen Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9a8264bf-82d2-434f-b146-3b8deb76e519",
+              "name": "title",
+              "value": "={{ $('Deduplicated Articles').item.json.title || $('Remove Duplicates').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "dfdf1695-e69f-4cff-a8f0-21d9da07745b",
+              "name": "content",
+              "value": "={{ ($('Deduplicated Articles').item.json.content || $('Remove Duplicates').item.json.content || '').substring(0, 49000) }}\n\n{{ $('Deduplicated Articles').item.json.duplicates.length > 0 ? \n$('Deduplicated Articles').item.json.duplicates.map((article, index) => `## Duplicate Articles:\n\nTitle ${index + 1}: ${article.title}\nSummary ${index + 1}: ${article.summary}\nUrl ${index + 1}: ${article.url}`).join('\\n') : 'No Duplicate Articles'}}",
+              "type": "string"
+            },
+            {
+              "id": "4899f665-2f29-41df-afea-d8a744a6fec9",
+              "name": "url",
+              "value": "={{ $('Deduplicated Articles').item.json.url || $('Remove Duplicates').item.json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "ec8500c3-9d57-45d3-b1a9-2de1706dee8d",
+              "name": "summary",
+              "value": "={{ $('Deduplicated Articles').item.json.summary || $('Remove Duplicates').item.json.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "0c470796-e8e2-4605-a6af-9e8236d9635c",
+              "name": "search_query",
+              "value": "={{ $('Deduplicated Articles').item.json.search_query }}",
+              "type": "string"
+            },
+            {
+              "id": "4d34103a-b327-42cc-8e50-dec38a8fc1f5",
+              "name": "publication_date",
+              "value": "={{ $('Deduplicated Articles').item.json.publication_date }}",
+              "type": "string"
+            },
+            {
+              "id": "02065b1c-286c-4cf9-8709-27d8a766d2d1",
+              "name": "prompt",
+              "value": "={{ $('Deduplicated Articles').item.json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "ef20184c-2ce1-4660-9658-fe12f9776f2d",
+              "name": "additional_formats",
+              "value": "={{ $('Deduplicated Articles').item.json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "5a5e80cb-0ad3-4e06-86f8-63e9e59765fd",
+              "name": "source",
+              "value": "={{ $('Deduplicated Articles').item.json.source || $('Remove Duplicates').item.json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "f3e017bd-5f4f-4265-ba02-9280077f42a6",
+              "name": "source_name",
+              "value": "={{ $('Deduplicated Articles').item.json.source_name || $('Remove Duplicates').item.json.source_name }}",
+              "type": "string"
+            },
+            {
+              "id": "f4ed6cb7-a5a4-401e-8a52-d81a8e11bea5",
+              "name": "author",
+              "value": "={{ $('Deduplicated Articles').item.json.author }}",
+              "type": "string"
+            },
+            {
+              "id": "b7009aa6-4950-49c3-99b4-9dac161d2124",
+              "name": "source_category",
+              "value": "={{ $('Deduplicated Articles').item.json.source_category }}",
+              "type": "string"
+            },
+            {
+              "id": "61574df1-c16c-42df-9b9b-ebe428bd7eae",
+              "name": "mode",
+              "value": "={{ $('Deduplicated Articles').item.json.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "b9505f97-3c09-4d20-aaa3-cbccd96a8ced",
+              "name": "relevance_score",
+              "value": "={{ $('Evaluation').isExecuted ? $('Evaluation').item.json.output.final_score : '' }}",
+              "type": "string"
+            },
+            {
+              "id": "c9b91b3f-d479-49e2-a597-3e0c233379ed",
+              "name": "reason",
+              "value": "={{ $('Evaluation').isExecuted ? $('Evaluation').item.json.output.reason : '' }}",
+              "type": "string"
+            },
+            {
+              "id": "d8061e59-9f62-4596-9a93-0346f90b0ea7",
+              "name": "analysis",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8c0fd86a-a2c8-42b1-9b30-3ae3ed80101c",
+      "name": "select fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "url",
+              "field2": "URL"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "id": "075e0416-aa8f-4f76-86d7-607915cf5c2c",
+      "name": "Remove Duplicates1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1024,
+        -112
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4061f412-99c2-4549-9d2e-be355aa6a5bb",
+              "name": "url",
+              "value": "={{ $('select fields').item.json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "60a2488f-d96c-4c21-94f1-6f627e9c99ae",
+              "name": "title",
+              "value": "={{ $('select fields').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "30183727-5e80-401c-a728-37da12a2054b",
+              "name": "content",
+              "value": "={{ $('select fields').item.json.content }}",
+              "type": "string"
+            },
+            {
+              "id": "ac7fb376-710f-43b5-9ff8-c3de8dc4f0ff",
+              "name": "publication_date",
+              "value": "={{ $('select fields').item.json.publication_date }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "057472e5-afb6-4b52-a387-af538aa7879d",
+      "name": "Set Google Sheet Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        -208
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "detectAutomatically"
+            }
+          }
+        }
+      },
+      "id": "57b39eff-ba38-4eaf-b53c-15f8a58c796c",
+      "name": "Get All Ideas From Evaluation Table2",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        800,
+        -16
+      ],
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSB0yUnhxYm2AAN5",
+          "name": "Stephen Google Sheets account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "total_score",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "96a51128-bdfc-4587-868f-ba5f872d66bc",
+      "name": "Sort",
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        -448,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8987c495-abc2-4e29-86db-4466755af908",
+              "leftValue": "={{ $json.analysis.threshold_met }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "0ad50e0a-5bbb-4087-a308-b15965b12562",
+      "name": "Valid content only (score above 2)",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        512,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27a785c0-cfab-807b-b5eb-e1214e18960d",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuels Static Sources",
+          "cachedResultUrl": "https://www.notion.so/27a785c0cfab807bb5ebe1214e18960d"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "id": "bbd4479f-7e7b-4157-ae89-bf4ab2f0e15f",
+      "name": "Get All Sources1",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -1568,
+        224
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8181b8db-969e-49ec-9489-805d0054391e",
+              "leftValue": "={{ $if($('sources').isExecuted, $('sources').first().json.bypass_filter, false) }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "c81b8b37-e234-4c7c-a4fa-4d9a1673834e",
+      "name": "filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        512,
+        -112
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Publication Date": "={{ $json.publication_date }}",
+            "URL": "={{ $json.url }}",
+            "Title": "={{ $json.title }}",
+            "Content": "={{ $json.content }}",
+            "Actual Score": "={{ $('Classification agent with Batch (Tariq)').item.json.message.content.relevance_score }}",
+            "AI Reasoning": "={{ $('Classification agent with Batch (Tariq)').item.json.message.content.reasoning }}"
+          },
+          "matchingColumns": [
+            "URL"
+          ],
+          "schema": [
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Content",
+              "displayName": "Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Publication Date",
+              "displayName": "Publication Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Actual Score",
+              "displayName": "Actual Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Expected Score",
+              "displayName": "Expected Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Human Reasoning",
+              "displayName": "Human Reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "AI Reasoning",
+              "displayName": "AI Reasoning",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "useAppend": true
+        }
+      },
+      "id": "3ee4e41b-4273-4d76-9c49-11fd089cfe09",
+      "name": "Add Content Idea to Evaluation Table1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1248,
+        -112
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSB0yUnhxYm2AAN5",
+          "name": "Stephen Google Sheets account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "id": "c97120f6-b765-4328-b157-131abc2331d4",
+      "name": "OpenAI Chat Model8",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        528,
+        -288
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "setMetrics",
+        "expectedAnswer": "={{ $('Run Evaluation').item.json.Expected_Score }}",
+        "actualAnswer": "={{ $('Perform Final Calculation').item.json.total_score }}",
+        "prompt": "=You are an expert evaluator assessing how closely an actual score matches the expected score.\n\nCompare the expected and actual scores numerically, then assign a final similarity rating from 0 to 5 according to the following scale:\n\n# Scoring Criteria\n- 5: Perfect match – actual and expected scores are identical.\n- 4: Very close – difference of 1 point.\n- 3: Somewhat close – difference of 2 points.\n- 2: Noticeably different – difference of 3 points.\n- 1: Highly different – difference of 4 points.\n- 0: Completely misaligned or invalid comparison – difference greater than 4 or one score missing.\n\n# Output Format\nOnly output the final score in strict JSON format as follows:\n{\n  \"score\": <integer from 0 to 5>\n}\n\nDo not include any reasoning, explanation, or additional text.\n",
+        "options": {}
+      },
+      "id": "0fd09749-a94d-4639-8366-7897bcd0d93d",
+      "name": "Evaluation1",
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.8,
+      "position": [
+        448,
+        -512
+      ]
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "text": "= *Workflow Execution Error* ⚠️\n\n- *Workflow Name:* News Sourcing Production (V2)\n- *Error Node:* Filter Articles By Topic\n- *Error Message:* {{ $json.error }}\n- *Timestamp:* {{ $now.toFormat('dd-MM-yyyy HH:mm:ss') }}\n- *Article:*\nTitle: {{ $json.title }}\nUrl:{{ $json.url }}\nSummary: {{ $json.summary }}\n\n*Next Steps:* Please review the workflow and retry the execution.\nWorkflow Execution: <https://syntech.granite-automations.app/workflow/{{ $workflow.id }}/executions/{{ $execution.id }}|View Execution>",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "unfurl_links": true
+        }
+      },
+      "id": "fd34ca94-b27d-4e98-a541-85f00ef5351d",
+      "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
+      "name": "Send a message5",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        1024,
+        368
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://syntech-biofuel-relevance-classifier-production.up.railway.app/classify",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-Request-Id",
+              "value": "={{ $execution.id }}-{{ $itemIndex }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\":{{ JSON.stringify($('Deduplicated Articles').item.json.title) }},\n  \"content\":{{ JSON.stringify($('Deduplicated Articles').item.json.content) }},\n  \"url\":{{ JSON.stringify($('Deduplicated Articles').item.json.url) }},\n  \"source\":{{ JSON.stringify($('Deduplicated Articles').item.json.source) }},\n  \"source_category\":{{ JSON.stringify($('Deduplicated Articles').item.json.source_category || \"\") }},\n  \"summary\":{{ JSON.stringify($('Deduplicated Articles').item.json.summary || \"\") }},\n  \"author\":{{ JSON.stringify($('Deduplicated Articles').item.json.author ?? null) }}\n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 10,
+              "batchInterval": 3000
+            }
+          },
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 180000
+        }
+      },
+      "id": "95162ed1-43d2-4503-8ce6-e69e24afe428",
+      "name": "Classify via Relevance Service",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -1120,
+        128
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "rTkgjtU8QIYs0nXm",
+          "name": "Syntech Relevance Classifier Bearer"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Flatten the microservice envelope so downstream references\n// (e.g. $('Perform Final Calculation').item.json.threshold_met) keep working\n// without edits. The service returns { \"analysis\": {...} }; every field the\n// legacy code node emitted at root now lives under .analysis.\n// (TODO: remove this flatten when Notion mappers migrate to reading .analysis.*\n// directly — tracked in docs/solutions/2026-n8n-to-microservice-cutover.md.)\nreturn $json.analysis"
+      },
+      "id": "d4638f17-2e00-4175-9890-8837c8449b14",
+      "name": "Perform Final Calculation",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -896,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "a2276983-29bb-4082-853d-554d417df7fd",
+              "leftValue": "={{ $('Perform Final Calculation').item.json.threshold_met }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "bf513ba4-6a10-475e-8cd1-038e23045fb6",
+      "name": "Threshold Met?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -672,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9a8264bf-82d2-434f-b146-3b8deb76e519",
+              "name": "title",
+              "value": "={{ $('Deduplicated Articles').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "dfdf1695-e69f-4cff-a8f0-21d9da07745b",
+              "name": "content",
+              "value": "={{ ($('Deduplicated Articles').item.json.content || '').substring(0, 49000) }}",
+              "type": "string"
+            },
+            {
+              "id": "4899f665-2f29-41df-afea-d8a744a6fec9",
+              "name": "url",
+              "value": "={{ $('Deduplicated Articles').item.json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "ec8500c3-9d57-45d3-b1a9-2de1706dee8d",
+              "name": "summary",
+              "value": "={{ $('Deduplicated Articles').item.json.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "0c470796-e8e2-4605-a6af-9e8236d9635c",
+              "name": "search_query",
+              "value": "={{ $('Deduplicated Articles').item.json.search_query }}",
+              "type": "string"
+            },
+            {
+              "id": "4d34103a-b327-42cc-8e50-dec38a8fc1f5",
+              "name": "publication_date",
+              "value": "={{ $('Deduplicated Articles').item.json.publication_date }}",
+              "type": "string"
+            },
+            {
+              "id": "02065b1c-286c-4cf9-8709-27d8a766d2d1",
+              "name": "prompt",
+              "value": "={{ $('Deduplicated Articles').item.json.prompt }}",
+              "type": "string"
+            },
+            {
+              "id": "ef20184c-2ce1-4660-9658-fe12f9776f2d",
+              "name": "additional_formats",
+              "value": "={{ $('Deduplicated Articles').item.json.additional_formats }}",
+              "type": "string"
+            },
+            {
+              "id": "5a5e80cb-0ad3-4e06-86f8-63e9e59765fd",
+              "name": "source",
+              "value": "={{ $('Deduplicated Articles').item.json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "f3e017bd-5f4f-4265-ba02-9280077f42a6",
+              "name": "source_name",
+              "value": "={{ $('Deduplicated Articles').item.json.source_name }}",
+              "type": "string"
+            },
+            {
+              "id": "61574df1-c16c-42df-9b9b-ebe428bd7eae",
+              "name": "mode",
+              "value": "={{ $('Deduplicated Articles').item.json.mode }}",
+              "type": "string"
+            },
+            {
+              "id": "d8061e59-9f62-4596-9a93-0346f90b0ea7",
+              "name": "analysis",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "73568c1a-d7fb-4ce4-bbfa-b7ecf11db671",
+      "name": "select fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -448,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "articles",
+        "options": {}
+      },
+      "id": "9557b71d-4a6b-460d-875b-0bf2c133bf55",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1792,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://syntech-semantic-article-deduplication-production.up.railway.app/deduplicate",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "articles",
+              "value": "={{ $json.articles.map(a => ({ ...a, id: a.url })) }}"
+            },
+            {
+              "name": "similarity_threshold",
+              "value": "0.70"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6099ed3f-ca0d-4bf6-8367-776cd399dc9a",
+      "name": "Semantic Keyword Deduplication",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1568,
+        32
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "content": "## Semantic Deduplication\nThis performs semantic deduplication, which uses keywords to create content clusters, selecting the best quality content and reducing the overall number of articles. ",
+        "height": 304,
+        "width": 608
+      },
+      "id": "9d782b97-bbf7-4ad8-b89d-962a6301746b",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1808,
+        -96
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "selected_articles",
+        "options": {}
+      },
+      "id": "53f4bf9e-d3d7-4e93-b7b6-3f9ea6ce4e60",
+      "name": "Deduplicated Articles",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -1344,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "maxItems": 1000
+      },
+      "id": "0dc8a8d8-3b6e-43ba-a5c8-0ecce4138d95",
+      "name": "Get 1000 best articles",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "body.articles",
+        "options": {}
+      },
+      "id": "2e35c34c-5d21-4818-a6c5-234c79c91941",
+      "name": "Split Out Articles",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2400,
+        512
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "flush-syntech-queue",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2608,
+        512
+      ],
+      "id": "64c7c44e-35a0-420c-88f7-7c7b6871873c",
+      "name": "Resume Content Queue",
+      "webhookId": "bbfd5027-a96f-4ec1-bc49-1b612b0f18ad",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "voWjuyaflZP6RgSr",
+          "name": "Syntech Content Webhook Bearer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "text": "= *Classification Workflow Execution Error* ⚠️\n\n- *Workflow Name:* News Sourcing Production (V2)\n- *Error Node:* Classify via Relevance Service\n- *Error Message:* {{ $json.error }}\n- *Timestamp:* {{ $now.toFormat('dd-MM-yyyy HH:mm:ss') }}\n- *Article:*\nTitle: {{ $('Deduplicated Articles').item.json.title }}\nUrl:{{ $('Deduplicated Articles').item.json.url }}\n\nWorkflow Execution: <https://syntech.granite-automations.app/workflow/{{ $workflow.id }}/executions/{{ $execution.id }}|View Execution>",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "unfurl_links": true
+        }
+      },
+      "id": "8901b4d4-18a1-4b96-958c-de4212eb27cc",
+      "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
+      "name": "Send a message7",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        -896,
+        224
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1024,
+        176
+      ],
+      "id": "9c8ae5e6-cb0b-43be-938d-7868bc9bbece",
+      "name": "No Operation, do nothing2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e4c49199-9495-4470-aa2d-0a7d695f9062",
+              "leftValue": "={{ $json.source_category }}",
+              "rightValue": "Mention",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -2176,
+        512
+      ],
+      "id": "8bd9745d-f8e6-4416-bdc5-be43e4add32d",
+      "name": "If Not Mention"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a4678c4d-3605-43b3-930d-54f3db0cf209",
+              "name": "content",
+              "value": "={{ $('Run Evaluation1').item.json.Content }}",
+              "type": "string"
+            },
+            {
+              "id": "960e3dc3-5af8-4535-bca0-6db869b1bed0",
+              "name": "url",
+              "value": "={{ $('Run Evaluation1').item.json.URL }}",
+              "type": "string"
+            },
+            {
+              "id": "084b87c7-e199-4284-89d5-a2a5bb7a69e7",
+              "name": "title",
+              "value": "={{ $('Run Evaluation1').item.json.Title }}",
+              "type": "string"
+            },
+            {
+              "id": "4957e170-7f99-4439-8b8a-29e930aa8823",
+              "name": "publication_date",
+              "value": "={{ $('Run Evaluation1').item.json[\"Publication Date\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "7bf20e2e-95b3-4acc-9a9b-7fcf895f1ad2",
+              "name": "expected_relevance",
+              "value": "={{ $('Run Evaluation1').item.json[\"Expected Score\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8a77b9c3-c4bc-4f06-b523-9349472b12a5",
+      "name": "Match Input Format1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        112,
+        1248
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "checkIfEvaluating"
+      },
+      "id": "d93c93cd-b912-4191-b2cd-cad6a98376fd",
+      "name": "Evaluation2",
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.7,
+      "position": [
+        528,
+        1008
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        }
+      },
+      "id": "78beaced-90f0-4a7a-87fb-702e2d4d9e9b",
+      "name": "Run Evaluation1",
+      "type": "n8n-nodes-base.evaluationTrigger",
+      "typeVersion": 4.6,
+      "position": [
+        -336,
+        1248
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "HbsRTv9aneCsIKOQ",
+          "name": "Stephen Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI",
+          "mode": "list",
+          "cachedResultName": "Syntech Evaluation Test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Evaluations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DGxbB-WIk_Ycv8W0iH7dXUo6ESu67ZqLNFhXB8w3-AI/edit#gid=0"
+        },
+        "outputs": {
+          "values": [
+            {
+              "outputName": "Actual_Score",
+              "outputValue": "={{ $json.output.relevance_score }}"
+            },
+            {
+              "outputName": "AI_Reasoning",
+              "outputValue": "={{ $('Classification agent with Batch').item.json.output.reason }}"
+            }
+          ]
+        }
+      },
+      "id": "c5f08ac2-5089-4a04-a710-4dfeebf0d0de",
+      "name": "Set Output In Evaluation Google Sheet1",
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.7,
+      "position": [
+        752,
+        768
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "HbsRTv9aneCsIKOQ",
+          "name": "Stephen Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "27a785c0-cfab-807b-b5eb-e1214e18960d",
+          "mode": "list",
+          "cachedResultName": "Syntech Biofuels Static Sources",
+          "cachedResultUrl": "https://www.notion.so/27a785c0cfab807bb5ebe1214e18960d"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "id": "8a71cf52-ae40-46b0-bc51-9ab205e52ace",
+      "name": "Get All Sources3",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        -112,
+        1248
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "k0ZwGrqySi9Wayf7",
+          "name": "Stephen Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "setMetrics",
+        "expectedAnswer": "={{ $('Run Evaluation1').item.json.Expected_Score }}",
+        "actualAnswer": "={{ $('Classification agent with Batch').item.json.output.relevance_score }}",
+        "prompt": "=You are an expert evaluator assessing how closely an actual score matches the expected score.\n\nCompare the expected and actual scores numerically, then assign a final similarity rating from 0 to 5 according to the following scale:\n\n# Scoring Criteria\n- 5: Perfect match – actual and expected scores are identical.\n- 4: Very close – difference of 1 point.\n- 3: Somewhat close – difference of 2 points.\n- 2: Noticeably different – difference of 3 points.\n- 1: Highly different – difference of 4 points.\n- 0: Completely misaligned or invalid comparison – difference greater than 4 or one score missing.\n\n# Output Format\nOnly output the final score in strict JSON format as follows:\n{\n  \"score\": <integer from 0 to 5>\n}\n\nDo not include any reasoning, explanation, or additional text.\n",
+        "options": {}
+      },
+      "id": "21483590-360c-4d8d-863a-3845256fe95c",
+      "name": "Evaluation3",
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.8,
+      "position": [
+        976,
+        656
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "id": "70f59394-d8f0-44d2-a233-8ddaffb9b23d",
+      "name": "OpenAI Chat Model9",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1056,
+        880
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "articles",
+        "options": {}
+      },
+      "id": "5b8962ea-13f8-415e-a153-5ea02aa85d20",
+      "name": "Aggregate1",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1824,
+        912
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://syntech-semantic-article-deduplication-production.up.railway.app/deduplicate",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "articles",
+              "value": "={{ $json.articles.map(a => ({ ...a, id: a.url })) }}"
+            },
+            {
+              "name": "similarity_threshold",
+              "value": "0.70"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "47be708c-bd69-4c2e-a55a-8ed3acc457d3",
+      "name": "Semantic Keyword Deduplication1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1600,
+        912
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * Source Exclusion Filter\n * Filters out content authored by Syntech's own accounts before pre-filter runs.\n * Blocklist is configurable via ENV vars (comma-separated per platform).\n */\n\n// Get blocklist from ENV or use defaults\nconst blocklist = [\n  // Default Syntech account URLs\n  'syntechbiofuel.com',\n  'facebook.com/syntechbiofuel',\n  'x.com/syntechbiofuel',\n  'twitter.com/syntechbiofuel',\n  'instagram.com/syntechbiofuel',\n  'linkedin.com/company/syntechbiofuel',\n  'syntechbiofuel.medium.com',\n];\n\nconst filtered = [];\nconst excluded = [];\n\nfor (const item of $input.all()) {\n  const url = (item.json.url || '').toLowerCase();\n  const author = (item.json.author || '').toLowerCase();\n\n  // Check if URL or author matches any blocklist pattern\n  const isBlocked = blocklist.some(pattern => {\n    const p = pattern.toLowerCase();\n    return url.includes(p) || author.includes(p);\n  });\n\n  if (isBlocked) {\n    excluded.push(item.json.url);\n  } else {\n    filtered.push(item);\n  }\n}\n\nif (excluded.length > 0) {\n  console.log(`Source Exclusion: filtered out ${excluded.length} Syntech-authored items`);\n}\n\nreturn filtered;"
+      },
+      "id": "0c7b0625-da5e-40d4-98f6-a44c45c29832",
+      "name": "Source Exclusion",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1152,
+        912
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * Pre-filter: 3-tier relevance check to reduce LLM costs\n *\n * Tier 1: \"Syntech\" present (case-insensitive) → instant pass\n * Tier 3: Surname + biofuel context, OR Syntech-specific term → needs LLM verification\n *\n * Items failing all tiers are filtered out.\n */\n\nconst surnames = [\"bingham\", \"hart\", \"olone\"];\n\nconst biofuelTerms = [\n    \"biofuel\",\n    \"biofuels\",\n    \"biodiesel\",\n    \"bioethanol\",\n    \"renewable fuel\",\n    \"sustainable fuel\",\n    \"green fuel\",\n    \"hvo\",\n    \"saf\",\n    \"sustainable aviation\",\n    \"used cooking oil\",\n    \"uco\",\n    \"waste oil\",\n    \"feedstock\",\n    \"decarbonization\",\n    \"decarbonisation\",\n    \"net zero\",\n    \"net-zero\",\n    \"carbon neutral\",\n];\n\nconst syntechSpecificTerms = [\n    \"grangemouth\",\n    \"kingsnorth\",\n    \"kent\",\n    \"asb\",\n    \"advanced sustainable biofuel\",\n    \"circular biofuel\",\n];\n\nconst results = [];\n\nfor (const item of $input.all()) {\n    const content = (item.json.content || \"\").toLowerCase();\n    const title = (item.json.title || \"\").toLowerCase();\n    const text = content + \" \" + title;\n\n    const hasSyntech = /syntech/i.test(text);\n    const hasSurname = surnames.some((name) => text.includes(name));\n    const hasBiofuelContext = biofuelTerms.some((term) => text.includes(term));\n    const hasSyntechSpecific = syntechSpecificTerms.some((term) =>\n        text.includes(term),\n    );\n\n    let tier = null;\n    let pass = false;\n\n    // Tier 1: Syntech explicitly mentioned\n    if (hasSyntech) {\n        tier = 1;\n        pass = true;\n    }\n    // Tier 3: Surname + biofuel context, OR Syntech-specific term\n    else if ((hasSurname && hasBiofuelContext) || hasSyntechSpecific) {\n        tier = 3;\n        pass = true;\n        item.json._needsLlmVerification = true;\n    }\n\n    if (pass) {\n        item.json._preFilterTier = tier;\n        results.push(item);\n    }\n}\n\nconsole.log(\n    `Pre-filter: ${results.length} items passed (Tier 1: instant, Tier 3: pending LLM)`,\n);\n\nreturn results;"
+      },
+      "id": "2fe793b1-8e6d-4d33-9ac0-be8f8ba43020",
+      "name": "Pre-filter",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -928,
+        912
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "selected_articles",
+        "options": {}
+      },
+      "id": "b9c7cbf0-68d2-4d3b-9382-549dfdf41ebb",
+      "name": "Deduplicated Articles1",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -1376,
+        912
+      ]
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "text": "= *Workflow Execution Error* ⚠️\n\n- *Workflow Name:* News Sourcing Production (V2)\n- *Error Node:* Filter Articles By Topic\n- *Error Message:* {{ $json.error }}\n- *Timestamp:* {{ $now.toFormat('dd-MM-yyyy HH:mm:ss') }}\n- *Article:*\nTitle: {{ $('Deduplicated Articles1').item.json.title }}\nUrl:{{ $('Deduplicated Articles1').item.json.url }}\nSummary: {{ $('Deduplicated Articles1').item.json.summary }}\n\n*Next Steps:* Please review the workflow and retry the execution.\nWorkflow Execution: <https://syntech.granite-automations.app/workflow/{{ $workflow.id }}/executions/{{ $execution.id }}|View Execution>",
+        "otherOptions": {
+          "includeLinkToWorkflow": false,
+          "unfurl_links": true
+        }
+      },
+      "id": "9baa326c-32db-42a6-87aa-f23f277380c6",
+      "webhookId": "d98789a2-b2b3-4f8f-a4fb-e226aa1adb2e",
+      "name": "Send a message",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        528,
+        1216
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://syntech-article-processor-production.up.railway.app/mentions/analyze",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{JSON.stringify({\n  url: $('Deduplicated Articles1').item.json.url,\n  title: $('Deduplicated Articles1').item.json.title,\n  content: $('Deduplicated Articles1').item.json.content,\n  summary: $('Deduplicated Articles1').item.json.summary || null,\n  source: $('Deduplicated Articles1').item.json.source || null,\n  publication_date: $('Deduplicated Articles1').item.json.publication_date || null\n})}}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 5
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "7da66f21-c160-4514-854f-1f34f2ca1337",
+      "name": "Process Mention Article",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        304,
+        1120
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "kzydmFSpHI8T1Y9W",
+          "name": "Syntech Classifier Bearer"
+        },
+        "httpBearerAuth": {
+          "id": "JmQByIdKZ85XtGwZ",
+          "name": "Syntech Article Classifier Bearer"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://syntech-article-processor-production.up.railway.app/classify",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { \"article\": $json.toJsonString() } }}",
+        "options": {}
+      },
+      "id": "303f17b4-761d-4805-8476-bc5780a7bb8d",
+      "name": "Process News Article",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        272
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "kzydmFSpHI8T1Y9W",
+          "name": "Syntech Classifier Bearer"
+        },
+        "httpBearerAuth": {
+          "id": "JmQByIdKZ85XtGwZ",
+          "name": "Syntech Article Classifier Bearer"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        736,
+        1104
+      ],
+      "id": "ba06cc84-08cb-45b0-8657-eaa1c9283645",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "builtInTools": {},
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -384,
+        848
+      ],
+      "id": "b316d9e2-38c0-4c39-97a4-8f5075e6796c",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"relevant\": {\n            \"type\": \"boolean\",\n            \"description\": \"True if the article is about Syntech Biofuel\"\n        },\n        \"reason\": {\n            \"type\": \"string\",\n            \"description\": \"Brief explanation for the decision\"\n        }\n    },\n    \"required\": [\"relevant\", \"reason\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -208,
+        848
+      ],
+      "id": "754b67f2-f142-46db-b5c2-ca13258d8a22",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "5d8dfd78-98b1-4e35-bd76-ca6c9018a422",
+              "leftValue": "={{ $json._needsLlmVerification }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -720,
+        912
+      ],
+      "id": "9fe21345-d366-480e-a12d-91cf7cd7b0dd",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        112,
+        1008
+      ],
+      "id": "be5c9fa6-dae3-45f9-864c-60a30b14c8bc",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Deduplicated Articles1').item.json.content }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are verifying whether an article is about Syntech Biofuel (a UK-based circular biofuel company).\n\nDetermine if the content specifically mentions or discusses:\n- Syntech Biofuel (the company) \n- Syntech's executives (Bingham, Hart, Olone) in a biofuel context\n- Syntech's facilities (Grangemouth, Kingsnorth, Kent)\n- Syntech's products (ASB / Advanced Sustainable Biofuel) \n\nIf the article is about generic biofuel news with no connection to Syntech, return false. \n\nOutput JSON only: \n{\"relevant\": true/false, \"reason\": \"one sentence explanation\"}\n\nOutput schema:\n\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"relevant\": {\n            \"type\": \"boolean\",\n            \"description\": \"True if the article is about Syntech Biofuel\"\n        },\n        \"reason\": {\n            \"type\": \"string\",\n            \"description\": \"Brief explanation for the decision\"\n        }\n    },\n    \"required\": [\"relevant\", \"reason\"]\n}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -368,
+        624
+      ],
+      "id": "3d98c3c7-d91b-405e-a833-4ec12d7177a4",
+      "name": "Verify Article Relevancy",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "28a1b7b1-c521-451f-8bbb-c76bd92d373f",
+              "leftValue": "={{ $json.output.relevant }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        -48,
+        832
+      ],
+      "id": "0e5d0a4f-2592-46b4-bcbd-4b8d9735413c",
+      "name": "Is Relevant?"
+    }
+  ],
+  "pinData": {
+    "Resume Content Queue": [
+      {
+        "json": {
+          "headers": {
+            "host": "syntech-biofuels.granite-automations.app",
+            "user-agent": "python-httpx/0.28.1",
+            "content-length": "1938",
+            "accept": "*/*",
+            "accept-encoding": "gzip, br",
+            "authorization": {
+              "__redacted": true,
+              "reason": "node_defined_field",
+              "canReveal": false
+            },
+            "cf-connecting-ip": "162.220.234.161",
+            "cf-ipcountry": "US",
+            "cf-ray": "9f771928e973e63b-IAD",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "162.220.234.161, 172.71.190.123",
+            "x-forwarded-host": "syntech-biofuels.granite-automations.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "tCm963rSQCGnymrtCx5-qw",
+            "x-real-ip": "162.220.234.161",
+            "x-request-start": "1778061211055"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "status": "success",
+            "articles": [
+              {
+                "url": "https://www.linkedin.com/posts/dr-marieberthuel_enzymes-to-energize-microelectronics-nature-activity-7457447359678124032-W25b",
+                "mode": null,
+                "title": "Dr. Marie Berthuel: Enzymes to energize microelectronics 🌱⚡",
+                "author": "Syntech Biofuel",
+                "prompt": null,
+                "source": "LinkedIn",
+                "content": "Enzymes to energize microelectronics 🌱⚡\n\nAfter 6 years of dedication, research, development, and teamwork, our work at BeFC is live in Nature Reviews Bioengineering !\n\nRead the full paper here: https://lnkd.in/eN7dzGcE \n\nReflecting on the past 6 years, it’s been a long road, and I couldn’t be prouder of what the team has achieved. Being part of this journey—developing bioenzymatic fuel cells as a disruptive, metal-free alternative for IoT—and seeing products through from ideation to launch will certainly remain as one of the highlights of my career.\n\nThis milestone is even more special as this entire journey was shared with my partner in life.\n\nIt is also the perfect way for me to close a chapter and move on to a new one. 🚀 \n\n#NaturePortfolio #GreenTech #Sustainability #Innovation #BiofuelCells #NewChapter #IoT\n\nNature Portfolio \nJules Hammond\n\nBeFC Bioenzymatic Fuel Cells\nPower the future, with Nature.©",
+                "summary": "Enzymes to energize microelectronics 🌱⚡ After 6 years of dedication, research, development, and teamwork, our work at BeFC is live in Nature Reviews Bioengineering ! Read the full paper here: https://lnkd.in/eN7dzGcE Reflecting on the past 6 years, it’s been a long road, and I couldn’t be prouder of what the team has achieved.",
+                "source_name": "Syntech Biofuel",
+                "search_query": "Syntech Biofuel",
+                "source_category": "Mention",
+                "publication_date": "2026-05-05",
+                "additional_formats": null
+              }
+            ],
+            "articles_returned": 1,
+            "sources_processed": 1,
+            "sources_failed": 0,
+            "errors": null,
+            "flush_id": "c8e3bfcb-b149-45d4-b600-6367f5bfc326",
+            "queue_row_ids": [
+              16063
+            ]
+          },
+          "webhookUrl": "https://syntech-biofuels.granite-automations.app/webhook/flush-syntech-queue",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-05-06T09:17:13.423Z",
+      "createdAt": "2026-05-06T09:17:13.423Z",
+      "role": "workflow:owner",
+      "workflowId": "xMber2oB93RuRWim",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "updatedAt": "2026-02-11T12:33:51.749Z",
+      "createdAt": "2026-02-11T12:33:51.749Z",
+      "id": "dvW8QJKPXc5kTHaQ",
+      "name": "SYNTECH"
+    },
+    {
+      "updatedAt": "2026-02-04T09:42:46.339Z",
+      "createdAt": "2026-02-04T09:42:46.339Z",
+      "id": "ftTaThoU1OADDb6u",
+      "name": "NEWS+"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2026-05-06T11:54:32.289Z",
+  "versionId": "d66c4fcf-ca23-4ceb-9f6c-ef954f0c221f"
+}
