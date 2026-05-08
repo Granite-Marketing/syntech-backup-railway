@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-06T09:40:13.082Z",
-    "createdAt": "2026-05-06T09:39:50.519Z",
-    "versionId": "72f1f269-5721-44d9-ae17-272f85580df9",
+    "updatedAt": "2026-05-07T05:32:17.543Z",
+    "createdAt": "2026-05-07T05:32:07.679Z",
+    "versionId": "d2328139-4373-4dc7-adde-72e444bcff02",
     "workflowId": "XO9Or6DUoTqXgAA5",
     "nodes": [
       {
@@ -11,7 +11,7 @@
           "rule": {
             "interval": [
               {
-                "triggerAtHour": 8
+                "triggerAtHour": 7
               }
             ]
           }
@@ -344,11 +344,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Change to trigger workflow",
+    "name": "call at 7am",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "72f1f269-5721-44d9-ae17-272f85580df9",
+  "activeVersionId": "d2328139-4373-4dc7-adde-72e444bcff02",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -437,7 +437,7 @@
         "rule": {
           "interval": [
             {
-              "triggerAtHour": 8
+              "triggerAtHour": 7
             }
           ]
         }
@@ -770,7 +770,9 @@
     "availableInMCP": false,
     "timeSavedPerExecution": 120,
     "errorWorkflow": "Qsg1jSZ5AQScoAOn",
-    "binaryMode": "separate"
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "timezone": "Europe/London"
   },
   "shared": [
     {
@@ -800,6 +802,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-05-06T09:39:50.380Z",
-  "versionId": "72f1f269-5721-44d9-ae17-272f85580df9"
+  "updatedAt": "2026-05-07T05:32:07.548Z",
+  "versionId": "d2328139-4373-4dc7-adde-72e444bcff02"
 }
