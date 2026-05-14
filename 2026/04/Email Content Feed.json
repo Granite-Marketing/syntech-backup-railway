@@ -1,440 +1,11 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-05T10:19:45.625Z",
-    "createdAt": "2026-05-05T09:55:06.934Z",
-    "versionId": "5011106f-4a35-45ed-a0b1-da34420f49aa",
+    "updatedAt": "2026-05-13T20:02:57.941Z",
+    "createdAt": "2026-05-13T20:02:32.198Z",
+    "versionId": "586c0298-4c81-4024-870a-670319af854f",
     "workflowId": "QJa8YNLn4vHITmwY",
     "nodes": [
-      {
-        "parameters": {},
-        "type": "n8n-nodes-base.manualTrigger",
-        "typeVersion": 1,
-        "position": [
-          -16,
-          156
-        ],
-        "id": "ce333462-d582-4abd-bf86-cfd57adf2354",
-        "name": "When clicking ‘Execute workflow’"
-      },
-      {
-        "parameters": {
-          "resource": "databasePage",
-          "operation": "getAll",
-          "databaseId": {
-            "__rl": true,
-            "value": "27c785c0-cfab-8137-800f-dcf3e01a3e97",
-            "mode": "list",
-            "cachedResultName": "Syntech Content Ideas",
-            "cachedResultUrl": "https://www.notion.so/27c785c0cfab8137800fdcf3e01a3e97"
-          },
-          "limit": 100,
-          "filterType": "manual",
-          "filters": {
-            "conditions": [
-              {
-                "key": "Sent To Team?|checkbox",
-                "condition": "does_not_equal",
-                "checkboxValue": true
-              }
-            ]
-          },
-          "options": {
-            "sort": {
-              "sortValue": [
-                {
-                  "key": "Created Date|created_time",
-                  "direction": "descending"
-                }
-              ]
-            }
-          }
-        },
-        "type": "n8n-nodes-base.notion",
-        "typeVersion": 2.2,
-        "position": [
-          208,
-          156
-        ],
-        "id": "dd45242a-4030-4b99-931c-db79b75bea9e",
-        "name": "Get New Ideas",
-        "credentials": {
-          "notionApi": {
-            "id": "k0ZwGrqySi9Wayf7",
-            "name": "Stephen Notion account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "b8255347-e690-466a-926b-1f5fefa6a2f7",
-                "name": "article_name",
-                "value": "={{ $json.primary.title }}",
-                "type": "string"
-              },
-              {
-                "id": "b65e0c95-91ea-4461-9c15-8a2affabaa5e",
-                "name": "article_published_date",
-                "value": "={{ $json.primary.publication_date }}",
-                "type": "string"
-              },
-              {
-                "id": "8bd034bb-ac5c-4edd-8f0a-22be06c56e1e",
-                "name": "status",
-                "value": "={{ $json.story_status }}",
-                "type": "string"
-              },
-              {
-                "id": "30605d4d-f4e8-4b1b-b27b-e69848f23a59",
-                "name": "article_url",
-                "value": "={{ $json.primary.source_url }}",
-                "type": "string"
-              },
-              {
-                "id": "31ea6911-2183-42ec-9fde-3a63bec97efd",
-                "name": "story_size",
-                "value": "={{ $json.story_size }}",
-                "type": "number"
-              },
-              {
-                "id": "b1d776bd-2658-4213-84cf-5dd3d9366782",
-                "name": "source_urls",
-                "value": "={{ $json.supporting_sources?.length ? $json.supporting_sources : [$json.primary.source_url] }}",
-                "type": "array"
-              },
-              {
-                "id": "37e36fa6-e6a2-4613-aefc-7fdd5c103d08",
-                "name": "primary_source",
-                "value": "={{ $json.primary.source_name }}",
-                "type": "string"
-              },
-              {
-                "id": "8830988a-6a30-4b00-a6b1-b83348d3a867",
-                "name": "fact_fingerprint",
-                "value": "={{ $json.primary.fact_fingerprint }}",
-                "type": "string"
-              },
-              {
-                "id": "c5316bad-dd12-4f76-99d8-935408b0b9f7",
-                "name": "article_summary",
-                "value": "={{ $json.primary.summary }}",
-                "type": "string"
-              },
-              {
-                "id": "3328a698-6d07-40fc-b02b-78238b9a8af4",
-                "name": "notion_url",
-                "value": "={{ $json.primary.notion_url }}",
-                "type": "string"
-              },
-              {
-                "id": "03d59240-f5a0-47a3-a438-b5139de8fe17",
-                "name": "article_notion_urls",
-                "value": "={{\n  [\n    $json.primary.notion_url,\n    ...($json.articles || []).map(a => a.notion_url)\n  ].filter(Boolean)\n}}",
-                "type": "array"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          1552,
-          32
-        ],
-        "id": "fa5da733-ecee-4279-9956-2df4206e424b",
-        "name": "Set Data"
-      },
-      {
-        "parameters": {
-          "model": {
-            "__rl": true,
-            "mode": "list",
-            "value": "gpt-4.1-mini"
-          },
-          "builtInTools": {},
-          "options": {
-            "temperature": 0
-          }
-        },
-        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "typeVersion": 1.3,
-        "position": [
-          2072,
-          256
-        ],
-        "id": "a1302c11-f8c4-41e4-ab0c-91fbb343110d",
-        "name": "OpenAI Chat Model",
-        "credentials": {
-          "openAiApi": {
-            "id": "NoEKitspBJb0zQrp",
-            "name": "Syntech GM OpenAi account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "maxItems": 100
-        },
-        "type": "n8n-nodes-base.limit",
-        "typeVersion": 1,
-        "position": [
-          1776,
-          32
-        ],
-        "id": "cc70c663-898c-4a18-a80f-5383b2c7af43",
-        "name": "Limit"
-      },
-      {
-        "parameters": {
-          "mode": "markdownToHtml",
-          "markdown": "={{ $json.text }}",
-          "options": {
-            "customizedHeaderId": false,
-            "noHeaderId": true
-          }
-        },
-        "type": "n8n-nodes-base.markdown",
-        "typeVersion": 1,
-        "position": [
-          2352,
-          32
-        ],
-        "id": "d1dcc470-6f59-47b7-9e40-d3393ba1e421",
-        "name": "Markdown"
-      },
-      {
-        "parameters": {
-          "fieldsToAggregate": {
-            "fieldToAggregate": [
-              {
-                "fieldToAggregate": "data"
-              },
-              {}
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.aggregate",
-        "typeVersion": 1,
-        "position": [
-          2800,
-          -64
-        ],
-        "id": "fb352711-8ed2-4502-ad07-00418e53975a",
-        "name": "Aggregate"
-      },
-      {
-        "parameters": {
-          "sendTo": "stephen@granitemarketing.co.uk, tim@syntechbiofuel.com, justin@syntechbiofuel.com, sue@syntechbiofuel.com",
-          "subject": "=💡 NEWS+ | {{ $('Loop Over Items').first().json.display_query }} | {{ $now.format('DD') }}",
-          "message": "=Good Morning! \n\nHere are the ideas from today:\n{{\n  $json.data\n    .sort((a, b) => {\n      const order = { new: 0, update: 1, duplicate: 2 };\n      return order[a.status] - order[b.status];\n    })\n    .map(item => item)\n    .join('<br><hr>')\n}}\n<br>\nNEWS+ Bot 🤖",
-          "options": {
-            "appendAttribution": false,
-            "senderName": "NEWS+ Content Engine 🤖"
-          }
-        },
-        "type": "n8n-nodes-base.gmail",
-        "typeVersion": 2.1,
-        "position": [
-          3024,
-          156
-        ],
-        "id": "74f39d87-5b22-4373-979e-343884ea7b8f",
-        "name": "Send Email Update",
-        "webhookId": "d93ecd81-f8b1-4168-8beb-c0af7c197837",
-        "credentials": {
-          "gmailOAuth2": {
-            "id": "rekuwr4XpMXhMquv",
-            "name": "Stephen Gmail account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "resource": "databasePage",
-          "operation": "update",
-          "pageId": {
-            "__rl": true,
-            "mode": "id",
-            "value": "={{ $('Set Data').item.json.notion_url.split('-').last() }}",
-            "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})"
-          },
-          "propertiesUi": {
-            "propertyValues": [
-              {
-                "key": "Sent To Team?|checkbox",
-                "checkboxValue": true
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.notion",
-        "typeVersion": 2.2,
-        "position": [
-          2800,
-          128
-        ],
-        "id": "e8b4c309-ae5c-47bd-abc6-b25848296037",
-        "name": "Update a database page",
-        "retryOnFail": true,
-        "waitBetweenTries": 5000,
-        "credentials": {
-          "notionApi": {
-            "id": "k0ZwGrqySi9Wayf7",
-            "name": "Stephen Notion account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "promptType": "define",
-          "text": "={{ $('Group Similar Articles').item.json.toJsonString() }}",
-          "messages": {
-            "messageValues": [
-              {
-                "message": "=You are an expert content analyst.\n\nYour task is to read the provided JSON, which represents a **single news story cluster**.\nA story cluster may contain:\n- one unique article, OR\n- multiple articles reporting the same underlying event.\n\nYour job is to produce an ultra-compressed, RSS-style factual micro-summary suitable for senior decision makers scanning multiple items quickly.\n\nUse the **primary article** as the factual anchor.\nIf multiple articles exist, treat them as corroborating coverage of the same event.\n\nYour output must be **EXTREMELY short**, formatted **ONLY using bullet points**, and must NOT contain interpretation, commentary, or full lists.\n\nYou must follow this micro-structure **EXACTLY**, including bullet points, emojis, and formatting:\n\n---\n\n### 🔍 Core Topic  \n- One bullet containing a single sentence capturing the main factual subject of the story.\n\n### ⭐ Key Highlights  \n- One bullet.  \n- Second bullet.  \n- Third bullet.  \n(Up to **3 bullets total**, only the most material factual events or numbers.)\n\n### 🚗 Fuels & Policy  \n- One bullet summarising fuels mentioned (one short line).  \n- One bullet summarising policies or regulations mentioned (one short line).\n\n### 🌍 Locations / Entities  \n- One bullet listing the most relevant locations (short comma-separated list).  \n- One bullet listing the key companies or organisations (short comma-separated list).\n\n### 🔗 Sources  \n- One bullet listing **up to 3 source URLs** **ONLY IF** the story cluster contains multiple articles.\n- If the story contains only one article, **omit this section entirely**.\n\n---\n\n### **STRICT FORMATTING RULES**\n- Use **bullet points ONLY** (“- ”). No paragraphs.\n- Follow the exact number of bullets per section.\n- Maximum **9 bullets total** (8 normally, +1 only when Sources is present).\n- No long lists, no exhaustive enumerations.\n- Include only the most material facts.\n- No opinions, interpretation, analysis, or relevance scoring.\n- Output **only** the structured micro-summary. Nothing else.\n\nThe user will supply a JSON object representing a single story cluster."
-              }
-            ]
-          },
-          "batching": {
-            "batchSize": 10
-          }
-        },
-        "type": "@n8n/n8n-nodes-langchain.chainLlm",
-        "typeVersion": 1.7,
-        "position": [
-          2000,
-          32
-        ],
-        "id": "2b7f6ea1-8bd1-4102-a92b-d0f919e4db0c",
-        "name": "Create Digestable Summary - Social Media Selection"
-      },
-      {
-        "parameters": {
-          "options": {}
-        },
-        "type": "n8n-nodes-base.splitInBatches",
-        "typeVersion": 3,
-        "position": [
-          1104,
-          156
-        ],
-        "id": "2e181dfe-35e3-47e7-9166-f6c53f5c4c1e",
-        "name": "Loop Over Items"
-      },
-      {
-        "parameters": {
-          "jsCode": "const articles = $input.all();\n\nfunction normaliseQuery(value) {\n  if (!value) return \"unknown\";\n  return value\n    .toLowerCase()\n    .trim()\n    .replace(/\\s+/g, \" \");\n}\n\nfunction groupBySearchQuery(data) {\n  return data.reduce((groups, itemRaw) => {\n    const item = itemRaw.json;\n\n    const rawQuery = item.property_source_name || \"Unknown\";\n    const normalisedQuery = normaliseQuery(rawQuery);\n\n    if (!groups[normalisedQuery]) {\n      groups[normalisedQuery] = {\n        original_query: (rawQuery || \"Unknown\").toString().trim(),\n        content: []\n      };\n    }\n\n    // Push the ENTIRE item (all fields), plus helpful derived keys\n    groups[normalisedQuery].content.push({\n      ...item,\n      raw_search_query: rawQuery,\n      normalised_search_query: normalisedQuery,\n    });\n\n    return groups;\n  }, {});\n}\n\nconst groupedContent = groupBySearchQuery(articles);\n\n// Output one n8n item per group\nconst outputLists = Object.entries(groupedContent).map(([normalisedQuery, group]) => ({\n  json: {\n    search_query: normalisedQuery,          // normalised grouping key\n    display_query: group.original_query,    // original (first-seen) label\n    content: group.content                  // FULL items\n  }\n}));\n\nreturn outputLists;"
-        },
-        "type": "n8n-nodes-base.code",
-        "typeVersion": 2,
-        "position": [
-          656,
-          156
-        ],
-        "id": "64913ad7-7621-419b-92ee-58bc90bc849e",
-        "name": "Group Content By Query"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "f4dbc790-fb04-4b34-b9ed-c82a91830347",
-                "name": "data",
-                "value": "=<h3>\n📝 Title: {{ $('Set Data').item.json.article_name }} ({{ $('Set Data').item.json.status === 'update' && 'UPDATE 🟠' || $('Set Data').item.json.status === 'duplicate' && 'DUPLICATE 🔴' || $('Set Data').item.json.status === 'new' && 'NEW 🟢' }})  \n</h3>\n\n<p>📅 Published Date: <strong>{{ $('Set Data').item.json.article_published_date.toDateTime().format('DD') }}</strong></p>\n\n<ul>\n  <li>Primary source: <a href=\"{{ $('Set Data').item.json.article_url }}\">External</a></li>\n  <li>View in Notion: <a href=\"{{ $('Set Data').item.json.notion_url }}\">Notion</a></li>\n</ul>\n\n{{ $json.data }}\n\n\n<p>🔗 Sources Websites:</p>\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const primary = $('Set Data').item.json.article_url;\n    const urls = $('Set Data').item.json.source_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    const also = unique.filter(u => u !== primary);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" on website</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View on website</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n\n<p>🔗 Sources (Notion):</p>\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const urls = $('Set Data').item.json.article_notion_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    if (!unique.length) return '';\n\n    const primary = unique[0];\n    const also = unique.slice(1);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" in Notion</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View in Notion</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n<br>",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          2576,
-          32
-        ],
-        "id": "3a1dfdfc-e4b6-4ad0-a891-a7b2e114f1a8",
-        "name": "Structure Message"
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 3
-            },
-            "conditions": [
-              {
-                "id": "6a768bda-8b2f-4080-9e87-0df5964d4212",
-                "leftValue": "={{ $json.property_created_date }}",
-                "rightValue": "={{ $now.minus(5, 'days') }}",
-                "operator": {
-                  "type": "dateTime",
-                  "operation": "after"
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.filter",
-        "typeVersion": 2.3,
-        "position": [
-          432,
-          156
-        ],
-        "id": "8c16c8ac-b476-416b-b40f-8898a0bc130c",
-        "name": "Get From 24h Ago"
-      },
-      {
-        "parameters": {
-          "jsCode": "// Input: one item = one TOPIC bucket { search_query, display_query, content:[...] }\n// Output: many items = story clusters within that topic\n\nfunction safeJsonParse(str) { try { return JSON.parse(str); } catch { return null; } }\n\nfunction norm(v) {\n  return String(v || \"\").toLowerCase().trim();\n}\nfunction toSet(arr) {\n  if (!Array.isArray(arr)) return new Set();\n  return new Set(arr.map(norm).filter(Boolean));\n}\nfunction jaccard(a, b) {\n  if (!a.size && !b.size) return 0;\n  let inter = 0;\n  for (const v of a) if (b.has(v)) inter++;\n  const union = a.size + b.size - inter;\n  return union ? inter / union : 0;\n}\n\nfunction fingerprintSets(article) {\n  const fp = safeJsonParse(article.property_fact_fingerprint || \"\");\n  const entities = toSet(fp?.entities);\n  const actions  = toSet(fp?.actions);\n  const dates    = toSet(fp?.dates);\n  const numbers  = toSet(fp?.numerical_values);\n  return { entities, actions, dates, numbers };\n}\n\nfunction similarity(a, b) {\n  const e = jaccard(a.entities, b.entities);\n  const ac = jaccard(a.actions, b.actions);\n  const d = jaccard(a.dates, b.dates);\n  const n = jaccard(a.numbers, b.numbers);\n\n  // Actions are the biggest distinguisher between “different things within same topic”\n  return (0.35 * e) + (0.45 * ac) + (0.15 * d) + (0.05 * n);\n}\n\nfunction scorePrimary(article) {\n  const s = Number(article.property_total_score ?? 0);\n  const d = article.property_publication_date?.start\n    ? Date.parse(article.property_publication_date.start)\n    : 0;\n  return (s * 1_000_000) + d;\n}\n\nconst THRESHOLD = 0.58; // slightly higher to avoid over-merging within a topic\n\nconst topic = $input.all()[0].json;\nconst items = Array.isArray(topic.content) ? topic.content : [];\n\nconst enriched = items.map(a => ({ ...a, __fp: fingerprintSets(a) }));\n\nconst clusters = [];\n\nfor (const art of enriched) {\n  let bestIdx = -1;\n  let bestSim = 0;\n\n  // Find best matching existing cluster (if any)\n  for (let i = 0; i < clusters.length; i++) {\n    const rep = clusters[i].__rep;\n    const sim = similarity(art.__fp, rep.__fp);\n    if (sim > bestSim) { bestSim = sim; bestIdx = i; }\n  }\n\n  if (bestSim >= THRESHOLD) {\n    const c = clusters[bestIdx];\n    c.articles.push(art);\n\n    // Update primary + representative to strongest (helps stability)\n    const best = c.articles.reduce((acc, cur) =>\n      scorePrimary(cur) > scorePrimary(acc) ? cur : acc\n    , c.__primary);\n\n    c.__primary = best;\n    c.__rep = best;\n  } else {\n    clusters.push({ __primary: art, __rep: art, articles: [art] });\n  }\n}\n\nfunction normStatus(s) {\n  s = String(s || \"\").toLowerCase().trim();\n  if (s === \"new\" || s === \"update\" || s === \"duplicate\") return s;\n  return \"new\"; // safe default if missing\n}\n\nfunction storyStatusFromArticles(articles) {\n  const statuses = articles.map(a => normStatus(a.property_update_status));\n  if (statuses.includes(\"new\")) return \"new\";\n  if (statuses.includes(\"update\")) return \"update\";\n  return \"duplicate\";\n}\n\n// One output item per STORY within the topic\nreturn clusters\n  .sort((a, b) => scorePrimary(b.__primary) - scorePrimary(a.__primary))\n  .map((c, idx) => {\n    const primary = c.__primary;\n\n    // ✅ Compute story status from Notion's per-article semantic status\n    const story_status = storyStatusFromArticles(c.articles);\n\n    // (Optional but useful) status breakdown for UI/debug\n    const status_counts = c.articles.reduce((acc, a) => {\n      const s = normStatus(a.property_update_status);\n      acc[s] = (acc[s] || 0) + 1;\n      return acc;\n    }, {});\n\n    const urls = c.articles\n      .map(a => a.property_source_url || a.url)\n      .filter(Boolean);\n\n    const seen = new Set();\n    const supporting_sources = urls.filter(u => (seen.has(u) ? false : (seen.add(u), true)));\n\n    return {\n      json: {\n        topic_key: topic.search_query,\n        topic_label: topic.display_query,\n        story_id: `${topic.search_query}__story_${idx + 1}`,\n        story_size: c.articles.length,\n\n        // ✅ story-level semantic status (new/update/duplicate) from Notion flags\n        story_status,\n        status_counts, // optional\n\n        // Primary drives the summary\n        primary: {\n          title: primary.property_article_name || primary.name,\n          publication_date: primary.property_publication_date?.start || null,\n          summary: primary.property_summary || null,\n        \n          update_status: primary.property_update_status || null,\n          fact_fingerprint: primary.property_fact_fingerprint || null,\n        \n          source_name: primary.property_source_name || null,\n        \n          // ✅ Explicit URLs\n          source_url: primary.property_source_url || null, // external\n          notion_url: primary.url || null                  // Notion page\n        },\n\n        // Supporting sources (deduped)\n        supporting_sources: supporting_sources.slice(0, 10),\n\n        // Per-article metadata retained\n        articles: c.articles.map(a => ({\n          title: a.property_article_name || a.name,\n          source: a.property_source_name || null,\n        \n          // ✅ Explicit URLs\n          source_url: a.property_source_url || null, // external\n          notion_url: a.url || null,                  // Notion page\n        \n          score: a.property_total_score ?? null,\n          date: a.property_publication_date?.start || null,\n          update_status: a.property_update_status || null,\n          fact_fingerprint: a.property_fact_fingerprint || null\n        })),\n      }\n    };\n  });"
-        },
-        "type": "n8n-nodes-base.code",
-        "typeVersion": 2,
-        "position": [
-          1328,
-          32
-        ],
-        "id": "54b4bd77-dd19-4d02-b528-720f2a9f3f00",
-        "name": "Group Similar Articles"
-      },
-      {
-        "parameters": {
-          "maxItems": 100
-        },
-        "type": "n8n-nodes-base.limit",
-        "typeVersion": 1,
-        "position": [
-          880,
-          156
-        ],
-        "id": "db16beba-de07-479e-9255-1094f8e1386a",
-        "name": "Limit2"
-      },
-      {
-        "parameters": {
-          "content": "## Fix\nSort order not working - because the HTML is already structured - we need to sort upstream"
-        },
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1,
-        "position": [
-          2992,
-          -80
-        ],
-        "id": "9353ccfa-4257-491d-9a93-b497002794e9",
-        "name": "Sticky Note1"
-      },
       {
         "parameters": {
           "rule": {
@@ -449,7 +20,7 @@
         "typeVersion": 1.3,
         "position": [
           -16,
-          380
+          480
         ],
         "id": "0c64c7ed-2576-42e7-9883-f082ddb8ea78",
         "name": "Run Hourly"
@@ -473,189 +44,103 @@
         "typeVersion": 4.4,
         "position": [
           208,
-          380
+          480
         ],
         "id": "eda33957-25f5-48b4-9067-6050e9fa53a8",
         "name": "Run Digest Workflow"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "db74b319-f8a3-4033-8320-cb1c946b8221",
+                "leftValue": "={{ $json.status }}",
+                "rightValue": "e",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          432,
+          480
+        ],
+        "id": "86650be4-ec43-4158-9b26-da9bf7b9358b",
+        "name": "If Error"
+      },
+      {
+        "parameters": {
+          "select": "channel",
+          "channelId": {
+            "__rl": true,
+            "value": "C09V1831FN2",
+            "mode": "list",
+            "cachedResultName": "syntech-n8n-error-tracker"
+          },
+          "text": "=Error in Email Content Feed:\n\nReason: {{ $('Run Digest Workflow').item.json.reason }}\nError: {{ $('Run Digest Workflow').item.json.error }}\nTotal Topics: {{ $('Run Digest Workflow').item.json.topic_results.length }}\nTopics Sent: {{ $('Run Digest Workflow').item.json.topics_sent }}",
+          "otherOptions": {}
+        },
+        "type": "n8n-nodes-base.slack",
+        "typeVersion": 2.4,
+        "position": [
+          656,
+          384
+        ],
+        "id": "42eaec5b-ffd6-4de9-86b4-521165d50c6f",
+        "name": "Send Error Notification",
+        "webhookId": "8312d037-ef5a-4d4c-9083-baf6230ae5d7",
+        "credentials": {
+          "slackApi": {
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "select": "channel",
+          "channelId": {
+            "__rl": true,
+            "value": "C09V1831FN2",
+            "mode": "list",
+            "cachedResultName": "syntech-n8n-error-tracker"
+          },
+          "text": "=Email Content Feed Success! \nTotal Topics: {{ $('Run Digest Workflow').item.json.topic_results.length }}",
+          "otherOptions": {}
+        },
+        "type": "n8n-nodes-base.slack",
+        "typeVersion": 2.4,
+        "position": [
+          656,
+          576
+        ],
+        "id": "4dc77675-5fc0-46d6-ad35-02478ab0fae0",
+        "name": "Send Success Notification ",
+        "webhookId": "8312d037-ef5a-4d4c-9083-baf6230ae5d7",
+        "credentials": {
+          "slackApi": {
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
+          }
+        },
+        "disabled": true
       }
     ],
     "connections": {
-      "When clicking ‘Execute workflow’": {
-        "main": [
-          [
-            {
-              "node": "Get New Ideas",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Get New Ideas": {
-        "main": [
-          [
-            {
-              "node": "Get From 24h Ago",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Set Data": {
-        "main": [
-          [
-            {
-              "node": "Limit",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "OpenAI Chat Model": {
-        "ai_languageModel": [
-          [
-            {
-              "node": "Create Digestable Summary - Social Media Selection",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Limit": {
-        "main": [
-          [
-            {
-              "node": "Create Digestable Summary - Social Media Selection",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Markdown": {
-        "main": [
-          [
-            {
-              "node": "Structure Message",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Aggregate": {
-        "main": [
-          [
-            {
-              "node": "Send Email Update",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Send Email Update": {
-        "main": [
-          [
-            {
-              "node": "Loop Over Items",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Update a database page": {
-        "main": [
-          []
-        ]
-      },
-      "Create Digestable Summary - Social Media Selection": {
-        "main": [
-          [
-            {
-              "node": "Markdown",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Loop Over Items": {
-        "main": [
-          [],
-          [
-            {
-              "node": "Group Similar Articles",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Group Content By Query": {
-        "main": [
-          [
-            {
-              "node": "Limit2",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Structure Message": {
-        "main": [
-          [
-            {
-              "node": "Aggregate",
-              "type": "main",
-              "index": 0
-            },
-            {
-              "node": "Update a database page",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Get From 24h Ago": {
-        "main": [
-          [
-            {
-              "node": "Group Content By Query",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Group Similar Articles": {
-        "main": [
-          [
-            {
-              "node": "Set Data",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Limit2": {
-        "main": [
-          [
-            {
-              "node": "Loop Over Items",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "Run Hourly": {
         "main": [
           [
@@ -666,196 +151,78 @@
             }
           ]
         ]
+      },
+      "Run Digest Workflow": {
+        "main": [
+          [
+            {
+              "node": "If Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If Error": {
+        "main": [
+          [
+            {
+              "node": "Send Error Notification",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Send Success Notification ",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "change to microservice",
+    "name": "remove success message",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "5011106f-4a35-45ed-a0b1-da34420f49aa",
+  "activeVersionId": "586c0298-4c81-4024-870a-670319af854f",
   "connections": {
-    "When clicking ‘Execute workflow’": {
-      "main": [
-        [
-          {
-            "node": "Get New Ideas",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get New Ideas": {
-      "main": [
-        [
-          {
-            "node": "Get From 24h Ago",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set Data": {
-      "main": [
-        [
-          {
-            "node": "Limit",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Create Digestable Summary - Social Media Selection",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Limit": {
-      "main": [
-        [
-          {
-            "node": "Create Digestable Summary - Social Media Selection",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Markdown": {
-      "main": [
-        [
-          {
-            "node": "Structure Message",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Aggregate": {
-      "main": [
-        [
-          {
-            "node": "Send Email Update",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Send Email Update": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Update a database page": {
-      "main": [
-        []
-      ]
-    },
-    "Create Digestable Summary - Social Media Selection": {
-      "main": [
-        [
-          {
-            "node": "Markdown",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop Over Items": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Group Similar Articles",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Group Content By Query": {
-      "main": [
-        [
-          {
-            "node": "Limit2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Structure Message": {
-      "main": [
-        [
-          {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Update a database page",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get From 24h Ago": {
-      "main": [
-        [
-          {
-            "node": "Group Content By Query",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Group Similar Articles": {
-      "main": [
-        [
-          {
-            "node": "Set Data",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Limit2": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Run Hourly": {
       "main": [
         [
           {
             "node": "Run Digest Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Digest Workflow": {
+      "main": [
+        [
+          {
+            "node": "If Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Error": {
+      "main": [
+        [
+          {
+            "node": "Send Error Notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Success Notification ",
             "type": "main",
             "index": 0
           }
@@ -872,435 +239,6 @@
   "name": "Email Content Feed",
   "nodes": [
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        -16,
-        156
-      ],
-      "id": "ce333462-d582-4abd-bf86-cfd57adf2354",
-      "name": "When clicking ‘Execute workflow’"
-    },
-    {
-      "parameters": {
-        "resource": "databasePage",
-        "operation": "getAll",
-        "databaseId": {
-          "__rl": true,
-          "value": "27c785c0-cfab-8137-800f-dcf3e01a3e97",
-          "mode": "list",
-          "cachedResultName": "Syntech Content Ideas",
-          "cachedResultUrl": "https://www.notion.so/27c785c0cfab8137800fdcf3e01a3e97"
-        },
-        "limit": 100,
-        "filterType": "manual",
-        "filters": {
-          "conditions": [
-            {
-              "key": "Sent To Team?|checkbox",
-              "condition": "does_not_equal",
-              "checkboxValue": true
-            }
-          ]
-        },
-        "options": {
-          "sort": {
-            "sortValue": [
-              {
-                "key": "Created Date|created_time",
-                "direction": "descending"
-              }
-            ]
-          }
-        }
-      },
-      "type": "n8n-nodes-base.notion",
-      "typeVersion": 2.2,
-      "position": [
-        208,
-        156
-      ],
-      "id": "dd45242a-4030-4b99-931c-db79b75bea9e",
-      "name": "Get New Ideas",
-      "credentials": {
-        "notionApi": {
-          "id": "k0ZwGrqySi9Wayf7",
-          "name": "Stephen Notion account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "b8255347-e690-466a-926b-1f5fefa6a2f7",
-              "name": "article_name",
-              "value": "={{ $json.primary.title }}",
-              "type": "string"
-            },
-            {
-              "id": "b65e0c95-91ea-4461-9c15-8a2affabaa5e",
-              "name": "article_published_date",
-              "value": "={{ $json.primary.publication_date }}",
-              "type": "string"
-            },
-            {
-              "id": "8bd034bb-ac5c-4edd-8f0a-22be06c56e1e",
-              "name": "status",
-              "value": "={{ $json.story_status }}",
-              "type": "string"
-            },
-            {
-              "id": "30605d4d-f4e8-4b1b-b27b-e69848f23a59",
-              "name": "article_url",
-              "value": "={{ $json.primary.source_url }}",
-              "type": "string"
-            },
-            {
-              "id": "31ea6911-2183-42ec-9fde-3a63bec97efd",
-              "name": "story_size",
-              "value": "={{ $json.story_size }}",
-              "type": "number"
-            },
-            {
-              "id": "b1d776bd-2658-4213-84cf-5dd3d9366782",
-              "name": "source_urls",
-              "value": "={{ $json.supporting_sources?.length ? $json.supporting_sources : [$json.primary.source_url] }}",
-              "type": "array"
-            },
-            {
-              "id": "37e36fa6-e6a2-4613-aefc-7fdd5c103d08",
-              "name": "primary_source",
-              "value": "={{ $json.primary.source_name }}",
-              "type": "string"
-            },
-            {
-              "id": "8830988a-6a30-4b00-a6b1-b83348d3a867",
-              "name": "fact_fingerprint",
-              "value": "={{ $json.primary.fact_fingerprint }}",
-              "type": "string"
-            },
-            {
-              "id": "c5316bad-dd12-4f76-99d8-935408b0b9f7",
-              "name": "article_summary",
-              "value": "={{ $json.primary.summary }}",
-              "type": "string"
-            },
-            {
-              "id": "3328a698-6d07-40fc-b02b-78238b9a8af4",
-              "name": "notion_url",
-              "value": "={{ $json.primary.notion_url }}",
-              "type": "string"
-            },
-            {
-              "id": "03d59240-f5a0-47a3-a438-b5139de8fe17",
-              "name": "article_notion_urls",
-              "value": "={{\n  [\n    $json.primary.notion_url,\n    ...($json.articles || []).map(a => a.notion_url)\n  ].filter(Boolean)\n}}",
-              "type": "array"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        1552,
-        32
-      ],
-      "id": "fa5da733-ecee-4279-9956-2df4206e424b",
-      "name": "Set Data"
-    },
-    {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "mode": "list",
-          "value": "gpt-4.1-mini"
-        },
-        "builtInTools": {},
-        "options": {
-          "temperature": 0
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.3,
-      "position": [
-        2072,
-        256
-      ],
-      "id": "a1302c11-f8c4-41e4-ab0c-91fbb343110d",
-      "name": "OpenAI Chat Model",
-      "credentials": {
-        "openAiApi": {
-          "id": "NoEKitspBJb0zQrp",
-          "name": "Syntech GM OpenAi account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "maxItems": 100
-      },
-      "type": "n8n-nodes-base.limit",
-      "typeVersion": 1,
-      "position": [
-        1776,
-        32
-      ],
-      "id": "cc70c663-898c-4a18-a80f-5383b2c7af43",
-      "name": "Limit"
-    },
-    {
-      "parameters": {
-        "mode": "markdownToHtml",
-        "markdown": "={{ $json.text }}",
-        "options": {
-          "customizedHeaderId": false,
-          "noHeaderId": true
-        }
-      },
-      "type": "n8n-nodes-base.markdown",
-      "typeVersion": 1,
-      "position": [
-        2352,
-        32
-      ],
-      "id": "d1dcc470-6f59-47b7-9e40-d3393ba1e421",
-      "name": "Markdown"
-    },
-    {
-      "parameters": {
-        "fieldsToAggregate": {
-          "fieldToAggregate": [
-            {
-              "fieldToAggregate": "data"
-            },
-            {}
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.aggregate",
-      "typeVersion": 1,
-      "position": [
-        2800,
-        -64
-      ],
-      "id": "fb352711-8ed2-4502-ad07-00418e53975a",
-      "name": "Aggregate"
-    },
-    {
-      "parameters": {
-        "sendTo": "stephen@granitemarketing.co.uk, tim@syntechbiofuel.com, justin@syntechbiofuel.com, sue@syntechbiofuel.com",
-        "subject": "=💡 NEWS+ | {{ $('Loop Over Items').first().json.display_query }} | {{ $now.format('DD') }}",
-        "message": "=Good Morning! \n\nHere are the ideas from today:\n{{\n  $json.data\n    .sort((a, b) => {\n      const order = { new: 0, update: 1, duplicate: 2 };\n      return order[a.status] - order[b.status];\n    })\n    .map(item => item)\n    .join('<br><hr>')\n}}\n<br>\nNEWS+ Bot 🤖",
-        "options": {
-          "appendAttribution": false,
-          "senderName": "NEWS+ Content Engine 🤖"
-        }
-      },
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [
-        3024,
-        156
-      ],
-      "id": "74f39d87-5b22-4373-979e-343884ea7b8f",
-      "name": "Send Email Update",
-      "webhookId": "d93ecd81-f8b1-4168-8beb-c0af7c197837",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "rekuwr4XpMXhMquv",
-          "name": "Stephen Gmail account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "databasePage",
-        "operation": "update",
-        "pageId": {
-          "__rl": true,
-          "mode": "id",
-          "value": "={{ $('Set Data').item.json.notion_url.split('-').last() }}",
-          "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})"
-        },
-        "propertiesUi": {
-          "propertyValues": [
-            {
-              "key": "Sent To Team?|checkbox",
-              "checkboxValue": true
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.notion",
-      "typeVersion": 2.2,
-      "position": [
-        2800,
-        128
-      ],
-      "id": "e8b4c309-ae5c-47bd-abc6-b25848296037",
-      "name": "Update a database page",
-      "retryOnFail": true,
-      "waitBetweenTries": 5000,
-      "credentials": {
-        "notionApi": {
-          "id": "k0ZwGrqySi9Wayf7",
-          "name": "Stephen Notion account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Group Similar Articles').item.json.toJsonString() }}",
-        "messages": {
-          "messageValues": [
-            {
-              "message": "=You are an expert content analyst.\n\nYour task is to read the provided JSON, which represents a **single news story cluster**.\nA story cluster may contain:\n- one unique article, OR\n- multiple articles reporting the same underlying event.\n\nYour job is to produce an ultra-compressed, RSS-style factual micro-summary suitable for senior decision makers scanning multiple items quickly.\n\nUse the **primary article** as the factual anchor.\nIf multiple articles exist, treat them as corroborating coverage of the same event.\n\nYour output must be **EXTREMELY short**, formatted **ONLY using bullet points**, and must NOT contain interpretation, commentary, or full lists.\n\nYou must follow this micro-structure **EXACTLY**, including bullet points, emojis, and formatting:\n\n---\n\n### 🔍 Core Topic  \n- One bullet containing a single sentence capturing the main factual subject of the story.\n\n### ⭐ Key Highlights  \n- One bullet.  \n- Second bullet.  \n- Third bullet.  \n(Up to **3 bullets total**, only the most material factual events or numbers.)\n\n### 🚗 Fuels & Policy  \n- One bullet summarising fuels mentioned (one short line).  \n- One bullet summarising policies or regulations mentioned (one short line).\n\n### 🌍 Locations / Entities  \n- One bullet listing the most relevant locations (short comma-separated list).  \n- One bullet listing the key companies or organisations (short comma-separated list).\n\n### 🔗 Sources  \n- One bullet listing **up to 3 source URLs** **ONLY IF** the story cluster contains multiple articles.\n- If the story contains only one article, **omit this section entirely**.\n\n---\n\n### **STRICT FORMATTING RULES**\n- Use **bullet points ONLY** (“- ”). No paragraphs.\n- Follow the exact number of bullets per section.\n- Maximum **9 bullets total** (8 normally, +1 only when Sources is present).\n- No long lists, no exhaustive enumerations.\n- Include only the most material facts.\n- No opinions, interpretation, analysis, or relevance scoring.\n- Output **only** the structured micro-summary. Nothing else.\n\nThe user will supply a JSON object representing a single story cluster."
-            }
-          ]
-        },
-        "batching": {
-          "batchSize": 10
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.7,
-      "position": [
-        2000,
-        32
-      ],
-      "id": "2b7f6ea1-8bd1-4102-a92b-d0f919e4db0c",
-      "name": "Create Digestable Summary - Social Media Selection"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        1104,
-        156
-      ],
-      "id": "2e181dfe-35e3-47e7-9166-f6c53f5c4c1e",
-      "name": "Loop Over Items"
-    },
-    {
-      "parameters": {
-        "jsCode": "const articles = $input.all();\n\nfunction normaliseQuery(value) {\n  if (!value) return \"unknown\";\n  return value\n    .toLowerCase()\n    .trim()\n    .replace(/\\s+/g, \" \");\n}\n\nfunction groupBySearchQuery(data) {\n  return data.reduce((groups, itemRaw) => {\n    const item = itemRaw.json;\n\n    const rawQuery = item.property_source_name || \"Unknown\";\n    const normalisedQuery = normaliseQuery(rawQuery);\n\n    if (!groups[normalisedQuery]) {\n      groups[normalisedQuery] = {\n        original_query: (rawQuery || \"Unknown\").toString().trim(),\n        content: []\n      };\n    }\n\n    // Push the ENTIRE item (all fields), plus helpful derived keys\n    groups[normalisedQuery].content.push({\n      ...item,\n      raw_search_query: rawQuery,\n      normalised_search_query: normalisedQuery,\n    });\n\n    return groups;\n  }, {});\n}\n\nconst groupedContent = groupBySearchQuery(articles);\n\n// Output one n8n item per group\nconst outputLists = Object.entries(groupedContent).map(([normalisedQuery, group]) => ({\n  json: {\n    search_query: normalisedQuery,          // normalised grouping key\n    display_query: group.original_query,    // original (first-seen) label\n    content: group.content                  // FULL items\n  }\n}));\n\nreturn outputLists;"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        656,
-        156
-      ],
-      "id": "64913ad7-7621-419b-92ee-58bc90bc849e",
-      "name": "Group Content By Query"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "f4dbc790-fb04-4b34-b9ed-c82a91830347",
-              "name": "data",
-              "value": "=<h3>\n📝 Title: {{ $('Set Data').item.json.article_name }} ({{ $('Set Data').item.json.status === 'update' && 'UPDATE 🟠' || $('Set Data').item.json.status === 'duplicate' && 'DUPLICATE 🔴' || $('Set Data').item.json.status === 'new' && 'NEW 🟢' }})  \n</h3>\n\n<p>📅 Published Date: <strong>{{ $('Set Data').item.json.article_published_date.toDateTime().format('DD') }}</strong></p>\n\n<ul>\n  <li>Primary source: <a href=\"{{ $('Set Data').item.json.article_url }}\">External</a></li>\n  <li>View in Notion: <a href=\"{{ $('Set Data').item.json.notion_url }}\">Notion</a></li>\n</ul>\n\n{{ $json.data }}\n\n\n<p>🔗 Sources Websites:</p>\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const primary = $('Set Data').item.json.article_url;\n    const urls = $('Set Data').item.json.source_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    const also = unique.filter(u => u !== primary);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" on website</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View on website</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n\n<p>🔗 Sources (Notion):</p>\n<ul>\n{{\n  (() => {\n    const title = $('Set Data').item.json.article_name;\n    const urls = $('Set Data').item.json.article_notion_urls || [];\n\n    const unique = Array.from(new Set(urls)).filter(Boolean);\n    if (!unique.length) return '';\n\n    const primary = unique[0];\n    const also = unique.slice(1);\n\n    return [\n      `<li>Primary: <a href=\"${primary}\" target=\"_blank\"><strong>View \"${title}\" in Notion</strong></a></li>`,\n      ...also.map(\n        u => `<li>Also: <a href=\"${u}\" target=\"_blank\">View in Notion</a></li>`\n      )\n    ].join('\\n');\n  })()\n}}\n</ul>\n<br>",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2576,
-        32
-      ],
-      "id": "3a1dfdfc-e4b6-4ad0-a891-a7b2e114f1a8",
-      "name": "Structure Message"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "6a768bda-8b2f-4080-9e87-0df5964d4212",
-              "leftValue": "={{ $json.property_created_date }}",
-              "rightValue": "={{ $now.minus(5, 'days') }}",
-              "operator": {
-                "type": "dateTime",
-                "operation": "after"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.filter",
-      "typeVersion": 2.3,
-      "position": [
-        432,
-        156
-      ],
-      "id": "8c16c8ac-b476-416b-b40f-8898a0bc130c",
-      "name": "Get From 24h Ago"
-    },
-    {
-      "parameters": {
-        "jsCode": "// Input: one item = one TOPIC bucket { search_query, display_query, content:[...] }\n// Output: many items = story clusters within that topic\n\nfunction safeJsonParse(str) { try { return JSON.parse(str); } catch { return null; } }\n\nfunction norm(v) {\n  return String(v || \"\").toLowerCase().trim();\n}\nfunction toSet(arr) {\n  if (!Array.isArray(arr)) return new Set();\n  return new Set(arr.map(norm).filter(Boolean));\n}\nfunction jaccard(a, b) {\n  if (!a.size && !b.size) return 0;\n  let inter = 0;\n  for (const v of a) if (b.has(v)) inter++;\n  const union = a.size + b.size - inter;\n  return union ? inter / union : 0;\n}\n\nfunction fingerprintSets(article) {\n  const fp = safeJsonParse(article.property_fact_fingerprint || \"\");\n  const entities = toSet(fp?.entities);\n  const actions  = toSet(fp?.actions);\n  const dates    = toSet(fp?.dates);\n  const numbers  = toSet(fp?.numerical_values);\n  return { entities, actions, dates, numbers };\n}\n\nfunction similarity(a, b) {\n  const e = jaccard(a.entities, b.entities);\n  const ac = jaccard(a.actions, b.actions);\n  const d = jaccard(a.dates, b.dates);\n  const n = jaccard(a.numbers, b.numbers);\n\n  // Actions are the biggest distinguisher between “different things within same topic”\n  return (0.35 * e) + (0.45 * ac) + (0.15 * d) + (0.05 * n);\n}\n\nfunction scorePrimary(article) {\n  const s = Number(article.property_total_score ?? 0);\n  const d = article.property_publication_date?.start\n    ? Date.parse(article.property_publication_date.start)\n    : 0;\n  return (s * 1_000_000) + d;\n}\n\nconst THRESHOLD = 0.58; // slightly higher to avoid over-merging within a topic\n\nconst topic = $input.all()[0].json;\nconst items = Array.isArray(topic.content) ? topic.content : [];\n\nconst enriched = items.map(a => ({ ...a, __fp: fingerprintSets(a) }));\n\nconst clusters = [];\n\nfor (const art of enriched) {\n  let bestIdx = -1;\n  let bestSim = 0;\n\n  // Find best matching existing cluster (if any)\n  for (let i = 0; i < clusters.length; i++) {\n    const rep = clusters[i].__rep;\n    const sim = similarity(art.__fp, rep.__fp);\n    if (sim > bestSim) { bestSim = sim; bestIdx = i; }\n  }\n\n  if (bestSim >= THRESHOLD) {\n    const c = clusters[bestIdx];\n    c.articles.push(art);\n\n    // Update primary + representative to strongest (helps stability)\n    const best = c.articles.reduce((acc, cur) =>\n      scorePrimary(cur) > scorePrimary(acc) ? cur : acc\n    , c.__primary);\n\n    c.__primary = best;\n    c.__rep = best;\n  } else {\n    clusters.push({ __primary: art, __rep: art, articles: [art] });\n  }\n}\n\nfunction normStatus(s) {\n  s = String(s || \"\").toLowerCase().trim();\n  if (s === \"new\" || s === \"update\" || s === \"duplicate\") return s;\n  return \"new\"; // safe default if missing\n}\n\nfunction storyStatusFromArticles(articles) {\n  const statuses = articles.map(a => normStatus(a.property_update_status));\n  if (statuses.includes(\"new\")) return \"new\";\n  if (statuses.includes(\"update\")) return \"update\";\n  return \"duplicate\";\n}\n\n// One output item per STORY within the topic\nreturn clusters\n  .sort((a, b) => scorePrimary(b.__primary) - scorePrimary(a.__primary))\n  .map((c, idx) => {\n    const primary = c.__primary;\n\n    // ✅ Compute story status from Notion's per-article semantic status\n    const story_status = storyStatusFromArticles(c.articles);\n\n    // (Optional but useful) status breakdown for UI/debug\n    const status_counts = c.articles.reduce((acc, a) => {\n      const s = normStatus(a.property_update_status);\n      acc[s] = (acc[s] || 0) + 1;\n      return acc;\n    }, {});\n\n    const urls = c.articles\n      .map(a => a.property_source_url || a.url)\n      .filter(Boolean);\n\n    const seen = new Set();\n    const supporting_sources = urls.filter(u => (seen.has(u) ? false : (seen.add(u), true)));\n\n    return {\n      json: {\n        topic_key: topic.search_query,\n        topic_label: topic.display_query,\n        story_id: `${topic.search_query}__story_${idx + 1}`,\n        story_size: c.articles.length,\n\n        // ✅ story-level semantic status (new/update/duplicate) from Notion flags\n        story_status,\n        status_counts, // optional\n\n        // Primary drives the summary\n        primary: {\n          title: primary.property_article_name || primary.name,\n          publication_date: primary.property_publication_date?.start || null,\n          summary: primary.property_summary || null,\n        \n          update_status: primary.property_update_status || null,\n          fact_fingerprint: primary.property_fact_fingerprint || null,\n        \n          source_name: primary.property_source_name || null,\n        \n          // ✅ Explicit URLs\n          source_url: primary.property_source_url || null, // external\n          notion_url: primary.url || null                  // Notion page\n        },\n\n        // Supporting sources (deduped)\n        supporting_sources: supporting_sources.slice(0, 10),\n\n        // Per-article metadata retained\n        articles: c.articles.map(a => ({\n          title: a.property_article_name || a.name,\n          source: a.property_source_name || null,\n        \n          // ✅ Explicit URLs\n          source_url: a.property_source_url || null, // external\n          notion_url: a.url || null,                  // Notion page\n        \n          score: a.property_total_score ?? null,\n          date: a.property_publication_date?.start || null,\n          update_status: a.property_update_status || null,\n          fact_fingerprint: a.property_fact_fingerprint || null\n        })),\n      }\n    };\n  });"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        1328,
-        32
-      ],
-      "id": "54b4bd77-dd19-4d02-b528-720f2a9f3f00",
-      "name": "Group Similar Articles"
-    },
-    {
-      "parameters": {
-        "maxItems": 100
-      },
-      "type": "n8n-nodes-base.limit",
-      "typeVersion": 1,
-      "position": [
-        880,
-        156
-      ],
-      "id": "db16beba-de07-479e-9255-1094f8e1386a",
-      "name": "Limit2"
-    },
-    {
-      "parameters": {
-        "content": "## Fix\nSort order not working - because the HTML is already structured - we need to sort upstream"
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        2992,
-        -80
-      ],
-      "id": "9353ccfa-4257-491d-9a93-b497002794e9",
-      "name": "Sticky Note1"
-    },
-    {
       "parameters": {
         "rule": {
           "interval": [
@@ -1314,7 +252,7 @@
       "typeVersion": 1.3,
       "position": [
         -16,
-        380
+        480
       ],
       "id": "0c64c7ed-2576-42e7-9883-f082ddb8ea78",
       "name": "Run Hourly"
@@ -1338,13 +276,341 @@
       "typeVersion": 4.4,
       "position": [
         208,
-        380
+        480
       ],
       "id": "eda33957-25f5-48b4-9067-6050e9fa53a8",
       "name": "Run Digest Workflow"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "db74b319-f8a3-4033-8320-cb1c946b8221",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "e",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        432,
+        480
+      ],
+      "id": "86650be4-ec43-4158-9b26-da9bf7b9358b",
+      "name": "If Error"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "text": "=Error in Email Content Feed:\n\nReason: {{ $('Run Digest Workflow').item.json.reason }}\nError: {{ $('Run Digest Workflow').item.json.error }}\nTotal Topics: {{ $('Run Digest Workflow').item.json.topic_results.length }}\nTopics Sent: {{ $('Run Digest Workflow').item.json.topics_sent }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        656,
+        384
+      ],
+      "id": "42eaec5b-ffd6-4de9-86b4-521165d50c6f",
+      "name": "Send Error Notification",
+      "webhookId": "8312d037-ef5a-4d4c-9083-baf6230ae5d7",
+      "credentials": {
+        "slackApi": {
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "text": "=Email Content Feed Success! \nTotal Topics: {{ $('Run Digest Workflow').item.json.topic_results.length }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        656,
+        576
+      ],
+      "id": "4dc77675-5fc0-46d6-ad35-02478ab0fae0",
+      "name": "Send Success Notification ",
+      "webhookId": "8312d037-ef5a-4d4c-9083-baf6230ae5d7",
+      "credentials": {
+        "slackApi": {
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
+        }
+      },
+      "disabled": true
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Run Hourly": [
+      {
+        "json": {
+          "timestamp": "2026-05-13T06:00:31.008+01:00",
+          "Readable date": "May 13th 2026, 6:00:31 am",
+          "Readable time": "6:00:31 am",
+          "Day of week": "Wednesday",
+          "Year": "2026",
+          "Month": "May",
+          "Day of month": "13",
+          "Hour": "06",
+          "Minute": "00",
+          "Second": "31",
+          "Timezone": "Europe/London (UTC+01:00)"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Run Digest Workflow": [
+      {
+        "json": {
+          "status": "ok",
+          "topics_sent": 0,
+          "stories_sent": 0,
+          "articles_marked": 0,
+          "topic_results": [
+            {
+              "topic": "Volvo",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "19202309-cc45-4e48-896b-2e216d48de6a"
+              ]
+            },
+            {
+              "topic": "“Used Cooking Oil” Biofuel - Google Alert",
+              "status": "failed",
+              "clusters": 4,
+              "articles": 4,
+              "article_ids": [
+                "5cb03488-dae1-4042-9636-8a7cea0cf7a2",
+                "b2d911c1-2692-4a31-b8b1-1698e975a1f1",
+                "d14f314c-109d-4943-986f-b14644fed2a0",
+                "592a1c05-2cfe-487b-8e7a-7a9f9021aeef"
+              ]
+            },
+            {
+              "topic": "Biofuel",
+              "status": "failed",
+              "clusters": 4,
+              "articles": 4,
+              "article_ids": [
+                "c5626462-ae49-4b79-9c26-b497e0ce3e3d",
+                "e60c0abe-23b5-4150-b73a-540ab4e6912a",
+                "a294732e-5506-4656-bea6-35f8e7798966",
+                "72e2f755-7a80-449c-bc61-7ebbd158e505"
+              ]
+            },
+            {
+              "topic": "B100 Biodiesel - Google Alert",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "dd964155-14c8-4bd5-a14d-c8f7439270c5"
+              ]
+            },
+            {
+              "topic": "Net Zero",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "d084ed1b-f8a9-4911-94f9-4ed6d20024d8"
+              ]
+            },
+            {
+              "topic": "Jigar Shah",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "6159f9a2-79cf-4397-b9b4-e6f5817d34fa"
+              ]
+            },
+            {
+              "topic": "Construction News",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "f40f86e6-5d6d-4294-8e66-2a75cf876f10"
+              ]
+            },
+            {
+              "topic": "National Highways",
+              "status": "failed",
+              "clusters": 2,
+              "articles": 2,
+              "article_ids": [
+                "457b24ef-8b86-4c42-b6d8-60e5d975c8ca",
+                "8165f52b-1e6a-4ceb-a7bd-d45f9145647f"
+              ]
+            },
+            {
+              "topic": "Used Cooking Oil",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "5efb27f4-3019-405a-8400-f6556a2cd31b"
+              ]
+            },
+            {
+              "topic": "Highland Council",
+              "status": "failed",
+              "clusters": 2,
+              "articles": 2,
+              "article_ids": [
+                "69004289-e3b7-425e-bf05-b01d5ff75a66",
+                "dc257143-fc42-43cd-91cd-7e247c961c4b"
+              ]
+            },
+            {
+              "topic": "FAME Biofuel - Google Alert",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "29ceeced-ca5e-4833-b597-8cbfa930cfe3"
+              ]
+            },
+            {
+              "topic": "Lower Thames Crossing",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "3570748c-da1e-4b85-8dc2-f21fa38d6c2e"
+              ]
+            },
+            {
+              "topic": "Balfour Beatty",
+              "status": "failed",
+              "clusters": 2,
+              "articles": 2,
+              "article_ids": [
+                "94def403-f8ce-4080-a4f0-dfacf69cbbdc",
+                "b90f55f4-8a56-4af1-86ae-b32c7cac56ce"
+              ]
+            },
+            {
+              "topic": "Biodiesel",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "4d6e83c9-82eb-4651-834f-174c32aa30d1"
+              ]
+            },
+            {
+              "topic": "B100",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "418da8c1-ece9-45f6-9844-86674834218f"
+              ]
+            },
+            {
+              "topic": "Bio Energy Times",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "a9b6d3ec-7096-418c-b169-a3eabc9b2738"
+              ]
+            },
+            {
+              "topic": "FAME Biodiesel - Google Alert",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "bd95ea38-d31a-48f8-ac7b-f91a6af65089"
+              ]
+            },
+            {
+              "topic": "SSE",
+              "status": "failed",
+              "clusters": 2,
+              "articles": 2,
+              "article_ids": [
+                "4152a90e-0dd0-4c54-8d30-94a808b35d75",
+                "68cb3a72-402b-405e-bcff-2b9d8e42379a"
+              ]
+            },
+            {
+              "topic": "Jean-Marc Jancovici",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "e4e99e82-5e0c-425f-925b-258f3522d3f7"
+              ]
+            },
+            {
+              "topic": "MB Energy",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "c48912b2-dec8-42c6-8a95-20c4c87b6d87"
+              ]
+            },
+            {
+              "topic": "Lubomila Jordanova",
+              "status": "failed",
+              "clusters": 1,
+              "articles": 1,
+              "article_ids": [
+                "e4bbee5d-18b5-4b4f-b4f4-12c2c608b347"
+              ]
+            }
+          ],
+          "reason": null,
+          "error": null,
+          "dry_run": false
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "syntech-backup-railway",
   "repo_owner": "Granite-Marketing",
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
@@ -1384,6 +650,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-05-05T09:55:06.802Z",
-  "versionId": "5011106f-4a35-45ed-a0b1-da34420f49aa"
+  "updatedAt": "2026-05-13T20:02:32.064Z",
+  "versionId": "586c0298-4c81-4024-870a-670319af854f"
 }
