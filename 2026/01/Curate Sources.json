@@ -1,0 +1,830 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-05-13T20:10:06.964Z",
+    "createdAt": "2026-05-13T20:09:52.883Z",
+    "versionId": "69dd7e4a-f78a-46f8-9529-45bc899b6299",
+    "workflowId": "nZbDsklIXgxNY9QO",
+    "nodes": [
+      {
+        "parameters": {},
+        "id": "3269a36e-e30d-4490-bdbf-7ae4f41d6c31",
+        "name": "Execute Workflow Trigger",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1,
+        "position": [
+          -272,
+          16
+        ]
+      },
+      {
+        "parameters": {
+          "model": "gpt-4.1-nano",
+          "options": {
+            "temperature": 0
+          }
+        },
+        "id": "815b3ad0-e8b8-4583-9981-29a7852e2d10",
+        "name": "OpenAI Chat Model",
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1,
+        "position": [
+          336,
+          240
+        ],
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "55358f60-aea8-44e2-b40c-7469e4476b1a",
+                "name": "response",
+                "value": "={{ $('Verify Curated Sources').item.json.text }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "65297c3f-38ca-469d-989e-f5864ef90e76",
+        "name": "Response",
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1216,
+          16
+        ]
+      },
+      {
+        "parameters": {
+          "toolDescription": "Useful for reading the contents of URLs provided by the agent.",
+          "method": "POST",
+          "url": "https://api.firecrawl.dev/v1/scrape",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "sendBody": true,
+          "parametersBody": {
+            "values": [
+              {
+                "name": "url"
+              }
+            ]
+          }
+        },
+        "id": "bb33ef6e-b694-4cd3-b5d4-134cc9be2c98",
+        "name": "Read Webpage Content",
+        "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+        "typeVersion": 1.1,
+        "position": [
+          528,
+          240
+        ],
+        "credentials": {
+          "httpBearerAuth": {
+            "id": "rTkgjtU8QIYs0nXm",
+            "name": "Syntech Relevance Classifier Bearer"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "Useful for reading and transcribing the contents of YouTube URLs provided by the agent. Accepts URLs from all major video platforms like YouTube, TikTok, Instagram etc.",
+          "method": "POST",
+          "url": "https://api.apify.com/v2/acts/invideoiq~video-transcript-scraper/run-sync-get-dataset-items",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "sendBody": true,
+          "parametersBody": {
+            "values": [
+              {
+                "name": "video_url"
+              }
+            ]
+          }
+        },
+        "id": "7ef19edc-4ad7-4535-8016-f8b6374a37af",
+        "name": "Transcribe Videos",
+        "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+        "typeVersion": 1.1,
+        "position": [
+          704,
+          240
+        ],
+        "credentials": {
+          "httpBearerAuth": {
+            "id": "9PNJXWDjUuMb29GU",
+            "name": "Syntech Apify Bearer"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.prompt }}",
+          "options": {
+            "systemMessage": "=\"Your goal is to evaluate and curate the provided scraped content to augment and strengthen the full input article: \\\"{{ $('Execute Workflow Trigger').item.json.question }}\\\". You will review the candidate sources (scraped from the provided URLs), extract structured evidence, and select the top three sources that best enhance the input article with recent, UK-first, standards-led, factual content.\n\nContext and priorities:\n- UK-first, then EU/global when useful; prefer English-language sources.\n- Default to the most recent information (last 24 months), unless citing foundational standards or landmark studies.\n- Emphasise measurable outcomes, standards/regulatory references (e.g., BS EN 14214, RTFO), practical deployment details, supply-chain/ESG implications, and concrete data.\n- Exclude partisan commentary or politically inflammatory content. Factual policy/regulatory material is allowed.\n- Include high-authority sources first (government, standards bodies, peer-reviewed, recognised industry research), but keep high-quality industry/blog sources when they present verifiable data or methodology.\n\nYour outputs will be used to:\n- Provide a ranked, curated set of top three sources to augment the input article.\n- Supply a structured “repurpose pack” per source (key stats, quotes, standards refs, methods, caveats, novelty, how it strengthens or challenges the input article).\n- Identify claims that should go to the verification step.\n\nEVALUATION AND SELECTION:\n1) Assess each source for:\n   - Relevance to the input article’s topic and claims.\n   - Credibility and source type (government/standard/peer-reviewed/industry research/media/NGO/company blog).\n   - Currency (prefer <= 24 months old).\n   - UK relevance (explicit UK data, standards, or policy).\n   - Quantitative value (statistics, numbers, units, dates).\n   - Standards/compliance relevance (e.g., BS EN 14214, RTFO).\n   - Novelty (what’s new vs. other sources or the input article).\n   - Alignment with factual, non-partisan tone.\n2) Select the top three sources that best augment the input article:\n   - DO NOT EXCEED {{ $('Execute Workflow Trigger').item.json.max_results }} selected sources.\n   - If two sources overlap heavily, prefer the more recent/authoritative one unless each adds unique data or methodology.\n   - Keep other relevant sources in the list but mark them as not selected.\n\nCONTENT SUMMARISATION (per source):\n- Provide a detailed bullet-point summary highlighting:\n  - Key statistics or data points (with numbers, units, dates)\n  - Standards/regulatory references (e.g., BS EN 14214, RTFO), include clause/section when identifiable\n  - Main arguments or claims\n  - Notable examples, deployments, or case studies\n  - Methodology notes (e.g., LCA boundaries, WTW/WTT assumptions)\n  - Critical perspectives, biases, or limitations\n- Retain essence without rewriting beyond bullet-point form. Remove only obvious noise/garbage.\n\nSTRUCTURED FIELDS TO APPEND (per source; preserve all existing keys):\n- title\n- url\n- publisher\n- author (if known)\n- date_published (ISO if possible; else null)\n- region (UK, EU, Global)\n- source_type (government, standard, peer_reviewed, industry_research, media, NGO, company_blog)\n- scores:\n  - uk_relevance_score (0–5)\n  - credibility_score (0–5)\n  - currency_score (0–5)\n  - quantitative_value_score (0–5)\n  - standards_relevance_score (0–5)\n  - novelty_score (0–5)\n  - augmentation_score (0–5)  // how well this strengthens the input article\n- augmentation_notes (how this source enhances or challenges the input article; specify new data, standards, cases, or clarity it adds)\n- conflict_with_input (null or brief note if it contradicts a claim in the input article; be specific)\n- key_stats (array of strings capturing numbers+units+dates)\n- key_quotes (array of short verbatim quotes with minimal context)\n- standards_refs (array, e.g., [\"BS EN 14214\", \"RTFO 20XX update\"])\n- methodology_notes (string)\n- caveats (string)\n- bias_perspective (string)\n- claims_to_verify (array of the 3–6 most critical claims from this source suitable for the verification step)\n- verification (object with: status: \"single-source\" | \"multi-source-corroborated\" | \"authoritative-single-source\" | \"unclear\"; corroborated_by: array of URLs; date_checked: ISO date) // if known from internal comparison\n- suggested_use (e.g., \"headline stat\", \"define standard\", \"supporting stat\", \"case study\", \"limitations/risks\")\n- selected (true | false)\n- rank (1–3 for selected sources; null otherwise)"
+          }
+        },
+        "id": "5311f7ab-c71a-4b45-b2b0-547e865dfd0f",
+        "name": "Curate Sources",
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 1.7,
+        "position": [
+          464,
+          16
+        ],
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "e47d488c-6fa7-4d78-9fb6-aedaa59f6303",
+                "leftValue": "={{ $json.in_depth }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "boolean",
+                  "operation": "true",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          -48,
+          16
+        ],
+        "id": "f2d8a1f8-d43c-4d80-b668-f18b0b2f4b8d",
+        "name": "Check Source Detail"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "dc5cfe23-27bf-4a79-8079-d598f3e2ebd5",
+                "name": "prompt",
+                "value": "=SOURCES LIST TO EVALUATE:\n{{ $('Execute Workflow Trigger').item.json.query }}\n\nSELECTION RULE:\n- Exactly up to {{ $('Execute Workflow Trigger').item.json.max_results }} items may have selected=true with ranks 1..{{ $('Execute Workflow Trigger').item.json.max_results }}. Do not exceed this number.\n\nOUTPUT FORMAT:\nYou MUST return your response in the EXACT JSON list format as the original sources, with each source's detailed bullet-point summary included in its respective object. Preserve all existing keys and their order; append the additional fields listed above if known.\nThe response MUST not contain any markdown format or additional text (like ```json), just the JSON list!\"",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          176,
+          -80
+        ],
+        "id": "3839c30c-6258-49d7-b4c1-8d8ac38afd04",
+        "name": "Set Detailed Prompt"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "dc5cfe23-27bf-4a79-8079-d598f3e2ebd5",
+                "name": "prompt",
+                "value": "=Your goal is to evaluate and curate the provided scraped content for the research task: \"{{ $('Execute Workflow Trigger').item.json.question }}\" while prioritizing the inclusion of relevant and high-quality information, especially sources containing statistics, numbers, or concrete data.\n\nThe final curated list will be used as context for creating a research report, so prioritize:\n- Retaining as much original information as possible, with extra emphasis on sources featuring quantitative data or unique insights\n- Including a wide range of perspectives and insights\n- Filtering out only clearly irrelevant or unusable content\n\nEVALUATION GUIDELINES:\n1. Assess each source based on:\n   - **Relevance**: Include sources directly or partially connected to the research query. Err on the side of inclusion.\n   - **Credibility**: Favor authoritative sources but retain others unless clearly untrustworthy.\n   - **Currency**: Prefer recent information unless older data is essential or valuable.\n   - **Objectivity**: Retain sources with bias if they provide a unique or complementary perspective.\n   - **Quantitative Value**: Give higher priority to sources with statistics, numbers, or other concrete data.\n\n2. Source Selection:\n   - Include as many relevant sources as possible, up to {{ $('Execute Workflow Trigger').item.json.max_results }} maximum (DO NOT EXCEED THIS NUMBER), focusing on broad coverage and diversity.\n   - Prioritize sources with statistics, numerical data, or verifiable facts.\n   - Overlapping content is acceptable if it adds depth, especially when data is involved.\n   - Exclude sources only if they are entirely irrelevant, severely outdated, or unusable due to poor content quality.\n\n3. Content Retention:\n   - DO NOT rewrite, summarize, or condense any source content.\n   - Retain all usable information, cleaning up only clear garbage or formatting issues.\n   - Keep marginally relevant or incomplete sources if they contain valuable data or insights.\n\nSOURCES LIST TO EVALUATE:\n{{ $('Execute Workflow Trigger').item.json.query }}\n\nYou MUST return your response in the EXACT sources JSON list format as the original sources.\nThe response MUST not contain any markdown format or additional text (like ```json), just the JSON list!",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          176,
+          112
+        ],
+        "id": "faa73380-306f-4338-bad4-bc7938dbb51c",
+        "name": "Set Summary Prompt"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Inputs\n- INPUT_ARTICLE (full text): {{ $('Execute Workflow Trigger').item.json.question }}\n- CURATED_SOURCES (JSON list): {{ $json.output }}\n- Today’s date: {{ $now }}",
+          "messages": {
+            "messageValues": [
+              {
+                "message": "=You are a Verifier and Augmentation Agent performing cross-corroboration, gap analysis, and writer-ready synthesis on curated sources.\n\nObjectives\n- Verify key claims using only the provided curated set (no external browsing).\n- Identify gaps vs. the input article and propose augmentation targets.\n- Produce a writer-ready synthesis the Writer can use directly.\n- Keep UK-first emphasis, prefer recent info (<=24 months), and avoid partisan commentary. Factual policy/regulatory material is allowed.\n\nTasks\n1) Extract and normalise claims (numbers, units, dates) from CURATED_SOURCES.\n2) Cross-corroborate within the curated set:\n   - Mark each claim as multi-source-corroborated, authoritative-single-source, single-source, or unclear.\n   - Add corroborated_by URLs where applicable.\n3) Gap analysis vs. INPUT_ARTICLE:\n   - Identify missing elements that would materially strengthen the article, e.g.:\n     - UK stats or RTFO context\n     - Standards details (BS EN 14214, BS EN 15940) and compliance angles\n     - Case studies/deployments in construction/logistics\n     - Scope 3 or WTW/LCA evidence\n     - Credible critiques/limitations\n   - Create augmentation_targets: [{ need, why_it_matters, ideal_evidence_type }]\n4) Query suggestions (no external browse):\n   - For each augmentation_target, propose 1–2 concise, plain-language queries using only letters, numbers, and spaces (no operators or punctuation).\n   - Include UK/EU tokens and simple recency tokens (e.g., 2024, 2025) when useful.\n5) Writer-ready synthesis (writer_pack):\n   - executive_summary: 3–5 bullets\n   - key_takeaways: 5–8 bullets\n   - outline_suggestions: 3–6 section headers\n   - angles_and_hooks: 3–5 options\n   - fact_blocks: [{ statement, number, unit, date, source_url }]\n   - quotes_for_use: [{ text, attribution }]\n   - visuals: [{ type, title, data_points }]\n   - cautions_and_gaps: bullets on what not to claim and where evidence is thin\n   - uk_context: how this maps to UK policy/market if sources are global\n6) Source-level updates:\n   - Update source.verification (status, corroborated_by, date_checked={{ $now }}).\n   - Add/refresh suggested_use based on corroboration and novelty.\n   - If a non-selected source fills a key gap, propose promotion with promotion_reason.\n\nRisk flags\n- flags: { partisan_flag, recency_flag (>24 months unless a standard), ambiguity_flag, notes }\n\nOutput format\n- Return a JSON list with the SAME length and order as CURATED_SOURCES.\n- Preserve all existing keys and values; only append or update:\n  - claims (array of { text, number_or_value_if_applicable, unit, date_or_period, category })\n  - verification (object: { status, corroborated_by, date_checked })\n  - flags (object)\n  - suggested_use (string; update if refined)\n  - writer_pack (object as defined above)\n- Additionally return an aggregate object (after the list) named augmentation_summary:\n  {\n    \"augmentation_targets\": [{ \"need\": \"\", \"why_it_matters\": \"\", \"ideal_evidence_type\": \"\" }],\n    \"query_suggestions\": [ \"...\" ],\n    \"promote_sources\": [{ \"url\": \"\", \"promotion_reason\": \"\" }]\n  }\n- Do not browse the web in this step.\n- Respond with JSON only (no markdown or explanations)."
+              }
+            ]
+          },
+          "batching": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.chainLlm",
+        "typeVersion": 1.7,
+        "position": [
+          864,
+          16
+        ],
+        "id": "d3705b1d-04e6-40e2-85e9-61c96e1b22d1",
+        "name": "Verify Curated Sources",
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "builtInTools": {
+            "webSearch": {
+              "searchContextSize": "medium"
+            }
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          960,
+          240
+        ],
+        "id": "7799b9d3-d9ad-4a3d-9746-876bae3c1f04",
+        "name": "OpenAI Chat Model2",
+        "credentials": {
+          "openAiApi": {
+            "id": "NoEKitspBJb0zQrp",
+            "name": "Syntech GM OpenAi account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Execute Workflow Trigger": {
+        "main": [
+          [
+            {
+              "node": "Check Source Detail",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Read Webpage Content": {
+        "ai_tool": [
+          [
+            {
+              "node": "Curate Sources",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Transcribe Videos": {
+        "ai_tool": [
+          [
+            {
+              "node": "Curate Sources",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Curate Sources",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Curate Sources": {
+        "main": [
+          [
+            {
+              "node": "Verify Curated Sources",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Check Source Detail": {
+        "main": [
+          [
+            {
+              "node": "Set Detailed Prompt",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Set Summary Prompt",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Detailed Prompt": {
+        "main": [
+          [
+            {
+              "node": "Curate Sources",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Set Summary Prompt": {
+        "main": [
+          [
+            {
+              "node": "Curate Sources",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Verify Curated Sources": {
+        "main": [
+          [
+            {
+              "node": "Response",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model2": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Verify Curated Sources",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Stephen Anindo",
+    "name": "remove exposed credential",
+    "description": "",
+    "autosaved": true
+  },
+  "activeVersionId": "69dd7e4a-f78a-46f8-9529-45bc899b6299",
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Check Source Detail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Webpage Content": {
+      "ai_tool": [
+        [
+          {
+            "node": "Curate Sources",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe Videos": {
+      "ai_tool": [
+        [
+          {
+            "node": "Curate Sources",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Curate Sources",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Curate Sources": {
+      "main": [
+        [
+          {
+            "node": "Verify Curated Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Source Detail": {
+      "main": [
+        [
+          {
+            "node": "Set Detailed Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Summary Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Detailed Prompt": {
+      "main": [
+        [
+          {
+            "node": "Curate Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Summary Prompt": {
+      "main": [
+        [
+          {
+            "node": "Curate Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify Curated Sources": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Verify Curated Sources",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-28T09:06:06.464Z",
+  "id": "nZbDsklIXgxNY9QO",
+  "isArchived": false,
+  "meta": null,
+  "name": "Curate Sources",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "3269a36e-e30d-4490-bdbf-7ae4f41d6c31",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        16
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4.1-nano",
+        "options": {
+          "temperature": 0
+        }
+      },
+      "id": "815b3ad0-e8b8-4583-9981-29a7852e2d10",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        336,
+        240
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "55358f60-aea8-44e2-b40c-7469e4476b1a",
+              "name": "response",
+              "value": "={{ $('Verify Curated Sources').item.json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "65297c3f-38ca-469d-989e-f5864ef90e76",
+      "name": "Response",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1216,
+        16
+      ]
+    },
+    {
+      "parameters": {
+        "toolDescription": "Useful for reading the contents of URLs provided by the agent.",
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "parametersBody": {
+          "values": [
+            {
+              "name": "url"
+            }
+          ]
+        }
+      },
+      "id": "bb33ef6e-b694-4cd3-b5d4-134cc9be2c98",
+      "name": "Read Webpage Content",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        528,
+        240
+      ],
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "rTkgjtU8QIYs0nXm",
+          "name": "Syntech Relevance Classifier Bearer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Useful for reading and transcribing the contents of YouTube URLs provided by the agent. Accepts URLs from all major video platforms like YouTube, TikTok, Instagram etc.",
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/invideoiq~video-transcript-scraper/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "parametersBody": {
+          "values": [
+            {
+              "name": "video_url"
+            }
+          ]
+        }
+      },
+      "id": "7ef19edc-4ad7-4535-8016-f8b6374a37af",
+      "name": "Transcribe Videos",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        704,
+        240
+      ],
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "9PNJXWDjUuMb29GU",
+          "name": "Syntech Apify Bearer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.prompt }}",
+        "options": {
+          "systemMessage": "=\"Your goal is to evaluate and curate the provided scraped content to augment and strengthen the full input article: \\\"{{ $('Execute Workflow Trigger').item.json.question }}\\\". You will review the candidate sources (scraped from the provided URLs), extract structured evidence, and select the top three sources that best enhance the input article with recent, UK-first, standards-led, factual content.\n\nContext and priorities:\n- UK-first, then EU/global when useful; prefer English-language sources.\n- Default to the most recent information (last 24 months), unless citing foundational standards or landmark studies.\n- Emphasise measurable outcomes, standards/regulatory references (e.g., BS EN 14214, RTFO), practical deployment details, supply-chain/ESG implications, and concrete data.\n- Exclude partisan commentary or politically inflammatory content. Factual policy/regulatory material is allowed.\n- Include high-authority sources first (government, standards bodies, peer-reviewed, recognised industry research), but keep high-quality industry/blog sources when they present verifiable data or methodology.\n\nYour outputs will be used to:\n- Provide a ranked, curated set of top three sources to augment the input article.\n- Supply a structured “repurpose pack” per source (key stats, quotes, standards refs, methods, caveats, novelty, how it strengthens or challenges the input article).\n- Identify claims that should go to the verification step.\n\nEVALUATION AND SELECTION:\n1) Assess each source for:\n   - Relevance to the input article’s topic and claims.\n   - Credibility and source type (government/standard/peer-reviewed/industry research/media/NGO/company blog).\n   - Currency (prefer <= 24 months old).\n   - UK relevance (explicit UK data, standards, or policy).\n   - Quantitative value (statistics, numbers, units, dates).\n   - Standards/compliance relevance (e.g., BS EN 14214, RTFO).\n   - Novelty (what’s new vs. other sources or the input article).\n   - Alignment with factual, non-partisan tone.\n2) Select the top three sources that best augment the input article:\n   - DO NOT EXCEED {{ $('Execute Workflow Trigger').item.json.max_results }} selected sources.\n   - If two sources overlap heavily, prefer the more recent/authoritative one unless each adds unique data or methodology.\n   - Keep other relevant sources in the list but mark them as not selected.\n\nCONTENT SUMMARISATION (per source):\n- Provide a detailed bullet-point summary highlighting:\n  - Key statistics or data points (with numbers, units, dates)\n  - Standards/regulatory references (e.g., BS EN 14214, RTFO), include clause/section when identifiable\n  - Main arguments or claims\n  - Notable examples, deployments, or case studies\n  - Methodology notes (e.g., LCA boundaries, WTW/WTT assumptions)\n  - Critical perspectives, biases, or limitations\n- Retain essence without rewriting beyond bullet-point form. Remove only obvious noise/garbage.\n\nSTRUCTURED FIELDS TO APPEND (per source; preserve all existing keys):\n- title\n- url\n- publisher\n- author (if known)\n- date_published (ISO if possible; else null)\n- region (UK, EU, Global)\n- source_type (government, standard, peer_reviewed, industry_research, media, NGO, company_blog)\n- scores:\n  - uk_relevance_score (0–5)\n  - credibility_score (0–5)\n  - currency_score (0–5)\n  - quantitative_value_score (0–5)\n  - standards_relevance_score (0–5)\n  - novelty_score (0–5)\n  - augmentation_score (0–5)  // how well this strengthens the input article\n- augmentation_notes (how this source enhances or challenges the input article; specify new data, standards, cases, or clarity it adds)\n- conflict_with_input (null or brief note if it contradicts a claim in the input article; be specific)\n- key_stats (array of strings capturing numbers+units+dates)\n- key_quotes (array of short verbatim quotes with minimal context)\n- standards_refs (array, e.g., [\"BS EN 14214\", \"RTFO 20XX update\"])\n- methodology_notes (string)\n- caveats (string)\n- bias_perspective (string)\n- claims_to_verify (array of the 3–6 most critical claims from this source suitable for the verification step)\n- verification (object with: status: \"single-source\" | \"multi-source-corroborated\" | \"authoritative-single-source\" | \"unclear\"; corroborated_by: array of URLs; date_checked: ISO date) // if known from internal comparison\n- suggested_use (e.g., \"headline stat\", \"define standard\", \"supporting stat\", \"case study\", \"limitations/risks\")\n- selected (true | false)\n- rank (1–3 for selected sources; null otherwise)"
+        }
+      },
+      "id": "5311f7ab-c71a-4b45-b2b0-547e865dfd0f",
+      "name": "Curate Sources",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        464,
+        16
+      ],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e47d488c-6fa7-4d78-9fb6-aedaa59f6303",
+              "leftValue": "={{ $json.in_depth }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -48,
+        16
+      ],
+      "id": "f2d8a1f8-d43c-4d80-b668-f18b0b2f4b8d",
+      "name": "Check Source Detail"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dc5cfe23-27bf-4a79-8079-d598f3e2ebd5",
+              "name": "prompt",
+              "value": "=SOURCES LIST TO EVALUATE:\n{{ $('Execute Workflow Trigger').item.json.query }}\n\nSELECTION RULE:\n- Exactly up to {{ $('Execute Workflow Trigger').item.json.max_results }} items may have selected=true with ranks 1..{{ $('Execute Workflow Trigger').item.json.max_results }}. Do not exceed this number.\n\nOUTPUT FORMAT:\nYou MUST return your response in the EXACT JSON list format as the original sources, with each source's detailed bullet-point summary included in its respective object. Preserve all existing keys and their order; append the additional fields listed above if known.\nThe response MUST not contain any markdown format or additional text (like ```json), just the JSON list!\"",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        176,
+        -80
+      ],
+      "id": "3839c30c-6258-49d7-b4c1-8d8ac38afd04",
+      "name": "Set Detailed Prompt"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dc5cfe23-27bf-4a79-8079-d598f3e2ebd5",
+              "name": "prompt",
+              "value": "=Your goal is to evaluate and curate the provided scraped content for the research task: \"{{ $('Execute Workflow Trigger').item.json.question }}\" while prioritizing the inclusion of relevant and high-quality information, especially sources containing statistics, numbers, or concrete data.\n\nThe final curated list will be used as context for creating a research report, so prioritize:\n- Retaining as much original information as possible, with extra emphasis on sources featuring quantitative data or unique insights\n- Including a wide range of perspectives and insights\n- Filtering out only clearly irrelevant or unusable content\n\nEVALUATION GUIDELINES:\n1. Assess each source based on:\n   - **Relevance**: Include sources directly or partially connected to the research query. Err on the side of inclusion.\n   - **Credibility**: Favor authoritative sources but retain others unless clearly untrustworthy.\n   - **Currency**: Prefer recent information unless older data is essential or valuable.\n   - **Objectivity**: Retain sources with bias if they provide a unique or complementary perspective.\n   - **Quantitative Value**: Give higher priority to sources with statistics, numbers, or other concrete data.\n\n2. Source Selection:\n   - Include as many relevant sources as possible, up to {{ $('Execute Workflow Trigger').item.json.max_results }} maximum (DO NOT EXCEED THIS NUMBER), focusing on broad coverage and diversity.\n   - Prioritize sources with statistics, numerical data, or verifiable facts.\n   - Overlapping content is acceptable if it adds depth, especially when data is involved.\n   - Exclude sources only if they are entirely irrelevant, severely outdated, or unusable due to poor content quality.\n\n3. Content Retention:\n   - DO NOT rewrite, summarize, or condense any source content.\n   - Retain all usable information, cleaning up only clear garbage or formatting issues.\n   - Keep marginally relevant or incomplete sources if they contain valuable data or insights.\n\nSOURCES LIST TO EVALUATE:\n{{ $('Execute Workflow Trigger').item.json.query }}\n\nYou MUST return your response in the EXACT sources JSON list format as the original sources.\nThe response MUST not contain any markdown format or additional text (like ```json), just the JSON list!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        176,
+        112
+      ],
+      "id": "faa73380-306f-4338-bad4-bc7938dbb51c",
+      "name": "Set Summary Prompt"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Inputs\n- INPUT_ARTICLE (full text): {{ $('Execute Workflow Trigger').item.json.question }}\n- CURATED_SOURCES (JSON list): {{ $json.output }}\n- Today’s date: {{ $now }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are a Verifier and Augmentation Agent performing cross-corroboration, gap analysis, and writer-ready synthesis on curated sources.\n\nObjectives\n- Verify key claims using only the provided curated set (no external browsing).\n- Identify gaps vs. the input article and propose augmentation targets.\n- Produce a writer-ready synthesis the Writer can use directly.\n- Keep UK-first emphasis, prefer recent info (<=24 months), and avoid partisan commentary. Factual policy/regulatory material is allowed.\n\nTasks\n1) Extract and normalise claims (numbers, units, dates) from CURATED_SOURCES.\n2) Cross-corroborate within the curated set:\n   - Mark each claim as multi-source-corroborated, authoritative-single-source, single-source, or unclear.\n   - Add corroborated_by URLs where applicable.\n3) Gap analysis vs. INPUT_ARTICLE:\n   - Identify missing elements that would materially strengthen the article, e.g.:\n     - UK stats or RTFO context\n     - Standards details (BS EN 14214, BS EN 15940) and compliance angles\n     - Case studies/deployments in construction/logistics\n     - Scope 3 or WTW/LCA evidence\n     - Credible critiques/limitations\n   - Create augmentation_targets: [{ need, why_it_matters, ideal_evidence_type }]\n4) Query suggestions (no external browse):\n   - For each augmentation_target, propose 1–2 concise, plain-language queries using only letters, numbers, and spaces (no operators or punctuation).\n   - Include UK/EU tokens and simple recency tokens (e.g., 2024, 2025) when useful.\n5) Writer-ready synthesis (writer_pack):\n   - executive_summary: 3–5 bullets\n   - key_takeaways: 5–8 bullets\n   - outline_suggestions: 3–6 section headers\n   - angles_and_hooks: 3–5 options\n   - fact_blocks: [{ statement, number, unit, date, source_url }]\n   - quotes_for_use: [{ text, attribution }]\n   - visuals: [{ type, title, data_points }]\n   - cautions_and_gaps: bullets on what not to claim and where evidence is thin\n   - uk_context: how this maps to UK policy/market if sources are global\n6) Source-level updates:\n   - Update source.verification (status, corroborated_by, date_checked={{ $now }}).\n   - Add/refresh suggested_use based on corroboration and novelty.\n   - If a non-selected source fills a key gap, propose promotion with promotion_reason.\n\nRisk flags\n- flags: { partisan_flag, recency_flag (>24 months unless a standard), ambiguity_flag, notes }\n\nOutput format\n- Return a JSON list with the SAME length and order as CURATED_SOURCES.\n- Preserve all existing keys and values; only append or update:\n  - claims (array of { text, number_or_value_if_applicable, unit, date_or_period, category })\n  - verification (object: { status, corroborated_by, date_checked })\n  - flags (object)\n  - suggested_use (string; update if refined)\n  - writer_pack (object as defined above)\n- Additionally return an aggregate object (after the list) named augmentation_summary:\n  {\n    \"augmentation_targets\": [{ \"need\": \"\", \"why_it_matters\": \"\", \"ideal_evidence_type\": \"\" }],\n    \"query_suggestions\": [ \"...\" ],\n    \"promote_sources\": [{ \"url\": \"\", \"promotion_reason\": \"\" }]\n  }\n- Do not browse the web in this step.\n- Respond with JSON only (no markdown or explanations)."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        864,
+        16
+      ],
+      "id": "d3705b1d-04e6-40e2-85e9-61c96e1b22d1",
+      "name": "Verify Curated Sources",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        960,
+        240
+      ],
+      "id": "7799b9d3-d9ad-4a3d-9746-876bae3c1f04",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "NoEKitspBJb0zQrp",
+          "name": "Syntech GM OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "syntech-backup-railway",
+  "repo_owner": "Granite-Marketing",
+  "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "Qsg1jSZ5AQScoAOn",
+    "binaryMode": "separate"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T09:06:06.464Z",
+      "createdAt": "2026-01-28T09:06:06.464Z",
+      "role": "workflow:owner",
+      "workflowId": "nZbDsklIXgxNY9QO",
+      "projectId": "U9sMeJya1DaokkjK"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-05-13T20:09:52.749Z",
+  "versionId": "69dd7e4a-f78a-46f8-9529-45bc899b6299"
+}
