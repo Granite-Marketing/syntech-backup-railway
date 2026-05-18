@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-13T20:02:57.941Z",
-    "createdAt": "2026-05-13T20:02:32.198Z",
-    "versionId": "586c0298-4c81-4024-870a-670319af854f",
+    "updatedAt": "2026-05-17T17:50:38.494Z",
+    "createdAt": "2026-05-17T17:50:26.556Z",
+    "versionId": "80ff090a-dbc2-48d3-a273-e6d99689edd8",
     "workflowId": "QJa8YNLn4vHITmwY",
     "nodes": [
       {
@@ -38,7 +38,9 @@
               }
             ]
           },
-          "options": {}
+          "options": {
+            "timeout": 120000
+          }
         },
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.4,
@@ -47,7 +49,9 @@
           480
         ],
         "id": "eda33957-25f5-48b4-9067-6050e9fa53a8",
-        "name": "Run Digest Workflow"
+        "name": "Run Digest Workflow",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
       },
       {
         "parameters": {
@@ -183,11 +187,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "remove success message",
+    "name": "retry on fail and timeout",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "586c0298-4c81-4024-870a-670319af854f",
+  "activeVersionId": "80ff090a-dbc2-48d3-a273-e6d99689edd8",
   "connections": {
     "Run Hourly": {
       "main": [
@@ -270,7 +274,9 @@
             }
           ]
         },
-        "options": {}
+        "options": {
+          "timeout": 120000
+        }
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
@@ -279,7 +285,9 @@
         480
       ],
       "id": "eda33957-25f5-48b4-9067-6050e9fa53a8",
-      "name": "Run Digest Workflow"
+      "name": "Run Digest Workflow",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -650,6 +658,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-05-13T20:02:32.064Z",
-  "versionId": "586c0298-4c81-4024-870a-670319af854f"
+  "updatedAt": "2026-05-17T17:50:26.417Z",
+  "versionId": "80ff090a-dbc2-48d3-a273-e6d99689edd8"
 }
