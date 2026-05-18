@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-07T05:27:17.509Z",
-    "createdAt": "2026-05-07T05:26:40.196Z",
-    "versionId": "a371ded7-4780-429f-8359-554485523640",
+    "updatedAt": "2026-05-17T17:54:29.303Z",
+    "createdAt": "2026-05-17T17:53:41.217Z",
+    "versionId": "d07bef87-904c-4d17-9d7d-97accbb79317",
     "workflowId": "xMber2oB93RuRWim",
     "nodes": [
       {
@@ -915,7 +915,9 @@
               }
             ]
           },
-          "options": {}
+          "options": {
+            "timeout": 60000
+          }
         },
         "id": "6099ed3f-ca0d-4bf6-8367-776cd399dc9a",
         "name": "Semantic Keyword Deduplication",
@@ -1321,7 +1323,9 @@
               }
             ]
           },
-          "options": {}
+          "options": {
+            "timeout": 60000
+          }
         },
         "id": "47be708c-bd69-4c2e-a55a-8ed3acc457d3",
         "name": "Semantic Keyword Deduplication1",
@@ -1330,7 +1334,9 @@
         "position": [
           -1600,
           912
-        ]
+        ],
+        "retryOnFail": true,
+        "waitBetweenTries": 5000
       },
       {
         "parameters": {
@@ -1453,7 +1459,9 @@
           "sendBody": true,
           "specifyBody": "json",
           "jsonBody": "={{ { \"article\": $json.toJsonString() } }}",
-          "options": {}
+          "options": {
+            "timeout": 60000
+          }
         },
         "id": "303f17b4-761d-4805-8476-bc5780a7bb8d",
         "name": "Process News Article",
@@ -2166,11 +2174,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "fix missing node from filter",
+    "name": "retry on fail and timeout",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "a371ded7-4780-429f-8359-554485523640",
+  "activeVersionId": "d07bef87-904c-4d17-9d7d-97accbb79317",
   "connections": {
     "Match Input Format": {
       "main": [
@@ -3618,7 +3626,9 @@
             }
           ]
         },
-        "options": {}
+        "options": {
+          "timeout": 60000
+        }
       },
       "id": "6099ed3f-ca0d-4bf6-8367-776cd399dc9a",
       "name": "Semantic Keyword Deduplication",
@@ -4024,7 +4034,9 @@
             }
           ]
         },
-        "options": {}
+        "options": {
+          "timeout": 60000
+        }
       },
       "id": "47be708c-bd69-4c2e-a55a-8ed3acc457d3",
       "name": "Semantic Keyword Deduplication1",
@@ -4033,7 +4045,9 @@
       "position": [
         -1600,
         912
-      ]
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -4156,7 +4170,9 @@
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={{ { \"article\": $json.toJsonString() } }}",
-        "options": {}
+        "options": {
+          "timeout": 60000
+        }
       },
       "id": "303f17b4-761d-4805-8476-bc5780a7bb8d",
       "name": "Process News Article",
@@ -15669,6 +15685,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-05-07T05:26:40.042Z",
-  "versionId": "a371ded7-4780-429f-8359-554485523640"
+  "updatedAt": "2026-05-17T17:53:41.055Z",
+  "versionId": "d07bef87-904c-4d17-9d7d-97accbb79317"
 }
