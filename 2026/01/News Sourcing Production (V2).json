@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-06T09:35:23.611Z",
-    "createdAt": "2026-05-06T09:35:07.217Z",
-    "versionId": "453f1783-ff8b-4669-be00-13d0d42bb8ee",
+    "updatedAt": "2026-05-18T16:17:05.642Z",
+    "createdAt": "2026-05-18T16:16:30.839Z",
+    "versionId": "5fcb915f-59f5-4a96-8c68-0f4d653ff4f4",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -21,8 +21,8 @@
         "type": "n8n-nodes-base.scheduleTrigger",
         "typeVersion": 1.2,
         "position": [
-          5088,
-          4480
+          4880,
+          4320
         ]
       },
       {
@@ -54,8 +54,8 @@
         "type": "n8n-nodes-base.notion",
         "typeVersion": 2.2,
         "position": [
-          5312,
-          4576
+          5552,
+          4608
         ],
         "credentials": {
           "notionApi": {
@@ -94,8 +94,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.2,
         "position": [
-          5536,
-          4576
+          5776,
+          4608
         ]
       },
       {
@@ -107,8 +107,8 @@
         "type": "n8n-nodes-base.sort",
         "typeVersion": 1,
         "position": [
-          5760,
-          4656
+          6000,
+          4680
         ]
       },
       {
@@ -160,8 +160,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          6432,
-          4768
+          6672,
+          4800
         ],
         "disabled": true
       },
@@ -172,8 +172,8 @@
         "type": "n8n-nodes-base.merge",
         "typeVersion": 3.2,
         "position": [
-          6208,
-          4576
+          6448,
+          4608
         ]
       },
       {
@@ -188,8 +188,8 @@
         "type": "n8n-nodes-base.webhook",
         "typeVersion": 2.1,
         "position": [
-          6208,
-          4768
+          6448,
+          4800
         ],
         "disabled": true
       },
@@ -202,8 +202,8 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          6432,
-          4576
+          6672,
+          4608
         ]
       },
       {
@@ -218,8 +218,8 @@
         "type": "n8n-nodes-base.webhook",
         "typeVersion": 2.1,
         "position": [
-          5088,
-          4672
+          4880,
+          4512
         ]
       },
       {
@@ -231,8 +231,8 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          5984,
-          4656
+          6224,
+          4680
         ]
       },
       {
@@ -290,8 +290,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          6656,
-          4672
+          6896,
+          4704
         ]
       },
       {
@@ -316,8 +316,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.4,
         "position": [
-          6880,
-          4672
+          7120,
+          4704
         ],
         "id": "a896abe6-1919-4737-9c4c-8c7c48a5243f",
         "name": "Call Content Sourcing",
@@ -337,8 +337,8 @@
         "type": "n8n-nodes-base.noOp",
         "typeVersion": 1,
         "position": [
-          7104,
-          4576
+          7344,
+          4608
         ],
         "id": "032efbf9-8e45-42a0-9d7f-558ce850e730",
         "name": "No Operation, do nothing1"
@@ -396,11 +396,175 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          7104,
-          4768
+          7344,
+          4800
         ],
         "id": "cc893069-7c29-4921-8a76-96c761bfdb25",
         "name": "Error"
+      },
+      {
+        "parameters": {
+          "url": "https://dashboard.granite-automations.app/api/sources/active",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "X-API-Key",
+                "value": "your-generate-api-key"
+              }
+            ]
+          },
+          "options": {
+            "timeout": 60000
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          5104,
+          4416
+        ],
+        "id": "aa71ddb9-569f-4e7a-826d-d1055c6f40b2",
+        "name": "Get Dashboard Sources",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000,
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "select": "channel",
+          "channelId": {
+            "__rl": true,
+            "value": "C09V1831FN2",
+            "mode": "list",
+            "cachedResultName": "syntech-n8n-error-tracker"
+          },
+          "text": "=Error In News Sourcing Production (V2)\n- Failed to get article sources\n- {{ $error }}",
+          "otherOptions": {}
+        },
+        "type": "n8n-nodes-base.slack",
+        "typeVersion": 2.4,
+        "position": [
+          5328,
+          4608
+        ],
+        "id": "3fd90acd-005e-4029-a022-9b46c137730c",
+        "name": "Send Error Message",
+        "webhookId": "95bc4371-19b9-4716-85fd-c3a9f46dd5e0",
+        "credentials": {
+          "slackApi": {
+            "id": "hndVCHiq0HgMBAh3",
+            "name": "Stephen Slack account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://syntech-content-sourcing-production.up.railway.app/search",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBearerAuth",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{JSON.stringify(\n  {\n    source_type:$json.source_type,\n    url_or_keyword:$json.url_or_keyword,\n    source_name:$json.source_name,\n    source_category:$json.source_category,\n    prompt:$json.prompt,\n    additional_formats:$json.additional_formats,\n    test_mode:$json.test_mode\n  }\n)}}",
+          "options": {
+            "batching": {
+              "batch": {
+                "batchSize": 3,
+                "batchInterval": 2000
+              }
+            },
+            "timeout": 180000
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          5328,
+          4320
+        ],
+        "id": "17fd11ba-4cf8-491c-9699-efaeb8f2f9ad",
+        "name": "Call Content Sourcing1",
+        "retryOnFail": true,
+        "waitBetweenTries": 5000,
+        "executeOnce": false,
+        "credentials": {
+          "httpBearerAuth": {
+            "id": "e0bBYiHsQNeVlYmn",
+            "name": "Syntech Content Sourcing Bearer"
+          }
+        },
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          5552,
+          4224
+        ],
+        "id": "c65aa011-f5f6-43e5-bb61-cfb040e17504",
+        "name": "No Operation, do nothing"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "8b991a0d-d332-4593-acef-1af2aaf9bdb2",
+                "name": "error",
+                "value": "={{ $json.error.message }}",
+                "type": "string"
+              },
+              {
+                "id": "a84fbebe-7e0c-4d06-8e6c-cd8799688ce8",
+                "name": "source_type",
+                "value": "={{ $json.source_type }}",
+                "type": "string"
+              },
+              {
+                "id": "49d88b45-d93e-47e7-9ee5-33a6c1bc2a3a",
+                "name": "url_or_keyword",
+                "value": "={{ $json.url_or_keyword }}",
+                "type": "string"
+              },
+              {
+                "id": "c4366a40-2c08-4662-9224-43950f5cf6d2",
+                "name": "source_name",
+                "value": "={{ $json.source_name }}",
+                "type": "string"
+              },
+              {
+                "id": "afa82a0e-3262-43a5-adc5-83e5a02883c4",
+                "name": "source_category",
+                "value": "={{ $json.source_category }}",
+                "type": "string"
+              },
+              {
+                "id": "9c636a6d-cdc4-48be-9fed-32518707590b",
+                "name": "error.code",
+                "value": "={{ $json.error.code }}",
+                "type": "string"
+              },
+              {
+                "id": "57ae904c-c298-4770-9f9e-954856779182",
+                "name": "error.status",
+                "value": "={{ $json.error.status }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          5552,
+          4416
+        ],
+        "id": "50428736-5559-48ae-9630-8a9196caa78e",
+        "name": "Error1"
       }
     ],
     "connections": {
@@ -408,7 +572,7 @@
         "main": [
           [
             {
-              "node": "Get All Sources",
+              "node": "Get Dashboard Sources",
               "type": "main",
               "index": 0
             }
@@ -503,7 +667,7 @@
         "main": [
           [
             {
-              "node": "Get All Sources",
+              "node": "Get Dashboard Sources",
               "type": "main",
               "index": 0
             }
@@ -549,20 +713,67 @@
             }
           ]
         ]
+      },
+      "Get Dashboard Sources": {
+        "main": [
+          [
+            {
+              "node": "Call Content Sourcing1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Send Error Message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Send Error Message": {
+        "main": [
+          [
+            {
+              "node": "Get All Sources",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call Content Sourcing1": {
+        "main": [
+          [
+            {
+              "node": "No Operation, do nothing",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Error1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Stephen Anindo",
-    "name": "Version 453f1783",
+    "name": "Get Sources From Dashboard",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "453f1783-ff8b-4669-be00-13d0d42bb8ee",
+  "activeVersionId": "5fcb915f-59f5-4a96-8c68-0f4d653ff4f4",
   "connections": {
     "Schedule Trigger": {
       "main": [
         [
           {
-            "node": "Get All Sources",
+            "node": "Get Dashboard Sources",
             "type": "main",
             "index": 0
           }
@@ -657,7 +868,7 @@
       "main": [
         [
           {
-            "node": "Get All Sources",
+            "node": "Get Dashboard Sources",
             "type": "main",
             "index": 0
           }
@@ -703,6 +914,53 @@
           }
         ]
       ]
+    },
+    "Get Dashboard Sources": {
+      "main": [
+        [
+          {
+            "node": "Call Content Sourcing1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Error Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Error Message": {
+      "main": [
+        [
+          {
+            "node": "Get All Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Content Sourcing1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-28T09:06:07.669Z",
@@ -728,8 +986,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        5088,
-        4480
+        4880,
+        4320
       ]
     },
     {
@@ -761,8 +1019,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        5312,
-        4576
+        5552,
+        4608
       ],
       "credentials": {
         "notionApi": {
@@ -801,8 +1059,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        5536,
-        4576
+        5776,
+        4608
       ]
     },
     {
@@ -814,8 +1072,8 @@
       "type": "n8n-nodes-base.sort",
       "typeVersion": 1,
       "position": [
-        5760,
-        4656
+        6000,
+        4680
       ]
     },
     {
@@ -867,8 +1125,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6432,
-        4768
+        6672,
+        4800
       ],
       "disabled": true
     },
@@ -879,8 +1137,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        6208,
-        4576
+        6448,
+        4608
       ]
     },
     {
@@ -895,8 +1153,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        6208,
-        4768
+        6448,
+        4800
       ],
       "disabled": true
     },
@@ -909,8 +1167,8 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        6432,
-        4576
+        6672,
+        4608
       ]
     },
     {
@@ -925,8 +1183,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        5088,
-        4672
+        4880,
+        4512
       ]
     },
     {
@@ -938,8 +1196,8 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        5984,
-        4656
+        6224,
+        4680
       ]
     },
     {
@@ -997,8 +1255,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6656,
-        4672
+        6896,
+        4704
       ]
     },
     {
@@ -1023,8 +1281,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        6880,
-        4672
+        7120,
+        4704
       ],
       "id": "a896abe6-1919-4737-9c4c-8c7c48a5243f",
       "name": "Call Content Sourcing",
@@ -1044,8 +1302,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        7104,
-        4576
+        7344,
+        4608
       ],
       "id": "032efbf9-8e45-42a0-9d7f-558ce850e730",
       "name": "No Operation, do nothing1"
@@ -1103,11 +1361,175 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        7104,
-        4768
+        7344,
+        4800
       ],
       "id": "cc893069-7c29-4921-8a76-96c761bfdb25",
       "name": "Error"
+    },
+    {
+      "parameters": {
+        "url": "https://dashboard.granite-automations.app/api/sources/active",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "your-generate-api-key"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        5104,
+        4416
+      ],
+      "id": "aa71ddb9-569f-4e7a-826d-d1055c6f40b2",
+      "name": "Get Dashboard Sources",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C09V1831FN2",
+          "mode": "list",
+          "cachedResultName": "syntech-n8n-error-tracker"
+        },
+        "text": "=Error In News Sourcing Production (V2)\n- Failed to get article sources\n- {{ $error }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        5328,
+        4608
+      ],
+      "id": "3fd90acd-005e-4029-a022-9b46c137730c",
+      "name": "Send Error Message",
+      "webhookId": "95bc4371-19b9-4716-85fd-c3a9f46dd5e0",
+      "credentials": {
+        "slackApi": {
+          "id": "hndVCHiq0HgMBAh3",
+          "name": "Stephen Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://syntech-content-sourcing-production.up.railway.app/search",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{JSON.stringify(\n  {\n    source_type:$json.source_type,\n    url_or_keyword:$json.url_or_keyword,\n    source_name:$json.source_name,\n    source_category:$json.source_category,\n    prompt:$json.prompt,\n    additional_formats:$json.additional_formats,\n    test_mode:$json.test_mode\n  }\n)}}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 3,
+              "batchInterval": 2000
+            }
+          },
+          "timeout": 180000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        5328,
+        4320
+      ],
+      "id": "17fd11ba-4cf8-491c-9699-efaeb8f2f9ad",
+      "name": "Call Content Sourcing1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "executeOnce": false,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "e0bBYiHsQNeVlYmn",
+          "name": "Syntech Content Sourcing Bearer"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        5552,
+        4224
+      ],
+      "id": "c65aa011-f5f6-43e5-bb61-cfb040e17504",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8b991a0d-d332-4593-acef-1af2aaf9bdb2",
+              "name": "error",
+              "value": "={{ $json.error.message }}",
+              "type": "string"
+            },
+            {
+              "id": "a84fbebe-7e0c-4d06-8e6c-cd8799688ce8",
+              "name": "source_type",
+              "value": "={{ $json.source_type }}",
+              "type": "string"
+            },
+            {
+              "id": "49d88b45-d93e-47e7-9ee5-33a6c1bc2a3a",
+              "name": "url_or_keyword",
+              "value": "={{ $json.url_or_keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "c4366a40-2c08-4662-9224-43950f5cf6d2",
+              "name": "source_name",
+              "value": "={{ $json.source_name }}",
+              "type": "string"
+            },
+            {
+              "id": "afa82a0e-3262-43a5-adc5-83e5a02883c4",
+              "name": "source_category",
+              "value": "={{ $json.source_category }}",
+              "type": "string"
+            },
+            {
+              "id": "9c636a6d-cdc4-48be-9fed-32518707590b",
+              "name": "error.code",
+              "value": "={{ $json.error.code }}",
+              "type": "string"
+            },
+            {
+              "id": "57ae904c-c298-4770-9f9e-954856779182",
+              "name": "error.status",
+              "value": "={{ $json.error.status }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5552,
+        4416
+      ],
+      "id": "50428736-5559-48ae-9630-8a9196caa78e",
+      "name": "Error1"
     }
   ],
   "pinData": {
@@ -1269,6 +1691,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2026-05-06T09:35:10.481Z",
-  "versionId": "453f1783-ff8b-4669-be00-13d0d42bb8ee"
+  "updatedAt": "2026-05-18T16:16:30.689Z",
+  "versionId": "5fcb915f-59f5-4a96-8c68-0f4d653ff4f4"
 }
