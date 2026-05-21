@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-17T17:54:29.303Z",
-    "createdAt": "2026-05-17T17:53:41.217Z",
-    "versionId": "d07bef87-904c-4d17-9d7d-97accbb79317",
+    "updatedAt": "2026-05-19T09:19:48.760Z",
+    "createdAt": "2026-05-19T09:19:37.671Z",
+    "versionId": "0dd61b5d-394d-43cb-9fc9-b992c4e7c3b6",
     "workflowId": "xMber2oB93RuRWim",
     "nodes": [
       {
@@ -916,7 +916,7 @@
             ]
           },
           "options": {
-            "timeout": 60000
+            "timeout": 180000
           }
         },
         "id": "6099ed3f-ca0d-4bf6-8367-776cd399dc9a",
@@ -2174,11 +2174,11 @@
       }
     },
     "authors": "Stephen Anindo",
-    "name": "retry on fail and timeout",
+    "name": "increase semantic dedub timelines",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "d07bef87-904c-4d17-9d7d-97accbb79317",
+  "activeVersionId": "0dd61b5d-394d-43cb-9fc9-b992c4e7c3b6",
   "connections": {
     "Match Input Format": {
       "main": [
@@ -3627,7 +3627,7 @@
           ]
         },
         "options": {
-          "timeout": 60000
+          "timeout": 180000
         }
       },
       "id": "6099ed3f-ca0d-4bf6-8367-776cd399dc9a",
@@ -15685,6 +15685,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-05-17T17:53:41.055Z",
-  "versionId": "d07bef87-904c-4d17-9d7d-97accbb79317"
+  "updatedAt": "2026-05-19T09:19:37.637Z",
+  "versionId": "0dd61b5d-394d-43cb-9fc9-b992c4e7c3b6"
 }
