@@ -398,6 +398,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "remove exposed credential",
     "description": "",
