@@ -2900,6 +2900,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "stable backup",
     "description": "",
