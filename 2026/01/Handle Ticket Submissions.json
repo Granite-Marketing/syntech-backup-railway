@@ -1581,6 +1581,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "disable Notion + Slack forwarding",
     "description": "Unable to get complete response which includes message body",
