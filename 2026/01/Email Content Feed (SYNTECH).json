@@ -187,6 +187,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "retry on fail and timeout",
     "description": "",
