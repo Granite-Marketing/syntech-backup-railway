@@ -1287,6 +1287,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "restore article input limits",
     "description": "",
