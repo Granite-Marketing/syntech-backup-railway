@@ -1634,6 +1634,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "re-publish after looping memory error",
     "description": "",
