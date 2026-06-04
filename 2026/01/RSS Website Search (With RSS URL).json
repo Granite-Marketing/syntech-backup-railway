@@ -1911,6 +1911,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "Add retry on fail",
     "description": "",
