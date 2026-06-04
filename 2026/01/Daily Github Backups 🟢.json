@@ -906,6 +906,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "update slack message name",
     "description": "",
