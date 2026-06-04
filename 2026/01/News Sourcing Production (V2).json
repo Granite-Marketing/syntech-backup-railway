@@ -816,6 +816,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "add test filter",
     "description": "",
