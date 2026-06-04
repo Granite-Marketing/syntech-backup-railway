@@ -143,6 +143,7 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Stephen Anindo",
     "name": "update error message",
     "description": "",
