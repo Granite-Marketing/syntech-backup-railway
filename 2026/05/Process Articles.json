@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-19T09:19:48.760Z",
-    "createdAt": "2026-05-19T09:19:37.671Z",
-    "versionId": "0dd61b5d-394d-43cb-9fc9-b992c4e7c3b6",
+    "updatedAt": "2026-06-11T13:38:22.684Z",
+    "createdAt": "2026-06-11T13:11:01.985Z",
+    "versionId": "b4684dec-e33a-40d7-81b8-4715d56b3f6c",
     "workflowId": "xMber2oB93RuRWim",
     "nodes": [
       {
@@ -1340,7 +1340,7 @@
       },
       {
         "parameters": {
-          "jsCode": "/**\n * Source Exclusion Filter\n * Filters out content authored by Syntech's own accounts before pre-filter runs.\n * Blocklist is configurable via ENV vars (comma-separated per platform).\n */\n\n// Get blocklist from ENV or use defaults\nconst blocklist = [\n  // Default Syntech account URLs\n  'syntechbiofuel.com',\n  'facebook.com/syntechbiofuel',\n  'x.com/syntechbiofuel',\n  'twitter.com/syntechbiofuel',\n  'instagram.com/syntechbiofuel',\n  'linkedin.com/company/syntechbiofuel',\n  'syntechbiofuel.medium.com',\n];\n\nconst filtered = [];\nconst excluded = [];\n\nfor (const item of $input.all()) {\n  const url = (item.json.url || '').toLowerCase();\n  const author = (item.json.author || '').toLowerCase();\n\n  // Check if URL or author matches any blocklist pattern\n  const isBlocked = blocklist.some(pattern => {\n    const p = pattern.toLowerCase();\n    return url.includes(p) || author.includes(p);\n  });\n\n  if (isBlocked) {\n    excluded.push(item.json.url);\n  } else {\n    filtered.push(item);\n  }\n}\n\nif (excluded.length > 0) {\n  console.log(`Source Exclusion: filtered out ${excluded.length} Syntech-authored items`);\n}\n\nreturn filtered;"
+          "jsCode": "/**\n * Source Exclusion Filter\n * Filters out content authored by Syntech's own accounts before pre-filter runs.\n * Blocklist is configurable via ENV vars (comma-separated per platform).\n */\n\n// Get blocklist from ENV or use defaults\nconst blocklist = [\n  // Default Syntech account URLs\n  'syntechbiofuel.com',\n  'facebook.com/syntechbiofuel',\n  'x.com/syntechbiofuel',\n  'twitter.com/syntechbiofuel',\n  'instagram.com/syntechbiofuel',\n  'linkedin.com/company/syntechbiofuel',\n  'linkedin.com/posts/syntechbiofuel',\n  'syntechbiofuel.medium.com',\n];\n\nconst filtered = [];\nconst excluded = [];\n\nfor (const item of $input.all()) {\n  const url = (item.json.url || '').toLowerCase();\n  const author = (item.json.author || '').toLowerCase();\n\n  // Check if URL or author matches any blocklist pattern\n  const isBlocked = blocklist.some(pattern => {\n    const p = pattern.toLowerCase();\n    return url.includes(p) || author.includes(p);\n  });\n\n  if (isBlocked) {\n    excluded.push(item.json.url);\n  } else {\n    filtered.push(item);\n  }\n}\n\nif (excluded.length > 0) {\n  console.log(`Source Exclusion: filtered out ${excluded.length} Syntech-authored items`);\n}\n\nreturn filtered;"
         },
         "id": "0c7b0625-da5e-40d4-98f6-a44c45c29832",
         "name": "Source Exclusion",
@@ -2175,11 +2175,11 @@
     },
     "nodeGroups": [],
     "authors": "Stephen Anindo",
-    "name": "increase semantic dedub timelines",
+    "name": "update filters for linkedin",
     "description": "",
-    "autosaved": true
+    "autosaved": false
   },
-  "activeVersionId": "0dd61b5d-394d-43cb-9fc9-b992c4e7c3b6",
+  "activeVersionId": "b4684dec-e33a-40d7-81b8-4715d56b3f6c",
   "connections": {
     "Match Input Format": {
       "main": [
@@ -4052,7 +4052,7 @@
     },
     {
       "parameters": {
-        "jsCode": "/**\n * Source Exclusion Filter\n * Filters out content authored by Syntech's own accounts before pre-filter runs.\n * Blocklist is configurable via ENV vars (comma-separated per platform).\n */\n\n// Get blocklist from ENV or use defaults\nconst blocklist = [\n  // Default Syntech account URLs\n  'syntechbiofuel.com',\n  'facebook.com/syntechbiofuel',\n  'x.com/syntechbiofuel',\n  'twitter.com/syntechbiofuel',\n  'instagram.com/syntechbiofuel',\n  'linkedin.com/company/syntechbiofuel',\n  'syntechbiofuel.medium.com',\n];\n\nconst filtered = [];\nconst excluded = [];\n\nfor (const item of $input.all()) {\n  const url = (item.json.url || '').toLowerCase();\n  const author = (item.json.author || '').toLowerCase();\n\n  // Check if URL or author matches any blocklist pattern\n  const isBlocked = blocklist.some(pattern => {\n    const p = pattern.toLowerCase();\n    return url.includes(p) || author.includes(p);\n  });\n\n  if (isBlocked) {\n    excluded.push(item.json.url);\n  } else {\n    filtered.push(item);\n  }\n}\n\nif (excluded.length > 0) {\n  console.log(`Source Exclusion: filtered out ${excluded.length} Syntech-authored items`);\n}\n\nreturn filtered;"
+        "jsCode": "/**\n * Source Exclusion Filter\n * Filters out content authored by Syntech's own accounts before pre-filter runs.\n * Blocklist is configurable via ENV vars (comma-separated per platform).\n */\n\n// Get blocklist from ENV or use defaults\nconst blocklist = [\n  // Default Syntech account URLs\n  'syntechbiofuel.com',\n  'facebook.com/syntechbiofuel',\n  'x.com/syntechbiofuel',\n  'twitter.com/syntechbiofuel',\n  'instagram.com/syntechbiofuel',\n  'linkedin.com/company/syntechbiofuel',\n  'linkedin.com/posts/syntechbiofuel',\n  'syntechbiofuel.medium.com',\n];\n\nconst filtered = [];\nconst excluded = [];\n\nfor (const item of $input.all()) {\n  const url = (item.json.url || '').toLowerCase();\n  const author = (item.json.author || '').toLowerCase();\n\n  // Check if URL or author matches any blocklist pattern\n  const isBlocked = blocklist.some(pattern => {\n    const p = pattern.toLowerCase();\n    return url.includes(p) || author.includes(p);\n  });\n\n  if (isBlocked) {\n    excluded.push(item.json.url);\n  } else {\n    filtered.push(item);\n  }\n}\n\nif (excluded.length > 0) {\n  console.log(`Source Exclusion: filtered out ${excluded.length} Syntech-authored items`);\n}\n\nreturn filtered;"
       },
       "id": "0c7b0625-da5e-40d4-98f6-a44c45c29832",
       "name": "Source Exclusion",
@@ -15686,6 +15686,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-05-19T09:19:37.637Z",
-  "versionId": "0dd61b5d-394d-43cb-9fc9-b992c4e7c3b6"
+  "updatedAt": "2026-06-11T13:11:01.973Z",
+  "versionId": "b4684dec-e33a-40d7-81b8-4715d56b3f6c"
 }
