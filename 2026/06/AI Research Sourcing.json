@@ -58,7 +58,7 @@
       "main": [
         [
           {
-            "node": "Daily — POST /research-ingest",
+            "node": "Daily — Has URLs?",
             "type": "main",
             "index": 0
           }
@@ -141,7 +141,7 @@
       "main": [
         [
           {
-            "node": "Fallback — POST /research-ingest",
+            "node": "Fallback — Has URLs?",
             "type": "main",
             "index": 0
           }
@@ -304,7 +304,7 @@
       "main": [
         [
           {
-            "node": "Weekly — POST /research-ingest",
+            "node": "Weekly — Has URLs?",
             "type": "main",
             "index": 0
           }
@@ -519,6 +519,60 @@
       "main": [
         []
       ]
+    },
+    "Daily — Has URLs?": {
+      "main": [
+        [
+          {
+            "node": "Daily — POST /research-ingest",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Daily — POST Run Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fallback — Has URLs?": {
+      "main": [
+        [
+          {
+            "node": "Fallback — POST /research-ingest",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fallback — POST Run Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Weekly — Has URLs?": {
+      "main": [
+        [
+          {
+            "node": "Weekly — POST /research-ingest",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Weekly — POST Run Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-06-18T10:27:51.440Z",
@@ -584,7 +638,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1120,
+        896,
         288
       ]
     },
@@ -643,7 +697,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1120,
+        896,
         480
       ]
     },
@@ -658,7 +712,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1344,
+        1120,
         480
       ]
     },
@@ -673,20 +727,20 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1792,
+        1568,
         416
       ]
     },
     {
       "parameters": {
-        "jsCode": "const items = $input.all();\nconst lens = $('Daily — Capture Lens Context').first().json;\nconst MAX_AGE_DAYS = 14;\nconst cutoffMs = Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000;\nconst urls = [];\nconst seen = new Set();\nlet droppedOld = 0, droppedNoDate = 0;\nfor (const item of items) {\n  const groups = item.json.allResults ?? (item.json.results ? [item.json] : []);\n  for (const group of groups) {\n    const results = group.results || group.web_results || [];\n    for (const r of results) {\n      if (typeof r?.url !== 'string') continue;\n      if (!r.url.startsWith('https://')) continue;\n      if (seen.has(r.url)) continue;\n      // Perplexity returns `date` (and sometimes `last_updated`) per result.\n      // Defensive: drop results with no date at all — strong signal of\n      // listing/tag/landing page rather than news.\n      const pubStr = r.date || r.published || r.last_updated;\n      if (!pubStr) { droppedNoDate++; continue; }\n      const pubMs = new Date(pubStr).getTime();\n      if (Number.isFinite(pubMs) && pubMs < cutoffMs) { droppedOld++; continue; }\n      seen.add(r.url);\n      urls.push(r.url);\n    }\n  }\n}\nconst cap = Number(lens.cap || 25);\nconst capped = urls.slice(0, cap);\nreturn [{ json: { lensId: lens.lensId, lensKey: lens.lensKey, startedAt: lens.startedAt, sourceName: lens.sourceName, sourceCategory: lens.sourceCategory, urlsEmitted: capped.length, urls: capped, droppedOld, droppedNoDate } }];"
+        "jsCode": "const items = $input.all();\nconst lens = $('Daily — Capture Lens Context').first().json;\nconst MAX_AGE_DAYS = 14;\nconst cutoffMs = Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000;\n\nfunction parsePageAge(raw) {\n  if (!raw) return null;\n  const s = String(raw).trim();\n  // Absolute (ISO, \"October 30, 2025\", any format Date can parse).\n  const abs = new Date(s).getTime();\n  if (Number.isFinite(abs)) return abs;\n  // Relative: \"5 days ago\", \"2 weeks ago\", \"1 hour ago\", etc.\n  const m = s.match(/^(\\d+)\\s+(second|minute|hour|day|week|month|year)s?\\s+ago$/i);\n  if (m) {\n    const n = parseInt(m[1], 10);\n    const unit = m[2].toLowerCase();\n    const msPer = {\n      second: 1000, minute: 60000, hour: 3600000,\n      day: 86400000, week: 604800000,\n      month: 2592000000, year: 31536000000,\n    };\n    return Date.now() - n * msPer[unit];\n  }\n  return null;\n}\nconst urls = [];\nconst seen = new Set();\nlet droppedOld = 0, droppedNoDate = 0;\nfor (const item of items) {\n  const groups = item.json.allResults ?? (item.json.results ? [item.json] : []);\n  for (const group of groups) {\n    const results = group.results || group.web_results || [];\n    for (const r of results) {\n      if (typeof r?.url !== 'string') continue;\n      if (!r.url.startsWith('https://')) continue;\n      if (seen.has(r.url)) continue;\n      // Perplexity returns `date` (and sometimes `last_updated`) per result.\n      // Drop results with no date — strong signal of listing/tag/landing page.\n      const pubStr = r.date || r.published || r.last_updated;\n      if (!pubStr) { droppedNoDate++; continue; }\n      const pubMs = parsePageAge(pubStr);\n      if (pubMs === null) { droppedNoDate++; continue; }\n      if (pubMs < cutoffMs) { droppedOld++; continue; }\n      seen.add(r.url);\n      const sourceDate = new Date(pubMs).toISOString();\n      urls.push({ url: r.url, source_date: sourceDate });\n    }\n  }\n}\nconst cap = Number(lens.cap || 25);\nconst capped = urls.slice(0, cap);\nreturn [{ json: { lensId: lens.lensId, lensKey: lens.lensKey, startedAt: lens.startedAt, sourceName: lens.sourceName, sourceCategory: lens.sourceCategory, urlsEmitted: capped.length, urls: capped, droppedOld, droppedNoDate } }];"
       },
       "id": "6463a209-fc7d-48d4-babf-76275126fafa",
       "name": "Daily — Build Ingest Payload",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2016,
+        1792,
         416
       ]
     },
@@ -709,7 +763,7 @@
       "typeVersion": 4.4,
       "position": [
         2240,
-        416
+        608
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -740,7 +794,7 @@
       "typeVersion": 4.4,
       "position": [
         2464,
-        288
+        336
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -766,7 +820,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        3120,
+        3136,
         224
       ],
       "retryOnFail": true,
@@ -810,7 +864,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        3344,
+        3360,
         144
       ],
       "retryOnFail": true,
@@ -825,14 +879,14 @@
     },
     {
       "parameters": {
-        "jsCode": "const item = $input.first();\nconst lens = $('Daily — Capture Lens Context').first().json;\nconst content = (item.json.content || []);\nconst MAX_AGE_DAYS = 14;\nconst cutoffMs = Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000;\n\n// Anthropic's web_search tool returns search results with metadata\n// (url, title, page_age) inside `web_search_tool_result` content blocks.\n// Build url → page_age map so we can age-gate the URLs Claude returns\n// in its final text block.\nconst pageAgeByUrl = new Map();\nfor (const block of content) {\n  if (block.type !== 'web_search_tool_result') continue;\n  const results = Array.isArray(block.content) ? block.content : [];\n  for (const r of results) {\n    if (r && typeof r.url === 'string' && (r.page_age || r.date)) {\n      pageAgeByUrl.set(r.url, r.page_age || r.date);\n    }\n  }\n}\n\nconst urls = [];\nconst seen = new Set();\nlet droppedOld = 0, droppedNoDate = 0;\nfor (const block of content) {\n  if (block.type !== 'text' || typeof block.text !== 'string') continue;\n  const match = block.text.match(/\\{[\\s\\S]*?\"urls\"[\\s\\S]*?\\}/);\n  if (!match) continue;\n  try {\n    const parsed = JSON.parse(match[0]);\n    for (const u of (parsed.urls || [])) {\n      if (typeof u !== 'string') continue;\n      if (!u.startsWith('https://')) continue;\n      if (seen.has(u)) continue;\n      const age = pageAgeByUrl.get(u);\n      if (!age) { droppedNoDate++; continue; }\n      const pubMs = new Date(age).getTime();\n      if (!Number.isFinite(pubMs)) { droppedNoDate++; continue; }\n      if (pubMs < cutoffMs) { droppedOld++; continue; }\n      seen.add(u);\n      urls.push(u);\n    }\n  } catch (e) {}\n}\nconst cap = Number(lens.cap || 25);\nconst capped = urls.slice(0, cap);\nreturn [{ json: { lensId: lens.lensId, lensKey: lens.lensKey, sourceName: lens.sourceName, sourceCategory: lens.sourceCategory, startedAt: lens.startedAt, urlsEmitted: capped.length, urls: capped, droppedOld, droppedNoDate } }];"
+        "jsCode": "const item = $input.first();\nconst lens = $('Daily — Capture Lens Context').first().json;\nconst content = (item.json.content || []);\nconst MAX_AGE_DAYS = 14;\nconst cutoffMs = Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000;\n\nfunction parsePageAge(raw) {\n  if (!raw) return null;\n  const s = String(raw).trim();\n  // Absolute (ISO, \"October 30, 2025\", any format Date can parse).\n  const abs = new Date(s).getTime();\n  if (Number.isFinite(abs)) return abs;\n  // Relative: \"5 days ago\", \"2 weeks ago\", \"1 hour ago\", etc.\n  const m = s.match(/^(\\d+)\\s+(second|minute|hour|day|week|month|year)s?\\s+ago$/i);\n  if (m) {\n    const n = parseInt(m[1], 10);\n    const unit = m[2].toLowerCase();\n    const msPer = {\n      second: 1000, minute: 60000, hour: 3600000,\n      day: 86400000, week: 604800000,\n      month: 2592000000, year: 31536000000,\n    };\n    return Date.now() - n * msPer[unit];\n  }\n  return null;\n}\n\n// Anthropic's web_search returns a mix of absolute (\"April 27, 2026\") and\n// relative (\"5 days ago\") page_age values. parsePageAge handles both —\n// fresh URLs with relative ages were previously droppedNoDate.\nconst pageAgeByUrl = new Map();\nfor (const block of content) {\n  if (block.type !== 'web_search_tool_result') continue;\n  const results = Array.isArray(block.content) ? block.content : [];\n  for (const r of results) {\n    if (r && typeof r.url === 'string' && (r.page_age || r.date)) {\n      pageAgeByUrl.set(r.url, r.page_age || r.date);\n    }\n  }\n}\n\nconst urls = [];\nconst seen = new Set();\nlet droppedOld = 0, droppedNoDate = 0;\nfor (const block of content) {\n  if (block.type !== 'text' || typeof block.text !== 'string') continue;\n  const match = block.text.match(/\\{[\\s\\S]*?\"urls\"[\\s\\S]*?\\}/);\n  if (!match) continue;\n  try {\n    const parsed = JSON.parse(match[0]);\n    for (const u of (parsed.urls || [])) {\n      if (typeof u !== 'string') continue;\n      if (!u.startsWith('https://')) continue;\n      if (seen.has(u)) continue;\n      const age = pageAgeByUrl.get(u);\n      const pubMs = parsePageAge(age);\n      if (pubMs === null) { droppedNoDate++; continue; }\n      if (pubMs < cutoffMs) { droppedOld++; continue; }\n      seen.add(u);\n      const sourceDate = new Date(pubMs).toISOString();\n      urls.push({ url: u, source_date: sourceDate });\n    }\n  } catch (e) {}\n}\nconst cap = Number(lens.cap || 25);\nconst capped = urls.slice(0, cap);\nreturn [{ json: { lensId: lens.lensId, lensKey: lens.lensKey, sourceName: lens.sourceName, sourceCategory: lens.sourceCategory, startedAt: lens.startedAt, urlsEmitted: capped.length, urls: capped, droppedOld, droppedNoDate } }];"
       },
       "id": "19bab7c5-0404-4a99-9da6-aa8d69256e17",
       "name": "Fallback — Extract URLs",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3568,
+        3584,
         80
       ]
     },
@@ -854,8 +908,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        3792,
-        80
+        4032,
+        144
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -885,7 +939,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        4016,
+        4256,
         0
       ],
       "retryOnFail": true,
@@ -907,7 +961,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        896,
+        672,
         576
       ]
     },
@@ -918,8 +972,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3120,
-        416
+        3136,
+        512
       ]
     },
     {
@@ -1158,7 +1212,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const item = $input.first();\nconst lens = $('Weekly — Capture Lens Context').first().json;\nconst content = (item.json.content || []);\nconst MAX_AGE_DAYS = 14;\nconst cutoffMs = Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000;\n\nconst pageAgeByUrl = new Map();\nfor (const block of content) {\n  if (block.type !== 'web_search_tool_result') continue;\n  const results = Array.isArray(block.content) ? block.content : [];\n  for (const r of results) {\n    if (r && typeof r.url === 'string' && (r.page_age || r.date)) {\n      pageAgeByUrl.set(r.url, r.page_age || r.date);\n    }\n  }\n}\n\nconst urls = [];\nconst seen = new Set();\nlet droppedOld = 0, droppedNoDate = 0;\nfor (const block of content) {\n  if (block.type !== 'text' || typeof block.text !== 'string') continue;\n  const match = block.text.match(/\\{[\\s\\S]*?\"urls\"[\\s\\S]*?\\}/);\n  if (!match) continue;\n  try {\n    const parsed = JSON.parse(match[0]);\n    for (const u of (parsed.urls || [])) {\n      if (typeof u !== 'string') continue;\n      if (!u.startsWith('https://')) continue;\n      if (seen.has(u)) continue;\n      const age = pageAgeByUrl.get(u);\n      if (!age) { droppedNoDate++; continue; }\n      const pubMs = new Date(age).getTime();\n      if (!Number.isFinite(pubMs)) { droppedNoDate++; continue; }\n      if (pubMs < cutoffMs) { droppedOld++; continue; }\n      seen.add(u);\n      urls.push(u);\n    }\n  } catch (e) {}\n}\nconst cap = Number(lens.cap || 25);\nconst capped = urls.slice(0, cap);\nreturn [{ json: { lensId: lens.lensId, lensKey: lens.lensKey, sourceName: lens.sourceName, sourceCategory: lens.sourceCategory, startedAt: lens.startedAt, urlsEmitted: capped.length, urls: capped, droppedOld, droppedNoDate } }];"
+        "jsCode": "const item = $input.first();\nconst lens = $('Weekly — Capture Lens Context').first().json;\nconst content = (item.json.content || []);\nconst MAX_AGE_DAYS = 14;\nconst cutoffMs = Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000;\n\nfunction parsePageAge(raw) {\n  if (!raw) return null;\n  const s = String(raw).trim();\n  // Absolute (ISO, \"October 30, 2025\", any format Date can parse).\n  const abs = new Date(s).getTime();\n  if (Number.isFinite(abs)) return abs;\n  // Relative: \"5 days ago\", \"2 weeks ago\", \"1 hour ago\", etc.\n  const m = s.match(/^(\\d+)\\s+(second|minute|hour|day|week|month|year)s?\\s+ago$/i);\n  if (m) {\n    const n = parseInt(m[1], 10);\n    const unit = m[2].toLowerCase();\n    const msPer = {\n      second: 1000, minute: 60000, hour: 3600000,\n      day: 86400000, week: 604800000,\n      month: 2592000000, year: 31536000000,\n    };\n    return Date.now() - n * msPer[unit];\n  }\n  return null;\n}\n\nconst pageAgeByUrl = new Map();\nfor (const block of content) {\n  if (block.type !== 'web_search_tool_result') continue;\n  const results = Array.isArray(block.content) ? block.content : [];\n  for (const r of results) {\n    if (r && typeof r.url === 'string' && (r.page_age || r.date)) {\n      pageAgeByUrl.set(r.url, r.page_age || r.date);\n    }\n  }\n}\n\nconst urls = [];\nconst seen = new Set();\nlet droppedOld = 0, droppedNoDate = 0;\nfor (const block of content) {\n  if (block.type !== 'text' || typeof block.text !== 'string') continue;\n  const match = block.text.match(/\\{[\\s\\S]*?\"urls\"[\\s\\S]*?\\}/);\n  if (!match) continue;\n  try {\n    const parsed = JSON.parse(match[0]);\n    for (const u of (parsed.urls || [])) {\n      if (typeof u !== 'string') continue;\n      if (!u.startsWith('https://')) continue;\n      if (seen.has(u)) continue;\n      const age = pageAgeByUrl.get(u);\n      const pubMs = parsePageAge(age);\n      if (pubMs === null) { droppedNoDate++; continue; }\n      if (pubMs < cutoffMs) { droppedOld++; continue; }\n      seen.add(u);\n      const sourceDate = new Date(pubMs).toISOString();\n      urls.push({ url: u, source_date: sourceDate });\n    }\n  } catch (e) {}\n}\nconst cap = Number(lens.cap || 25);\nconst capped = urls.slice(0, cap);\nreturn [{ json: { lensId: lens.lensId, lensKey: lens.lensKey, sourceName: lens.sourceName, sourceCategory: lens.sourceCategory, startedAt: lens.startedAt, urlsEmitted: capped.length, urls: capped, droppedOld, droppedNoDate } }];"
       },
       "id": "17143d75-d7c4-4c83-af6e-89061a0231d2",
       "name": "Weekly — Extract URLs",
@@ -1187,8 +1241,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        2016,
-        1328
+        2240,
+        1424
       ],
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -1218,7 +1272,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        2240,
+        2464,
         1280
       ],
       "retryOnFail": true,
@@ -1238,7 +1292,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2464,
+        2688,
         1328
       ]
     },
@@ -1269,7 +1323,8 @@
         0,
         768
       ],
-      "webhookId": "1749750e-4fe6-433b-8756-ac4799174837"
+      "webhookId": "1749750e-4fe6-433b-8756-ac4799174837",
+      "disabled": true
     },
     {
       "parameters": {
@@ -1329,7 +1384,7 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.4,
       "position": [
-        4240,
+        4704,
         768
       ],
       "id": "4ad83c42-92a9-46a3-8328-ad5978cf9820",
@@ -1360,7 +1415,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        1568,
+        1344,
         480
       ],
       "credentials": {
@@ -1442,8 +1497,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        3120,
-        608
+        2912,
+        576
       ],
       "credentials": {
         "httpHeaderAuth": {
@@ -1501,7 +1556,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4240,
+        4480,
         224
       ]
     },
@@ -1523,7 +1578,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        4464,
+        4704,
         176
       ],
       "credentials": {
@@ -1582,8 +1637,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2464,
-        1520
+        2688,
+        1552
       ]
     },
     {
@@ -1604,8 +1659,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        2688,
-        1616
+        2912,
+        1648
       ],
       "credentials": {
         "httpHeaderAuth": {
@@ -1629,7 +1684,7 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.4,
       "position": [
-        2688,
+        2912,
         992
       ],
       "id": "5c928121-d4fd-495c-9fc8-5f4025b2cc1c",
@@ -1649,7 +1704,7 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        576,
+        448,
         576
       ],
       "id": "c6acb371-8221-4768-a0d1-86c019fc5a00",
@@ -1662,7 +1717,7 @@
             {
               "id": "yield",
               "name": "yield",
-              "value": "={{ Number($(\"Daily — POST /research-ingest\").item.json.queued || 0) / Math.max(1, Number($(\"Daily — Capture Lens Context\").item.json.cap || 25)) }}",
+              "value": "={{ Number(($(\"Daily — Build Ingest Payload\").item.json.urlsEmitted || 0) > 0 ? ($(\"Daily — POST /research-ingest\").item.json.queued || 0) : 0) / Math.max(1, Number($(\"Daily — Capture Lens Context\").item.json.cap || 25)) }}",
               "type": "number"
             }
           ]
@@ -1706,7 +1761,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2896,
+        2912,
         272
       ],
       "id": "effd1314-c1f6-4fdc-b350-6bf9702dc809",
@@ -1717,11 +1772,110 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        464,
+        448,
         1408
       ],
       "id": "6e5ddb6b-5aec-4d40-b500-0eda003a77e0",
       "name": "Weekly — Limit (Testing)"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "daily-has-urls-cond",
+              "leftValue": "={{ $json.urlsEmitted }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "daily-has-urls",
+      "name": "Daily — Has URLs?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2016,
+        416
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fallback-has-urls-cond",
+              "leftValue": "={{ $json.urlsEmitted }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fallback-has-urls",
+      "name": "Fallback — Has URLs?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3808,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "weekly-has-urls-cond",
+              "leftValue": "={{ $json.urlsEmitted }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "weekly-has-urls",
+      "name": "Weekly — Has URLs?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2016,
+        1328
+      ]
     }
   ],
   "pinData": {},
@@ -1759,6 +1913,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2026-06-18T13:04:03.397Z",
-  "versionId": "f01c9ff9-1046-484b-903d-ded0fa47f4e6"
+  "updatedAt": "2026-06-22T11:32:52.412Z",
+  "versionId": "8367264a-4005-49a4-8849-e689f39d574f"
 }
