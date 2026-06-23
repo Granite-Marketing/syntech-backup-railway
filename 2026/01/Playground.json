@@ -152,9 +152,10 @@
   "repo_path": "https://github.com/Granite-Marketing/syntech-n8n-backup/",
   "settings": {
     "executionOrder": "v1",
-    "availableInMCP": false,
+    "availableInMCP": true,
     "callerPolicy": "workflowsFromSameOwner",
-    "binaryMode": "separate"
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed"
   },
   "shared": [
     {
@@ -172,6 +173,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-06-18T10:25:45.375Z",
+  "updatedAt": "2026-06-22T08:41:14.067Z",
   "versionId": "b9bb10f2-b92b-422a-be47-0bce7f77247b"
 }
