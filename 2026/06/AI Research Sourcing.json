@@ -1,30 +1,11 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-23T16:54:25.693Z",
-    "createdAt": "2026-06-23T16:54:22.629Z",
-    "versionId": "a3d7e95d-8d8f-448a-8601-4ecd0ef63d50",
+    "updatedAt": "2026-06-24T05:38:17.609Z",
+    "createdAt": "2026-06-24T05:37:47.893Z",
+    "versionId": "fd5ce516-751b-44e0-ad40-5659fb2c90b2",
     "workflowId": "txdJXCYFkB1HCZtI",
     "nodes": [
-      {
-        "parameters": {
-          "rule": {
-            "interval": [
-              {
-                "triggerAtHour": 4
-              }
-            ]
-          }
-        },
-        "id": "0da9bde7-647b-4471-9f5a-dc79714e72af",
-        "name": "Daily 04:00 Europe/London",
-        "type": "n8n-nodes-base.scheduleTrigger",
-        "typeVersion": 1.3,
-        "position": [
-          0,
-          576
-        ]
-      },
       {
         "parameters": {
           "url": "https://dashboard.granite-automations.app/api/admin/ai-research/lenses",
@@ -1296,20 +1277,29 @@
           2016,
           1328
         ]
+      },
+      {
+        "parameters": {
+          "rule": {
+            "interval": [
+              {
+                "triggerAtHour": 5,
+                "triggerAtMinute": 30
+              }
+            ]
+          }
+        },
+        "id": "0da9bde7-647b-4471-9f5a-dc79714e72af",
+        "name": "Daily 05:30 Europe/London",
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "typeVersion": 1.3,
+        "position": [
+          0,
+          576
+        ]
       }
     ],
     "connections": {
-      "Daily 04:00 Europe/London": {
-        "main": [
-          [
-            {
-              "node": "Daily — Fetch Lenses",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "Daily — Fetch Lenses": {
         "main": [
           [
@@ -1869,27 +1859,27 @@
             }
           ]
         ]
+      },
+      "Daily 05:30 Europe/London": {
+        "main": [
+          [
+            {
+              "node": "Daily — Fetch Lenses",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "nodeGroups": [],
     "authors": "Stephen Anindo",
-    "name": "init",
+    "name": "change time to 5:30am",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "a3d7e95d-8d8f-448a-8601-4ecd0ef63d50",
+  "activeVersionId": "fd5ce516-751b-44e0-ad40-5659fb2c90b2",
   "connections": {
-    "Daily 04:00 Europe/London": {
-      "main": [
-        [
-          {
-            "node": "Daily — Fetch Lenses",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Daily — Fetch Lenses": {
       "main": [
         [
@@ -2449,6 +2439,17 @@
           }
         ]
       ]
+    },
+    "Daily 05:30 Europe/London": {
+      "main": [
+        [
+          {
+            "node": "Daily — Fetch Lenses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-06-18T10:27:51.440Z",
@@ -2461,25 +2462,6 @@
   },
   "name": "AI Research Sourcing",
   "nodes": [
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "triggerAtHour": 4
-            }
-          ]
-        }
-      },
-      "id": "0da9bde7-647b-4471-9f5a-dc79714e72af",
-      "name": "Daily 04:00 Europe/London",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.3,
-      "position": [
-        0,
-        576
-      ]
-    },
     {
       "parameters": {
         "url": "https://dashboard.granite-automations.app/api/admin/ai-research/lenses",
@@ -3751,6 +3733,26 @@
         2016,
         1328
       ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 5,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "id": "0da9bde7-647b-4471-9f5a-dc79714e72af",
+      "name": "Daily 05:30 Europe/London",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        576
+      ]
     }
   ],
   "pinData": {},
@@ -3780,6 +3782,9 @@
     },
     "node:Weekly Mon 06:00 Europe/London": {
       "recurrenceRules": []
+    },
+    "node:Daily 05:30 Europe/London": {
+      "recurrenceRules": []
     }
   },
   "tags": [
@@ -3791,6 +3796,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2026-06-23T16:54:48.805Z",
-  "versionId": "a3d7e95d-8d8f-448a-8601-4ecd0ef63d50"
+  "updatedAt": "2026-06-24T05:37:47.890Z",
+  "versionId": "fd5ce516-751b-44e0-ad40-5659fb2c90b2"
 }
