@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-18T08:49:11.266Z",
-    "createdAt": "2026-06-18T08:48:57.937Z",
-    "versionId": "5872f260-b9d4-4ad9-b543-769cfff34a8a",
+    "updatedAt": "2026-06-26T10:18:29.924Z",
+    "createdAt": "2026-06-26T10:18:14.892Z",
+    "versionId": "c4c82955-7c66-4654-9d99-9f7e6ce13d1b",
     "workflowId": "UzEv74M2D2q4z0Zx",
     "nodes": [
       {
@@ -85,7 +85,7 @@
         "typeVersion": 2.4,
         "position": [
           5328,
-          4816
+          4720
         ],
         "id": "3fd90acd-005e-4029-a022-9b46c137730c",
         "name": "Send Error Message",
@@ -119,7 +119,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.4,
         "position": [
-          5328,
+          5552,
           4528
         ],
         "id": "17fd11ba-4cf8-491c-9699-efaeb8f2f9ad",
@@ -140,7 +140,7 @@
         "type": "n8n-nodes-base.noOp",
         "typeVersion": 1,
         "position": [
-          5552,
+          5776,
           4432
         ],
         "id": "c65aa011-f5f6-43e5-bb61-cfb040e17504",
@@ -199,11 +199,27 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5552,
+          5776,
           4624
         ],
         "id": "50428736-5559-48ae-9630-8a9196caa78e",
         "name": "Error1"
+      },
+      {
+        "parameters": {
+          "content": "Useful for debugging",
+          "height": 256,
+          "width": 224,
+          "color": 7
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1,
+        "position": [
+          5264,
+          4432
+        ],
+        "id": "0d3b1220-7a1c-4772-8b7a-81658a033745",
+        "name": "Sticky Note"
       },
       {
         "parameters": {
@@ -216,12 +232,12 @@
             },
             "conditions": [
               {
-                "id": "d8cf3d69-1c66-4f80-8bdf-8c2a13a6f0c9",
+                "id": "77a499fc-afee-4857-b26e-8b0fa12edce4",
                 "leftValue": "={{ $json.source_type }}",
-                "rightValue": "Keyword",
+                "rightValue": "LinkedIn",
                 "operator": {
                   "type": "string",
-                  "operation": "contains"
+                  "operation": "equals"
                 }
               }
             ],
@@ -232,27 +248,12 @@
         "type": "n8n-nodes-base.filter",
         "typeVersion": 2.3,
         "position": [
-          4880,
-          4208
+          5328,
+          4528
         ],
-        "id": "45827c92-a586-4fda-94e5-98e3bf4e866f",
-        "name": "Find Matching Source"
-      },
-      {
-        "parameters": {
-          "content": "Useful for debugging",
-          "height": 256,
-          "width": 224,
-          "color": 7
-        },
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1,
-        "position": [
-          4832,
-          4144
-        ],
-        "id": "0d3b1220-7a1c-4772-8b7a-81658a033745",
-        "name": "Sticky Note"
+        "id": "d77abe7f-766d-45e8-a522-6760d1de1df9",
+        "name": "Filter (For Testing)",
+        "disabled": true
       }
     ],
     "connections": {
@@ -282,7 +283,7 @@
         "main": [
           [
             {
-              "node": "Call Content Sourcing1",
+              "node": "Filter (For Testing)",
               "type": "main",
               "index": 0
             }
@@ -319,19 +320,25 @@
           ]
         ]
       },
-      "Find Matching Source": {
+      "Filter (For Testing)": {
         "main": [
-          []
+          [
+            {
+              "node": "Call Content Sourcing1",
+              "type": "main",
+              "index": 0
+            }
+          ]
         ]
       }
     },
     "nodeGroups": [],
     "authors": "Stephen Anindo",
-    "name": "remove redundant Notion path",
+    "name": "Update filter location",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "5872f260-b9d4-4ad9-b543-769cfff34a8a",
+  "activeVersionId": "c4c82955-7c66-4654-9d99-9f7e6ce13d1b",
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -359,7 +366,7 @@
       "main": [
         [
           {
-            "node": "Call Content Sourcing1",
+            "node": "Filter (For Testing)",
             "type": "main",
             "index": 0
           }
@@ -396,9 +403,15 @@
         ]
       ]
     },
-    "Find Matching Source": {
+    "Filter (For Testing)": {
       "main": [
-        []
+        [
+          {
+            "node": "Call Content Sourcing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -489,7 +502,7 @@
       "typeVersion": 2.4,
       "position": [
         5328,
-        4816
+        4720
       ],
       "id": "3fd90acd-005e-4029-a022-9b46c137730c",
       "name": "Send Error Message",
@@ -523,7 +536,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        5328,
+        5552,
         4528
       ],
       "id": "17fd11ba-4cf8-491c-9699-efaeb8f2f9ad",
@@ -544,7 +557,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        5552,
+        5776,
         4432
       ],
       "id": "c65aa011-f5f6-43e5-bb61-cfb040e17504",
@@ -603,11 +616,27 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5552,
+        5776,
         4624
       ],
       "id": "50428736-5559-48ae-9630-8a9196caa78e",
       "name": "Error1"
+    },
+    {
+      "parameters": {
+        "content": "Useful for debugging",
+        "height": 256,
+        "width": 224,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        5264,
+        4432
+      ],
+      "id": "0d3b1220-7a1c-4772-8b7a-81658a033745",
+      "name": "Sticky Note"
     },
     {
       "parameters": {
@@ -620,12 +649,12 @@
           },
           "conditions": [
             {
-              "id": "d8cf3d69-1c66-4f80-8bdf-8c2a13a6f0c9",
+              "id": "77a499fc-afee-4857-b26e-8b0fa12edce4",
               "leftValue": "={{ $json.source_type }}",
-              "rightValue": "Keyword",
+              "rightValue": "LinkedIn",
               "operator": {
                 "type": "string",
-                "operation": "contains"
+                "operation": "equals"
               }
             }
           ],
@@ -636,40 +665,25 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        4880,
-        4208
+        5328,
+        4528
       ],
-      "id": "45827c92-a586-4fda-94e5-98e3bf4e866f",
-      "name": "Find Matching Source"
-    },
-    {
-      "parameters": {
-        "content": "Useful for debugging",
-        "height": 256,
-        "width": 224,
-        "color": 7
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        4832,
-        4144
-      ],
-      "id": "0d3b1220-7a1c-4772-8b7a-81658a033745",
-      "name": "Sticky Note"
+      "id": "d77abe7f-766d-45e8-a522-6760d1de1df9",
+      "name": "Filter (For Testing)",
+      "disabled": true
     }
   ],
   "pinData": {
     "Schedule Trigger": [
       {
         "json": {
-          "timestamp": "2026-05-19T05:00:44.007+01:00",
-          "Readable date": "May 19th 2026, 5:00:44 am",
+          "timestamp": "2026-06-26T05:00:44.007+01:00",
+          "Readable date": "June 26th 2026, 5:00:44 am",
           "Readable time": "5:00:44 am",
-          "Day of week": "Tuesday",
+          "Day of week": "Friday",
           "Year": "2026",
-          "Month": "May",
-          "Day of month": "19",
+          "Month": "June",
+          "Day of month": "26",
           "Hour": "05",
           "Minute": "00",
           "Second": "44",
@@ -720,6 +734,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2026-06-18T10:10:14.870Z",
-  "versionId": "5872f260-b9d4-4ad9-b543-769cfff34a8a"
+  "updatedAt": "2026-06-26T10:18:14.885Z",
+  "versionId": "c4c82955-7c66-4654-9d99-9f7e6ce13d1b"
 }
