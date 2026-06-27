@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-24T05:38:17.609Z",
-    "createdAt": "2026-06-24T05:37:47.893Z",
-    "versionId": "fd5ce516-751b-44e0-ad40-5659fb2c90b2",
+    "updatedAt": "2026-06-26T08:16:29.050Z",
+    "createdAt": "2026-06-26T08:16:21.459Z",
+    "versionId": "8fa93499-42a6-44cf-8147-6cad72c8e727",
     "workflowId": "txdJXCYFkB1HCZtI",
     "nodes": [
       {
@@ -1874,11 +1874,11 @@
     },
     "nodeGroups": [],
     "authors": "Stephen Anindo",
-    "name": "change time to 5:30am",
+    "name": "remove weekly timer",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "fd5ce516-751b-44e0-ad40-5659fb2c90b2",
+  "activeVersionId": "8fa93499-42a6-44cf-8147-6cad72c8e727",
   "connections": {
     "Daily — Fetch Lenses": {
       "main": [
@@ -3796,6 +3796,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2026-06-24T05:37:47.890Z",
-  "versionId": "fd5ce516-751b-44e0-ad40-5659fb2c90b2"
+  "updatedAt": "2026-06-26T08:16:21.453Z",
+  "versionId": "8fa93499-42a6-44cf-8147-6cad72c8e727"
 }
