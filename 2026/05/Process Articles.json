@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-27T06:33:33.837Z",
-    "createdAt": "2026-06-27T06:33:33.837Z",
-    "versionId": "7a9cd0e5-2ed5-4509-a172-feaf0b2cbaf2",
+    "updatedAt": "2026-06-28T06:11:28.301Z",
+    "createdAt": "2026-06-28T06:11:09.821Z",
+    "versionId": "dfc0dbf2-da9a-4a9f-ac28-5bbfe5a7a093",
     "workflowId": "xMber2oB93RuRWim",
     "nodes": [
       {
@@ -927,7 +927,7 @@
           -1568,
           32
         ],
-        "retryOnFail": false,
+        "retryOnFail": true,
         "waitBetweenTries": 5000
       },
       {
@@ -2175,11 +2175,11 @@
     },
     "nodeGroups": [],
     "authors": "Stephen Anindo",
-    "name": null,
-    "description": null,
-    "autosaved": false
+    "name": "re-enable retry on fail",
+    "description": "",
+    "autosaved": true
   },
-  "activeVersionId": "7a9cd0e5-2ed5-4509-a172-feaf0b2cbaf2",
+  "activeVersionId": "dfc0dbf2-da9a-4a9f-ac28-5bbfe5a7a093",
   "connections": {
     "Match Input Format": {
       "main": [
@@ -3639,7 +3639,7 @@
         -1568,
         32
       ],
-      "retryOnFail": false,
+      "retryOnFail": true,
       "waitBetweenTries": 5000
     },
     {
@@ -4522,6 +4522,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-06-27T06:34:52.768Z",
-  "versionId": "7a9cd0e5-2ed5-4509-a172-feaf0b2cbaf2"
+  "updatedAt": "2026-06-28T06:11:09.815Z",
+  "versionId": "dfc0dbf2-da9a-4a9f-ac28-5bbfe5a7a093"
 }
