@@ -205,6 +205,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "[OPS] Restore workflows from GitHub to n8n",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
