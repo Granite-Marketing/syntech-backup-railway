@@ -58,6 +58,7 @@
   "isArchived": false,
   "meta": null,
   "name": "My workflow 5",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
