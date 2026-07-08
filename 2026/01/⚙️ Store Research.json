@@ -490,6 +490,7 @@
   "isArchived": false,
   "meta": null,
   "name": "⚙️ Store Research",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
