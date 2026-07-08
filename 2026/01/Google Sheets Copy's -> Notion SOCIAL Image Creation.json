@@ -1094,6 +1094,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Google Sheets Copy's -> Notion SOCIAL Image Creation",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
