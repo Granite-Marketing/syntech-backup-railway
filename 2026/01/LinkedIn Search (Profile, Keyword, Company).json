@@ -1622,6 +1622,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "LinkedIn Search (Profile, Keyword, Company)",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
