@@ -327,6 +327,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Instagram Biofuel Content Analyzer",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
