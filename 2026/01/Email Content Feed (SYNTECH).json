@@ -49,6 +49,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Email Content Feed (SYNTECH)",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
