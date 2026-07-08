@@ -870,6 +870,7 @@
   "isArchived": false,
   "meta": null,
   "name": "News Sourcing",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
