@@ -232,6 +232,7 @@
   "isArchived": false,
   "meta": null,
   "name": "RSS Biofuel Content Analyzer",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
