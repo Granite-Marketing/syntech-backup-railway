@@ -529,6 +529,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Curate Sources",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
