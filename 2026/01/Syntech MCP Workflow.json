@@ -281,6 +281,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Syntech MCP Workflow",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
