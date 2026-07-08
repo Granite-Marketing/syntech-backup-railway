@@ -154,6 +154,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Semantic Keyword Deduplication",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
