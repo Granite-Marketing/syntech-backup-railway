@@ -153,6 +153,7 @@
   "isArchived": false,
   "meta": null,
   "name": "News Scrap Twitter - Fixed",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
