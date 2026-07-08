@@ -458,6 +458,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Basic Error Handler",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
