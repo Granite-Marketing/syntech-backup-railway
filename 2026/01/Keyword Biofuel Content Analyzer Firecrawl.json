@@ -338,6 +338,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Keyword Biofuel Content Analyzer Firecrawl",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
