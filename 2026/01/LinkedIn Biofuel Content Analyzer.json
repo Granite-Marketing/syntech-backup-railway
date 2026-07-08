@@ -283,6 +283,7 @@
   "isArchived": false,
   "meta": null,
   "name": "LinkedIn Biofuel Content Analyzer",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
