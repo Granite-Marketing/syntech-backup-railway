@@ -2395,6 +2395,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "RSS Website Search (With RSS URL)",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
