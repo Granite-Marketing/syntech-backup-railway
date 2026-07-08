@@ -85,6 +85,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "News Sourcing Production (V2)",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
