@@ -20,6 +20,7 @@
   "isArchived": false,
   "meta": null,
   "name": "testing another sub",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
