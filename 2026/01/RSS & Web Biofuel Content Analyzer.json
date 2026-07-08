@@ -160,6 +160,7 @@
   "isArchived": false,
   "meta": null,
   "name": "RSS & Web Biofuel Content Analyzer",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
