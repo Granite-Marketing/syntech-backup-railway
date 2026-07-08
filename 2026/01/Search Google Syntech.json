@@ -3282,6 +3282,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Search Google Syntech",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
