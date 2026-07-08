@@ -8,6 +8,7 @@
   "isArchived": false,
   "meta": null,
   "name": "New Workflow",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
