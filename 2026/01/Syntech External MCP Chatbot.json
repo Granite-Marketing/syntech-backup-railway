@@ -233,6 +233,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Syntech External MCP Chatbot",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
