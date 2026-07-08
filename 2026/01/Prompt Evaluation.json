@@ -130,6 +130,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Prompt Evaluation",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
