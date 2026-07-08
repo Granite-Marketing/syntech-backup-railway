@@ -1681,6 +1681,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Syntech Chatbot 🤖",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
