@@ -247,6 +247,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Keyword Biofuel Content Analyzer",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
