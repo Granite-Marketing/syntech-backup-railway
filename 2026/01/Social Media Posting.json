@@ -701,6 +701,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Social Media Posting",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
