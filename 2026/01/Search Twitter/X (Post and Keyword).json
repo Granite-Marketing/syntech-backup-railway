@@ -1439,6 +1439,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Search Twitter/X (Post and Keyword)",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
