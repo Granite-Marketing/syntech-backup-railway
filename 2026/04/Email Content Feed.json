@@ -40,6 +40,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Email Content Feed",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
