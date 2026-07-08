@@ -355,6 +355,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Filter Articles By Topic (Prod)",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
