@@ -270,6 +270,7 @@
   "isArchived": false,
   "meta": null,
   "name": "⚙️ Store Transformed Content",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
