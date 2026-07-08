@@ -467,6 +467,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Image Gen Playground",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
