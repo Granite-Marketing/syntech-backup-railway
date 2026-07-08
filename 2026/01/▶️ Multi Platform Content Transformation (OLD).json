@@ -283,6 +283,7 @@
   "isArchived": false,
   "meta": null,
   "name": "▶️ Multi Platform Content Transformation (OLD)",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
