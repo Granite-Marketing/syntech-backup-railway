@@ -1213,6 +1213,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Daily Github Backups 🟢",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
@@ -5392,7 +5393,12 @@
   ],
   "staticData": {
     "node:Schedule Trigger": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        null
+      ],
+      "recurrenceRuleSignatures": [
+        null
+      ]
     }
   },
   "tags": [],
