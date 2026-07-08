@@ -412,6 +412,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Update SOCIAL Images",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
