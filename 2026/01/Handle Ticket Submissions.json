@@ -2062,6 +2062,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Handle Ticket Submissions",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
