@@ -193,6 +193,7 @@
   "isArchived": false,
   "meta": null,
   "name": "⚙️ Update Source Content Status",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
