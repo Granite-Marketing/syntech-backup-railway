@@ -160,6 +160,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Generate Search Queries",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
