@@ -608,6 +608,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Slack Content Feed",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {},
