@@ -20,6 +20,7 @@
   "isArchived": false,
   "meta": null,
   "name": "My Sub-Workflow 1",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
