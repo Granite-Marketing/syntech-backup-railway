@@ -539,6 +539,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Process Articles",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
