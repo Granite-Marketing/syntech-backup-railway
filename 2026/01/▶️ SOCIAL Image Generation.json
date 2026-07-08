@@ -818,6 +818,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "▶️ SOCIAL Image Generation",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
