@@ -69,6 +69,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Syntech Mention Monitor",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
