@@ -126,6 +126,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Automated daily workflow backup to GitHub",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
