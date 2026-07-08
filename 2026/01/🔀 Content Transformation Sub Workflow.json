@@ -71,6 +71,7 @@
   "isArchived": false,
   "meta": null,
   "name": "🔀 Content Transformation Sub Workflow",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
