@@ -584,6 +584,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "AI Research Sourcing",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
