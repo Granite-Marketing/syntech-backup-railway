@@ -718,6 +718,7 @@
     "templateCredsSetupCompleted": true
   },
   "name": "Ad-Hoc Form Submission",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
