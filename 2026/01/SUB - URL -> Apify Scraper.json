@@ -132,6 +132,7 @@
   "isArchived": false,
   "meta": null,
   "name": "SUB - URL -> Apify Scraper",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
