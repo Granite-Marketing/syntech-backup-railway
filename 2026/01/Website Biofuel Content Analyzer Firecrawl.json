@@ -159,6 +159,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Website Biofuel Content Analyzer Firecrawl",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
