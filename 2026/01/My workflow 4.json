@@ -8,6 +8,7 @@
   "isArchived": false,
   "meta": null,
   "name": "My workflow 4",
+  "nodeGroups": [],
   "nodes": [],
   "pinData": null,
   "repo_name": "syntech-backup-railway",
