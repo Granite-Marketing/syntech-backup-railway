@@ -2822,6 +2822,7 @@
   "isArchived": false,
   "meta": null,
   "name": "News Sourcing Production",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
