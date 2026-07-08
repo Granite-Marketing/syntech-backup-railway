@@ -265,6 +265,7 @@
   "isArchived": false,
   "meta": null,
   "name": "Filter Articles By Topic",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
