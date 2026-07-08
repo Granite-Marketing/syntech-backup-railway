@@ -154,6 +154,7 @@
   "isArchived": false,
   "meta": null,
   "name": "⚙️ Get Available Images",
+  "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
